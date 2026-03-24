@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capítulo 3 — Página 26</title>
+
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-03.css" />
+
+  <style>
+    /* Página 26 — estilos locais */
+
+    .c03-stage{
+      margin:24px 0;
+      padding:16px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+    }
+
+    .c03-grid{
+      display:grid;
+      gap:18px;
+    }
+
+    @media (min-width: 900px){
+      .c03-grid{
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .c03-card{
+      border:1px solid rgba(0,0,0,.10);
+      border-radius:16px;
+      padding:14px;
+      background:#fff;
+      transition:opacity .3s ease;
+    }
+
+    .c03-card h3{
+      margin-top:0;
+      font-size:16px;
+    }
+
+    .c03-controls{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .c03-btn{
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#f3f4f6;
+      cursor:pointer;
+      font-weight:600;
+      transition:.2s ease;
+      min-width:200px;
+      text-align:center;
+    }
+
+    .c03-btn:hover{ background:#e5e7eb; }
+
+    .c03-btn.blue{
+      background: rgba(30,136,229,.10);
+      border-color: rgba(30,136,229,.35);
+    }
+
+    .c03-btn.orange{
+      background: rgba(251,140,0,.10);
+      border-color: rgba(251,140,0,.35);
+    }
+
+    .c03-diagram{
+      margin-top:14px;
+      border:1px solid rgba(0,0,0,.10);
+      border-radius:14px;
+      background:#fff;
+      overflow:hidden;
+    }
+
+    .c03-diagram svg{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    .node{
+      fill:#F3F4F6;
+      stroke:#9CA3AF;
+      stroke-width:1.5;
+      transition:opacity .3s ease;
+    }
+
+    .node.cross{
+      fill: rgba(30,136,229,.10);
+      stroke: rgba(30,136,229,.45);
+    }
+
+    .node.multi{
+      fill: rgba(251,140,0,.12);
+      stroke: rgba(251,140,0,.55);
+    }
+
+    .arrow{
+      stroke:#6B7280;
+      stroke-width:2;
+      marker-end:url(#arrowHead);
+      fill:none;
+    }
+
+    .title{
+      font-size:13px;
+      fill:#111827;
+      font-weight:700;
+    }
+
+    .label{
+      font-size:12px;
+      fill:#374151;
+      pointer-events:none;
+    }
+
+    .dim{ opacity:.15; }
+
+    .legend{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.10);
+      background:rgba(255,255,255,.75);
+      font-size:14px;
+      line-height:1.6;
+      color:#374151;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-weight:700;
+      margin-right:12px;
+      margin-bottom:6px;
+    }
+
+    .dot{ width:10px;height:10px;border-radius:999px;display:inline-block; }
+    .dot.blue{ background:#1E88E5; }
+    .dot.orange{ background:#FB8C00; }
+
+  </style>
+</head>
+
+<body>
+<main class="container">
+
+<header class="page-header">
+  <div>
+    <div class="chapter">Capítulo 3 — Mecanismos de Resistência Bacteriana</div>
+    <h1>Resistência cruzada e multirresistência</h1>
+  </div>
+</header>
+
+<section class="prose">
+  <p>
+    A resistência cruzada ocorre quando um único mecanismo adaptativo reduz a suscetibilidade a dois ou mais antibacterianos, geralmente pertencentes à mesma classe ou que compartilham alvo molecular semelhante <sup class="ref">12,26</sup>.
+  </p>
+</section>
+
+<section class="c03-stage">
+
+  <div class="c03-grid">
+
+    <div class="c03-card" id="cardCross">
+      <h3>Resistência cruzada</h3>
+      <p>
+        Um único mecanismo explica o padrão observado entre fármacos relacionados. Alterações na subunidade 50S podem reduzir simultaneamente a afinidade de macrolídeos, lincosamidas e estreptograminas. De modo semelhante, mutações na DNA girase podem comprometer a atividade de diferentes fluoroquinolonas <sup class="ref">12,26</sup>.
+      </p>
+      <p>
+        Do ponto de vista clínico, compreender resistência cruzada evita substituições ineficazes dentro da mesma classe farmacológica.
+      </p>
+    </div>
+
+    <div class="c03-card" id="cardMulti">
+      <h3>Multirresistência</h3>
+      <p>
+        Refere-se à presença simultânea de resistência a múltiplas classes distintas de antibacterianos. Geralmente resulta da coexistência de diferentes mecanismos adaptativos, como produção de β-lactamase associada à redução de permeabilidade ou ativação de bombas de efluxo.
+      </p>
+      <p>
+        Elementos genéticos móveis podem carregar múltiplos genes de resistência, produzindo impacto amplo no perfil de suscetibilidade <sup class="ref">2</sup>.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="c03-controls">
+    <button class="c03-btn blue" onclick="destacar('cross')">Destacar resistência cruzada</button>
+    <button class="c03-btn orange" onclick="destacar('multi')">Destacar multirresistência</button>
+    <button class="c03-btn" onclick="resetar()">Mostrar ambas</button>
+  </div>
+
+  <div class="c03-diagram">
+    <svg viewBox="0 0 760 360" role="img" aria-label="Comparação entre resistência cruzada e multirresistência">
+
+      <defs>
+        <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+          <path d="M0,0 L10,3 L0,6 Z" fill="#6B7280"></path>
+        </marker>
+      </defs>
+
+      <text x="20" y="28" class="title">
+        Padrão de resistência no antibiograma
+      </text>
+
+      <!-- Resistência cruzada -->
+      <rect x="80" y="90" width="240" height="60" rx="14" class="node cross" id="n1"></rect>
+      <text x="100" y="125" class="label">Macrolídeo A</text>
+
+      <rect x="80" y="170" width="240" height="60" rx="14" class="node cross" id="n2"></rect>
+      <text x="100" y="205" class="label">Macrolídeo B</text>
+
+      <rect x="80" y="250" width="240" height="60" rx="14" class="node cross" id="n3"></rect>
+      <text x="100" y="285" class="label">Macrolídeo C</text>
+
+      <text x="80" y="70" class="label">Mesmo alvo → mesmo mecanismo</text>
+
+      <!-- Multirresistência -->
+      <rect x="440" y="90" width="240" height="60" rx="14" class="node multi" id="m1"></rect>
+      <text x="460" y="125" class="label">β-lactâmico</text>
+
+      <rect x="440" y="170" width="240" height="60" rx="14" class="node multi" id="m2"></rect>
+      <text x="460" y="205" class="label">Fluoroquinolona</text>
+
+      <rect x="440" y="250" width="240" height="60" rx="14" class="node multi" id="m3"></rect>
+      <text x="460" y="285" class="label">Aminoglicosídeo</text>
+
+      <text x="440" y="70" class="label">Múltiplos alvos → múltiplos mecanismos</text>
+
+    </svg>
+  </div>
+
+  <div class="legend">
+    <div class="chip"><span class="dot blue"></span>Resistência cruzada</div>
+    <div class="chip"><span class="dot orange"></span>Multirresistência</div>
+
+    <div style="margin-top:10px;">
+      Na resistência cruzada, um único mecanismo explica o padrão dentro de uma classe.  
+      Na multirresistência, diferentes mecanismos ampliam o espectro de resistência para classes distintas.
+    </div>
+  </div>
+
+</section>
+
+<section class="prose">
+  <p>
+    É fundamental distinguir os dois conceitos. Na resistência cruzada, um único mecanismo explica o padrão observado entre fármacos relacionados. Na multirresistência, diferentes mecanismos atuam simultaneamente, ampliando o espectro de resistência para classes farmacológicas distintas <sup class="ref">26</sup>.
+  </p>
+
+  <p>
+    Ao analisar um antibiograma, reconhecer padrões de resistência agrupados auxilia na identificação provável do mecanismo subjacente e orienta decisões terapêuticas mais racionais <sup class="ref">23,26</sup>.
+  </p>
+</section>
+
+<nav class="pager">
+  <button class="btn" data-prev="p25.html">← Anterior</button>
+  <button class="btn" data-next="p27.html">Próxima →</button>
+</nav>
+
+</main>
+
+<script>
+  function destacar(tipo){
+    resetar();
+
+    if(tipo === 'cross'){
+      document.getElementById('cardMulti').classList.add('dim');
+      document.getElementById('m1').classList.add('dim');
+      document.getElementById('m2').classList.add('dim');
+      document.getElementById('m3').classList.add('dim');
+    }
+
+    if(tipo === 'multi'){
+      document.getElementById('cardCross').classList.add('dim');
+      document.getElementById('n1').classList.add('dim');
+      document.getElementById('n2').classList.add('dim');
+      document.getElementById('n3').classList.add('dim');
+    }
+  }
+
+  function resetar(){
+    document.getElementById('cardCross').classList.remove('dim');
+    document.getElementById('cardMulti').classList.remove('dim');
+
+    ['n1','n2','n3','m1','m2','m3'].forEach(id=>{
+      document.getElementById(id).classList.remove('dim');
+    });
+  }
+</script>
+
+</body>
+</html>

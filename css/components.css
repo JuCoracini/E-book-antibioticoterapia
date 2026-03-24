@@ -1,0 +1,187 @@
+/* css/components.css */
+/* Projeto: Princípios Básicos de Antibioticoterapia */
+/* Layout editorial — rolagem natural da página inteira */
+
+/* =========================
+   CONTAINER / LAYOUT
+   ========================= */
+
+/* A .container é definida aqui como bloco editorial.
+   NÃO há altura fixa, NÃO há overflow interno. */
+.container {
+  max-width: var(--page-w);
+  margin: 40px auto;
+  padding: 60px 80px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* Ajuste responsivo */
+@media (max-width: 720px) {
+  .container {
+    margin: 16px auto;
+    padding: 24px 18px;
+  }
+}
+
+/* =========================
+   TEXTO PRINCIPAL
+   ========================= */
+
+.prose {
+  padding-right: 0; /* garante que não haja área de scroll interna */
+}
+
+.prose p {
+  text-align: justify;
+  text-indent: 2.5em;
+  margin-bottom: 1.5em;
+  line-height: 1.8;
+  hyphens: auto;
+}
+
+/* =========================
+   REFERÊNCIAS (Vancouver)
+   ========================= */
+
+sup {
+  font-size: 0.72em;
+  font-weight: 600;
+  color: var(--blue);
+  margin-left: 1px;
+  vertical-align: baseline;
+  position: relative;
+  top: -0.5em;
+}
+
+/* =========================
+   CABEÇALHO DE PÁGINA
+   ========================= */
+
+.page-header {
+  margin-bottom: 40px;
+}
+
+.page-title {
+  color: var(--blue);
+  font-family: var(--font-title);
+  font-size: 2rem;
+  margin: 0;
+}
+
+.chapter {
+  color: var(--ocean);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.page-meta {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* =========================
+   BOXES / NOTAS
+   ========================= */
+
+.note-box {
+  border-left: 5px solid var(--ocean);
+  background: var(--ocean-light);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 24px 0;
+}
+
+/* =========================
+   FIGURAS
+   ========================= */
+
+.figure {
+  margin: 40px auto;
+  text-align: center;
+}
+
+.figure-title {
+  font-family: var(--font-sub);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.figcap {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 10px;
+}
+
+/* =========================
+   PAGINAÇÃO
+   ========================= */
+
+.pager {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pager .center {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.btn {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  border-color: var(--blue);
+}
+
+/* Botão de interação (quando usado) */
+.btn-interaction {
+  background: var(--blue);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+.btn-interaction:hover {
+  opacity: 0.9;
+}
+/* Referências no formato (n) em sobrescrito: menores e cinza */
+sup.ref{
+  font-size: 0.58em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.45em;
+  color: rgba(31,31,31,.45);
+  font-weight: 400;
+}
+/* Referências numéricas em sobrescrito — menores e cinza */
+sup.ref{
+  font-size: 0.58em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.45em;
+  color: rgba(31,31,31,.45);
+  font-weight: 400;
+}

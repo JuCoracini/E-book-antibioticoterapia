@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capítulo 5 — Página 47</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-05.css" />
+</head>
+
+<body class="cap5-page47">
+
+  <div class="reader-toolbar" aria-label="Controles de leitura">
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Texto</span>
+      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
+      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
+      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Zoom</span>
+      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
+      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
+      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Acessibilidade</span>
+      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
+      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
+      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
+      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
+    </div>
+  </div>
+
+  <main class="container page-shell">
+
+    <header class="page-header">
+      <div>
+        <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
+        <h1 class="page-title">Breakpoints e categorias interpretativas</h1>
+      </div>
+    </header>
+
+    <section class="prose" aria-label="Texto principal">
+
+      <p>
+        O diâmetro do halo observado na difusão em disco ou o valor da concentração inibitória mínima obtido na microdiluição representam medidas laboratoriais da atividade do antibacteriano contra a bactéria testada. Esses valores, isoladamente, não indicam se o microrganismo deve ser considerado sensível ou resistente.
+      </p>
+
+      <p>
+        Para que o resultado possa ser interpretado, ele precisa ser comparado a pontos de corte previamente estabelecidos, denominados breakpoints <sup>1</sup>.
+      </p>
+
+      <section class="cap5-p47-transform" aria-labelledby="cap5-p47-transform-title">
+        <div class="cap5-p47-transform__head">
+          <h2 id="cap5-p47-transform-title">Como o valor laboratorial vira categoria interpretativa</h2>
+          <p>
+            Halo de inibição ou CIM são valores mensuráveis. O breakpoint é a regra interpretativa que transforma esse valor em categoria padronizada.
+          </p>
+        </div>
+
+        <div class="cap5-p47-transform__flow">
+          <div class="cap5-p47-transform__box">
+            <span class="cap5-p47-transform__eyebrow">Valor obtido no teste</span>
+            <strong>Halo ou CIM</strong>
+          </div>
+
+          <div class="cap5-p47-transform__arrow" aria-hidden="true">→</div>
+
+          <div class="cap5-p47-transform__box cap5-p47-transform__box--mid">
+            <span class="cap5-p47-transform__eyebrow">Comparação</span>
+            <strong>Breakpoint</strong>
+          </div>
+
+          <div class="cap5-p47-transform__arrow" aria-hidden="true">→</div>
+
+          <div class="cap5-p47-transform__box cap5-p47-transform__box--end">
+            <span class="cap5-p47-transform__eyebrow">Categoria final</span>
+            <strong>S / I / R</strong>
+          </div>
+        </div>
+      </section>
+
+      <p>
+        O breakpoint é um limite interpretativo definido para combinações específicas entre microrganismo, antibacteriano e método de teste, utilizado para transformar um valor microbiológico mensurável, como halo de inibição ou CIM, em uma categoria interpretativa padronizada. A partir dessa comparação, o laboratório classifica o resultado como Sensível (S), Sensível, aumentando exposição (I) ou Resistente (R).
+      </p>
+
+      <p>
+        Esses pontos de corte são definidos por comitês técnicos especializados em testes de suscetibilidade antimicrobiana. A definição dos breakpoints considera a integração de diferentes tipos de evidência:
+      </p>
+
+      <section class="cap5-p47-evidence" aria-label="Evidências consideradas na definição dos breakpoints">
+        <article class="cap5-p47-evidence__item">
+          <h3>Distribuição das CIM</h3>
+          <p>Distribuição dos valores observados na população bacteriana.</p>
+        </article>
+
+        <article class="cap5-p47-evidence__item">
+          <h3>PK/PD</h3>
+          <p>Características farmacocinéticas e farmacodinâmicas do antibacteriano.</p>
+        </article>
+
+        <article class="cap5-p47-evidence__item">
+          <h3>Dados clínicos</h3>
+          <p>Informações disponíveis sobre eficácia terapêutica em contexto real.</p>
+        </article>
+      </section>
+
+      <p>
+        Os breakpoints são específicos para cada combinação entre microrganismo e antibacteriano. Um mesmo valor de CIM pode receber interpretações diferentes dependendo da espécie bacteriana analisada. Da mesma forma, os critérios aplicados ao método de difusão em disco não são os mesmos utilizados para valores de CIM <sup>1</sup>.
+      </p>
+
+      <p>
+        Após a aplicação desses critérios interpretativos, o resultado passa a ser expresso nas categorias padronizadas do antibiograma.
+      </p>
+
+      <section class="cap5-p47-scale" aria-labelledby="cap5-p47-scale-title">
+        <div class="cap5-p47-scale__head">
+          <h2 id="cap5-p47-scale-title">Categorias interpretativas</h2>
+          <p>
+            O “I” precisa ser lido como <strong>Sensível, aumentando exposição</strong> — e não como resistência.
+          </p>
+        </div>
+
+        <div class="cap5-p47-scale__bar" aria-hidden="true">
+          <div class="cap5-p47-scale__zone cap5-p47-scale__zone--s">S</div>
+          <div class="cap5-p47-scale__zone cap5-p47-scale__zone--i">I</div>
+          <div class="cap5-p47-scale__zone cap5-p47-scale__zone--r">R</div>
+        </div>
+
+        <div class="cap5-p47-cards">
+          <article class="cap5-p47-card cap5-p47-card--s">
+            <h3>Sensível (S)</h3>
+            <p>
+              Indica que o valor obtido no teste está dentro da faixa associada a alta probabilidade de sucesso terapêutico quando a exposição ao antibacteriano é apropriada para o sítio de infecção e o regime posológico recomendado.
+            </p>
+          </article>
+
+          <article class="cap5-p47-card cap5-p47-card--i cap5-p47-card--focus">
+            <div class="cap5-p47-card__tag">Atenção</div>
+            <h3>Sensível, aumentando exposição (I)</h3>
+            <p>
+              Corresponde a uma faixa limítrofe de suscetibilidade. Nessa situação, a probabilidade de sucesso terapêutico depende de maior exposição ao antibacteriano, o que pode ocorrer, por exemplo, em regimes posológicos otimizados ou em locais do organismo onde a concentração do fármaco é naturalmente mais elevada.
+            </p>
+            <div class="cap5-p47-card__alert">
+              <strong>I não significa resistente.</strong>
+              <span>Significa que o sucesso terapêutico depende de exposição aumentada, e não que o antibacteriano esteja automaticamente contraindicado.</span>
+            </div>
+          </article>
+
+          <article class="cap5-p47-card cap5-p47-card--r">
+            <h3>Resistente (R)</h3>
+            <p>
+              Indica que o valor obtido no teste ultrapassa o limite associado à probabilidade aceitável de inibição bacteriana, mesmo quando se considera aumento de exposição ao antibacteriano.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <div class="cap5-p47-compare" aria-label="Comparação simplificada entre as categorias">
+        <div class="cap5-p47-compare__item cap5-p47-compare__item--s">
+          <strong>S</strong>
+          <span>Exposição habitual apropriada</span>
+        </div>
+        <div class="cap5-p47-compare__item cap5-p47-compare__item--i">
+          <strong>I</strong>
+          <span>Exposição aumentada necessária</span>
+        </div>
+        <div class="cap5-p47-compare__item cap5-p47-compare__item--r">
+          <strong>R</strong>
+          <span>Probabilidade insuficiente mesmo com aumento de exposição</span>
+        </div>
+      </div>
+
+      <p>
+        É importante reconhecer que essas categorias não representam propriedades absolutas da bactéria. Elas correspondem à aplicação de critérios interpretativos padronizados sobre um valor obtido no teste laboratorial.
+      </p>
+
+      <div class="cap5-p47-closing">
+        <p>
+          Quando o resultado do teste se encontra muito próximo ao breakpoint, pequenas variações metodológicas podem alterar a categoria final atribuída. Essa mudança não significa necessariamente modificação biológica relevante do microrganismo, mas apenas a aplicação da regra interpretativa ao valor observado.
+        </p>
+      </div>
+
+    </section>
+
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p46.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 5 · Página 47</div>
+      <button class="btn" type="button" data-next="p48.html" aria-label="Ir para a próxima página">Próxima →</button>
+    </nav>
+
+  </main>
+
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-05.js"></script>
+</body>
+</html>

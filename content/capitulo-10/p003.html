@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capítulo 10 — Página 83</title>
+
+<link rel="stylesheet" href="../../css/base.css">
+<link rel="stylesheet" href="../../css/components.css">
+<link rel="stylesheet" href="../../css/capitulo-10.css">
+
+<style>
+.prose p{ text-indent:1.9em; }
+
+.timeline{
+  margin:26px 0 30px;
+  border:1px solid rgba(0,0,0,.10);
+  border-radius:20px;
+  padding:18px;
+  background:linear-gradient(180deg,#fff,#f8fafc);
+}
+
+.timeline-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:16px;
+}
+
+.timeline-title{
+  margin:0;
+  font-size:17px;
+  font-weight:700;
+}
+
+.timeline-sub{
+  margin:0;
+  font-size:13px;
+  opacity:.75;
+}
+
+.time-grid{
+  display:grid;
+  gap:14px;
+}
+
+@media(min-width:900px){
+  .time-grid{ grid-template-columns:1fr 1fr; }
+}
+
+.time-card{
+  border:1px solid rgba(0,0,0,.10);
+  border-radius:16px;
+  padding:16px;
+  background:#fff;
+}
+
+.time-label{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  font-weight:700;
+  color:#1E88E5;
+  margin-bottom:6px;
+}
+
+.time-card h3{
+  margin:0 0 10px;
+  font-size:15px;
+}
+
+.vitals{
+  display:grid;
+  gap:8px;
+}
+
+.vital{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 12px;
+  border-radius:10px;
+  background:rgba(0,0,0,.03);
+  font-size:14px;
+}
+
+.vital.alert{ background:rgba(239,68,68,.08); }
+
+.micro-panel{
+  margin-top:20px;
+  border:1px solid rgba(0,0,0,.10);
+  border-radius:16px;
+  padding:16px;
+  background:#fff;
+}
+
+.micro-panel h3{
+  margin:0 0 10px;
+  font-size:15px;
+}
+
+.lab-box{
+  padding:12px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.08);
+  background:rgba(30,136,229,.05);
+  font-size:14px;
+}
+
+.decision-box{
+  margin-top:24px;
+  border:1px solid rgba(0,0,0,.10);
+  border-radius:18px;
+  padding:18px;
+  background:#fff;
+}
+
+.decision-box h2{
+  margin:0 0 10px;
+  font-size:16px;
+}
+
+.choices{
+  display:grid;
+  gap:12px;
+  margin-top:10px;
+}
+
+.choice{
+  text-align:left;
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.10);
+  background:#fff;
+  cursor:pointer;
+  transition:.18s;
+}
+
+.choice:hover{ border-color:#1E88E5; box-shadow:0 6px 18px rgba(30,136,229,.12);} 
+
+.choice strong{ display:block; margin-bottom:4px; }
+
+.feedback{
+  margin-top:14px;
+  padding:14px;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.08);
+  background:#f8fafc;
+  font-size:14px;
+}
+
+.next-box{
+  margin-top:24px;
+  padding:18px;
+  border-radius:18px;
+  border:1px solid rgba(0,0,0,.10);
+  background:linear-gradient(135deg,rgba(30,136,229,.08),#fff);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.btn-next{
+  border:none;
+  border-radius:999px;
+  padding:12px 18px;
+  font-weight:700;
+  background:#1E88E5;
+  color:#fff;
+  cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+<header class="page-header">
+  <div>
+    <div class="chapter">Capítulo 10 — Simulação Clínica Integrada em Antibioticoterapia</div>
+    <h1>Evolução clínica e adequação terapêutica</h1>
+  </div>
+</header>
+
+<section class="timeline" aria-label="Evolução temporal">
+
+<div class="timeline-head">
+<p class="timeline-title">Progressão clínica após a decisão inicial</p>
+<p class="timeline-sub">A evolução do paciente redefine o peso clínico da escolha empírica.</p>
+</div>
+
+<div class="time-grid">
+
+<article class="time-card">
+<div class="time-label">12 horas</div>
+<h3>Persistência de instabilidade hemodinâmica</h3>
+
+<div class="vitals">
+<div class="vital alert"><span>Pressão arterial</span><span>82/48 mmHg</span></div>
+<div class="vital"><span>Vasopressor</span><span>Necessidade crescente</span></div>
+<div class="vital alert"><span>Lactato</span><span>4,4 mmol/L</span></div>
+</div>
+
+</article>
+
+<article class="time-card">
+<div class="time-label">24 horas</div>
+<h3>Resultado microbiológico preliminar</h3>
+
+<div class="lab-box">
+<strong>Hemocultura:</strong><br>
+Klebsiella pneumoniae identificada.<br><br>
+<strong>Mecanismo detectado:</strong><br>
+Produção de carbapenemase.
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+<section class="prose">
+
+<p>
+Neste momento, a decisão deixa de ser probabilística e passa a ser direcionada pelo mecanismo de resistência identificado.
+</p>
+
+<p>
+Se o esquema inicial não possuía atividade contra o patógeno isolado, ocorreu atraso na instituição de terapia ativa. Em bacteremias por Enterobacterales resistentes, esse intervalo está associado a pior desfecho clínico, maior necessidade de suporte intensivo e aumento de mortalidade.
+</p>
+
+<p>
+Se a cobertura inicial foi adequada, a tendência é estabilização hemodinâmica mais precoce e redução progressiva do lactato.
+</p>
+
+</section>
+
+<section class="decision-box">
+
+<h2>Nova decisão clínica</h2>
+
+<p>Com o mecanismo de resistência identificado, qual deve ser o próximo passo terapêutico?</p>
+
+<div class="choices">
+
+<button class="choice" data-r="1">
+<strong>Manter o esquema inicial sem modificação</strong>
+A decisão pode ocorrer por inércia terapêutica, mesmo após identificação de mecanismo de resistência.
+</button>
+
+<button class="choice" data-r="2">
+<strong>Associar múltiplos antibacterianos empiricamente</strong>
+A tentativa de ampliar cobertura sem direcionamento específico pode ocorrer diante da gravidade clínica.
+</button>
+
+<button class="choice" data-r="3">
+<strong>Ajustar a terapia conforme mecanismo identificado</strong>
+A escolha passa a ser guiada pela atividade contra o mecanismo enzimático detectado.
+</button>
+
+</div>
+
+<div class="feedback" id="feedback">
+Selecione uma conduta para visualizar a lógica clínica predominante.
+</div>
+
+</section>
+
+<section class="next-box">
+
+<div>
+<h2 style="margin:0;font-size:16px">Próxima etapa</h2>
+<p style="margin:4px 0 0;font-size:14px">Após terapia adequada, o paciente evolui com melhora hemodinâmica e nova decisão surge: manter espectro ampliado ou descalonar?</p>
+</div>
+
+<button class="btn-next" data-next="p84.html">Continuar simulação</button>
+
+</section>
+
+<nav class="pager" aria-label="Paginação">
+<button class="btn" data-prev="p82.html">← Anterior</button>
+<div class="center">Capítulo 10 · Página 83</div>
+<button class="btn" data-next="p84.html">Próxima →</button>
+</nav>
+
+</main>
+
+<script src="../../js/app.js"></script>
+<script>
+
+const responses={
+1:`<strong>Lógica predominante:</strong> manutenção por inércia terapêutica. A identificação de carbapenemase indica mecanismo específico de resistência; manter esquema sem atividade adequada prolonga atraso terapêutico.` ,
+
+2:`<strong>Lógica predominante:</strong> ampliação empírica não direcionada. Associar múltiplos agentes sem relação com o mecanismo identificado raramente corrige resistência enzimática específica.` ,
+
+3:`<strong>Lógica predominante:</strong> ajuste dirigido. A escolha do antibacteriano passa a ser orientada pelo mecanismo de resistência detectado e pelo perfil de suscetibilidade.`
+};
+
+const buttons=document.querySelectorAll('.choice');
+const feedback=document.getElementById('feedback');
+
+buttons.forEach(btn=>{
+btn.addEventListener('click',()=>{
+buttons.forEach(b=>b.style.background='#fff');
+btn.style.background='rgba(30,136,229,.08)';
+feedback.innerHTML=responses[btn.dataset.r];
+});
+});
+
+// navegação
+
+document.addEventListener('click',function(e){
+const trg=e.target.closest('[data-next]');
+if(!trg) return;
+window.location.href=trg.dataset.next;
+});
+
+</script>
+
+</body>
+</html>
+  

@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Capítulo 10 — Página 81</title>
+
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/capitulo-10.css">
+
+  <style>
+    .prose p{ text-indent:1.9em; }
+
+    .sim-intro{
+      margin: 26px 0 30px;
+      padding: 18px;
+      border: 1px solid rgba(0,0,0,.10);
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at top right, rgba(30,136,229,.08), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,1), rgba(248,250,252,1));
+      box-shadow: 0 10px 28px rgba(15,23,42,.06);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .sim-intro::before{
+      content:"";
+      position:absolute;
+      inset:auto -60px -80px auto;
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      background: radial-gradient(circle, rgba(251,140,0,.10), transparent 68%);
+      pointer-events:none;
+    }
+
+    .sim-intro-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+
+    .sim-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      color:#0F172A;
+      background:rgba(30,136,229,.10);
+      border:1px solid rgba(30,136,229,.18);
+    }
+
+    .sim-dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:#1E88E5;
+      display:inline-block;
+      flex:0 0 auto;
+    }
+
+    .sim-intro-title{
+      margin:10px 0 0;
+      font-size:1.25rem;
+      line-height:1.25;
+    }
+
+    .sim-intro-sub{
+      margin:8px 0 0;
+      max-width:58ch;
+      font-size:.98rem;
+      line-height:1.6;
+      color:rgba(15,23,42,.82);
+      text-indent:0 !important;
+    }
+
+    .sim-stage{
+      min-width:220px;
+      padding:14px 14px 12px;
+      border-radius:16px;
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(15,23,42,.08);
+      backdrop-filter: blur(6px);
+    }
+
+    .sim-stage-label{
+      margin:0 0 6px;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:rgba(15,23,42,.58);
+      text-indent:0;
+    }
+
+    .sim-stage-value{
+      margin:0;
+      font-size:15px;
+      font-weight:700;
+      color:#0F172A;
+      text-indent:0;
+    }
+
+    .sim-stage-note{
+      margin:6px 0 0;
+      font-size:13px;
+      color:rgba(15,23,42,.72);
+      text-indent:0;
+    }
+
+    .sim-flow{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+
+    @media (min-width: 880px){
+      .sim-flow{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .sim-step{
+      position:relative;
+      padding:16px;
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.10);
+      background:#fff;
+      box-shadow:0 8px 22px rgba(15,23,42,.05);
+    }
+
+    .sim-step-num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      margin-bottom:10px;
+      font-weight:700;
+      font-size:14px;
+      color:#fff;
+      background:#1E88E5;
+      box-shadow:0 6px 14px rgba(30,136,229,.24);
+    }
+
+    .sim-step h2{
+      margin:0 0 8px;
+      font-size:16px;
+      line-height:1.35;
+    }
+
+    .sim-step p{
+      margin:0;
+      font-size:14px;
+      line-height:1.65;
+      color:rgba(15,23,42,.82);
+      text-indent:0;
+    }
+
+    .sim-step ul{
+      margin:10px 0 0;
+      padding-left:18px;
+    }
+
+    .sim-step li{
+      margin:0 0 6px;
+      font-size:14px;
+      line-height:1.55;
+      color:rgba(15,23,42,.82);
+    }
+
+    .sim-map{
+      margin: 30px 0 26px;
+      padding: 18px;
+      border-radius: 20px;
+      border:1px solid rgba(0,0,0,.10);
+      background:#fff;
+      box-shadow:0 8px 24px rgba(15,23,42,.05);
+    }
+
+    .sim-map-head{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+
+    .sim-map-title{
+      margin:0;
+      font-size:16px;
+      font-weight:700;
+    }
+
+    .sim-map-sub{
+      margin:0;
+      font-size:13px;
+      color:rgba(15,23,42,.72);
+      text-indent:0;
+    }
+
+    .sim-track{
+      display:grid;
+      gap:12px;
+    }
+
+    .sim-node{
+      position:relative;
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:12px;
+      align-items:flex-start;
+      padding:14px;
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.08);
+      background:linear-gradient(180deg, #fff, #fbfdff);
+    }
+
+    .sim-node-icon{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      font-size:20px;
+      background:rgba(30,136,229,.10);
+      border:1px solid rgba(30,136,229,.16);
+    }
+
+    .sim-node h3{
+      margin:0 0 4px;
+      font-size:15px;
+      line-height:1.3;
+    }
+
+    .sim-node p{
+      margin:0;
+      font-size:14px;
+      line-height:1.6;
+      text-indent:0;
+      color:rgba(15,23,42,.82);
+    }
+
+    .sim-node + .sim-node::before{
+      content:"";
+      position:absolute;
+      top:-13px;
+      left:34px;
+      width:2px;
+      height:13px;
+      background:linear-gradient(180deg, rgba(30,136,229,.30), rgba(30,136,229,.08));
+    }
+
+    .sim-principles{
+      margin: 24px 0 10px;
+      display:grid;
+      gap:12px;
+    }
+
+    @media (min-width: 900px){
+      .sim-principles{
+        grid-template-columns: repeat(3, minmax(0,1fr));
+      }
+    }
+
+    .sim-principle{
+      padding:15px 16px;
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.08);
+      background:rgba(255,255,255,.92);
+    }
+
+    .sim-principle strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:14px;
+      line-height:1.35;
+      color:#0F172A;
+    }
+
+    .sim-principle p{
+      margin:0;
+      font-size:13px;
+      line-height:1.6;
+      color:rgba(15,23,42,.78);
+      text-indent:0;
+    }
+
+    .sim-launch{
+      margin-top: 28px;
+      padding: 18px;
+      border-radius: 20px;
+      border:1px solid rgba(0,0,0,.10);
+      background:linear-gradient(135deg, rgba(30,136,229,.08), rgba(255,255,255,1) 42%, rgba(251,140,0,.08));
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .sim-launch-copy{
+      max-width:60ch;
+    }
+
+    .sim-launch-copy h2{
+      margin:0 0 8px;
+      font-size:18px;
+      line-height:1.3;
+    }
+
+    .sim-launch-copy p{
+      margin:0;
+      font-size:14px;
+      line-height:1.65;
+      color:rgba(15,23,42,.82);
+      text-indent:0;
+    }
+
+    .sim-launch-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .sim-btn{
+      appearance:none;
+      border:none;
+      border-radius:999px;
+      padding:12px 18px;
+      font:inherit;
+      font-weight:700;
+      cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .sim-btn.primary{
+      background:#1E88E5;
+      color:#fff;
+      box-shadow:0 10px 22px rgba(30,136,229,.22);
+    }
+
+    .sim-btn.secondary{
+      background:rgba(255,255,255,.84);
+      color:#0F172A;
+      border:1px solid rgba(15,23,42,.10);
+    }
+
+    .sim-btn:hover,
+    .sim-btn:focus-visible{
+      transform:translateY(-1px);
+    }
+
+    .sim-bridge{
+      margin-top:18px;
+      font-size:14px;
+      line-height:1.7;
+      color:rgba(15,23,42,.84);
+    }
+
+    .sim-bridge strong{ color:#0F172A; }
+  </style>
+</head>
+<body>
+  <main class="container">
+
+    <header class="page-header">
+      <div>
+        <div class="chapter">Capítulo 10 — Simulação Clínica Integrada em Antibioticoterapia</div>
+        <h1>Decidir sob incerteza</h1>
+      </div>
+    </header>
+
+    <section class="prose" aria-label="Texto principal">
+      <p>
+        A prescrição de um antibacteriano raramente ocorre em cenário de certeza etiológica. No momento inicial da avaliação, o agente responsável ainda não foi identificado. O médico trabalha com probabilidades baseadas na síndrome clínica, na gravidade da apresentação, no perfil do hospedeiro e na epidemiologia local.
+      </p>
+
+      <p>
+        Essa decisão empírica é necessariamente provisória. Ela deve equilibrar dois riscos opostos: inadequação terapêutica precoce, especialmente em quadros graves, e ampliação excessiva de espectro, com impacto ecológico e aumento de toxicidade.
+      </p>
+
+      <p>
+        Em infecções potencialmente graves, atraso na instituição de terapia ativa associa-se a pior desfecho clínico. Por outro lado, a manutenção prolongada de esquemas ampliados após disponibilidade de dados microbiológicos favorece pressão seletiva e eventos adversos.
+      </p>
+
+      <p>
+        A tomada de decisão em antibioticoterapia é dinâmica. O espectro escolhido nas primeiras horas não deve ser mantido automaticamente até o final do tratamento. À medida que exames microbiológicos, evolução clínica e dados laboratoriais se tornam disponíveis, a conduta deve ser reavaliada.
+      </p>
+
+      <p>
+        Decidir não é um ato isolado; é um processo contínuo.
+      </p>
+    </section>
+
+    <section class="sim-intro" aria-label="Apresentação da experiência interativa">
+      <div class="sim-intro-head">
+        <div>
+          <span class="sim-kicker"><span class="sim-dot" aria-hidden="true"></span>Experiência clínica interativa</span>
+          <h2 class="sim-intro-title">Cada caso foi estruturado para simular a progressão real da decisão em antibioticoterapia.</h2>
+          <p class="sim-intro-sub">
+            O objetivo não é identificar uma resposta única, mas acompanhar como escolhas sucessivas modificam o desfecho clínico à medida que novos dados surgem.
+          </p>
+        </div>
+
+        <aside class="sim-stage" aria-label="Modo da simulação">
+          <p class="sim-stage-label">Modo de leitura</p>
+          <p class="sim-stage-value">Simulação dinâmica guiada</p>
+          <p class="sim-stage-note">Contexto inicial, decisão empírica, evolução temporal, novos dados e reavaliação.</p>
+        </aside>
+      </div>
+
+      <div class="sim-flow" aria-label="Estrutura da experiência">
+        <article class="sim-step">
+          <div class="sim-step-num">1</div>
+          <h2>Estimar probabilidade</h2>
+          <p>O primeiro movimento é reconhecer síndrome clínica, gravidade, fatores de risco, exposição prévia a antibacterianos e contexto epidemiológico.</p>
+        </article>
+
+        <article class="sim-step">
+          <div class="sim-step-num">2</div>
+          <h2>Escolher sob incerteza</h2>
+          <p>A conduta inicial será tomada antes da confirmação etiológica. O desafio é equilibrar cobertura adequada, toxicidade e impacto ecológico.</p>
+        </article>
+
+        <article class="sim-step">
+          <div class="sim-step-num">3</div>
+          <h2>Reavaliar com novos dados</h2>
+          <p>Com a evolução clínica, culturas, mecanismos de resistência e perfil de suscetibilidade, a decisão precisa ser ajustada, reduzida ou suspensa.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="prose" aria-label="Continuação do texto">
+      <p>
+        As simulações a seguir não têm como objetivo testar memorização de esquemas, mas exercitar integração entre:
+      </p>
+    </section>
+
+    <section class="sim-map" aria-label="Mapa conceitual das competências mobilizadas">
+      <div class="sim-map-head">
+        <p class="sim-map-title">Eixos integrados em cada caso</p>
+        <p class="sim-map-sub">As escolhas clínicas serão interpretadas à luz de princípios que se repetem ao longo do capítulo.</p>
+      </div>
+
+      <div class="sim-track">
+        <article class="sim-node">
+          <div class="sim-node-icon" aria-hidden="true">①</div>
+          <div>
+            <h3>Probabilidade etiológica</h3>
+            <p>Reconhecer o patógeno mais provável a partir da síndrome, do ambiente de aquisição, dos fatores de risco e da exposição prévia.</p>
+          </div>
+        </article>
+
+        <article class="sim-node">
+          <div class="sim-node-icon" aria-hidden="true">②</div>
+          <div>
+            <h3>Gravidade clínica</h3>
+            <p>Entender quando o tempo da terapia ativa modifica desfecho e quando a urgência exige cobertura empírica mais ampla.</p>
+          </div>
+        </article>
+
+        <article class="sim-node">
+          <div class="sim-node-icon" aria-hidden="true">③</div>
+          <div>
+            <h3>Mecanismo de ação e resistência</h3>
+            <p>Relacionar a escolha terapêutica ao alvo do fármaco, ao mecanismo microbiológico identificado e ao perfil de suscetibilidade disponível.</p>
+          </div>
+        </article>
+
+        <article class="sim-node">
+          <div class="sim-node-icon" aria-hidden="true">④</div>
+          <div>
+            <h3>Farmacocinética e farmacodinâmica</h3>
+            <p>Considerar exposição adequada, compartimento infeccioso, necessidade de atividade precoce e limitações impostas pelo hospedeiro.</p>
+          </div>
+        </article>
+
+        <article class="sim-node">
+          <div class="sim-node-icon" aria-hidden="true">⑤</div>
+          <div>
+            <h3>Impacto individual e coletivo</h3>
+            <p>Avaliar não apenas o desfecho do paciente, mas também toxicidade cumulativa, pressão seletiva e implicações ecológicas da decisão.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="sim-principles" aria-label="Síntese pedagógica">
+        <article class="sim-principle">
+          <strong>Cada escolha produzirá consequências plausíveis do ponto de vista fisiopatológico e microbiológico.</strong>
+          <p>O objetivo não é identificar “resposta correta”, mas compreender como decisões sucessivas modificam o desfecho clínico.</p>
+        </article>
+
+        <article class="sim-principle">
+          <strong>O aprendizado emerge da progressão do caso.</strong>
+          <p>A interação foi desenhada para tornar visível o efeito do tempo, da adequação terapêutica e da reavaliação contínua.</p>
+        </article>
+
+        <article class="sim-principle">
+          <strong>Iniciar, ajustar, reduzir ou suspender são etapas da mesma decisão.</strong>
+          <p>A maturidade em antibioticoterapia manifesta-se quando o profissional reconhece o valor clínico de cada uma delas.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="sim-launch" aria-label="Transição para a primeira simulação">
+      <div class="sim-launch-copy">
+        <h2>Próxima etapa: Simulação 1 — Sepse hospitalar e risco de resistência</h2>
+        <p>
+          O primeiro caso introduz uma decisão empírica em cenário de alta gravidade, com internação prolongada, antibacterianos prévios e risco aumentado de Enterobacterales resistentes.
+        </p>
+      </div>
+
+      <div class="sim-launch-actions">
+        <button class="sim-btn secondary" type="button" aria-label="Revisar os princípios do capítulo">Rever princípios</button>
+        <button class="sim-btn primary" type="button" data-next="p82.html" aria-label="Iniciar a Simulação 1">Iniciar simulação</button>
+      </div>
+    </section>
+
+    <p class="sim-bridge"><strong>A maturidade na antibioticoterapia</strong> manifesta-se quando o profissional reconhece que iniciar, ajustar, reduzir ou suspender são etapas igualmente relevantes da mesma decisão.</p>
+
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" data-prev="p80.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 10 · Página 81</div>
+      <button class="btn" data-next="p82.html" aria-label="Ir para a próxima página">Próxima →</button>
+    </nav>
+
+  </main>
+
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-10.js"></script>
+  <script>
+    document.addEventListener('click', function (event) {
+      const trigger = event.target.closest('[data-next]');
+      if (!trigger) return;
+      const next = trigger.getAttribute('data-next');
+      if (next) window.location.href = next;
+    });
+  </script>
+</body>
+</html>

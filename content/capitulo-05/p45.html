@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capítulo 5 — Página 45</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-05.css" />
+</head>
+
+<body class="cap5-page45">
+
+  <div class="reader-toolbar" aria-label="Controles de leitura">
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Texto</span>
+      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
+      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
+      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Zoom</span>
+      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
+      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
+      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Acessibilidade</span>
+      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
+      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
+      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
+      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
+    </div>
+  </div>
+
+  <main class="container page-shell">
+
+    <header class="page-header">
+      <div>
+        <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
+        <h1 class="page-title">Teste de sensibilidade</h1>
+      </div>
+    </header>
+
+    <section class="prose" aria-label="Texto principal">
+
+      <p>
+        Após a identificação do microrganismo, o laboratório realiza o teste de sensibilidade antimicrobiana, cujo objetivo é avaliar o comportamento da bactéria frente a concentrações conhecidas de diferentes antibacterianos em condições laboratoriais padronizadas <sup>1</sup>.
+      </p>
+
+      <p>
+        Esses testes avaliam, em condições laboratoriais padronizadas, se o crescimento bacteriano é inibido na presença de concentrações definidas de determinado antibacteriano. O resultado obtido corresponde ao comportamento observado <em>in vitro</em>, sob condições metodológicas previamente definidas e controladas <sup>2</sup>.
+      </p>
+
+      <section class="cap5-p45-concept" aria-labelledby="cap5-p45-concept-title">
+        <h2 id="cap5-p45-concept-title">A lógica do ensaio microbiológico</h2>
+
+        <div class="cap5-p45-concept__row">
+          <div class="cap5-p45-concept__box">
+            <strong>Bactéria<br>isolada</strong>
+          </div>
+          <span class="cap5-p45-concept__plus" aria-hidden="true">+</span>
+
+          <div class="cap5-p45-concept__box">
+            <strong>Antibacteriano</strong>
+            <small>Concentrações conhecidas</small>
+          </div>
+          <span class="cap5-p45-concept__plus" aria-hidden="true">+</span>
+
+          <div class="cap5-p45-concept__box">
+            <strong>Condições laboratoriais padronizadas</strong>
+          </div>
+
+          <span class="cap5-p45-concept__arrow" aria-hidden="true">→</span>
+
+          <div class="cap5-p45-concept__result">
+            <strong>Comportamento<br><em>in vitro</em></strong>
+          </div>
+        </div>
+      </section>
+
+      <p>
+        Na rotina microbiológica clínica, dois princípios metodológicos são utilizados com maior frequência: difusão em disco e microdiluição em caldo <sup>1</sup>.
+      </p>
+
+      <h2 class="cap5-p45-subtitle">Difusão em disco</h2>
+
+      <p>
+        No método de difusão em disco, discos de papel impregnados com quantidades padronizadas de antibacteriano são posicionados sobre a superfície de um meio de cultura previamente inoculado com a bactéria isolada.
+      </p>
+
+      <p>
+        Durante a incubação, o antibacteriano difunde-se radialmente no ágar, formando um gradiente de concentração. Próximo ao disco, a concentração é mais elevada; à medida que se afasta, a concentração diminui progressivamente.
+      </p>
+
+      <section class="cap5-p45-diffusion" data-disc-diffusion aria-labelledby="cap5-p45-diffusion-title">
+        <div class="cap5-p45-diffusion__head">
+          <div>
+            <p class="cap5-p45-diffusion__eyebrow">Simulação guiada</p>
+            <h2 id="cap5-p45-diffusion-title" class="cap5-p45-diffusion__title">Como o halo de inibição se forma</h2>
+            <p class="cap5-p45-diffusion__subtitle">
+              Observe a sequência: inoculação do ágar, difusão do antibacteriano, crescimento bacteriano e formação da zona de inibição.
+            </p>
+          </div>
+        </div>
+
+        <div class="cap5-p45-diffusion__controls" role="group" aria-label="Controles da simulação">
+          <button class="btn" type="button" id="disc-prev">← Etapa anterior</button>
+          <button class="btn" type="button" id="disc-next">Próxima etapa →</button>
+          <button class="btn ghost" type="button" id="disc-reset">Reiniciar</button>
+        </div>
+
+        <div class="cap5-p45-diffusion__stage">
+          <div class="cap5-p45-plateWrap">
+            <div class="cap5-p45-plate" id="discPlate" aria-label="Placa de ágar com disco de antibacteriano e halo de inibição">
+              <div class="cap5-p45-plate__agar"></div>
+
+              <div class="cap5-p45-plate__gradient" id="discGradient" aria-hidden="true"></div>
+              <div class="cap5-p45-plate__halo" id="discHalo" aria-hidden="true"></div>
+              <div class="cap5-p45-plate__disk" aria-hidden="true"></div>
+
+              <div class="cap5-p45-plate__bacteria" id="discBacteria" aria-hidden="true"></div>
+
+              <div class="cap5-p45-ruler" id="discRuler" aria-hidden="true">
+                <div class="cap5-p45-ruler__line"></div>
+                <div class="cap5-p45-ruler__tick cap5-p45-ruler__tick--start"></div>
+                <div class="cap5-p45-ruler__tick cap5-p45-ruler__tick--end"></div>
+                <div class="cap5-p45-ruler__label">Halo de inibição medido em mm</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="cap5-p45-panel" aria-live="polite">
+            <span class="cap5-p45-panel__pill" id="disc-pill">Etapa 1</span>
+            <h3 class="cap5-p45-panel__title" id="disc-title">Placa inoculada</h3>
+            <p class="cap5-p45-panel__text" id="disc-text">
+              A bactéria isolada é distribuída sobre a superfície do ágar, criando um crescimento potencialmente uniforme no meio sólido.
+            </p>
+
+            <ul class="cap5-p45-panel__legend">
+              <li><span class="cap5-p45-panel__dot cap5-p45-panel__dot--disk"></span> Disco com antibacteriano</li>
+              <li><span class="cap5-p45-panel__dot cap5-p45-panel__dot--gradient"></span> Região de maior concentração</li>
+              <li><span class="cap5-p45-panel__dot cap5-p45-panel__dot--growth"></span> Crescimento bacteriano</li>
+              <li><span class="cap5-p45-panel__dot cap5-p45-panel__dot--halo"></span> Zona de inibição</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <p>
+        Se a bactéria for suscetível ao antibacteriano testado, ocorre inibição do crescimento bacteriano ao redor do disco, formando uma zona clara denominada halo de inibição.
+      </p>
+
+      <p>
+        Após o período de incubação, o diâmetro desse halo é medido em milímetros. Esse valor será posteriormente comparado a tabelas interpretativas que relacionam o tamanho do halo à probabilidade de atividade do antibacteriano contra aquele microrganismo.
+      </p>
+
+      <p>
+        Esse método fornece, portanto, uma medida indireta da suscetibilidade bacteriana, baseada no diâmetro da zona de inibição observada no meio sólido.
+      </p>
+
+      <div class="cap5-p45-closing">
+        <p>
+          O teste de sensibilidade, portanto, não observa a bactéria em um ambiente clínico real, mas em um cenário laboratorial controlado, no qual o efeito do antibacteriano pode ser mensurado de forma padronizada.
+        </p>
+      </div>
+
+    </section>
+
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p44.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 5 · Página 45</div>
+      <button class="btn" type="button" data-next="p46.html" aria-label="Ir para a próxima página">Próxima →</button>
+    </nav>
+
+  </main>
+
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-05.js"></script>
+</body>
+</html>

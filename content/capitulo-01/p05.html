@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capítulo 1 — Página 5</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-01.css" />
+</head>
+
+<body class="cap1-page5">
+
+  <div class="reader-toolbar" aria-label="Controles de leitura">
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Texto</span>
+      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
+      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
+      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Zoom</span>
+      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
+      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
+      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Acessibilidade</span>
+      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
+      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
+      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
+      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
+    </div>
+  </div>
+
+  <main class="container page-shell cap1-shell">
+
+    <header class="page-header">
+      <div>
+        <div class="chapter">Capítulo 1 — Fundamentos Conceituais dos Antibacterianos</div>
+        <h1 class="page-title">Janela Terapêutica</h1>
+      </div>
+    </header>
+
+    <section class="prose cap1-reading-flow" aria-label="Texto principal">
+      <p>
+        Embora os antibacterianos apresentem afinidade por estruturas bacterianas, sua eficácia depende da concentração alcançada no organismo e no sítio da infecção. Exposição insuficiente pode comprometer o controle do microrganismo, enquanto níveis excessivos aumentam o risco de toxicidade. Assim, a toxicidade seletiva possui também uma dimensão quantitativa: o tratamento torna-se eficaz quando a concentração do fármaco é suficiente para inibir ou eliminar a bactéria sem ultrapassar níveis associados ao aumento da toxicidade para o hospedeiro <sup>13,14</sup>.
+      </p>
+
+      <p>
+        Concentrações inferiores às necessárias podem permitir a persistência da infecção e favorecer a seleção de variantes bacterianas com menor suscetibilidade ao antibacteriano. Por outro lado, exposições excessivas aumentam a probabilidade de efeitos adversos relacionados ao fármaco <sup>3</sup>.
+      </p>
+
+      <p>
+        O conceito de janela terapêutica refere-se ao intervalo de exposição no qual o medicamento tende a ser simultaneamente eficaz e relativamente seguro. Esse intervalo corresponde ao espaço entre a concentração mínima necessária para produzir efeito terapêutico e os níveis a partir dos quais aumenta a probabilidade de toxicidade <sup>13</sup>.
+      </p>
+
+      <p>
+        Fármacos com ampla janela terapêutica apresentam maior margem de segurança, pois existe maior distância entre a concentração eficaz e o limiar de toxicidade. Já medicamentos com janela terapêutica estreita possuem intervalo menor entre eficácia e toxicidade, o que exige maior cautela na prescrição e, em algumas situações, monitoramento das concentrações plasmáticas <sup>14</sup>.
+      </p>
+    </section>
+
+    <section class="cap1-p05-stage" data-cap1-window aria-label="Figura interativa sobre janela terapêutica">
+      <div class="cap1-p05-stage__inner">
+
+        <div class="cap1-p05-visual__controls" role="tablist" aria-label="Cenários de exposição ao antibacteriano">
+          <button class="cap1-p05-visual__tab" type="button" role="tab" aria-selected="false" data-window-tab="low">Baixa exposição</button>
+          <button class="cap1-p05-visual__tab" type="button" role="tab" aria-selected="true" data-window-tab="ok">Exposição terapêutica</button>
+          <button class="cap1-p05-visual__tab" type="button" role="tab" aria-selected="false" data-window-tab="high">Exposição excessiva</button>
+        </div>
+
+        <figure class="cap1-p05-figure">
+          <svg class="cap1-p05-visual__svg" viewBox="0 0 1200 760" aria-labelledby="cap1P05Title cap1P05Desc" role="img">
+            <title id="cap1P05Title">Relação entre concentração do antibacteriano e janela terapêutica</title>
+            <desc id="cap1P05Desc">Figura interativa com três cenários: baixa exposição, exposição terapêutica e exposição excessiva.</desc>
+
+            <defs>
+              <linearGradient id="cap1P05Band" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#dfeefe" />
+                <stop offset="100%" stop-color="#eef6ff" />
+              </linearGradient>
+            </defs>
+
+            <rect x="0" y="0" width="1200" height="760" fill="#ffffff" />
+
+            <g transform="translate(120,52)">
+              <!-- grade -->
+              <g class="cap1-p05-grid">
+                <line x1="0" y1="580" x2="840" y2="580"></line>
+                <line x1="0" y1="470" x2="840" y2="470"></line>
+                <line x1="0" y1="360" x2="840" y2="360"></line>
+                <line x1="0" y1="250" x2="840" y2="250"></line>
+                <line x1="0" y1="140" x2="840" y2="140"></line>
+              </g>
+
+              <!-- faixa terapêutica -->
+              <rect x="0" y="250" width="840" height="220" class="cap1-p05-windowBand"></rect>
+
+              <!-- limiares -->
+              <g class="cap1-p05-thresholds">
+                <line x1="0" y1="470" x2="840" y2="470" class="is-effective"></line>
+                <line x1="0" y1="250" x2="840" y2="250" class="is-toxic"></line>
+              </g>
+
+              <!-- eixos -->
+              <g class="cap1-p05-axis">
+                <line x1="0" y1="40" x2="0" y2="600"></line>
+                <line x1="0" y1="580" x2="860" y2="580"></line>
+              </g>
+
+              <!-- labels -->
+              <text x="-66" y="318" class="cap1-p05-axisLabel cap1-p05-axisLabel--y" transform="rotate(-90 -66 318)">Concentração</text>
+              <text x="360" y="665" class="cap1-p05-axisLabel">Tempo</text>
+
+              <text x="856" y="255" class="cap1-p05-lineLabel cap1-p05-lineLabel--toxic">Limiar de toxicidade</text>
+              <text x="856" y="475" class="cap1-p05-lineLabel cap1-p05-lineLabel--effective">Limiar eficaz</text>
+
+              <text x="270" y="380" class="cap1-p05-windowLabel">Janela terapêutica</text>
+
+              <text x="856" y="152" class="cap1-p05-zone cap1-p05-zone--high">maior risco de toxicidade</text>
+              <text x="856" y="365" class="cap1-p05-zone cap1-p05-zone--ok">faixa de eficácia e segurança relativa</text>
+              <text x="856" y="542" class="cap1-p05-zone cap1-p05-zone--low">exposição insuficiente</text>
+
+              <!-- curva baixa -->
+              <g data-window-scene="low" hidden>
+                <path
+                  class="cap1-p05-curve cap1-p05-curve--low"
+                  d="M 20 560 C 120 540, 220 520, 320 495 C 420 470, 520 448, 620 430 C 715 416, 785 410, 820 410">
+                </path>
+                <circle class="cap1-p05-point cap1-p05-point--low" cx="760" cy="411" r="8"></circle>
+              </g>
+
+              <!-- curva adequada -->
+              <g data-window-scene="ok">
+                <path
+                  class="cap1-p05-curve cap1-p05-curve--ok"
+                  d="M 20 545 C 105 510, 185 445, 250 372 C 315 300, 385 275, 455 295 C 535 318, 605 360, 680 400 C 740 430, 790 450, 820 462">
+                </path>
+                <circle class="cap1-p05-point cap1-p05-point--ok" cx="560" cy="334" r="8"></circle>
+              </g>
+
+              <!-- curva alta -->
+              <g data-window-scene="high" hidden>
+                <path
+                  class="cap1-p05-curve cap1-p05-curve--high"
+                  d="M 20 548 C 90 488, 155 360, 220 212 C 265 112, 320 82, 380 125 C 450 176, 520 286, 600 370 C 680 452, 760 508, 820 535">
+                </path>
+                <circle class="cap1-p05-point cap1-p05-point--high" cx="306" cy="99" r="8"></circle>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption class="cap1-p05-caption">
+            Relação entre concentração do antibacteriano e resposta biológica, destacando a janela terapêutica.
+          </figcaption>
+        </figure>
+
+        <div class="cap1-p05-feedback cap1-p05-feedback--ok" data-window-feedback aria-live="polite">
+          <p class="cap1-p05-feedback__eyebrow">Leitura da figura</p>
+          <h2 class="cap1-p05-feedback__state" data-window-state>Exposição terapêutica</h2>
+          <p class="cap1-p05-feedback__text" data-window-text>
+            Neste cenário, a concentração do antibacteriano ultrapassa o nível mínimo necessário para efeito terapêutico e permanece abaixo do limiar em que a toxicidade se torna mais provável.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="prose cap1-reading-flow" aria-label="Continuação do texto">
+      <p>
+        A concentração alcançada no organismo não depende apenas da dose administrada, mas também do percurso que o fármaco percorre após sua administração. Processos farmacocinéticos como a absorção, distribuição, metabolismo e eliminação, influenciam diretamente a exposição sistêmica e, consequentemente, o equilíbrio entre eficácia e segurança <sup>13</sup>.
+      </p>
+
+      <p>
+        Outro aspecto relevante é a forma como a exposição ao antibacteriano se distribui ao longo do tempo. A relação entre concentração do fármaco e atividade antimicrobiana é frequentemente descrita por parâmetros farmacocinético-farmacodinâmicos. Para alguns antibacterianos, a eficácia depende principalmente do período em que a concentração permanece acima da concentração inibitória mínima (CIM) do microrganismo. Para outros, o efeito terapêutico se correlaciona mais fortemente com a concentração máxima alcançada ou com a exposição total ao medicamento ao longo do tempo. Esses parâmetros são frequentemente expressos por índices como o tempo acima da CIM (T&gt;MIC), a razão entre concentração máxima e CIM (Cmax/MIC) e a razão entre área sob a curva e CIM (AUC/MIC) <sup>15,16</sup>.
+      </p>
+
+      <p>
+        Manter o antibacteriano dentro da janela terapêutica constitui um requisito importante para o sucesso do tratamento. Ainda assim, uma exposição adequada não garante, isoladamente, eficácia clínica. O desfecho terapêutico também depende da atividade intrínseca do fármaco contra o microrganismo responsável pela infecção e da interação entre as propriedades farmacológicas do medicamento, as características do patógeno e as condições clínicas do paciente <sup>2,16</sup>.
+      </p>
+    </section>
+
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p04.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 1 · Página 5 de 10</div>
+      <button class="btn" type="button" data-next="p06.html" aria-label="Ir para a próxima página">Próxima →</button>
+    </nav>
+
+  </main>
+
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-01.js"></script>
+</body>
+</html>

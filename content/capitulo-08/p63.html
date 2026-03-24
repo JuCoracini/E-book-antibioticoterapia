@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capítulo 8 — Página 63</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-08.css" />
+</head>
+
+<body>
+
+  <div class="reader-toolbar" aria-label="Controles de leitura">
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Texto</span>
+      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
+      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
+      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Zoom</span>
+      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
+      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
+      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Acessibilidade</span>
+      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
+      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
+      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
+      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
+    </div>
+  </div>
+
+  <main class="container page-shell">
+
+    <header class="page-header">
+      <div>
+        <div class="chapter">Capítulo 8 — Antibioticoterapia nas Principais Infecções</div>
+        <h1 class="page-title">Infecções respiratórias</h1>
+      </div>
+    </header>
+
+    <section class="prose" aria-label="Texto principal">
+
+      <p>
+        As infecções respiratórias constituem uma das causas mais frequentes de prescrição de antibacterianos na prática clínica. Entretanto, uma parcela significativa dos quadros respiratórios agudos é causada por vírus respiratórios ou por processos inflamatórios não infecciosos, situações nas quais o uso de antibacterianos não traz benefício clínico.
+      </p>
+
+      <p>
+        O primeiro passo do raciocínio clínico é avaliar a plausibilidade de infecção bacteriana. Sintomas como tosse, febre e mal-estar são comuns em diversas infecções respiratórias, mas isoladamente não permitem distinguir etiologia viral de bacteriana. A presença de consolidação pulmonar em exames de imagem, associada a sinais clínicos compatíveis com processo infeccioso sistêmico, aumenta significativamente a probabilidade de pneumonia bacteriana.
+      </p>
+
+      <section class="cap8-respFree" aria-labelledby="cap8-resp-title" data-cap8-resp>
+        <div class="cap8-respFree__header">
+          <h3 id="cap8-resp-title">Elementos que aumentam a probabilidade de pneumonia bacteriana</h3>
+          <p>Clique nos blocos do esquema para explorar o raciocínio clínico.</p>
+        </div>
+
+        <div class="cap8-respFree__figureWrap">
+          <div class="cap8-respFree__stage">
+            <img
+              src="../../assets/capitulo-08/imagens/pneumonia-diagnostico.png"
+              alt="Esquema mostrando consolidação pulmonar associada a sinais sistêmicos, aumentando a probabilidade de pneumonia bacteriana."
+              class="cap8-respFree__image"
+            />
+
+            <button
+              class="cap8-respHotspot is-active"
+              type="button"
+              style="left: 13.8%; top: 50%; width: 21.5%; height: 78%;"
+              data-resp-target="consolidacao"
+              aria-label="Abrir explicação sobre consolidação pulmonar">
+              <span class="sr-only">Consolidação pulmonar</span>
+            </button>
+
+            <button
+              class="cap8-respHotspot"
+              type="button"
+              style="left: 49.8%; top: 50%; width: 21.5%; height: 78%;"
+              data-resp-target="sistemicos"
+              aria-label="Abrir explicação sobre sinais sistêmicos">
+              <span class="sr-only">Sinais sistêmicos</span>
+            </button>
+
+            <button
+              class="cap8-respHotspot"
+              type="button"
+              style="left: 85.6%; top: 50%; width: 24%; height: 78%;"
+              data-resp-target="probabilidade"
+              aria-label="Abrir explicação sobre alta probabilidade de pneumonia bacteriana">
+              <span class="sr-only">Alta probabilidade de pneumonia bacteriana</span>
+            </button>
+
+            <button
+              class="cap8-respHotspot cap8-respHotspot--small"
+              type="button"
+              style="left: 31.8%; top: 50%; width: 10%; height: 34%;"
+              data-resp-target="soma"
+              aria-label="Abrir explicação sobre a combinação dos achados">
+              <span class="sr-only">Combinação dos achados</span>
+            </button>
+
+            <button
+              class="cap8-respHotspot cap8-respHotspot--small"
+              type="button"
+              style="left: 67.2%; top: 50%; width: 10%; height: 34%;"
+              data-resp-target="soma"
+              aria-label="Abrir explicação sobre a combinação dos achados">
+              <span class="sr-only">Combinação dos achados</span>
+            </button>
+          </div>
+        </div>
+
+        <p class="cap8-respFree__caption">
+          A combinação entre achados radiológicos e sinais clínicos sistêmicos aumenta a plausibilidade de pneumonia bacteriana.
+        </p>
+
+        <div class="cap8-respFree__response" aria-live="polite">
+          <p class="cap8-respFree__eyebrow">Elemento selecionado</p>
+          <h4 class="cap8-respFree__responseTitle" data-resp-title>Consolidação pulmonar</h4>
+          <p class="cap8-respFree__responseText" data-resp-text>
+            A consolidação pulmonar em exames de imagem aumenta a probabilidade de pneumonia bacteriana quando ocorre em contexto clínico compatível. Isoladamente, porém, um achado de imagem não deve ser interpretado sem correlação com a apresentação do paciente.
+          </p>
+          <div class="cap8-respFree__meta">
+            <span class="cap8-respFree__tag" data-resp-tag>Achado radiológico relevante</span>
+          </div>
+        </div>
+      </section>
+
+      <p>
+        Entre os agentes mais frequentemente associados à pneumonia adquirida na comunidade destacam-se <em>Streptococcus pneumoniae</em> e <em>Haemophilus influenzae</em>, além de patógenos respiratórios denominados atípicos em determinados contextos clínicos. A distribuição etiológica varia conforme idade, presença de doença pulmonar estrutural, comorbidades e gravidade da apresentação.
+      </p>
+
+      <p>
+        Uma vez estabelecida a plausibilidade de infecção bacteriana, a escolha inicial do espectro antimicrobiano deve considerar o risco individual de resistência. Em pacientes jovens, sem comorbidades relevantes e sem exposições recentes ao sistema de saúde, a probabilidade de patógenos multirresistentes costuma ser baixa. Nessas situações, não há justificativa para ampliar desnecessariamente o espectro antimicrobiano.
+      </p>
+
+      <p>
+        Por outro lado, idade avançada, doença pulmonar crônica, hospitalizações recentes ou uso prévio de antibacterianos podem modificar a probabilidade etiológica e aumentar o risco de resistência bacteriana. Esses fatores devem ser considerados na definição da estratégia inicial.
+      </p>
+
+      <p>
+        Em pacientes hospitalizados, a coleta de amostras para investigação microbiológica pode auxiliar na identificação do agente etiológico. Quando um microrganismo é identificado e apresenta perfil de suscetibilidade favorável, o estreitamento terapêutico permite reduzir a exposição desnecessária a antibacterianos de amplo espectro.
+      </p>
+
+      <p>
+        A abordagem das infecções respiratórias ilustra dois erros frequentes na prática clínica: a prescrição de antibacterianos para quadros virais autolimitados e a ampliação desnecessária do espectro em situações de baixo risco de resistência. Em ambos os casos, o prejuízo não está apenas na ausência de benefício clínico adicional, mas também no aumento da toxicidade potencial e da pressão seletiva sobre a microbiota.
+      </p>
+
+      <p>
+        O raciocínio adequado nas infecções respiratórias começa pela confirmação da plausibilidade de infecção bacteriana, passa pela estimativa de risco de resistência e evolui conforme dados clínicos e microbiológicos se tornam disponíveis.
+      </p>
+
+      <div class="cap8-key-message">
+        <p>
+          Nas infecções respiratórias, a decisão inicial depende primeiro da plausibilidade de infecção bacteriana e, em seguida, da estimativa individual de risco de resistência, evitando tanto a prescrição desnecessária quanto a ampliação injustificada do espectro.
+        </p>
+      </div>
+
+    </section>
+
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p62.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 8 · Página 63 de 68</div>
+      <button class="btn" type="button" data-next="p64.html" aria-label="Ir para a próxima página">Próxima →</button>
+    </nav>
+
+  </main>
+
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-08.js"></script>
+</body>
+</html>

@@ -1,0 +1,2136 @@
+/* =========================
+   Capítulo 04 — CSS específico
+   Página 30 — Exposição antimicrobiana e seleção de resistência
+   ========================= */
+
+.cap4-page30 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap4-p30-figure{
+  margin: 24px 0 24px;
+}
+
+.cap4-p30-figure .cap4-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.cap4-p30-figure img{
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,38,63,.10);
+}
+
+.cap4-caption{
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: rgba(31,31,31,.70);
+  padding-top: 8px;
+  text-indent: 0;
+}
+
+.cap4-p30-stage{
+  margin: 26px auto 26px;
+  max-width: 1040px;
+}
+
+.cap4-p30-stage__inner{
+  display: grid;
+  gap: 14px;
+}
+
+.cap4-p30-controls{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items: center;
+}
+
+.cap4-p30-tab{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0 0 4px;
+  margin: 0;
+  font: inherit;
+  font-weight: 600;
+  color: #5d6978;
+  cursor: pointer;
+  position: relative;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.cap4-p30-tab::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(.72);
+  transform-origin: center;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.cap4-p30-tab:hover{
+  transform: translateY(-1px);
+}
+
+.cap4-p30-tab.is-active{
+  color: #174d78;
+}
+
+.cap4-p30-tab.is-active::after{
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.cap4-p30-tab:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31,60,136,.14);
+  border-radius: 8px;
+  padding-inline: 6px;
+}
+
+.cap4-p30-panel{
+  max-width: 820px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(31,60,136,.05);
+  transition: background-color .22s ease;
+}
+
+.cap4-p30-panel__eyebrow{
+  margin: 0 0 4px;
+  color: rgba(31,31,31,.58);
+  font-family: var(--font-ui, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap4-p30-panel__title{
+  margin: 0 0 8px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 24px;
+  line-height: 1.2;
+  color: #174d78;
+  text-indent: 0;
+}
+
+.cap4-p30-panel__text{
+  margin: 0;
+  line-height: 1.72;
+  text-indent: 0;
+}
+
+.cap4-p30-bars{
+  display: grid;
+  gap: 14px;
+  max-width: 860px;
+}
+
+.cap4-p30-barRow{
+  display: grid;
+  grid-template-columns: minmax(220px, 290px) minmax(0, 1fr) 62px;
+  gap: 14px;
+  align-items: center;
+}
+
+.cap4-p30-barLabel{
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.cap4-p30-barTrack{
+  position: relative;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(40, 54, 72, .08);
+  overflow: hidden;
+}
+
+.cap4-p30-bar{
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  transition: width .35s ease;
+}
+
+.cap4-p30-bar--blue{
+  background: linear-gradient(90deg, #78accf 0%, #4f95bf 100%);
+}
+
+.cap4-p30-bar--orange{
+  background: linear-gradient(90deg, #d99945 0%, #c87f1f 100%);
+}
+
+.cap4-p30-barValue{
+  font-weight: 700;
+  color: #3d4d60;
+  text-align: right;
+}
+
+.cap4-p30-note{
+  margin: 2px 0 0;
+  padding: 14px 16px;
+  border-left: 4px solid var(--blue);
+  border-radius: 12px;
+  background: #f5f7fa;
+  text-indent: 0;
+}
+
+.cap4-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap4-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap4-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap4-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+  overflow: auto;
+}
+
+.cap4-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap4-lightbox__close:hover{
+  background: rgba(255,255,255,.20);
+}
+
+.cap4-lightbox__figure{
+  margin: 0;
+}
+
+.cap4-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap4-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 920px){
+  .cap4-p30-barRow{
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .cap4-p30-barValue{
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px){
+  .cap4-p30-figure{
+    margin: 20px 0 22px;
+  }
+
+  .cap4-p30-figure img{
+    border-radius: 14px;
+  }
+
+  .cap4-p30-controls{
+    gap: 8px 12px;
+  }
+
+  .cap4-p30-tab{
+    font-size: .98rem;
+  }
+
+  .cap4-p30-panel{
+    padding: 14px 15px;
+  }
+
+  .cap4-p30-panel__title{
+    font-size: 21px;
+  }
+
+  .cap4-lightbox__dialog{
+    width: min(96vw, 1200px);
+    padding: 16px 10px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cap4-p30-tab,
+  .cap4-p30-bar,
+  .cap4-p30-panel{
+    transition: none !important;
+  }
+}
+/* =========================
+   Capítulo 04 — CSS específico
+   Página 31 — Concentração inibitória mínima (CIM)
+   ========================= */
+
+.cap4-page31 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap4-p31-figure{
+  margin: 24px 0 24px;
+}
+
+.cap4-p31-figure .cap4-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.cap4-p31-figure img{
+  display: block;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,38,63,.10);
+}
+
+.cap4-caption{
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: rgba(31,31,31,.70);
+  padding-top: 8px;
+  text-indent: 0;
+}
+
+.cap4-p31-stage{
+  margin: 26px auto 26px;
+  max-width: 1040px;
+}
+
+.cap4-p31-stage__inner{
+  display: grid;
+  gap: 14px;
+}
+
+.cap4-p31-controls{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items: center;
+}
+
+.cap4-p31-tab{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0 0 4px;
+  margin: 0;
+  font: inherit;
+  font-weight: 600;
+  color: #5d6978;
+  cursor: pointer;
+  position: relative;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.cap4-p31-tab::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(.72);
+  transform-origin: center;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.cap4-p31-tab:hover{
+  transform: translateY(-1px);
+}
+
+.cap4-p31-tab.is-active{
+  color: #174d78;
+}
+
+.cap4-p31-tab.is-active::after{
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.cap4-p31-tab:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31,60,136,.14);
+  border-radius: 8px;
+  padding-inline: 6px;
+}
+
+.cap4-p31-panel{
+  max-width: 820px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(31,60,136,.05);
+  transition: background-color .22s ease;
+}
+
+.cap4-p31-panel__eyebrow{
+  margin: 0 0 4px;
+  color: rgba(31,31,31,.58);
+  font-family: var(--font-ui, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap4-p31-panel__title{
+  margin: 0 0 8px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 24px;
+  line-height: 1.2;
+  color: #174d78;
+  text-indent: 0;
+}
+
+.cap4-p31-panel__text{
+  margin: 0;
+  line-height: 1.72;
+  text-indent: 0;
+}
+
+.cap4-p31-meter{
+  max-width: 820px;
+  padding-top: 4px;
+}
+
+.cap4-p31-meter__labelRow{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+  color: #3d4d60;
+}
+
+.cap4-p31-meter__labelRow strong{
+  color: #174d78;
+}
+
+.cap4-p31-meter__track{
+  position: relative;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(40,54,72,.08);
+  overflow: hidden;
+}
+
+.cap4-p31-meter__fill{
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #d9b04c 0%, #d28e1d 100%);
+  transition: width .35s ease;
+}
+
+.cap4-p31-note{
+  margin: 2px 0 0;
+  padding: 14px 16px;
+  border-left: 4px solid var(--blue);
+  border-radius: 12px;
+  background: #f5f7fa;
+  text-indent: 0;
+}
+
+.cap4-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap4-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap4-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap4-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+  overflow: auto;
+}
+
+.cap4-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap4-lightbox__close:hover{
+  background: rgba(255,255,255,.20);
+}
+
+.cap4-lightbox__figure{
+  margin: 0;
+}
+
+.cap4-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap4-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 640px){
+  .cap4-p31-figure{
+    margin: 20px 0 22px;
+  }
+
+  .cap4-p31-figure img{
+    border-radius: 14px;
+  }
+
+  .cap4-p31-controls{
+    gap: 8px 12px;
+  }
+
+  .cap4-p31-tab{
+    font-size: .98rem;
+  }
+
+  .cap4-p31-panel{
+    padding: 14px 15px;
+  }
+
+  .cap4-p31-panel__title{
+    font-size: 21px;
+  }
+
+  .cap4-p31-meter__labelRow{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cap4-lightbox__dialog{
+    width: min(96vw, 1200px);
+    padding: 16px 10px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cap4-p31-tab,
+  .cap4-p31-panel,
+  .cap4-p31-meter__fill{
+    transition: none !important;
+  }
+}
+/* =========================
+   Capítulo 04 — Página 32
+   Via de administração e determinação da exposição antimicrobiana
+   ========================= */
+
+.cap4-page32 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap4-p32-figure{
+  margin: 28px 0 28px;
+}
+
+.cap4-p32-figure .cap4-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.cap4-p32-figure img{
+  display: block;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,38,63,.10);
+}
+
+.cap4-caption{
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: rgba(31,31,31,.70);
+  padding-top: 8px;
+  text-indent: 0;
+}
+
+/* Lightbox */
+.cap4-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap4-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap4-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap4-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+  overflow: auto;
+}
+
+.cap4-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap4-lightbox__close:hover{
+  background: rgba(255,255,255,.20);
+}
+
+.cap4-lightbox__figure{
+  margin: 0;
+}
+
+.cap4-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap4-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 640px){
+  .cap4-p32-figure{
+    margin: 22px 0 24px;
+  }
+
+  .cap4-p32-figure img{
+    border-radius: 14px;
+  }
+
+  .cap4-lightbox__dialog{
+    width: min(96vw, 1200px);
+    padding: 16px 10px 12px;
+  }
+}
+/* =========================
+   Capítulo 04 — Página 33
+   Via de administração e implicações clínicas na resposta terapêutica
+   ========================= */
+
+.cap4-page33 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap4-p33-figure{
+  margin: 28px 0 28px;
+}
+
+.cap4-p33-figure .cap4-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.cap4-p33-figure img{
+  display: block;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,38,63,.10);
+}
+
+.cap4-caption{
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: rgba(31,31,31,.70);
+  padding-top: 8px;
+  text-indent: 0;
+}
+
+/* Lightbox */
+.cap4-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap4-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap4-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap4-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+  overflow: auto;
+}
+
+.cap4-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap4-lightbox__close:hover{
+  background: rgba(255,255,255,.20);
+}
+
+.cap4-lightbox__figure{
+  margin: 0;
+}
+
+.cap4-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap4-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 640px){
+  .cap4-p33-figure{
+    margin: 22px 0 24px;
+  }
+
+  .cap4-p33-figure img{
+    border-radius: 14px;
+  }
+
+  .cap4-lightbox__dialog{
+    width: min(96vw, 1200px);
+    padding: 16px 10px 12px;
+  }
+}
+/* =========================
+   Capítulo 04 — CSS específico
+   Página 34 — Índices farmacodinâmicos
+   ========================= */
+
+.cap4-page34 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap4-p34-list{
+  margin: 8px 0 18px 1.1rem;
+  padding: 0;
+}
+
+.cap4-p34-list li{
+  margin: 0 0 12px;
+  padding-left: 4px;
+}
+
+.cap4-p34-figure{
+  margin: 24px 0 24px;
+}
+
+.cap4-p34-figure .cap4-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.cap4-p34-figure img{
+  display: block;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,38,63,.10);
+}
+
+.cap4-caption{
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: rgba(31,31,31,.70);
+  padding-top: 8px;
+  text-indent: 0;
+}
+
+.cap4-p34-stage{
+  margin: 26px auto 26px;
+  max-width: 1040px;
+}
+
+.cap4-p34-stage__inner{
+  display: grid;
+  gap: 14px;
+}
+
+.cap4-p34-controls{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items: center;
+}
+
+.cap4-p34-tab{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0 0 4px;
+  margin: 0;
+  font: inherit;
+  font-weight: 600;
+  color: #5d6978;
+  cursor: pointer;
+  position: relative;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.cap4-p34-tab::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(.72);
+  transform-origin: center;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.cap4-p34-tab:hover{
+  transform: translateY(-1px);
+}
+
+.cap4-p34-tab.is-active{
+  color: #174d78;
+}
+
+.cap4-p34-tab.is-active::after{
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.cap4-p34-tab:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31,60,136,.14);
+  border-radius: 8px;
+  padding-inline: 6px;
+}
+
+.cap4-p34-panel{
+  max-width: 840px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(31,60,136,.05);
+  transition: background-color .22s ease;
+}
+
+.cap4-p34-panel__eyebrow{
+  margin: 0 0 4px;
+  color: rgba(31,31,31,.58);
+  font-family: var(--font-ui, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap4-p34-panel__title{
+  margin: 0 0 8px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 24px;
+  line-height: 1.2;
+  color: #174d78;
+  text-indent: 0;
+}
+
+.cap4-p34-panel__text{
+  margin: 0;
+  line-height: 1.72;
+  text-indent: 0;
+}
+
+.cap4-p34-meter{
+  display: grid;
+  gap: 12px;
+  max-width: 860px;
+}
+
+.cap4-p34-meter__row{
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr) 80px;
+  gap: 14px;
+  align-items: center;
+}
+
+.cap4-p34-meter__label{
+  font-weight: 600;
+  color: #3d4d60;
+}
+
+.cap4-p34-meter__track{
+  position: relative;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(40,54,72,.08);
+  overflow: hidden;
+}
+
+.cap4-p34-meter__fill{
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  transition: width .35s ease;
+}
+
+.cap4-p34-meter__fill--time{
+  background: linear-gradient(90deg, #38c5d8 0%, #20a8b8 100%);
+}
+
+.cap4-p34-meter__fill--peak{
+  background: linear-gradient(90deg, #cc4cae 0%, #a53f8c 100%);
+}
+
+.cap4-p34-meter__fill--auc{
+  background: linear-gradient(90deg, #2bb076 0%, #1c8b5b 100%);
+}
+
+.cap4-p34-meter__value{
+  font-weight: 700;
+  color: #3d4d60;
+  text-align: right;
+}
+
+.cap4-p34-note{
+  margin: 2px 0 0;
+  padding: 14px 16px;
+  border-left: 4px solid var(--blue);
+  border-radius: 12px;
+  background: #f5f7fa;
+  text-indent: 0;
+}
+
+.cap4-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap4-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap4-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap4-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+  overflow: auto;
+}
+
+.cap4-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap4-lightbox__close:hover{
+  background: rgba(255,255,255,.20);
+}
+
+.cap4-lightbox__figure{
+  margin: 0;
+}
+
+.cap4-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap4-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 720px){
+  .cap4-p34-meter__row{
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .cap4-p34-meter__value{
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px){
+  .cap4-p34-figure{
+    margin: 20px 0 22px;
+  }
+
+  .cap4-p34-figure img{
+    border-radius: 14px;
+  }
+
+  .cap4-p34-controls{
+    gap: 8px 12px;
+  }
+
+  .cap4-p34-tab{
+    font-size: .98rem;
+  }
+
+  .cap4-p34-panel{
+    padding: 14px 15px;
+  }
+
+  .cap4-p34-panel__title{
+    font-size: 21px;
+  }
+
+  .cap4-lightbox__dialog{
+    width: min(96vw, 1200px);
+    padding: 16px 10px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cap4-p34-tab,
+  .cap4-p34-panel,
+  .cap4-p34-meter__fill{
+    transition: none !important;
+  }
+}
+/* =========================
+   Capítulo 04 — CSS específico
+   Página 35 — Penetração tecidual e compartimentos infecciosos
+   ========================= */
+
+.cap4-page35 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap4-p35-compare{
+  margin: 28px auto 28px;
+  max-width: 1040px;
+}
+
+.cap4-p35-compare__header{
+  margin-bottom: 14px;
+}
+
+.cap4-p35-compare__eyebrow{
+  margin: 0 0 4px;
+  color: rgba(31,31,31,.58);
+  font-family: var(--font-ui, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap4-p35-compare__lead{
+  margin: 0;
+  max-width: 860px;
+  line-height: 1.72;
+  text-indent: 0;
+}
+
+.cap4-p35-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  align-items: start;
+  margin-top: 18px;
+}
+
+.cap4-p35-card{
+  position: relative;
+  padding: 0;
+  border-radius: 22px;
+  transition: transform .22s ease, box-shadow .22s ease, opacity .22s ease, background-color .22s ease;
+  opacity: .74;
+}
+
+.cap4-p35-card.is-active{
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.cap4-p35-card__top{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.cap4-p35-card__title{
+  margin: 0;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 26px;
+  line-height: 1.2;
+  color: #174d78;
+  text-indent: 0;
+}
+
+.cap4-p35-chip{
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .01em;
+}
+
+.cap4-p35-chip--success{
+  background: rgba(43,176,118,.12);
+  color: #18714c;
+}
+
+.cap4-p35-chip--risk{
+  background: rgba(212,98,68,.12);
+  color: #a2482f;
+}
+
+.cap4-p35-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.cap4-p35-zoomTrigger img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,38,63,.10);
+}
+
+.cap4-p35-card__text{
+  margin: 12px 0 0;
+  line-height: 1.72;
+  text-indent: 0;
+}
+
+.cap4-p35-focus{
+  margin-top: 18px;
+}
+
+.cap4-p35-focus__box{
+  max-width: 900px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(31,60,136,.05);
+  transition: background-color .22s ease;
+}
+
+.cap4-p35-focus__label{
+  margin: 0 0 4px;
+  color: rgba(31,31,31,.58);
+  font-family: var(--font-ui, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap4-p35-focus__title{
+  margin: 0 0 8px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 24px;
+  line-height: 1.2;
+  color: #174d78;
+  text-indent: 0;
+}
+
+.cap4-p35-focus__text{
+  margin: 0;
+  line-height: 1.72;
+  text-indent: 0;
+}
+
+/* lightbox reaproveitável */
+.cap4-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap4-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap4-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap4-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+  overflow: auto;
+}
+
+.cap4-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap4-lightbox__close:hover{
+  background: rgba(255,255,255,.20);
+}
+
+.cap4-lightbox__figure{
+  margin: 0;
+}
+
+.cap4-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap4-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 900px){
+  .cap4-p35-grid{
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+@media (max-width: 640px){
+  .cap4-p35-card__title{
+    font-size: 23px;
+  }
+
+  .cap4-p35-focus__title{
+    font-size: 21px;
+  }
+
+  .cap4-lightbox__dialog{
+    width: min(96vw, 1200px);
+    padding: 16px 10px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cap4-p35-card,
+  .cap4-p35-focus__box{
+    transition: none !important;
+  }
+}
+/* =========================
+   Capítulo 04 — CSS específico
+   Página 36 — Biofilme e microambiente infeccioso
+   ========================= */
+
+.cap4-page36 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap4-p36-stage{
+  margin: 28px auto 30px;
+  max-width: 1040px;
+}
+
+.cap4-p36-layout{
+  display: grid;
+  grid-template-columns: minmax(0, 1.22fr) minmax(280px, .78fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.cap4-p36-figureWrap{
+  position: relative;
+}
+
+.cap4-p36-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.cap4-p36-zoomTrigger img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,38,63,.10);
+}
+
+.cap4-p36-hotspots{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cap4-p36-hotspot{
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  border: 0;
+  border-radius: 999px;
+  background: #174d78;
+  box-shadow: 0 0 0 4px rgba(23,77,120,.18);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.cap4-p36-hotspot::after{
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 999px;
+  border: 1px solid rgba(23,77,120,.28);
+}
+
+.cap4-p36-hotspot:hover,
+.cap4-p36-hotspot:focus-visible,
+.cap4-p36-hotspot.is-active{
+  transform: scale(1.08);
+  background: #1e88e5;
+  box-shadow: 0 0 0 6px rgba(30,136,229,.18);
+}
+
+.cap4-p36-hotspot:focus-visible{
+  outline: none;
+}
+
+.cap4-p36-aside{
+  padding: 18px 18px 16px;
+  border-radius: 18px;
+  background: rgba(31,60,136,.05);
+  transition: background-color .22s ease;
+}
+
+.cap4-p36-aside__eyebrow{
+  margin: 0 0 4px;
+  color: rgba(31,31,31,.58);
+  font-family: var(--font-ui, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap4-p36-aside__title{
+  margin: 0 0 8px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 24px;
+  line-height: 1.2;
+  color: #174d78;
+  text-indent: 0;
+}
+
+.cap4-p36-aside__text{
+  margin: 0;
+  line-height: 1.72;
+  text-indent: 0;
+}
+
+.cap4-p36-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.cap4-p36-tag{
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(31,60,136,.08);
+  color: #30516f;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* lightbox reaproveitável */
+.cap4-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap4-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap4-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap4-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+  overflow: auto;
+}
+
+.cap4-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap4-lightbox__close:hover{
+  background: rgba(255,255,255,.20);
+}
+
+.cap4-lightbox__figure{
+  margin: 0;
+}
+
+.cap4-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap4-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 920px){
+  .cap4-p36-layout{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 640px){
+  .cap4-p34-aside__title{
+    font-size: 21px;
+  }
+
+  .cap4-p36-hotspot{
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+  }
+
+  .cap4-lightbox__dialog{
+    width: min(96vw, 1200px);
+    padding: 16px 10px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cap4-p36-hotspot,
+  .cap4-p36-aside{
+    transition: none !important;
+  }
+}
+/* =========================
+   Capítulo 04 — CSS específico
+   Página 37 — Exposição antimicrobiana e dinâmica evolutiva
+   ========================= */
+
+.cap4-page37 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap4-p37-figure{
+  margin: 28px 0 28px;
+}
+
+.cap4-p37-figure .cap4-p35-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.cap4-p37-figure img{
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,38,63,.10);
+}
+
+.cap4-caption{
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: rgba(31,31,31,.70);
+  padding-top: 8px;
+  text-indent: 0;
+}
+
+.cap4-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap4-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap4-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap4-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+  overflow: auto;
+}
+
+.cap4-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap4-lightbox__close:hover{
+  background: rgba(255,255,255,.20);
+}
+
+.cap4-lightbox__figure{
+  margin: 0;
+}
+
+.cap4-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap4-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 640px){
+  .cap4-p37-figure{
+    margin: 22px 0 24px;
+  }
+
+  .cap4-p37-figure img{
+    border-radius: 14px;
+  }
+
+  .cap4-lightbox__dialog{
+    width: min(96vw, 1200px);
+    padding: 16px 10px 12px;
+  }
+}
+/* =========================
+   Capítulo 04 — Página 38 — Quiz de revisão
+   ========================= */
+
+.cap4-page38 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap4-p38Quiz{
+  margin-top: 24px;
+}
+
+.cap4-p38Nav{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.cap4-p38NavBtn{
+  border: 1px solid rgba(23,77,120,.18);
+  background: #fff;
+  color: #174d78;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.cap4-p38NavBtn:hover{
+  background: rgba(23,77,120,.05);
+}
+
+.cap4-p38NavBtn:disabled{
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.cap4-p38Progress{
+  text-align: center;
+  font-weight: 600;
+  color: rgba(31,31,31,.72);
+}
+
+.cap4-p38Question{
+  display: none;
+}
+
+.cap4-p38Question.active{
+  display: block;
+}
+
+.cap4-p38Case{
+  margin: 0 0 14px;
+  font-size: 1.03rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.cap4-p38Prompt{
+  margin: 0 0 18px;
+  font-weight: 700;
+  font-size: 1.06rem;
+  line-height: 1.65;
+  color: #18344f;
+  text-indent: 0;
+}
+
+.cap4-p38Options{
+  display: grid;
+  gap: 12px;
+}
+
+.cap4-p38Options button{
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
+  align-items: start;
+  width: 100%;
+  border: 1px solid rgba(23,77,120,.14);
+  background: #fff;
+  border-radius: 18px;
+  padding: 14px 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.cap4-p38Options button:hover{
+  transform: translateY(-1px);
+  border-color: rgba(23,77,120,.28);
+  box-shadow: 0 8px 18px rgba(18,38,63,.06);
+}
+
+.cap4-p38Options button.is-selected{
+  border-color: rgba(23,77,120,.48);
+  background: rgba(23,77,120,.04);
+}
+
+.cap4-p38Options button.is-correct{
+  border-color: rgba(38,132,86,.34);
+  background: rgba(43,176,118,.08);
+}
+
+.cap4-p38Options button.is-wrong{
+  border-color: rgba(191,84,54,.28);
+  background: rgba(212,98,68,.08);
+}
+
+.cap4-p38Options button[disabled]{
+  cursor: default;
+}
+
+.cap4-p38Letter{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(23,77,120,.08);
+  color: #174d78;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.cap4-p38Actions{
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.cap4-p38Btn{
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 11px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity .2s ease, transform .2s ease, background-color .2s ease;
+}
+
+.cap4-p38Btn:hover{
+  transform: translateY(-1px);
+}
+
+.cap4-p38Btn:disabled{
+  opacity: .45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cap4-p38Btn--primary{
+  background: #174d78;
+  color: #fff;
+}
+
+.cap4-p38Btn--ghost{
+  background: rgba(23,77,120,.08);
+  color: #174d78;
+}
+
+.cap4-p38Feedback{
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: #f5f7fa;
+  border-left: 4px solid #174d78;
+}
+
+.cap4-p38Feedback[hidden]{
+  display: none !important;
+}
+
+.cap4-p38Feedback.is-correct{
+  background: rgba(43,176,118,.08);
+  border-left-color: #1d7c53;
+}
+
+.cap4-p38Feedback.is-error{
+  background: rgba(212,98,68,.08);
+  border-left-color: #bf5436;
+}
+
+.cap4-p38FeedbackTitle{
+  margin: 0 0 6px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 1.28rem;
+  line-height: 1.2;
+  color: #18344f;
+}
+
+.cap4-p38FeedbackText{
+  margin: 0;
+  line-height: 1.72;
+  text-indent: 0;
+}
+
+.cap4-p38Done[hidden]{
+  display: none !important;
+}
+
+.cap4-p38DoneCard{
+  margin-top: 12px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba(23,77,120,.05);
+  border: 1px solid rgba(23,77,120,.12);
+}
+
+.cap4-p38Badge{
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+.cap4-p38Badge--done{
+  background: rgba(43,176,118,.12);
+  color: #1d7c53;
+}
+
+.cap4-p38DoneText{
+  margin: 10px 0 0;
+  font-weight: 600;
+  text-indent: 0;
+}
+
+.cap4-refBox{
+  margin-top: 26px;
+  border: 1px solid rgba(23,77,120,.12);
+  border-radius: 18px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.cap4-refBox summary{
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 18px;
+  font-weight: 700;
+  color: #18344f;
+}
+
+.cap4-refBox summary::-webkit-details-marker{
+  display: none;
+}
+
+.cap4-refContent{
+  padding: 0 18px 18px;
+}
+
+.cap4-refContent p{
+  margin: 0 0 12px;
+  line-height: 1.65;
+  text-indent: 0;
+  font-size: .97rem;
+}
+
+@media (max-width: 720px){
+  .cap4-p38Nav{
+    grid-template-columns: 1fr;
+  }
+
+  .cap4-p38Progress{
+    order: -1;
+  }
+}
+
+@media (max-width: 640px){
+  .cap4-p38Options button{
+    grid-template-columns: 36px 1fr;
+    gap: 12px;
+    padding: 13px 14px;
+  }
+
+  .cap4-p38Letter{
+    width: 30px;
+    height: 30px;
+  }
+
+  .cap4-p38Actions{
+    flex-wrap: wrap;
+  }
+}

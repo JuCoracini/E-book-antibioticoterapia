@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capítulo 5 — Página 41</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-05.css" />
+</head>
+<body class="cap5-page41">
+
+  <div class="reader-toolbar" aria-label="Controles de leitura">
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Texto</span>
+      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
+      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
+      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Zoom</span>
+      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
+      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
+      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Acessibilidade</span>
+      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
+      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
+      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
+      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
+    </div>
+  </div>
+
+  <main class="container page-shell">
+
+    <header class="page-header">
+      <div>
+        <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
+        <h1 class="page-title">Breakpoints e categorias interpretativas</h1>
+      </div>
+    </header>
+
+    <section class="prose" aria-label="Texto principal">
+
+      <p>
+        O diâmetro do halo observado na difusão em disco ou o valor da concentração inibitória mínima obtido na microdiluição representam medidas laboratoriais da atividade do antibacteriano contra a bactéria testada. Esses valores, isoladamente, não indicam se o microrganismo deve ser considerado sensível ou resistente.
+      </p>
+
+      <p>
+        Para que o resultado possa ser interpretado, ele precisa ser comparado a pontos de corte previamente estabelecidos, denominados breakpoints <sup>1</sup>.
+      </p>
+
+      <p>
+        O breakpoint é um limite interpretativo definido para combinações específicas entre microrganismo, antibacteriano e método de teste, utilizado para transformar um valor microbiológico mensurável, como halo de inibição ou CIM, em uma categoria interpretativa padronizada. A partir dessa comparação, o laboratório classifica o resultado como Sensível (S), Sensível, aumentando exposição (I) ou Resistente (R).
+      </p>
+
+      <section class="bp-intro" aria-labelledby="bp-intro-title">
+        <div class="bp-intro__head">
+          <p class="bp-intro__eyebrow">Interpretação guiada</p>
+          <h2 id="bp-intro-title" class="bp-intro__title">O valor bruto só ganha significado quando atravessa o breakpoint</h2>
+          <p class="bp-intro__subtitle">
+            Mova o marcador e observe como um valor microbiológico mensurável passa a ser classificado em S, I ou R conforme os pontos de corte interpretativos.
+          </p>
+        </div>
+
+        <div class="bp-scale" data-bp-scale>
+          <div class="bp-scale__meta">
+            <button class="bp-scale__mode is-active" type="button" data-bp-mode="cim" aria-pressed="true">Modo CIM</button>
+            <button class="bp-scale__mode" type="button" data-bp-mode="halo" aria-pressed="false">Modo halo</button>
+          </div>
+
+          <div class="bp-scale__svgWrap">
+            <svg class="bp-scale__svg" viewBox="0 0 1000 320" role="img" aria-label="Escala interpretativa com zonas S, I e R e marcador móvel">
+              <defs>
+                <linearGradient id="bpS" x1="0" x2="1">
+                  <stop offset="0%" stop-color="#8DE0BE" stop-opacity=".65"/>
+                  <stop offset="100%" stop-color="#8DE0BE" stop-opacity=".25"/>
+                </linearGradient>
+                <linearGradient id="bpI" x1="0" x2="1">
+                  <stop offset="0%" stop-color="#F6D778" stop-opacity=".55"/>
+                  <stop offset="100%" stop-color="#F6D778" stop-opacity=".22"/>
+                </linearGradient>
+                <linearGradient id="bpR" x1="0" x2="1">
+                  <stop offset="0%" stop-color="#F3A3A3" stop-opacity=".40"/>
+                  <stop offset="100%" stop-color="#F3A3A3" stop-opacity=".72"/>
+                </linearGradient>
+              </defs>
+
+              <rect x="70" y="62" width="290" height="120" fill="url(#bpS)" rx="16"></rect>
+              <rect x="360" y="62" width="280" height="120" fill="url(#bpI)" rx="16"></rect>
+              <rect x="640" y="62" width="290" height="120" fill="url(#bpR)" rx="16"></rect>
+
+              <text x="215" y="110" class="bp-svg__zoneLabel">S</text>
+              <text x="500" y="110" class="bp-svg__zoneLabel">I</text>
+              <text x="785" y="110" class="bp-svg__zoneLabel">R</text>
+
+              <text x="215" y="145" class="bp-svg__zoneSub">Sensível</text>
+              <text x="500" y="145" class="bp-svg__zoneSub">Aumentando exposição</text>
+              <text x="785" y="145" class="bp-svg__zoneSub">Resistente</text>
+
+              <line x1="70" y1="235" x2="930" y2="235" class="bp-svg__axis"></line>
+
+              <g class="bp-svg__ticks">
+                <line x1="70" y1="225" x2="70" y2="245"></line>
+                <line x1="156" y1="225" x2="156" y2="245"></line>
+                <line x1="242" y1="225" x2="242" y2="245"></line>
+                <line x1="328" y1="225" x2="328" y2="245"></line>
+                <line x1="414" y1="225" x2="414" y2="245"></line>
+                <line x1="500" y1="225" x2="500" y2="245"></line>
+                <line x1="586" y1="225" x2="586" y2="245"></line>
+                <line x1="672" y1="225" x2="672" y2="245"></line>
+                <line x1="758" y1="225" x2="758" y2="245"></line>
+                <line x1="844" y1="225" x2="844" y2="245"></line>
+                <line x1="930" y1="225" x2="930" y2="245"></line>
+              </g>
+
+              <line x1="360" y1="42" x2="360" y2="255" class="bp-svg__break"></line>
+              <line x1="640" y1="42" x2="640" y2="255" class="bp-svg__break"></line>
+
+              <text x="360" y="30" class="bp-svg__breakLabel" text-anchor="middle">Breakpoint S</text>
+              <text x="640" y="30" class="bp-svg__breakLabel" text-anchor="middle">Breakpoint R</text>
+
+              <circle id="bp-indicator-dot" cx="250" cy="235" r="13" class="bp-svg__dot"></circle>
+              <line id="bp-indicator-line" x1="250" y1="82" x2="250" y2="235" class="bp-svg__indicator"></line>
+
+              <text x="70" y="280" class="bp-svg__axisLabel" id="bp-left-label">CIM baixa</text>
+              <text x="930" y="280" text-anchor="end" class="bp-svg__axisLabel" id="bp-right-label">CIM alta</text>
+              <text x="500" y="305" text-anchor="middle" class="bp-svg__axisMain" id="bp-axis-main">
+                CIM (concentração inibitória mínima)
+              </text>
+            </svg>
+          </div>
+
+          <div class="bp-scale__controls">
+            <label for="bp-range" class="bp-scale__rangeLabel">Valor simulado</label>
+            <input id="bp-range" class="bp-scale__range" type="range" min="0" max="100" value="20" step="1" />
+          </div>
+
+          <div class="bp-scale__readout" aria-live="polite">
+            <div class="bp-scale__chip" id="bp-chip">S</div>
+            <div class="bp-scale__readoutText">
+              <p class="bp-scale__value"><strong id="bp-value">2 mg/L</strong></p>
+              <p class="bp-scale__meaning" id="bp-meaning">
+                O valor está abaixo do breakpoint S e, por isso, enquadra-se na zona de sensibilidade.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <p>
+        Esses pontos de corte são definidos por comitês técnicos especializados em testes de suscetibilidade antimicrobiana. A definição dos breakpoints considera a integração de diferentes tipos de evidência:
+      </p>
+
+      <ul class="cap5-inline-list">
+        <li>distribuição das CIM observadas na população bacteriana</li>
+        <li>características farmacocinéticas e farmacodinâmicas do antibacteriano</li>
+        <li>dados clínicos disponíveis sobre eficácia terapêutica</li>
+      </ul>
+
+      <p>
+        Os breakpoints são específicos para cada combinação entre microrganismo e antibacteriano. Um mesmo valor de CIM pode receber interpretações diferentes dependendo da espécie bacteriana analisada. Da mesma forma, os critérios aplicados ao método de difusão em disco não são os mesmos utilizados para valores de CIM <sup>1</sup>.
+      </p>
+
+      <p>
+        Após a aplicação desses critérios interpretativos, o resultado passa a ser expresso nas categorias padronizadas do antibiograma.
+      </p>
+
+      <section class="bp-exposure" aria-labelledby="bp-exposure-title">
+        <div class="bp-exposure__head">
+          <p class="bp-exposure__eyebrow">Apoio conceitual</p>
+          <h2 id="bp-exposure-title" class="bp-exposure__title">Por que a categoria “I” depende de aumento de exposição</h2>
+          <p class="bp-exposure__subtitle">
+            Nesta faixa, o sucesso terapêutico não é descartado. Ele passa a depender de condições que aumentem a exposição do antibacteriano no sítio de infecção.
+          </p>
+        </div>
+
+        <div class="bp-exposure__controls">
+          <button type="button" class="bp-exposure__btn is-active" data-exp-view="both" aria-pressed="true">Comparar curvas</button>
+          <button type="button" class="bp-exposure__btn" data-exp-view="standard" aria-pressed="false">Dose padrão</button>
+          <button type="button" class="bp-exposure__btn" data-exp-view="optimized" aria-pressed="false">Dose otimizada</button>
+        </div>
+
+        <div class="bp-exposure__figure" data-exp-figure>
+          <svg class="bp-exposure__svg" viewBox="0 0 1000 420" role="img" aria-label="Curvas de exposição do fármaco nas zonas S, I e R">
+            <defs>
+              <linearGradient id="expS" x1="0" x2="1">
+                <stop offset="0%" stop-color="#8DE0BE" stop-opacity=".65"/>
+                <stop offset="100%" stop-color="#8DE0BE" stop-opacity=".20"/>
+              </linearGradient>
+              <linearGradient id="expI" x1="0" x2="1">
+                <stop offset="0%" stop-color="#F6D778" stop-opacity=".55"/>
+                <stop offset="100%" stop-color="#F6D778" stop-opacity=".22"/>
+              </linearGradient>
+              <linearGradient id="expR" x1="0" x2="1">
+                <stop offset="0%" stop-color="#F3A3A3" stop-opacity=".38"/>
+                <stop offset="100%" stop-color="#F3A3A3" stop-opacity=".70"/>
+              </linearGradient>
+            </defs>
+
+            <rect x="40" y="50" width="300" height="270" fill="url(#expS)" rx="16"></rect>
+            <rect x="340" y="50" width="320" height="270" fill="url(#expI)" rx="16"></rect>
+            <rect x="660" y="50" width="300" height="270" fill="url(#expR)" rx="16"></rect>
+
+            <text x="190" y="92" class="bp-exp__zoneTitle">Zona S</text>
+            <text x="500" y="92" class="bp-exp__zoneTitle">Zona I</text>
+            <text x="810" y="92" class="bp-exp__zoneTitle">Zona R</text>
+
+            <text x="190" y="118" class="bp-exp__zoneSub">Sensível</text>
+            <text x="500" y="118" class="bp-exp__zoneSub">Aumentando exposição</text>
+            <text x="810" y="118" class="bp-exp__zoneSub">Resistente</text>
+
+            <line x1="40" y1="320" x2="960" y2="320" class="bp-exp__axis"></line>
+            <text x="500" y="360" text-anchor="middle" class="bp-exp__axisLabel">Concentração do fármaco na bactéria</text>
+
+            <path id="exp-standard-fill" d="M40,320 C140,315 150,190 260,150 C330,125 360,170 410,240 C455,300 520,318 620,320 L40,320 Z" class="bp-exp__standardFill"></path>
+            <path id="exp-standard-line" d="M40,320 C140,315 150,190 260,150 C330,125 360,170 410,240 C455,300 520,318 620,320" class="bp-exp__standardLine"></path>
+
+            <path id="exp-optimized-fill" d="M180,320 C260,318 330,265 410,205 C500,135 590,135 660,215 C720,285 770,312 960,320 L180,320 Z" class="bp-exp__optimizedFill"></path>
+            <path id="exp-optimized-line" d="M180,320 C260,318 330,265 410,205 C500,135 590,135 660,215 C720,285 770,312 960,320" class="bp-exp__optimizedLine"></path>
+
+            <text x="250" y="205" class="bp-exp__curveLabel">Dose padrão</text>
+            <text x="520" y="205" class="bp-exp__curveLabel">Dose otimizada</text>
+
+            <path d="M530,145 C580,138 675,138 740,188" class="bp-exp__arrow"></path>
+            <polygon points="736,181 759,191 738,203" class="bp-exp__arrowHead"></polygon>
+            <text x="560" y="132" class="bp-exp__arrowText">O aumento de exposição desloca a probabilidade de sucesso</text>
+          </svg>
+        </div>
+
+        <p class="bp-exposure__note">
+          A categoria <strong>I</strong> não corresponde a ausência de atividade. Ela indica uma faixa em que a probabilidade de sucesso terapêutico passa a depender de maior exposição ao antibacteriano, seja por otimização posológica, seja por condições favoráveis do sítio de infecção.
+        </p>
+      </section>
+
+      <section class="bp-defs">
+        <h3>Sensível (S)</h3>
+        <p>
+          Indica que o valor obtido no teste está dentro da faixa associada a alta probabilidade de sucesso terapêutico quando a exposição ao antibacteriano é apropriada para o sítio de infecção e o regime posológico recomendado.
+        </p>
+
+        <h3>Sensível, aumentando exposição (I)</h3>
+        <p>
+          Corresponde a uma faixa limítrofe de suscetibilidade. Nessa situação, a probabilidade de sucesso terapêutico depende de maior exposição ao antibacteriano, o que pode ocorrer, por exemplo, em regimes posológicos otimizados ou em locais do organismo onde a concentração do fármaco é naturalmente mais elevada.
+        </p>
+
+        <h3>Resistente (R)</h3>
+        <p>
+          Indica que o valor obtido no teste ultrapassa o limite associado à probabilidade aceitável de inibição bacteriana, mesmo quando se considera aumento de exposição ao antibacteriano.
+        </p>
+      </section>
+
+      <p>
+        É importante reconhecer que essas categorias não representam propriedades absolutas da bactéria. Elas correspondem à aplicação de critérios interpretativos padronizados sobre um valor obtido no teste laboratorial.
+      </p>
+
+      <p>
+        Quando o resultado do teste se encontra muito próximo ao breakpoint, pequenas variações metodológicas podem alterar a categoria final atribuída. Essa mudança não significa necessariamente modificação biológica relevante do microrganismo, mas apenas a aplicação da regra interpretativa ao valor observado.
+      </p>
+
+    </section>
+
+    <nav class="pager" aria-label="Paginação">
+      <a class="btn" href="p40.html">← Anterior</a>
+      <div class="center">Capítulo 5 · Página 41</div>
+      <a class="btn" href="p42.html">Próxima →</a>
+    </nav>
+
+  </main>
+
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-05.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capítulo 3 — Página 20</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-03.css" />
+</head>
+
+<body class="cap3-page20">
+
+  <div class="reader-toolbar" aria-label="Controles de leitura">
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Texto</span>
+      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
+      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
+      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Zoom</span>
+      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
+      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
+      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Acessibilidade</span>
+      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
+      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
+      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
+      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
+    </div>
+  </div>
+
+  <main class="container page-shell cap3-shell">
+
+    <header class="page-header">
+      <div>
+        <div class="chapter">Capítulo 3 — Mecanismos de Resistência Bacteriana</div>
+        <h1 class="page-title">Resistência como fenômeno adaptativo</h1>
+      </div>
+    </header>
+
+    <section class="prose cap3-reading-flow" aria-label="Texto principal">
+
+      <p>
+        A resistência bacteriana corresponde à capacidade de determinadas subpopulações de bactérias persistirem e se multiplicarem mesmo na presença de concentrações de antibacterianos que, em condições habituais, seriam suficientes para inibir o crescimento ou eliminar o microrganismo <sup>1,2</sup>.
+      </p>
+
+      <p>
+        Essa sobrevivência pode resultar de mutações no material genético, aquisição de genes por transferência horizontal ou ativação de mecanismos já presentes na bactéria, como bombas de efluxo, alterações de permeabilidade da membrana ou produção de enzimas inativadoras. Esses mecanismos reduzem a concentração efetiva do fármaco no interior da célula bacteriana ou diminuem sua capacidade de interação com o alvo molecular <sup>1</sup>.
+      </p>
+
+      <p>
+        Do ponto de vista biológico, a resistência representa um processo evolutivo previsível. As populações bacterianas apresentam grande tamanho populacional, elevada taxa de replicação e variabilidade genética contínua. Por essa razão, variantes com menor suscetibilidade ao antibacteriano podem existir mesmo antes da exposição ao fármaco. A introdução do antibacteriano não cria uma característica direcionada; ela altera o ambiente e favorece a sobrevivência das variantes que já possuíam alguma vantagem adaptativa nessa condição <sup>3</sup>.
+      </p>
+
+      <section class="cap3-selection-figure" aria-label="Representação do processo de seleção bacteriana">
+        <div class="cap3-selection-figure__header">
+          <div class="cap3-selection-figure__line"></div>
+          <p class="cap3-selection-figure__caption">
+            A exposição ao antibacteriano modifica o ambiente e altera a frequência relativa das subpopulações bacterianas.
+          </p>
+        </div>
+
+        <div class="cap3-selection-figure__grid">
+          <article class="cap3-selection-card">
+            <div class="cap3-selection-card__phase">Antes da exposição</div>
+            <div class="cap3-dish cap3-dish--before" data-dish="before" aria-hidden="true"></div>
+          </article>
+
+          <article class="cap3-selection-card cap3-selection-card--center">
+            <div class="cap3-selection-card__phase">Durante a exposição</div>
+            <div class="cap3-exposure" aria-hidden="true">
+              <div class="cap3-exposure__beam"></div>
+              <div class="cap3-exposure__beam cap3-exposure__beam--delay"></div>
+              <div class="cap3-exposure__label">antibacteriano</div>
+            </div>
+            <div class="cap3-dish cap3-dish--during" data-dish="during" aria-hidden="true"></div>
+          </article>
+
+          <article class="cap3-selection-card">
+            <div class="cap3-selection-card__phase">Após a seleção</div>
+            <div class="cap3-dish cap3-dish--after" data-dish="after" aria-hidden="true"></div>
+          </article>
+        </div>
+
+        <div class="cap3-selection-card__legend">
+          <span class="cap3-legend-item">
+            <span class="cap3-dot cap3-dot--sensivel"></span>
+            <span>subpopulações mais sensíveis</span>
+          </span>
+          <span class="cap3-legend-item">
+            <span class="cap3-dot cap3-dot--menos-suscetivel"></span>
+            <span>variantes menos suscetíveis</span>
+          </span>
+        </div>
+
+        <p class="cap3-selection-card__footnote">
+          A introdução do antibacteriano não cria uma característica direcionada; ela favorece a sobrevivência das variantes que já possuíam vantagem adaptativa nessa condição <sup>3</sup>.
+        </p>
+      </section>
+
+      <p>
+        Quando o antibacteriano é introduzido, as bactérias mais sensíveis tendem a ter seu crescimento inibido ou são eliminadas, enquanto subpopulações menos suscetíveis conseguem persistir e ocupar o nicho ecológico deixado pelas demais. Nesse contexto, o antibacteriano atua como agente de seleção, deslocando o equilíbrio entre subpopulações bacterianas e aumentando a frequência relativa de mecanismos que reduzem sua atividade <sup>3</sup>.
+      </p>
+
+      <p>
+        Esse princípio ajuda a compreender por que exposições repetidas, tratamentos prolongados ou esquemas inadequados podem acelerar a consolidação da resistência bacteriana. Situações em que a exposição ao antibacteriano é subótima, como dose insuficiente, intervalo inadequado, baixa penetração no sítio infeccioso ou interrupção precoce do tratamento, podem não eliminar completamente a população bacteriana e favorecer a sobrevivência de variantes menos suscetíveis <sup>4</sup>.
+      </p>
+
+      <p>
+        Na prática clínica, a resistência manifesta-se como redução da efetividade terapêutica de um antibacteriano. Isolados da mesma espécie bacteriana podem responder de maneira diferente ao mesmo fármaco quando mecanismos como produção de enzimas inativadoras, alterações de permeabilidade ou modificação do alvo molecular interferem na interação entre antibacteriano e bactéria <sup>2</sup>.
+      </p>
+
+      <p>
+        Em nível populacional, a exposição repetida aos antibacterianos em um determinado ambiente assistencial pode modificar gradualmente o perfil de suscetibilidade das cepas circulantes. Uma forma de observar essa tendência é o aumento progressivo dos valores de concentração inibitória mínima (MIC) para determinados patógenos e antibacterianos ao longo do tempo, evidenciando o caráter cumulativo e dinâmico da resistência bacteriana <sup>1,3</sup>.
+      </p>
+
+    </section>
+
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p19.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 3 · Página 20</div>
+      <button class="btn" type="button" data-next="p21.html" aria-label="Ir para a próxima página">Próxima →</button>
+    </nav>
+
+  </main>
+
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-03.js"></script>
+</body>
+</html>

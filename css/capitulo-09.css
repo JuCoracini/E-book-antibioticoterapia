@@ -1,0 +1,985 @@
+/* =========================
+   Capítulo 09 — Página 69
+   Comunicação em antibioticoterapia
+   ========================= */
+
+.cap9-page69 sup{
+  font-size: 0.72em;
+  color: rgba(31,31,31,.46);
+  font-weight: 600;
+  vertical-align: super;
+  line-height: 0;
+}
+
+.cap9-figure-flow{
+  margin: 26px 0 22px;
+}
+
+.cap9-figure-flow__svg{
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.cap9-figure-flow__caption{
+  margin-top: 10px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: rgba(31,31,31,.62);
+  text-align: center;
+  text-indent: 0;
+}
+
+/* fundo ornamental leve */
+.cap9-bg-orbit{
+  fill: none;
+  stroke: rgba(31,60,136,.08);
+  stroke-width: 2.2;
+}
+
+/* núcleo principal */
+.cap9-node-main{
+  fill: url(#cap9GradMain);
+  stroke: rgba(31,60,136,.16);
+  stroke-width: 1.4;
+  filter: url(#cap9Shadow);
+}
+
+.cap9-node-main__title{
+  font-family: var(--font-sub);
+  font-size: 30px;
+  font-weight: 700;
+  fill: #1f3c88;
+  letter-spacing: -0.3px;
+}
+
+.cap9-node-main__subtitle{
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  fill: rgba(31,31,31,.72);
+}
+
+/* cartões laterais */
+.cap9-node-card{
+  fill: url(#cap9GradSoft);
+  stroke: rgba(31,31,31,.10);
+  stroke-width: 1.2;
+  filter: url(#cap9Shadow);
+}
+
+.cap9-node-card--highlight{
+  stroke: rgba(31,60,136,.24);
+}
+
+.cap9-node-card__title{
+  font-family: var(--font-sub);
+  font-size: 24px;
+  font-weight: 700;
+  fill: #1f3551;
+}
+
+.cap9-node-card__body{
+  font-family: var(--font-body);
+  font-size: 16px;
+  fill: rgba(31,31,31,.78);
+}
+
+/* ícones */
+.cap9-icon-circle{
+  fill: rgba(31,60,136,.08);
+  stroke: rgba(31,60,136,.18);
+  stroke-width: 1.2;
+}
+
+.cap9-icon-circle--highlight{
+  fill: rgba(31,60,136,.11);
+}
+
+.cap9-icon-stroke{
+  fill: none;
+  stroke: #31588e;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* conectores */
+.cap9-connector{
+  fill: none;
+  stroke: rgba(31,60,136,.22);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.cap9-connector--soft{
+  stroke: rgba(98,118,149,.42);
+}
+
+/* cápsulas finais */
+.cap9-pill{
+  fill: #f6f8fb;
+  stroke: rgba(31,31,31,.10);
+  stroke-width: 1.1;
+}
+
+.cap9-pill__text{
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 600;
+  fill: #33475f;
+}
+
+/* responsivo */
+@media (max-width: 900px){
+  .cap9-figure-flow{
+    margin: 22px 0 20px;
+  }
+
+  .cap9-figure-flow__caption{
+    font-size: 12px;
+  }
+}
+/* =========================
+   Capítulo 09 — Página 70
+   Explicando quando o antibacteriano não é necessário
+   ========================= */
+
+.cap9-page70 sup{
+  font-size: 0.72em;
+  color: rgba(31,31,31,.46);
+  font-weight: 600;
+  vertical-align: super;
+  line-height: 0;
+}
+
+/* Figura clínica */
+.cap9-photo{
+margin:40px auto 32px;
+max-width:980px;
+}
+
+.cap9-photo img{
+width:100%;
+height:auto;
+display:block;
+border-radius:12px;
+}
+
+.cap9-photo figcaption{
+margin-top:10px;
+font-size:12.5px;
+line-height:1.45;
+color:rgba(31,31,31,.60);
+text-align:center;
+text-indent:0;
+}
+/* Fala principal */
+.cap9-quote-card{
+  margin: 22px 0 24px;
+  padding: 18px 20px;
+  border-left: 5px solid var(--blue);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(30,136,229,.08), rgba(30,136,229,.03));
+  box-shadow: 0 6px 16px rgba(0,0,0,.03);
+}
+
+.cap9-quote-card p{
+  margin: 0;
+  text-indent: 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+/* Orientação de seguimento */
+.cap9-guidance-card{
+  margin: 22px 0 24px;
+  padding: 18px 20px;
+  border: 1px solid rgba(31,60,136,.16);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(245,247,250,.96), rgba(255,255,255,.98));
+  box-shadow: 0 6px 16px rgba(0,0,0,.025);
+}
+
+.cap9-guidance-card p{
+  margin: 0;
+  text-indent: 0;
+  line-height: 1.75;
+  color: rgba(31,31,31,.86);
+}
+
+/* Ajustes finos para mobile */
+@media (max-width: 760px){
+  .cap9-scene-figure{
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .cap9-quote-card,
+  .cap9-guidance-card{
+    padding: 16px 16px;
+  }
+
+  .cap9-scene-figure__caption{
+    font-size: 12px;
+  }
+}
+/* =========================
+   Capítulo 09 — Página 71
+   Orientando sobre a duração do tratamento
+   ========================= */
+
+.cap9-page71 sup{
+  font-size: 0.72em;
+  color: rgba(31,31,31,.46);
+  font-weight: 600;
+  vertical-align: super;
+  line-height: 0;
+}
+
+.cap9-duration-figure{
+margin:40px 0 36px;
+}
+
+.cap9-duration-figure__svg{
+width:100%;
+height:auto;
+display:block;
+}
+
+/* linha */
+
+.cap9-duration-line{
+stroke:#cfd6df;
+stroke-width:5;
+stroke-linecap:round;
+}
+
+/* pontos */
+
+.cap9-dot{
+stroke-width:3;
+}
+
+.cap9-dot-left{
+fill:#fff6ef;
+stroke:#d08c5c;
+}
+
+.cap9-dot-center{
+fill:#1f3c88;
+stroke:#1f3c88;
+}
+
+.cap9-dot-right{
+fill:#fff3ef;
+stroke:#c56f4f;
+}
+
+/* títulos */
+
+.cap9-label{
+font-family:var(--font-sub);
+font-size:32px;
+font-weight:700;
+fill:#2b3e55;
+}
+
+.cap9-label-center{
+font-family:var(--font-sub);
+font-size:36px;
+font-weight:700;
+fill:#1f3c88;
+}
+
+/* cards */
+
+.cap9-card{
+fill:#ffffff;
+stroke:#e3e7ee;
+stroke-width:1.2;
+}
+
+.cap9-card-center{
+fill:#f2f6ff;
+stroke:#cfd9f4;
+}
+
+/* textos */
+
+.cap9-body{
+font-family:var(--font-body);
+font-size:22px;
+fill:#333;
+}
+
+/* caixas de fala já usadas na página 70
+   permanecem válidas para esta página */
+.cap9-quote-card{
+  margin: 22px 0 24px;
+  padding: 18px 20px;
+  border-left: 5px solid var(--blue);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(30,136,229,.08), rgba(30,136,229,.03));
+  box-shadow: 0 6px 16px rgba(0,0,0,.03);
+}
+
+.cap9-quote-card p{
+  margin: 0;
+  text-indent: 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.cap9-guidance-card{
+  margin: 22px 0 24px;
+  padding: 18px 20px;
+  border: 1px solid rgba(31,60,136,.16);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(245,247,250,.96), rgba(255,255,255,.98));
+  box-shadow: 0 6px 16px rgba(0,0,0,.025);
+}
+
+.cap9-guidance-card p{
+  margin: 0;
+  text-indent: 0;
+  line-height: 1.75;
+  color: rgba(31,31,31,.86);
+}
+
+/* responsivo */
+@media (max-width: 900px){
+  .cap9-duration-figure{
+    margin: 24px 0 22px;
+  }
+
+  .cap9-duration-figure__caption{
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 760px){
+  .cap9-quote-card,
+  .cap9-guidance-card{
+    padding: 16px 16px;
+  }
+}
+/* =========================
+   Capítulo 09 — Página 72
+   Automedicação e uso inadequado de antibacterianos
+   ========================= */
+
+.cap9-page72 sup{
+  font-size: 0.72em;
+  color: rgba(31,31,31,.46);
+  font-weight: 600;
+  vertical-align: super;
+  line-height: 0;
+}
+
+.cap9-misuse-grid{
+  margin: 28px 0 26px;
+  border: 1px solid rgba(31,31,31,.10);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,250,253,.96));
+  box-shadow: 0 10px 24px rgba(0,0,0,.05);
+  overflow: hidden;
+}
+
+.cap9-misuse-grid__header{
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid rgba(31,31,31,.08);
+  background: linear-gradient(180deg, rgba(31,60,136,.045), rgba(31,60,136,.015));
+}
+
+.cap9-misuse-grid__header h2{
+  margin: 0;
+  font-family: var(--font-sub);
+  font-size: 28px;
+  line-height: 1.08;
+  color: #1f3551;
+}
+
+.cap9-misuse-grid__cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding: 18px;
+}
+
+.cap9-misuse-card{
+  border: 1px solid rgba(31,31,31,.10);
+  border-radius: 16px;
+  padding: 16px 16px 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,250,253,.96));
+  box-shadow: 0 8px 16px rgba(0,0,0,.03);
+}
+
+.cap9-misuse-card__icon{
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  background: rgba(31,60,136,.06);
+  border: 1px solid rgba(31,60,136,.10);
+}
+
+.cap9-misuse-card__svg{
+  width: 38px;
+  height: 38px;
+  display: block;
+}
+
+.cap9-misuse-card__svg rect,
+.cap9-misuse-card__svg circle,
+.cap9-misuse-card__svg path{
+  fill: none;
+  stroke: #31588e;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cap9-misuse-card h3{
+  margin: 0 0 8px;
+  font-family: var(--font-sub);
+  font-size: 22px;
+  line-height: 1.1;
+  color: #1f3551;
+}
+
+.cap9-misuse-card p{
+  margin: 0;
+  text-indent: 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(31,31,31,.78);
+}
+
+.cap9-misuse-grid__footer{
+  padding: 14px 18px 18px;
+  border-top: 1px solid rgba(31,31,31,.08);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(31,31,31,.78);
+  text-indent: 0;
+  background: linear-gradient(180deg, rgba(245,247,250,.96), rgba(255,255,255,.98));
+}
+
+/* Responsivo */
+@media (max-width: 980px){
+  .cap9-misuse-grid__cards{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px){
+  .cap9-misuse-grid__header h2{
+    font-size: 24px;
+  }
+
+  .cap9-misuse-grid__cards{
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .cap9-misuse-card{
+    padding: 14px 14px 12px;
+  }
+}
+/* =========================
+   Capítulo 09 — Página 72
+   Automedicação e uso inadequado de antibacterianos
+   ========================= */
+
+.cap9-page72 sup{
+  font-size: 0.72em;
+  color: rgba(31,31,31,.46);
+  font-weight: 600;
+  vertical-align: super;
+  line-height: 0;
+}
+
+/* Usa o mesmo box azul já adotado nas páginas anteriores */
+.cap9-quote-card{
+  margin: 22px 0 24px;
+  padding: 18px 20px;
+  border-left: 5px solid var(--blue);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(30,136,229,.08), rgba(30,136,229,.03));
+  box-shadow: 0 6px 16px rgba(0,0,0,.03);
+}
+
+.cap9-quote-card p{
+  margin: 0;
+  text-indent: 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+/* Alerta editorial */
+.cap9-alerta-clinico{
+  display: flex;
+  gap: 18px;
+  margin: 38px 0 34px;
+  padding: 24px 26px;
+  border-left: 6px solid #e35d3f;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fff8f5, #fffdfc);
+  box-shadow: 0 8px 20px rgba(0,0,0,.04);
+}
+
+.cap9-alerta-icon{
+  flex: 0 0 auto;
+  font-size: 32px;
+  line-height: 1;
+  color: #e35d3f;
+  margin-top: 4px;
+}
+
+.cap9-alerta-content{
+  min-width: 0;
+}
+
+.cap9-alerta-content h2{
+  margin: 0 0 12px;
+  font-family: var(--font-sub);
+  font-size: 28px;
+  line-height: 1.08;
+  color: #1f3551;
+}
+
+.cap9-alerta-content ul{
+  margin: 0;
+  padding-left: 20px;
+}
+
+.cap9-alerta-content li{
+  margin-bottom: 12px;
+  color: rgba(31,31,31,.82);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.cap9-alerta-content li:last-child{
+  margin-bottom: 0;
+}
+
+.cap9-alerta-content strong{
+  color: #1f3551;
+  font-weight: 700;
+}
+
+/* Responsivo */
+@media (max-width: 760px){
+  .cap9-alerta-clinico{
+    gap: 14px;
+    padding: 18px 18px;
+    margin: 30px 0 28px;
+  }
+
+  .cap9-alerta-icon{
+    font-size: 28px;
+  }
+
+  .cap9-alerta-content h2{
+    font-size: 24px;
+  }
+
+  .cap9-alerta-content li{
+    font-size: 15.5px;
+  }
+
+  .cap9-quote-card{
+    padding: 16px 16px;
+  }
+}
+/* =========================
+   Capítulo 09 — Página 73
+   Orientando sobre efeitos adversos
+   ========================= */
+
+.cap9-page73 sup{
+  font-size: 0.72em;
+  color: rgba(31,31,31,.46);
+  font-weight: 600;
+  vertical-align: super;
+  line-height: 0;
+}
+
+/* figura editorial simples */
+.cap9-figure{
+  margin: 34px 0 28px;
+}
+
+.cap9-figure img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.cap9-figure figcaption{
+  margin-top: 10px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: rgba(31,31,31,.60);
+  text-align: center;
+  text-indent: 0;
+}
+
+/* ajuste específico se a figura for um fluxograma */
+.cap9-figure--flow{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* caixa azul reaproveitada */
+.cap9-quote-card{
+  margin: 22px 0 24px;
+  padding: 18px 20px;
+  border-left: 5px solid var(--blue);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(30,136,229,.08), rgba(30,136,229,.03));
+  box-shadow: 0 6px 16px rgba(0,0,0,.03);
+}
+
+.cap9-quote-card p{
+  margin: 0;
+  text-indent: 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+@media (max-width: 760px){
+  .cap9-quote-card{
+    padding: 16px 16px;
+  }
+
+  .cap9-figure figcaption{
+    font-size: 12px;
+  }
+}
+/* =========================
+   Capítulo 09 — Página 74
+   Quiz de revisão
+   ========================= */
+
+.cap9-quiz{
+  margin: 12px 0 6px;
+}
+
+.cap9-quizNav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:18px;
+  padding:12px 14px;
+  border:1px solid rgba(31,31,31,.08);
+  border-radius:16px;
+  background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,250,253,.96));
+}
+
+.cap9-quizProgress{
+  font-family:var(--font-ui);
+  font-size:14px;
+  font-weight:700;
+  color:#1f3551;
+  text-indent:0;
+}
+
+.cap9-quizNavBtn{
+  appearance:none;
+  border:1px solid rgba(31,31,31,.12);
+  background:#fff;
+  color:#1f3551;
+  padding:10px 14px;
+  border-radius:12px;
+  cursor:pointer;
+  font-family:var(--font-ui);
+  font-size:14px;
+  font-weight:600;
+}
+
+.cap9-quizNavBtn:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+.cap9-question{
+  display:none;
+}
+
+.cap9-question.active{
+  display:block;
+}
+
+.cap9-questionMeta{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.cap9-questionBadge{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(31,60,136,.08);
+  color:#1f3c88;
+  font-family:var(--font-ui);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+}
+
+.cap9-questionType{
+  color:rgba(31,31,31,.58);
+  font-size:13px;
+  font-weight:600;
+}
+
+.cap9-caseCard{
+  margin:0 0 16px;
+  padding:18px 18px 16px;
+  border:1px solid rgba(31,31,31,.08);
+  border-radius:16px;
+  background:linear-gradient(180deg, rgba(245,247,250,.92), rgba(255,255,255,.98));
+}
+
+.cap9-caseLabel{
+  margin:0 0 8px;
+  color:rgba(31,31,31,.58);
+  font-family:var(--font-ui);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  text-indent:0;
+}
+
+.cap9-case{
+  margin:0;
+  text-indent:0;
+  line-height:1.7;
+}
+
+.cap9-prompt{
+  margin:0 0 16px;
+  font-family:var(--font-sub);
+  font-size:26px;
+  line-height:1.18;
+  color:#1f3551;
+  text-indent:0;
+}
+
+.cap9-options{
+  display:grid;
+  gap:12px;
+}
+
+.cap9-options button{
+  appearance:none;
+  display:grid;
+  grid-template-columns:44px 1fr;
+  gap:14px;
+  align-items:start;
+  width:100%;
+  text-align:left;
+  padding:16px 16px;
+  border:1px solid rgba(31,31,31,.10);
+  border-radius:16px;
+  background:#fff;
+  cursor:pointer;
+  transition:transform .12s ease, border-color .12s ease, box-shadow .12s ease, background .12s ease;
+}
+
+.cap9-options button:hover{
+  transform:translateY(-1px);
+  border-color:rgba(31,60,136,.26);
+  box-shadow:0 8px 18px rgba(0,0,0,.04);
+}
+
+.cap9-options button.is-selected{
+  border-color:rgba(31,60,136,.36);
+  background:rgba(31,60,136,.04);
+}
+
+.cap9-options button.is-correct{
+  border-color:rgba(40,120,76,.34);
+  background:rgba(40,120,76,.05);
+}
+
+.cap9-options button.is-wrong{
+  border-color:rgba(196,76,76,.30);
+  background:rgba(196,76,76,.05);
+}
+
+.cap9-optionLetter{
+  display:grid;
+  place-items:center;
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  border:1px solid rgba(31,31,31,.10);
+  background:#f7f9fc;
+  color:#1f3551;
+  font-family:var(--font-ui);
+  font-size:15px;
+  font-weight:700;
+}
+
+.cap9-optionText{
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.65;
+  color:rgba(31,31,31,.88);
+}
+
+.cap9-actions{
+  display:flex;
+  gap:12px;
+  margin-top:18px;
+}
+
+.cap9-btn{
+  appearance:none;
+  border-radius:12px;
+  padding:12px 16px;
+  font-family:var(--font-ui);
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.cap9-btn--primary{
+  border:1px solid var(--blue);
+  background:var(--blue);
+  color:#fff;
+}
+
+.cap9-btn--primary:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+.cap9-btn--ghost{
+  border:1px solid rgba(31,31,31,.12);
+  background:#fff;
+  color:#1f3551;
+}
+
+.cap9-feedback{
+  margin-top:18px;
+}
+
+.cap9-feedbackBlock{
+  padding:18px 18px 16px;
+  border:1px solid rgba(31,31,31,.08);
+  border-radius:16px;
+  background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,250,253,.96));
+  box-shadow:0 8px 18px rgba(0,0,0,.03);
+}
+
+.cap9-feedbackTitle{
+  margin:0 0 8px;
+  color:#1f3c88;
+  font-family:var(--font-ui);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  text-indent:0;
+}
+
+.cap9-feedbackAnswer{
+  margin:0 0 10px;
+  font-family:var(--font-sub);
+  font-size:22px;
+  line-height:1.2;
+  color:#1f3551;
+  text-indent:0;
+}
+
+.cap9-feedbackList p{
+  margin:0 0 10px;
+  text-indent:0;
+  line-height:1.7;
+}
+
+.cap9-keyPoint{
+  margin-top:12px;
+  padding:12px 14px;
+  border-left:4px solid var(--blue);
+  border-radius:12px;
+  background:#f5f7fa;
+  text-indent:0;
+  line-height:1.6;
+}
+
+.cap9-doneCard{
+  margin-top:18px;
+  padding:20px 18px;
+  border:1px solid rgba(31,31,31,.08);
+  border-radius:16px;
+  background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,250,253,.96));
+  text-align:center;
+}
+
+.cap9-doneBadge{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(40,120,76,.08);
+  color:#215d3c;
+  font-family:var(--font-ui);
+  font-size:12px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.cap9-doneCard p{
+  margin:10px 0 0;
+  text-indent:0;
+}
+
+.cap9-refBox{
+  margin-top:26px;
+}
+
+.cap9-refContent p{
+  text-indent:0;
+}
+
+@media (max-width: 760px){
+  .cap9-prompt{
+    font-size:22px;
+  }
+
+  .cap9-options button{
+    grid-template-columns:40px 1fr;
+    gap:12px;
+    padding:14px 14px;
+  }
+
+  .cap9-optionLetter{
+    width:40px;
+    height:40px;
+  }
+
+  .cap9-actions{
+    flex-wrap:wrap;
+  }
+}

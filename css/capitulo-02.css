@@ -1,0 +1,2301 @@
+/* =========================
+   Capítulo 2 — Página 11
+   Alvos celulares dos antibacterianos
+   ========================= */
+
+.cap2-page11 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap2-shell{
+  isolation: isolate;
+}
+
+.cap2-reading-flow{
+  position: relative;
+}
+
+.cap2-p11-figure{
+  margin: 26px 0 24px;
+}
+
+.cap2-p11-figure .cap2-zoomTrigger{
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.cap2-p11-figure img{
+  display: block;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 14px 34px rgba(18, 38, 63, 0.10);
+}
+
+.cap2-caption{
+  margin-top: 8px;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: rgba(31,31,31,.70);
+  text-indent: 0;
+}
+
+.cap2-p11-intro-list{
+  margin-bottom: 14px;
+}
+
+.cap2-p11-mechanisms{
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+  counter-reset: mechanism;
+}
+
+.cap2-p11-mechanisms li{
+  position: relative;
+  margin: 0 0 10px;
+  padding: 0 0 0 42px;
+  font-family: var(--font-ui, "Inter", sans-serif);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #1f1f1f;
+}
+
+.cap2-p11-mechanisms li::before{
+  counter-increment: mechanism;
+  content: counter(mechanism, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  font-family: var(--font-ui, "Inter", sans-serif);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #1e5fae;
+}
+
+.cap2-p11-mechanisms li:nth-child(1)::before{
+  color: #1e88e5;
+}
+
+.cap2-p11-mechanisms li:nth-child(2)::before{
+  color: #7b61ff;
+}
+
+.cap2-p11-mechanisms li:nth-child(3)::before{
+  color: #2f7d6b;
+}
+
+.cap2-p11-mechanisms li:nth-child(4)::before{
+  color: #ef8b17;
+}
+
+.cap2-p11-mechanisms li:nth-child(5)::before{
+  color: #b75555;
+}
+
+.cap2-p11-mechanisms li:hover{
+  transform: translateX(2px);
+  transition: transform 180ms ease;
+}
+
+/* Lightbox */
+.cap2-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap2-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap2-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap2-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1180px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+  overflow: auto;
+}
+
+.cap2-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap2-lightbox__close:hover{
+  background: rgba(255,255,255,.20);
+}
+
+.cap2-lightbox__figure{
+  margin: 0;
+}
+
+.cap2-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-width: 1120px;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap2-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Responsivo */
+@media (max-width: 900px){
+  .cap2-p11-figure{
+    margin: 22px 0 22px;
+  }
+
+  .cap2-p11-figure img{
+    border-radius: 14px;
+  }
+
+  .cap2-p11-mechanisms li{
+    padding-left: 38px;
+  }
+}
+
+@media (max-width: 640px){
+  .cap2-p11-mechanisms{
+    margin-bottom: 22px;
+  }
+
+  .cap2-p11-mechanisms li{
+    margin-bottom: 12px;
+    padding-left: 34px;
+    font-size: 0.98rem;
+  }
+
+  .cap2-lightbox__dialog{
+    width: min(96vw, 1180px);
+    padding: 16px 10px 12px;
+  }
+}
+/* =========================================================
+   PÁGINA 12 — CLASSIFICAÇÃO POR MECANISMO
+   ========================================================= */
+
+.cap2-page12 .cap2-reading-flow{
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.cap2-page12 .cap2-reading-flow p{
+  margin: 0 0 1.1rem;
+}
+
+/* HIGHLIGHT */
+
+.cap2-p12-highlight{
+  margin: 26px 0 30px;
+  padding: 20px 22px 20px 24px;
+  border-left: 5px solid #1e88e5;
+  border-radius: 0 18px 18px 0;
+  background:
+    linear-gradient(135deg, rgba(30,136,229,0.10), rgba(251,140,0,0.08)),
+    linear-gradient(180deg, #f8fbff, #fffaf5);
+  box-shadow:
+    0 10px 22px rgba(18,38,63,0.05);
+}
+
+.cap2-p12-highlight p{
+  margin: 0;
+  font-family: var(--font-sub);
+  font-size: 1.15rem;
+  color: #174d78;
+  line-height: 1.55;
+}
+
+/* INTRO DA TABELA */
+
+.cap2-p12-tableIntro{
+  margin-bottom: 14px;
+  color: #556270;
+}
+
+/* WRAPPER */
+
+.cap2-table-wrapper{
+  overflow-x: auto;
+  border-radius: 18px;
+  box-shadow:
+    0 12px 28px rgba(18,38,63,0.06);
+}
+
+/* TABELA */
+
+.cap2-table{
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  min-width: 720px;
+}
+
+/* HEADER */
+
+.cap2-table thead th{
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+  background: linear-gradient(180deg, #1e88e5, #1565c0);
+  color: white;
+
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+/* CELULAS */
+
+.cap2-table td{
+  padding: 14px 16px;
+  border-bottom: 1px solid #edf2f7;
+  vertical-align: top;
+}
+
+/* COLUNA MECANISMO */
+
+.cap2-p12-mechanism{
+  font-weight: 700;
+  color: #174d78;
+  background: #f4f9ff;
+  border-right: 1px solid #e3edf7;
+}
+
+/* GRUPOS */
+
+.cap2-p12-groupStart td{
+  border-top: 2px solid #e0ebf5;
+}
+
+/* HOVER LINHA */
+
+.cap2-table tbody tr:hover td{
+  background: #f8fbff;
+  transition: background 0.2s ease;
+}
+
+/* ZEBRA */
+
+.cap2-table tbody tr:nth-child(even){
+  background: #fcfdff;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 640px){
+
+  .cap2-p12-highlight{
+    padding: 16px;
+    border-radius: 0 14px 14px 0;
+  }
+
+  .cap2-p12-highlight p{
+    font-size: 1rem;
+  }
+
+  .cap2-table{
+    font-size: 0.92rem;
+  }
+
+  .cap2-table td{
+    padding: 12px;
+  }
+
+}
+.cap2-table tbody tr.is-active td{
+  background: rgba(30,136,229,0.10) !important;
+}
+
+/* =========================================================
+   PÁGINA 13 — WALL EXPLORER
+   ========================================================= */
+
+.cap2-wall-explorer{
+  margin: 36px 0;
+  padding: 26px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(30,136,229,0.10), transparent 30%),
+    radial-gradient(circle at top right, rgba(251,140,0,0.10), transparent 30%),
+    linear-gradient(180deg, #ffffff, #f7fafc);
+  box-shadow:
+    0 16px 34px rgba(18,38,63,0.06),
+    inset 0 0 0 1px rgba(23,77,120,0.06);
+}
+
+/* HEADER */
+
+.cap2-wall-explorer__title{
+  font-family: var(--font-sub);
+  font-size: 26px;
+  color: #174d78;
+  margin: 0;
+}
+
+.cap2-wall-explorer__eyebrow{
+  font-size: 12px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #6b7785;
+  margin-bottom: 6px;
+}
+
+/* NAV */
+
+.cap2-wall-explorer__nav{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 26px;
+}
+
+.cap2-wall-chip{
+  border: 1px solid rgba(23,77,120,0.15);
+  background: white;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #5c6a79;
+  transition: all .25s ease;
+}
+
+.cap2-wall-chip:hover{
+  transform: translateY(-1px);
+}
+
+.cap2-wall-chip.is-active{
+  background: linear-gradient(180deg,#1e88e5,#1565c0);
+  color: white;
+  box-shadow: 0 8px 18px rgba(30,136,229,0.25);
+}
+
+/* BODY */
+
+.cap2-wall-explorer__body{
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* FIGURE */
+
+.cap2-wall-figure{
+  margin: 0;
+}
+
+.cap2-wall-zoomTrigger{
+  display: block;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+  border-radius: 18px;
+}
+
+.cap2-wall-figure__img{
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(18,38,63,0.12);
+  transition: transform .25s ease;
+}
+
+.cap2-wall-zoomTrigger:hover img{
+  transform: scale(1.02);
+}
+
+.cap2-wall-figure__caption{
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #5a6672;
+}
+
+/* TEXT */
+
+.cap2-wall-texts{
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow:
+    inset 0 0 0 1px rgba(23,77,120,0.06);
+}
+
+.cap2-wall-panel{
+  animation: fadeIn .25s ease;
+}
+
+.cap2-wall-panel[hidden]{
+  display: none;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform: translateY(4px);}
+  to{opacity:1; transform: translateY(0);}
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+  .cap2-wall-explorer__body{
+    grid-template-columns: 1fr;
+  }
+}
+.cap2-wall-figure__img{
+  width: 100%;
+  border-radius: 20px;
+  box-shadow:
+    0 18px 40px rgba(18,38,63,0.18);
+  transition: transform .3s ease;
+}
+@media(max-width:900px){
+  .cap2-wall-explorer__body{
+    grid-template-columns: 1fr;
+  }
+
+  .cap2-wall-figure{
+    order: -1;
+  }
+}
+.cap2-wall-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.cap2-wall-zoomTrigger img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* =========================================================
+   LIGHTBOX GLOBAL — CAPÍTULO 2
+   ========================================================= */
+
+.cap2-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap2-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.cap2-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 16, 28, 0.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap2-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(1100px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+  padding: 20px 20px 16px;
+}
+
+.cap2-lightbox__close{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(23, 77, 120, 0.08);
+  color: #174d78;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.cap2-lightbox__close:hover{
+  transform: scale(1.04);
+  background: rgba(23, 77, 120, 0.14);
+}
+
+.cap2-lightbox__close:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.18);
+}
+
+.cap2-lightbox__figure{
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.cap2-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 180px);
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap2-lightbox__caption{
+  margin: 0;
+  text-align: center;
+  color: #5a6672;
+  font-size: 0.96rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px){
+  .cap2-lightbox{
+    padding: 12px;
+  }
+
+  .cap2-lightbox__dialog{
+    max-height: calc(100vh - 24px);
+    border-radius: 16px;
+    padding: 16px 16px 14px;
+  }
+
+  .cap2-lightbox__figure img{
+    max-height: calc(100vh - 150px);
+    border-radius: 12px;
+  }
+}
+/* =========================================================
+   PÁGINA 14 — AÇÃO SOBRE A MEMBRANA CITOPLASMÁTICA
+   ========================================================= */
+
+.cap2-page14 .cap2-reading-flow{
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.cap2-page14 .cap2-reading-flow > p{
+  margin: 0 0 1.1rem;
+}
+
+.cap2-p14-highlight{
+  margin: 26px 0 30px;
+  padding: 20px 22px 20px 24px;
+  border-left: 5px solid #fb8c00;
+  border-radius: 0 18px 18px 0;
+  background:
+    linear-gradient(135deg, rgba(251,140,0,0.12), rgba(30,136,229,0.08)),
+    linear-gradient(180deg, #fffaf5, #f8fbff);
+  box-shadow: 0 10px 24px rgba(18,38,63,0.05);
+}
+
+.cap2-p14-highlight p{
+  margin: 0;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 1.14rem;
+  line-height: 1.56;
+  color: #7a4a14;
+  text-indent: 0;
+}
+
+/* Funções essenciais */
+
+.cap2-membrane-functions{
+  margin: 30px 0 22px;
+}
+
+.cap2-p14-stageIntro,
+.cap2-p14-mechIntro{
+  max-width: 900px;
+  margin: 0 auto 16px;
+  color: #566273;
+}
+
+.cap2-inline-title{
+  margin: 0 0 18px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 1.62rem;
+  color: #174d78;
+  text-align: center;
+}
+
+.cap2-membrane-functions__grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.cap2-membrane-functions__item{
+  padding: 18px 18px 16px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff, #f8fbfd);
+  box-shadow:
+    inset 0 0 0 1px rgba(23,77,120,0.06),
+    0 10px 22px rgba(18,38,63,0.05);
+}
+
+.cap2-membrane-functions__item h3{
+  margin: 0 0 8px;
+  font-size: 1.02rem;
+  line-height: 1.32;
+  color: #174d78;
+}
+
+.cap2-membrane-functions__item p{
+  margin: 0;
+  color: #586676;
+  text-indent: 0;
+  line-height: 1.6;
+}
+
+/* Intro polimixina — mantém, mas com menos peso */
+
+.cap2-membrane-intro{
+  margin: 28px auto 20px;
+  max-width: 920px;
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) 1fr;
+  gap: 22px;
+  align-items: center;
+  padding: 18px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #ffffff, #fafcfe);
+  box-shadow:
+    inset 0 0 0 1px rgba(23,77,120,0.06),
+    0 10px 24px rgba(18,38,63,0.04);
+}
+
+.cap2-membrane-intro__media{
+  justify-self: center;
+  width: 100%;
+  max-width: 340px;
+}
+
+.cap2-membrane-intro .cap2-zoomTrigger{
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  border-radius: 18px;
+}
+
+.cap2-membrane-intro .cap2-zoomTrigger:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(30,136,229,0.16);
+}
+
+.cap2-membrane-intro__img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 14px 28px rgba(18,38,63,0.10);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.cap2-membrane-intro .cap2-zoomTrigger:hover .cap2-membrane-intro__img,
+.cap2-membrane-intro .cap2-zoomTrigger:focus-visible .cap2-membrane-intro__img{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(18,38,63,0.14);
+}
+
+.cap2-membrane-intro__eyebrow{
+  margin: 0 0 6px;
+  color: rgba(31,31,31,0.56);
+  font-family: var(--font-ui, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap2-membrane-intro__title{
+  margin: 0 0 10px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 1.7rem;
+  line-height: 1.2;
+  color: #174d78;
+}
+
+.cap2-membrane-intro__text p{
+  margin: 0 0 10px;
+  text-indent: 0;
+}
+
+.cap2-membrane-intro__text p:last-child{
+  margin-bottom: 0;
+}
+
+/* Explorador principal — aqui fica o foco da página */
+
+.cap2-membrane-explorer{
+  margin: 34px auto 32px;
+  max-width: 1020px;
+  padding: 26px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top left, rgba(30,136,229,0.10), transparent 28%),
+    radial-gradient(circle at top right, rgba(251,140,0,0.11), transparent 28%),
+    linear-gradient(180deg, #ffffff, #f7fafc);
+  box-shadow:
+    inset 0 0 0 1px rgba(23,77,120,0.06),
+    0 18px 38px rgba(18,38,63,0.07);
+}
+
+.cap2-membrane-explorer__header{
+  display: grid;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.cap2-membrane-explorer__eyebrow{
+  margin: 0 0 6px;
+  color: rgba(31,31,31,0.56);
+  font-family: var(--font-ui, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap2-membrane-explorer__title{
+  margin: 0;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 2rem;
+  line-height: 1.15;
+  color: #174d78;
+}
+
+.cap2-membrane-explorer__mechanisms{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.cap2-mech-tab{
+  appearance: none;
+  border: 1px solid rgba(23,77,120,0.14);
+  background: rgba(255,255,255,0.9);
+  color: #5d6978;
+  padding: 11px 18px;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform .22s ease,
+    border-color .22s ease,
+    background .22s ease,
+    box-shadow .22s ease,
+    color .22s ease;
+}
+
+.cap2-mech-tab:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(18,38,63,0.05);
+}
+
+.cap2-mech-tab.is-active,
+.cap2-mech-tab[aria-selected="true"]{
+  color: #174d78;
+  background: linear-gradient(180deg, #f5f9ff, #edf4fc);
+  border-color: rgba(23,77,120,0.26);
+  box-shadow: 0 10px 20px rgba(18,38,63,0.08);
+}
+
+.cap2-mech-tab:focus-visible,
+.cap2-phase-tab:focus-visible,
+.cap2-phase-figure__trigger:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(30,136,229,0.16);
+}
+
+.cap2-mech-panel[hidden],
+.cap2-phase-panel[hidden]{
+  display: none;
+}
+
+.cap2-phase-tabs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.cap2-phase-tab{
+  appearance: none;
+  border: 1px solid rgba(23,77,120,0.14);
+  background: #ffffff;
+  color: #617083;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform .22s ease,
+    background .22s ease,
+    border-color .22s ease,
+    box-shadow .22s ease,
+    color .22s ease;
+}
+
+.cap2-phase-tab:hover{
+  transform: translateY(-1px);
+}
+
+.cap2-phase-tab.is-active,
+.cap2-phase-tab[aria-selected="true"]{
+  background: linear-gradient(180deg, #1e88e5, #1565c0);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 10px 20px rgba(30,136,229,0.24);
+}
+
+.cap2-phase-layout{
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.85fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.cap2-phase-figure{
+  margin: 0;
+}
+
+.cap2-phase-figure__trigger{
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  border-radius: 22px;
+}
+
+.cap2-phase-figure__img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  box-shadow:
+    0 20px 42px rgba(18,38,63,0.16),
+    0 4px 14px rgba(18,38,63,0.08);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+.cap2-phase-figure__trigger:hover .cap2-phase-figure__img,
+.cap2-phase-figure__trigger:focus-visible .cap2-phase-figure__img{
+  transform: translateY(-2px) scale(1.01);
+  box-shadow:
+    0 24px 48px rgba(18,38,63,0.20),
+    0 6px 18px rgba(18,38,63,0.10);
+}
+
+.cap2-phase-figure__caption{
+  margin: 10px 0 0;
+  color: #5a6672;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.cap2-phase-texts{
+  padding: 20px 20px 18px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #ffffff, #f8fbfd);
+  box-shadow:
+    inset 0 0 0 1px rgba(23,77,120,0.06),
+    0 10px 24px rgba(18,38,63,0.05);
+}
+
+.cap2-phase-title{
+  margin: 0 0 12px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 1.42rem;
+  line-height: 1.22;
+  color: #174d78;
+  text-indent: 0;
+}
+
+.cap2-phase-panel{
+  animation: cap2P14Fade .24s ease;
+}
+
+.cap2-phase-panel p{
+  margin: 0 0 12px;
+  text-indent: 0;
+  line-height: 1.72;
+}
+
+.cap2-phase-panel p:last-child{
+  margin-bottom: 0;
+}
+
+@keyframes cap2P14Fade{
+  from{
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 920px){
+  .cap2-membrane-intro{
+    grid-template-columns: 1fr;
+    max-width: 760px;
+  }
+
+  .cap2-membrane-intro__media{
+    max-width: 320px;
+  }
+
+  .cap2-phase-layout{
+    grid-template-columns: 1fr;
+  }
+
+  .cap2-phase-figure{
+    order: -1;
+  }
+}
+
+@media (max-width: 700px){
+  .cap2-membrane-functions__grid{
+    grid-template-columns: 1fr;
+  }
+
+  .cap2-membrane-explorer{
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .cap2-membrane-explorer__title{
+    font-size: 1.7rem;
+  }
+
+  .cap2-phase-tabs{
+    justify-content: stretch;
+  }
+
+  .cap2-phase-tab,
+  .cap2-mech-tab{
+    width: 100%;
+    text-align: center;
+  }
+
+  .cap2-phase-figure__img{
+    border-radius: 16px;
+  }
+
+  .cap2-phase-texts{
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .cap2-phase-title{
+    font-size: 1.22rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cap2-mech-tab,
+  .cap2-phase-tab,
+  .cap2-phase-panel,
+  .cap2-phase-figure__img,
+  .cap2-membrane-intro__img{
+    transition: none !important;
+    animation: none !important;
+  }
+}
+/* =========================================================
+   PÁGINA 15 — INIBIÇÃO DA SÍNTESE PROTEICA
+   ========================================================= */
+
+.cap2-page15 .cap2-reading-flow{
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.cap2-page15 .cap2-reading-flow > p{
+  margin: 0 0 1.1rem;
+}
+
+.cap2-p15-highlight{
+  margin: 26px 0 30px;
+  padding: 20px 22px 20px 24px;
+  border-left: 5px solid #1e88e5;
+  border-radius: 0 18px 18px 0;
+  background:
+    linear-gradient(135deg, rgba(30,136,229,0.10), rgba(251,140,0,0.08)),
+    linear-gradient(180deg, #f8fbff, #fffaf5);
+  box-shadow: 0 10px 24px rgba(18,38,63,0.05);
+}
+
+.cap2-p15-highlight p{
+  margin: 0;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 1.14rem;
+  line-height: 1.56;
+  color: #174d78;
+  text-indent: 0;
+}
+
+/* Explorer principal */
+
+.cap2-p15-explorer{
+  margin: 36px auto;
+  max-width: 1040px;
+  padding: 28px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top left, rgba(30,136,229,0.10), transparent 30%),
+    radial-gradient(circle at top right, rgba(251,140,0,0.10), transparent 30%),
+    linear-gradient(180deg,#ffffff,#f7fafc);
+  box-shadow:
+    inset 0 0 0 1px rgba(23,77,120,0.06),
+    0 18px 40px rgba(18,38,63,0.08);
+}
+
+.cap2-p15-explorer__intro{
+  max-width: 860px;
+  margin: 0 auto 18px;
+  color: #586676;
+  text-align: center;
+}
+
+.cap2-p15-explorer__intro p{
+  margin: 0;
+  text-indent: 0;
+}
+
+.cap2-p15-explorer__layout{
+  display: grid;
+  grid-template-columns: 1.5fr 0.9fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.cap2-p15-figure{
+  position: relative;
+  margin: 0;
+}
+
+.cap2-p15-figure__trigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+  border-radius: 22px;
+}
+
+.cap2-p15-figure__trigger:focus-visible,
+.cap2-p15-hotspot:focus-visible,
+.cap2-zoomTrigger:focus-visible,
+.cap2-acc-trigger:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(30,136,229,0.16);
+}
+
+.cap2-p15-figure__img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  box-shadow:
+    0 22px 48px rgba(18,38,63,0.20),
+    0 6px 18px rgba(18,38,63,0.10);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.cap2-p15-figure__trigger:hover .cap2-p15-figure__img,
+.cap2-p15-figure__trigger:focus-visible .cap2-p15-figure__img{
+  transform: scale(1.015);
+  box-shadow:
+    0 26px 54px rgba(18,38,63,0.24),
+    0 8px 20px rgba(18,38,63,0.12);
+}
+
+.cap2-p15-figure__caption{
+  margin: 10px 0 0;
+  color: #5a6672;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Hotspots */
+
+.cap2-p15-hotspot{
+  position: absolute;
+  z-index: 2;
+  width: 18px;
+  height: 18px;
+  border: 3px solid #ffffff;
+  border-radius: 999px;
+  background: #1e88e5;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  box-shadow:
+    0 0 0 6px rgba(30,136,229,0.24),
+    0 0 14px rgba(30,136,229,0.55);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.cap2-p15-hotspot:hover{
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+.cap2-p15-hotspot.is-active{
+  background: #fb8c00;
+  box-shadow:
+    0 0 0 8px rgba(251,140,0,0.24),
+    0 0 16px rgba(251,140,0,0.6);
+}
+
+/* Viewer */
+
+.cap2-p15-viewer{
+  padding: 22px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow:
+    inset 0 0 0 1px rgba(23,77,120,0.06),
+    0 12px 26px rgba(18,38,63,0.05);
+}
+
+.cap2-p15-viewer__eyebrow{
+  margin: 0 0 6px;
+  color: rgba(31,31,31,0.56);
+  font-family: var(--font-ui, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap2-p15-viewer__title{
+  margin: 0 0 12px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 1.42rem;
+  line-height: 1.22;
+  color: #174d78;
+  text-indent: 0;
+}
+
+.cap2-p15-panel{
+  animation: cap2P15Fade .24s ease;
+}
+
+.cap2-p15-panel[hidden]{
+  display: none;
+}
+
+.cap2-p15-panel p{
+  margin: 0 0 12px;
+  line-height: 1.72;
+  text-indent: 0;
+}
+
+.cap2-p15-panel p:last-child{
+  margin-bottom: 0;
+}
+
+@keyframes cap2P15Fade{
+  from{
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accordion */
+
+.cap2-p15-accordionSection{
+  margin: 32px 0 8px;
+}
+
+.cap2-accordion{
+  display: grid;
+  gap: 12px;
+}
+
+.cap2-acc-item{
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff, #f8fbfd);
+  box-shadow:
+    inset 0 0 0 1px rgba(23,77,120,0.06),
+    0 8px 18px rgba(18,38,63,0.04);
+  overflow: hidden;
+}
+
+.cap2-acc-heading{
+  margin: 0;
+}
+
+.cap2-acc-trigger{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cap2-acc-title{
+  font-weight: 700;
+  color: #174d78;
+}
+
+.cap2-acc-icon{
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+
+.cap2-acc-icon::before,
+.cap2-acc-icon::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 2px;
+  background: #174d78;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.cap2-acc-icon::after{
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.cap2-acc-trigger[aria-expanded="true"] .cap2-acc-icon::after{
+  opacity: 0;
+}
+
+.cap2-acc-panel{
+  padding: 0 18px 18px;
+}
+
+.cap2-acc-panel[hidden]{
+  display: none;
+}
+
+.cap2-acc-panel-inner p{
+  margin: 0;
+  text-indent: 0;
+  line-height: 1.7;
+}
+
+/* Cards farmacológicos */
+
+.cap2-inline-intro{
+  margin: 0 0 14px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 1.35rem;
+  line-height: 1.25;
+  color: #174d78;
+  text-indent: 0;
+}
+
+.cap2-p15-drugCards{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 26px;
+}
+
+.cap2-p15-drugCard{
+  padding: 18px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff, #f8fbfd);
+  box-shadow:
+    inset 0 0 0 1px rgba(23,77,120,0.06),
+    0 10px 22px rgba(18,38,63,0.05);
+}
+
+.cap2-p15-drugCard h3{
+  margin: 0 0 8px;
+  font-size: 1.02rem;
+  line-height: 1.32;
+  color: #174d78;
+}
+
+.cap2-p15-drugCard p{
+  margin: 0;
+  text-indent: 0;
+  color: #586676;
+  line-height: 1.6;
+}
+
+/* Figura final */
+
+.cap2-p15-bottomFigure{
+  margin: 22px 0 26px;
+}
+
+.cap2-p15-bottomFigure .cap2-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+  border-radius: 20px;
+}
+
+.cap2-p15-bottomFigure .img-full{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow:
+    0 16px 34px rgba(18,38,63,0.12),
+    0 4px 14px rgba(18,38,63,0.08);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+.cap2-p15-bottomFigure .cap2-zoomTrigger:hover .img-full,
+.cap2-p15-bottomFigure .cap2-zoomTrigger:focus-visible .img-full{
+  transform: translateY(-2px);
+  box-shadow:
+    0 20px 40px rgba(18,38,63,0.16),
+    0 6px 18px rgba(18,38,63,0.10);
+}
+
+.cap2-caption{
+  margin: 10px 0 0;
+  color: #5a6672;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 920px){
+  .cap2-p15-explorer__layout{
+    grid-template-columns: 1fr;
+  }
+
+  .cap2-p15-figure{
+    order: -1;
+  }
+}
+
+@media (max-width: 700px){
+  .cap2-p15-explorer{
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .cap2-p15-drugCards{
+    grid-template-columns: 1fr;
+  }
+
+  .cap2-p15-viewer{
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .cap2-p15-figure__img,
+  .cap2-p15-bottomFigure .img-full{
+    border-radius: 16px;
+  }
+
+  .cap2-p15-hotspot{
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cap2-p15-panel,
+  .cap2-p15-figure__img,
+  .cap2-p15-bottomFigure .img-full,
+  .cap2-p15-hotspot,
+  .cap2-acc-icon::before,
+  .cap2-acc-icon::after{
+    transition: none !important;
+    animation: none !important;
+  }
+}
+/* =========================================================
+   PÁGINA 16 — INIBIÇÃO DA SÍNTESE DE ÁCIDOS NUCLEICOS
+   ========================================================= */
+
+.cap2-page16 .cap2-reading-flow{
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.cap2-page16 .cap2-reading-flow > p{
+  margin: 0 0 1.1rem;
+}
+
+.cap2-p16-highlight{
+  margin: 26px 0 30px;
+  padding: 20px 22px 20px 24px;
+  border-left: 5px solid #1e88e5;
+  border-radius: 0 18px 18px 0;
+  background:
+    linear-gradient(135deg, rgba(30,136,229,0.10), rgba(251,140,0,0.08)),
+    linear-gradient(180deg, #f8fbff, #fffaf5);
+  box-shadow: 0 10px 24px rgba(18,38,63,0.05);
+}
+
+.cap2-p16-highlight p{
+  margin: 0;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 1.14rem;
+  line-height: 1.56;
+  color: #174d78;
+  text-indent: 0;
+}
+
+/* Hero visual da página */
+
+.cap2-p16-sequence{
+  margin: 40px auto 34px;
+  max-width: 1040px;
+  padding: 30px;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at top left, rgba(30,136,229,0.10), transparent 30%),
+    radial-gradient(circle at top right, rgba(251,140,0,0.10), transparent 30%),
+    linear-gradient(180deg,#ffffff,#f7fafc);
+  box-shadow:
+    inset 0 0 0 1px rgba(23,77,120,0.06),
+    0 20px 48px rgba(18,38,63,0.08);
+}
+
+.cap2-p16-sequence__intro{
+  max-width: 780px;
+  margin: 0 auto 22px;
+  text-align: center;
+  color: #5a6672;
+}
+
+.cap2-p16-sequence__intro p{
+  margin: 0;
+  text-indent: 0;
+  line-height: 1.65;
+}
+
+.cap2-p16-sequence__stage{
+  margin-bottom: 18px;
+}
+
+.cap2-p16-stage__trigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+  border-radius: 24px;
+}
+
+.cap2-p16-stage__trigger:focus-visible,
+.cap2-p16-dot:focus-visible,
+.cap2-p16-controlBtn:focus-visible,
+.cap2-acc-trigger:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(30,136,229,0.16);
+}
+
+.cap2-p16-frame{
+  display: block;
+  width: 100%;
+  border-radius: 24px;
+  box-shadow:
+    0 26px 60px rgba(18,38,63,0.20),
+    0 6px 18px rgba(18,38,63,0.10);
+  transition:
+    opacity .38s ease,
+    transform .38s ease,
+    box-shadow .38s ease,
+    filter .38s ease;
+}
+
+.cap2-p16-frame[hidden]{
+  display: none;
+}
+
+.cap2-p16-frame.is-active{
+  animation: cap2P16FrameIn .38s ease;
+}
+
+.cap2-p16-stage__trigger:hover .cap2-p16-frame.is-active,
+.cap2-p16-stage__trigger:focus-visible .cap2-p16-frame.is-active{
+  transform: scale(1.01);
+  box-shadow:
+    0 30px 66px rgba(18,38,63,0.24),
+    0 8px 20px rgba(18,38,63,0.12);
+  filter: saturate(1.02);
+}
+
+@keyframes cap2P16FrameIn{
+  from{
+    opacity: 0;
+    transform: translateY(6px) scale(.992);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cap2-p16-sequence__meta{
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+}
+
+.cap2-p16-indicators{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cap2-p16-dot{
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #cfd8e3;
+  cursor: pointer;
+  transition: transform .22s ease, background .22s ease, box-shadow .22s ease;
+}
+
+.cap2-p16-dot:hover{
+  transform: scale(1.15);
+}
+
+.cap2-p16-dot.is-active{
+  background: #1e88e5;
+  transform: scale(1.3);
+  box-shadow:
+    0 0 0 6px rgba(30,136,229,0.16),
+    0 0 12px rgba(30,136,229,0.28);
+}
+
+.cap2-p16-caption{
+  margin: 0;
+  max-width: 760px;
+  text-align: center;
+  color: #5a6672;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.cap2-p16-controls{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cap2-p16-controlBtn{
+  appearance: none;
+  border: 1px solid rgba(23,77,120,0.12);
+  background: #ffffff;
+  color: #5d6978;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform .22s ease,
+    border-color .22s ease,
+    background .22s ease,
+    color .22s ease,
+    box-shadow .22s ease;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.3),
+    0 6px 14px rgba(18,38,63,0.05);
+}
+
+.cap2-p16-controlBtn:hover{
+  transform: translateY(-1px);
+}
+
+.cap2-p16-controlBtn.is-active{
+  background: linear-gradient(180deg, #1e88e5, #1565c0);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 10px 22px rgba(30,136,229,0.24);
+}
+
+/* Accordion */
+
+.cap2-p16-accordionSection{
+  margin: 30px 0 8px;
+}
+
+.cap2-accordion{
+  display: grid;
+  gap: 12px;
+}
+
+.cap2-acc-item{
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff, #f8fbfd);
+  box-shadow:
+    inset 0 0 0 1px rgba(23,77,120,0.06),
+    0 8px 18px rgba(18,38,63,0.04);
+  overflow: hidden;
+}
+
+.cap2-acc-heading{
+  margin: 0;
+}
+
+.cap2-acc-trigger{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cap2-acc-title{
+  font-weight: 700;
+  color: #174d78;
+}
+
+.cap2-acc-icon{
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+
+.cap2-acc-icon::before,
+.cap2-acc-icon::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 2px;
+  background: #174d78;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.cap2-acc-icon::after{
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.cap2-acc-trigger[aria-expanded="true"] .cap2-acc-icon::after{
+  opacity: 0;
+}
+
+.cap2-acc-panel{
+  padding: 0 18px 18px;
+}
+
+.cap2-acc-panel[hidden]{
+  display: none;
+}
+
+.cap2-acc-panel-inner p{
+  margin: 0;
+  text-indent: 0;
+  line-height: 1.7;
+}
+
+/* Cards */
+
+.cap2-inline-intro{
+  margin: 0 0 14px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 1.35rem;
+  line-height: 1.25;
+  color: #174d78;
+  text-indent: 0;
+}
+
+.cap2-p16-drugCards{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 18px;
+}
+
+.cap2-p16-drugCard{
+  padding: 18px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff, #f8fbfd);
+  box-shadow:
+    inset 0 0 0 1px rgba(23,77,120,0.06),
+    0 10px 22px rgba(18,38,63,0.05);
+}
+
+.cap2-p16-drugCard h3{
+  margin: 0 0 8px;
+  font-size: 1.02rem;
+  line-height: 1.32;
+  color: #174d78;
+}
+
+.cap2-p16-drugCard p{
+  margin: 0;
+  text-indent: 0;
+  color: #586676;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px){
+  .cap2-p16-drugCards{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px){
+  .cap2-p16-sequence{
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .cap2-p16-frame{
+    border-radius: 16px;
+  }
+
+  .cap2-p16-controls{
+    width: 100%;
+  }
+
+  .cap2-p16-controlBtn{
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cap2-p16-frame,
+  .cap2-p16-dot,
+  .cap2-p16-controlBtn,
+  .cap2-acc-icon::before,
+  .cap2-acc-icon::after{
+    transition: none !important;
+    animation: none !important;
+  }
+}
+/* =========================================================
+   PÁGINA 17 — INIBIÇÃO DO METABOLISMO DO FOLATO
+   ========================================================= */
+
+.cap2-page17 .cap2-reading-flow{
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.cap2-page17 .cap2-reading-flow > p{
+  margin: 0 0 1.1rem;
+}
+
+.cap2-p17-highlight{
+  margin: 26px 0 30px;
+  padding: 20px 22px 20px 24px;
+  border-left: 5px solid #1e88e5;
+  border-radius: 0 18px 18px 0;
+  background:
+    linear-gradient(135deg, rgba(30,136,229,0.10), rgba(251,140,0,0.08)),
+    linear-gradient(180deg, #f8fbff, #fffaf5);
+  box-shadow: 0 10px 24px rgba(18,38,63,0.05);
+}
+
+.cap2-p17-highlight p{
+  margin: 0;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 1.14rem;
+  line-height: 1.56;
+  color: #174d78;
+  text-indent: 0;
+}
+
+.cap2-p17-sectionIntro{
+  max-width: 860px;
+  margin: 0 auto 14px;
+  text-align: center;
+  color: #586676;
+}
+
+.cap2-p17-sectionIntro p{
+  margin: 0;
+  text-indent: 0;
+}
+
+.cap2-p17-pathway,
+.cap2-p17-drugs{
+  margin: 34px 0 12px;
+}
+
+.cap2-p17-figure{
+  margin: 0 0 22px;
+}
+
+.cap2-p17-figure--hero{
+  max-width: 980px;
+  margin: 0 auto 26px;
+}
+
+.cap2-p17-figure--focus{
+  max-width: 900px;
+  margin: 0 auto 24px;
+}
+
+.cap2-p17-figure .cap2-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+  border-radius: 22px;
+}
+
+.cap2-p17-figure .cap2-zoomTrigger:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(30,136,229,0.16);
+}
+
+.cap2-p17-figure__img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  box-shadow:
+    0 18px 38px rgba(18,38,63,0.14),
+    0 4px 14px rgba(18,38,63,0.08);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+.cap2-p17-figure .cap2-zoomTrigger:hover .cap2-p17-figure__img,
+.cap2-p17-figure .cap2-zoomTrigger:focus-visible .cap2-p17-figure__img{
+  transform: translateY(-2px);
+  box-shadow:
+    0 22px 46px rgba(18,38,63,0.18),
+    0 6px 18px rgba(18,38,63,0.10);
+}
+
+.cap2-caption{
+  margin: 10px 0 0;
+  color: #5a6672;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.cap2-p17-steps{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.cap2-p17-stepCard,
+.cap2-p17-drugCard{
+  padding: 18px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff, #f8fbfd);
+  box-shadow:
+    inset 0 0 0 1px rgba(23,77,120,0.06),
+    0 10px 22px rgba(18,38,63,0.05);
+}
+
+.cap2-p17-stepCard h3,
+.cap2-p17-drugCard h3{
+  margin: 0 0 8px;
+  font-size: 1.02rem;
+  line-height: 1.32;
+  color: #174d78;
+}
+
+.cap2-p17-stepCard p,
+.cap2-p17-drugCard p{
+  margin: 0;
+  text-indent: 0;
+  color: #586676;
+  line-height: 1.62;
+}
+
+.cap2-p17-drugCards{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.cap2-p17-outcome{
+  margin-top: 28px;
+}
+
+@media (max-width: 900px){
+  .cap2-p17-drugCards,
+  .cap2-p17-steps{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px){
+  .cap2-p17-figure__img{
+    border-radius: 16px;
+  }
+
+  .cap2-p17-stepCard,
+  .cap2-p17-drugCard{
+    padding: 16px;
+    border-radius: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cap2-p17-figure__img{
+    transition: none !important;
+  }
+}
+/* =========================================================
+   PÁGINA 18 — BACTERICIDA E BACTERIOSTÁTICO
+   ========================================================= */
+
+.cap2-page18 .cap2-reading-flow{
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.cap2-page18 .cap2-reading-flow > p{
+  margin: 0 0 1.1rem;
+}
+
+.cap2-page18 .cap2-p18-highlight{
+  margin: 26px 0 30px;
+  padding: 20px 22px 20px 24px;
+  border-left: 5px solid #1e88e5;
+  border-radius: 0 18px 18px 0;
+  background:
+    linear-gradient(135deg, rgba(30,136,229,0.10), rgba(251,140,0,0.08)),
+    linear-gradient(180deg, #f8fbff, #fffaf5);
+  box-shadow: 0 10px 24px rgba(18,38,63,0.05);
+}
+
+.cap2-page18 .cap2-p18-highlight p{
+  margin: 0;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 1.14rem;
+  line-height: 1.56;
+  color: #174d78;
+  text-indent: 0;
+}
+
+.cap2-page18 .cap2-p18-response,
+.cap2-page18 .cap2-p18-visualCompare,
+.cap2-page18 .cap2-p18-modifiers{
+  margin: 34px 0 14px;
+}
+
+/* comparação visual */
+
+.cap2-page18 .cap2-figure-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.cap2-page18 .cap2-figure-card{
+  margin: 0;
+}
+
+.cap2-page18 .cap2-p18-figure{
+  margin: 0;
+}
+
+.cap2-page18 .cap2-p18-figure--single{
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.cap2-page18 .cap2-zoomable{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+  border-radius: 22px;
+}
+
+.cap2-page18 .cap2-zoomable:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(30,136,229,0.16);
+}
+
+.cap2-page18 .cap2-figure-card img,
+.cap2-page18 .cap2-p18-figure--single img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  box-shadow:
+    0 18px 38px rgba(18,38,63,0.14),
+    0 4px 14px rgba(18,38,63,0.08);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+.cap2-page18 .cap2-zoomable:hover img,
+.cap2-page18 .cap2-zoomable:focus-visible img{
+  transform: translateY(-2px);
+  box-shadow:
+    0 22px 46px rgba(18,38,63,0.18),
+    0 6px 18px rgba(18,38,63,0.10);
+}
+
+.cap2-page18 .cap2-figure-caption{
+  margin: 10px 0 0;
+  color: #5a6672;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 900px){
+  .cap2-page18 .cap2-figure-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px){
+  .cap2-page18 .cap2-figure-card img,
+  .cap2-page18 .cap2-p18-figure--single img{
+    border-radius: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cap2-page18 .cap2-figure-card img,
+  .cap2-page18 .cap2-p18-figure--single img{
+    transition: none !important;
+  }
+}
+/* =========================================================
+   PÁGINA 19 — QUIZ
+   ========================================================= */
+
+.cap2-page19 .cap2-p19-shell{
+  margin-top: 24px;
+}
+
+.cap2-page19 .cap2-p19-card{
+  padding: 24px;
+  border-radius: 18px;
+
+  background: linear-gradient(180deg,#fff,#f8fbfd);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(23,77,120,0.06),
+    0 10px 24px rgba(18,38,63,0.05);
+}
+
+/* -------- OPÇÕES -------- */
+
+.cap2-page19 .cap2-p19Options{
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.cap2-page19 .cap2-p19Options button{
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(23,77,120,0.12);
+  background: #fff;
+  cursor: pointer;
+
+  transition: all .2s ease;
+}
+
+.cap2-page19 .cap2-p19Options button:hover{
+  background: #f4f8fc;
+}
+
+/* seleção */
+
+.cap2-page19 .cap2-p19Options button.selected{
+  border-color: #1e88e5;
+  background: rgba(30,136,229,0.08);
+}
+
+/* correto */
+
+.cap2-page19 .cap2-p19Options button.correct{
+  border-color: #2e7d32;
+  background: rgba(46,125,50,0.12);
+}
+
+/* errado */
+
+.cap2-page19 .cap2-p19Options button.wrong{
+  border-color: #c62828;
+  background: rgba(198,40,40,0.12);
+}
+
+/* -------- AÇÕES -------- */
+
+.cap2-page19 .cap2-p19Actions{
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.cap2-page19 .cap2-p19ActionBtn{
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+
+  background: #1e88e5;
+  color: #fff;
+}
+
+.cap2-page19 .cap2-p19ActionBtn--ghost{
+  background: transparent;
+  border: 1px solid rgba(23,77,120,0.2);
+  color: #174d78;
+}
+
+/* -------- FEEDBACK -------- */
+
+.cap2-page19 .cap2-p19Feedback{
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-weight: 600;
+}
+
+.cap2-page19 .cap2-p19Feedback.correct{
+  background: rgba(46,125,50,0.12);
+  color: #2e7d32;
+}
+
+.cap2-page19 .cap2-p19Feedback.wrong{
+  background: rgba(198,40,40,0.12);
+  color: #c62828;
+}
+
+/* -------- RACIONAL -------- */
+
+.cap2-page19 .cap2-p19Rationale{
+  margin-top: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #f6f9fc;
+}
+
+/* -------- NAV -------- */
+
+.cap2-page19 .cap2-p19Nav{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cap2-page19 .cap2-p19NavBtn{
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: none;
+  background: #1e88e5;
+  color: #fff;
+  cursor: pointer;
+}

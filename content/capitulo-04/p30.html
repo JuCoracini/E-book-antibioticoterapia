@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capítulo 4 — Página 30</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-04.css" />
+</head>
+
+<body class="cap4-page30">
+
+  <div class="reader-toolbar" aria-label="Controles de leitura">
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Texto</span>
+      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
+      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
+      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Zoom</span>
+      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
+      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
+      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Acessibilidade</span>
+      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
+      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
+      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
+      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
+    </div>
+  </div>
+
+  <main class="container page-shell cap4-shell">
+
+    <header class="page-header">
+      <div>
+        <div class="chapter">Capítulo 4 — Farmacocinética e Farmacodinâmica Aplicadas</div>
+        <h1 class="page-title">Exposição antimicrobiana e seleção de resistência</h1>
+      </div>
+    </header>
+
+    <section class="prose cap4-reading-flow" aria-label="Texto principal">
+
+      <p>
+        A exposição a um antibacteriano não determina apenas a probabilidade de resposta clínica imediata. Ela também modifica o ambiente biológico no qual a população bacteriana se encontra. Cada administração do fármaco cria um cenário seletivo no foco infeccioso, no qual subpopulações bacterianas com diferentes níveis de suscetibilidade passam a competir sob novas condições de pressão farmacológica <sup>1,2</sup>.
+      </p>
+
+      <p>
+        Mesmo em infecções causadas por microrganismos classificados como suscetíveis, a população bacteriana não é homogênea. Pequenas variações genéticas ou fenotípicas podem conferir vantagem adaptativa discreta quando a concentração do antibacteriano se aproxima do limite inferior necessário para inibição bacteriana. Nesse contexto, o efeito do antibacteriano não se restringe à erradicação do patógeno, mas também altera a composição relativa dessas subpopulações ao longo do tempo <sup>3</sup>.
+      </p>
+
+      <p>
+        Quando a exposição alcança níveis consistentemente superiores aos necessários para inibição e morte bacteriana, a probabilidade de eliminação dessas variantes é maior. Entretanto, quando a curva concentração-tempo permanece próxima à concentração inibitória mínima, pode ocorrer pressão seletiva sem erradicação completa da população bacteriana.
+      </p>
+
+      <figure class="cap4-p30-figure">
+        <button
+          class="cap4-zoomTrigger"
+          type="button"
+          data-zoom-image="../../assets/capitulo-04/imagens/jsm-curva-selecao.png"
+          data-zoom-alt="Curva concentração-tempo em relação à MIC e à janela de seleção mutante, com representação de subpopulações bacterianas ao longo da exposição."
+          data-zoom-caption="Representação esquemática da curva concentração-tempo em relação à MIC e à janela de seleção mutante, com mudança progressiva na composição relativa das subpopulações bacterianas ao longo da exposição. Clique na imagem para ampliar."
+          aria-label="Ampliar figura da janela de seleção mutante"
+        >
+          <img
+            src="../../assets/capitulo-04/imagens/jsm-curva-selecao.png"
+            alt="Curva concentração-tempo em relação à MIC e à janela de seleção mutante, com representação de subpopulações bacterianas ao longo da exposição."
+            loading="lazy"
+          />
+        </button>
+        <figcaption class="cap4-caption">
+          Representação esquemática da curva concentração-tempo em relação à MIC e à janela de seleção mutante, com mudança progressiva na composição relativa das subpopulações bacterianas ao longo da exposição. Clique na imagem para ampliar.
+        </figcaption>
+      </figure>
+
+      <p>
+        Essa faixa intermediária de exposição é frequentemente descrita como janela de seleção mutante, um intervalo de concentrações no qual bactérias mais suscetíveis são inibidas, enquanto variantes com menor suscetibilidade relativa permanecem viáveis e aumentam sua frequência na população <sup>4,5</sup>.
+      </p>
+
+      <section class="cap4-p30-stage" data-cap4-p30 aria-label="Exploração da relação entre exposição e seleção bacteriana">
+        <div class="cap4-p30-stage__inner">
+
+          <div class="cap4-p30-controls" role="tablist" aria-label="Cenários de exposição antimicrobiana">
+            <button class="cap4-p30-tab" type="button" role="tab" aria-selected="false" data-p30-tab="low">Exposição abaixo da MIC</button>
+            <button class="cap4-p30-tab" type="button" role="tab" aria-selected="true" data-p30-tab="mid">Permanência na janela de seleção</button>
+            <button class="cap4-p30-tab" type="button" role="tab" aria-selected="false" data-p30-tab="high">Exposição acima da faixa crítica</button>
+          </div>
+
+          <div class="cap4-p30-panel">
+            <p class="cap4-p30-panel__eyebrow">Leitura aplicada</p>
+            <h2 class="cap4-p30-panel__title" data-p30-title>Permanência na janela de seleção</h2>
+            <p class="cap4-p30-panel__text" data-p30-text>
+              Quando a exposição permanece por tempo relevante na faixa intermediária, bactérias mais suscetíveis tendem a ser suprimidas antes que a população seja completamente erradicada. Nesse cenário, variantes com menor suscetibilidade relativa permanecem viáveis e passam a representar fração progressivamente maior da população residual.
+            </p>
+          </div>
+
+          <div class="cap4-p30-bars" aria-label="Composição relativa da população bacteriana">
+            <div class="cap4-p30-barRow">
+              <div class="cap4-p30-barLabel">Subpopulações mais suscetíveis</div>
+              <div class="cap4-p30-barTrack" aria-hidden="true">
+                <div class="cap4-p30-bar cap4-p30-bar--blue" data-bar="susceptible"></div>
+              </div>
+              <div class="cap4-p30-barValue" data-bar-value="susceptible">35%</div>
+            </div>
+
+            <div class="cap4-p30-barRow">
+              <div class="cap4-p30-barLabel">Subpopulações com menor suscetibilidade relativa</div>
+              <div class="cap4-p30-barTrack" aria-hidden="true">
+                <div class="cap4-p30-bar cap4-p30-bar--orange" data-bar="less"></div>
+              </div>
+              <div class="cap4-p30-barValue" data-bar-value="less">65%</div>
+            </div>
+          </div>
+
+          <p class="cap4-p30-note">
+            A relação entre exposição e seleção depende da interação entre concentração atingida, tempo de permanência na faixa crítica e heterogeneidade pré-existente da população bacteriana.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Na prática clínica, esse conceito ajuda a compreender por que esquemas posológicos inadequados, intervalos entre doses excessivamente prolongados ou interrupção precoce do tratamento podem favorecer a emergência de subpopulações menos suscetíveis.
+      </p>
+
+      <p>
+        A permanência prolongada nessa zona intermediária pode promover deslocamento gradual da distribuição de suscetibilidade da população bacteriana, resultando em elevação progressiva da concentração inibitória mínima observada ao longo de exposições repetidas ao antibacteriano <sup>2</sup>.
+      </p>
+
+      <p>
+        A probabilidade de permanência na janela de seleção depende da relação entre a farmacocinética do fármaco e o índice farmacodinâmico relevante para cada classe antimicrobiana. Parâmetros como %fT&gt;MIC, Cmax/MIC ou AUC/MIC descrevem essa relação e indicam se a exposição alcançada é suficiente para reduzir de maneira consistente a população bacteriana ou se parte dela permanecerá sob pressão seletiva incompleta <sup>1</sup>.
+      </p>
+
+      <p>
+        Condições clínicas como alta carga bacteriana, penetração heterogênea em determinados compartimentos, alterações na depuração renal ou intervalos posológicos inadequados podem manter a exposição próxima ao limiar inferior eficaz, permitindo a persistência de subpopulações menos suscetíveis no foco infeccioso <sup>6</sup>.
+      </p>
+
+    </section>
+
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p29.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 4 · Página 30</div>
+      <button class="btn" type="button" data-next="p31.html" aria-label="Ir para a próxima página">Próxima →</button>
+    </nav>
+
+  </main>
+
+  <div class="cap4-lightbox" id="cap4Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <div class="cap4-lightbox__backdrop" data-lightbox-close></div>
+
+    <div class="cap4-lightbox__dialog">
+      <button class="cap4-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
+
+      <figure class="cap4-lightbox__figure">
+        <img id="cap4LightboxImage" src="" alt="" />
+        <figcaption id="cap4LightboxCaption" class="cap4-lightbox__caption"></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-04.js"></script>
+</body>
+</html>

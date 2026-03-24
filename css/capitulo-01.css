@@ -1,0 +1,2304 @@
+/* =========================
+   Capítulo 01 — CSS específico
+   Inclui:
+   - Página 1: AMR (pressão seletiva)
+   - Página 2: Timeline
+   - Página 3: Árvore conceitual
+   - Página 4: Toxicidade seletiva
+   - Página 5: Janela terapêutica
+   - Página 6: Espectro de ação
+   - Página 7: CCI
+   - Página 8: Terapia empírica x dirigida
+   - Página 9: Profilaxia
+   ========================= */
+
+/* -------------------------
+   Página 1 — AMR (pressão seletiva)
+   ------------------------- */
+.amr-card{
+  margin: 18px 0 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.amr-sub{
+  margin: 0 0 12px;
+  color: rgba(31,31,31,.72);
+  font-size: 14px;
+}
+
+.petri-wrap{
+  margin: 10px 0 10px;
+}
+
+.petri{
+  position: relative;
+  width: 100%;
+  height: 250px;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 28% 20%, rgba(40,167,69,.08), transparent 55%),
+    radial-gradient(circle at 72% 78%, rgba(242,201,76,.12), transparent 55%),
+    #fbfbfd;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.bug{
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+  transition: opacity 900ms ease, transform 900ms ease;
+  opacity: 1;
+}
+
+.sensitive{
+  background: #28a745;
+}
+
+.resistant{
+  background: #f2c94c;
+  box-shadow: 0 0 0 1px rgba(125,95,0,.18);
+}
+
+.phase-1 .sensitive{
+  opacity: 0.12;
+  transform: translate(-50%,-50%) scale(0.6);
+}
+
+.phase-2 .resistant{
+  transform: translate(-50%,-50%) scale(1.15);
+}
+
+.amr-controls{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.amr-controls .btn{
+  appearance: none;
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.amr-controls .btn.primary{
+  background: var(--blue);
+  color: #fff;
+}
+
+.amr-controls .btn.ghost{
+  background: #fff;
+  color: var(--blue);
+}
+
+.amr-caption{
+  margin: 12px 0 0;
+  color: var(--text);
+}
+
+.amr-key-message{
+  margin: 14px 0 16px;
+  padding: 14px 16px;
+  border-left: 4px solid var(--blue);
+  border-radius: 12px;
+  background: #f5f7fa;
+}
+
+.amr-key-message p{
+  margin: 0;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .bug{ transition: none; }
+}
+
+/* =========================
+   Página 2 — Marcos históricos
+   ========================= */
+
+.cap1-page2 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap1-p02-stage{
+  margin: 18px auto 22px;
+  max-width: 1040px;
+}
+
+.cap1-p02-timeline{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 0 14px;
+  margin: 0 auto 18px;
+  max-width: 1040px;
+  scroll-behavior: smooth;
+}
+
+.cap1-p02-timeline .cap1-node{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.cap1-p02-timeline .cap1-node button{
+  appearance: none;
+  border: 1px solid rgba(31,60,136,.22);
+  background: transparent;
+  color: var(--blue);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 650;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: var(--font-body);
+  font-size: 13px;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease, color .12s ease;
+}
+
+.cap1-p02-timeline .cap1-node button:hover{
+  transform: translateY(-1px);
+  border-color: rgba(31,60,136,.42);
+  background: rgba(31,60,136,.04);
+}
+
+.cap1-p02-timeline .cap1-node button:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31,60,136,.16);
+}
+
+.cap1-p02-timeline .cap1-node button[aria-selected="true"]{
+  background: rgba(31,60,136,.08);
+  border-color: rgba(31,60,136,.55);
+  color: #123d72;
+}
+
+.cap1-p02-timeline .cap1-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(31,60,136,.22);
+}
+
+.cap1-p02-timeline .cap1-node.is-active .cap1-dot{
+  background: var(--blue);
+}
+
+.cap1-p02-timeline .cap1-bar{
+  height: 2px;
+  width: 64px;
+  background: var(--line);
+  flex: 0 0 auto;
+}
+
+.cap1-p02-panel{
+  max-width: 1040px;
+  margin: 0 auto;
+  min-height: 470px;
+}
+
+.cap1-panelPane{
+  animation: cap1P02Fade .24s ease;
+}
+
+.cap1-p02-panelHeader{
+  margin-bottom: 14px;
+}
+
+.cap1-panelTitle{
+  margin: 0;
+  font-family: var(--font-sub);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.22;
+  color: var(--blue);
+  text-indent: 0;
+}
+
+.cap1-p02-panelBody{
+  display: grid;
+  grid-template-columns: 1.02fr 1.18fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.cap1-p02-figure{
+  margin: 0;
+}
+
+.cap1-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.cap1-zoomTrigger img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,38,63,.10);
+}
+
+.cap1-caption{
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: rgba(31,31,31,.70);
+  padding-top: 8px;
+}
+
+.cap1-text p{
+  margin: 0 0 12px;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.72;
+  text-indent: 0;
+}
+
+.cap1-text p:last-child{
+  margin-bottom: 0;
+}
+
+.cap1-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap1-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap1-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap1-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+  overflow: auto;
+}
+
+.cap1-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap1-lightbox__close:hover{
+  background: rgba(255,255,255,.20);
+}
+
+.cap1-lightbox__figure{
+  margin: 0;
+}
+
+.cap1-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap1-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@keyframes cap1P02Fade{
+  from{
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 920px){
+  .cap1-p02-panel{
+    min-height: auto;
+  }
+
+  .cap1-p02-panelBody{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cap1-p02-timeline .cap1-bar{
+    width: 54px;
+  }
+}
+
+@media (max-width: 640px){
+  .cap1-panelTitle{
+    font-size: 19px;
+  }
+
+  .cap1-text p{
+    font-size: 14.5px;
+  }
+
+  .cap1-lightbox__dialog{
+    width: min(96vw, 1200px);
+    padding: 16px 10px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cap1-p02-timeline{
+    scroll-behavior: auto !important;
+  }
+
+  .cap1-panelPane{
+    animation: none !important;
+  }
+}
+
+/* =========================
+   Página 3 — Bases conceituais
+   ========================= */
+
+.cap1-page3 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap1-p03-stage{
+  margin: 22px auto 22px;
+  max-width: 1040px;
+}
+
+.cap1-p03-layout{
+  display: grid;
+  grid-template-columns: minmax(250px, 320px) minmax(0, 1fr);
+  gap: 34px;
+  align-items: start;
+}
+
+.cap1-p03-tree{
+  position: relative;
+  padding-top: 2px;
+}
+
+.cap1-p03-hint{
+  margin: 0 0 14px;
+  color: rgba(31,31,31,.70);
+  font-size: 14px;
+  line-height: 1.5;
+  text-indent: 0;
+}
+
+.cap1-p03-root,
+.cap1-p03-branch{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cap1-p03-branch{
+  margin-left: 18px;
+  padding-left: 16px;
+  border-left: 1px solid rgba(31,60,136,.14);
+}
+
+.cap1-p03-node{
+  position: relative;
+  margin: 6px 0;
+}
+
+.cap1-p03-btn{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 8px 0;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-body);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: color .18s ease, transform .18s ease;
+}
+
+.cap1-p03-btn:hover{
+  color: var(--blue);
+  transform: translateX(2px);
+}
+
+.cap1-p03-btn:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31,60,136,.14);
+  border-radius: 10px;
+  padding-left: 8px;
+}
+
+.cap1-p03-btn[aria-pressed="true"]{
+  color: var(--blue);
+}
+
+.cap1-p03-btn--lvl1{
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.cap1-p03-btn--lvl2{
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.cap1-p03-btn--lvl3{
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.cap1-p03-label{
+  line-height: 1.45;
+}
+
+.cap1-p03-icon{
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.cap1-p03-viewer{
+  min-height: 360px;
+}
+
+.cap1-p03-viewerHeader{
+  margin-bottom: 14px;
+}
+
+.cap1-p03-viewerEyebrow{
+  margin: 0 0 4px;
+  color: rgba(31,31,31,.58);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap1-p03-viewerTitle{
+  margin: 0;
+  font-family: var(--font-sub);
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--blue);
+  text-indent: 0;
+}
+
+.cap1-p03-viewerEmpty p{
+  margin: 0;
+  color: rgba(31,31,31,.72);
+  text-indent: 0;
+}
+
+.cap1-p03-viewerContent{
+  animation: cap1P03Fade .24s ease;
+}
+
+.cap1-p03-viewerContent p{
+  margin: 0 0 12px;
+  text-indent: 0;
+  line-height: 1.72;
+}
+
+.cap1-p03-viewerContent p:last-child{
+  margin-bottom: 0;
+}
+
+@keyframes cap1P03Fade{
+  from{
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 920px){
+  .cap1-p03-layout{
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .cap1-p03-viewer{
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px){
+  .cap1-p03-btn--lvl1{
+    font-size: 17px;
+  }
+
+  .cap1-p03-btn--lvl2{
+    font-size: 15.5px;
+  }
+
+  .cap1-p03-btn--lvl3{
+    font-size: 14.5px;
+  }
+
+  .cap1-p03-icon{
+    width: 26px;
+    height: 26px;
+    flex-basis: 26px;
+  }
+
+  .cap1-p03-viewerTitle{
+    font-size: 21px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cap1-p03-btn{
+    transition: none !important;
+  }
+
+  .cap1-p03-viewerContent{
+    animation: none !important;
+  }
+}
+/* =========================
+   Página 4 — Toxicidade seletiva
+   ========================= */
+
+.cap1-page4 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap1-p04-figure{
+  margin: 24px 0 24px;
+}
+
+.cap1-p04-figure .cap1-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.cap1-p04-figure img{
+  display: block;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18, 38, 63, 0.10);
+}
+
+.cap1-p04-list{
+  margin: 14px 0 18px 1.1rem;
+  padding: 0;
+}
+
+.cap1-p04-list li{
+  margin: 0 0 12px;
+  padding-left: 4px;
+}
+
+.cap1-p04-transition{
+  margin-top: 18px;
+}
+
+.cap1-caption{
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: rgba(31,31,31,.70);
+  padding-top: 8px;
+  text-indent: 0;
+}
+
+.cap1-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap1-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap1-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap1-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+  overflow: auto;
+}
+
+.cap1-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap1-lightbox__close:hover{
+  background: rgba(255,255,255,.20);
+}
+
+.cap1-lightbox__figure{
+  margin: 0;
+}
+
+.cap1-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap1-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 900px){
+  .cap1-p04-figure{
+    margin: 20px 0 22px;
+  }
+
+  .cap1-p04-figure img{
+    border-radius: 14px;
+  }
+
+  .cap1-p04-list{
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 640px){
+  .cap1-p04-list li{
+    margin-bottom: 10px;
+  }
+
+  .cap1-lightbox__dialog{
+    width: min(96vw, 1200px);
+    padding: 16px 10px 12px;
+  }
+}
+/* =========================
+   Página 5 — Janela terapêutica
+   ========================= */
+
+.cap1-page5 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.16em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap1-p05-stage{
+  margin: 30px auto 28px;
+  max-width: 1040px;
+}
+
+.cap1-p05-stage__inner{
+  display: grid;
+  gap: 14px;
+}
+
+.cap1-p05-visual__controls{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items: center;
+}
+
+.cap1-p05-visual__tab{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0 0 4px;
+  margin: 0;
+  font: inherit;
+  font-weight: 600;
+  color: #5d6978;
+  cursor: pointer;
+  position: relative;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.cap1-p05-visual__tab::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(.72);
+  transform-origin: center;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.cap1-p05-visual__tab:hover{
+  transform: translateY(-1px);
+}
+
+.cap1-p05-visual__tab.is-active{
+  color: #174d78;
+}
+
+.cap1-p05-visual__tab.is-active::after{
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.cap1-p05-visual__tab:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31,60,136,.14);
+  border-radius: 8px;
+  padding-inline: 6px;
+}
+
+.cap1-p05-figure{
+  margin: 0;
+}
+
+.cap1-p05-visual__svg{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cap1-p05-grid line{
+  stroke: rgba(45, 63, 87, 0.08);
+  stroke-width: 1.2;
+}
+
+.cap1-p05-axis line{
+  stroke: #4d5d72;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.cap1-p05-thresholds line{
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-dasharray: 8 8;
+}
+
+.cap1-p05-thresholds .is-toxic{
+  stroke: #d56e4b;
+}
+
+.cap1-p05-thresholds .is-effective{
+  stroke: #2d7dd2;
+}
+
+.cap1-p05-windowBand{
+  fill: url(#cap1P05Band);
+}
+
+.cap1-p05-axisLabel{
+  font-family: "Inter", sans-serif;
+  font-size: 23px;
+  font-weight: 600;
+  fill: #334255;
+}
+
+.cap1-p05-lineLabel{
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cap1-p05-lineLabel--toxic{
+  fill: #c45f40;
+}
+
+.cap1-p05-lineLabel--effective{
+  fill: #266eb7;
+}
+
+.cap1-p05-windowLabel{
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  font-weight: 700;
+  fill: #174d78;
+  opacity: .95;
+}
+
+.cap1-p05-zone{
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.cap1-p05-zone--high{
+  fill: #c45f40;
+}
+
+.cap1-p05-zone--ok{
+  fill: #1f6eb8;
+}
+
+.cap1-p05-zone--low{
+  fill: #647487;
+}
+
+.cap1-p05-curve{
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cap1-p05-curve--low{
+  stroke: #5f7ea0;
+}
+
+.cap1-p05-curve--ok{
+  stroke: #1e88e5;
+}
+
+.cap1-p05-curve--high{
+  stroke: #d96a43;
+}
+
+.cap1-p05-point{
+  filter: none;
+}
+
+.cap1-p05-point--low{
+  fill: #5f7ea0;
+}
+
+.cap1-p05-point--ok{
+  fill: #1e88e5;
+}
+
+.cap1-p05-point--high{
+  fill: #d96a43;
+}
+
+.cap1-p05-caption{
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(31,31,31,.70);
+  text-indent: 0;
+}
+
+.cap1-p05-feedback{
+  max-width: 780px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  transition: background-color .22s ease, border-color .22s ease;
+}
+
+.cap1-p05-feedback__eyebrow{
+  margin: 0 0 4px;
+  color: rgba(31,31,31,.58);
+  font-family: var(--font-ui, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap1-p05-feedback__state{
+  margin: 0 0 6px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 24px;
+  line-height: 1.2;
+  text-indent: 0;
+}
+
+.cap1-p05-feedback__text{
+  margin: 0;
+  line-height: 1.72;
+  text-indent: 0;
+}
+
+.cap1-p05-feedback--low{
+  background: rgba(95,126,160,.10);
+}
+
+.cap1-p05-feedback--low .cap1-p05-feedback__state{
+  color: #4f6d8d;
+}
+
+.cap1-p05-feedback--ok{
+  background: rgba(30,136,229,.10);
+}
+
+.cap1-p05-feedback--ok .cap1-p05-feedback__state{
+  color: #175d99;
+}
+
+.cap1-p05-feedback--high{
+  background: rgba(217,106,67,.12);
+}
+
+.cap1-p05-feedback--high .cap1-p05-feedback__state{
+  color: #b14f2f;
+}
+
+@media (max-width: 900px){
+  .cap1-p05-stage{
+    margin: 26px auto 24px;
+  }
+
+  .cap1-p05-axisLabel{
+    font-size: 20px;
+  }
+
+  .cap1-p05-lineLabel{
+    font-size: 15px;
+  }
+
+  .cap1-p05-windowLabel{
+    font-size: 24px;
+  }
+
+  .cap1-p05-zone{
+    font-size: 13px;
+  }
+
+  .cap1-p05-curve{
+    stroke-width: 5;
+  }
+}
+
+@media (max-width: 640px){
+  .cap1-p05-visual__controls{
+    gap: 8px 12px;
+  }
+
+  .cap1-p05-visual__tab{
+    font-size: .98rem;
+  }
+
+  .cap1-p05-axisLabel{
+    font-size: 17px;
+  }
+
+  .cap1-p05-lineLabel{
+    font-size: 12px;
+  }
+
+  .cap1-p05-windowLabel{
+    font-size: 19px;
+  }
+
+  .cap1-p05-zone{
+    font-size: 11px;
+  }
+
+  .cap1-p05-feedback{
+    padding: 14px 15px;
+  }
+
+  .cap1-p05-feedback__state{
+    font-size: 21px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cap1-p05-visual__tab,
+  .cap1-p05-feedback{
+    transition: none !important;
+  }
+}
+/* =========================
+   Página 6 — Espectro de ação
+   ========================= */
+
+.cap1-page6 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.16em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap1-p06-transition{
+  margin-top: 18px;
+}
+
+.cap1-p06-stage{
+  margin: 26px auto 28px;
+  max-width: 1040px;
+}
+
+.cap1-p06-figure{
+  margin: 0;
+}
+
+.cap1-p06-figure .cap1-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.cap1-p06-figure img{
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,38,63,.10);
+}
+
+.cap1-caption{
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: rgba(31,31,31,.70);
+  padding-top: 8px;
+  text-indent: 0;
+}
+
+.cap1-p06-closing{
+  margin-top: 22px;
+  max-width: 760px;
+  font-weight: 500;
+}
+
+.cap1-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap1-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap1-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap1-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+  overflow: auto;
+}
+
+.cap1-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap1-lightbox__close:hover{
+  background: rgba(255,255,255,.20);
+}
+
+.cap1-lightbox__figure{
+  margin: 0;
+}
+
+.cap1-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap1-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 900px){
+  .cap1-p06-stage{
+    margin: 22px auto 24px;
+  }
+
+  .cap1-p06-figure img{
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 640px){
+  .cap1-p06-closing{
+    max-width: 100%;
+  }
+
+  .cap1-lightbox__dialog{
+    width: min(96vw, 1200px);
+    padding: 16px 10px 12px;
+  }
+}
+/* =========================
+   Página 7 — Colonização, contaminação e infecção
+   ========================= */
+
+.cap1-page7 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.16em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap1-p07-stage{
+  margin: 28px auto 24px;
+  max-width: 1040px;
+}
+
+.cap1-p07-stack{
+  display: grid;
+  gap: 18px;
+}
+
+.cap1-p07-item{
+  border-top: 1px solid rgba(31,60,136,.12);
+  padding-top: 18px;
+}
+
+.cap1-p07-item:first-child{
+  border-top: 0;
+  padding-top: 0;
+}
+
+.cap1-p07-trigger{
+  width: 100%;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) 28px;
+  gap: 18px;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cap1-p07-trigger:focus-visible{
+  outline: none;
+}
+
+.cap1-p07-trigger:focus-visible .cap1-p07-head{
+  box-shadow: 0 0 0 3px rgba(31,60,136,.14);
+  border-radius: 12px;
+}
+
+.cap1-p07-media{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cap1-p07-media img{
+  display: block;
+  width: 100%;
+  max-width: 110px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+.cap1-p07-head{
+  padding: 8px 0;
+}
+
+.cap1-p07-title{
+  display: block;
+  margin: 0 0 6px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 25px;
+  line-height: 1.15;
+  color: var(--blue);
+}
+
+.cap1-p07-summary{
+  display: block;
+  color: var(--text);
+  line-height: 1.68;
+}
+
+.cap1-p07-icon{
+  font-size: 28px;
+  line-height: 1;
+  color: rgba(31,60,136,.55);
+  transition: transform .2s ease, color .2s ease;
+}
+
+.cap1-p07-item.is-active .cap1-p07-icon{
+  transform: rotate(45deg);
+  color: var(--blue);
+}
+
+.cap1-p07-panel{
+  padding: 10px 0 2px 138px;
+}
+
+.cap1-p07-panelText p{
+  margin: 0 0 12px;
+  text-indent: 0;
+}
+
+.cap1-p07-panelText p:last-child{
+  margin-bottom: 0;
+}
+
+.cap1-p07-list{
+  margin: 10px 0 14px 1.1rem;
+  padding: 0;
+}
+
+.cap1-p07-list li{
+  margin: 0 0 8px;
+  padding-left: 4px;
+}
+
+.cap1-p07-sinteseTitle{
+  margin-top: 28px;
+  font-weight: 600;
+}
+
+.cap1-p07-flow{
+  margin: 18px auto 22px;
+  max-width: 1040px;
+  display: grid;
+  gap: 18px;
+}
+
+.cap1-p07-flowRoot{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+  margin: 0 auto;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--blue);
+}
+
+.cap1-p07-flowBranches{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.cap1-p07-flowBranch{
+  position: relative;
+  padding-top: 18px;
+}
+
+.cap1-p07-flowBranch::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 14px;
+  background: rgba(31,60,136,.18);
+  transform: translateX(-50%);
+}
+
+.cap1-p07-flowLabel{
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text);
+  line-height: 1.6;
+  padding: 0 8px;
+}
+
+.cap1-p07-flowResult{
+  margin-top: 10px;
+  text-align: center;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 21px;
+  line-height: 1.2;
+  color: var(--blue);
+}
+
+.cap1-p07-closing{
+  margin-top: 20px;
+  max-width: 780px;
+  font-weight: 500;
+}
+
+@media (max-width: 900px){
+  .cap1-p07-trigger{
+    grid-template-columns: 96px minmax(0, 1fr) 24px;
+    gap: 14px;
+  }
+
+  .cap1-p07-media img{
+    max-width: 88px;
+  }
+
+  .cap1-p07-title{
+    font-size: 22px;
+  }
+
+  .cap1-p07-panel{
+    padding-left: 110px;
+  }
+
+  .cap1-p07-flowBranches{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .cap1-p07-flowBranch::before{
+    display: none;
+  }
+
+  .cap1-p07-flowLabel{
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px){
+  .cap1-p07-trigger{
+    grid-template-columns: 72px minmax(0, 1fr) 20px;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .cap1-p07-media img{
+    max-width: 68px;
+  }
+
+  .cap1-p07-title{
+    font-size: 20px;
+  }
+
+  .cap1-p07-summary{
+    font-size: 14.5px;
+  }
+
+  .cap1-p07-panel{
+    padding-left: 0;
+    margin-top: 12px;
+  }
+
+  .cap1-p07-icon{
+    font-size: 24px;
+  }
+
+  .cap1-p07-flowRoot{
+    font-size: 21px;
+    text-align: center;
+  }
+
+  .cap1-p07-flowResult{
+    font-size: 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cap1-p07-icon{
+    transition: none !important;
+  }
+}
+/* =========================
+   Página 8 — Terapia empírica e terapia dirigida
+   ========================= */
+
+.cap1-page8 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.16em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap1-p08-figureBlock{
+  margin: 26px auto 28px;
+  max-width: 1040px;
+}
+
+.cap1-p08-figure{
+  margin: 0;
+}
+
+.cap1-p08-figure .cap1-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.cap1-p08-figure img{
+  display: block;
+  width: 100%;
+  max-width: 980px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,38,63,.10);
+}
+
+.cap1-caption{
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: rgba(31,31,31,.70);
+  padding-top: 8px;
+  text-indent: 0;
+}
+
+.cap1-p08-subtitle{
+  margin-top: 26px;
+  font-weight: 600;
+}
+
+.cap1-p08-modalTriggerWrap{
+  margin: 24px auto 20px;
+  max-width: 1040px;
+}
+
+.cap1-p08-modalTrigger{
+  width: 100%;
+  appearance: none;
+  border: 0;
+  background: rgba(31,60,136,.05);
+  padding: 18px 20px;
+  border-radius: 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color .2s ease, transform .2s ease;
+}
+
+.cap1-p08-modalTrigger:hover{
+  background: rgba(31,60,136,.08);
+  transform: translateY(-1px);
+}
+
+.cap1-p08-modalTrigger:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31,60,136,.14);
+}
+
+.cap1-p08-modalTrigger__eyebrow{
+  display: block;
+  margin-bottom: 4px;
+  color: rgba(31,31,31,.58);
+  font-family: var(--font-ui, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.cap1-p08-modalTrigger__title{
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 26px;
+  line-height: 1.2;
+  color: var(--blue);
+}
+
+.cap1-p08-modalTrigger__text{
+  display: block;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.cap1-p08-flow{
+  margin: 18px auto 24px;
+  max-width: 1040px;
+  display: grid;
+  gap: 18px;
+}
+
+.cap1-p08-flow__lead p{
+  margin: 0;
+  text-indent: 0;
+}
+
+.cap1-p08-flow__actions{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.cap1-p08-card{
+  appearance: none;
+  border: 1px solid rgba(31,60,136,.14);
+  background: transparent;
+  border-radius: 16px;
+  padding: 16px 16px 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease, transform .2s ease;
+}
+
+.cap1-p08-card:hover{
+  transform: translateY(-1px);
+  border-color: rgba(31,60,136,.28);
+}
+
+.cap1-p08-card:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31,60,136,.12);
+}
+
+.cap1-p08-card.is-active{
+  border-color: rgba(31,60,136,.38);
+  background: rgba(31,60,136,.05);
+}
+
+.cap1-p08-card__title{
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--blue);
+}
+
+.cap1-p08-card__text{
+  display: block;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.cap1-p08-panel{
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba(31,60,136,.05);
+}
+
+.cap1-p08-panel__kicker{
+  margin: 0 0 4px;
+  color: rgba(31,31,31,.58);
+  font-family: var(--font-ui, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap1-p08-panel__title{
+  margin: 0 0 6px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--blue);
+  text-indent: 0;
+}
+
+.cap1-p08-panel__text{
+  margin: 0 0 6px;
+  line-height: 1.7;
+  text-indent: 0;
+}
+
+.cap1-p08-panel__tag{
+  margin: 0;
+  color: rgba(31,60,136,.78);
+  font-weight: 600;
+  text-indent: 0;
+}
+
+.cap1-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap1-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap1-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap1-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+  overflow: auto;
+}
+
+.cap1-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap1-lightbox__close:hover{
+  background: rgba(255,255,255,.20);
+}
+
+.cap1-lightbox__figure{
+  margin: 0;
+}
+
+.cap1-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap1-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 920px){
+  .cap1-p08-flow__actions{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px){
+  .cap1-p08-modalTrigger__title{
+    font-size: 22px;
+  }
+
+  .cap1-p08-card__title{
+    font-size: 20px;
+  }
+
+  .cap1-p08-panel__title{
+    font-size: 22px;
+  }
+
+  .cap1-lightbox__dialog{
+    width: min(96vw, 1200px);
+    padding: 16px 10px 12px;
+  }
+}
+/* =========================
+   Página 9 — Profilaxia antibacteriana
+   ========================= */
+
+.cap1-page9 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.16em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap1-p09-subtitle{
+  margin-top: 24px;
+  font-weight: 600;
+}
+
+.cap1-p09-pillars{
+  margin: 18px auto 26px;
+  max-width: 1040px;
+}
+
+.cap1-p09-pillars__track{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.cap1-p09-pillar{
+  padding: 16px 16px 14px;
+  border: 1px solid rgba(31,60,136,.14);
+  border-radius: 18px;
+  background: rgba(31,60,136,.03);
+}
+
+.cap1-p09-pillar__title{
+  margin: 0 0 6px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--blue);
+}
+
+.cap1-p09-pillar__text{
+  margin: 0;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.cap1-p09-figureBlock{
+  margin: 24px auto 28px;
+  max-width: 1040px;
+}
+
+.cap1-p09-figure{
+  margin: 0;
+}
+
+.cap1-p09-figure .cap1-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.cap1-p09-figure img{
+  display: block;
+  width: 100%;
+  max-width: 980px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,38,63,.10);
+}
+
+.cap1-caption{
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: rgba(31,31,31,.70);
+  padding-top: 8px;
+  text-indent: 0;
+}
+
+.cap1-p09-emphasis{
+  margin-top: 22px;
+}
+
+.cap1-highlight{
+  margin-top: 26px;
+  max-width: 780px;
+  font-weight: 500;
+}
+
+.cap1-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap1-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap1-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap1-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+  overflow: auto;
+}
+
+.cap1-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap1-lightbox__close:hover{
+  background: rgba(255,255,255,.20);
+}
+
+.cap1-lightbox__figure{
+  margin: 0;
+}
+
+.cap1-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap1-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 920px){
+  .cap1-p09-pillars__track{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px){
+  .cap1-p09-pillar__title{
+    font-size: 20px;
+  }
+
+  .cap1-lightbox__dialog{
+    width: min(96vw, 1200px);
+    padding: 16px 10px 12px;
+  }
+}
+/* =========================
+   Página 10 — Quiz de revisão
+   ========================= */
+
+.cap1-page10 .cap1-reading-flow{
+  max-width: 780px;
+  margin-inline: auto;
+}
+
+.cap1-p10Quiz{
+  max-width: 860px;
+  margin: 28px auto 0;
+}
+
+.cap1-p10Nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.cap1-p10NavBtn{
+  appearance: none;
+  border: 1px solid rgba(31,60,136,.16);
+  background: #fff;
+  color: var(--blue);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease, transform .2s ease;
+}
+
+.cap1-p10NavBtn:hover:not(:disabled){
+  border-color: rgba(31,60,136,.35);
+  background: rgba(31,60,136,.04);
+  transform: translateY(-1px);
+}
+
+.cap1-p10NavBtn:disabled{
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.cap1-p10Progress{
+  color: rgba(31,31,31,.68);
+  font-size: 14px;
+  text-align: center;
+  min-width: 120px;
+}
+
+.cap1-p10Question{
+  display: none;
+}
+
+.cap1-p10Question.active{
+  display: block;
+}
+
+.cap1-p10Case{
+  margin: 0 0 14px;
+  line-height: 1.8;
+}
+
+.cap1-p10Prompt{
+  margin: 0 0 16px;
+  font-weight: 600;
+  line-height: 1.7;
+  text-indent: 0;
+}
+
+.cap1-p10Options{
+  display: grid;
+  gap: 12px;
+}
+
+.cap1-p10Options button{
+  appearance: none;
+  width: 100%;
+  border: 1px solid rgba(31,60,136,.16);
+  border-radius: 16px;
+  background: #fff;
+  padding: 14px 16px;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 34px minmax(0,1fr);
+  gap: 12px;
+  align-items: start;
+  cursor: pointer;
+  font-family: var(--font-body);
+  color: var(--text);
+  line-height: 1.65;
+  transition: border-color .2s ease, background-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.cap1-p10Options button:hover:not(:disabled){
+  border-color: rgba(31,60,136,.34);
+  background: rgba(31,60,136,.03);
+  transform: translateY(-1px);
+}
+
+.cap1-p10Options button:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31,60,136,.12);
+}
+
+.cap1-p10Options button.selected{
+  border-color: rgba(31,60,136,.44);
+  background: rgba(31,60,136,.07);
+}
+
+.cap1-p10Options button.correct{
+  border-color: rgba(40,167,69,.42);
+  background: rgba(40,167,69,.10);
+}
+
+.cap1-p10Options button.incorrect{
+  border-color: rgba(220,53,69,.32);
+  background: rgba(220,53,69,.08);
+}
+
+.cap1-p10Options button:disabled{
+  cursor: default;
+}
+
+.cap1-p10Letter{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: rgba(31,60,136,.08);
+  color: var(--blue);
+  font-weight: 700;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.cap1-p10Actions{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.cap1-p10Btn{
+  appearance: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform .2s ease, opacity .2s ease, background-color .2s ease, border-color .2s ease;
+}
+
+.cap1-p10Btn:hover:not(:disabled){
+  transform: translateY(-1px);
+}
+
+.cap1-p10Btn:disabled{
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.cap1-p10Btn--primary{
+  border: 0;
+  background: var(--blue);
+  color: #fff;
+}
+
+.cap1-p10Btn--ghost{
+  border: 1px solid rgba(31,60,136,.16);
+  background: #fff;
+  color: var(--blue);
+}
+
+.cap1-p10Feedback{
+  margin-top: 16px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  line-height: 1.7;
+  display: none;
+}
+
+.cap1-p10Feedback.is-visible{
+  display: block;
+}
+
+.cap1-p10Feedback.correct{
+  background: rgba(40,167,69,.10);
+  border: 1px solid rgba(40,167,69,.18);
+}
+
+.cap1-p10Feedback.error{
+  background: rgba(220,53,69,.08);
+  border: 1px solid rgba(220,53,69,.16);
+}
+
+.cap1-p10FeedbackTitle{
+  margin: 0 0 6px;
+  font-weight: 700;
+  text-indent: 0;
+}
+
+.cap1-p10FeedbackText{
+  margin: 0;
+  text-indent: 0;
+}
+
+.cap1-p10Done{
+  margin-top: 8px;
+}
+
+.cap1-p10DoneCard{
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba(31,60,136,.05);
+}
+
+.cap1-p10Badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+.cap1-p10Badge--done{
+  background: rgba(40,167,69,.12);
+  color: #1f7a35;
+}
+
+.cap1-p10DoneText{
+  margin: 10px 0 0;
+  text-indent: 0;
+}
+
+.cap1-refBox{
+  max-width: 860px;
+  margin: 36px auto 0;
+}
+
+.cap1-refBox summary{
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.cap1-refContent{
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.cap1-refContent p{
+  margin: 0 0 10px;
+  text-indent: 0;
+}
+
+@media (max-width: 640px){
+  .cap1-p10Nav{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cap1-p10Progress{
+    order: -1;
+    width: 100%;
+  }
+
+  .cap1-p10Options button{
+    grid-template-columns: 30px minmax(0,1fr);
+    gap: 10px;
+    padding: 13px 14px;
+  }
+
+  .cap1-p10Letter{
+    width: 28px;
+    height: 28px;
+  }
+
+  .cap1-p10Actions{
+    flex-wrap: wrap;
+  }
+}

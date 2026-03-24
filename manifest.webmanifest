@@ -1,0 +1,18 @@
+
+---
+
+## `manifest.webmanifest`
+
+> **Observação:** você ainda não mostrou ícones em `assets/ui/icons/`.  
+Então eu deixei o manifest **válido mesmo sem ícones**. Quando você tiver os PNGs, eu atualizo os `icons`.
+
+```json
+{
+  "name": "E-BOOK",
+  "short_name": "E-BOOK",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1f3c88",
+  "lang": "pt-BR"
+}

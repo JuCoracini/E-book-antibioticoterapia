@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capítulo 5 — Página 42</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-05.css" />
+</head>
+
+<body class="cap5-page42">
+
+  <div class="reader-toolbar" aria-label="Controles de leitura">
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Texto</span>
+      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
+      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
+      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Zoom</span>
+      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
+      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
+      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Acessibilidade</span>
+      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
+      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
+      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
+      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
+    </div>
+  </div>
+
+  <main class="container page-shell">
+
+    <header class="page-header">
+      <div>
+        <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
+        <h1 class="page-title">Leitura inicial do campo microscópico</h1>
+      </div>
+    </header>
+
+    <section class="prose" aria-label="Texto principal">
+
+      <p>
+        Além da diferenciação entre Gram-positivas e Gram-negativas, a bacterioscopia fornece outras informações relevantes para a interpretação inicial da amostra:
+      </p>
+
+      <ul class="cap5-p42-list">
+        <li>morfologia bacteriana (cocos, bacilos ou cocobacilos)</li>
+        <li>arranjo celular (cachos, cadeias, diplococos)</li>
+        <li>quantidade aproximada de bactérias observadas por campo microscópico</li>
+        <li>presença de leucócitos</li>
+        <li>presença de células epiteliais</li>
+      </ul>
+
+      <section class="cap5-p42-grid" aria-label="Arquitetura bacteriana observável na bacterioscopia">
+
+        <figure class="cap5-p42-card">
+          <button
+            class="cap5-zoomTrigger"
+            type="button"
+            data-zoom-image="../../assets/capitulo-05/imagens/morfologia-bacteriana.png"
+            data-zoom-alt="Esquema de morfologia bacteriana mostrando cocos, bacilos e cocobacilos."
+            data-zoom-caption="Morfologia bacteriana: cocos, bacilos e cocobacilos."
+            aria-label="Ampliar imagem de morfologia bacteriana"
+          >
+            <img
+              src="../../assets/capitulo-05/imagens/morfologia-bacteriana.png"
+              alt="Esquema de morfologia bacteriana mostrando cocos, bacilos e cocobacilos."
+              loading="lazy"
+            />
+          </button>
+          <figcaption>
+            <strong>Morfologia</strong><br>
+            Ajuda a reconhecer a forma predominante do microrganismo observado.
+          </figcaption>
+        </figure>
+
+        <figure class="cap5-p42-card">
+          <button
+            class="cap5-zoomTrigger"
+            type="button"
+            data-zoom-image="../../assets/capitulo-05/imagens/arranjo-bacteriano.png"
+            data-zoom-alt="Esquema de arranjo bacteriano mostrando cachos, cadeias e diplococos."
+            data-zoom-caption="Arranjo celular: cachos, cadeias e diplococos."
+            aria-label="Ampliar imagem de arranjo bacteriano"
+          >
+            <img
+              src="../../assets/capitulo-05/imagens/arranjo-bacteriano.png"
+              alt="Esquema de arranjo bacteriano mostrando cachos, cadeias e diplococos."
+              loading="lazy"
+            />
+          </button>
+          <figcaption>
+            <strong>Arranjo celular</strong><br>
+            Oferece pistas adicionais sobre o grupo bacteriano envolvido.
+          </figcaption>
+        </figure>
+
+        <figure class="cap5-p42-card">
+          <button
+            class="cap5-zoomTrigger"
+            type="button"
+            data-zoom-image="../../assets/capitulo-05/imagens/densidade-bacteriana.png"
+            data-zoom-alt="Esquema de densidade bacteriana mostrando quantidade aproximada de bactérias por campo microscópico."
+            data-zoom-caption="Densidade bacteriana: quantidade aproximada de bactérias observadas por campo."
+            aria-label="Ampliar imagem de densidade bacteriana"
+          >
+            <img
+              src="../../assets/capitulo-05/imagens/densidade-bacteriana.png"
+              alt="Esquema de densidade bacteriana mostrando quantidade aproximada de bactérias por campo microscópico."
+              loading="lazy"
+            />
+          </button>
+          <figcaption>
+            <strong>Densidade</strong><br>
+            Permite estimar a quantidade aproximada de bactérias presentes na amostra.
+          </figcaption>
+        </figure>
+
+      </section>
+
+      <p>
+        Esses achados ajudam a contextualizar o isolamento microbiológico. Em amostras respiratórias, por exemplo, a proporção entre leucócitos e células epiteliais pode indicar a qualidade da amostra coletada. Predomínio de células epiteliais pode sugerir contaminação por secreções da orofaringe, enquanto maior número de leucócitos pode ser compatível com processo inflamatório no local.
+      </p>
+
+      <figure class="cap5-p42-balance">
+        <button
+          class="cap5-zoomTrigger"
+          type="button"
+          data-zoom-image="../../assets/capitulo-05/imagens/qualidade-amostra-bacterioscopia.png"
+          data-zoom-alt="Esquema comparando células epiteliais e leucócitos na avaliação da qualidade da amostra."
+          data-zoom-caption="A presença relativa de células epiteliais e leucócitos ajuda a estimar a qualidade da amostra e a plausibilidade de processo inflamatório local."
+          aria-label="Ampliar imagem sobre qualidade da amostra"
+        >
+          <img
+            src="../../assets/capitulo-05/imagens/qualidade-amostra-bacterioscopia.png"
+            alt="Esquema comparando células epiteliais e leucócitos na avaliação da qualidade da amostra."
+            loading="lazy"
+          />
+        </button>
+        <figcaption class="cap5-p42-balance__caption">
+          A relação entre células epiteliais e leucócitos ajuda a interpretar a qualidade da amostra e a plausibilidade de inflamação local.
+        </figcaption>
+      </figure>
+
+      <p>
+        Em situações como hemoculturas positivas, o resultado do Gram costuma ser comunicado imediatamente à equipe clínica. A identificação de cocos Gram-positivos em cachos ou bacilos Gram-negativos já fornece uma orientação preliminar sobre o provável grupo bacteriano envolvido, mesmo antes da identificação definitiva da espécie <sup>4</sup>.
+      </p>
+
+      <div class="cap5-p42-closing">
+        <p>
+          Apesar de seu valor inicial, a bacterioscopia possui limitações importantes. O exame não permite identificar a espécie bacteriana nem determinar o perfil de suscetibilidade aos antibacterianos. Seu papel é fornecer uma caracterização estrutural precoce do microrganismo presente na amostra, contribuindo para a interpretação do processo diagnóstico microbiológico.
+        </p>
+      </div>
+
+    </section>
+
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p41.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 5 · Página 42</div>
+      <button class="btn" type="button" data-next="p43.html" aria-label="Ir para a próxima página">Próxima →</button>
+    </nav>
+
+  </main>
+
+  <div class="cap5-lightbox" id="cap5Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <div class="cap5-lightbox__backdrop" data-lightbox-close></div>
+
+    <div class="cap5-lightbox__dialog">
+      <button class="cap5-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
+
+      <figure class="cap5-lightbox__figure">
+        <img id="cap5LightboxImage" src="" alt="" />
+        <figcaption id="cap5LightboxCaption" class="cap5-lightbox__caption"></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-05.js"></script>
+</body>
+</html>

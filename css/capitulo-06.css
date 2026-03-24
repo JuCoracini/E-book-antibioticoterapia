@@ -1,0 +1,692 @@
+/* =========================
+   Capítulo 06 — Página 56
+   ========================= */
+
+.cap6-page56 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+/* FIGURA */
+
+.cap6-figure{
+  margin: 28px 0;
+}
+
+.cap6-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.cap6-figure img{
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,38,63,.10);
+}
+
+.cap6-caption{
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: rgba(31,31,31,.70);
+  padding-top: 8px;
+}
+
+/* LIGHTBOX — IGUAL CAP1 */
+
+.cap6-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap6-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap6-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap6-lightbox__dialog{
+  position: relative;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+}
+
+.cap6-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap6-lightbox__figure img{
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.cap6-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  text-align: center;
+}
+/* =========================
+   Capítulo 06 — Página 57
+   Interações entre antibacterianos
+   ========================= */
+
+.cap6-page57 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+/* =========================
+   STAGE (igual cap4)
+   ========================= */
+
+.cap6-stage{
+  margin: 26px auto;
+  max-width: 1040px;
+}
+
+.cap6-stage__inner{
+  display: grid;
+  gap: 14px;
+}
+
+/* =========================
+   TABS (igual cap4)
+   ========================= */
+
+.cap6-tabs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items: center;
+}
+
+.cap6-tab{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0 0 4px;
+  font: inherit;
+  font-weight: 600;
+  color: #5d6978;
+  cursor: pointer;
+  position: relative;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.cap6-tab::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(.7);
+  transition: .2s;
+}
+
+.cap6-tab:hover{
+  transform: translateY(-1px);
+}
+
+.cap6-tab.is-active{
+  color: #174d78;
+}
+
+.cap6-tab.is-active::after{
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.cap6-tab:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31,60,136,.14);
+  border-radius: 6px;
+}
+
+/* =========================
+   PAINEL (igual cap4)
+   ========================= */
+
+.cap6-panel{
+  max-width: 820px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(31,60,136,.05);
+  transition: background-color .22s ease;
+}
+
+.cap6-panel h2{
+  margin: 0 0 8px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 24px;
+  color: #174d78;
+}
+
+.cap6-panel p{
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* =========================
+   IMAGEM
+   ========================= */
+
+.cap6-figure{
+  margin: 24px 0;
+}
+
+.cap6-figure img{
+  display: block;
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,38,63,.10);
+}
+
+/* =========================
+   RESPONSIVO
+   ========================= */
+
+@media (max-width: 640px){
+
+  .cap6-panel{
+    padding: 14px 15px;
+  }
+
+  .cap6-panel h2{
+    font-size: 21px;
+  }
+
+  .cap6-figure img{
+    border-radius: 14px;
+  }
+}
+
+/* =========================
+   REDUÇÃO DE MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce){
+  .cap6-tab,
+  .cap6-panel{
+    transition: none !important;
+  }
+}
+/* =========================
+   Capítulo 06 — CSS completo
+   Páginas 56, 57 e 58
+   ========================= */
+
+/* =========================
+   Base sobrescritos
+   ========================= */
+
+.cap6-page56 .prose sup,
+.cap6-page57 .prose sup,
+.cap6-page58 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+/* =========================
+   Página 56 — figura com zoom
+   ========================= */
+
+.cap6-figure{
+  margin: 28px 0;
+}
+
+.cap6-zoomTrigger{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  padding: 0;
+  margin: 0;
+}
+
+.cap6-figure img{
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,38,63,.10);
+}
+
+.cap6-caption{
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: rgba(31,31,31,.70);
+  padding-top: 8px;
+  text-indent: 0;
+}
+
+/* Lightbox */
+.cap6-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap6-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap6-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap6-lightbox__dialog{
+  position: relative;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+}
+
+.cap6-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap6-lightbox__figure img{
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.cap6-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  text-align: center;
+}
+
+/* =========================
+   Página 57 — interação
+   ========================= */
+
+.cap6-stage{
+  margin: 26px auto;
+  max-width: 1040px;
+}
+
+.cap6-stage__inner{
+  display: grid;
+  gap: 14px;
+}
+
+.cap6-tabs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items: center;
+}
+
+.cap6-tab{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0 0 4px;
+  font: inherit;
+  font-weight: 600;
+  color: #5d6978;
+  cursor: pointer;
+  position: relative;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.cap6-tab::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(.7);
+  transition: .2s;
+}
+
+.cap6-tab:hover{
+  transform: translateY(-1px);
+}
+
+.cap6-tab.is-active{
+  color: #174d78;
+}
+
+.cap6-tab.is-active::after{
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.cap6-tab:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31,60,136,.14);
+  border-radius: 6px;
+}
+
+.cap6-panel{
+  max-width: 820px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(31,60,136,.05);
+  transition: background-color .22s ease;
+}
+
+.cap6-panel h2{
+  margin: 0 0 8px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 24px;
+  color: #174d78;
+  text-indent: 0;
+}
+
+.cap6-panel p{
+  margin: 0;
+  line-height: 1.7;
+  text-indent: 0;
+}
+
+/* =========================
+   Página 58 — fluxo em HTML
+   ========================= */
+
+.cap6-p58-flow{
+  margin: 30px auto 32px;
+  padding: 24px 24px 22px;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(248,252,255,0.96) 0%, rgba(242,247,251,0.96) 100%);
+  box-shadow: 0 14px 34px rgba(18,38,63,.08);
+}
+
+.cap6-p58-flow__header{
+  margin-bottom: 18px;
+}
+
+.cap6-p58-flow__title{
+  margin: 0 0 6px;
+  font-family: var(--font-sub, "Playfair Display", serif);
+  font-size: 28px;
+  line-height: 1.15;
+  color: #17324d;
+  text-indent: 0;
+}
+
+.cap6-p58-flow__subtitle{
+  margin: 0;
+  color: #5a6675;
+  line-height: 1.6;
+  text-indent: 0;
+}
+
+.cap6-p58-track{
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 56px minmax(0,1fr);
+  gap: 16px;
+  align-items: stretch;
+  margin-bottom: 22px;
+}
+
+.cap6-p58-arrow{
+  display: grid;
+  place-items: center;
+  font-size: 34px;
+  font-weight: 700;
+  color: #6d7f93;
+  user-select: none;
+}
+
+.cap6-p58-step,
+.cap6-p58-outcome{
+  border-radius: 22px;
+  padding: 18px 18px 16px;
+  min-height: 100%;
+}
+
+.cap6-p58-step h3,
+.cap6-p58-outcome h3{
+  margin: 0 0 8px;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #17324d;
+  text-indent: 0;
+}
+
+.cap6-p58-step p,
+.cap6-p58-outcome p{
+  margin: 0;
+  line-height: 1.65;
+  color: #2f3e4d;
+  text-indent: 0;
+}
+
+.cap6-p58-step__eyebrow{
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #5d6978;
+}
+
+.cap6-p58-step--warm{
+  background: linear-gradient(180deg, rgba(251,140,0,.10) 0%, rgba(251,140,0,.06) 100%);
+  border: 1px solid rgba(251,140,0,.16);
+}
+
+.cap6-p58-step--neutral{
+  background: linear-gradient(180deg, rgba(30,136,229,.08) 0%, rgba(30,136,229,.05) 100%);
+  border: 1px solid rgba(30,136,229,.14);
+}
+
+.cap6-p58-branch{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 18px;
+  padding-top: 28px;
+  margin-bottom: 20px;
+}
+
+.cap6-p58-branch__line{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 24px;
+  background: #9fb0c2;
+  transform: translateX(-50%);
+}
+
+.cap6-p58-branch__line::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(-50vw + 50%);
+  width: calc(100vw - 48px);
+  max-width: calc(100% + 18px);
+  height: 2px;
+  background: #9fb0c2;
+  transform: translateX(calc(50vw - 50%));
+}
+
+.cap6-p58-outcome--good{
+  background: linear-gradient(180deg, rgba(38,166,91,.09) 0%, rgba(38,166,91,.05) 100%);
+  border: 1px solid rgba(38,166,91,.16);
+}
+
+.cap6-p58-outcome--bad{
+  background: linear-gradient(180deg, rgba(229,57,53,.09) 0%, rgba(229,57,53,.05) 100%);
+  border: 1px solid rgba(229,57,53,.15);
+}
+
+.cap6-p58-tag{
+  display: inline-flex;
+  align-items: center;
+  margin-top: 12px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1;
+  color: #24415e;
+  background: rgba(255,255,255,.72);
+}
+
+.cap6-p58-final{
+  padding: 15px 16px;
+  border-left: 4px solid #1E88E5;
+  border-radius: 12px;
+  background: #f5f7fa;
+  line-height: 1.65;
+  color: #2d3c4a;
+  text-indent: 0;
+}
+
+.cap6-p58-final strong{
+  color: #17324d;
+}
+
+.cap6-p58-final span{
+  color: #174d78;
+  font-weight: 700;
+}
+
+/* =========================
+   Responsivo
+   ========================= */
+
+@media (max-width: 900px){
+  .cap6-p58-track{
+    grid-template-columns: 1fr;
+  }
+
+  .cap6-p58-arrow{
+    transform: rotate(90deg);
+    min-height: 36px;
+  }
+
+  .cap6-p58-branch{
+    grid-template-columns: 1fr;
+    padding-top: 18px;
+  }
+
+  .cap6-p58-branch__line{
+    display: none;
+  }
+}
+
+@media (max-width: 640px){
+  .cap6-figure{
+    margin: 22px 0 24px;
+  }
+
+  .cap6-figure img{
+    border-radius: 14px;
+  }
+
+  .cap6-lightbox__dialog{
+    width: min(96vw, 1200px);
+    padding: 16px 10px 12px;
+  }
+
+  .cap6-panel{
+    padding: 14px 15px;
+  }
+
+  .cap6-panel h2{
+    font-size: 21px;
+  }
+
+  .cap6-p58-flow{
+    padding: 18px 16px 18px;
+    border-radius: 20px;
+  }
+
+  .cap6-p58-flow__title{
+    font-size: 24px;
+  }
+
+  .cap6-p58-step h3,
+  .cap6-p58-outcome h3{
+    font-size: 20px;
+  }
+}
+
+/* =========================
+   Redução de motion
+   ========================= */
+
+@media (prefers-reduced-motion: reduce){
+  .cap6-tab,
+  .cap6-panel{
+    transition: none !important;
+  }
+}

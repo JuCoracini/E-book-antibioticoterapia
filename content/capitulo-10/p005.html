@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capítulo 10 — Página 85</title>
+
+<link rel="stylesheet" href="../../css/base.css">
+<link rel="stylesheet" href="../../css/components.css">
+<link rel="stylesheet" href="../../css/capitulo-10.css">
+
+<style>
+.prose p{ text-indent:1.9em; }
+
+.sim-box{
+margin:26px 0 30px;
+padding:18px;
+border:1px solid rgba(0,0,0,.10);
+border-radius:20px;
+background:linear-gradient(180deg,#fff,#f8fafc);
+}
+
+.sim-head{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:12px;
+margin-bottom:16px;
+}
+
+.sim-title{margin:0;font-size:17px;font-weight:700}
+.sim-sub{margin:0;font-size:13px;opacity:.75}
+
+.patient-grid{
+display:grid;
+gap:12px;
+}
+
+@media(min-width:850px){
+.patient-grid{grid-template-columns:1fr 1fr}
+}
+
+.patient-card{
+padding:14px;
+border-radius:14px;
+border:1px solid rgba(0,0,0,.08);
+background:#fff;
+font-size:14px;
+}
+
+.patient-card strong{display:block;margin-bottom:4px}
+
+.vitals{
+display:grid;
+gap:8px;
+margin-top:10px;
+}
+
+.vital{
+padding:10px 12px;
+border-radius:10px;
+background:rgba(0,0,0,.03);
+font-size:14px;
+display:flex;
+justify-content:space-between;
+}
+
+.vital.alert{background:rgba(239,68,68,.08)}
+
+.micro-box{
+margin-top:18px;
+padding:16px;
+border-radius:16px;
+border:1px solid rgba(0,0,0,.10);
+background:#fff;
+}
+
+.decision{
+margin-top:24px;
+padding:18px;
+border-radius:18px;
+border:1px solid rgba(0,0,0,.10);
+background:#fff;
+}
+
+.decision h2{margin:0 0 10px;font-size:16px}
+
+.options{
+display:grid;
+gap:12px;
+margin-top:12px;
+}
+
+.option{
+padding:14px 16px;
+border-radius:14px;
+border:1px solid rgba(0,0,0,.10);
+background:#fff;
+cursor:pointer;
+transition:.18s;
+text-align:left;
+}
+
+.option:hover{border-color:#1E88E5;box-shadow:0 6px 16px rgba(30,136,229,.12)}
+
+.option strong{display:block;margin-bottom:4px}
+
+.feedback{
+margin-top:14px;
+padding:14px;
+border-radius:14px;
+border:1px solid rgba(0,0,0,.08);
+background:#f8fafc;
+font-size:14px;
+}
+
+.next{
+margin-top:24px;
+padding:18px;
+border-radius:18px;
+border:1px solid rgba(0,0,0,.10);
+background:linear-gradient(135deg,rgba(30,136,229,.08),#fff);
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+}
+
+.btn-next{
+border:none;
+border-radius:999px;
+padding:12px 18px;
+background:#1E88E5;
+color:#fff;
+font-weight:700;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+<header class="page-header">
+<div>
+<div class="chapter">Capítulo 10 — Simulação Clínica Integrada em Antibioticoterapia</div>
+<h1>Simulação 2 — Associação versus monoterapia</h1>
+</div>
+</header>
+
+<section class="sim-box">
+
+<div class="sim-head">
+<p class="sim-title">Bacteremia grave de origem urinária</p>
+<p class="sim-sub">Decisão inicial diante de possível resistência.</p>
+</div>
+
+<div class="patient-grid">
+
+<div class="patient-card">
+<strong>Paciente</strong>
+Mulher, 61 anos, hipertensa, sem imunossupressão conhecida.
+
+<div class="vitals">
+<div class="vital"><span>Diagnóstico inicial</span><span>Pielonefrite complicada</span></div>
+<div class="vital alert"><span>Pressão arterial</span><span>90/60 mmHg</span></div>
+<div class="vital"><span>Lactato</span><span>2,9 mmol/L</span></div>
+</div>
+
+</div>
+
+<div class="patient-card">
+<strong>Conduta inicial adotada</strong>
+Meropenem associado a aminoglicosídeo.
+
+<p style="margin-top:8px">
+A escolha foi motivada pela necessidade de garantir terapia ativa precoce em cenário de possível resistência bacteriana.
+</p>
+
+</div>
+
+</div>
+
+<div class="micro-box">
+
+<strong>24 horas depois</strong>
+
+<p style="margin-top:6px">
+A paciente apresenta melhora hemodinâmica parcial.
+</p>
+
+<p>
+A hemocultura identifica <strong>Escherichia coli</strong>.
+</p>
+
+<p>
+O antibiograma preliminar demonstra sensibilidade ao carbapenêmico e não há detecção de carbapenemase ou outro mecanismo relevante de resistência.
+</p>
+
+</div>
+
+</section>
+
+<section class="prose">
+
+<p>
+Diante da confirmação microbiológica e da estabilidade clínica progressiva, surge uma nova decisão terapêutica.
+</p>
+
+<p>
+A associação inicial pode aumentar a probabilidade de cobertura ativa em cenários de alta gravidade. Entretanto, após confirmação de sensibilidade, a manutenção prolongada de múltiplos antibacterianos pode aumentar risco de toxicidade sem benefício clínico adicional.
+</p>
+
+</section>
+
+<section class="decision">
+
+<h2>Qual deve ser a conduta neste momento?</h2>
+
+<div class="options">
+
+<button class="option" data-r="1">
+<strong>Manter associação até o final do tratamento</strong>
+Estratégia baseada na ideia de cobertura máxima durante todo o curso terapêutico.
+</button>
+
+<button class="option" data-r="2">
+<strong>Suspender o aminoglicosídeo e manter meropenem isolado</strong>
+Redução da terapia combinada após confirmação de suscetibilidade.
+</button>
+
+<button class="option" data-r="3">
+<strong>Reduzir para antibacteriano de espectro mais estreito</strong>
+Ajuste terapêutico proporcional ao perfil microbiológico identificado.
+</button>
+
+<button class="option" data-r="4">
+<strong>Ampliar ainda mais o espectro por precaução</strong>
+Estratégia defensiva diante da gravidade inicial do quadro.
+</button>
+
+</div>
+
+<div class="feedback" id="feedback">
+Selecione uma conduta para analisar o raciocínio clínico predominante.
+</div>
+
+</section>
+
+<section class="next">
+
+<div>
+<h2 style="margin:0;font-size:16px">Evolução posterior</h2>
+<p style="margin:4px 0 0;font-size:14px">
+Quatro dias após o início da terapia, a creatinina da paciente começa a elevar-se discretamente.
+</p>
+</div>
+
+<button class="btn-next" data-next="p86.html">Continuar caso clínico</button>
+
+</section>
+
+<nav class="pager" aria-label="Paginação">
+<button class="btn" data-prev="p84.html">← Anterior</button>
+<div class="center">Capítulo 10 · Página 85</div>
+<button class="btn" data-next="p86.html">Próxima →</button>
+</nav>
+
+</main>
+
+<script src="../../js/app.js"></script>
+
+<script>
+
+const responses={
+1:`<strong>Lógica predominante:</strong> manutenção de associação por cautela. Embora compreensível, a continuidade de aminoglicosídeo aumenta risco de nefrotoxicidade sem benefício adicional quando a bactéria já demonstrou suscetibilidade.` ,
+
+2:`<strong>Lógica predominante:</strong> simplificação da terapia combinada. Após confirmação microbiológica, a manutenção do carbapenêmico isolado geralmente é suficiente.` ,
+
+3:`<strong>Lógica predominante:</strong> descalonamento terapêutico. A redução do espectro mantém eficácia clínica e diminui pressão seletiva.` ,
+
+4:`<strong>Lógica predominante:</strong> ampliação desnecessária. A escalada terapêutica sem evidência de falha aumenta toxicidade e impacto ecológico.`
+};
+
+const buttons=document.querySelectorAll('.option');
+const feedback=document.getElementById('feedback');
+
+buttons.forEach(btn=>{
+btn.addEventListener('click',()=>{
+buttons.forEach(b=>b.style.background='#fff');
+btn.style.background='rgba(30,136,229,.08)';
+feedback.innerHTML=responses[btn.dataset.r];
+});
+});
+
+// navegação
+
+document.addEventListener('click',function(e){
+const trg=e.target.closest('[data-next]');
+if(!trg) return;
+window.location.href=trg.dataset.next;
+});
+
+</script>
+
+</body>
+</html>

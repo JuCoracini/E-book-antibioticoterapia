@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capítulo 3 — Página 24</title>
+
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-03.css" />
+
+  <style>
+    /* Página 24 — estilos locais */
+
+    .c03-stage{
+      margin:24px 0;
+      padding:16px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+    }
+
+    .c03-grid{
+      display:grid;
+      gap:16px;
+    }
+
+    @media (min-width: 900px){
+      .c03-grid{
+        grid-template-columns: 1.1fr .9fr;
+        align-items:start;
+      }
+    }
+
+    .c03-visual{
+      border:1px solid rgba(0,0,0,.10);
+      border-radius:14px;
+      background:#fff;
+      overflow:hidden;
+    }
+
+    .c03-visual svg{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    .c03-controls{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .c03-btn{
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#f3f4f6;
+      cursor:pointer;
+      font-weight:600;
+      transition:.2s ease;
+      min-width:170px;
+      text-align:center;
+    }
+    .c03-btn:hover{ background:#e5e7eb; }
+
+    .c03-btn.primary{
+      background: rgba(30,136,229,.10);
+      border-color: rgba(30,136,229,.35);
+    }
+
+    .c03-btn.warn{
+      background: rgba(251,140,0,.10);
+      border-color: rgba(251,140,0,.35);
+    }
+
+    .legend{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.10);
+      background:rgba(255,255,255,.75);
+      font-size:14px;
+      line-height:1.6;
+      color:#374151;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-weight:700;
+      margin-right:12px;
+      margin-bottom:6px;
+    }
+
+    .dot{ width:10px;height:10px;border-radius:999px;display:inline-block; }
+    .dot.blue{ background:#1E88E5; }
+    .dot.orange{ background:#FB8C00; }
+    .dot.red{ background:#DC2626; }
+
+    /* SVG */
+
+    .membrane{
+      fill: rgba(30,136,229,.10);
+      stroke: rgba(30,136,229,.45);
+      stroke-width:2;
+    }
+
+    .porin{
+      fill:#E5E7EB;
+      stroke:#9CA3AF;
+      stroke-width:1.5;
+    }
+
+    .drug{
+      fill: rgba(251,140,0,.18);
+      stroke: rgba(251,140,0,.65);
+      stroke-width:2;
+      transition: transform 1s ease, opacity .4s ease;
+    }
+
+    .pump{
+      fill: rgba(220,38,38,.18);
+      stroke: rgba(220,38,38,.75);
+      stroke-width:2;
+    }
+
+    .arrow{
+      stroke:#6B7280;
+      stroke-width:2;
+      fill:none;
+      marker-end:url(#arrowHead);
+      stroke-dasharray: 5 5;
+    }
+
+    .title{
+      font-size:13px;
+      fill:#111827;
+      font-weight:700;
+    }
+
+    .label{
+      font-size:12px;
+      fill:#374151;
+    }
+
+    .dim{ opacity:.2; }
+  </style>
+</head>
+
+<body>
+<main class="container">
+
+<header class="page-header">
+  <div>
+    <div class="chapter">Capítulo 3 — Mecanismos de Resistência Bacteriana</div>
+    <h1>Redução de permeabilidade e bombas de efluxo</h1>
+  </div>
+</header>
+
+<section class="prose">
+  <p>
+    A eficácia de um antibacteriano depende não apenas da integridade de seu alvo molecular, mas também de sua capacidade de atingir concentração intracelular suficiente para exercer efeito biológico. Alterações que reduzem a entrada do fármaco ou aumentam sua eliminação ativa constituem mecanismos relevantes de resistência <sup class="ref">12,26</sup>.
+  </p>
+</section>
+
+<section class="c03-stage" aria-label="Visualização: permeabilidade e efluxo">
+  <div class="c03-grid">
+
+    <div>
+      <div class="c03-visual">
+        <svg viewBox="0 0 640 360" role="img" aria-label="Esquema de porinas e bomba de efluxo">
+
+          <defs>
+            <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+              <path d="M0,0 L10,3 L0,6 Z" fill="#6B7280"></path>
+            </marker>
+          </defs>
+
+          <text x="20" y="28" class="title">
+            Concentração intracelular depende de entrada e permanência
+          </text>
+
+          <!-- Membrana externa -->
+          <rect x="60" y="80" width="520" height="180" rx="30" class="membrane"></rect>
+          <text x="80" y="105" class="label">Membrana externa</text>
+
+          <!-- Porinas -->
+          <rect x="150" y="100" width="30" height="140" rx="12" class="porin" id="por1"></rect>
+          <rect x="210" y="100" width="30" height="140" rx="12" class="porin" id="por2"></rect>
+          <rect x="270" y="100" width="30" height="140" rx="12" class="porin" id="por3"></rect>
+
+          <!-- Bomba de efluxo -->
+          <circle cx="470" cy="170" r="38" class="pump"></circle>
+          <text x="445" y="175" class="label">Efluxo</text>
+
+          <!-- Fármacos -->
+          <circle id="drugA" cx="120" cy="170" r="14" class="drug"></circle>
+          <circle id="drugB" cx="120" cy="140" r="14" class="drug"></circle>
+          <circle id="drugC" cx="120" cy="200" r="14" class="drug"></circle>
+
+          <!-- Setas -->
+          <line x1="130" y1="170" x2="150" y2="170" class="arrow"></line>
+          <line x1="250" y1="170" x2="430" y2="170" class="arrow"></line>
+          <line x1="470" y1="140" x2="470" y2="100" class="arrow"></line>
+
+          <text x="380" y="310" class="label">
+            Entrada reduzida + expulsão ativa = menor concentração intracelular
+          </text>
+
+        </svg>
+      </div>
+
+      <div class="c03-controls">
+        <button class="c03-btn primary" onclick="modoPermeabilidade()">Redução de permeabilidade</button>
+        <button class="c03-btn warn" onclick="modoEfluxo()">Ativar bomba de efluxo</button>
+        <button class="c03-btn" onclick="resetar()">Reiniciar</button>
+      </div>
+
+      <div class="legend">
+        <div class="chip"><span class="dot blue"></span>Membrana/porinas</div>
+        <div class="chip"><span class="dot orange"></span>Antibacteriano</div>
+        <div class="chip"><span class="dot red"></span>Bomba de efluxo</div>
+
+        <div style="margin-top:10px;">
+          A resistência pode resultar da menor entrada do fármaco ou de sua expulsão ativa, reduzindo a concentração intracelular necessária para exercer efeito biológico.
+        </div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p>
+        Nas bactérias Gram-negativas, a membrana externa funciona como barreira estrutural adicional. A entrada de muitos antibacterianos ocorre por meio de porinas, proteínas que formam canais hidrofílicos através dos quais pequenas moléculas podem atravessar a membrana. Modificações quantitativas como redução na expressão, ou estruturais, dessas porinas podem diminuir a permeabilidade <sup class="ref">12</sup>.
+      </p>
+
+      <p>
+        Outro mecanismo importante envolve as bombas de efluxo. Essas proteínas transmembrana utilizam energia celular para expulsar substâncias potencialmente tóxicas do interior da bactéria, incluindo antibacterianos <sup class="ref">26</sup>.
+      </p>
+
+      <p>
+        Esses mecanismos frequentemente coexistem com outros. A combinação de produção de β-lactamase com redução de porinas pode ampliar o grau de resistência observado. Algumas bombas apresentam baixa especificidade e conseguem expulsar diferentes classes de antibacterianos, contribuindo para perfis de multirresistência <sup class="ref">2,26</sup>.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="prose">
+  <p>
+    Compreender esses processos é essencial na interpretação de resultados laboratoriais em que se observa aumento progressivo da MIC sem evidência clara de enzimas inativadoras. A coexistência desses mecanismos pode produzir padrões de resistência intermediária ou aumentos graduais da MIC, exigindo interpretação integrada entre microbiologia e contexto clínico <sup class="ref">12,26</sup>.
+  </p>
+
+  <p>
+    Isso se evidencia quando um isolado bacteriano apresenta resistência moderada a diferentes classes de antibacterianos, sem identificação de β-lactamase específicas. A análise molecular pode demonstrar superexpressão de bombas de efluxo associada à redução na expressão de porinas, explicando o perfil de suscetibilidade observado <sup class="ref">2,23</sup>.
+  </p>
+</section>
+
+<nav class="pager">
+  <button class="btn" data-prev="p23.html">← Anterior</button>
+  <button class="btn" data-next="p25.html">Próxima →</button>
+</nav>
+
+</main>
+
+<script>
+  function modoPermeabilidade(){
+    document.getElementById("por2").classList.add("dim");
+    document.getElementById("por3").classList.add("dim");
+  }
+
+  function modoEfluxo(){
+    const dA = document.getElementById("drugA");
+    const dB = document.getElementById("drugB");
+    const dC = document.getElementById("drugC");
+
+    dA.setAttribute("cx","470");
+    dA.setAttribute("cy","120");
+
+    dB.setAttribute("cx","470");
+    dB.setAttribute("cy","100");
+
+    dC.setAttribute("cx","470");
+    dC.setAttribute("cy","80");
+  }
+
+  function resetar(){
+    location.reload();
+  }
+</script>
+
+</body>
+</html>

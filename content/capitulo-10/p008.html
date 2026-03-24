@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capítulo 10 — Página 88</title>
+
+<link rel="stylesheet" href="../../css/base.css">
+<link rel="stylesheet" href="../../css/components.css">
+<link rel="stylesheet" href="../../css/capitulo-10.css">
+
+<style>
+.prose p{ text-indent:1.9em; }
+
+.evolution-shell{
+  margin:26px 0 30px;
+  padding:18px;
+  border:1px solid rgba(0,0,0,.10);
+  border-radius:20px;
+  background:linear-gradient(180deg,#fff,#f8fafc);
+}
+
+.evolution-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:16px;
+}
+
+.evolution-title{ margin:0; font-size:17px; font-weight:700; }
+.evolution-sub{ margin:0; font-size:13px; opacity:.75; }
+
+.timeline{
+  display:grid;
+  gap:12px;
+}
+
+@media(min-width:900px){
+  .timeline{ grid-template-columns: repeat(5, minmax(0,1fr)); }
+}
+
+.day-card{
+  padding:14px;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.08);
+  background:#fff;
+  box-shadow:0 6px 16px rgba(15,23,42,.04);
+}
+
+.day-label{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:10px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:#1E88E5;
+}
+
+.day-dot{
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background:#1E88E5;
+  display:inline-block;
+}
+
+.day-card h3{
+  margin:0 0 8px;
+  font-size:14px;
+  line-height:1.35;
+}
+
+.day-card p{
+  margin:0;
+  font-size:13px;
+  line-height:1.6;
+  color:rgba(15,23,42,.80);
+  text-indent:0;
+}
+
+.day-card.soft{
+  background:rgba(34,197,94,.06);
+  border-color:rgba(34,197,94,.14);
+}
+
+.day-card.warn{
+  background:rgba(251,146,60,.08);
+  border-color:rgba(251,146,60,.16);
+}
+
+.compare-box{
+  margin-top:22px;
+  padding:18px;
+  border-radius:18px;
+  border:1px solid rgba(0,0,0,.10);
+  background:#fff;
+}
+
+.compare-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:14px;
+}
+
+.compare-title{ margin:0; font-size:16px; font-weight:700; }
+.compare-sub{ margin:0; font-size:13px; opacity:.75; }
+
+.compare-grid{
+  display:grid;
+  gap:12px;
+}
+
+@media(min-width:900px){
+  .compare-grid{ grid-template-columns:1fr 1fr; }
+}
+
+.compare-card{
+  padding:15px;
+  border-radius:16px;
+  border:1px solid rgba(0,0,0,.08);
+}
+
+.compare-card.good{
+  background:rgba(34,197,94,.06);
+  border-color:rgba(34,197,94,.14);
+}
+
+.compare-card.risk{
+  background:rgba(251,146,60,.08);
+  border-color:rgba(251,146,60,.16);
+}
+
+.compare-card h3{
+  margin:0 0 8px;
+  font-size:15px;
+}
+
+.compare-card ul{
+  margin:0;
+  padding-left:18px;
+}
+
+.compare-card li{
+  margin:0 0 6px;
+  font-size:13px;
+  line-height:1.55;
+  color:rgba(15,23,42,.80);
+}
+
+.synthesis{
+  margin-top:24px;
+  padding:18px;
+  border-radius:20px;
+  border:1px solid rgba(0,0,0,.10);
+  background:linear-gradient(135deg, rgba(30,136,229,.08), #fff 52%, rgba(251,140,0,.08));
+}
+
+.synthesis h2{
+  margin:0 0 10px;
+  font-size:17px;
+}
+
+.principles{
+  display:grid;
+  gap:10px;
+  margin-top:14px;
+}
+
+@media(min-width:900px){
+  .principles{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+
+.principle{
+  padding:13px;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.08);
+  background:#fff;
+}
+
+.principle strong{
+  display:block;
+  margin-bottom:6px;
+  font-size:14px;
+  line-height:1.35;
+  color:#0F172A;
+}
+
+.principle p{
+  margin:0;
+  font-size:13px;
+  line-height:1.6;
+  color:rgba(15,23,42,.80);
+  text-indent:0;
+}
+
+.end-actions{
+  margin-top:16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.end-copy{
+  max-width:60ch;
+}
+
+.end-copy p{
+  margin:0;
+  font-size:14px;
+  line-height:1.65;
+  color:rgba(15,23,42,.82);
+  text-indent:0;
+}
+
+.sim-btn{
+  border:none;
+  border-radius:999px;
+  padding:12px 18px;
+  background:#1E88E5;
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 10px 22px rgba(30,136,229,.20);
+}
+
+.sim-btn:hover,
+.sim-btn:focus-visible{
+  transform:translateY(-1px);
+  outline:none;
+}
+</style>
+</head>
+<body>
+
+<main class="container">
+
+<header class="page-header">
+  <div>
+    <div class="chapter">Capítulo 10 — Simulação Clínica Integrada em Antibioticoterapia</div>
+    <h1>Evolução sem antibacteriano e síntese final</h1>
+  </div>
+</header>
+
+<section class="evolution-shell" aria-label="Evolução clínica da simulação 3">
+  <div class="evolution-head">
+    <p class="evolution-title">Progressão clínica provável em síndrome respiratória viral autolimitada</p>
+    <p class="evolution-sub">A ausência de antibacteriano não implica ausência de conduta.</p>
+  </div>
+
+  <div class="timeline">
+    <article class="day-card warn">
+      <div class="day-label"><span class="day-dot" aria-hidden="true"></span>Dia 1</div>
+      <h3>Início do quadro</h3>
+      <p>Febre baixa, mialgia, coriza, tosse seca e odinofagia, sem sinais de acometimento pulmonar bacteriano.</p>
+    </article>
+
+    <article class="day-card">
+      <div class="day-label"><span class="day-dot" aria-hidden="true"></span>Dia 2</div>
+      <h3>Avaliação médica</h3>
+      <p>Radiografia sem consolidação, saturação preservada e hemograma sem leucocitose significativa.</p>
+    </article>
+
+    <article class="day-card">
+      <div class="day-label"><span class="day-dot" aria-hidden="true"></span>Dia 3</div>
+      <h3>Conduta orientada</h3>
+      <p>Tratamento sintomático, hidratação, repouso relativo e esclarecimento sobre o curso natural esperado.</p>
+    </article>
+
+    <article class="day-card soft">
+      <div class="day-label"><span class="day-dot" aria-hidden="true"></span>Dia 4</div>
+      <h3>Melhora progressiva</h3>
+      <p>Redução da febre e da mialgia, com persistência discreta de tosse e coriza, compatível com evolução viral.</p>
+    </article>
+
+    <article class="day-card soft">
+      <div class="day-label"><span class="day-dot" aria-hidden="true"></span>Dia 5</div>
+      <h3>Resolução clínica</h3>
+      <p>Evolução autolimitada, sem benefício adicional atribuível a antibacteriano e sem complicações esperadas.</p>
+    </article>
+  </div>
+
+  <div class="compare-box" aria-label="Comparação entre condutas">
+    <div class="compare-head">
+      <p class="compare-title">O que a decisão de não prescrever efetivamente faz</p>
+      <p class="compare-sub">Não se trata de omissão, mas de uma conduta clínica proporcional à probabilidade real.</p>
+    </div>
+
+    <div class="compare-grid">
+      <article class="compare-card good">
+        <h3>Quando a conduta é não prescrever</h3>
+        <ul>
+          <li>Evita exposição desnecessária a eventos adversos.</li>
+          <li>Reduz disbiose e pressão seletiva.</li>
+          <li>Valoriza orientação clínica, sinais de alarme e seguimento adequado.</li>
+          <li>Preserva antibacterianos para cenários em que realmente modificam desfecho.</li>
+        </ul>
+      </article>
+
+      <article class="compare-card risk">
+        <h3>Quando se prescreve sem indicação plausível</h3>
+        <ul>
+          <li>Não há benefício clínico demonstrável em quadro viral autolimitado.</li>
+          <li>Expõe o paciente a efeitos adversos evitáveis.</li>
+          <li>Pode reforçar automedicação e reaproveitamento inadequado de sobras.</li>
+          <li>Aumenta o impacto ecológico do uso desnecessário.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="prose" aria-label="Síntese textual final do capítulo">
+  <p>
+    As simulações apresentadas não foram construídas para oferecer respostas prontas, mas para evidenciar a dinâmica da decisão clínica em antibioticoterapia. Em cada cenário, a conduta inicial foi tomada sob incerteza, baseada em probabilidade. À medida que novos dados surgiram, evolução hemodinâmica, resultados microbiológicos, perfil de suscetibilidade, a decisão precisou ser reavaliada.
+  </p>
+
+  <p>
+    Esse movimento é o núcleo da prática racional.
+  </p>
+
+  <p>
+    Iniciar antibacteriano quando há risco real de infecção grave é imperativo. Da mesma forma, reduzir espectro quando a probabilidade diminui ou quando o agente é identificado é expressão de maturidade clínica. A manutenção automática de condutas iniciais, sem integração de novos dados, transforma decisão provisória em erro persistente.
+  </p>
+</section>
+
+<section class="synthesis" aria-label="Síntese conceitual do capítulo">
+  <h2>A decisão como processo contínuo</h2>
+
+  <div class="principles">
+    <article class="principle">
+      <strong>A adequação precoce influencia desfecho.</strong>
+      <p>Nos quadros graves, o tempo até terapia ativa pode modificar rapidamente a evolução clínica e a necessidade de suporte intensivo.</p>
+    </article>
+
+    <article class="principle">
+      <strong>A ampliação indiscriminada não substitui precisão.</strong>
+      <p>Espectro amplo sem base probabilística, microbiológica ou clínica suficiente aumenta toxicidade e pressão seletiva sem benefício proporcional.</p>
+    </article>
+
+    <article class="principle">
+      <strong>Não prescrever, quando indicado, é decisão ativa.</strong>
+      <p>Reconhecer baixa probabilidade de infecção bacteriana protege o paciente e o ecossistema microbiológico com a mesma seriedade de uma prescrição bem indicada.</p>
+    </article>
+  </div>
+
+  <div class="end-actions">
+    <div class="end-copy">
+      <p>A competência em antibioticoterapia manifesta-se quando o profissional reconhece que decidir não é um ato isolado, mas um processo que exige iniciar, observar, interpretar, ajustar e, quando possível, simplificar.</p>
+    </div>
+
+    <button class="sim-btn" type="button" data-next="p89.html" aria-label="Ir para a próxima página">Avançar</button>
+  </div>
+</section>
+
+<nav class="pager" aria-label="Paginação">
+  <button class="btn" data-prev="p87.html" aria-label="Ir para a página anterior">← Anterior</button>
+  <div class="center">Capítulo 10 · Página 88</div>
+  <button class="btn" data-next="p89.html" aria-label="Ir para a próxima página">Próxima →</button>
+</nav>
+
+</main>
+
+<script src="../../js/app.js"></script>
+<script>
+  document.addEventListener('click', function(e){
+    const trg = e.target.closest('[data-next]');
+    if(!trg) return;
+    window.location.href = trg.dataset.next;
+  });
+</script>
+
+</body>
+</html>

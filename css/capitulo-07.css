@@ -1,0 +1,323 @@
+<!-- File: css/capitulo-07.css -->
+/* =========================
+   Capítulo 07 — CSS específico
+   Página 55: Mapa mecanístico de toxicidade
+   ========================= */
+
+.page-meta{
+  margin-top: 6px;
+  color: rgba(31,31,31,.66);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.cap7-divider{
+  margin: 18px 0 18px;
+  border: 0;
+  height: 1px;
+  background: var(--line);
+}
+
+.cap7-formula,
+.cap7-model{
+  margin: 12px 0 16px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--blue);
+  border-radius: 12px;
+  background: #f5f7fa;
+  text-indent: 0;
+  font-weight: 700;
+}
+
+.cap7-quote{
+  margin: 10px 0 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(31,60,136,.18);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(31,60,136,.06), rgba(31,60,136,.02));
+  text-indent: 0;
+  font-weight: 650;
+  color: #124a7b;
+}
+
+.cap7-visualChain{
+  margin: 10px 0 14px;
+  padding: 12px 14px;
+  border: 1px dashed rgba(31,31,31,.22);
+  border-radius: 14px;
+  background: #fff;
+  text-indent: 0;
+  font-weight: 700;
+}
+
+.cap7-flowText{
+  margin: 12px 0 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(0,0,0,.04);
+  text-indent: 0;
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+}
+
+.cap7-flowText--horizontal{
+  grid-auto-flow: row;
+}
+
+.cap7-arrow{
+  color: rgba(31,60,136,.75);
+  font-weight: 800;
+}
+
+.cap7-code{
+  margin: 10px 0 14px;
+  border: 1px solid rgba(31,31,31,.12);
+  border-radius: 14px;
+  background: #0e1621;
+  color: #eaf0ff;
+  overflow: auto;
+  padding: 14px 14px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.cap7-code code{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.cap7-exampleBox{
+  margin: 10px 0 16px;
+  padding: 14px 16px;
+  border: 1px solid rgba(31,31,31,.12);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,250,253,.96));
+  box-shadow: 0 8px 18px rgba(0,0,0,.03);
+  text-indent: 0;
+}
+
+.cap7-exampleBox p{
+  margin: 0 0 10px;
+  text-indent: 0;
+}
+
+.cap7-exampleBox p:last-child{
+  margin-bottom: 0;
+}
+
+.cap7-tableWrap{
+  margin: 12px 0 16px;
+  border: 1px solid rgba(31,31,31,.12);
+  border-radius: 16px;
+  background: #fff;
+  overflow: auto;
+}
+
+.cap7-table{
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+}
+
+.cap7-table th,
+.cap7-table td{
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(31,31,31,.08);
+  text-align: left;
+  font-size: 14px;
+  text-indent: 0;
+}
+
+.cap7-table th{
+  background: rgba(31,60,136,.06);
+  color: #114b79;
+  font-weight: 800;
+}
+
+.cap7-list,
+.cap7-bullets{
+  text-indent: 0;
+  margin-top: 8px;
+}
+
+.cap7-key-message{
+  margin: 12px 0 16px;
+  padding: 14px 16px;
+  border-left: 4px solid var(--blue);
+  border-radius: 12px;
+  background: #f5f7fa;
+  text-indent: 0;
+}
+
+.cap7-key-message p{
+  margin: 0;
+  font-weight: 700;
+}
+
+/* -------------------------
+   Mapa mecanístico (interação)
+   ------------------------- */
+.tox-card{
+  margin: 18px 0 18px;
+  padding: 18px 18px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(0,0,0,.04);
+}
+
+.tox-head h3{
+  margin: 0 0 6px;
+  font-family: var(--font-sub);
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.tox-sub{
+  margin: 0 0 10px;
+  color: rgba(31,31,31,.72);
+  font-size: 14px;
+  text-indent: 0;
+}
+
+.tox-flow{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.tox-node{
+  appearance: none;
+  border: 1px solid rgba(31,60,136,.25);
+  background: #fff;
+  color: var(--blue);
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.tox-node:hover{
+  transform: translateY(-1px);
+  border-color: rgba(31,60,136,.45);
+}
+
+.tox-node:focus-visible{
+  box-shadow: 0 0 0 3px rgba(31,60,136,.20);
+}
+
+.tox-node[aria-selected="true"]{
+  background: rgba(31,60,136,.08);
+  border-color: rgba(31,60,136,.55);
+}
+
+.tox-result{
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--box);
+  overflow: hidden;
+}
+
+.tox-dl{
+  margin: 0;
+  padding: 14px 14px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.tox-dl dt{
+  margin: 0;
+  color: rgba(31,31,31,.66);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.tox-dl dd{
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(31,31,31,.10);
+  border-radius: 14px;
+  background: #fff;
+  text-indent: 0;
+  font-weight: 650;
+  color: #1f3551;
+}
+
+.tox-footnote{
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+  text-indent: 0;
+}
+
+.info-chip{
+  justify-self: start;
+  appearance: none;
+  border: 1px solid rgba(31,31,31,.14);
+  background: linear-gradient(#fff, rgba(246,247,251,.55));
+  color: rgba(31,31,31,.82);
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13px;
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+}
+
+.info-chip:hover{
+  transform: translateY(-1px);
+  border-color: rgba(31,60,136,.32);
+  background: rgba(31,60,136,.03);
+  color: var(--text);
+}
+
+.info-chip:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31,60,136,.18);
+}
+
+.tooltip{
+  border: 1px solid rgba(31,60,136,.18);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: linear-gradient(180deg, rgba(31,60,136,.06), rgba(31,60,136,.02));
+  color: rgba(31,31,31,.86);
+}
+
+.tooltip p{
+  margin: 0;
+  text-indent: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 820px){
+  .cap7-table{
+    min-width: 540px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .tox-node,
+  .info-chip{
+    transition: none !important;
+  }
+}

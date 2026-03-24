@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capítulo 5 — Página 46</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-05.css" />
+</head>
+
+<body class="cap5-page46">
+
+  <div class="reader-toolbar" aria-label="Controles de leitura">
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Texto</span>
+      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
+      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
+      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Zoom</span>
+      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
+      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
+      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
+    </div>
+
+    <div class="reader-toolbar__group">
+      <span class="reader-toolbar__label">Acessibilidade</span>
+      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
+      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
+      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
+      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
+    </div>
+  </div>
+
+  <main class="container page-shell">
+
+    <header class="page-header">
+      <div>
+        <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
+        <h1 class="page-title">Microdiluição em caldo e determinação da CIM</h1>
+      </div>
+    </header>
+
+    <section class="prose" aria-label="Texto principal">
+
+      <p>
+        Outro método amplamente utilizado é a microdiluição em caldo, que permite determinar a concentração inibitória mínima (CIM).
+      </p>
+
+      <p>
+        Nesse procedimento, a bactéria é exposta a concentrações progressivamente crescentes do antibacteriano em meio líquido. Essas concentrações são organizadas em diluições seriadas, geralmente em progressão de base dois.
+      </p>
+
+      <figure class="cap5-p46-figure">
+        <button
+          class="cap5-zoomTrigger"
+          type="button"
+          data-zoom-image="../../assets/capitulo-05/imagens/microdiluicao-cim.png"
+          data-zoom-alt="Placa de microdiluição em caldo mostrando a determinação da concentração inibitória mínima."
+          data-zoom-caption="Na microdiluição em caldo, a CIM corresponde à menor concentração do antibacteriano capaz de impedir o crescimento visível da bactéria nas condições do ensaio."
+          aria-label="Ampliar imagem de microdiluição em caldo"
+        >
+          <img
+            src="../../assets/capitulo-05/imagens/microdiluicao-cim.png"
+            alt="Placa de microdiluição em caldo mostrando a determinação da concentração inibitória mínima."
+            loading="lazy"
+          />
+        </button>
+        <figcaption class="cap5-p46-caption">
+          A concentração inibitória mínima corresponde à menor concentração do antibacteriano capaz de impedir o crescimento visível da bactéria nas condições do ensaio.
+        </figcaption>
+      </figure>
+
+      <p>
+        Após incubação, avalia-se a presença de crescimento bacteriano em cada concentração testada. A CIM corresponde à menor concentração do antibacteriano capaz de impedir o crescimento visível da bactéria nas condições do ensaio <sup>2</sup>.
+      </p>
+
+      <p>
+        Diferentemente da difusão em disco, a microdiluição fornece um valor quantitativo direto, expresso como concentração do antibacteriano.
+      </p>
+
+      <p>
+        É importante reconhecer que a ausência de crescimento visível não significa necessariamente morte bacteriana completa. O teste mede a inibição do crescimento detectável nas condições laboratoriais estabelecidas <sup>2</sup>.
+      </p>
+
+      <section class="cap5-p46-standard" aria-labelledby="cap5-p46-standard-title">
+        <div class="cap5-p46-standard__head">
+          <h2 id="cap5-p46-standard-title">Padronização do teste</h2>
+          <p>
+            Para que os resultados sejam comparáveis e interpretáveis, diversos parâmetros são rigorosamente padronizados:
+          </p>
+        </div>
+
+        <div class="cap5-p46-standard__grid">
+          <article class="cap5-p46-standard__item">
+            <h3>Inóculo bacteriano</h3>
+            <p>Quantidade padronizada de bactérias utilizada no ensaio.</p>
+          </article>
+
+          <article class="cap5-p46-standard__item">
+            <h3>Meio de cultura</h3>
+            <p>Composição adequada para permitir comparação reprodutível dos resultados.</p>
+          </article>
+
+          <article class="cap5-p46-standard__item">
+            <h3>pH e cátions</h3>
+            <p>Condições químicas controladas para evitar variações artificiais na leitura.</p>
+          </article>
+
+          <article class="cap5-p46-standard__item">
+            <h3>Temperatura e tempo</h3>
+            <p>Incubação padronizada para garantir consistência metodológica.</p>
+          </article>
+
+          <article class="cap5-p46-standard__item cap5-p46-standard__item--wide">
+            <h3>Critérios de leitura</h3>
+            <p>Avaliação uniforme da presença ou ausência de crescimento visível em cada concentração testada.</p>
+          </article>
+        </div>
+      </section>
+
+      <p>
+        Pequenas variações nesses fatores podem modificar o diâmetro do halo ou o valor da CIM. Por isso, os testes seguem protocolos técnicos estabelecidos por comitês especializados em testes de suscetibilidade.
+      </p>
+
+      <div class="cap5-p46-closing">
+        <p>
+          Independentemente do método utilizado, o teste de sensibilidade gera um dado microbiológico mensurável. Esse valor isolado, entretanto, ainda não define se a bactéria será classificada como sensível ou resistente. Para que isso ocorra, o resultado precisa ser comparado a critérios interpretativos específicos.
+        </p>
+      </div>
+
+    </section>
+
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p45.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 5 · Página 46</div>
+      <button class="btn" type="button" data-next="p47.html" aria-label="Ir para a próxima página">Próxima →</button>
+    </nav>
+
+  </main>
+
+  <div class="cap5-lightbox" id="cap5Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <div class="cap5-lightbox__backdrop" data-lightbox-close></div>
+
+    <div class="cap5-lightbox__dialog">
+      <button class="cap5-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
+
+      <figure class="cap5-lightbox__figure">
+        <img id="cap5LightboxImage" src="" alt="" />
+        <figcaption id="cap5LightboxCaption" class="cap5-lightbox__caption"></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-05.js"></script>
+</body>
+</html>
