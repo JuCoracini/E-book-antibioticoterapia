@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -16,31 +16,7 @@
 
 <body class="cap4-page37">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
-  <main class="container page-shell cap4-shell">
+  <main class="page-shell">
 
     <header class="page-header">
       <div>
@@ -56,35 +32,90 @@
       </p>
 
       <p>
-        Populações bacterianas apresentam variabilidade genética e fenotípica mesmo antes da exposição ao antibacteriano. Quando o tratamento é iniciado, as bactérias mais sensíveis tendem a ser eliminadas com maior rapidez, enquanto variantes com menor suscetibilidade relativa pode persistir. Esse processo altera progressivamente a distribuição de suscetibilidade dentro da população bacteriana.
-      </p>
-
-      <p>
-        Esse fenômeno torna-se mais provável quando a exposição ao antibacteriano oscila próxima ao limiar farmacodinâmico necessário para inibição bacteriana. Nessa situação, parte da população é suprimida enquanto outras subpopulações permanecem viáveis. A repetição desse padrão ao longo de ciclos terapêuticos pode deslocar gradualmente a distribuição populacional para valores mais elevados de concentração inibitória mínima <sup>4,5</sup>.
+        Populações bacterianas apresentam variabilidade genética e fenotípica mesmo antes da exposição ao antibacteriano. Quando o tratamento é iniciado, as bactérias mais sensíveis tendem a ser eliminadas com maior rapidez, enquanto variantes com menor suscetibilidade relativa podem persistir. Esse processo altera progressivamente a distribuição de suscetibilidade dentro da população bacteriana.
       </p>
 
       <figure class="cap4-p37-figure">
         <button
           class="cap4-p37-zoomTrigger"
           type="button"
-          data-zoom-image="../../assets/capitulo-04/imagens/triade-dinamica-evolutiva.png"
-          data-zoom-alt="Diagrama em três círculos mostrando exposição farmacológica, heterogeneidade bacteriana e microambiente infeccioso convergindo para dinâmica evolutiva."
-          data-zoom-caption="Síntese conceitual da dinâmica evolutiva durante o tratamento antimicrobiano. A seleção de variantes menos suscetíveis decorre da interação entre exposição farmacológica, heterogeneidade bacteriana e condições do microambiente infeccioso. Clique na imagem para ampliar."
-          aria-label="Ampliar figura da tríade da dinâmica evolutiva"
+          data-zoom-image="../../assets/capitulo-04/imagens/dinamica-selecao-bacteriana.png"
+          data-zoom-alt="Esquema da dinâmica de seleção bacteriana mostrando população inicial heterogênea, eliminação seletiva pelo antibacteriano e população predominante menos suscetível."
+          data-zoom-caption="Representação esquemática da dinâmica de seleção bacteriana durante o tratamento: eliminação preferencial das bactérias mais suscetíveis, sobrevivência relativa das menos suscetíveis e deslocamento progressivo da população residual. Clique na imagem para ampliar."
+          aria-label="Ampliar figura da dinâmica de seleção bacteriana"
         >
           <img
-            src="../../assets/capitulo-04/imagens/triade-dinamica-evolutiva.png"
-            alt="Diagrama em três círculos mostrando exposição farmacológica, heterogeneidade bacteriana e microambiente infeccioso convergindo para dinâmica evolutiva."
+            src="../../assets/capitulo-04/imagens/dinamica-selecao-bacteriana.png"
+            alt="Esquema da dinâmica de seleção bacteriana mostrando população inicial heterogênea, eliminação seletiva pelo antibacteriano e população predominante menos suscetível."
             loading="lazy"
           />
         </button>
         <figcaption class="cap4-caption">
-          Síntese conceitual da dinâmica evolutiva durante o tratamento antimicrobiano. A seleção de variantes menos suscetíveis decorre da interação entre exposição farmacológica, heterogeneidade bacteriana e condições do microambiente infeccioso. Clique na imagem para ampliar.
+          Representação esquemática da dinâmica de seleção bacteriana durante o tratamento: eliminação preferencial das bactérias mais suscetíveis, sobrevivência relativa das menos suscetíveis e deslocamento progressivo da população residual. Clique na imagem para ampliar.
         </figcaption>
       </figure>
 
+      <section class="cap4-p37-stage" data-cap4-p37 aria-label="Leitura guiada da dinâmica evolutiva">
+        <div class="cap4-p37-stage__inner">
+
+          <div class="cap4-p37-controls" role="tablist" aria-label="Etapas da dinâmica evolutiva">
+            <button class="cap4-p37-tab is-active" type="button" role="tab" aria-selected="true" data-p37-tab="initial">População inicial</button>
+            <button class="cap4-p37-tab" type="button" role="tab" aria-selected="false" data-p37-tab="selection">Seleção durante a exposição</button>
+            <button class="cap4-p37-tab" type="button" role="tab" aria-selected="false" data-p37-tab="shift">Deslocamento populacional</button>
+          </div>
+
+          <div class="cap4-p37-panel">
+            <p class="cap4-p37-panel__eyebrow">Leitura aplicada</p>
+            <h2 class="cap4-p37-panel__title" data-p37-title>População inicial heterogênea</h2>
+            <p class="cap4-p37-panel__subtitle" data-p37-subtitle>Nem todas as bactérias têm o mesmo grau de suscetibilidade</p>
+            <p class="cap4-p37-panel__text" data-p37-text>
+              Antes do início do tratamento, a população bacteriana já pode incluir subgrupos com diferentes níveis de suscetibilidade. Isso significa que a exposição antimicrobiana atuará sobre uma população biologicamente heterogênea, e não sobre um conjunto uniforme de células.
+            </p>
+
+            <div class="cap4-p37-tags" aria-label="Pontos-chave">
+              <span class="cap4-p37-tag" data-p37-tag>Variabilidade pré-existente</span>
+              <span class="cap4-p37-tag" data-p37-tag>Resposta desigual</span>
+            </div>
+          </div>
+
+          <div class="cap4-p37-bars" aria-label="Ênfase relativa da etapa selecionada">
+            <div class="cap4-p37-bars__row">
+              <span class="cap4-p37-bars__label">Carga sensível</span>
+              <div class="cap4-p37-bars__track" aria-hidden="true">
+                <div class="cap4-p37-bars__fill cap4-p37-bars__fill--sens" data-p37-bar="sens"></div>
+              </div>
+              <span class="cap4-p37-bars__value" data-p37-bar-value="sens">Alta</span>
+            </div>
+
+            <div class="cap4-p37-bars__row">
+              <span class="cap4-p37-bars__label">Pressão seletiva</span>
+              <div class="cap4-p37-bars__track" aria-hidden="true">
+                <div class="cap4-p37-bars__fill cap4-p37-bars__fill--pressure" data-p37-bar="pressure"></div>
+              </div>
+              <span class="cap4-p37-bars__value" data-p37-bar-value="pressure">Baixa</span>
+            </div>
+
+            <div class="cap4-p37-bars__row">
+              <span class="cap4-p37-bars__label">Predomínio residual</span>
+              <div class="cap4-p37-bars__track" aria-hidden="true">
+                <div class="cap4-p37-bars__fill cap4-p37-bars__fill--residual" data-p37-bar="residual"></div>
+              </div>
+              <span class="cap4-p37-bars__value" data-p37-bar-value="residual">Baixo</span>
+            </div>
+          </div>
+
+          <p class="cap4-p37-note">
+            A seleção de variantes menos suscetíveis não depende apenas do antibacteriano em si, mas da forma como a exposição interage com a heterogeneidade bacteriana e com as condições do foco infeccioso.
+          </p>
+        </div>
+      </section>
+
       <p>
-        A probabilidade desse deslocamento aumenta em cenários de alta carga bacteriana, presença de compartimentos com penetração heterogênea ou variabilidade farmacocinética interindividual. Nessas condições, a concentração efetiva no foco infeccioso pode não refletir a concentração plasmática medida, resultando em exposição subótima em determinados microambientes <sup>11</sup>.
+        Esse fenômeno torna-se mais provável quando a exposição ao antibacteriano oscila próxima ao limiar farmacodinâmico necessário para inibição bacteriana. Nessa situação, parte da população é suprimida enquanto outras subpopulações permanecem viáveis. A repetição desse padrão ao longo de ciclos terapêuticos pode deslocar gradualmente a distribuição populacional para valores mais elevados de concentração inibitória mínima <sup>4,5</sup>.
+      </p>
+
+      <p>
+        A probabilidade desse deslocamento aumenta em cenários de alta carga bacteriana, presença de compartimentos com penetração heterogênea ou variabilidade farmacocinética interindividual. Nessas condições, a concentração efetiva no foco infeccioso pode não refletir a concentração plasmática medida, resultando em exposição subótima em determinados microambientes <sup>8</sup>.
       </p>
 
       <p>

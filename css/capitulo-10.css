@@ -1,0 +1,1296 @@
+/* =====================================================
+   CAPÍTULO 10
+   PÁGINA 82 — A DECISÃO COMO PROCESSO CONTÍNUO
+   ===================================================== */
+
+.cap10-page82 .prose{
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.cap10-page82 .prose p{
+  font-family: 'Merriweather', serif;
+  font-size: 14.8px;
+  line-height: 1.75;
+  text-align: justify;
+  text-indent: 1.6em;
+  margin: 0 0 14px;
+  color: #2f2f2f;
+}
+
+.cap10-page82 .prose p:first-of-type{
+  text-indent: 1.6em;
+}
+
+.cap10-page82 .chapter{
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+
+.cap10-page82 .page-title{
+  font-family: 'Merriweather', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--azul-escuro);
+  margin-bottom: 18px;
+}
+
+.cap10-page82 .cap10-p82-intro{
+  max-width: 620px;
+  margin: 8px auto 0;
+  text-indent: 0 !important;
+  text-align: center;
+  color: var(--azul-escuro);
+}
+
+/* =========================
+   MODELO INTERATIVO
+   ========================= */
+
+.cap10-page82 .cap10-p82-stage{
+  max-width: 760px;
+  margin: 22px auto 28px;
+}
+
+.cap10-page82 .cap10-p82-stage__inner{
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.cap10-page82 .cap10-p82-model{
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto 18px;
+  padding: 10px 0 6px;
+}
+
+.cap10-page82 .cap10-p82-model::before{
+  content: "";
+  position: absolute;
+  inset: 95px 160px 120px;
+  border: 1px dashed rgba(30,136,229,.18);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.cap10-page82 .cap10-p82-nodeWrap{
+  display: flex;
+  justify-content: center;
+}
+
+.cap10-page82 .cap10-p82-nodeWrap--top{
+  margin-bottom: 12px;
+}
+
+.cap10-page82 .cap10-p82-middle{
+  display: grid;
+  grid-template-columns: 1fr 280px 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.cap10-page82 .cap10-p82-bottom{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 14px;
+}
+
+.cap10-page82 .cap10-p82-center{
+  display: flex;
+  justify-content: center;
+}
+
+.cap10-page82 .cap10-p82-core{
+  width: 280px;
+  min-height: 280px;
+  border-radius: 999px;
+  padding: 34px 28px;
+  background: radial-gradient(circle at 30% 25%, rgba(26,188,156,.12), rgba(30,136,229,.12) 52%, rgba(30,136,229,.18) 100%);
+  border: 1px solid rgba(30,136,229,.18);
+  box-shadow: 0 12px 28px rgba(15,42,68,.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.cap10-page82 .cap10-p82-core__eyebrow{
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--verde-oceano);
+  margin-bottom: 10px;
+}
+
+.cap10-page82 .cap10-p82-core__title{
+  display: block;
+  font-family: 'Merriweather', serif;
+  font-size: 22px;
+  line-height: 1.35;
+  color: var(--azul-escuro);
+  margin-bottom: 10px;
+}
+
+.cap10-page82 .cap10-p82-core__text{
+  margin: 0;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #465468;
+}
+
+.cap10-page82 .cap10-p82-node{
+  appearance: none;
+  border: 1px solid rgba(15,42,68,.12);
+  background: #ffffff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(15,42,68,.04);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease;
+  max-width: 210px;
+  text-align: center;
+}
+
+.cap10-page82 .cap10-p82-node:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.32);
+  box-shadow: 0 8px 20px rgba(30,136,229,.08);
+}
+
+.cap10-page82 .cap10-p82-node.is-active{
+  background: linear-gradient(180deg, #1e88e5 0%, #176eb9 100%);
+  color: #ffffff;
+  border-color: rgba(30,136,229,.70);
+  box-shadow: 0 10px 22px rgba(30,136,229,.16);
+}
+
+.cap10-page82 .cap10-p82-panel{
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, #f7fcfd 0%, #eef7fb 100%);
+  border-left: 4px solid var(--azul-turquesa);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(15,42,68,.05);
+}
+
+.cap10-page82 .cap10-p82-panel__eyebrow{
+  margin: 0 0 6px;
+  text-indent: 0 !important;
+  text-align: left !important;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--verde-oceano);
+}
+
+.cap10-page82 .cap10-p82-panel__title{
+  margin: 0 0 8px;
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  line-height: 1.35;
+  color: var(--azul-escuro);
+}
+
+.cap10-page82 .cap10-p82-panel__text,
+.cap10-page82 .cap10-p82-panel__impact{
+  margin: 0 0 8px;
+  text-indent: 0 !important;
+  text-align: left !important;
+  font-size: 14.4px;
+  line-height: 1.7;
+  color: #2f2f2f;
+}
+
+.cap10-page82 .cap10-p82-panel__impact{
+  margin-bottom: 0;
+  color: #4b5a6d;
+}
+
+.cap10-page82 .cap10-p82-closing{
+  width: 100%;
+  max-width: 620px;
+  margin: 16px auto 0;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #f7fbfc 0%, #eef6f8 100%);
+  border-left: 4px solid var(--azul-turquesa);
+  border-radius: 10px;
+  text-indent: 0 !important;
+  text-align: left !important;
+  color: #2f2f2f;
+  box-shadow: 0 8px 18px rgba(15,42,68,.04);
+}
+
+@media (max-width: 860px){
+  .cap10-page82 .cap10-p82-model::before{
+    inset: 110px 80px 140px;
+  }
+
+  .cap10-page82 .cap10-p82-middle{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .cap10-page82 .cap10-p82-bottom{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .cap10-page82 .cap10-p82-core{
+    width: min(100%, 280px);
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 760px){
+  .cap10-page82 .page-shell{
+    padding: 34px 24px;
+  }
+
+  .cap10-page82 .cap10-p82-model{
+    padding-top: 0;
+  }
+
+  .cap10-page82 .cap10-p82-model::before{
+    display: none;
+  }
+
+  .cap10-page82 .cap10-p82-node{
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .cap10-page82 .cap10-p82-panel,
+  .cap10-page82 .cap10-p82-closing{
+    max-width: 100%;
+  }
+}
+/* =====================================================
+   CAPÍTULO 10
+   PÁGINA 83 — SIMULAÇÃO 1
+   ===================================================== */
+
+.cap10-page83 .cap10-p83-sim{
+  max-width: 680px;
+  margin: 20px auto 10px;
+}
+
+.cap10-page83 .cap10-p83-step{
+  display: none;
+}
+
+.cap10-page83 .cap10-p83-step.is-active{
+  display: block;
+}
+
+.cap10-page83 .cap10-p83-question{
+  margin: 0 0 14px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--azul-escuro);
+}
+
+.cap10-page83 .cap10-p83-options{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cap10-page83 .cap10-p83-option{
+  appearance: none;
+  border: 1px solid rgba(15,42,68,.14);
+  background: #ffffff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, background-color .18s ease, box-shadow .18s ease;
+}
+
+.cap10-page83 .cap10-p83-option:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.35);
+  box-shadow: 0 8px 18px rgba(30,136,229,.08);
+}
+
+.cap10-page83 .cap10-p83-feedback{
+  max-width: 560px;
+  margin: 0 auto 16px;
+  padding: 14px 16px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  background: linear-gradient(180deg, #f7fbfc 0%, #eef6f8 100%);
+  border-left: 4px solid var(--azul-turquesa);
+  border-radius: 10px;
+  color: #2f2f2f;
+  line-height: 1.7;
+  box-shadow: 0 8px 18px rgba(15,42,68,.04);
+}
+
+.cap10-page83 .cap10-p83-next{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 9px 16px;
+  appearance: none;
+  border: 1px solid var(--azul-turquesa);
+  background: var(--azul-turquesa);
+  color: #ffffff;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .18s ease, opacity .18s ease;
+}
+
+.cap10-page83 .cap10-p83-next:hover{
+  transform: translateY(-1px);
+}
+
+.cap10-page83 .cap10-p83-final{
+  margin: 0 0 10px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.cap10-page83 .cap10-p83-final-sub{
+  max-width: 620px;
+  margin: 0 auto 10px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #4b5a6d;
+}
+
+.cap10-page83 .cap10-p83-highlight{
+  max-width: 560px;
+  margin: 18px auto 0;
+  padding: 12px 14px;
+  text-align: center;
+  border-left: 4px solid var(--verde-oceano);
+  background: rgba(26,188,156,0.08);
+  border-radius: 8px;
+  text-indent: 0;
+  font-weight: 600;
+  color: #2f2f2f;
+}
+
+@media (max-width: 760px){
+  .cap10-page83 .cap10-p83-options{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cap10-page83 .cap10-p83-option{
+    width: 100%;
+  }
+}
+/* =====================================================
+   CAPÍTULO 10
+   PÁGINA 84 — SIMULAÇÃO 1 (REAVALIAR E AJUSTAR)
+   ===================================================== */
+
+.cap10-page84 .cap10-p84-sim{
+  max-width: 680px;
+  margin: 20px auto 10px;
+}
+
+.cap10-page84 .cap10-p84-step{
+  display: none;
+}
+
+.cap10-page84 .cap10-p84-step.is-active{
+  display: block;
+}
+
+.cap10-page84 .cap10-p84-question{
+  margin: 0 0 14px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--azul-escuro);
+}
+
+.cap10-page84 .cap10-p84-options{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cap10-page84 .cap10-p84-option{
+  appearance: none;
+  border: 1px solid rgba(15,42,68,.14);
+  background: #ffffff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, background-color .18s ease, box-shadow .18s ease;
+}
+
+.cap10-page84 .cap10-p84-option:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.35);
+  box-shadow: 0 8px 18px rgba(30,136,229,.08);
+}
+
+.cap10-page84 .cap10-p84-feedback{
+  max-width: 560px;
+  margin: 0 auto 16px;
+  padding: 14px 16px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  background: linear-gradient(180deg, #f7fbfc 0%, #eef6f8 100%);
+  border-left: 4px solid var(--azul-turquesa);
+  border-radius: 10px;
+  color: #2f2f2f;
+  line-height: 1.7;
+  box-shadow: 0 8px 18px rgba(15,42,68,.04);
+}
+
+.cap10-page84 .cap10-p84-next{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 9px 16px;
+  appearance: none;
+  border: 1px solid var(--azul-turquesa);
+  background: var(--azul-turquesa);
+  color: #ffffff;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .18s ease, opacity .18s ease;
+}
+
+.cap10-page84 .cap10-p84-next:hover{
+  transform: translateY(-1px);
+}
+
+.cap10-page84 .cap10-p84-final{
+  margin: 0 0 10px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.cap10-page84 .cap10-p84-final-sub{
+  max-width: 620px;
+  margin: 0 auto 10px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #4b5a6d;
+}
+
+.cap10-page84 .cap10-p84-highlight{
+  max-width: 560px;
+  margin: 18px auto 0;
+  padding: 12px 14px;
+  text-align: center;
+  border-left: 4px solid var(--verde-oceano);
+  background: rgba(26,188,156,0.08);
+  border-radius: 8px;
+  text-indent: 0;
+  font-weight: 600;
+  color: #2f2f2f;
+}
+
+@media (max-width: 760px){
+  .cap10-page84 .cap10-p84-options{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cap10-page84 .cap10-p84-option{
+    width: 100%;
+  }
+}
+/* =====================================================
+   CAPÍTULO 10
+   PÁGINA 85 — SIMULAÇÃO 2 (COBRIR, REAVALIAR E SIMPLIFICAR)
+   ===================================================== */
+
+.cap10-page85 .cap10-p85-sim{
+  max-width: 680px;
+  margin: 20px auto 10px;
+}
+
+.cap10-page85 .cap10-p85-step{
+  display: none;
+}
+
+.cap10-page85 .cap10-p85-step.is-active{
+  display: block;
+}
+
+.cap10-page85 .cap10-p85-question{
+  margin: 0 0 14px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--azul-escuro);
+}
+
+.cap10-page85 .cap10-p85-options{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cap10-page85 .cap10-p85-option{
+  appearance: none;
+  border: 1px solid rgba(15,42,68,.14);
+  background: #ffffff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, background-color .18s ease, box-shadow .18s ease;
+}
+
+.cap10-page85 .cap10-p85-option:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.35);
+  box-shadow: 0 8px 18px rgba(30,136,229,.08);
+}
+
+.cap10-page85 .cap10-p85-feedback{
+  max-width: 560px;
+  margin: 0 auto 16px;
+  padding: 14px 16px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  background: linear-gradient(180deg, #f7fbfc 0%, #eef6f8 100%);
+  border-left: 4px solid var(--azul-turquesa);
+  border-radius: 10px;
+  color: #2f2f2f;
+  line-height: 1.7;
+  box-shadow: 0 8px 18px rgba(15,42,68,.04);
+}
+
+.cap10-page85 .cap10-p85-next{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 9px 16px;
+  appearance: none;
+  border: 1px solid var(--azul-turquesa);
+  background: var(--azul-turquesa);
+  color: #ffffff;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .18s ease, opacity .18s ease;
+}
+
+.cap10-page85 .cap10-p85-next:hover{
+  transform: translateY(-1px);
+}
+
+.cap10-page85 .cap10-p85-final{
+  margin: 0 0 10px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.cap10-page85 .cap10-p85-final-sub{
+  max-width: 620px;
+  margin: 0 auto 10px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #4b5a6d;
+}
+
+.cap10-page85 .cap10-p85-highlight{
+  max-width: 560px;
+  margin: 18px auto 0;
+  padding: 12px 14px;
+  text-align: center;
+  border-left: 4px solid var(--verde-oceano);
+  background: rgba(26,188,156,0.08);
+  border-radius: 8px;
+  text-indent: 0;
+  font-weight: 600;
+  color: #2f2f2f;
+}
+
+@media (max-width: 760px){
+  .cap10-page85 .cap10-p85-options{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cap10-page85 .cap10-p85-option{
+    width: 100%;
+  }
+}
+/* =====================================================
+   CAPÍTULO 10
+   PÁGINA 86 — SIMULAÇÃO 3 (TRATAR INFECÇÃO, NÃO COLONIZAÇÃO)
+   ===================================================== */
+
+.cap10-page86 .cap10-p86-sim{
+  max-width: 680px;
+  margin: 20px auto 10px;
+}
+
+.cap10-page86 .cap10-p86-step{
+  display: none;
+}
+
+.cap10-page86 .cap10-p86-step.is-active{
+  display: block;
+}
+
+.cap10-page86 .cap10-p86-question{
+  margin: 0 0 14px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--azul-escuro);
+}
+
+.cap10-page86 .cap10-p86-options{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cap10-page86 .cap10-p86-option{
+  appearance: none;
+  border: 1px solid rgba(15,42,68,.14);
+  background: #ffffff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, background-color .18s ease, box-shadow .18s ease;
+}
+
+.cap10-page86 .cap10-p86-option:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.35);
+  box-shadow: 0 8px 18px rgba(30,136,229,.08);
+}
+
+.cap10-page86 .cap10-p86-feedback{
+  max-width: 560px;
+  margin: 0 auto 16px;
+  padding: 14px 16px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  background: linear-gradient(180deg, #f7fbfc 0%, #eef6f8 100%);
+  border-left: 4px solid var(--azul-turquesa);
+  border-radius: 10px;
+  color: #2f2f2f;
+  line-height: 1.7;
+  box-shadow: 0 8px 18px rgba(15,42,68,.04);
+}
+
+.cap10-page86 .cap10-p86-next{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 9px 16px;
+  appearance: none;
+  border: 1px solid var(--azul-turquesa);
+  background: var(--azul-turquesa);
+  color: #ffffff;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .18s ease, opacity .18s ease;
+}
+
+.cap10-page86 .cap10-p86-next:hover{
+  transform: translateY(-1px);
+}
+
+.cap10-page86 .cap10-p86-final{
+  margin: 0 0 10px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.cap10-page86 .cap10-p86-final-sub{
+  max-width: 620px;
+  margin: 0 auto 10px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #4b5a6d;
+}
+
+.cap10-page86 .cap10-p86-highlight{
+  max-width: 560px;
+  margin: 18px auto 0;
+  padding: 12px 14px;
+  text-align: center;
+  border-left: 4px solid var(--verde-oceano);
+  background: rgba(26,188,156,0.08);
+  border-radius: 8px;
+  text-indent: 0;
+  font-weight: 600;
+  color: #2f2f2f;
+}
+
+@media (max-width: 760px){
+  .cap10-page86 .cap10-p86-options{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cap10-page86 .cap10-p86-option{
+    width: 100%;
+  }
+}
+/* =====================================================
+   CAPÍTULO 10
+   PÁGINA 87 — SIMULAÇÃO 4 (TEMPO E AJUSTE RESPONSÁVEL)
+   ===================================================== */
+
+.cap10-page87 .cap10-p87-sim{
+  max-width: 680px;
+  margin: 20px auto 10px;
+}
+
+.cap10-page87 .cap10-p87-step{
+  display: none;
+}
+
+.cap10-page87 .cap10-p87-step.is-active{
+  display: block;
+}
+
+.cap10-page87 .cap10-p87-question{
+  margin: 0 0 14px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--azul-escuro);
+}
+
+.cap10-page87 .cap10-p87-options{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cap10-page87 .cap10-p87-option{
+  appearance: none;
+  border: 1px solid rgba(15,42,68,.14);
+  background: #ffffff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, background-color .18s ease, box-shadow .18s ease;
+}
+
+.cap10-page87 .cap10-p87-option:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.35);
+  box-shadow: 0 8px 18px rgba(30,136,229,.08);
+}
+
+.cap10-page87 .cap10-p87-feedback{
+  max-width: 560px;
+  margin: 0 auto 16px;
+  padding: 14px 16px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  background: linear-gradient(180deg, #f7fbfc 0%, #eef6f8 100%);
+  border-left: 4px solid var(--azul-turquesa);
+  border-radius: 10px;
+  color: #2f2f2f;
+  line-height: 1.7;
+  box-shadow: 0 8px 18px rgba(15,42,68,.04);
+}
+
+.cap10-page87 .cap10-p87-next{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 9px 16px;
+  appearance: none;
+  border: 1px solid var(--azul-turquesa);
+  background: var(--azul-turquesa);
+  color: #ffffff;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .18s ease, opacity .18s ease;
+}
+
+.cap10-page87 .cap10-p87-next:hover{
+  transform: translateY(-1px);
+}
+
+.cap10-page87 .cap10-p87-final{
+  margin: 0 0 10px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.cap10-page87 .cap10-p87-final-sub{
+  max-width: 620px;
+  margin: 0 auto 10px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #4b5a6d;
+}
+
+.cap10-page87 .cap10-p87-highlight{
+  max-width: 560px;
+  margin: 18px auto 0;
+  padding: 12px 14px;
+  text-align: center;
+  border-left: 4px solid var(--verde-oceano);
+  background: rgba(26,188,156,0.08);
+  border-radius: 8px;
+  text-indent: 0;
+  font-weight: 600;
+  color: #2f2f2f;
+}
+
+@media (max-width: 760px){
+  .cap10-page87 .cap10-p87-options{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cap10-page87 .cap10-p87-option{
+    width: 100%;
+  }
+}
+/* =====================================================
+   CAPÍTULO 10
+   PÁGINA 88 — A DECISÃO COMO PROCESSO CONTÍNUO
+   ===================================================== */
+
+.cap10-page88 .cap10-p88-intro{
+  max-width: 620px;
+  margin: 8px auto 0;
+  text-indent: 0 !important;
+  text-align: center;
+  color: var(--azul-escuro);
+}
+
+.cap10-page88 .cap10-p88-synthesis{
+  max-width: 700px;
+  margin: 22px auto 28px;
+}
+
+.cap10-page88 .cap10-p88-tabs{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.cap10-page88 .cap10-p88-tab{
+  appearance: none;
+  border: 1px solid rgba(15,42,68,.14);
+  background: #ffffff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.cap10-page88 .cap10-p88-tab:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.35);
+  box-shadow: 0 8px 18px rgba(30,136,229,.08);
+}
+
+.cap10-page88 .cap10-p88-tab.is-active{
+  background: linear-gradient(180deg, #1e88e5 0%, #176eb9 100%);
+  color: #ffffff;
+  border-color: rgba(30,136,229,.70);
+}
+
+.cap10-page88 .cap10-p88-panel{
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, #f7fcfd 0%, #eef7fb 100%);
+  border-left: 4px solid var(--azul-turquesa);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(15,42,68,.05);
+}
+
+.cap10-page88 .cap10-p88-panel__eyebrow{
+  margin: 0 0 6px;
+  text-indent: 0 !important;
+  text-align: left !important;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--verde-oceano);
+}
+
+.cap10-page88 .cap10-p88-panel__title{
+  margin: 0 0 8px;
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  line-height: 1.35;
+  color: var(--azul-escuro);
+}
+
+.cap10-page88 .cap10-p88-panel__text,
+.cap10-page88 .cap10-p88-panel__impact{
+  margin: 0 0 8px;
+  text-indent: 0 !important;
+  text-align: left !important;
+  font-size: 14.4px;
+  line-height: 1.7;
+  color: #2f2f2f;
+}
+
+.cap10-page88 .cap10-p88-panel__impact{
+  margin-bottom: 0;
+  color: #4b5a6d;
+}
+
+.cap10-page88 .cap10-p88-closing{
+  width: 100%;
+  max-width: 620px;
+  margin: 16px auto 0;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #f7fbfc 0%, #eef6f8 100%);
+  border-left: 4px solid var(--verde-oceano);
+  border-radius: 10px;
+  text-indent: 0 !important;
+  text-align: left !important;
+  color: #2f2f2f;
+  box-shadow: 0 8px 18px rgba(15,42,68,.04);
+}
+
+@media (max-width: 760px){
+  .cap10-page88 .cap10-p88-panel,
+  .cap10-page88 .cap10-p88-closing{
+    max-width: 100%;
+  }
+
+  .cap10-page88 .cap10-p88-tabs{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cap10-page88 .cap10-p88-tab{
+    width: 100%;
+  }
+}
+/* =====================================================
+   PÁGINA FINAL PREMIUM
+   ===================================================== */
+
+.final-page .page-shell{
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 48px 56px 54px;
+  background: #ffffff;
+  border: 1px solid #e6e9ef;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.final-page .page-shell::before{
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 140px;
+  background: linear-gradient(180deg, rgba(30,136,229,.05) 0%, rgba(26,188,156,.03) 55%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+}
+
+.final-page-header{
+  position: relative;
+  z-index: 1;
+}
+
+.final-page .chapter{
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+
+.final-page .page-title{
+  font-family: 'Merriweather', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--azul-escuro);
+  margin-bottom: 20px;
+}
+
+.final-page .final-prose{
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.final-page .final-prose p{
+  font-family: 'Merriweather', serif;
+  font-size: 15px;
+  line-height: 1.86;
+  text-align: justify;
+  text-indent: 1.6em;
+  margin: 0 0 16px;
+  color: #2f2f2f;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: finalFadeUp .7s ease forwards;
+}
+
+.final-page .final-prose p:nth-of-type(1){ animation-delay: .04s; }
+.final-page .final-prose p:nth-of-type(2){ animation-delay: .08s; }
+.final-page .final-prose p:nth-of-type(3){ animation-delay: .12s; }
+.final-page .final-prose p:nth-of-type(4){ animation-delay: .16s; }
+.final-page .final-prose p:nth-of-type(5){ animation-delay: .20s; }
+.final-page .final-prose p:nth-of-type(6){ animation-delay: .24s; }
+.final-page .final-prose p:nth-of-type(7){ animation-delay: .28s; }
+.final-page .final-prose p:nth-of-type(8){ animation-delay: .32s; }
+.final-page .final-prose p:nth-of-type(9){ animation-delay: .36s; }
+.final-page .final-prose p:nth-of-type(10){ animation-delay: .40s; }
+
+.final-page .final-quote-block{
+  max-width: 540px;
+  margin: 26px auto 24px;
+  padding: 10px 0;
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: finalFadeUp .7s ease forwards;
+  animation-delay: .18s;
+}
+
+.final-page .final-quote-block::before,
+.final-page .final-quote-block::after{
+  content: "";
+  display: block;
+  width: 72px;
+  height: 2px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(30,136,229,.18), rgba(26,188,156,.85), rgba(30,136,229,.18));
+}
+
+.final-page .final-quote-block::before{
+  margin-bottom: 14px;
+}
+
+.final-page .final-quote-block::after{
+  margin-top: 14px;
+}
+
+.final-page .final-quote{
+  margin: 0;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-family: 'Merriweather', serif;
+  font-size: 23px !important;
+  line-height: 1.5 !important;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.final-page .final-last-line{
+  max-width: 640px;
+  margin: 22px auto 0;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #f7fbfc 0%, #eef6f8 100%);
+  border-left: 4px solid var(--verde-oceano);
+  border-radius: 10px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  color: #2f2f2f;
+  box-shadow: 0 8px 18px rgba(15,42,68,.04);
+  font-weight: 600;
+}
+
+.final-page .final-mark{
+  position: relative;
+  z-index: 1;
+  margin-top: 40px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: finalFadeUp .7s ease forwards;
+  animation-delay: .48s;
+}
+
+.final-page .final-mark-line{
+  width: 90px;
+  height: 2px;
+  margin: 0 auto 16px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--azul-turquesa), var(--verde-oceano));
+}
+
+.final-page .final-mark-title{
+  margin: 0 0 6px;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.final-page .final-mark-subtitle{
+  margin: 0;
+  text-indent: 0 !important;
+  text-align: center !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #6b7c8f;
+  letter-spacing: .02em;
+}
+
+@keyframes finalFadeUp{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 760px){
+  .final-page .page-shell{
+    padding: 36px 24px 42px;
+  }
+
+  .final-page .page-title{
+    font-size: 25px;
+  }
+
+  .final-page .final-prose p{
+    font-size: 14.7px;
+    line-height: 1.82;
+  }
+
+  .final-page .final-quote{
+    font-size: 20px !important;
+  }
+
+  .final-page .final-last-line{
+    max-width: 100%;
+  }
+}

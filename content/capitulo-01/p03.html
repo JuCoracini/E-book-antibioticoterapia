@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -16,41 +16,14 @@
 
 <body class="cap1-page3">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
-  <main class="container page-shell cap1-shell">
+  <main class="page-shell">
 
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 1 — Fundamentos Conceituais dos Antibacterianos</div>
-        <h1 class="page-title">Bases Conceituais da Antibioticoterapia</h1>
-      </div>
+      <div class="chapter">Capítulo 1 — Fundamentos Conceituais dos Antibacterianos</div>
+      <h1 class="page-title">Bases Conceituais da Antibioticoterapia</h1>
     </header>
 
-    <section class="prose cap1-reading-flow" aria-label="Texto principal">
-
+    <section class="prose">
       <p>
         A compreensão dos princípios que estruturam a terapêutica antimicrobiana é fundamental para interpretar os mecanismos de ação, o espectro de atividade e os limites biológicos dos antibacterianos utilizados no tratamento das infecções bacterianas. Esses conceitos orientam a escolha terapêutica e permitem compreender os efeitos microbiológicos associados ao uso de antibacterianos, especialmente em um contexto global marcado pelo aumento da resistência bacteriana <sup>2,5</sup>.
       </p>
@@ -58,148 +31,100 @@
       <p>
         A precisão terminológica assume papel importante nesse contexto porque, na prática clínica, o termo antibiótico é frequentemente utilizado de forma ampla para designar qualquer medicamento empregado contra infecções bacterianas. Embora esse uso seja comum no cotidiano médico, ele pode gerar confusão quanto às diferenças conceituais entre as diversas classes de fármacos <sup>6</sup>.
       </p>
-    </section>
 
-    <section class="cap1-p03-stage" aria-label="Organização conceitual">
-      <div class="cap1-p03-layout" data-cap1-concept-tree>
+      <section class="tree-wrap" aria-label="Árvore conceitual dos antibacterianos">
+        <div class="tree-top">
+          <button class="tree-node tree-node--top is-active" type="button" data-tree-target="antimicrobianos">
+            <span class="tree-node__title">Antimicrobianos</span>
+          </button>
+        </div>
 
-        <nav class="cap1-p03-tree" aria-label="Árvore de conceitos">
-          <p class="cap1-p03-hint">Clique em um conceito para visualizar a explicação correspondente.</p>
+        <div class="tree-line tree-line--v"></div>
+        <div class="tree-middle">
+          <button class="tree-node tree-node--middle" type="button" data-tree-target="antibacterianos">
+            <span class="tree-node__title">Antibacterianos</span>
+          </button>
+        </div>
 
-          <ul class="cap1-p03-root">
-            <li class="cap1-p03-node cap1-p03-node--lvl1">
-              <button
-                type="button"
-                class="cap1-p03-btn cap1-p03-btn--lvl1"
-                data-target="antimicrobianos"
-                aria-pressed="false">
-                <span class="cap1-p03-label">Antimicrobianos</span>
-              </button>
+        <div class="tree-line tree-line--v"></div>
+        <div class="tree-line tree-line--h"></div>
 
-              <ul class="cap1-p03-branch">
-                <li class="cap1-p03-node cap1-p03-node--lvl2">
-                  <button
-                    type="button"
-                    class="cap1-p03-btn cap1-p03-btn--lvl2"
-                    data-target="antibacterianos"
-                    aria-pressed="false">
-                    <span class="cap1-p03-label">Antibacterianos</span>
-                  </button>
+        <div class="tree-branches">
+          <button class="tree-card" type="button" data-tree-target="naturais">
+            <img src="../../assets/capitulo-01/imagens/naturais.png" alt="Agentes naturais">
+            <span class="tree-card__title">Naturais</span>
+          </button>
 
-                  <ul class="cap1-p03-branch">
-                    <li class="cap1-p03-node cap1-p03-node--lvl3">
-                      <button
-                        type="button"
-                        class="cap1-p03-btn cap1-p03-btn--lvl3"
-                        data-target="naturais"
-                        aria-pressed="false">
-                        <img class="cap1-p03-icon" src="../../assets/capitulo-01/imagens/naturais.png" alt="" aria-hidden="true" />
-                        <span class="cap1-p03-label">Naturais</span>
-                      </button>
-                    </li>
+          <button class="tree-card" type="button" data-tree-target="semissinteticos">
+            <img src="../../assets/capitulo-01/imagens/semissinteticos.png" alt="Agentes semissintéticos">
+            <span class="tree-card__title">Semissintéticos</span>
+          </button>
 
-                    <li class="cap1-p03-node cap1-p03-node--lvl3">
-                      <button
-                        type="button"
-                        class="cap1-p03-btn cap1-p03-btn--lvl3"
-                        data-target="semissinteticos"
-                        aria-pressed="false">
-                        <img class="cap1-p03-icon" src="../../assets/capitulo-01/imagens/semissinteticos.png" alt="" aria-hidden="true" />
-                        <span class="cap1-p03-label">Semissintéticos</span>
-                      </button>
-                    </li>
+          <button class="tree-card" type="button" data-tree-target="sinteticos">
+            <img src="../../assets/capitulo-01/imagens/sinteticos.png" alt="Agentes sintéticos">
+            <span class="tree-card__title">Sintéticos</span>
+          </button>
+        </div>
 
-                    <li class="cap1-p03-node cap1-p03-node--lvl3">
-                      <button
-                        type="button"
-                        class="cap1-p03-btn cap1-p03-btn--lvl3"
-                        data-target="sinteticos"
-                        aria-pressed="false">
-                        <img class="cap1-p03-icon" src="../../assets/capitulo-01/imagens/sinteticos.png" alt="" aria-hidden="true" />
-                        <span class="cap1-p03-label">Sintéticos</span>
-                      </button>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-
-        <section class="cap1-p03-viewer" aria-live="polite" aria-label="Painel explicativo">
-          <header class="cap1-p03-viewerHeader">
-            <p class="cap1-p03-viewerEyebrow">Painel conceitual</p>
-            <h2 class="cap1-p03-viewerTitle" id="cap1-viewer-title">Antibacterianos</h2>
-          </header>
-
-          <div class="cap1-p03-viewerEmpty" id="cap1-viewer-empty" hidden>
-            <p>Selecione um conceito na árvore para ler.</p>
+        <div class="tree-panel" id="treePanel" aria-live="polite">
+          <div class="tree-panel__content" data-tree-pane="antimicrobianos">
+            <p>
+              Os antimicrobianos são substâncias capazes de inibir o crescimento ou provocar a morte de microrganismos. Esse grupo inclui fármacos ativos contra bactérias, fungos, vírus e parasitas. Trata-se, portanto, de um termo abrangente, que não especifica necessariamente qual grupo de microrganismos constitui o alvo do tratamento <sup>5</sup>.
+            </p>
+            <p>
+              Todo antibacteriano é um antimicrobiano, mas nem todo antimicrobiano atua contra bactérias. Essa distinção é relevante porque bactérias, vírus, fungos e parasitas apresentam estruturas celulares e processos metabólicos distintos, o que exige abordagens terapêuticas específicas.
+            </p>
           </div>
 
-          <article
-            class="cap1-p03-viewerContent"
-            id="cap1-viewer-content"
-            aria-labelledby="cap1-viewer-title">
-          </article>
-        </section>
-      </div>
+          <div class="tree-panel__content" data-tree-pane="antibacterianos" hidden>
+            <p>
+              Os antibacterianos correspondem ao subgrupo de antimicrobianos que atuam especificamente contra bactérias. O uso desse termo torna mais claro o alvo microbiológico da terapia e reduz ambiguidades quando se discute o tratamento das infecções bacterianas <sup>2,5</sup>.
+            </p>
+            <p>
+              O termo antibiótico possui origem histórica mais restrita. Inicialmente, era utilizado para designar substâncias produzidas por microrganismos capazes de inibir o crescimento de outros microrganismos, conceito associado às observações pioneiras de Alexander Fleming. Com o desenvolvimento da química medicinal, o termo passou a incluir também moléculas modificadas ou sintetizadas em laboratório. Ainda assim, sua definição original permanece associada a substâncias de origem biológica, razão pela qual, em contextos acadêmicos, o termo antibacteriano costuma ser preferido quando se busca maior precisão conceitual <sup>4</sup>.
+            </p>
+            <p>
+              Os antibacterianos podem ser classificados, de acordo com sua origem, em naturais, semissintéticos e sintéticos. Essa classificação não possui apenas valor descritivo. As modificações estruturais realizadas durante o desenvolvimento farmacológico podem alterar propriedades relevantes do fármaco, como estabilidade química, absorção, distribuição tecidual, espectro de atividade e suscetibilidade à degradação por enzimas bacterianas, como as β-lactamases <sup>6</sup>.
+            </p>
+          </div>
 
-      <template id="tpl-antimicrobianos">
-        <p>
-          Os antimicrobianos são substâncias capazes de inibir o crescimento ou provocar a morte de microrganismos. Esse grupo inclui fármacos ativos contra bactérias, fungos, vírus e parasitas. Trata-se, portanto, de um termo abrangente, que não especifica necessariamente qual grupo de microrganismos constitui o alvo do tratamento <sup>5</sup>.
-        </p>
-        <p>
-          Todo antibacteriano é um antimicrobiano, mas nem todo antimicrobiano atua contra bactérias. Essa distinção é relevante porque bactérias, vírus, fungos e parasitas apresentam estruturas celulares e processos metabólicos distintos, o que exige abordagens terapêuticas específicas.
-        </p>
-      </template>
+          <div class="tree-panel__content" data-tree-pane="naturais" hidden>
+            <p>
+              Os agentes naturais são substâncias produzidas por microrganismos, como bactérias e fungos, capazes de inibir ou destruir outras bactérias. No ambiente natural, a produção desses compostos integra interações competitivas entre microrganismos, funcionando como estratégia ecológica de sobrevivência <sup>4</sup>.
+            </p>
+            <p>
+              A penicilina G, produzida por fungos do gênero Penicillium, foi um dos primeiros agentes eficazes no tratamento de infecções bacterianas graves e modificou significativamente o prognóstico de doenças como pneumonias bacterianas e infecções invasivas causadas por espécies do gênero Streptococcus <sup>5</sup>.
+            </p>
+          </div>
 
-      <template id="tpl-antibacterianos">
-        <p>
-          Os antibacterianos correspondem ao subgrupo de antimicrobianos que atuam especificamente contra bactérias. O uso desse termo torna mais claro o alvo microbiológico da terapia e reduz ambiguidades quando se discute o tratamento das infecções bacterianas <sup>2,5</sup>.
-        </p>
-        <p>
-          O termo antibiótico possui origem histórica mais restrita. Inicialmente, era utilizado para designar substâncias produzidas por microrganismos capazes de inibir o crescimento de outros microrganismos, conceito associado às observações pioneiras de Alexander Fleming. Com o desenvolvimento da química medicinal, o termo passou a incluir também moléculas modificadas ou sintetizadas em laboratório. Ainda assim, sua definição original permanece associada a substâncias de origem biológica, razão pela qual, em contextos acadêmicos, o termo antibacteriano costuma ser preferido quando se busca maior precisão conceitual <sup>4</sup>.
-        </p>
-        <p>
-          Os antibacterianos podem ser classificados, de acordo com sua origem, em naturais, semissintéticos e sintéticos. Essa classificação não possui apenas valor descritivo. As modificações estruturais realizadas durante o desenvolvimento farmacológico podem alterar propriedades relevantes do fármaco, como estabilidade química, absorção, distribuição tecidual, espectro de atividade e suscetibilidade à degradação por enzimas bacterianas, como as β-lactamases <sup>6</sup>.
-        </p>
-      </template>
+          <div class="tree-panel__content" data-tree-pane="semissinteticos" hidden>
+            <p>
+              Os agentes semissintéticos derivam de moléculas naturais que posteriormente passam por modificações químicas planejadas em laboratório. Essas alterações estruturais são realizadas com o objetivo de otimizar propriedades farmacológicas importantes, como estabilidade, absorção, distribuição tecidual ou ampliação do espectro de atividade <sup>6</sup>.
+            </p>
+            <p>
+              Nos β-lactâmicos, por exemplo, modificações na cadeia lateral podem aumentar a estabilidade frente às β-lactamases ou melhorar a absorção por via oral. A amoxicilina constitui um exemplo clássico dessa estratégia, resultante de modificações estruturais que ampliaram sua utilidade clínica em comparação com a penicilina original.
+            </p>
+          </div>
 
-      <template id="tpl-naturais">
-        <p>
-          Os agentes naturais são substâncias produzidas por microrganismos, como bactérias e fungos, capazes de inibir ou destruir outras bactérias. No ambiente natural, a produção desses compostos integra interações competitivas entre microrganismos, funcionando como estratégia ecológica de sobrevivência <sup>4</sup>.
-        </p>
-        <p>
-          A penicilina G, produzida por fungos do gênero <em>Penicillium</em>, foi um dos primeiros agentes eficazes no tratamento de infecções bacterianas graves e modificou significativamente o prognóstico de doenças como pneumonias bacterianas e infecções invasivas causadas por espécies do gênero <em>Streptococcus</em> <sup>5</sup>.
-        </p>
-      </template>
+          <div class="tree-panel__content" data-tree-pane="sinteticos" hidden>
+            <p>
+              Os agentes sintéticos são desenvolvidos integralmente em laboratório por meio de síntese química. Seu desenvolvimento geralmente parte do conhecimento de alvos moleculares bacterianos essenciais para a sobrevivência ou multiplicação do microrganismo. Esse conhecimento orienta o desenho racional de moléculas capazes de interagir com esses alvos <sup>6</sup>.
+            </p>
+            <p>
+              As quinolonas e a associação sulfametoxazol–trimetoprim ilustram essa abordagem. As quinolonas atuam sobre enzimas envolvidas na replicação do DNA bacteriano, especialmente a DNA girase e a topoisomerase IV, enquanto o sulfametoxazol–trimetoprim bloqueia etapas sequenciais da via metabólica de síntese do ácido fólico <sup>2</sup>.
+            </p>
+            <p>
+              O termo quimioterapia antibacteriana refere-se ao uso de substâncias químicas capazes de exercer toxicidade seletiva contra bactérias no organismo humano. Historicamente, a expressão destacava a capacidade do agente terapêutico de atingir o microrganismo preservando, em maior medida, as células do hospedeiro <sup>6</sup>.
+            </p>
+            <p>
+              Na prática clínica atual, esse termo é menos utilizado, em parte porque pode ser confundido com a quimioterapia oncológica. Assim, prefere-se empregar as expressões terapia antibacteriana ou antibioticoterapia, embora o princípio da toxicidade seletiva continue sendo a base conceitual desse tipo de tratamento.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <template id="tpl-semissinteticos">
-        <p>
-          Os agentes semissintéticos derivam de moléculas naturais que posteriormente passam por modificações químicas planejadas em laboratório. Essas alterações estruturais são realizadas com o objetivo de otimizar propriedades farmacológicas importantes, como estabilidade, absorção, distribuição tecidual ou ampliação do espectro de atividade <sup>6</sup>.
-        </p>
-        <p>
-          Nos β-lactâmicos, por exemplo, modificações na cadeia lateral podem aumentar a estabilidade frente às β-lactamases ou melhorar a absorção por via oral. A amoxicilina constitui um exemplo clássico dessa estratégia, resultante de modificações estruturais que ampliaram sua utilidade clínica em comparação com a penicilina original.
-        </p>
-      </template>
+      
 
-      <template id="tpl-sinteticos">
-        <p>
-          Os agentes sintéticos são desenvolvidos integralmente em laboratório por meio de síntese química. Seu desenvolvimento geralmente parte do conhecimento de alvos moleculares bacterianos essenciais para a sobrevivência ou multiplicação do microrganismo. Esse conhecimento orienta o desenho racional de moléculas capazes de interagir com esses alvos <sup>6</sup>.
-        </p>
-        <p>
-          As quinolonas e a associação sulfametoxazol–trimetoprim ilustram essa abordagem. As quinolonas atuam sobre enzimas envolvidas na replicação do DNA bacteriano, especialmente a DNA girase e a topoisomerase IV, enquanto o sulfametoxazol–trimetoprim bloqueia etapas sequenciais da via metabólica de síntese do ácido fólico <sup>2</sup>.
-        </p>
-        <p>
-          O termo quimioterapia antibacteriana refere-se ao uso de substâncias químicas capazes de exercer toxicidade seletiva contra bactérias no organismo humano. Historicamente, a expressão destacava a capacidade do agente terapêutico de atingir o microrganismo preservando, em maior medida, as células do hospedeiro <sup>6</sup>.
-        </p>
-        <p>
-          Na prática clínica atual, esse termo é menos utilizado, em parte porque pode ser confundido com a quimioterapia oncológica. Assim, prefere-se empregar as expressões terapia antibacteriana ou antibioticoterapia, embora o princípio da toxicidade seletiva continue sendo a base conceitual desse tipo de tratamento.
-        </p>
-      </template>
-    </section>
-
-    <section class="prose cap1-reading-flow" aria-label="Continuação do texto">
       <p>
         A atividade dos antibacterianos depende da interação com estruturas ou processos específicos da célula bacteriana. Entre os principais alvos encontram-se componentes da parede celular, ribossomos bacterianos do tipo 70S, enzimas envolvidas na replicação do DNA e etapas essenciais de vias metabólicas bacterianas <sup>5,6</sup>.
       </p>
@@ -212,7 +137,7 @@
     <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p02.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 1 · Página 3 de 10</div>
-      <button class="btn" type="button" data-next="p04.html" aria-label="Ir para a próxima página">Próxima →</button>
+      <button class="btn primary" type="button" data-next="p04.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
 
   </main>

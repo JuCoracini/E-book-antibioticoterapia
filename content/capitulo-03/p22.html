@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -16,31 +16,7 @@
 
 <body class="cap3-page22">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
-  <main class="container page-shell cap3-shell">
+  <main class="page-shell cap3-shell">
 
     <header class="page-header">
       <div>
@@ -55,116 +31,120 @@
         As mutações constituem uma das bases biológicas da resistência adquirida. Durante a replicação bacteriana, erros espontâneos podem ocorrer na duplicação do DNA. A maioria dessas alterações genéticas é neutra ou prejudicial à bactéria; ocasionalmente, porém, uma mutação modifica estruturas ou enzimas envolvidas na interação com o antibacteriano <sup>3</sup>.
       </p>
 
-      <figure class="cap3-p22-figure">
-        <button
-          class="cap3-zoomTrigger"
-          type="button"
-          data-zoom-image="../../assets/capitulo-03/imagens/mutacao-alvo-antibacteriano.png"
-          data-zoom-alt="Comparação entre alvo molecular sensível e alvo molecular mutante, ilustrando mutação pontual e alteração da afinidade do antibacteriano."
-          data-zoom-caption="Representação esquemática de mutação pontual com alteração do alvo molecular e redução da interação com o antibacteriano."
-          aria-label="Ampliar imagem sobre mutação no alvo molecular"
-        >
-          <img
-            src="../../assets/capitulo-03/imagens/mutacao-alvo-antibacteriano.png"
-            alt="Comparação entre alvo molecular sensível e alvo molecular mutante, ilustrando mutação pontual e alteração da afinidade do antibacteriano."
-            loading="lazy"
-          />
-        </button>
-        <figcaption class="cap3-caption">
-          Representação esquemática de mutação pontual com alteração do alvo molecular. Clique na imagem para ampliar.
-        </figcaption>
-      </figure>
+      <div class="cap3-p22-note cap3-p22-note--mutacao" aria-label="Síntese sobre mutação">
+        <p>
+          Uma mutação não surge porque a bactéria “precisa” resistir. Ela aparece espontaneamente durante a replicação. O antibacteriano apenas modifica o ambiente e favorece a persistência das variantes que, por acaso, já apresentavam menor suscetibilidade.
+        </p>
+      </div>
 
       <p>
         Quando essa alteração reduz a afinidade do fármaco por seu alvo molecular, a bactéria passa a apresentar menor suscetibilidade ao antibacteriano. Na ausência de exposição ao fármaco, essa variante pode não apresentar vantagem competitiva e, em alguns casos, pode até carregar um custo biológico que reduz sua capacidade de crescimento.
       </p>
 
-      <section class="cap3-lineage-panel" aria-label="Representação da seleção clonal de uma variante mutante">
-        <div class="cap3-lineage-panel__intro">
-          <div class="cap3-lineage-panel__line"></div>
-          <p class="cap3-lineage-panel__caption">
-            Uma variante mutante pode estar presente em baixa frequência e tornar-se predominante quando o antibacteriano modifica o ambiente seletivo.
-          </p>
-        </div>
-
-        <div class="cap3-lineage-sequence">
-          <article class="cap3-lineage-stage">
-            <div class="cap3-lineage-stage__title">Linhagem em baixa frequência</div>
-            <div class="cap3-lineage-population" data-lineage-pop="initial" aria-hidden="true"></div>
-            <p class="cap3-lineage-stage__text">
-              A população contém bactérias sensíveis e uma variante mutante rara.
-            </p>
-          </article>
-
-          <div class="cap3-lineage-connector" aria-hidden="true">
-            <div class="cap3-lineage-connector__label">pressão seletiva</div>
-            <div class="cap3-lineage-connector__track"></div>
-          </div>
-
-          <article class="cap3-lineage-stage">
-            <div class="cap3-lineage-stage__title">Sobrevivência da variante mutante</div>
-            <div class="cap3-lineage-focus" data-lineage-focus aria-hidden="true"></div>
-            <p class="cap3-lineage-stage__text">
-              O antibacteriano reduz a população sensível e favorece a persistência da variante mutante.
-            </p>
-          </article>
-
-          <div class="cap3-lineage-connector" aria-hidden="true">
-            <div class="cap3-lineage-connector__label">expansão</div>
-            <div class="cap3-lineage-connector__track"></div>
-          </div>
-
-          <article class="cap3-lineage-stage">
-            <div class="cap3-lineage-stage__title">Seleção clonal</div>
-            <div class="cap3-lineage-clones" data-lineage-clones aria-hidden="true"></div>
-            <p class="cap3-lineage-stage__text">
-              A linhagem derivada da mutação passa a se multiplicar e se expandir na população.
-            </p>
-          </article>
-        </div>
-
-        <div class="cap3-lineage-legend" aria-hidden="true">
-          <span class="cap3-legend-item">
-            <span class="cap3-dot cap3-dot--sensivel"></span>
-            <span>bactérias mais sensíveis</span>
-          </span>
-          <span class="cap3-legend-item">
-            <span class="cap3-dot cap3-dot--mutante"></span>
-            <span>variante mutante menos suscetível</span>
-          </span>
-        </div>
-      </section>
-
       <p>
         Entretanto, quando o antibacteriano é introduzido, o ambiente seletivo se modifica. As bactérias sensíveis tendem a ter o crescimento inibido ou são eliminadas, enquanto a variante mutante consegue sobreviver e se multiplicar. Esse processo de expansão de uma subpopulação previamente minoritária é denominado seleção clonal.
       </p>
 
-      <p>
-        Um exemplo clássico ocorre com as fluoroquinolonas. Mutações pontuais nos genes que codificam a DNA girase ou a topoisomerase IV podem reduzir a afinidade do antibacteriano por essas enzimas, diminuindo sua eficácia. De maneira semelhante, mutações no gene que codifica a RNA polimerase podem conferir resistência à rifampicina ao modificar o sítio de ligação do fármaco <sup>5</sup>.
+      <div class="cap3-p22-note cap3-p22-note--selecao" aria-label="Síntese sobre seleção clonal">
+        <p>
+          Na seleção clonal, não há necessidade de troca genética entre bactérias. O que ocorre é a expansão progressiva de uma linhagem mutante previamente minoritária, favorecida pela eliminação relativa das subpopulações sensíveis durante a exposição ao antibacteriano.
+        </p>
+      </div>
+
+      
+      <figure class="cap3-p22-figure cap3-p22-figure--main">
+        <button
+          class="cap3-zoomTrigger"
+          type="button"
+          data-zoomImage="../../assets/capitulo-03/imagens/alteracao-alvo-molecular.png"
+          data-zoomAlt="Comparação entre bactéria sensível e variante mutante com alteração do alvo molecular"
+          data-zoomCaption="Alteração do alvo molecular: na bactéria sensível, o fármaco reconhece e se liga adequadamente ao seu sítio-alvo; na variante mutante, a modificação estrutural reduz essa afinidade e compromete a atividade do antibacteriano."
+          aria-label="Ampliar imagem sobre alteração do alvo molecular"
+        >
+          <img
+            src="../../assets/capitulo-03/imagens/alteracao-alvo-molecular.png"
+            alt="Comparação entre bactéria sensível e variante mutante com alteração do alvo molecular"
+            loading="lazy"
+          />
+        </button>
+        <figcaption class="cap3-p22-figcaption cap3-p22-figcaption--main">
+          <strong>Alteração do alvo molecular:</strong> a imagem mostra a diferença entre uma bactéria sensível, na qual o antibacteriano mantém alta afinidade pelo alvo, e uma variante mutante, em que a modificação estrutural do sítio de ligação reduz essa interação e compromete a eficácia do fármaco.
+        </figcaption>
+      </figure>
+
+      <p class="cap3-p22-bridge">
+        Em termos aplicados, mutações em alvos distintos produzem consequências diferentes conforme a classe do antibacteriano envolvida:
       </p>
 
-      <p>
-        Do ponto de vista clínico, mutações isoladas podem produzir diferentes níveis de resistência. Em algumas situações, uma única alteração genética é suficiente para comprometer significativamente a atividade do antibacteriano. Em outras, múltiplas mutações sucessivas são necessárias para produzir resistência de maior magnitude.
-      </p>
+      <div class="cap3-p22-revealWrap">
+        <button
+          class="cap3-p22-reveal"
+          type="button"
+          aria-expanded="false"
+          aria-controls="cap3P22TableBlock"
+          id="cap3P22RevealBtn"
+        >
+          Ver exemplos aplicados
+        </button>
+      </div>
 
-      <p>
-        Esse acúmulo progressivo de mutações pode se refletir no laboratório como aumento gradual da concentração inibitória mínima (MIC) ao longo do tempo, mesmo quando a espécie bacteriana permanece a mesma <sup>3</sup>.
-      </p>
+      <div class="cap3-p22-tableBlock" id="cap3P22TableBlock" hidden>
+        <figure class="cap3-p22-figure cap3-p22-figure--table">
+          <button
+            class="cap3-zoomTrigger"
+            type="button"
+            data-zoomImage="../../assets/capitulo-03/imagens/impacto-mutacoes-antibacterianos.png"
+            data-zoomAlt="Tabela resumindo impacto de mutações sobre fluoroquinolonas e rifampicina"
+            data-zoomCaption="Exemplos aplicados: mutações em DNA girase ou topoisomerase IV reduzem a atividade das fluoroquinolonas; alterações em RNA polimerase modificam o sítio de ligação da rifampicina e comprometem sua ação."
+            aria-label="Ampliar tabela sobre impacto de mutações em antibacterianos"
+          >
+            <img
+              src="../../assets/capitulo-03/imagens/impacto-mutacoes-antibacterianos.png"
+              alt="Tabela resumindo impacto de mutações sobre fluoroquinolonas e rifampicina"
+              loading="lazy"
+            />
+          </button>
+          <figcaption class="cap3-p22-figcaption cap3-p22-figcaption--table">
+            <strong>Exemplos clássicos:</strong> diferentes classes podem perder atividade por alterações em alvos específicos. Nas fluoroquinolonas, mutações em DNA girase ou topoisomerase IV reduzem a afinidade do fármaco; na rifampicina, a modificação da RNA polimerase altera o sítio de ligação e compromete sua ação.
+          </figcaption>
+        </figure>
+      </div>
 
-      <p>
-        É importante destacar que a seleção clonal não depende de troca genética entre bactérias. Esse processo pode ocorrer inteiramente dentro de uma única linhagem bacteriana em multiplicação. No entanto, quando variantes resistentes surgem em cepas capazes de se disseminar em ambientes hospitalares ou comunitários, o impacto epidemiológico pode tornar-se significativo <sup>3,7</sup>.
-      </p>
+      <div class="cap3-p22-accordion" data-cap3-p22-accordion>
+        <button
+          class="cap3-p22-accordion__trigger"
+          type="button"
+          aria-expanded="false"
+          aria-controls="cap3P22More"
+        >
+          Implicações clínicas e laboratoriais
+        </button>
 
-      <p>
-        Na prática clínica, esse fenômeno pode ser observado quando um paciente tratado com fluoroquinolona apresenta melhora inicial seguida de recidiva do quadro infeccioso. Um novo isolamento bacteriano pode demonstrar aumento da MIC, e a análise genética revelar mutação pontual na DNA girase. Nesse cenário, a bactéria não adquiriu um novo gene de resistência; ocorreu a seleção de uma variante mutante previamente existente em baixa frequência na população bacteriana inicial.
-      </p>
+        <div class="cap3-p22-accordion__content" id="cap3P22More" hidden>
+          <p>
+            Do ponto de vista clínico, mutações isoladas podem produzir diferentes níveis de resistência. Em algumas situações, uma única alteração genética é suficiente para comprometer significativamente a atividade do antibacteriano. Em outras, múltiplas mutações sucessivas são necessárias para produzir resistência de maior magnitude.
+          </p>
+
+          <p>
+            Esse acúmulo progressivo de mutações pode se refletir no laboratório como aumento gradual da concentração inibitória mínima (MIC) ao longo do tempo, mesmo quando a espécie bacteriana permanece a mesma <sup>3</sup>.
+          </p>
+
+          <p>
+            É importante destacar que a seleção clonal não depende de troca genética entre bactérias. Esse processo pode ocorrer inteiramente dentro de uma única linhagem bacteriana em multiplicação. No entanto, quando variantes resistentes surgem em cepas capazes de se disseminar em ambientes hospitalares ou comunitários, o impacto epidemiológico pode tornar-se significativo <sup>3,7</sup>.
+          </p>
+
+          <p>
+            Na prática clínica, esse fenômeno pode ser observado quando um paciente tratado com fluoroquinolona apresenta melhora inicial seguida de recidiva do quadro infeccioso. Um novo isolamento bacteriano pode demonstrar aumento da MIC, e a análise genética revelar mutação pontual na DNA girase. Nesse cenário, a bactéria não adquiriu um novo gene de resistência; ocorreu a seleção de uma variante mutante previamente existente em baixa frequência na população bacteriana inicial.
+          </p>
+        </div>
+      </div>
 
     </section>
 
     <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p21.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 3 · Página 22</div>
-      <button class="btn" type="button" data-next="p23.html" aria-label="Ir para a próxima página">Próxima →</button>
+      <button class="btn primary" type="button" data-next="p23.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
 
   </main>
@@ -174,6 +154,7 @@
 
     <div class="cap3-lightbox__dialog">
       <button class="cap3-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
+
       <figure class="cap3-lightbox__figure">
         <img id="cap3LightboxImage" src="" alt="" />
         <figcaption id="cap3LightboxCaption" class="cap3-lightbox__caption"></figcaption>

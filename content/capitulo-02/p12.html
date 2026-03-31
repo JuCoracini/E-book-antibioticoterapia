@@ -5,51 +5,24 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Capítulo 2 — Página 12</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-01.css" />
   <link rel="stylesheet" href="../../css/capitulo-02.css" />
 </head>
 
-<body class="cap2-page12">
+<body class="cap1-shell cap2-page12">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
-  <main class="container page-shell cap2-shell">
+  <main class="page-shell">
 
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 2 — Mecanismos de Ação dos Antibacterianos</div>
-        <h1 class="page-title">Classificação dos antibacterianos segundo o mecanismo de ação</h1>
-      </div>
+      <div class="chapter">Capítulo 2 — Mecanismos de Ação dos Antibacterianos</div>
+      <h1 class="page-title">Classificação dos antibacterianos segundo o alvo celular</h1>
     </header>
 
-    <section class="prose cap2-reading-flow" aria-label="Texto principal">
+    <section class="prose">
 
       <p>
         A classificação dos antibacterianos pode ser organizada de acordo com o alvo celular sobre o qual atuam. Essa abordagem permite relacionar cada classe farmacológica ao processo biológico bacteriano afetado, facilitando a compreensão do mecanismo de ação e das diferenças entre os grupos terapêuticos <sup>1,2</sup>.
@@ -59,38 +32,30 @@
         Classes distintas podem compartilhar o mesmo alvo molecular, e variações estruturais dentro de uma mesma família não necessariamente modificam o mecanismo central de atuação.
       </p>
 
-      <aside class="cap2-p12-highlight" aria-label="Ideia central da página 12">
-        <p>
-          A organização por mecanismo de ação transforma a diversidade de antibacterianos em uma estrutura lógica de raciocínio.
-        </p>
-      </aside>
-
       <p>
         O quadro a seguir apresenta exemplos representativos de classes antibacterianas organizadas segundo seu mecanismo de ação predominante. Esse esquema tem finalidade exclusivamente conceitual e não inclui doses, esquemas terapêuticos ou indicações clínicas.
       </p>
 
     </section>
 
-    <section class="cap2-p12-tableSection" aria-label="Classificação dos antibacterianos por mecanismo de ação">
-      <div class="cap2-p12-tableIntro">
-        <p>
-          A tabela organiza os grupos farmacológicos a partir do processo biológico bacteriano predominante sobre o qual atuam.
-        </p>
-      </div>
+    <!-- TABELA FORA DO BLOCO DE TEXTO (PADRÃO CORRETO) -->
+    <section class="cap2-tableSection">
 
       <div class="cap2-table-wrapper">
-        <table class="cap2-table">
+        <table class="cap2-table" aria-label="Classificação dos antibacterianos segundo o alvo celular">
+
           <thead>
             <tr>
-              <th>Mecanismo de ação</th>
+              <th>Alvo celular</th>
               <th>Classe</th>
               <th>Exemplos</th>
             </tr>
           </thead>
 
           <tbody>
-            <tr class="cap2-p12-groupStart">
-              <td rowspan="5" class="cap2-p12-mechanism">Inibidores da síntese da parede celular</td>
+
+            <tr class="group-start">
+              <td rowspan="5">Síntese da parede celular</td>
               <td>Penicilinas</td>
               <td>Penicilina G · Amoxicilina · Oxacilina · Piperacilina</td>
             </tr>
@@ -111,8 +76,8 @@
               <td>Vancomicina · Teicoplanina</td>
             </tr>
 
-            <tr class="cap2-p12-groupStart">
-              <td rowspan="5" class="cap2-p12-mechanism">Inibidores da síntese proteica</td>
+            <tr class="group-start">
+              <td rowspan="5">Síntese proteica</td>
               <td>Aminoglicosídeos</td>
               <td>Gentamicina · Amicacina</td>
             </tr>
@@ -133,8 +98,8 @@
               <td>Linezolida</td>
             </tr>
 
-            <tr class="cap2-p12-groupStart">
-              <td rowspan="3" class="cap2-p12-mechanism">Fármacos que atuam nos ácidos nucleicos</td>
+            <tr class="group-start">
+              <td rowspan="3">Ácidos nucleicos</td>
               <td>Fluoroquinolonas</td>
               <td>Ciprofloxacino · Levofloxacino · Norfloxacino</td>
             </tr>
@@ -147,8 +112,8 @@
               <td>Metronidazol</td>
             </tr>
 
-            <tr class="cap2-p12-groupStart">
-              <td rowspan="3" class="cap2-p12-mechanism">Inibidores do metabolismo do folato</td>
+            <tr class="group-start">
+              <td rowspan="3">Metabolismo do folato</td>
               <td>Sulfonamidas</td>
               <td>Sulfametoxazol</td>
             </tr>
@@ -161,8 +126,8 @@
               <td>Sulfametoxazol + Trimetoprim (SMX–TMP)</td>
             </tr>
 
-            <tr class="cap2-p12-groupStart">
-              <td rowspan="2" class="cap2-p12-mechanism">Fármacos que atuam na membrana citoplasmática</td>
+            <tr class="group-start">
+              <td rowspan="2">Membrana citoplasmática</td>
               <td>Polimixinas</td>
               <td>Polimixina B · Colistina</td>
             </tr>
@@ -170,20 +135,25 @@
               <td>Lipopeptídeos</td>
               <td>Daptomicina</td>
             </tr>
+
           </tbody>
+
         </table>
       </div>
+
     </section>
 
-    <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p11.html" aria-label="Ir para a página anterior">← Anterior</button>
+    <nav class="pager">
+      <button class="btn" data-prev="p11.html">← Anterior</button>
       <div class="center">Capítulo 2 · Página 12</div>
-      <button class="btn" type="button" data-next="p13.html" aria-label="Ir para a próxima página">Próxima →</button>
+      <button class="btn primary" data-next="p13.html">Próxima →</button>
     </nav>
 
   </main>
 
   <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-01.js"></script>
   <script src="../../js/capitulo-02.js"></script>
+
 </body>
 </html>

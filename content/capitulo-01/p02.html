@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Capítulo 1 — Página 2</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -16,311 +14,128 @@
 
 <body class="cap1-page2">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
-  <main class="container page-shell cap1-shell">
+  <main class="page-shell">
 
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 1 — Fundamentos Conceituais dos Antibacterianos</div>
-        <h1 class="page-title">Marcos Históricos da Antibioticoterapia</h1>
-      </div>
+      <div class="chapter">Capítulo 1 — Fundamentos Conceituais dos Antibacterianos</div>
+      <h1 class="page-title">Marcos Históricos da Antibioticoterapia</h1>
     </header>
 
-    <section class="prose cap1-reading-flow" aria-label="Texto principal">
-      <p>
-        A história da antibioticoterapia mostra um padrão recorrente no qual a introdução de novos antibacterianos costuma ser seguida, após intervalos variáveis, pelo surgimento de resistência bacteriana sob pressão seletiva. Cada nova classe altera o ambiente microbiológico e favorece a expansão de variantes bacterianas capazes de sobreviver à exposição aos fármacos <sup>4</sup>.
-      </p>
-    </section>
+    <section class="prose">
 
-    <section class="cap1-p02-stage" aria-label="Linha do tempo interativa" data-cap1-timeline>
-      <nav class="cap1-timeline cap1-p02-timeline" role="tablist" aria-label="Marcos da antibioticoterapia">
-        <div class="cap1-node is-active">
-          <button id="cap1-tab-1928" role="tab" aria-selected="true" tabindex="0" data-target="1928" type="button">1928</button>
-          <span class="cap1-dot" aria-hidden="true"></span>
-          <span class="cap1-bar" aria-hidden="true"></span>
-        </div>
+  <p>
+    A história da antibioticoterapia mostra um padrão recorrente no qual a introdução de novos antibacterianos costuma ser seguida, após intervalos variáveis, pelo surgimento de resistência bacteriana sob pressão seletiva. Cada nova classe altera o ambiente microbiológico e favorece a expansão de variantes bacterianas capazes de sobreviver à exposição aos fármacos <sup>4</sup>.
+  </p>
 
-        <div class="cap1-node">
-          <button id="cap1-tab-1935" role="tab" aria-selected="false" tabindex="-1" data-target="1935" type="button">1935</button>
-          <span class="cap1-dot" aria-hidden="true"></span>
-          <span class="cap1-bar" aria-hidden="true"></span>
-        </div>
+  <div class="timeline">
+    <button class="timeline-item active" data-year="1928">1928</button>
+    <button class="timeline-item" data-year="1935">1935</button>
+    <button class="timeline-item" data-year="1940">1940–1943</button>
+    <button class="timeline-item" data-year="1943">1943–1960</button>
+    <button class="timeline-item" data-year="1961">1961</button>
+    <button class="timeline-item" data-year="1988">1988</button>
+    <button class="timeline-item" data-year="2018">2018</button>
+  </div>
 
-        <div class="cap1-node">
-          <button id="cap1-tab-1940" role="tab" aria-selected="false" tabindex="-1" data-target="1940" type="button">1940–1943</button>
-          <span class="cap1-dot" aria-hidden="true"></span>
-          <span class="cap1-bar" aria-hidden="true"></span>
-        </div>
+  <div class="timeline-content" id="timelineContent"></div>
 
-        <div class="cap1-node">
-          <button id="cap1-tab-1943" role="tab" aria-selected="false" tabindex="-1" data-target="1943" type="button">1943–1960</button>
-          <span class="cap1-dot" aria-hidden="true"></span>
-          <span class="cap1-bar" aria-hidden="true"></span>
-        </div>
+  <p>
+    A sustentabilidade da terapêutica antibacteriana depende não apenas do desenvolvimento de novos fármacos, mas também da vigilância microbiológica contínua e do uso criterioso dos agentes disponíveis.
+  </p>
 
-        <div class="cap1-node">
-          <button id="cap1-tab-1961" role="tab" aria-selected="false" tabindex="-1" data-target="1961" type="button">1961</button>
-          <span class="cap1-dot" aria-hidden="true"></span>
-          <span class="cap1-bar" aria-hidden="true"></span>
-        </div>
+</section>
 
-        <div class="cap1-node">
-          <button id="cap1-tab-1988" role="tab" aria-selected="false" tabindex="-1" data-target="1988" type="button">1988</button>
-          <span class="cap1-dot" aria-hidden="true"></span>
-          <span class="cap1-bar" aria-hidden="true"></span>
-        </div>
-
-        <div class="cap1-node">
-          <button id="cap1-tab-2018" role="tab" aria-selected="false" tabindex="-1" data-target="2018" type="button">2018</button>
-          <span class="cap1-dot" aria-hidden="true"></span>
-        </div>
-      </nav>
-
-      <section class="cap1-p02-panel" aria-live="polite">
-        <div class="cap1-panelPane" data-pane="1928" role="tabpanel" aria-labelledby="cap1-tab-1928">
-          <div class="cap1-p02-panelHeader">
-            <p class="cap1-panelTitle">1928 — Descoberta da Penicilina</p>
-          </div>
-
-          <div class="cap1-p02-panelBody">
-            <figure class="cap1-p02-figure">
-              <button
-                class="cap1-zoomTrigger"
-                type="button"
-                data-zoom-image="../../assets/capitulo-01/imagens/1928.png"
-                data-zoom-alt="Imagem referente à descoberta da penicilina."
-                data-zoom-caption="1928 — Descoberta da Penicilina">
-                <img src="../../assets/capitulo-01/imagens/1928.png" alt="Imagem referente à descoberta da penicilina." />
-              </button>
-              <figcaption class="cap1-caption">Clique na imagem para ampliar.</figcaption>
-            </figure>
-
-            <div class="cap1-text">
-              <p>
-                Em 1928, Alexander Fleming observou que substâncias produzidas por fungos do gênero <em>Penicillium</em> eram capazes de inibir o crescimento bacteriano em condições experimentais. Embora essa observação inicial não tenha sido imediatamente aplicada à prática clínica, ela abriu caminho para uma nova abordagem terapêutica ao demonstrar que compostos naturais poderiam ser isolados e desenvolvidos como agentes antibacterianos <sup>5</sup>.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="cap1-panelPane" data-pane="1935" role="tabpanel" aria-labelledby="cap1-tab-1935" hidden>
-          <div class="cap1-p02-panelHeader">
-            <p class="cap1-panelTitle">1935 — Introdução das Sulfonamidas</p>
-          </div>
-
-          <div class="cap1-p02-panelBody">
-            <figure class="cap1-p02-figure">
-              <button
-                class="cap1-zoomTrigger"
-                type="button"
-                data-zoom-image="../../assets/capitulo-01/imagens/1935.png"
-                data-zoom-alt="Imagem referente à introdução das sulfonamidas."
-                data-zoom-caption="1935 — Introdução das Sulfonamidas">
-                <img src="../../assets/capitulo-01/imagens/1935.png" alt="Imagem referente à introdução das sulfonamidas." />
-              </button>
-              <figcaption class="cap1-caption">Clique na imagem para ampliar.</figcaption>
-            </figure>
-
-            <div class="cap1-text">
-              <p>
-                Em 1935, a introdução das sulfonamidas marcou o início da quimioterapia antibacteriana sistêmica com eficácia comprovada. Esses fármacos interferem na via de síntese do ácido fólico bacteriano, evidenciando que vias metabólicas específicas do microrganismo poderiam ser exploradas terapeuticamente. Essa descoberta consolidou o conceito de toxicidade seletiva, baseado nas diferenças bioquímicas entre bactérias e células humanas <sup>6</sup>.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="cap1-panelPane" data-pane="1940" role="tabpanel" aria-labelledby="cap1-tab-1940" hidden>
-          <div class="cap1-p02-panelHeader">
-            <p class="cap1-panelTitle">1940–1943 — Produção Industrial da Penicilina</p>
-          </div>
-
-          <div class="cap1-p02-panelBody">
-            <figure class="cap1-p02-figure">
-              <button
-                class="cap1-zoomTrigger"
-                type="button"
-                data-zoom-image="../../assets/capitulo-01/imagens/1940.png"
-                data-zoom-alt="Imagem referente à produção industrial da penicilina."
-                data-zoom-caption="1940–1943 — Produção Industrial da Penicilina">
-                <img src="../../assets/capitulo-01/imagens/1940.png" alt="Imagem referente à produção industrial da penicilina." />
-              </button>
-              <figcaption class="cap1-caption">Clique na imagem para ampliar.</figcaption>
-            </figure>
-
-            <div class="cap1-text">
-              <p>
-                Entre 1940 e 1943, o desenvolvimento de métodos de produção em larga escala permitiu a utilização clínica da penicilina, especialmente durante a Segunda Guerra Mundial. O impacto terapêutico foi imediato, com melhora significativa no tratamento de infecções bacterianas graves. A consolidação do uso clínico da penicilina também estimulou o desenvolvimento de novas classes de antibacterianos nas décadas seguintes <sup>4,5</sup>.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="cap1-panelPane" data-pane="1943" role="tabpanel" aria-labelledby="cap1-tab-1943" hidden>
-          <div class="cap1-p02-panelHeader">
-            <p class="cap1-panelTitle">1943–1960 — A Idade de Ouro dos Antibióticos</p>
-          </div>
-
-          <div class="cap1-p02-panelBody">
-            <figure class="cap1-p02-figure">
-              <button
-                class="cap1-zoomTrigger"
-                type="button"
-                data-zoom-image="../../assets/capitulo-01/imagens/1943.png"
-                data-zoom-alt="Imagem referente à idade de ouro dos antibióticos."
-                data-zoom-caption="1943–1960 — A Idade de Ouro dos Antibióticos">
-                <img src="../../assets/capitulo-01/imagens/1943.png" alt="Imagem referente à idade de ouro dos antibióticos." />
-              </button>
-              <figcaption class="cap1-caption">Clique na imagem para ampliar.</figcaption>
-            </figure>
-
-            <div class="cap1-text">
-              <p>
-                Este período é caracterizado pela rápida descoberta e desenvolvimento de múltiplas classes de agentes antibacterianos. Nesse intervalo foram introduzidos, entre outros, aminoglicosídeos, tetraciclinas, macrolídeos, cloranfenicol e glicopeptídeos <sup>4</sup>.
-              </p>
-              <p>
-                Grande parte desses compostos foi identificada a partir de metabólitos produzidos por microrganismos ambientais, especialmente espécies do gênero <em>Streptomyces</em>. A diversidade de novos antibacterianos ampliou significativamente as possibilidades terapêuticas contra infecções bacterianas e consolidou a antibioticoterapia como um dos pilares da medicina moderna. Com o passar das décadas, entretanto, o ritmo de descoberta de novas classes diminuiu progressivamente. A identificação de compostos realmente inovadores tornou-se mais complexa, enquanto o surgimento e a disseminação de mecanismos de resistência bacteriana passaram a limitar a eficácia de muitos antibacterianos previamente introduzidos <sup>4,7</sup>.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="cap1-panelPane" data-pane="1961" role="tabpanel" aria-labelledby="cap1-tab-1961" hidden>
-          <div class="cap1-p02-panelHeader">
-            <p class="cap1-panelTitle">1961 — Identificação do <em>Staphylococcus aureus</em> resistente à meticilina (MRSA)</p>
-          </div>
-
-          <div class="cap1-p02-panelBody">
-            <figure class="cap1-p02-figure">
-              <button
-                class="cap1-zoomTrigger"
-                type="button"
-                data-zoom-image="../../assets/capitulo-01/imagens/1961.png"
-                data-zoom-alt="Imagem referente à identificação do MRSA."
-                data-zoom-caption="1961 — Identificação do Staphylococcus aureus resistente à meticilina (MRSA)">
-                <img src="../../assets/capitulo-01/imagens/1961.png" alt="Imagem referente à identificação do MRSA." />
-              </button>
-              <figcaption class="cap1-caption">Clique na imagem para ampliar.</figcaption>
-            </figure>
-
-            <div class="cap1-text">
-              <p>
-                Em 1961, poucos anos após a introdução da meticilina, foram descritas cepas de <em>Staphylococcus aureus</em> resistentes a esse antibacteriano. O achado evidenciou a rapidez com que bactérias podem se adaptar à pressão seletiva exercida pelos antimicrobianos. Nesse caso, a resistência decorre principalmente da aquisição do gene <em>mecA</em>, que leva à expressão de uma proteína ligadora de penicilina adicional, PBP2a, com baixa afinidade pelos antibacterianos β-lactâmicos. Esse mecanismo compromete a eficácia dessa classe terapêutica e demonstra como alterações em alvos moleculares podem afetar classes inteiras de fármacos <sup>2,3</sup>.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="cap1-panelPane" data-pane="1988" role="tabpanel" aria-labelledby="cap1-tab-1988" hidden>
-          <div class="cap1-p02-panelHeader">
-            <p class="cap1-panelTitle">1988 — Identificação de <em>Enterococcus</em> resistente à vancomicina (VRE)</p>
-          </div>
-
-          <div class="cap1-p02-panelBody">
-            <figure class="cap1-p02-figure">
-              <button
-                class="cap1-zoomTrigger"
-                type="button"
-                data-zoom-image="../../assets/capitulo-01/imagens/1988.png"
-                data-zoom-alt="Imagem referente à identificação do VRE."
-                data-zoom-caption="1988 — Identificação de Enterococcus resistente à vancomicina (VRE)">
-                <img src="../../assets/capitulo-01/imagens/1988.png" alt="Imagem referente à identificação do VRE." />
-              </button>
-              <figcaption class="cap1-caption">Clique na imagem para ampliar.</figcaption>
-            </figure>
-
-            <div class="cap1-text">
-              <p>
-                Em 1988 foram descritos os primeiros isolados clínicos de <em>Enterococcus</em> resistentes à vancomicina. Esse evento representou um marco importante na evolução da resistência antimicrobiana, pois a vancomicina havia sido considerada por décadas uma das principais opções terapêuticas para infecções causadas por bactérias Gram-positivas multirresistentes. A resistência nesses microrganismos está associada à aquisição de genes que modificam o alvo da vancomicina na síntese da parede celular bacteriana. O surgimento do VRE demonstrou que mesmo antibacterianos considerados de última linha podem perder eficácia diante da capacidade adaptativa das populações bacterianas <sup>8,9</sup>.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="cap1-panelPane" data-pane="2018" role="tabpanel" aria-labelledby="cap1-tab-2018" hidden>
-          <div class="cap1-p02-panelHeader">
-            <p class="cap1-panelTitle">2018 — Padronização nacional para testes de suscetibilidade</p>
-          </div>
-
-          <div class="cap1-p02-panelBody">
-            <figure class="cap1-p02-figure">
-              <button
-                class="cap1-zoomTrigger"
-                type="button"
-                data-zoom-image="../../assets/capitulo-01/imagens/2018.png"
-                data-zoom-alt="Imagem referente à padronização nacional para testes de suscetibilidade."
-                data-zoom-caption="2018 — Padronização nacional para testes de suscetibilidade">
-                <img src="../../assets/capitulo-01/imagens/2018.png" alt="Imagem referente à padronização nacional para testes de suscetibilidade." />
-              </button>
-              <figcaption class="cap1-caption">Clique na imagem para ampliar.</figcaption>
-            </figure>
-
-            <div class="cap1-text">
-              <p>
-                Em 2018, a Portaria nº 64 do Ministério da Saúde determinou a adoção das normas de interpretação baseadas no EUCAST, implementadas no Brasil por meio do Comitê Brasileiro de Testes de Sensibilidade aos Antimicrobianos (BrCAST), estabelecendo padronização nacional para testes de suscetibilidade antimicrobiana <sup>10,11</sup>.
-              </p>
-              <p>
-                Esses critérios definem os valores utilizados para classificar isolados bacterianos como suscetíveis (S), suscetíveis sob exposição aumentada (I) ou resistentes (R), influenciando diretamente a interpretação do antibiograma e a escolha terapêutica <sup>12</sup>.
-              </p>
-              <p>
-                Os breakpoints não representam características intrínsecas da bactéria. Eles são critérios interpretativos construídos a partir da integração entre dados microbiológicos, farmacocinéticos, farmacodinâmicos e evidências clínicas. Essa padronização fortalece a integração entre microbiologia laboratorial e tomada de decisão clínica baseada em parâmetros objetivos.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <section class="prose cap1-reading-flow" aria-label="Fechamento da página">
-      <p>
-        A sustentabilidade da terapêutica antibacteriana depende não apenas do desenvolvimento de novos fármacos, mas também da vigilância microbiológica contínua e do uso criterioso dos agentes disponíveis.
-      </p>
-    </section>
-
-    <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p01.html" aria-label="Ir para a página anterior">← Anterior</button>
+    <nav class="pager">
+      <button class="btn" data-prev="p01.html">← Anterior</button>
       <div class="center">Capítulo 1 · Página 2 de 10</div>
-      <button class="btn" type="button" data-next="p03.html" aria-label="Ir para a próxima página">Próxima →</button>
+      <button class="btn primary" data-next="p03.html">Próxima →</button>
     </nav>
 
   </main>
 
-  <div class="cap1-lightbox" id="cap1Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap1-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap1-lightbox__dialog">
-      <button class="cap1-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap1-lightbox__figure">
-        <img id="cap1LightboxImage" src="" alt="" />
-        <figcaption id="cap1LightboxCaption" class="cap1-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
-
   <script src="../../js/app.js"></script>
-  <script src="../../js/capitulo-01.js"></script>
+
+  <script>
+  (function(){
+
+    const content = document.getElementById("timelineContent");
+    const buttons = document.querySelectorAll(".timeline-item");
+
+    const data = {
+
+      "1928": {
+        title: "1928 — Descoberta da Penicilina",
+        img: "../../assets/capitulo-01/imagens/Era Fleming.png",
+        text: `Em 1928, Alexander Fleming observou que substâncias produzidas por fungos do gênero Penicillium eram capazes de inibir o crescimento bacteriano em condições experimentais. Embora essa observação inicial não tenha sido imediatamente aplicada à prática clínica, ela abriu caminho para uma nova abordagem terapêutica ao demonstrar que compostos naturais poderiam ser isolados e desenvolvidos como agentes antibacterianos <sup>5</sup>.`
+      },
+
+      "1935": {
+        title: "1935 — Introdução das Sulfonamidas",
+        img: "../../assets/capitulo-01/imagens/1935.png",
+        text: `Em 1935, a introdução das sulfonamidas marcou o início da quimioterapia antibacteriana sistêmica com eficácia comprovada. Esses fármacos interferem na via de síntese do ácido fólico bacteriano, evidenciando que vias metabólicas específicas do microrganismo poderiam ser exploradas terapeuticamente. Essa descoberta consolidou o conceito de toxicidade seletiva, baseado nas diferenças bioquímicas entre bactérias e células humanas <sup>6</sup>.`
+      },
+
+      "1940": {
+        title: "1940–1943 — Produção Industrial da Penicilina",
+        img: "../../assets/capitulo-01/imagens/1940.png",
+        text: `Entre 1940 e 1943, o desenvolvimento de métodos de produção em larga escala permitiu a utilização clínica da penicilina, especialmente durante a Segunda Guerra Mundial. O impacto terapêutico foi imediato, com melhora significativa no tratamento de infecções bacterianas graves. A consolidação do uso clínico da penicilina também estimulou o desenvolvimento de novas classes de antibacterianos nas décadas seguintes <sup>4,5</sup>.`
+      },
+
+      "1943": {
+        title: "1943–1960 — A Idade de Ouro dos Antibióticos",
+        img: "../../assets/capitulo-01/imagens/1943.png",
+        text: `Este período é caracterizado pela rápida descoberta e desenvolvimento de múltiplas classes de agentes antibacterianos. Nesse intervalo foram introduzidos, entre outros, aminoglicosídeos, tetraciclinas, macrolídeos, cloranfenicol e glicopeptídeos <sup>4</sup>.
+Grande parte desses compostos foi identificada a partir de metabólitos produzidos por microrganismos ambientais, especialmente espécies do gênero Streptomyces. A diversidade de novos antibacterianos ampliou significativamente as possibilidades terapêuticas contra infecções bacterianas e consolidou a antibioticoterapia como um dos pilares da medicina moderna. Com o passar das décadas, entretanto, o ritmo de descoberta de novas classes diminuiu progressivamente. A identificação de compostos realmente inovadores tornou-se mais complexa, enquanto o surgimento e a disseminação de mecanismos de resistência bacteriana passaram a limitar a eficácia de muitos antibacterianos previamente introduzidos <sup>4,7</sup>.`
+      },
+
+      "1961": {
+        title: "1961 — Identificação do Staphylococcus aureus resistente à meticilina (MRSA)",
+        img: "../../assets/capitulo-01/imagens/1961.png",
+        text: `Em 1961, poucos anos após a introdução da meticilina, foram descritas cepas de Staphylococcus aureus resistentes a esse antibacteriano. O achado evidenciou a rapidez com que bactérias podem se adaptar à pressão seletiva exercida pelos antimicrobianos. Nesse caso, a resistência decorre principalmente da aquisição do gene mecA, que leva à expressão de uma proteína ligadora de penicilina adicional, PBP2a, com baixa afinidade pelos antibacterianos β-lactâmicos. Esse mecanismo compromete a eficácia dessa classe terapêutica e demonstra como alterações em alvos moleculares podem afetar classes inteiras de fármacos <sup>2,3</sup>.`
+      },
+
+      "1988": {
+        title: "1988 — Identificação de Enterococcus resistente à vancomicina (VRE)",
+        img: "../../assets/capitulo-01/imagens/1988.png",
+        text: `Em 1988 foram descritos os primeiros isolados clínicos de Enterococcus resistentes à vancomicina. Esse evento representou um marco importante na evolução da resistência antimicrobiana, pois a vancomicina havia sido considerada por décadas uma das principais opções terapêuticas para infecções causadas por bactérias Gram-positivas multirresistentes. A resistência nesses microrganismos está associada à aquisição de genes que modificam o alvo da vancomicina na síntese da parede celular bacteriana. O surgimento do VRE demonstrou que mesmo antibacterianos considerados de última linha podem perder eficácia diante da capacidade adaptativa das populações bacterianas <sup>8,9</sup>.`
+      },
+
+      "2018": {
+        title: "2018 — Padronização nacional para testes de suscetibilidade",
+        img: "../../assets/capitulo-01/imagens/2018.png",
+        text: `Em 2018, a Portaria nº 64 do Ministério da Saúde determinou a adoção das normas de interpretação baseadas no EUCAST, implementadas no Brasil por meio do Comitê Brasileiro de Testes de Sensibilidade aos Antimicrobianos (BrCAST), estabelecendo padronização nacional para testes de suscetibilidade antimicrobiana <sup>10,11</sup>.
+Esses critérios definem os valores utilizados para classificar isolados bacterianos como suscetíveis (S), suscetíveis sob exposição aumentada (I) ou resistentes (R), influenciando diretamente a interpretação do antibiograma e a escolha terapêutica <sup>12</sup>.
+Os breakpoints não representam características intrínsecas da bactéria. Eles são critérios interpretativos construídos a partir da integração entre dados microbiológicos, farmacocinéticos, farmacodinâmicos e evidências clínicas. Essa padronização fortalece a integração entre microbiologia laboratorial e tomada de decisão clínica baseada em parâmetros objetivos.
+`
+      }
+
+    };
+
+    function render(key){
+      const item = data[key];
+
+      content.innerHTML = `
+        <h2 class="timeline-title">${item.title}</h2>
+
+        <div class="timeline-block">
+          <img src="${item.img}" data-zoom="${item.img}">
+          <p class="timeline-text">${item.text}</p>
+        </div>
+      `;
+    }
+
+    buttons.forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        buttons.forEach(b=>b.classList.remove("active"));
+        btn.classList.add("active");
+        render(btn.dataset.year);
+      });
+    });
+
+    render("1928");
+
+  })();
+  </script>
+
 </body>
 </html>

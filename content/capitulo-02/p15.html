@@ -7,47 +7,24 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-01.css" />
   <link rel="stylesheet" href="../../css/capitulo-02.css" />
 </head>
 
-<body class="cap2-page15">
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
+<body class="cap1-shell cap2-page15">
 
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
+  <main class="page-shell">
 
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
-  <main class="container page-shell cap2-shell">
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 2 — Mecanismos de Ação dos Antibacterianos</div>
-        <h1 class="page-title">Inibição da síntese proteica</h1>
-      </div>
+      <div class="chapter">Capítulo 2 — Mecanismos de Ação dos Antibacterianos</div>
+      <h1 class="page-title">Inibição da síntese proteica</h1>
     </header>
 
-    <section class="prose cap2-reading-flow" aria-label="Texto principal">
+    <section class="prose" aria-label="Texto principal">
       <p>
         A síntese proteica é um processo essencial para a manutenção estrutural, metabólica e regulatória da célula bacteriana. Esse processo ocorre nos ribossomos do tipo 70S, formados pelas subunidades 30S e 50S, responsáveis pela tradução do RNA mensageiro em cadeias polipeptídicas funcionais <sup>1</sup>.
       </p>
@@ -60,12 +37,6 @@
         Diversas classes de antibacterianos exercem sua ação ao se ligarem seletivamente às subunidades ribossomais bacterianas, interferindo em etapas específicas desse processo. Alguns fármacos atuam predominantemente sobre a subunidade 30S, enquanto outros se ligam à subunidade 50S, comprometendo a progressão adequada da tradução <sup>2</sup>.
       </p>
 
-      <aside class="cap2-p15-highlight" aria-label="Ideia central da página 15">
-        <p>
-          A síntese proteica é um alvo terapêutico estratégico porque a bactéria depende continuamente da produção de proteínas para manter seu metabolismo e sua multiplicação.
-        </p>
-      </aside>
-
       <p>
         A consequência dessa interferência é a redução da produção de proteínas essenciais, afetando progressivamente a capacidade da bactéria de manter seu metabolismo, reparar estruturas celulares e sustentar a multiplicação.
       </p>
@@ -75,177 +46,56 @@
       </p>
     </section>
 
-    <section class="cap2-p15-explorer" data-p15-explorer aria-label="Ribossomo 70S e pontos de interferência farmacológica">
-      <div class="cap2-p15-explorer__intro">
-        <p>
-          Explore a figura para relacionar subunidades ribossomais, etapas da tradução e pontos de ação farmacológica.
-        </p>
+    <section class="cap2-p15-stage" data-cap2-protein aria-label="Síntese proteica bacteriana e pontos de interferência farmacológica">
+
+      <p class="cap2-p15-intro">
+        Selecione o processo normal de tradução ou os alvos farmacológicos nas subunidades 30S e 50S para visualizar, em sequência, como a síntese proteica bacteriana é comprometida.
+      </p>
+
+      <div class="cap2-p15-tabs" role="tablist" aria-label="Síntese proteica bacteriana">
+        <button class="cap2-p15-tab is-active" type="button" aria-selected="true" data-protein-group="processo">Processo</button>
+        <button class="cap2-p15-tab" type="button" aria-selected="false" data-protein-group="30s">30S</button>
+        <button class="cap2-p15-tab" type="button" aria-selected="false" data-protein-group="50s">50S</button>
       </div>
 
-      <div class="cap2-p15-explorer__layout">
+      <div class="cap2-p15-board">
+
         <figure class="cap2-p15-figure">
           <button
-            class="cap2-p15-figure__trigger"
+            class="cap2-zoomTrigger"
             type="button"
-            aria-label="Ampliar imagem do ribossomo 70S"
-            data-zoom-image="../../assets/capitulo-02/imagens/ribossomo-70s.png"
-            data-zoom-alt="Ribossomo bacteriano 70S."
-            data-zoom-caption="Ribossomo bacteriano 70S. Clique nos marcadores para explorar subunidades e etapas da síntese proteica."
+            data-zoom-image="../../assets/capitulo-02/imagens/ribossomo-iniciacao.png"
+            data-zoom-alt="Etapa de iniciação da síntese proteica bacteriana"
+            data-zoom-caption="Etapa de iniciação da síntese proteica bacteriana. Clique para ampliar."
+            aria-label="Ampliar imagem da síntese proteica bacteriana"
           >
             <img
-              src="../../assets/capitulo-02/imagens/ribossomo-70s.png"
-              alt="Ribossomo bacteriano 70S."
-              class="cap2-p15-figure__img"
+              id="cap2P15Image"
+              src="../../assets/capitulo-02/imagens/ribossomo-iniciacao.png"
+              alt="Etapa de iniciação da síntese proteica bacteriana"
+              loading="lazy"
             />
           </button>
-
-          <button class="cap2-p15-hotspot is-active" type="button" data-target="30s" aria-label="Explorar subunidade 30S" style="top:65%; left:40%;"></button>
-          <button class="cap2-p15-hotspot" type="button" data-target="50s" aria-label="Explorar subunidade 50S" style="top:35%; left:50%;"></button>
-          <button class="cap2-p15-hotspot" type="button" data-target="iniciacao" aria-label="Explorar etapa de iniciação" style="top:70%; left:60%;"></button>
-          <button class="cap2-p15-hotspot" type="button" data-target="elongacao" aria-label="Explorar etapa de elongação" style="top:50%; left:65%;"></button>
-          <button class="cap2-p15-hotspot" type="button" data-target="terminacao" aria-label="Explorar etapa de terminação" style="top:40%; left:30%;"></button>
-
-          <figcaption class="cap2-p15-figure__caption">
-            Ribossomo bacteriano 70S com marcadores interativos. Clique na imagem para ampliar e nos pontos para explorar o processo.
+          <figcaption id="cap2P15Caption" class="caption">
+            Etapa de iniciação da síntese proteica bacteriana. Clique para ampliar.
           </figcaption>
         </figure>
 
-        <div class="cap2-p15-viewer" aria-live="polite">
-          <p class="cap2-p15-viewer__eyebrow" data-p15-eyebrow>Subunidade ribossomal</p>
-          <h2 class="cap2-p15-viewer__title" data-p15-title>Subunidade 30S</h2>
-
-          <div class="cap2-p15-panel is-active" data-panel="30s">
-            <p>
-              A subunidade 30S participa do reconhecimento do RNA mensageiro e da leitura adequada dos códons durante a tradução.
-            </p>
-            <p>
-              Aminoglicosídeos e tetraciclinas atuam predominantemente nesse nível, interferindo na leitura do RNA mensageiro ou na entrada adequada do RNA transportador no ribossomo.
-            </p>
-          </div>
-
-          <div class="cap2-p15-panel" data-panel="50s" hidden>
-            <p>
-              A subunidade 50S participa da formação da ligação peptídica e da progressão ordenada da cadeia polipeptídica em síntese.
-            </p>
-            <p>
-              Macrolídeos, lincosamidas e oxazolidinonas ligam-se à subunidade 50S, interferindo na formação da ligação peptídica ou na translocação do ribossomo.
-            </p>
-          </div>
-
-          <div class="cap2-p15-panel" data-panel="iniciacao" hidden>
-            <p>
-              A subunidade 30S reconhece e se liga ao RNA mensageiro. O RNA transportador iniciador associa-se ao códon inicial, formando o complexo de iniciação. Em seguida, a subunidade 50S se associa ao complexo, formando o ribossomo funcional.
-            </p>
-          </div>
-
-          <div class="cap2-p15-panel" data-panel="elongacao" hidden>
-            <p>
-              A cada ciclo, um novo RNA transportador entra no sítio A do ribossomo, trazendo o aminoácido correspondente ao códon exposto. A subunidade 50S catalisa a formação da ligação peptídica entre os aminoácidos. O ribossomo então se desloca ao longo do RNA mensageiro (translocação).
-            </p>
-          </div>
-
-          <div class="cap2-p15-panel" data-panel="terminacao" hidden>
-            <p>
-              Quando um códon de parada é alcançado, fatores de liberação promovem o desligamento da cadeia polipeptídica recém-formada e a dissociação do complexo ribossomal.
-            </p>
-          </div>
+        <div class="cap2-p15-controls">
+          <button class="btn" type="button" id="cap2P15Prev">← Etapa anterior</button>
+          <div id="cap2P15Step" class="cap2-p15-step" aria-live="polite"></div>
+          <button class="btn primary" type="button" id="cap2P15Next">Próxima etapa →</button>
         </div>
+
+        <div class="cap2-p15-panel" aria-live="polite">
+          <h2 id="cap2P15Title" class="cap2-p15-panel__title">Iniciação</h2>
+          <div id="cap2P15Text" class="cap2-p15-panel__text"></div>
+        </div>
+
       </div>
     </section>
 
-    <section class="cap2-p15-accordionSection" aria-label="Etapas da síntese proteica bacteriana">
-      <h2 class="cap2-inline-title">Etapas da síntese proteica bacteriana</h2>
-
-      <div class="cap2-accordion" data-cap2-p15-accordion>
-        <article class="cap2-acc-item">
-          <h3 class="cap2-acc-heading">
-            <button class="cap2-acc-trigger" type="button" aria-expanded="true" aria-controls="cap2-p15-acc-1" id="cap2-p15-trigger-1">
-              <span class="cap2-acc-title">1. Iniciação</span>
-              <span class="cap2-acc-icon" aria-hidden="true"></span>
-            </button>
-          </h3>
-          <div class="cap2-acc-panel" id="cap2-p15-acc-1" role="region" aria-labelledby="cap2-p15-trigger-1">
-            <div class="cap2-acc-panel-inner">
-              <p>
-                A subunidade 30S reconhece e se liga ao RNA mensageiro. O RNA transportador iniciador associa-se ao códon inicial, formando o complexo de iniciação. Em seguida, a subunidade 50S se associa ao complexo, formando o ribossomo funcional.
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <article class="cap2-acc-item">
-          <h3 class="cap2-acc-heading">
-            <button class="cap2-acc-trigger" type="button" aria-expanded="false" aria-controls="cap2-p15-acc-2" id="cap2-p15-trigger-2">
-              <span class="cap2-acc-title">2. Elongação</span>
-              <span class="cap2-acc-icon" aria-hidden="true"></span>
-            </button>
-          </h3>
-          <div class="cap2-acc-panel" id="cap2-p15-acc-2" role="region" aria-labelledby="cap2-p15-trigger-2" hidden>
-            <div class="cap2-acc-panel-inner">
-              <p>
-                A cada ciclo, um novo RNA transportador entra no sítio A do ribossomo, trazendo o aminoácido correspondente ao códon exposto. A subunidade 50S catalisa a formação da ligação peptídica entre os aminoácidos. O ribossomo então se desloca ao longo do RNA mensageiro (translocação).
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <article class="cap2-acc-item">
-          <h3 class="cap2-acc-heading">
-            <button class="cap2-acc-trigger" type="button" aria-expanded="false" aria-controls="cap2-p15-acc-3" id="cap2-p15-trigger-3">
-              <span class="cap2-acc-title">3. Terminação</span>
-              <span class="cap2-acc-icon" aria-hidden="true"></span>
-            </button>
-          </h3>
-          <div class="cap2-acc-panel" id="cap2-p15-acc-3" role="region" aria-labelledby="cap2-p15-trigger-3" hidden>
-            <div class="cap2-acc-panel-inner">
-              <p>
-                Quando um códon de parada é alcançado, fatores de liberação promovem o desligamento da cadeia polipeptídica recém-formada e a dissociação do complexo ribossomal.
-              </p>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="prose cap2-reading-flow" aria-label="Pontos de interferência farmacológica">
-      <p class="cap2-inline-intro">Pontos de interferência farmacológica</p>
-
-      <div class="cap2-p15-drugCards">
-        <article class="cap2-p15-drugCard">
-          <h3>Fármacos que atuam na subunidade 30S</h3>
-          <p>
-            Aminoglicosídeos e tetraciclinas interferem na leitura do RNA mensageiro ou na entrada adequada do RNA transportador no ribossomo.
-          </p>
-        </article>
-
-        <article class="cap2-p15-drugCard">
-          <h3>Fármacos que atuam na subunidade 50S</h3>
-          <p>
-            Macrolídeos, lincosamidas e oxazolidinonas ligam-se à subunidade 50S, interferindo na formação da ligação peptídica ou na translocação do ribossomo.
-          </p>
-        </article>
-      </div>
-
-      <figure class="cap2-p15-bottomFigure">
-        <button
-          class="cap2-zoomTrigger"
-          type="button"
-          data-zoom-image="../../assets/capitulo-02/imagens/ribossomo-ligacao-farmaco.png"
-          data-zoom-alt="Ligação de fármacos ao ribossomo bacteriano."
-          data-zoom-caption="Ligação de fármacos ao ribossomo bacteriano. Clique na imagem para ampliar."
-          aria-label="Ampliar figura de ligação de fármacos ao ribossomo"
-        >
-          <img
-            src="../../assets/capitulo-02/imagens/ribossomo-ligacao-farmaco.png"
-            alt="Ligação de fármacos ao ribossomo bacteriano."
-            class="img-full"
-          />
-        </button>
-        <figcaption class="cap2-caption">
-          Ligação de fármacos ao ribossomo bacteriano. Clique na imagem para ampliar.
-        </figcaption>
-      </figure>
-
+    <section class="prose" aria-label="Fechamento do texto">
       <p>
         A redução da síntese proteica compromete a produção de enzimas metabólicas, proteínas estruturais e fatores regulatórios. Embora a célula bacteriana mantenha inicialmente sua integridade estrutural, ela perde progressivamente a capacidade de adaptação e multiplicação.
       </p>
@@ -254,24 +104,26 @@
     <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p14.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 2 · Página 15</div>
-      <button class="btn" type="button" data-next="p16.html" aria-label="Ir para a próxima página">Próxima →</button>
+      <button class="btn primary" type="button" data-next="p16.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
+
   </main>
 
-  <div class="cap2-lightbox" id="cap2P15Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap2-lightbox__backdrop" data-p15-lightbox-close></div>
+  <div class="cap2-lightbox" id="cap2Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <div class="cap2-lightbox__backdrop" data-lightbox-close></div>
 
     <div class="cap2-lightbox__dialog">
-      <button class="cap2-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-p15-lightbox-close>✕</button>
+      <button class="cap2-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
 
       <figure class="cap2-lightbox__figure">
-        <img id="cap2P15LightboxImage" src="" alt="" />
-        <figcaption id="cap2P15LightboxCaption" class="cap2-lightbox__caption"></figcaption>
+        <img id="cap2LightboxImage" src="" alt="" />
+        <figcaption id="cap2LightboxCaption" class="cap2-lightbox__caption"></figcaption>
       </figure>
     </div>
   </div>
 
   <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-01.js"></script>
   <script src="../../js/capitulo-02.js"></script>
 </body>
 </html>

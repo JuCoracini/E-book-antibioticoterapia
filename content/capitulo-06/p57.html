@@ -6,7 +6,8 @@
   <title>Capítulo 6 — Página 57</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -15,103 +16,101 @@
 
 <body class="cap6-page57">
 
-<div class="reader-toolbar" aria-label="Controles de leitura">
-  <div class="reader-toolbar__group">
-    <span class="reader-toolbar__label">Texto</span>
-    <button class="reader-btn" data-font="decrease">A−</button>
-    <button class="reader-btn" data-font="reset">A</button>
-    <button class="reader-btn" data-font="increase">A+</button>
-  </div>
+  <main class="page-shell">
 
-  <div class="reader-toolbar__group">
-    <span class="reader-toolbar__label">Zoom</span>
-    <button class="reader-btn" data-zoom="decrease">−</button>
-    <button class="reader-btn" data-zoom="reset">100%</button>
-    <button class="reader-btn" data-zoom="increase">+</button>
-  </div>
+    <header class="page-header">
+      <div class="chapter">Capítulo 6 — Associação Terapêutica e Consequências do Uso Indiscriminado</div>
+      <h1 class="page-title">Associação</h1>
+    </header>
 
-  <div class="reader-toolbar__group">
-    <span class="reader-toolbar__label">Acessibilidade</span>
-    <button class="reader-btn" data-vision="default">Padrão</button>
-    <button class="reader-btn" data-vision="protanopia">Protan</button>
-    <button class="reader-btn" data-vision="deuteranopia">Deuter</button>
-    <button class="reader-btn" data-vision="tritanopia">Tritan</button>
-  </div>
-</div>
+    <section class="prose" aria-label="Texto principal">
 
-<main class="container page-shell">
+      <p>
+        Outro racional para a associação de antibacterianos envolve a tentativa de reduzir a probabilidade de surgimento de resistência durante o tratamento. Esse princípio baseia-se na dinâmica populacional das bactérias quando expostas à pressão farmacológica <sup>2</sup>.
+      </p>
 
-<header class="page-header">
-  <div>
-    <div class="chapter">Capítulo 6 — Associação Terapêutica e Consequências do Uso Indiscriminado</div>
-    <h1 class="page-title">Interações entre antibacterianos</h1>
-  </div>
-</header>
+      <p>
+        Em populações bacterianas extensas, variantes com mutações que conferem menor suscetibilidade a determinado antibacteriano podem existir em baixa frequência antes mesmo do início da terapia. Quando apenas um agente é utilizado, a eliminação das células mais sensíveis pode permitir a expansão dessas variantes, sobretudo se a exposição ao fármaco não for plenamente supressiva.
+      </p>
 
-<section class="prose cap6-reading-flow">
+      <p>
+        A utilização simultânea de dois antibacterianos com mecanismos de ação distintos pode reduzir a probabilidade de expansão de subpopulações resistentes em cenários específicos, particularmente quando a carga bacteriana é elevada ou quando existe risco conhecido de emergência de resistência durante o tratamento. Para que uma bactéria sobreviva sob exposição combinada, seria necessário que apresentasse mecanismos capazes de reduzir a atividade de ambos os agentes. Quando os alvos moleculares são independentes, a probabilidade estatística dessa adaptação simultânea é menor do que a ocorrência de resistência isolada <sup>4</sup>.
+      </p>
 
-<p>
-Quando dois antibacterianos são utilizados simultaneamente, a interação entre eles pode modificar o comportamento da população bacteriana exposta. Essas interações são tradicionalmente classificadas em sinergismo, efeito aditivo, indiferença ou antagonismo, dependendo do resultado produzido pela combinação <sup>4</sup>.
-</p>
+      <section class="cap6-p57-stage" data-cap6-p57 aria-label="Resistência durante a terapia">
+        <div class="cap6-p57-stage__inner">
 
-<!-- INTERAÇÃO -->
-<section class="cap6-stage" data-cap6-interaction>
+          <div class="cap6-p57-tabs" role="tablist" aria-label="Estratégias de exposição">
+            <button class="cap6-p57-tab" type="button" role="tab" aria-selected="true" data-p57-tab="mono">Monoterapia</button>
+            <button class="cap6-p57-tab" type="button" role="tab" aria-selected="false" data-p57-tab="combo">Terapia combinada</button>
+          </div>
 
-<div class="cap6-tabs" role="tablist">
-  <button class="cap6-tab is-active" data-tab="sinergismo">Sinergismo</button>
-  <button class="cap6-tab" data-tab="aditivo">Aditivo / Indiferença</button>
-  <button class="cap6-tab" data-tab="antagonismo">Antagonismo</button>
-</div>
+          <div class="cap6-p57-panel">
+            <p class="cap6-p57-panel__eyebrow">Dinâmica populacional</p>
+            <h2 class="cap6-p57-panel__title" data-p57-title>Monoterapia</h2>
+            <p class="cap6-p57-panel__lead" data-p57-lead>
+              Quando apenas um antibacteriano é utilizado, subpopulações com menor suscetibilidade a esse agente podem sobreviver e expandir-se se a exposição não for plenamente supressiva.
+            </p>
 
-<div class="cap6-panel">
-  <h2 data-title>Sinergismo</h2>
-  <p data-text>
-    O sinergismo ocorre quando a atividade antimicrobiana observada com a combinação de dois fármacos é superior àquela obtida com cada agente isoladamente. Nesse caso, a ação de um antibacteriano favorece ou potencializa a atividade do outro.
-  </p>
-</div>
+            <div class="cap6-p57-visual" aria-hidden="true">
+              <div class="cap6-p57-column">
+                <p class="cap6-p57-column__label">População inicial</p>
+                <div class="cap6-p57-dots" data-p57-initial></div>
+              </div>
 
-<figure class="cap6-figure">
-  <img id="cap6-img" src="../../assets/capitulo-06/imagens/sinergismo.png" alt="">
-</figure>
+              <div class="cap6-p57-arrow">→</div>
 
-</section>
+              <div class="cap6-p57-column">
+                <p class="cap6-p57-column__label">Após exposição</p>
+                <div class="cap6-p57-dots" data-p57-final></div>
+              </div>
+            </div>
 
-<p>
-Esse fenômeno pode surgir quando um fármaco altera estruturas bacterianas que facilitam a ação do segundo agente. A interferência na parede celular, por exemplo, pode aumentar a penetração de moléculas que atuam em alvos intracelulares. Em outras situações, a combinação bloqueia etapas sequenciais de uma mesma via metabólica, reduzindo a capacidade de adaptação bacteriana.
-</p>
+            <div class="cap6-p57-legend" aria-hidden="true">
+              <span><i class="cap6-p57-dot cap6-p57-dot--sens"></i> Subpopulação sensível</span>
+              <span><i class="cap6-p57-dot cap6-p57-dot--less"></i> Menor suscetibilidade</span>
+              <span><i class="cap6-p57-dot cap6-p57-dot--multi"></i> Escape sob exposição combinada</span>
+            </div>
 
-<p>
-Em determinadas circunstâncias, o sinergismo pode acelerar a redução da carga bacteriana ou diminuir a probabilidade de sobrevivência de subpopulações parcialmente menos suscetíveis. Entretanto, o sinergismo demonstrado em experimentos laboratoriais não se traduz automaticamente em benefício clínico consistente. A magnitude do efeito depende da concentração efetivamente alcançada no foco infeccioso, da densidade bacteriana inicial e do estado metabólico das células presentes <sup>4</sup>.
-</p>
+            <div class="cap6-p57-summary" data-p57-summary>
+              Neste cenário, a pressão seletiva recai sobre um único alvo. Se a exposição for insuficiente para suprimir toda a população, variantes menos suscetíveis podem persistir e tornar-se proporcionalmente mais frequentes.
+            </div>
+          </div>
 
-<p>
-Outra possibilidade é o efeito aditivo, no qual a combinação produz resultado equivalente à soma das atividades individuais de cada antibacteriano.
-</p>
+        </div>
+      </section>
 
-<p>
-Também pode ocorrer indiferença, situação em que a associação não altera de forma significativa a resposta obtida com monoterapia adequada.
-</p>
+      <p>
+        Esse princípio torna-se particularmente relevante em situações nas quais a carga bacteriana é elevada ou quando o tratamento exige duração prolongada. Em contextos desse tipo, a associação pode reduzir a probabilidade de expansão clonal de variantes parcialmente resistentes durante o curso terapêutico.
+      </p>
 
-<p>
-Por fim, existe a possibilidade de antagonismo farmacológico. Esse fenômeno ocorre quando a ação de um antibacteriano interfere no mecanismo necessário para a atividade do outro, reduzindo a eficácia global da combinação.
-</p>
+      <p>
+        Entretanto, essa estratégia possui limites importantes. A associação não impede o surgimento de resistência quando a exposição farmacodinâmica dos antibacterianos permanece abaixo do nível necessário para supressão efetiva da população bacteriana. Subdosagem, intervalos inadequados de administração ou penetração insuficiente no foco infeccioso podem permitir sobrevivência de subpopulações adaptadas mesmo durante terapia combinada.
+      </p>
 
-<p>
-Assim, a interação entre antibacterianos deve ser interpretada dentro de um contexto biológico específico.
-</p>
+      <div class="cap6-p57-highlight">
+        A combinação pode reduzir a probabilidade de expansão de variantes resistentes em contextos específicos, mas não substitui exposição farmacodinâmica adequada nem controle apropriado do foco infeccioso.
+      </div>
 
-</section>
+      <p>
+        Além disso, a redução da probabilidade de resistência durante o tratamento não corresponde a prevenção absoluta. Elementos genéticos móveis, elevada densidade bacteriana e ambientes com difusão heterogênea de antibacterianos podem favorecer a persistência de variantes adaptadas mesmo sob exposição simultânea a múltiplos agentes.
+      </p>
 
-<nav class="pager">
-  <button class="btn" data-prev="p56.html">← Anterior</button>
-  <div class="center">Capítulo 6 · Página 57</div>
-  <button class="btn" data-next="p58.html">Próxima →</button>
-</nav>
+      <p>
+        Assim, a decisão de associar antibacterianos com o objetivo de reduzir emergência de resistência deve considerar não apenas o risco teórico de mutação, mas também fatores como carga bacteriana, exposição farmacodinâmica alcançada e características biológicas do patógeno envolvido.
+      </p>
 
-</main>
+    </section>
 
-<script src="../../js/app.js"></script>
-<script src="../../js/capitulo-06.js"></script>
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p56.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 6 · Página 57 de 61</div>
+      <button class="btn primary" type="button" data-next="p58.html" aria-label="Ir para a próxima página">Próxima →</button>
+    </nav>
 
+  </main>
+
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-06.js"></script>
 </body>
 </html>

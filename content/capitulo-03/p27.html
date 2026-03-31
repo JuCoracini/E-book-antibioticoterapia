@@ -5,348 +5,131 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Capítulo 3 — Página 27</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
   <link rel="stylesheet" href="../../css/capitulo-03.css" />
-
-  <style>
-    /* Página 27 — estilos locais */
-
-    .c03-stage{
-      margin:24px 0;
-      padding:16px;
-      border:1px solid var(--line);
-      border-radius:16px;
-      background:#fff;
-    }
-
-    .c03-tabs{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:center;
-      margin-bottom:14px;
-    }
-
-    .c03-tab{
-      padding:10px 16px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:#f3f4f6;
-      cursor:pointer;
-      font-weight:700;
-      transition:.2s ease;
-      min-width:190px;
-      text-align:center;
-    }
-    .c03-tab:hover{ background:#e5e7eb; }
-    .c03-tab[aria-selected="true"]{
-      background: rgba(30,136,229,.10);
-      border-color: rgba(30,136,229,.35);
-    }
-
-    .c03-panel{
-      border:1px solid rgba(0,0,0,.10);
-      border-radius:14px;
-      background:#fff;
-      overflow:hidden;
-    }
-
-    .c03-panel-inner{
-      padding:14px;
-    }
-
-    .c03-grid{
-      display:grid;
-      gap:16px;
-    }
-
-    @media (min-width: 900px){
-      .c03-grid{
-        grid-template-columns: 1fr 1fr;
-        align-items:start;
-      }
-    }
-
-    .viz{
-      border:1px solid rgba(0,0,0,.10);
-      border-radius:14px;
-      background:#fff;
-      overflow:hidden;
-    }
-
-    .viz svg{
-      width:100%;
-      height:auto;
-      display:block;
-    }
-
-    .legend{
-      margin-top:14px;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(0,0,0,.10);
-      background:rgba(255,255,255,.75);
-      font-size:14px;
-      line-height:1.6;
-      color:#374151;
-    }
-
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-weight:700;
-      margin-right:12px;
-      margin-bottom:6px;
-    }
-
-    .dot{ width:10px;height:10px;border-radius:999px;display:inline-block; }
-    .dot.blue{ background:#1E88E5; }
-    .dot.orange{ background:#FB8C00; }
-    .dot.red{ background:#DC2626; }
-    .dot.gray{ background:#9CA3AF; }
-
-    /* SVG */
-    .title{ font-size:13px; fill:#111827; font-weight:700; }
-    .label{ font-size:12px; fill:#374151; }
-    .node{
-      fill:#F3F4F6;
-      stroke:#9CA3AF;
-      stroke-width:1.5;
-    }
-    .node.blue{
-      fill: rgba(30,136,229,.10);
-      stroke: rgba(30,136,229,.45);
-    }
-    .node.orange{
-      fill: rgba(251,140,0,.12);
-      stroke: rgba(251,140,0,.55);
-    }
-    .node.red{
-      fill: rgba(220,38,38,.10);
-      stroke: rgba(220,38,38,.55);
-    }
-    .arrow{
-      stroke:#6B7280;
-      stroke-width:2;
-      marker-end:url(#arrowHead);
-      fill:none;
-    }
-
-    .hidden{ display:none; }
-  </style>
 </head>
 
-<body>
-<main class="container">
+<body class="cap3-page27">
 
-<header class="page-header">
-  <div>
-    <div class="chapter">Capítulo 3 — Mecanismos de Resistência Bacteriana</div>
-    <h1>Impacto clínico e populacional da resistência</h1>
-  </div>
-</header>
+  <main class="page-shell cap3-shell">
 
-<section class="prose">
-  <p>
-    A resistência bacteriana tem consequências que ultrapassam o resultado de um exame laboratorial. Ela modifica a probabilidade de sucesso terapêutico, influencia desfechos clínicos e pode aumentar tempo de internação, complexidade do cuidado e risco de disseminação de microrganismos resistentes em ambientes assistenciais <sup class="ref">2,7</sup>. O antibiograma expressa a interação entre biologia bacteriana, exposição antimicrobiana e contexto clínico.
-  </p>
-</section>
+    <header class="page-header">
+      <div>
+        <div class="chapter">Capítulo 3 — Mecanismos de Resistência Bacteriana</div>
+        <h1 class="page-title">Relação entre mecanismo de ação e resistência</h1>
+      </div>
+    </header>
 
-<section class="c03-stage" aria-label="Impacto clínico e populacional: visualização por camadas">
+    <section class="prose cap3-reading-flow" aria-label="Texto principal">
 
-  <div class="c03-tabs" role="tablist" aria-label="Alternar entre impacto clínico e populacional">
-    <button class="c03-tab" id="tabClin" role="tab" aria-selected="true" aria-controls="panelClin" onclick="showPanel('clin')">Camada clínica</button>
-    <button class="c03-tab" id="tabPop" role="tab" aria-selected="false" aria-controls="panelPop" onclick="showPanel('pop')">Camada populacional</button>
-    <button class="c03-tab" id="tabIntegr" role="tab" aria-selected="false" aria-controls="panelIntegr" onclick="showPanel('integr')">Integração</button>
-  </div>
+      <p>
+        Os mecanismos de resistência bacteriana não surgem de forma aleatória. Em muitos casos, eles se relacionam diretamente com o modo pelo qual o antibacteriano exerce sua atividade. Compreender o mecanismo de ação do fármaco permite antecipar quais adaptações bacterianas são biologicamente mais prováveis diante da pressão seletiva exercida pelos antibacterianos <sup>1,3</sup>.
+      </p>
 
-  <div class="c03-panel">
-    <div class="c03-panel-inner">
+      <p>
+        Antibacterianos que atuam na síntese da parede celular, por exemplo, podem ter sua atividade comprometida pela produção de β-lactamases ou por modificações nas proteínas ligadoras de penicilina (PBPs). Já fármacos que dependem da integridade de enzimas envolvidas na replicação do DNA, como DNA girase ou topoisomerase IV, podem perder eficácia quando mutações alteram essas estruturas.
+      </p>
 
-      <!-- Painel clínico -->
-      <div id="panelClin" role="tabpanel" aria-labelledby="tabClin">
-        <div class="c03-grid">
-          <div class="viz" aria-label="Esquema clínico">
-            <svg viewBox="0 0 720 320" role="img" aria-label="Fatores que modulam desfecho clínico">
-              <defs>
-                <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                  <path d="M0,0 L10,3 L0,6 Z" fill="#6B7280"></path>
-                </marker>
-              </defs>
+      <p>
+        De maneira semelhante, antibacterianos que interferem na síntese proteica podem ser afetados por modificações estruturais nos ribossomos bacterianos ou por mecanismos que reduzem a concentração intracelular do fármaco, como bombas de efluxo.
+      </p>
 
-              <text x="18" y="26" class="title">Desfecho clínico não depende de um único fator</text>
+      <figure class="cap3-p27-figure" aria-label="Correspondência entre ataque farmacológico, alvo e adaptação bacteriana">
+        <button
+          class="cap3-p27-spotlight"
+          id="cap3P27Spotlight"
+          type="button"
+          aria-describedby="cap3P27Hint"
+          aria-label="Avançar destaque do raciocínio entre ataque, alvo e defesa bacteriana"
+        >
+          <img
+            src="../../assets/capitulo-03/imagens/correspondencia-tatica.png"
+            alt="Esquema mostrando a sequência entre ataque farmacológico, alvo biológico e adaptação bacteriana"
+            loading="lazy"
+          />
 
-              <rect x="40" y="70" width="260" height="60" rx="14" class="node red"></rect>
-              <text x="60" y="105" class="label">Mecanismo de resistência</text>
+          <span class="cap3-p27-mask"></span>
+          <span class="cap3-p27-focus cap3-p27-focus--1" aria-hidden="true"></span>
+          <span class="cap3-p27-focus cap3-p27-focus--2" aria-hidden="true"></span>
+          <span class="cap3-p27-focus cap3-p27-focus--3" aria-hidden="true"></span>
+        </button>
 
-              <rect x="40" y="150" width="260" height="60" rx="14" class="node"></rect>
-              <text x="60" y="185" class="label">Carga bacteriana / foco</text>
+        <figcaption class="cap3-p27-caption">
+          <strong>Correspondência tática:</strong> o mecanismo de resistência tende a guardar relação com o ponto em que o antibacteriano atua. Clique na imagem para acompanhar, em sequência, o ataque farmacológico, o alvo biológico e a adaptação bacteriana correspondente.
+        </figcaption>
 
-              <rect x="40" y="230" width="260" height="60" rx="14" class="node"></rect>
-              <text x="60" y="265" class="label">Penetração / PK e hospedeiro</text>
+        <p class="cap3-p27-hint" id="cap3P27Hint">
+          Clique para avançar entre os três focos de leitura.
+        </p>
+      </figure>
 
-              <rect x="420" y="150" width="260" height="80" rx="14" class="node blue"></rect>
-              <text x="440" y="185" class="label">Resposta clínica / necessidade</text>
-              <text x="440" y="205" class="label">de reavaliar esquema</text>
+      <p>
+        Essa relação entre alvo farmacológico e adaptação bacteriana confere certa previsibilidade biológica ao fenômeno da resistência. Embora diferentes mecanismos possam coexistir, frequentemente existe correspondência entre o ponto de ação do antibacteriano e o tipo de mecanismo adaptativo desenvolvido pela bactéria <sup>5</sup>.
+      </p>
 
-              <line x1="300" y1="100" x2="420" y2="170" class="arrow"></line>
-              <line x1="300" y1="180" x2="420" y2="190" class="arrow"></line>
-              <line x1="300" y1="260" x2="420" y2="210" class="arrow"></line>
-            </svg>
-          </div>
+      <p>
+        Do ponto de vista clínico, compreender essa relação amplia a capacidade de interpretar o perfil de suscetibilidade observado no antibiograma. Quando um microrganismo apresenta resistência a determinado grupo farmacológico, o conhecimento do mecanismo de ação do antibacteriano permite inferir quais processos adaptativos podem estar envolvidos.
+      </p>
 
-          <div class="prose">
-            <p>
-              A resistência pode se manifestar como ausência de resposta clínica esperada, persistência de sinais infecciosos ou necessidade de revisão do esquema terapêutico. No entanto, o desfecho não depende exclusivamente da presença de um mecanismo de resistência. Carga bacteriana, local da infecção, penetração do antibacteriano no tecido acometido, perfil farmacocinético e condição imunológica do hospedeiro também influenciam a resposta ao tratamento <sup class="ref">11,12</sup>. A interpretação do resultado microbiológico exige, portanto, integração com a fisiopatologia clínica.
-            </p>
-          </div>
-        </div>
+      <p>
+        Esse raciocínio não substitui os testes laboratoriais utilizados para caracterizar o mecanismo de resistência, mas contribui para integrar a interpretação microbiológica ao contexto clínico.
+      </p>
+
+      <div class="cap3-p27-matrixWrap">
+        <button
+          class="cap3-p27-matrixBtn"
+          type="button"
+          id="cap3P27MatrixBtn"
+          aria-label="Ampliar matriz de correspondência entre mecanismo de ação e resistência"
+          data-zoomimage="../../assets/capitulo-03/imagens/matriz-correspondencia.png"
+          data-zoomalt="Tabela resumindo a correspondência entre alvo biológico, ação do fármaco e adaptação bacteriana esperada"
+          data-zoomcaption="Matriz de correspondência tática: a natureza do alvo farmacológico ajuda a antecipar os mecanismos de resistência biologicamente mais prováveis."
+        >
+          Ver correspondência completa
+        </button>
       </div>
 
-      <!-- Painel populacional -->
-      <div id="panelPop" class="hidden" role="tabpanel" aria-labelledby="tabPop">
-        <div class="c03-grid">
-          <div class="viz" aria-label="Esquema populacional">
-            <svg viewBox="0 0 720 320" role="img" aria-label="Pressão seletiva e disseminação em serviços de saúde">
-              <defs>
-                <marker id="arrowHead2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                  <path d="M0,0 L10,3 L0,6 Z" fill="#6B7280"></path>
-                </marker>
-              </defs>
+      <p>
+        Além disso, diferentes mecanismos podem atuar de forma combinada. A associação entre produção de enzimas inativadoras e redução da permeabilidade da membrana, por exemplo, pode elevar significativamente o grau de resistência observado. De maneira semelhante, bombas de efluxo podem ampliar o impacto de mutações que alteram o alvo molecular.
+      </p>
 
-              <text x="18" y="26" class="title">Dinâmica populacional em serviços de saúde</text>
+      <p>
+        Essa interação entre mecanismos explica por que algumas bactérias desenvolvem resistência extensa a múltiplas classes de antibacterianos, mesmo quando cada adaptação isoladamente produziria efeito mais limitado.
+      </p>
 
-              <rect x="40" y="90" width="250" height="60" rx="14" class="node orange"></rect>
-              <text x="60" y="125" class="label">Uso repetido de antibacterianos</text>
+      <p>
+        Assim, compreender a relação entre mecanismo de ação e resistência permite interpretar o antibiograma de forma mais crítica e entender como diferentes adaptações bacterianas podem influenciar a resposta ao tratamento.
+      </p>
 
-              <rect x="40" y="180" width="250" height="60" rx="14" class="node"></rect>
-              <text x="60" y="215" class="label">Pressão seletiva local</text>
+    </section>
 
-              <rect x="420" y="70" width="260" height="60" rx="14" class="node"></rect>
-              <text x="440" y="105" class="label">Persistência / disseminação</text>
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p26.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 3 · Página 27</div>
+      <button class="btn primary" type="button" data-next="p28.html" aria-label="Ir para a próxima página">Próxima →</button>
+    </nav>
 
-              <rect x="420" y="160" width="260" height="60" rx="14" class="node"></rect>
-              <text x="440" y="195" class="label">Transmissão cruzada / reservatórios</text>
+  </main>
 
-              <rect x="420" y="250" width="260" height="60" rx="14" class="node blue"></rect>
-              <text x="440" y="285" class="label">Perfil epidemiológico institucional</text>
+  <div class="cap3-lightbox" id="cap3Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <div class="cap3-lightbox__backdrop" data-lightbox-close></div>
 
-              <line x1="290" y1="120" x2="420" y2="100" class="arrow" style="marker-end:url(#arrowHead2);"></line>
-              <line x1="290" y1="210" x2="420" y2="180" class="arrow" style="marker-end:url(#arrowHead2);"></line>
-              <line x1="550" y1="130" x2="550" y2="250" class="arrow" style="marker-end:url(#arrowHead2);"></line>
-              <line x1="550" y1="220" x2="550" y2="250" class="arrow" style="marker-end:url(#arrowHead2);"></line>
-            </svg>
-          </div>
+    <div class="cap3-lightbox__dialog">
+      <button class="cap3-lightbox__close" type="button" data-lightbox-close aria-label="Fechar imagem ampliada">×</button>
 
-          <div class="prose">
-            <p>
-              Do ponto de vista populacional, o impacto se amplia. O uso repetido de antibacterianos em um serviço de saúde exerce pressão seletiva sobre as populações bacterianas locais, favorecendo a persistência e disseminação de cepas resistentes <sup class="ref">2</sup>. Nesse contexto, a resistência deixa de ser evento isolado e passa a constituir característica epidemiológica da instituição, influenciando esquemas empíricos e estratégias de controle de infecção.
-            </p>
-
-            <p>
-              Em ambiente hospitalar, a circulação de microrganismos multirresistentes costuma estar associada à combinação de pressão seletiva decorrente do uso de antibacterianos, transmissão cruzada entre pacientes e presença de reservatórios ambientais ou colonização persistente <sup class="ref">2</sup>.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Painel integração -->
-      <div id="panelIntegr" class="hidden" role="tabpanel" aria-labelledby="tabIntegr">
-        <div class="c03-grid">
-          <div class="viz" aria-label="Integração clínico-epidemiológica">
-            <svg viewBox="0 0 720 320" role="img" aria-label="Integração entre clínica, laboratório e epidemiologia">
-              <defs>
-                <marker id="arrowHead3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                  <path d="M0,0 L10,3 L0,6 Z" fill="#6B7280"></path>
-                </marker>
-              </defs>
-
-              <text x="18" y="26" class="title">O antibiograma é parte de um sistema</text>
-
-              <rect x="60" y="80" width="200" height="60" rx="14" class="node"></rect>
-              <text x="80" y="115" class="label">Biologia bacteriana</text>
-
-              <rect x="60" y="170" width="200" height="60" rx="14" class="node"></rect>
-              <text x="80" y="205" class="label">Exposição antibacteriana</text>
-
-              <rect x="60" y="260" width="200" height="60" rx="14" class="node"></rect>
-              <text x="80" y="295" class="label">Cenário assistencial</text>
-
-              <rect x="360" y="145" width="300" height="80" rx="14" class="node blue"></rect>
-              <text x="382" y="180" class="label">Antibiograma + interpretação</text>
-              <text x="382" y="200" class="label">integrada</text>
-
-              <line x1="260" y1="110" x2="360" y2="170" class="arrow" style="marker-end:url(#arrowHead3);"></line>
-              <line x1="260" y1="200" x2="360" y2="185" class="arrow" style="marker-end:url(#arrowHead3);"></line>
-              <line x1="260" y1="290" x2="360" y2="200" class="arrow" style="marker-end:url(#arrowHead3);"></line>
-            </svg>
-          </div>
-
-          <div class="prose">
-            <p>
-              Isso pode ser observado quando dois setores de um mesmo hospital apresentam perfis distintos de resistência para a mesma espécie bacteriana. Ao analisar o contexto, pode-se identificar maior uso de determinados antibacterianos e maior circulação de pacientes colonizados no setor com índices mais elevados de resistência. O fenômeno não se explica por uma bactéria diferente, mas por dinâmicas locais de pressão seletiva e transmissão. Essa percepção amplia o entendimento da resistência como fenômeno clínico-epidemiológico.
-            </p>
-
-            <p>
-              Assim, a resistência não deve ser compreendida apenas como categoria sensível ou resistente em um laudo. Ela representa o resultado dinâmico da interação entre biologia bacteriana, exposição antimicrobiana e cenário assistencial <sup class="ref">12,26</sup>.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="legend">
-        <div class="chip"><span class="dot blue"></span>Leitura integrada</div>
-        <div class="chip"><span class="dot orange"></span>Pressão seletiva</div>
-        <div class="chip"><span class="dot red"></span>Resistência</div>
-        <div style="margin-top:10px;">
-          Use as abas para alternar a “lente” de leitura: clínica, populacional e integração clínico-epidemiológica.
-        </div>
-      </div>
-
+      <figure class="cap3-lightbox__figure">
+        <img id="cap3LightboxImage" src="" alt="" />
+        <figcaption class="cap3-lightbox__caption" id="cap3LightboxCaption"></figcaption>
+      </figure>
     </div>
   </div>
 
-</section>
-
-<section class="prose">
-  <p>
-    Quando um paciente com histórico de múltiplas internações e uso repetido de antibacterianos apresenta infecção por bactéria inicialmente descrita como sensível e um novo isolamento demonstra resistência associada à produção de β-lactamase e redução de porinas, o desfecho dependerá não apenas da presença desses mecanismos, mas também da concentração alcançada pelo fármaco no sítio infeccioso e da capacidade de resposta imunológica do hospedeiro.
-  </p>
-</section>
-
-<nav class="pager">
-  <button class="btn" data-prev="p26.html">← Anterior</button>
-  <button class="btn" data-next="p28.html">Próxima →</button>
-</nav>
-
-</main>
-
-<script>
-  function showPanel(which){
-    const tabs = {
-      clin: document.getElementById("tabClin"),
-      pop: document.getElementById("tabPop"),
-      integr: document.getElementById("tabIntegr")
-    };
-
-    const panels = {
-      clin: document.getElementById("panelClin"),
-      pop: document.getElementById("panelPop"),
-      integr: document.getElementById("panelIntegr")
-    };
-
-    // reset
-    Object.keys(tabs).forEach(k=>{
-      tabs[k].setAttribute("aria-selected","false");
-      panels[k].classList.add("hidden");
-    });
-
-    tabs[which].setAttribute("aria-selected","true");
-    panels[which].classList.remove("hidden");
-  }
-</script>
-
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-03.js"></script>
 </body>
 </html>

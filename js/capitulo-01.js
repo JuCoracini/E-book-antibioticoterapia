@@ -1,1096 +1,636 @@
-/* ---------- Página 1: AMR ---------- */
-(function () {
+/* =====================================================
+   CAPÍTULO 01 — JS LIMPO
+   Páginas estabilizadas: 1 e 2
+   ===================================================== */
+
+/* =========================
+   LIGHTBOX ÚNICO
+   ========================= */
+
+(function initCap1Lightbox(){
+  const lightbox = document.getElementById("cap1Lightbox");
+  const img = document.getElementById("cap1LightboxImage");
+  const caption = document.getElementById("cap1LightboxCaption");
+
+  if(!lightbox || !img || !caption) return;
+
+  function open(src, alt, text){
+    img.src = src || "";
+    img.alt = alt || "";
+    caption.textContent = text || "";
+    lightbox.hidden = false;
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function close(){
+    lightbox.hidden = true;
+    lightbox.setAttribute("aria-hidden", "true");
+    img.src = "";
+    img.alt = "";
+    caption.textContent = "";
+    document.body.style.overflow = "";
+  }
+
+  document.addEventListener("click", function(e){
+    const trigger = e.target.closest(".cap1-zoomTrigger");
+    if(trigger){
+      open(
+        trigger.dataset.zoomImage,
+        trigger.dataset.zoomAlt,
+        trigger.dataset.zoomCaption
+      );
+      return;
+    }
+
+    if(e.target.closest("[data-lightbox-close]")){
+      close();
+    }
+  });
+
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && !lightbox.hidden){
+      close();
+    }
+  });
+})();
+
+/* =========================
+   PÁGINA 1 — AMR (CENÁRIOS CLÍNICOS)
+   ========================= */
+
+(function initPage1AMR(){
+
   const petri = document.getElementById("petri");
-  if (!petri) return;
+  const choices = document.querySelectorAll(".amr-choice");
+  const feedback = document.getElementById("amrFeedback");
 
-  const btnStep = document.getElementById("btnStep");
-  const btnReset = document.getElementById("btnReset");
-  const cap = document.getElementById("amrCaption");
-  const prompt = document.getElementById("amrPrompt");
+  if(!petri || !choices.length || !feedback) return;
 
-  if (!btnStep || !btnReset || !cap) return;
+  function spawn(type){
 
-  const TOTAL = 70;
-  const RESISTANT = 10;
-  const SENSITIVE = TOTAL - RESISTANT;
-
-  function rand(min, max) {
-    return Math.random() * (max - min) + min;
-  }
-
-  function clear() {
     petri.innerHTML = "";
-  }
 
-  function spawn() {
-    clear();
+    for(let i = 0; i < 70; i++){
 
-    for (let i = 0; i < SENSITIVE; i++) {
-      const d = document.createElement("div");
-      d.className = "bug sensitive";
-      d.style.left = rand(6, 94) + "%";
-      d.style.top = rand(10, 90) + "%";
-      petri.appendChild(d);
+      const dot = document.createElement("div");
+      dot.className = "bug";
+
+      const isResistant = i < 10;
+
+      dot.classList.add(isResistant ? "resistant" : "sensitive");
+
+      if(type === "adequado"){
+        if(!isResistant){
+          dot.style.opacity = 0.1;
+        }
+      }
+
+      if(type === "subdose"){
+        if(!isResistant){
+          dot.style.opacity = 0.4;
+        }
+      }
+
+      if(type === "interrupcao"){
+        dot.style.opacity = 1;
+      }
+
+      dot.style.left = `${Math.random() * 100}%`;
+      dot.style.top = `${Math.random() * 100}%`;
+
+      petri.appendChild(dot);
     }
-
-    for (let i = 0; i < RESISTANT; i++) {
-      const d = document.createElement("div");
-      d.className = "bug resistant";
-      d.style.left = rand(6, 94) + "%";
-      d.style.top = rand(10, 90) + "%";
-      petri.appendChild(d);
-    }
   }
 
-  let phase = 0;
-
-  function setPrompt() {
-    if (!prompt) return;
-
-    if (phase === 0) {
-      prompt.textContent =
-        "O que você espera que aconteça com a população bacteriana após a exposição ao antibacteriano?";
-      return;
-    }
-
-    if (phase === 1) {
-      prompt.textContent =
-        "Agora observe: quais microrganismos tendem a desaparecer primeiro quando o antibacteriano é aplicado?";
-      return;
-    }
-
-    prompt.textContent =
-      "Após a pressão seletiva, quais bactérias passam a predominar na população?";
-  }
-
-  function setCaption() {
-    if (phase === 0) {
-      cap.textContent =
-        "Etapa 1 — População inicial: a maioria das bactérias é sensível ao antibacteriano, mas variantes resistentes podem estar presentes em baixa frequência na população.";
-      btnStep.textContent = "Etapa 2 — Aplicar antibacteriano";
-      return;
-    }
-
-    if (phase === 1) {
-      cap.textContent =
-        "Etapa 2 — Aplicação do antibacteriano: o fármaco elimina principalmente os microrganismos sensíveis, exercendo pressão seletiva sobre a população bacteriana.";
-      btnStep.textContent = "Etapa 3 — Observar seleção";
-      return;
-    }
-
-    cap.textContent =
-      "Etapa 3 — Seleção de resistentes: as variantes resistentes sobrevivem à exposição ao antibacteriano e passam a se multiplicar. Com a eliminação dos microrganismos sensíveis, essas bactérias expandem-se na população e tornam-se predominantes.";
-    btnStep.textContent = "Recomeçar";
-  }
-
-  function applyPhase() {
-    petri.classList.remove("phase-1", "phase-2");
-
-    if (phase === 1) petri.classList.add("phase-1");
-    if (phase === 2) petri.classList.add("phase-1", "phase-2");
-
-    setPrompt();
-    setCaption();
-  }
-
-  btnStep.addEventListener("click", () => {
-    if (phase === 0) {
-      phase = 1;
-      applyPhase();
-      return;
-    }
-
-    if (phase === 1) {
-      for (let i = 0; i < 22; i++) {
-        const d = document.createElement("div");
-        d.className = "bug resistant";
-        d.style.left = rand(6, 94) + "%";
-        d.style.top = rand(10, 90) + "%";
-        d.style.opacity = "0";
-        petri.appendChild(d);
-
-        requestAnimationFrame(() => {
-          d.style.opacity = "1";
-        });
-      }
-
-      phase = 2;
-      applyPhase();
-      return;
-    }
-
-    phase = 0;
-    spawn();
-    applyPhase();
-  });
-
-  btnReset.addEventListener("click", () => {
-    phase = 0;
-    spawn();
-    applyPhase();
-  });
-
-  spawn();
-  applyPhase();
-})();
-/* ---------- Página 2: Timeline ---------- */
-(function () {
-  const root = document.querySelector("[data-cap1-timeline]");
-  if (!root) return;
-
-  const tabs = Array.from(root.querySelectorAll('[role="tab"][data-target]'));
-  const panes = Array.from(root.querySelectorAll(".cap1-panelPane[data-pane]"));
-  const nodes = Array.from(root.querySelectorAll(".cap1-node"));
-
-  const lightbox = document.getElementById("cap1Lightbox");
-  const lightboxImage = document.getElementById("cap1LightboxImage");
-  const lightboxCaption = document.getElementById("cap1LightboxCaption");
-  const zoomTriggers = Array.from(root.querySelectorAll(".cap1-zoomTrigger"));
-  const lightboxClosers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
-
-  function openPane(key) {
-    tabs.forEach((tab) => {
-      const isActive = tab.dataset.target === key;
-      tab.setAttribute("aria-selected", isActive ? "true" : "false");
-      tab.tabIndex = isActive ? 0 : -1;
-    });
-
-    nodes.forEach((node) => {
-      const btn = node.querySelector("[data-target]");
-      const active = btn && btn.dataset.target === key;
-      node.classList.toggle("is-active", active);
-    });
-
-    panes.forEach((pane) => {
-      const isTarget = pane.dataset.pane === key;
-      if (isTarget) pane.removeAttribute("hidden");
-      else pane.setAttribute("hidden", "");
-    });
-  }
-
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      openPane(tab.dataset.target);
-    });
-
-    tab.addEventListener("keydown", (e) => {
-      const i = tabs.indexOf(tab);
-
-      if (e.key === "ArrowRight") {
-        e.preventDefault();
-        tabs[(i + 1) % tabs.length].focus();
-      }
-
-      if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        tabs[(i - 1 + tabs.length) % tabs.length].focus();
-      }
-
-      if (e.key === "Home") {
-        e.preventDefault();
-        tabs[0].focus();
-      }
-
-      if (e.key === "End") {
-        e.preventDefault();
-        tabs[tabs.length - 1].focus();
-      }
-
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        openPane(tab.dataset.target);
-      }
-    });
-  });
-
-  function openLightbox(src, alt, caption) {
-    if (!lightbox || !lightboxImage || !lightboxCaption) return;
-
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    if (!lightbox || !lightboxImage || !lightboxCaption) return;
-
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  zoomTriggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
-    });
-  });
-
-  lightboxClosers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && lightbox && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
-
-  openPane("1928");
-})();
-/* ---------- Página 2: Timeline ---------- */
-(function () {
-  const root = document.querySelector("[data-cap1-timeline]");
-  if (!root) return;
-
-  const tabs = Array.from(root.querySelectorAll('[role="tab"][data-target]'));
-  const panes = Array.from(root.querySelectorAll(".cap1-panelPane[data-pane]"));
-  const nodes = Array.from(root.querySelectorAll(".cap1-node"));
-
-  const lightbox = document.getElementById("cap1Lightbox");
-  const lightboxImage = document.getElementById("cap1LightboxImage");
-  const lightboxCaption = document.getElementById("cap1LightboxCaption");
-  const zoomTriggers = Array.from(root.querySelectorAll(".cap1-zoomTrigger"));
-  const lightboxClosers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
-
-  function openPane(key) {
-    tabs.forEach((tab) => {
-      const isActive = tab.dataset.target === key;
-      tab.setAttribute("aria-selected", isActive ? "true" : "false");
-      tab.tabIndex = isActive ? 0 : -1;
-    });
-
-    nodes.forEach((node) => {
-      const btn = node.querySelector("[data-target]");
-      const active = btn && btn.dataset.target === key;
-      node.classList.toggle("is-active", active);
-    });
-
-    panes.forEach((pane) => {
-      const isTarget = pane.dataset.pane === key;
-      if (isTarget) pane.removeAttribute("hidden");
-      else pane.setAttribute("hidden", "");
-    });
-  }
-
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      openPane(tab.dataset.target);
-    });
-
-    tab.addEventListener("keydown", (e) => {
-      const i = tabs.indexOf(tab);
-
-      if (e.key === "ArrowRight") {
-        e.preventDefault();
-        tabs[(i + 1) % tabs.length].focus();
-      }
-
-      if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        tabs[(i - 1 + tabs.length) % tabs.length].focus();
-      }
-
-      if (e.key === "Home") {
-        e.preventDefault();
-        tabs[0].focus();
-      }
-
-      if (e.key === "End") {
-        e.preventDefault();
-        tabs[tabs.length - 1].focus();
-      }
-
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        openPane(tab.dataset.target);
-      }
-    });
-  });
-
-  function openLightbox(src, alt, caption) {
-    if (!lightbox || !lightboxImage || !lightboxCaption) return;
-
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    if (!lightbox || !lightboxImage || !lightboxCaption) return;
-
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  zoomTriggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
-    });
-  });
-
-  lightboxClosers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && lightbox && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
-
-  openPane("1928");
-})();
-/* =========================
-   Página 3 — Bases conceituais
-   ========================= */
-(function initCap1ConceptTree() {
-  const root = document.querySelector("[data-cap1-concept-tree]");
-  if (!root) return;
-
-  const viewer = document.getElementById("cap1-viewer-content");
-  const viewerEmpty = document.getElementById("cap1-viewer-empty");
-  const viewerTitle = document.getElementById("cap1-viewer-title");
-  const buttons = Array.from(root.querySelectorAll(".cap1-p03-btn"));
-
-  if (!viewer || !viewerEmpty || !viewerTitle || !buttons.length) return;
-
-  const tplIdByTarget = {
-    antimicrobianos: "tpl-antimicrobianos",
-    antibacterianos: "tpl-antibacterianos",
-    naturais: "tpl-naturais",
-    semissinteticos: "tpl-semissinteticos",
-    sinteticos: "tpl-sinteticos"
+  const feedbackMap = {
+    adequado: "A exposição adequada reduz significativamente a população sensível, mas pode permitir a sobrevivência de variantes resistentes já presentes.",
+    subdose: "A exposição insuficiente não elimina de forma eficaz as bactérias sensíveis, favorecendo a persistência da população e a seleção progressiva de resistência.",
+    interrupcao: "A interrupção precoce mantém uma população bacteriana viável, permitindo a expansão de variantes menos suscetíveis."
   };
 
-  const labelByTarget = {
-    antimicrobianos: "Antimicrobianos",
-    antibacterianos: "Antibacterianos",
-    naturais: "Naturais",
-    semissinteticos: "Semissintéticos",
-    sinteticos: "Sintéticos"
-  };
-
-  function setActiveButton(activeBtn) {
-    buttons.forEach((btn) => {
-      const isActive = btn === activeBtn;
-      btn.setAttribute("aria-pressed", isActive ? "true" : "false");
-    });
-  }
-
-  function renderTarget(target) {
-    const tplId = tplIdByTarget[target];
-    if (!tplId) return;
-
-    const tpl = document.getElementById(tplId);
-    if (!tpl) return;
-
-    viewer.innerHTML = tpl.innerHTML;
-    viewer.hidden = false;
-    viewerEmpty.hidden = true;
-    viewerTitle.textContent = labelByTarget[target] || "Definição";
-  }
-
-  function activateButton(btn, shouldScroll = false) {
-    const target = btn.dataset.target;
-    if (!target) return;
-
-    setActiveButton(btn);
-    renderTarget(target);
-
-    if (shouldScroll && window.innerWidth <= 920) {
-      const viewerPanel = document.querySelector(".cap1-p03-viewer");
-      if (viewerPanel) {
-        viewerPanel.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }
-    }
-  }
-
-  buttons.forEach((btn) => {
+  choices.forEach(btn => {
     btn.addEventListener("click", () => {
-      activateButton(btn, true);
+
+      choices.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const scenario = btn.dataset.scenario;
+
+      spawn(scenario);
+      feedback.textContent = feedbackMap[scenario];
+
+    });
+  });
+
+  spawn("adequado");
+
+})();
+/* =========================
+   PÁGINA 2 — TIMELINE FINAL
+   ========================= */
+
+(function initPage2Timeline(){
+
+  const content = document.getElementById("timelineContent");
+  const buttons = document.querySelectorAll(".timeline-item");
+
+  if(!content || !buttons.length) return;
+
+  const data = {
+
+    "1928": {
+      title: "1928 — Descoberta da Penicilina",
+      img: "../../assets/capitulo-01/imagens/Era Fleming.png",
+      caption: "Imagem referente à descoberta da penicilina.",
+      text: "Em 1928, Alexander Fleming observou que substâncias produzidas por fungos do gênero Penicillium eram capazes de inibir o crescimento bacteriano em condições experimentais."
+    },
+
+    "1935": {
+      title: "1935 — Introdução das Sulfonamidas",
+      img: "../../assets/capitulo-01/imagens/1935.png",
+      caption: "Uso inicial de antimicrobianos sistêmicos.",
+      text: "A introdução das sulfonamidas representou um dos primeiros usos sistemáticos de agentes antimicrobianos na prática médica."
+    },
+
+    "1940": {
+      title: "1940–1943 — Produção da penicilina",
+      img: "../../assets/capitulo-01/imagens/1940.png",
+      caption: "Expansão da produção da penicilina.",
+      text: "A produção em larga escala permitiu a aplicação clínica sistemática da penicilina."
+    },
+
+    "1943": {
+      title: "1943–1960 — Idade de ouro dos antibióticos",
+      img: "../../assets/capitulo-01/imagens/1943.png",
+      caption: "Expansão das classes antibacterianas.",
+      text: "Diversas classes foram descobertas, ampliando significativamente as possibilidades terapêuticas."
+    },
+
+    "1961": {
+      title: "1961 — MRSA",
+      img: "../../assets/capitulo-01/imagens/1961.png",
+      caption: "Emergência da resistência bacteriana.",
+      text: "A resistência à meticilina evidenciou a capacidade adaptativa das bactérias."
+    },
+
+    "1988": {
+      title: "1988 — VRE",
+      img: "../../assets/capitulo-01/imagens/1988.png",
+      caption: "Resistência à vancomicina.",
+      text: "Mostrou que antibacterianos de última linha também podem perder eficácia."
+    },
+
+    "2018": {
+      title: "2018 — Padronização BrCAST",
+      img: "../../assets/capitulo-01/imagens/2018.png",
+      caption: "Padronização dos testes.",
+      text: "Integra microbiologia, PK/PD e evidência clínica."
+    }
+
+  };
+
+ function render(key){
+  const item = data[key];
+
+  content.innerHTML = `
+    <h2 class="timeline-title">${item.title}</h2>
+
+    <div class="timeline-block">
+      
+      <figure class="timeline-figure">
+        <img src="${item.img}" alt="">
+        <figcaption class="timeline-caption">
+          ${item.caption || ""}
+        </figcaption>
+      </figure>
+
+      <p class="timeline-text">${item.text}</p>
+
+    </div>
+  `;
+}
+
+  buttons.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      buttons.forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      render(btn.dataset.year);
+    });
+  });
+
+  render("1928");
+
+})();
+/* =========================
+   PÁGINA 3 — ÁRVORE CONCEITUAL
+   ========================= */
+
+(function initPage3Tree(){
+  const buttons = document.querySelectorAll("[data-tree-target]");
+  const panes = document.querySelectorAll("[data-tree-pane]");
+
+  if(!buttons.length || !panes.length) return;
+
+  function activate(key){
+    buttons.forEach(btn => {
+      btn.classList.toggle("is-active", btn.dataset.treeTarget === key);
     });
 
-    btn.addEventListener("keydown", (event) => {
-      const index = buttons.indexOf(btn);
-      if (index < 0) return;
-
-      switch (event.key) {
-        case "ArrowDown":
-        case "ArrowRight":
-          event.preventDefault();
-          buttons[(index + 1) % buttons.length].focus();
-          break;
-
-        case "ArrowUp":
-        case "ArrowLeft":
-          event.preventDefault();
-          buttons[(index - 1 + buttons.length) % buttons.length].focus();
-          break;
-
-        case "Home":
-          event.preventDefault();
-          buttons[0].focus();
-          break;
-
-        case "End":
-          event.preventDefault();
-          buttons[buttons.length - 1].focus();
-          break;
-
-        case "Enter":
-        case " ":
-          event.preventDefault();
-          activateButton(btn, true);
-          break;
+    panes.forEach(pane => {
+      if(pane.dataset.treePane === key){
+        pane.hidden = false;
+      }else{
+        pane.hidden = true;
       }
     });
-  });
-
-  const defaultBtn =
-    root.querySelector('.cap1-p03-btn[data-target="antibacterianos"]') ||
-    buttons[0];
-
-  activateButton(defaultBtn, false);
-})();
-/* =========================
-   Página 4 — Toxicidade seletiva
-   ========================= */
-(function initCap1Page04Zoom() {
-  const triggers = Array.from(document.querySelectorAll(".cap1-page4 .cap1-zoomTrigger"));
-  if (!triggers.length) return;
-
-  const lightbox = document.getElementById("cap1Lightbox");
-  const lightboxImage = document.getElementById("cap1LightboxImage");
-  const lightboxCaption = document.getElementById("cap1LightboxCaption");
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
-
-  if (!lightbox || !lightboxImage || !lightboxCaption) return;
-
-  function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
   }
 
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  triggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
-    });
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => activate(btn.dataset.treeTarget));
   });
 
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
+  activate("antimicrobianos");
 })();
 /* =========================
-   Página 5 — Janela terapêutica
+   PÁGINA 5 — JANELA TERAPÊUTICA
    ========================= */
-(function initCap1Page05() {
-  const visual = document.querySelector("[data-cap1-window]");
-  if (!visual) return;
 
-  const tabs = Array.from(visual.querySelectorAll("[data-window-tab]"));
-  const scenes = Array.from(visual.querySelectorAll("[data-window-scene]"));
-  const feedback = visual.querySelector("[data-window-feedback]");
-  const stateEl = visual.querySelector("[data-window-state]");
-  const textEl = visual.querySelector("[data-window-text]");
+(function initPage5Window(){
+  const root = document.querySelector("[data-cap1-window]");
+  if(!root) return;
 
-  if (!tabs.length || !scenes.length || !feedback || !stateEl || !textEl) return;
+  const tabs = Array.from(root.querySelectorAll("[data-window-tab]"));
+  const scenes = Array.from(root.querySelectorAll("[data-window-scene]"));
+  const feedback = root.querySelector("[data-window-feedback]");
+  const state = root.querySelector("[data-window-state]");
+  const text = root.querySelector("[data-window-text]");
 
-  const contentMap = {
+  if(!tabs.length || !scenes.length || !feedback || !state || !text) return;
+
+  const map = {
     low: {
-      state: "Baixa exposição",
-      text: "Neste cenário, a concentração do antibacteriano permanece abaixo do limiar eficaz por tempo insuficiente. Isso pode comprometer o controle da infecção e favorecer a persistência de subpopulações bacterianas menos suscetíveis.",
-      tone: "low"
+      title: "Baixa exposição",
+      text: "Neste cenário, a concentração permanece abaixo da faixa terapêutica por tempo relevante, o que pode comprometer o controle da infecção e favorecer a persistência do microrganismo.",
+      klass: "cap1-p05-feedback cap1-p05-feedback--low"
     },
     ok: {
-      state: "Exposição terapêutica",
+      title: "Exposição terapêutica",
       text: "Neste cenário, a concentração do antibacteriano ultrapassa o nível mínimo necessário para efeito terapêutico e permanece abaixo do limiar em que a toxicidade se torna mais provável.",
-      tone: "ok"
+      klass: "cap1-p05-feedback cap1-p05-feedback--ok"
     },
     high: {
-      state: "Exposição excessiva",
-      text: "Neste cenário, a exposição ultrapassa a faixa terapêutica e se aproxima de níveis associados ao aumento da probabilidade de toxicidade para o hospedeiro.",
-      tone: "high"
+      title: "Exposição excessiva",
+      text: "Neste cenário, a concentração alcança níveis acima do limiar de toxicidade, aumentando a probabilidade de efeitos adversos sem necessariamente oferecer benefício proporcional.",
+      klass: "cap1-p05-feedback cap1-p05-feedback--high"
     }
   };
 
-  function setScenario(key) {
-    tabs.forEach((tab) => {
-      const active = tab.dataset.windowTab === key;
+  function activate(key){
+    tabs.forEach(tab => {
+      tab.setAttribute("aria-selected", tab.dataset.windowTab === key ? "true" : "false");
+    });
+
+    scenes.forEach(scene => {
+      scene.hidden = scene.dataset.windowScene !== key;
+    });
+
+    const item = map[key];
+    state.textContent = item.title;
+    text.textContent = item.text;
+    feedback.className = item.klass;
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => activate(tab.dataset.windowTab));
+  });
+
+  activate("ok");
+})();
+/* =========================
+   PÁGINA 6 — ESPECTRO DE AÇÃO
+   ========================= */
+
+(function initPage6Spectrum(){
+  const root = document.querySelector("[data-cap1-spectrum]");
+  if(!root) return;
+
+  const tabs = Array.from(root.querySelectorAll("[data-spectrum-tab]"));
+  const fills = {
+    gp: root.querySelector('[data-spectrum-fill="gp"]'),
+    gn: root.querySelector('[data-spectrum-fill="gn"]'),
+    ana: root.querySelector('[data-spectrum-fill="ana"]'),
+    impact: root.querySelector('[data-spectrum-fill="impact"]')
+  };
+  const feedback = root.querySelector("[data-spectrum-feedback]");
+  const title = root.querySelector("[data-spectrum-title]");
+  const text = root.querySelector("[data-spectrum-text]");
+
+  if(!tabs.length || !fills.gp || !fills.gn || !fills.ana || !fills.impact || !feedback || !title || !text) return;
+
+  const map = {
+    restrito: {
+      widths: { gp: "55%", gn: "20%", ana: "10%", impact: "28%" },
+      title: "Espectro restrito",
+      text: "Atua sobre grupos bacterianos mais específicos, com menor impacto ecológico quando comparado a agentes mais amplos.",
+      klass: "cap1-p06-feedback cap1-p06-feedback--restrito"
+    },
+    ampliado: {
+      widths: { gp: "82%", gn: "58%", ana: "36%", impact: "58%" },
+      title: "Espectro ampliado",
+      text: "Amplia a cobertura inicial quando o agente etiológico ainda não foi definido, alcançando bactérias Gram-positivas e parte das Gram-negativas.",
+      klass: "cap1-p06-feedback cap1-p06-feedback--ampliado"
+    },
+    "muito-amplo": {
+      widths: { gp: "94%", gn: "90%", ana: "80%", impact: "88%" },
+      title: "Espectro muito amplo",
+      text: "Cobre múltiplos grupos bacterianos, mas tende a produzir maior impacto ecológico sobre a microbiota e maior pressão seletiva.",
+      klass: "cap1-p06-feedback cap1-p06-feedback--muito-amplo"
+    }
+  };
+
+  function activate(key){
+    const item = map[key];
+    if(!item) return;
+
+    tabs.forEach(tab => {
+      const active = tab.dataset.spectrumTab === key;
       tab.classList.toggle("is-active", active);
       tab.setAttribute("aria-selected", active ? "true" : "false");
-      tab.tabIndex = active ? 0 : -1;
     });
 
-    scenes.forEach((scene) => {
-      const active = scene.dataset.windowScene === key;
-      if (active) scene.removeAttribute("hidden");
-      else scene.setAttribute("hidden", "");
-    });
+    fills.gp.style.width = item.widths.gp;
+    fills.gn.style.width = item.widths.gn;
+    fills.ana.style.width = item.widths.ana;
+    fills.impact.style.width = item.widths.impact;
 
-    stateEl.textContent = contentMap[key].state;
-    textEl.textContent = contentMap[key].text;
-
-    feedback.classList.remove("cap1-p05-feedback--low", "cap1-p05-feedback--ok", "cap1-p05-feedback--high");
-    feedback.classList.add(`cap1-p05-feedback--${contentMap[key].tone}`);
+    title.textContent = item.title;
+    text.textContent = item.text;
+    feedback.className = item.klass;
   }
 
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      setScenario(tab.dataset.windowTab);
-    });
-
-    tab.addEventListener("keydown", (e) => {
-      const i = tabs.indexOf(tab);
-
-      if (e.key === "ArrowRight") {
-        e.preventDefault();
-        tabs[(i + 1) % tabs.length].focus();
-      }
-
-      if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        tabs[(i - 1 + tabs.length) % tabs.length].focus();
-      }
-
-      if (e.key === "Home") {
-        e.preventDefault();
-        tabs[0].focus();
-      }
-
-      if (e.key === "End") {
-        e.preventDefault();
-        tabs[tabs.length - 1].focus();
-      }
-
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        setScenario(tab.dataset.windowTab);
-      }
-    });
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => activate(tab.dataset.spectrumTab));
   });
 
-  setScenario("ok");
+  activate("restrito");
 })();
 /* =========================
-   Página 6 — Espectro de ação
+   PÁGINA 7 — COLONIZAÇÃO, CONTAMINAÇÃO E INFECÇÃO
    ========================= */
-(function initCap1Page06Zoom() {
-  const triggers = Array.from(document.querySelectorAll(".cap1-page6 .cap1-zoomTrigger"));
-  if (!triggers.length) return;
 
-  const lightbox = document.getElementById("cap1Lightbox");
-  const lightboxImage = document.getElementById("cap1LightboxImage");
-  const lightboxCaption = document.getElementById("cap1LightboxCaption");
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
+(function initPage7CCI(){
+  const root = document.querySelector("[data-cap1-cci]");
+  if(!root) return;
 
-  if (!lightbox || !lightboxImage || !lightboxCaption) return;
+  const tabs = Array.from(root.querySelectorAll("[data-cci-tab]"));
+  const panes = Array.from(root.querySelectorAll("[data-cci-pane]"));
 
-  function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
+  if(!tabs.length || !panes.length) return;
 
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  triggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
+  function activate(key){
+    tabs.forEach(tab => {
+      const active = tab.dataset.cciTab === key;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
     });
+
+    panes.forEach(pane => {
+      pane.hidden = pane.dataset.cciPane !== key;
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => activate(tab.dataset.cciTab));
   });
 
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
+  activate("colonizacao");
 })();
 /* =========================
-   Página 7 — Colonização, contaminação e infecção
+   PÁGINA 8 — TERAPIA EMPÍRICA E DIRIGIDA
    ========================= */
-(function initCap1Page07() {
-  const items = Array.from(document.querySelectorAll(".cap1-page7 .cap1-p07-item"));
-  if (!items.length) return;
 
-  function setActive(targetItem) {
-    items.forEach((item) => {
-      const trigger = item.querySelector(".cap1-p07-trigger");
-      const panel = item.querySelector(".cap1-p07-panel");
-      const isActive = item === targetItem;
+(function initPage8Therapy(){
+  const root = document.querySelector("[data-cap1-therapy]");
+  if(!root) return;
 
-      item.classList.toggle("is-active", isActive);
+  const tabs = Array.from(root.querySelectorAll("[data-therapy-tab]"));
+  const panes = Array.from(root.querySelectorAll("[data-therapy-pane]"));
 
-      if (trigger) {
-        trigger.setAttribute("aria-expanded", isActive ? "true" : "false");
-      }
+  if(!tabs.length || !panes.length) return;
 
-      if (panel) {
-        if (isActive) panel.removeAttribute("hidden");
-        else panel.setAttribute("hidden", "");
-      }
+  function activate(key){
+    tabs.forEach(tab => {
+      const active = tab.dataset.therapyTab === key;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
+    });
+
+    panes.forEach(pane => {
+      pane.hidden = pane.dataset.therapyPane !== key;
     });
   }
 
-  items.forEach((item) => {
-    const trigger = item.querySelector(".cap1-p07-trigger");
-    if (!trigger) return;
-
-    trigger.addEventListener("click", () => {
-      const alreadyActive = item.classList.contains("is-active");
-      if (!alreadyActive) setActive(item);
-    });
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => activate(tab.dataset.therapyTab));
   });
 
-  const defaultItem =
-    document.querySelector('.cap1-page7 .cap1-p07-item[data-p07-item="colonizacao"]') ||
-    items[0];
-
-  setActive(defaultItem);
+  activate("manter");
 })();
 /* =========================
-   Página 8 — Terapia empírica e terapia dirigida
+   PÁGINA 9 — PROFILAXIA ANTIBACTERIANA
    ========================= */
-(function initCap1Page08() {
-  const flow = document.querySelector("[data-cap1-p08-flow]");
 
-  if (flow) {
-    const cards = Array.from(flow.querySelectorAll("[data-p08-choice]"));
-    const titleEl = flow.querySelector("[data-p08-title]");
-    const textEl = flow.querySelector("[data-p08-text]");
-    const tagEl = flow.querySelector("[data-p08-tag]");
+(function initPage9Profilaxia(){
+  const root = document.querySelector("[data-cap1-profilaxia]");
+  if(!root) return;
 
-    const contentMap = {
-      manter: {
-        title: "Manter",
-        text: "O esquema inicial pode ser mantido quando a evolução clínica e os dados microbiológicos disponíveis permanecem compatíveis com a escolha terapêutica adotada.",
-        tag: "Adequação confirmada"
-      },
-      descalonar: {
-        title: "Descalonar",
-        text: "O descalonamento consiste em substituir a cobertura inicial por um agente de espectro mais restrito, direcionado ao patógeno identificado, reduzindo exposição desnecessária a antibacterianos de amplo espectro.",
-        tag: "Redução de espectro"
-      },
-      suspender: {
-        title: "Suspender",
-        text: "A terapia pode ser suspensa quando a hipótese de infecção não se confirma após reavaliação clínica e laboratorial, evitando continuidade desnecessária do tratamento.",
-        tag: "Infecção não confirmada"
-      }
-    };
+  const tabs = Array.from(root.querySelectorAll("[data-profilaxia-tab]"));
+  const panes = Array.from(root.querySelectorAll("[data-profilaxia-pane]"));
 
-    function setChoice(key) {
-      cards.forEach((card) => {
-        const active = card.dataset.p08Choice === key;
-        card.classList.toggle("is-active", active);
-        card.setAttribute("aria-selected", active ? "true" : "false");
-      });
+  if(!tabs.length || !panes.length) return;
 
-      if (titleEl) titleEl.textContent = contentMap[key].title;
-      if (textEl) textEl.textContent = contentMap[key].text;
-      if (tagEl) tagEl.textContent = contentMap[key].tag;
-    }
-
-    cards.forEach((card) => {
-      card.addEventListener("click", () => {
-        setChoice(card.dataset.p08Choice);
-      });
+  function activate(key){
+    tabs.forEach(tab => {
+      const active = tab.dataset.profilaxiaTab === key;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
     });
 
-    setChoice("manter");
-  }
-
-  const triggers = Array.from(document.querySelectorAll(".cap1-page8 .cap1-zoomTrigger, .cap1-page8 .cap1-p08-modalTrigger"));
-  const lightbox = document.getElementById("cap1Lightbox");
-  const lightboxImage = document.getElementById("cap1LightboxImage");
-  const lightboxCaption = document.getElementById("cap1LightboxCaption");
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
-
-  if (!triggers.length || !lightbox || !lightboxImage || !lightboxCaption) return;
-
-  function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  triggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
+    panes.forEach(pane => {
+      pane.hidden = pane.dataset.profilaxiaPane !== key;
     });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => activate(tab.dataset.profilaxiaTab));
   });
 
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
+  activate("indicacao");
 })();
-/* =========================
-   Página 8 — Terapia empírica e terapia dirigida
-   ========================= */
-(function initCap1Page08() {
-  const flow = document.querySelector("[data-cap1-p08-flow]");
-
-  if (flow) {
-    const cards = Array.from(flow.querySelectorAll("[data-p08-choice]"));
-    const titleEl = flow.querySelector("[data-p08-title]");
-    const textEl = flow.querySelector("[data-p08-text]");
-    const tagEl = flow.querySelector("[data-p08-tag]");
-
-    const contentMap = {
-      manter: {
-        title: "Manter",
-        text: "O esquema inicial pode ser mantido quando a evolução clínica e os dados microbiológicos disponíveis permanecem compatíveis com a escolha terapêutica adotada.",
-        tag: "Adequação confirmada"
-      },
-      descalonar: {
-        title: "Descalonar",
-        text: "O descalonamento consiste em substituir a cobertura inicial por um agente de espectro mais restrito, direcionado ao patógeno identificado, reduzindo exposição desnecessária a antibacterianos de amplo espectro.",
-        tag: "Redução de espectro"
-      },
-      suspender: {
-        title: "Suspender",
-        text: "A terapia pode ser suspensa quando a hipótese de infecção não se confirma após reavaliação clínica e laboratorial, evitando continuidade desnecessária do tratamento.",
-        tag: "Infecção não confirmada"
-      }
-    };
-
-    function setChoice(key) {
-      cards.forEach((card) => {
-        const active = card.dataset.p08Choice === key;
-        card.classList.toggle("is-active", active);
-        card.setAttribute("aria-selected", active ? "true" : "false");
-      });
-
-      if (titleEl) titleEl.textContent = contentMap[key].title;
-      if (textEl) textEl.textContent = contentMap[key].text;
-      if (tagEl) tagEl.textContent = contentMap[key].tag;
-    }
-
-    cards.forEach((card) => {
-      card.addEventListener("click", () => {
-        setChoice(card.dataset.p08Choice);
-      });
+document.querySelectorAll(".cap1-p10Options button").forEach(btn=>{
+  btn.addEventListener("click", function(){
+    const group = this.closest(".cap1-p10Options");
+    group.querySelectorAll("button").forEach(b=>{
+      b.classList.remove("selected");
     });
 
-    setChoice("manter");
-  }
+    this.classList.add("selected");
 
-  const triggers = Array.from(document.querySelectorAll(".cap1-page8 .cap1-zoomTrigger, .cap1-page8 .cap1-p08-modalTrigger"));
-  const lightbox = document.getElementById("cap1Lightbox");
-  const lightboxImage = document.getElementById("cap1LightboxImage");
-  const lightboxCaption = document.getElementById("cap1LightboxCaption");
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
+    const confirmBtn = this.closest(".cap1-p10Question")
+      .querySelector('[data-p10-action="confirm"]');
 
-  if (!triggers.length || !lightbox || !lightboxImage || !lightboxCaption) return;
-
-  function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  triggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
-    });
+    confirmBtn.disabled = false;
   });
-
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
-})();
+});
 /* =========================
-   Página 9 — Profilaxia antibacteriana
+   PÁGINA 10 — QUIZ DE REVISÃO
    ========================= */
-(function initCap1Page09Zoom() {
-  const triggers = Array.from(document.querySelectorAll(".cap1-page9 .cap1-zoomTrigger"));
-  if (!triggers.length) return;
 
-  const lightbox = document.getElementById("cap1Lightbox");
-  const lightboxImage = document.getElementById("cap1LightboxImage");
-  const lightboxCaption = document.getElementById("cap1LightboxCaption");
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
-
-  if (!lightbox || !lightboxImage || !lightboxCaption) return;
-
-  function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  triggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
-    });
-  });
-
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
-})();
-/* =========================
-   Página 10 — Quiz de revisão
-   ========================= */
-(function initCap1Page10() {
+(function initPage10Quiz(){
   const root = document.querySelector("[data-cap1-p10]");
-  if (!root) return;
+  if(!root) return;
 
   const questions = Array.from(root.querySelectorAll(".cap1-p10Question"));
+  const done = root.querySelector(".cap1-p10Done");
+  const progress = root.querySelector(".cap1-p10Progress");
   const prevBtn = root.querySelector('[data-p10-action="prev"]');
   const nextBtn = root.querySelector('[data-p10-action="next"]');
-  const progress = root.querySelector(".cap1-p10Progress");
-  const done = root.querySelector(".cap1-p10Done");
+
+  if(!questions.length || !progress || !prevBtn || !nextBtn) return;
 
   let currentIndex = 0;
 
-  function updateNav() {
-    questions.forEach((q, index) => {
-      q.classList.toggle("active", index === currentIndex);
-    });
-
-    if (progress) {
-      progress.textContent = `Situação ${currentIndex + 1} de ${questions.length}`;
-    }
-
-    if (prevBtn) prevBtn.disabled = currentIndex === 0;
-    if (nextBtn) nextBtn.disabled = currentIndex === questions.length - 1;
-
-    if (done) done.hidden = currentIndex !== questions.length - 1;
+  function updateNav(){
+    progress.textContent = `Questão ${currentIndex + 1} de ${questions.length}`;
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex === questions.length - 1;
   }
 
-  if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
-      if (currentIndex > 0) {
-        currentIndex -= 1;
-        updateNav();
-      }
+  function showQuestion(index){
+    questions.forEach((q, i) => {
+      q.classList.toggle("active", i === index);
+      q.hidden = i !== index;
     });
+
+    if(done) done.hidden = true;
+    currentIndex = index;
+    updateNav();
   }
 
-  if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
-      if (currentIndex < questions.length - 1) {
-        currentIndex += 1;
-        updateNav();
-      }
+  function showDone(){
+    questions.forEach(q => {
+      q.classList.remove("active");
+      q.hidden = true;
     });
+
+    if(done) done.hidden = false;
+    progress.textContent = "Quiz concluído";
+    prevBtn.disabled = true;
+    nextBtn.disabled = true;
   }
 
-  questions.forEach((question) => {
-    const options = Array.from(question.querySelectorAll(".cap1-p10Options button"));
+  questions.forEach((question, qIndex) => {
+    const optionButtons = Array.from(question.querySelectorAll(".cap1-p10Options button"));
     const confirmBtn = question.querySelector('[data-p10-action="confirm"]');
     const resetBtn = question.querySelector('[data-p10-action="reset"]');
-    const feedback = question.querySelector(".cap1-p10Feedback");
-    const mapTemplate = question.querySelector(".cap1-p10FeedbackMap");
+    const feedbackBox = question.querySelector(".cap1-p10Feedback");
+    const feedbackTemplate = question.querySelector(".cap1-p10FeedbackMap");
 
-    if (!options.length || !confirmBtn || !feedback || !mapTemplate) return;
+    if(!confirmBtn || !resetBtn || !feedbackBox || !feedbackTemplate) return;
 
-    const feedbackMap = JSON.parse(mapTemplate.innerHTML.trim());
-    let selected = null;
-    let answered = false;
+    let selectedAnswer = null;
+    let confirmed = false;
 
-    function clearSelectionVisual() {
-      options.forEach((btn) => {
-        btn.classList.remove("selected");
-      });
+    let feedbackMap = {};
+    try{
+      feedbackMap = JSON.parse(feedbackTemplate.innerHTML.trim());
+    }catch(err){
+      console.error("Erro ao ler feedback do quiz:", err);
     }
 
-    function resetQuestion() {
-      answered = false;
-      selected = null;
-
-      options.forEach((btn) => {
-        btn.disabled = false;
-        btn.classList.remove("selected", "correct", "incorrect");
-      });
-
-      confirmBtn.disabled = true;
-      confirmBtn.hidden = false;
-
-      if (resetBtn) resetBtn.hidden = true;
-
-      feedback.className = "cap1-p10Feedback";
-      feedback.innerHTML = "";
-    }
-
-    options.forEach((btn) => {
+    optionButtons.forEach(btn => {
       btn.addEventListener("click", () => {
-        if (answered) return;
+        if(confirmed) return;
 
-        clearSelectionVisual();
+        optionButtons.forEach(b => {
+          b.classList.remove("selected");
+        });
+
         btn.classList.add("selected");
-        selected = btn.dataset.answer;
-        confirmBtn.disabled = false;
+        selectedAnswer = btn.dataset.answer || null;
+        confirmBtn.disabled = !selectedAnswer;
       });
     });
 
     confirmBtn.addEventListener("click", () => {
-      if (!selected || answered) return;
+      if(!selectedAnswer || confirmed) return;
 
-      answered = true;
+      confirmed = true;
 
-      const result = feedbackMap[selected];
-      const correctBtn = options.find((btn) => btn.dataset.correct === "true");
+      const chosen = question.querySelector(`.cap1-p10Options button[data-answer="${selectedAnswer}"]`);
+      const correct = question.querySelector('.cap1-p10Options button[data-correct="true"]');
+      const item = feedbackMap[selectedAnswer];
 
-      options.forEach((btn) => {
-        btn.disabled = true;
+      optionButtons.forEach(b => b.disabled = true);
 
-        if (btn === correctBtn) {
-          btn.classList.add("correct");
+      if(chosen){
+        if(chosen.dataset.correct === "true"){
+          chosen.classList.add("correct");
+          feedbackBox.className = "cap1-p10Feedback correct";
+        }else{
+          chosen.classList.add("error");
+          if(correct) correct.classList.add("correct");
+          feedbackBox.className = "cap1-p10Feedback error";
         }
+      }
 
-        if (btn.dataset.answer === selected && btn !== correctBtn) {
-          btn.classList.add("incorrect");
-        }
-      });
-
-      feedback.className = `cap1-p10Feedback is-visible ${result.type}`;
-      feedback.innerHTML = `
-        <p class="cap1-p10FeedbackTitle">${result.title}</p>
-        <p class="cap1-p10FeedbackText">${result.text}</p>
-      `;
+      if(item){
+        feedbackBox.innerHTML = `
+          <p><strong>${item.title}</strong></p>
+          <p>${item.text}</p>
+        `;
+      }
 
       confirmBtn.hidden = true;
-      if (resetBtn) resetBtn.hidden = false;
+      resetBtn.hidden = false;
+
+      if(qIndex === questions.length - 1){
+        nextBtn.disabled = false;
+      }
     });
 
-    if (resetBtn) {
-      resetBtn.addEventListener("click", resetQuestion);
-    }
+    resetBtn.addEventListener("click", () => {
+      confirmed = false;
+      selectedAnswer = null;
 
-    resetQuestion();
+      optionButtons.forEach(b => {
+        b.disabled = false;
+        b.classList.remove("selected", "correct", "error");
+      });
+
+      feedbackBox.innerHTML = "";
+      feedbackBox.className = "cap1-p10Feedback";
+
+      confirmBtn.hidden = false;
+      confirmBtn.disabled = true;
+      resetBtn.hidden = true;
+    });
   });
 
-  updateNav();
+  prevBtn.addEventListener("click", () => {
+    if(currentIndex > 0){
+      showQuestion(currentIndex - 1);
+    }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if(currentIndex < questions.length - 1){
+      showQuestion(currentIndex + 1);
+    }else{
+      showDone();
+    }
+  });
+
+  showQuestion(0);
 })();

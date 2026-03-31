@@ -3,137 +3,178 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Capítulo 3 — Página 20</title>
+  <title>Capítulo 3 — Página 21</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
   <link rel="stylesheet" href="../../css/capitulo-03.css" />
 </head>
 
-<body class="cap3-page20">
-
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
+<body class="cap3-page21">
 
   <main class="container page-shell cap3-shell">
 
     <header class="page-header">
       <div>
         <div class="chapter">Capítulo 3 — Mecanismos de Resistência Bacteriana</div>
-        <h1 class="page-title">Resistência como fenômeno adaptativo</h1>
+        <h1 class="page-title">Resistência intrínseca e resistência adquirida</h1>
       </div>
     </header>
 
     <section class="prose cap3-reading-flow" aria-label="Texto principal">
 
       <p>
-        A resistência bacteriana corresponde à capacidade de determinadas subpopulações de bactérias persistirem e se multiplicarem mesmo na presença de concentrações de antibacterianos que, em condições habituais, seriam suficientes para inibir o crescimento ou eliminar o microrganismo <sup>1,2</sup>.
+        A resistência bacteriana pode ser classificada em dois grandes grupos: resistência intrínseca e resistência adquirida <sup>3,5</sup>.
       </p>
 
-      <p>
-        Essa sobrevivência pode resultar de mutações no material genético, aquisição de genes por transferência horizontal ou ativação de mecanismos já presentes na bactéria, como bombas de efluxo, alterações de permeabilidade da membrana ou produção de enzimas inativadoras. Esses mecanismos reduzem a concentração efetiva do fármaco no interior da célula bacteriana ou diminuem sua capacidade de interação com o alvo molecular <sup>1</sup>.
-      </p>
+      <section class="cap3-p21-compare" data-p21-compare aria-label="Comparação entre resistência intrínseca e resistência adquirida">
 
-      <p>
-        Do ponto de vista biológico, a resistência representa um processo evolutivo previsível. As populações bacterianas apresentam grande tamanho populacional, elevada taxa de replicação e variabilidade genética contínua. Por essa razão, variantes com menor suscetibilidade ao antibacteriano podem existir mesmo antes da exposição ao fármaco. A introdução do antibacteriano não cria uma característica direcionada; ela altera o ambiente e favorece a sobrevivência das variantes que já possuíam alguma vantagem adaptativa nessa condição <sup>3</sup>.
-      </p>
-
-      <section class="cap3-selection-figure" aria-label="Representação do processo de seleção bacteriana">
-        <div class="cap3-selection-figure__header">
-          <div class="cap3-selection-figure__line"></div>
-          <p class="cap3-selection-figure__caption">
-            A exposição ao antibacteriano modifica o ambiente e altera a frequência relativa das subpopulações bacterianas.
-          </p>
-        </div>
-
-        <div class="cap3-selection-figure__grid">
-          <article class="cap3-selection-card">
-            <div class="cap3-selection-card__phase">Antes da exposição</div>
-            <div class="cap3-dish cap3-dish--before" data-dish="before" aria-hidden="true"></div>
-          </article>
-
-          <article class="cap3-selection-card cap3-selection-card--center">
-            <div class="cap3-selection-card__phase">Durante a exposição</div>
-            <div class="cap3-exposure" aria-hidden="true">
-              <div class="cap3-exposure__beam"></div>
-              <div class="cap3-exposure__beam cap3-exposure__beam--delay"></div>
-              <div class="cap3-exposure__label">antibacteriano</div>
-            </div>
-            <div class="cap3-dish cap3-dish--during" data-dish="during" aria-hidden="true"></div>
-          </article>
-
-          <article class="cap3-selection-card">
-            <div class="cap3-selection-card__phase">Após a seleção</div>
-            <div class="cap3-dish cap3-dish--after" data-dish="after" aria-hidden="true"></div>
-          </article>
-        </div>
-
-        <div class="cap3-selection-card__legend">
-          <span class="cap3-legend-item">
-            <span class="cap3-dot cap3-dot--sensivel"></span>
-            <span>subpopulações mais sensíveis</span>
-          </span>
-          <span class="cap3-legend-item">
-            <span class="cap3-dot cap3-dot--menos-suscetivel"></span>
-            <span>variantes menos suscetíveis</span>
-          </span>
-        </div>
-
-        <p class="cap3-selection-card__footnote">
-          A introdução do antibacteriano não cria uma característica direcionada; ela favorece a sobrevivência das variantes que já possuíam vantagem adaptativa nessa condição <sup>3</sup>.
+        <p class="cap3-p21-question">
+          Compare os dois padrões: em um caso, a insensibilidade já pertence à espécie bacteriana; no outro, a bactéria modifica seu perfil de suscetibilidade ao adquirir ou selecionar novos mecanismos.
         </p>
+
+        <div class="cap3-p21-panel">
+
+          <div class="cap3-p21-tabs" role="tablist" aria-label="Tipos de resistência bacteriana">
+            <button
+              class="cap3-p21-tab is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              data-p21-tab="intrinseca">
+              Resistência intrínseca
+            </button>
+
+            <button
+              class="cap3-p21-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-p21-tab="adquirida">
+              Resistência adquirida
+            </button>
+          </div>
+
+          <div
+            class="cap3-p21-stage is-active"
+            data-p21-stage="intrinseca"
+            role="tabpanel">
+
+            <figure class="cap3-p21-figure">
+              <button
+                class="cap3-zoomTrigger"
+                type="button"
+                data-zoom-image="../../assets/capitulo-03/imagens/resistencia-intrinseca.png"
+                data-zoom-alt="Esquema de resistência intrínseca mostrando insensibilidade natural e previsível, incompatibilidade biológica, barreiras físicas em Gram-negativas e ausência de alvo em Mycoplasma."
+                data-zoom-caption="Resistência intrínseca: trata-se de uma característica natural e previsível da espécie bacteriana. O antibacteriano não consegue agir adequadamente porque encontra barreiras estruturais, dificuldade de acesso ao alvo ou ausência do próprio alvo molecular. Por isso, algumas combinações entre fármaco e microrganismo já são biologicamente inadequadas antes mesmo do antibiograma."
+                aria-label="Ampliar imagem de resistência intrínseca"
+              >
+                <img
+                  src="../../assets/capitulo-03/imagens/resistencia-intrinseca.png"
+                  alt="Esquema de resistência intrínseca mostrando insensibilidade natural e previsível, incompatibilidade biológica, barreiras físicas em Gram-negativas e ausência de alvo em Mycoplasma."
+                  loading="lazy"
+                />
+              </button>
+
+              <figcaption class="cap3-p21-caption">
+                Na resistência intrínseca, a insensibilidade decorre de propriedades próprias da espécie bacteriana. A imagem sintetiza três ideias centrais: trata-se de um padrão natural e previsível; a ausência de resposta terapêutica decorre de incompatibilidade biológica entre o mecanismo de ação do fármaco e a estrutura do microrganismo; e exemplos clássicos incluem barreiras físicas em bactérias Gram-negativas e ausência de parede celular em <em>Mycoplasma</em>, situação em que antibacterianos dirigidos ao peptidoglicano não encontram alvo para atuar.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div
+            class="cap3-p21-stage"
+            data-p21-stage="adquirida"
+            role="tabpanel"
+            hidden>
+
+            <figure class="cap3-p21-figure">
+              <button
+                class="cap3-zoomTrigger"
+                type="button"
+                data-zoom-image="../../assets/capitulo-03/imagens/resistencia-adquirida.png"
+                data-zoom-alt="Esquema de resistência adquirida mostrando mudança de perfil de suscetibilidade, mutação e transferência genética, enzimas inativadoras e pressão seletiva sobre variantes resistentes."
+                data-zoom-caption="Resistência adquirida: ocorre quando uma bactéria previamente suscetível passa a reduzir a eficácia do antibacteriano. A mudança de perfil pode surgir por mutações espontâneas, aquisição de genes por transferência horizontal, produção de enzimas inativadoras e seleção de variantes resistentes sob pressão antimicrobiana. Por isso, diferentemente da resistência intrínseca, esse padrão é dinâmico e varia conforme o contexto epidemiológico."
+                aria-label="Ampliar imagem de resistência adquirida"
+              >
+                <img
+                  src="../../assets/capitulo-03/imagens/resistencia-adquirida.png"
+                  alt="Esquema de resistência adquirida mostrando mudança de perfil de suscetibilidade, mutação e transferência genética, enzimas inativadoras e pressão seletiva sobre variantes resistentes."
+                  loading="lazy"
+                />
+              </button>
+
+              <figcaption class="cap3-p21-caption">
+                Na resistência adquirida, uma bactéria previamente suscetível passa a apresentar mecanismos que reduzem a atividade do antibacteriano. A imagem destaca quatro eixos do processo: mudança de perfil de suscetibilidade, origem genética por mutação ou transferência horizontal, produção de mecanismos efetores como enzimas inativadoras e consolidação do fenótipo resistente sob pressão seletiva. Isso explica por que espécies antes consideradas sensíveis podem exibir perfis variáveis ao longo do tempo e entre diferentes instituições.
+              </figcaption>
+            </figure>
+          </div>
+
+        </div>
       </section>
 
       <p>
-        Quando o antibacteriano é introduzido, as bactérias mais sensíveis tendem a ter seu crescimento inibido ou são eliminadas, enquanto subpopulações menos suscetíveis conseguem persistir e ocupar o nicho ecológico deixado pelas demais. Nesse contexto, o antibacteriano atua como agente de seleção, deslocando o equilíbrio entre subpopulações bacterianas e aumentando a frequência relativa de mecanismos que reduzem sua atividade <sup>3</sup>.
+        A resistência intrínseca corresponde à insensibilidade natural de determinada espécie bacteriana a um antibacteriano específico. Essa característica resulta de propriedades estruturais ou funcionais próprias do microrganismo que impedem que o fármaco alcance seu alvo ou interaja de forma eficaz com ele. Trata-se de uma propriedade inerente à espécie bacteriana, previsível e independente de exposição prévia ao antibacteriano <sup>2</sup>.
       </p>
 
       <p>
-        Esse princípio ajuda a compreender por que exposições repetidas, tratamentos prolongados ou esquemas inadequados podem acelerar a consolidação da resistência bacteriana. Situações em que a exposição ao antibacteriano é subótima, como dose insuficiente, intervalo inadequado, baixa penetração no sítio infeccioso ou interrupção precoce do tratamento, podem não eliminar completamente a população bacteriana e favorecer a sobrevivência de variantes menos suscetíveis <sup>4</sup>.
+        Esse tipo de resistência explica por que algumas combinações entre antibacterianos e microrganismos são consideradas biologicamente inadequadas mesmo antes da realização de testes laboratoriais de suscetibilidade. Nesses casos, a ausência de resposta terapêutica não representa falha do tratamento, mas incompatibilidade entre o mecanismo de ação do fármaco e a estrutura da bactéria.
       </p>
 
       <p>
-        Na prática clínica, a resistência manifesta-se como redução da efetividade terapêutica de um antibacteriano. Isolados da mesma espécie bacteriana podem responder de maneira diferente ao mesmo fármaco quando mecanismos como produção de enzimas inativadoras, alterações de permeabilidade ou modificação do alvo molecular interferem na interação entre antibacteriano e bactéria <sup>2</sup>.
+        Reconhecer padrões de resistência intrínseca é essencial para evitar interpretações equivocadas de resultados laboratoriais e escolhas terapêuticas biologicamente inviáveis.
       </p>
 
       <p>
-        Em nível populacional, a exposição repetida aos antibacterianos em um determinado ambiente assistencial pode modificar gradualmente o perfil de suscetibilidade das cepas circulantes. Uma forma de observar essa tendência é o aumento progressivo dos valores de concentração inibitória mínima (MIC) para determinados patógenos e antibacterianos ao longo do tempo, evidenciando o caráter cumulativo e dinâmico da resistência bacteriana <sup>1,3</sup>.
+        A resistência adquirida, por outro lado, ocorre quando uma bactéria previamente suscetível desenvolve mecanismos capazes de reduzir a eficácia do antibacteriano. Esse processo pode resultar de mutações espontâneas no próprio genoma bacteriano ou da aquisição de material genético proveniente de outros microrganismos, frequentemente por meio de plasmídeos ou outros elementos genéticos móveis <sup>3</sup>.
+      </p>
+
+      <p>
+        Entre os exemplos mais relevantes está a aquisição de genes que codificam enzimas inativadoras, como as β-lactamases. Essas enzimas hidrolisam o anel β-lactâmico e comprometem a atividade de penicilinas, cefalosporinas e, em alguns casos, carbapenêmicos <sup>5</sup>. Nas últimas décadas, a diversidade estrutural dessas enzimas aumentou significativamente, ampliando o impacto desse mecanismo sobre as opções terapêuticas disponíveis.
+      </p>
+
+      <p>
+        Além da produção de enzimas, a resistência adquirida pode envolver modificação do alvo molecular, redução da permeabilidade da membrana ou aumento da atividade de bombas de efluxo. Diferentemente da resistência intrínseca, que é característica relativamente estável da espécie bacteriana, a resistência adquirida pode variar conforme o contexto epidemiológico e a pressão seletiva exercida pelo uso de antibacterianos.
+      </p>
+
+      <p>
+        Do ponto de vista clínico e epidemiológico, essa distinção é fundamental. Espécies tradicionalmente descritas como sensíveis podem apresentar perfis de suscetibilidade variáveis ao longo do tempo e entre diferentes instituições, refletindo a dinâmica evolutiva das populações bacterianas sob exposição antimicrobiana.
+      </p>
+
+      <p>
+        Um exemplo prático ocorre quando uma bactéria historicamente sensível a determinado antibacteriano passa a apresentar resistência no antibiograma. Se a investigação demonstra a presença de β-lactamases adquiridas por transferência genética, não se trata de resistência intrínseca da espécie, mas da incorporação de um novo mecanismo molecular que alterou seu perfil de suscetibilidade <sup>3,6</sup>.
+      </p>
+
+      <p>
+        Entre os principais mecanismos de resistência adquirida destacam-se mutações com seleção clonal e transferência horizontal de genes, processos que serão discutidos nas seções seguintes.
       </p>
 
     </section>
 
     <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p19.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 3 · Página 20</div>
-      <button class="btn" type="button" data-next="p21.html" aria-label="Ir para a próxima página">Próxima →</button>
+      <button class="btn" type="button" data-prev="p20.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 3 · Página 21</div>
+      <button class="btn primary" type="button" data-next="p22.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
 
   </main>
+
+  <div class="cap3-lightbox" id="cap3Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <div class="cap3-lightbox__backdrop" data-lightbox-close></div>
+
+    <div class="cap3-lightbox__dialog">
+      <button class="cap3-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
+
+      <figure class="cap3-lightbox__figure">
+        <img id="cap3LightboxImage" src="" alt="" />
+        <figcaption id="cap3LightboxCaption" class="cap3-lightbox__caption"></figcaption>
+      </figure>
+    </div>
+  </div>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-03.js"></script>

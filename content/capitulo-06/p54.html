@@ -1,236 +1,110 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capítulo 6 — Página 54</title>
 
-<title>Capítulo 6 — Página 54</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="../../css/base.css"/>
-<link rel="stylesheet" href="../../css/components.css"/>
-<link rel="stylesheet" href="../../css/capitulo-06.css"/>
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-06.css" />
 </head>
 
-<body>
+<body class="cap6-page54">
 
-<div class="reader-toolbar" aria-label="Controles de leitura">
-  <div class="reader-toolbar__group">
-    <span class="reader-toolbar__label">Texto</span>
-    <button class="reader-btn" data-font="decrease" type="button">A-</button>
-    <button class="reader-btn" data-font="reset" type="button">A</button>
-    <button class="reader-btn" data-font="increase" type="button">A+</button>
-  </div>
+  <main class="page-shell">
 
-  <div class="reader-toolbar__group">
-    <span class="reader-toolbar__label">Zoom</span>
-    <button class="reader-btn" data-zoom="decrease" type="button">-</button>
-    <button class="reader-btn" data-zoom="reset" type="button">100%</button>
-    <button class="reader-btn" data-zoom="increase" type="button">+</button>
-  </div>
-
-  <div class="reader-toolbar__group">
-    <span class="reader-toolbar__label">Acessibilidade</span>
-    <button class="reader-btn" data-vision="default" type="button">Padrão</button>
-    <button class="reader-btn" data-vision="protanopia" type="button">Protan</button>
-    <button class="reader-btn" data-vision="deuteranopia" type="button">Deuter</button>
-    <button class="reader-btn" data-vision="tritanopia" type="button">Tritan</button>
-  </div>
-</div>
-
-<main class="container page-shell">
-
-  <header class="page-header">
-    <div>
+    <header class="page-header">
       <div class="chapter">Capítulo 6 — Associação Terapêutica e Consequências do Uso Indiscriminado</div>
-      <h1 class="page-title">Quiz de revisão</h1>
-    </div>
-  </header>
+      <h1 class="page-title">Associação antibacteriana</h1>
+    </header>
 
-  <section class="prose">
+    <section class="prose" aria-label="Texto principal">
 
-    <section class="cap6-quiz" data-cap6-quiz aria-label="Quiz de revisão">
+      <p>
+        A associação de antibacterianos deve ser compreendida como uma intervenção que modifica o ambiente microbiológico presente no organismo. Cada fármaco exerce pressão seletiva própria, determinada por seu mecanismo de ação, perfil farmacodinâmico e alcance sobre diferentes populações bacterianas <sup>1,2</sup>.
+      </p>
 
-      <div class="cap6-quizNav" aria-label="Navegação das questões">
-        <button class="cap6-quizNavBtn" type="button" data-action="prev">Anterior</button>
-        <div class="cap6-quizProgress" aria-live="polite"></div>
-        <button class="cap6-quizNavBtn" type="button" data-action="next">Próxima</button>
+      <p>
+        Quando dois antibacterianos são utilizados simultaneamente, essas pressões passam a atuar de forma paralela sobre o ecossistema microbiano do paciente. O efeito não se restringe ao microrganismo responsável pela infecção. Populações comensais e microrganismos transitórios que compartilham o mesmo nicho anatômico também são expostos à intervenção farmacológica <sup>1</sup>.
+      </p>
+
+      <p>
+        Esse processo altera a composição da microbiota e cria novos gradientes de seleção bacteriana. Espécies mais suscetíveis tendem a ser reduzidas, enquanto microrganismos com menor suscetibilidade relativa podem persistir ou expandir-se no ambiente modificado <sup>1</sup>.
+      </p>
+
+      <figure class="cap6-p54-figure">
+        <button
+          class="cap6-zoomTrigger"
+          type="button"
+          data-zoom-image="../../assets/capitulo-06/imagens/microbiota-comparacao.png"
+          data-zoom-alt="Comparação entre microbiota intestinal em equilíbrio e após exposição a antibacterianos"
+          data-zoom-caption="Alteração da microbiota intestinal após exposição a antibacterianos: redução da diversidade bacteriana e expansão de microrganismos oportunistas."
+          aria-label="Ampliar comparação da microbiota intestinal"
+        >
+          <img
+            src="../../assets/capitulo-06/imagens/microbiota-comparacao.png"
+            alt="Comparação entre microbiota intestinal em equilíbrio e após exposição a antibacterianos"
+            loading="lazy"
+          />
+        </button>
+        <figcaption class="cap6-caption">
+          Comparação entre microbiota intestinal em equilíbrio e após exposição a antibacterianos. Clique na imagem para ampliar.
+        </figcaption>
+      </figure>
+
+      <p>
+        Do ponto de vista do patógeno envolvido na infecção, a exposição combinada pode produzir diferentes cenários. A interação entre os agentes pode acelerar a redução da carga bacteriana, modificar a probabilidade de sobrevivência de subpopulações menos suscetíveis ou, em algumas situações, não produzir efeito adicional relevante quando comparada à monoterapia adequada.
+      </p>
+
+      <p>
+        Entretanto, a alteração ecológica provocada pela associação ultrapassa o patógeno tratado. A microbiota intestinal, por exemplo, constitui um ecossistema complexo que participa de funções metabólicas, imunológicas e de proteção contra colonização por patógenos. A exposição a antibacterianos, especialmente de amplo espectro ou em combinações terapêuticas, pode reduzir significativamente a diversidade da microbiota intestinal <sup>1</sup>.
+      </p>
+
+      <p>
+        A perda dessa diversidade facilita a expansão de microrganismos oportunistas previamente suprimidos. A infecção por <em>Clostridioides difficile</em> constitui um exemplo clássico desse processo: a redução da flora intestinal protetora cria condições favoráveis para proliferação bacteriana e produção de toxinas <sup>3</sup>.
+      </p>
+
+      <div class="cap6-p54-highlight">
+        A associação antibacteriana não atua apenas sobre o patógeno tratado. Ela reorganiza temporariamente o ecossistema microbiano do paciente e amplia a pressão seletiva exercida sobre múltiplas populações bacterianas.
       </div>
 
-      <!-- QUESTÃO 1 -->
-      <div class="cap6-question active" data-q="1">
+      <p>
+        Esses efeitos demonstram que a associação antibacteriana não atua apenas sobre o patógeno responsável pela infecção. Ela reorganiza temporariamente o ecossistema microbiano do paciente e amplia a pressão seletiva exercida sobre múltiplas populações bacterianas.
+      </p>
 
-        <div class="cap6-questionMeta">
-          <span class="cap6-questionBadge">Questão 1</span>
-          <span class="cap6-questionType">Revisão clínica</span>
-        </div>
-
-        <div class="cap6-caseCard">
-          <p class="cap6-caseLabel">Situação clínica</p>
-          <p class="cap6-case">
-            Um paciente inicia tratamento empírico com dois antibacterianos para ampliar cobertura microbiológica em um quadro infeccioso grave. Após alguns dias, o agente etiológico é identificado e demonstra suscetibilidade inequívoca a um dos antibacterianos utilizados.
-          </p>
-        </div>
-
-        <p class="cap6-prompt">
-          Qual princípio da antibioticoterapia orienta a reavaliação do esquema terapêutico nesse momento?
-        </p>
-
-        <div class="cap6-options" role="group" aria-label="Alternativas da questão 1">
-          <button type="button" data-answer="a">
-            <span class="cap6-optionLetter">A</span>
-            <span class="cap6-optionText">A associação deve ser mantida até o término completo do tratamento para garantir erradicação bacteriana.</span>
-          </button>
-
-          <button type="button" data-answer="b" data-correct="true">
-            <span class="cap6-optionLetter">B</span>
-            <span class="cap6-optionText">A ampliação inicial de espectro deve ser revisada quando dados microbiológicos permitem direcionar o tratamento.</span>
-          </button>
-
-          <button type="button" data-answer="c">
-            <span class="cap6-optionLetter">C</span>
-            <span class="cap6-optionText">A combinação de antibacterianos reduz automaticamente a probabilidade de resistência durante todo o tratamento.</span>
-          </button>
-
-          <button type="button" data-answer="d">
-            <span class="cap6-optionLetter">D</span>
-            <span class="cap6-optionText">A presença de dois antibacterianos sempre aumenta a eficácia terapêutica.</span>
-          </button>
-        </div>
-
-        <div class="cap6-actions">
-          <button class="cap6-btn cap6-btn--primary" type="button" data-action="confirm" disabled>Confirmar resposta</button>
-          <button class="cap6-btn cap6-btn--ghost" type="button" data-action="reset" hidden>Refazer</button>
-        </div>
-
-        <div class="cap6-feedback" role="region" aria-live="polite"></div>
-
-        <template class="cap6-rationale">
-          <div class="cap6-feedbackBlock">
-            <p class="cap6-feedbackTitle">Resposta correta</p>
-            <p class="cap6-feedbackAnswer">
-              B) A ampliação inicial de espectro deve ser revisada quando dados microbiológicos permitem direcionar o tratamento.
-            </p>
-
-            <div class="cap6-feedbackList">
-              <p><strong>A)</strong> Incorreta — A manutenção da associação sem justificativa biológica pode ampliar toxicidade e pressão seletiva desnecessária.</p>
-              <p><strong>B)</strong> Correta — A ampliação empírica de espectro é estratégia inicial. Quando o agente causal e o perfil de suscetibilidade são conhecidos, o tratamento deve ser reavaliado para reduzir exposição antibacteriana desnecessária.</p>
-              <p><strong>C)</strong> Incorreta — A associação pode reduzir a probabilidade de emergência de resistência em cenários específicos, mas esse efeito depende de múltiplos fatores microbiológicos e farmacodinâmicos.</p>
-              <p><strong>D)</strong> Incorreta — A presença de múltiplos antibacterianos não garante maior eficácia quando a monoterapia já alcança exposição adequada e atividade contra o patógeno.</p>
-            </div>
-
-            <div class="cap6-keyPoint">
-              <strong>Princípio-chave:</strong> a ampliação empírica inicial deve ser revista quando os dados microbiológicos permitem direcionar o tratamento ao mínimo necessário.
-            </div>
-          </div>
-        </template>
-      </div>
-
-      <!-- QUESTÃO 2 -->
-      <div class="cap6-question" data-q="2">
-
-        <div class="cap6-questionMeta">
-          <span class="cap6-questionBadge">Questão 2</span>
-          <span class="cap6-questionType">Revisão clínica</span>
-        </div>
-
-        <div class="cap6-caseCard">
-          <p class="cap6-caseLabel">Situação clínica</p>
-          <p class="cap6-case">
-            Em um quadro infeccioso grave, um médico decide adicionar um segundo antibacteriano porque o paciente não apresenta melhora clínica inicial. Posteriormente, identifica-se que o regime inicial estava sendo administrado em dose abaixo da necessária para atingir exposição farmacodinâmica adequada.
-          </p>
-        </div>
-
-        <p class="cap6-prompt">
-          Qual conceito ajuda a explicar por que a associação não resolveu o problema terapêutico?
-        </p>
-
-        <div class="cap6-options" role="group" aria-label="Alternativas da questão 2">
-          <button type="button" data-answer="a" data-correct="true">
-            <span class="cap6-optionLetter">A</span>
-            <span class="cap6-optionText">A associação antibacteriana não corrige exposição farmacológica inadequada.</span>
-          </button>
-
-          <button type="button" data-answer="b">
-            <span class="cap6-optionLetter">B</span>
-            <span class="cap6-optionText">A resistência bacteriana sempre surge após o início do tratamento.</span>
-          </button>
-
-          <button type="button" data-answer="c">
-            <span class="cap6-optionLetter">C</span>
-            <span class="cap6-optionText">A concentração inibitória mínima varia entre diferentes pacientes.</span>
-          </button>
-
-          <button type="button" data-answer="d">
-            <span class="cap6-optionLetter">D</span>
-            <span class="cap6-optionText">O mecanismo de ação do antibacteriano modifica-se durante o tratamento.</span>
-          </button>
-        </div>
-
-        <div class="cap6-actions">
-          <button class="cap6-btn cap6-btn--primary" type="button" data-action="confirm" disabled>Confirmar resposta</button>
-          <button class="cap6-btn cap6-btn--ghost" type="button" data-action="reset" hidden>Refazer</button>
-        </div>
-
-        <div class="cap6-feedback" role="region" aria-live="polite"></div>
-
-        <template class="cap6-rationale">
-          <div class="cap6-feedbackBlock">
-            <p class="cap6-feedbackTitle">Resposta correta</p>
-            <p class="cap6-feedbackAnswer">
-              A) A associação antibacteriana não corrige exposição farmacológica inadequada.
-            </p>
-
-            <div class="cap6-feedbackList">
-              <p><strong>A)</strong> Correta — Quando a concentração do antibacteriano não atinge níveis adequados no foco infeccioso, adicionar outro agente não compensa a falha de exposição. A otimização do regime farmacocinético deve preceder a ampliação farmacológica.</p>
-              <p><strong>B)</strong> Incorreta — A emergência de resistência pode ocorrer, mas não explica diretamente falha relacionada à exposição inadequada.</p>
-              <p><strong>C)</strong> Incorreta — A CIM é determinada em laboratório sob condições padronizadas e não varia entre pacientes para o mesmo isolado bacteriano.</p>
-              <p><strong>D)</strong> Incorreta — O mecanismo de ação do antibacteriano não se altera durante o tratamento.</p>
-            </div>
-
-            <div class="cap6-keyPoint">
-              <strong>Princípio-chave:</strong> falhas de exposição farmacológica devem ser corrigidas com ajuste do regime, não com simples adição de outro antibacteriano.
-            </div>
-          </div>
-        </template>
-      </div>
-
-      <div class="cap6-done" hidden>
-        <div class="cap6-doneCard" role="status" aria-live="polite">
-          <span class="cap6-doneBadge">Concluído</span>
-          <p>Você concluiu a revisão do capítulo.</p>
-        </div>
-      </div>
+      <p>
+        Por essa razão, a utilização simultânea de antibacterianos deve estar vinculada a um objetivo biológico claro. Quando esse objetivo não está presente, a associação tende a ampliar a exposição ecológica sem produzir benefício proporcional na dinâmica infecciosa.
+      </p>
 
     </section>
 
-    <details class="cap6-refBox">
-      <summary>Referências</summary>
-      <div class="cap6-refContent">
-        <p>1. Pamer EG. Resurrecting the intestinal microbiota to combat antibiotic-resistant pathogens. Science (1979). 2016 Apr 29;352(6285):535–8. doi:10.1126/science.aad9382</p>
-        <p>2. Bush K, Bradford PA. Epidemiology of β-Lactamase-Producing Pathogens. Clin Microbiol Rev. 2020 Mar 18;33(2). doi:10.1128/CMR.00047-19</p>
-        <p>3. McDonald LC, Gerding DN, Johnson S, Bakken JS, Carroll KC, Coffin SE, et al. Clinical Practice Guidelines for Clostridium difficile Infection in Adults and Children: 2017 Update by the Infectious Diseases Society of America (IDSA) and Society for Healthcare Epidemiology of America (SHEA). Clinical Infectious Diseases. 2018 Mar 19;66(7):987–94. doi:10.1093/cid/ciy149</p>
-        <p>4. Albin OR, Pogue JM, Wunderink RG, Kaye KS. Which trial do we need? Combination antimicrobial therapy for hospital-acquired bacterial pneumonia caused by Pseudomonas aeruginosa. Clinical Microbiology and Infection. 2024 Feb;30(2):162–4. doi:10.1016/j.cmi.2023.07.007</p>
-        <p>5. Tamma PD, Aitken SL, Bonomo RA, Mathers AJ, van Duin D, Clancy CJ. Infectious Diseases Society of America Guidance on the Treatment of Extended-Spectrum β-lactamase Producing Enterobacterales (ESBL-E), Carbapenem-Resistant Enterobacterales (CRE), and Pseudomonas aeruginosa with Difficult-to-Treat Resistance (DTR- P. aeruginosa). Clinical Infectious Diseases. 2021 Apr 8;72(7):e169–83. doi:10.1093/cid/ciaa1478</p>
-        <p>6. Roberts JA, Abdul-Aziz MH, Lipman J, Mouton JW, Vinks AA, Felton TW, et al. Individualised antibiotic dosing for patients who are critically ill: challenges and potential solutions. Lancet Infect Dis. 2014 Jun;14(6):498–509. doi:10.1016/S1473-3099(14)70036-2</p>
-      </div>
-    </details>
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p53.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 6 · Página 54 de 61</div>
+      <button class="btn primary" type="button" data-next="p55.html" aria-label="Ir para a próxima página">Próxima →</button>
+    </nav>
 
-  </section>
+  </main>
 
-  <nav class="pager" aria-label="Paginação">
-    <button class="btn" type="button" data-prev="p53.html">← Anterior</button>
-    <div class="center">Capítulo 6 · Página 54</div>
-    <button class="btn" type="button" disabled aria-disabled="true">Próxima →</button>
-  </nav>
+  <div class="cap6-lightbox" id="cap6Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <div class="cap6-lightbox__backdrop" data-lightbox-close></div>
 
-</main>
+    <div class="cap6-lightbox__dialog">
+      <button class="cap6-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
 
-<script src="../../js/app.js"></script>
-<script src="../../js/capitulo-06.js"></script>
+      <figure class="cap6-lightbox__figure">
+        <img id="cap6LightboxImage" src="" alt="" />
+        <figcaption id="cap6LightboxCaption" class="cap6-lightbox__caption"></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-06.js"></script>
 </body>
 </html>

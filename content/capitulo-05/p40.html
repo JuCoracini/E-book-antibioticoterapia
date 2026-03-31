@@ -16,30 +16,6 @@
 
 <body class="cap5-page40">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
   <main class="container page-shell">
 
     <header class="page-header">
@@ -52,33 +28,7 @@
     <section class="prose cap5-p40-prose" aria-label="Texto principal">
 
       <p>
-        A bacterioscopia costuma ser o primeiro dado microbiológico disponível durante a investigação de uma infecção bacteriana. O exame consiste na observação direta do material clínico ao microscópio após coloração adequada, permitindo identificar características estruturais básicas das bactérias presentes na amostra <sup>3</sup>.
-      </p>
-
-      <figure class="cap5-p40-scope">
-        <button
-          class="cap5-p40-scope__trigger"
-          type="button"
-          data-zoom-image="../../assets/capitulo-05/imagens/microscopia-bacterioscopia.png"
-          data-zoom-alt="Campo microscópico com leucócitos e bactérias, representando a observação direta do material clínico."
-          data-zoom-caption="Campo microscópico representando a bacterioscopia como primeiro dado microbiológico disponível durante a investigação de uma infecção bacteriana."
-          aria-label="Ampliar campo microscópico da bacterioscopia"
-        >
-          <span class="cap5-p40-scope__frame" aria-hidden="true"></span>
-          <img
-            src="../../assets/capitulo-05/imagens/microscopia-bacterioscopia.png"
-            alt="Campo microscópico com leucócitos e bactérias, representando a observação direta do material clínico."
-            loading="lazy"
-          />
-          <span class="cap5-p40-scope__hint">Clique para ampliar</span>
-        </button>
-        <figcaption class="cap5-p40-caption">
-          A bacterioscopia oferece uma observação direta e precoce do material clínico, antes da identificação definitiva da espécie.
-        </figcaption>
-      </figure>
-
-      <p>
-        Entre os métodos de coloração utilizados na rotina laboratorial, a coloração de Gram é a técnica mais empregada. Seu princípio baseia-se na diferença estrutural da parede celular bacteriana, particularmente na espessura da camada de peptidoglicano e na presença ou ausência de membrana externa. Essas diferenças determinam a retenção ou perda do corante durante o processo de descoloração <sup>3</sup>.
+      A bacterioscopia costuma ser o primeiro dado microbiológico disponível na investigação de uma infecção bacteriana. O exame consiste na observação direta do material clínico ao microscópio após coloração adequada, permitindo identificar características estruturais básicas das bactérias presentes na amostra <sup>3</sup>.
       </p>
 
       <section class="cap5-p40-sequence" aria-labelledby="cap5-p40-sequence-title">
@@ -100,7 +50,7 @@
             <article class="cap5-p40-step is-active" aria-current="step">
               <span class="cap5-p40-step__number">1</span>
               <h3>Bacterioscopia</h3>
-              <p>Observação direta ao microscópio após coloração. Fornece características estruturais básicas imediatas.</p>
+              <p>Observação direta do material clínico ao microscópio após coloração, permitindo identificar características estruturais iniciais do microrganismo.</p>
             </article>
 
             <div class="cap5-p40-step__arrow" aria-hidden="true">→</div>
@@ -108,7 +58,7 @@
             <article class="cap5-p40-step is-muted">
               <span class="cap5-p40-step__number">2</span>
               <h3>Cultura</h3>
-              <p>Isolamento do patógeno em meio apropriado. Exige mais tempo de incubação.</p>
+              <p>Avaliação da suscetibilidade antimicrobiana após isolamento bacteriano, baseada em testes padronizados.</p>
             </article>
 
             <div class="cap5-p40-step__arrow" aria-hidden="true">→</div>
@@ -126,8 +76,79 @@
         </div>
       </section>
 
+      <p>
+        Entre os métodos de coloração utilizados na rotina laboratorial, a coloração de Gram é a técnica mais empregada. Seu princípio baseia-se na diferença estrutural da parede celular bacteriana, particularmente na espessura da camada de peptidoglicano e na presença ou ausência de membrana externa. Essas diferenças determinam a retenção ou perda do corante durante o processo de descoloração <sup>3</sup>.
+      </p>
+
+      <p>
+        Além da diferenciação entre bactérias Gram-positivas e Gram-negativas, a bacterioscopia fornece outras informações relevantes para a interpretação inicial da amostra:
+      </p>
+
+      <ul class="cap5-p40-list">
+        <li>morfologia bacteriana (cocos, bacilos ou cocobacilos)</li>
+        <li>arranjo celular (cachos, cadeias, diplococos)</li>
+        <li>quantidade aproximada de bactérias observadas por campo microscópico</li>
+        <li>presença de leucócitos</li>
+        <li>presença de células epiteliais</li>
+      </ul>
+
+      <p>
+        Esses achados ajudam a contextualizar o isolamento microbiológico. Em amostras respiratórias, por exemplo, a proporção entre leucócitos e células epiteliais pode indicar a qualidade da amostra coletada. Predomínio de células epiteliais pode sugerir contaminação por secreções da orofaringe, enquanto maior número de leucócitos pode ser compatível com processo inflamatório no local.
+      </p>
+
+      <figure class="cap5-p40-microscope" aria-labelledby="cap5-p40-microscope-caption">
+        <div class="cap5-p40-microscope__head">
+          <span class="cap5-p40-microscope__eyebrow">Leitura inicial do campo microscópico</span>
+          <h2 class="cap5-p40-microscope__title">Qualidade do material observado</h2>
+        </div>
+
+        <div class="cap5-p40-microscope__body">
+          <div class="cap5-p40-microscope__bridge" aria-hidden="true"></div>
+
+          <button
+            class="cap5-zoomTrigger cap5-p40-ocular"
+            type="button"
+            data-zoom-image="../../assets/capitulo-05/imagens/microscopia-bacterioscopia.png"
+            data-zoom-alt="Campo microscópico com leucócitos e bactérias."
+            data-zoom-caption="Campo microscópico com leucócitos e bactérias, compatível com material representativo para leitura inicial."
+            aria-label="Ampliar campo microscópico com leucócitos e bactérias"
+          >
+            <span class="cap5-p40-ocular__rim" aria-hidden="true"></span>
+            <span class="cap5-p40-ocular__glass" aria-hidden="true"></span>
+            <img
+              src="../../assets/capitulo-05/imagens/microscopia-bacterioscopia.png"
+              alt="Campo microscópico com leucócitos e bactérias."
+              loading="lazy"
+            />
+            <span class="cap5-p40-ocular__label">Leucócitos e bactérias</span>
+          </button>
+
+          <button
+            class="cap5-zoomTrigger cap5-p40-ocular"
+            type="button"
+            data-zoom-image="../../assets/capitulo-05/imagens/celulas-epiteliais-contaminacao.png"
+            data-zoom-alt="Campo microscópico com predomínio de células epiteliais."
+            data-zoom-caption="Predomínio de células epiteliais no campo microscópico sugere baixa qualidade da amostra e possível contaminação por secreções da orofaringe."
+            aria-label="Ampliar campo microscópico com predomínio de células epiteliais"
+          >
+            <span class="cap5-p40-ocular__rim" aria-hidden="true"></span>
+            <span class="cap5-p40-ocular__glass" aria-hidden="true"></span>
+            <img
+              src="../../assets/capitulo-05/imagens/celulas-epiteliais-contaminacao.png"
+              alt="Campo microscópico com predomínio de células epiteliais."
+              loading="lazy"
+            />
+            <span class="cap5-p40-ocular__label">Predomínio de células epiteliais</span>
+          </button>
+        </div>
+
+        <figcaption id="cap5-p40-microscope-caption" class="cap5-p40-microscope__caption">
+          A leitura do campo microscópico permite distinguir material representativo de amostras com baixa qualidade, antes mesmo da identificação definitiva da espécie.
+        </figcaption>
+      </figure>
+
       <p class="cap5-p40-transition">
-        A distinção entre Gram-positivas e Gram-negativas decorre da estrutura da parede celular bacteriana, base biológica que explica o comportamento diferencial das bactérias durante a coloração de Gram.
+        Em situações como hemoculturas positivas, o resultado do Gram costuma ser comunicado imediatamente à equipe clínica. A identificação de cocos Gram-positivos em cachos ou bacilos Gram-negativos já fornece uma orientação preliminar sobre o provável grupo bacteriano envolvido, mesmo antes da identificação definitiva da espécie <sup>4</sup>.
       </p>
 
     </section>

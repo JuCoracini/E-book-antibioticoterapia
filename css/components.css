@@ -1,187 +1,102 @@
-/* css/components.css */
-/* Projeto: Princípios Básicos de Antibioticoterapia */
-/* Layout editorial — rolagem natural da página inteira */
-
 /* =========================
-   CONTAINER / LAYOUT
+   IMAGEM EDITORIAL
    ========================= */
 
-/* A .container é definida aqui como bloco editorial.
-   NÃO há altura fixa, NÃO há overflow interno. */
-.container {
-  max-width: var(--page-w);
-  margin: 40px auto;
-  padding: 60px 80px;
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+.figure{
+  margin: 20px 0;
 }
 
-/* Ajuste responsivo */
-@media (max-width: 720px) {
-  .container {
-    margin: 16px auto;
-    padding: 24px 18px;
-  }
+.figure img{
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+
+  border-radius: 10px;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+
+  cursor: zoom-in;
 }
 
-/* =========================
-   TEXTO PRINCIPAL
-   ========================= */
-
-.prose {
-  padding-right: 0; /* garante que não haja área de scroll interna */
-}
-
-.prose p {
-  text-align: justify;
-  text-indent: 2.5em;
-  margin-bottom: 1.5em;
-  line-height: 1.8;
-  hyphens: auto;
-}
-
-/* =========================
-   REFERÊNCIAS (Vancouver)
-   ========================= */
-
-sup {
-  font-size: 0.72em;
-  font-weight: 600;
-  color: var(--blue);
-  margin-left: 1px;
-  vertical-align: baseline;
-  position: relative;
-  top: -0.5em;
-}
-
-/* =========================
-   CABEÇALHO DE PÁGINA
-   ========================= */
-
-.page-header {
-  margin-bottom: 40px;
-}
-
-.page-title {
-  color: var(--blue);
-  font-family: var(--font-title);
-  font-size: 2rem;
-  margin: 0;
-}
-
-.chapter {
-  color: var(--ocean);
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-
-.page-meta {
-  font-size: 0.85rem;
-  color: var(--text-light);
-}
-
-/* =========================
-   BOXES / NOTAS
-   ========================= */
-
-.note-box {
-  border-left: 5px solid var(--ocean);
-  background: var(--ocean-light);
-  padding: 20px;
-  border-radius: 8px;
-  margin: 24px 0;
-}
-
-/* =========================
-   FIGURAS
-   ========================= */
-
-.figure {
-  margin: 40px auto;
+.caption{
+  font-size: 12px;
+  color: #6b7280;
   text-align: center;
-}
-
-.figure-title {
-  font-family: var(--font-sub);
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.figcap {
-  font-size: 0.85rem;
-  color: var(--text-light);
-  margin-top: 10px;
+  margin-top: 6px;
 }
 
 /* =========================
-   PAGINAÇÃO
+   BOTÕES
    ========================= */
 
-.pager {
-  border-top: 1px solid var(--line);
-  padding-top: 20px;
-  margin-top: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+.btn{
+  font-family: var(--font-ui);
+  font-size: 12px;
 
-.pager .center {
-  font-size: 0.85rem;
-  color: var(--text-light);
-}
-
-.btn {
-  appearance: none;
-  background: transparent;
-  border: 1px solid var(--line);
-  padding: 8px 14px;
   border-radius: 8px;
+  padding: 6px 10px;
+
+  border: 1px solid #d1d5db;
+  background: white;
+
   cursor: pointer;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
 }
 
-.btn:hover {
-  border-color: var(--blue);
-}
-
-/* Botão de interação (quando usado) */
-.btn-interaction {
-  background: var(--blue);
-  color: #ffffff;
+.btn.primary{
+  background: var(--azul-turquesa);
+  color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-family: var(--font-body);
 }
 
-.btn-interaction:hover {
-  opacity: 0.9;
+/* =========================
+   LIGHTBOX (PROFISSIONAL)
+   ========================= */
+
+.lightbox{
+  position: fixed;
+  inset: 0;
+  background: rgba(8,15,25,.92);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
 }
-/* Referências no formato (n) em sobrescrito: menores e cinza */
-sup.ref{
-  font-size: 0.58em;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-  top: -0.45em;
-  color: rgba(31,31,31,.45);
-  font-weight: 400;
+
+.lightbox.active{
+  display: flex;
 }
-/* Referências numéricas em sobrescrito — menores e cinza */
-sup.ref{
-  font-size: 0.58em;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-  top: -0.45em;
-  color: rgba(31,31,31,.45);
-  font-weight: 400;
+
+.lightbox img{
+  max-width: 88%;
+  max-height: 88vh;
+  border-radius: 12px;
+}
+
+.lightbox-close{
+  position: absolute;
+  top: 24px;
+  right: 28px;
+
+  font-size: 30px;
+  color: white;
+
+  cursor: pointer;
+}
+
+/* =========================
+   DESTAQUE (VERDE OCEANO)
+   ========================= */
+
+.highlight{
+  max-width: 560px;
+  margin: 14px auto;
+  padding: 10px 12px;
+
+  border-left: 4px solid var(--verde-oceano);
+  background: #f0f9ff;
+
+  border-radius: 6px;
 }

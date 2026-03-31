@@ -16,31 +16,7 @@
 
 <body class="cap4-page32">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
-  <main class="container page-shell cap4-shell">
+  <main class="page-shell">
 
     <header class="page-header">
       <div>
@@ -56,43 +32,50 @@
       </p>
 
       <p>
-        Na administração intravenosa, o antibacteriano é introduzido diretamente na circulação sistêmica, resultando em biodisponibilidade completa e início imediato de exposição. Nesse cenário, a variabilidade associada aos processos de absorção é praticamente eliminada, e a curva concentração-tempo passa a depender predominantemente dos parâmetros de distribuição e eliminação do fármaco <sup>1,10</sup>.
+        Na administração intravenosa, o antibacteriano é introduzido diretamente na circulação sistêmica, resultando em biodisponibilidade completa e início imediato de exposição. Nesse cenário, a variabilidade associada aos processos de absorção é praticamente eliminada, e a curva concentração-tempo passa a depender predominantemente dos parâmetros de distribuição e eliminação do fármaco <sup>1,8</sup>.
       </p>
 
       <p>
-        Por outro lado, na administração por via oral, a concentração sistêmica resulta da absorção gastrointestinal, processo sujeito a variabilidade significativa. Fatores como pH gástrico, motilidade intestinal, presença de alimentos, integridade da mucosa e interações medicamentosas podem modificar a fração absorvida e a velocidade com que o antibacteriano atinge a circulação sistêmica. Consequentemente, a biodisponibilidade pode ser reduzida ou tornar-se menos previsível em determinados contextos clínicos <sup>1,10</sup>.
+        Por outro lado, na administração por via oral, a concentração sistêmica resulta da absorção gastrointestinal, processo sujeito a variabilidade significativa. Fatores como pH gástrico, motilidade intestinal, presença de alimentos, integridade da mucosa e interações medicamentosas podem modificar a fração absorvida e a velocidade com que o antibacteriano atinge a circulação sistêmica. Consequentemente, a biodisponibilidade pode ser reduzida ou tornar-se menos previsível em determinados contextos clínicos <sup>1,8</sup>.
+      </p>
+
+      <p>
+        Essas diferenças não se limitam à quantidade de fármaco absorvida, mas também influenciam a forma da curva concentração-tempo. A velocidade de elevação da concentração plasmática, o tempo necessário para atingir o pico e a manutenção da exposição acima da concentração inibitória mínima (CIM) são diretamente afetados pela via de administração. Como os índices farmacodinâmicos, como %fT&gt;MIC, Cmax/MIC e AUC/MIC, dependem dessa relação entre concentração e tempo, a via utilizada pode modificar a probabilidade de atingir o alvo terapêutico, mesmo quando a dose nominal administrada é semelhante <sup>1,7</sup>.
       </p>
 
       <figure class="cap4-p32-figure">
         <button
           class="cap4-zoomTrigger"
           type="button"
-          data-zoom-image="../../assets/capitulo-04/imagens/via-administracao-curvas-cim.png"
-          data-zoom-alt="Comparação entre curvas concentração-tempo na administração intravenosa e na via oral em relação à CIM."
-          data-zoom-caption="Comparação esquemática entre a curva concentração-tempo da via intravenosa e da via oral em relação à concentração inibitória mínima. A via de administração modifica a velocidade de elevação da concentração, o pico e a manutenção da exposição acima da CIM. Clique na imagem para ampliar."
-          aria-label="Ampliar figura sobre via de administração e curva concentração-tempo"
+          data-zoom-image="../../assets/capitulo-04/imagens/via-administracao-curva-concentracao-tempo.png"
+          data-zoom-alt="Comparação entre curvas de concentração plasmática após administração intravenosa e oral em relação à concentração inibitória mínima."
+          data-zoom-caption="Comparação entre perfis de concentração plasmática após administração intravenosa e oral. A via intravenosa promove elevação imediata da concentração sistêmica, enquanto a via oral apresenta atraso dependente da absorção gastrointestinal. Essas diferenças influenciam a relação entre concentração e tempo em relação à CIM. Clique na imagem para ampliar."
+          aria-label="Ampliar gráfico comparativo entre via intravenosa e via oral"
         >
           <img
-            src="../../assets/capitulo-04/imagens/via-administracao-curvas-cim.png"
-            alt="Comparação entre curvas concentração-tempo na administração intravenosa e na via oral em relação à CIM."
+            src="../../assets/capitulo-04/imagens/via-administracao-curva-concentracao-tempo.png"
+            alt="Comparação entre curvas de concentração plasmática após administração intravenosa e oral em relação à concentração inibitória mínima."
             loading="lazy"
           />
         </button>
         <figcaption class="cap4-caption">
-          Comparação esquemática entre a curva concentração-tempo da via intravenosa e da via oral em relação à concentração inibitória mínima. A via de administração modifica a velocidade de elevação da concentração, o pico e a manutenção da exposição acima da CIM. Clique na imagem para ampliar.
+          Comparação entre perfis de concentração plasmática após administração intravenosa e oral. A via intravenosa promove elevação imediata da concentração sistêmica, enquanto a via oral apresenta atraso dependente da absorção gastrointestinal. Essas diferenças influenciam a relação entre concentração e tempo em relação à CIM. Clique na imagem para ampliar.
         </figcaption>
       </figure>
 
-      <p>
-        Essas diferenças não se limitam à quantidade de fármaco absorvida, mas também influenciam a forma da curva concentração-tempo. A velocidade de elevação da concentração plasmática, o tempo necessário para atingir o pico e a manutenção da exposição acima da concentração inibitória mínima (CIM) são diretamente afetados pela via de administração. Como os índices farmacodinâmicos, como %fT&gt;MIC, Cmax/MIC e AUC/MIC, dependem dessa relação entre concentração e tempo, a via utilizada pode modificar a probabilidade de atingir o alvo terapêutico, mesmo quando a dose nominal administrada é semelhante <sup>1,11</sup>.
-      </p>
+      <div class="cap4-p32-note" aria-label="Leitura orientada do gráfico">
+        <p class="cap4-p32-note__title">Como interpretar o gráfico</p>
+        <p class="cap4-p32-note__text">
+          A curva da via intravenosa sobe de forma abrupta porque não há etapa de absorção, indicando início imediato da exposição sistêmica. A curva da via oral se eleva mais lentamente, pois depende da absorção gastrointestinal. A linha pontilhada horizontal representa a CIM, e a posição das curvas em relação a esse limiar ajuda a compreender como a via de administração modifica a rapidez, o pico e a manutenção da exposição antimicrobiana ao longo do tempo.
+        </p>
+      </div>
 
       <p>
         A variabilidade interindividual torna-se particularmente relevante na via oral. Alterações fisiológicas ou patológicas, como edema de mucosa intestinal, hipoperfusão esplâncnica, vômitos ou uso concomitante de outros fármacos, podem comprometer a absorção e reduzir a exposição sistêmica. Nesses casos, a concentração plasmática pode permanecer abaixo dos níveis necessários para inibição bacteriana, mantendo o microrganismo sob pressão seletiva sem erradicação completa <sup>1,6</sup>.
       </p>
 
       <p>
-        Assim, a via de administração deve ser compreendida como um componente estrutural da exposição antimicrobiana. Ela não representa apenas uma escolha logística, mas um determinante farmacocinético que influencia diretamente a forma como a curva concentração-tempo se posiciona em relação à CIM e, consequentemente, a probabilidade de alcançar os índices farmacodinâmicos associados à eficácia terapêutica <sup>1,11</sup>.
+        Assim, a via de administração deve ser compreendida como um componente estrutural da exposição antimicrobiana. Ela não representa apenas uma escolha logística, mas um determinante farmacocinético que influencia diretamente a forma como a curva concentração-tempo se posiciona em relação à CIM e, consequentemente, a probabilidade de alcançar os índices farmacodinâmicos associados à eficácia terapêutica <sup>1,7</sup>.
       </p>
 
     </section>

@@ -1,56 +1,4 @@
-/* =========================
-   Página 39 — O laboratório de microbiologia
-   ========================= */
-(function initCap5Page39() {
-  const root = document.querySelector(".cap5-page39");
-  if (!root) return;
-
-  const triggers = Array.from(root.querySelectorAll(".cap5-p39-zoomTrigger"));
-  const lightbox = document.getElementById("cap5Lightbox");
-  const lightboxImage = document.getElementById("cap5LightboxImage");
-  const lightboxCaption = document.getElementById("cap5LightboxCaption");
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
-
-  if (!triggers.length || !lightbox || !lightboxImage || !lightboxCaption) return;
-
-  function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  triggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
-    });
-  });
-
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
-})();
+// padrão simples — sem interação específica para p39
 /* =========================
    Página 40 — Bacterioscopia e coloração de Gram
    ========================= */
@@ -58,7 +6,7 @@
   const root = document.querySelector(".cap5-page40");
   if (!root) return;
 
-  const triggers = Array.from(root.querySelectorAll(".cap5-p40-scope__trigger"));
+  const triggers = Array.from(root.querySelectorAll(".cap5-zoomTrigger"));
   const lightbox = document.getElementById("cap5Lightbox");
   const lightboxImage = document.getElementById("cap5LightboxImage");
   const lightboxCaption = document.getElementById("cap5LightboxCaption");
@@ -111,17 +59,30 @@
   const root = document.querySelector(".cap5-page41");
   if (!root) return;
 
-  /* -----------------------------------
-     LIGHTBOX DA IMAGEM ESTRUTURAL
-     ----------------------------------- */
-  const zoomTriggers = Array.from(root.querySelectorAll(".cap5-zoomTrigger"));
   const lightbox = document.getElementById("cap5Lightbox");
   const lightboxImage = document.getElementById("cap5LightboxImage");
   const lightboxCaption = document.getElementById("cap5LightboxCaption");
   const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
 
+  const zoomBtn = document.getElementById("gram-stage-zoom");
+  const imageEl = document.getElementById("gram-stage-image");
+  const pillEl = document.getElementById("gram-stage-pill");
+  const titleEl = document.getElementById("gram-stage-title");
+  const textEl = document.getElementById("gram-stage-text");
+  const prevBtn = document.getElementById("gram-prev");
+  const nextBtn = document.getElementById("gram-next");
+  const steps = Array.from(root.querySelectorAll(".gram-step"));
+  const compareZooms = Array.from(root.querySelectorAll(".cap5-zoomTrigger"));
+
+  if (
+    !lightbox || !lightboxImage || !lightboxCaption ||
+    !zoomBtn || !imageEl || !pillEl || !titleEl || !textEl ||
+    !prevBtn || !nextBtn || !steps.length
+  ) {
+    return;
+  }
+
   function openLightbox(src, alt, caption) {
-    if (!lightbox || !lightboxImage || !lightboxCaption) return;
     lightboxImage.src = src;
     lightboxImage.alt = alt || "";
     lightboxCaption.textContent = caption || "";
@@ -131,60 +92,12 @@
   }
 
   function closeLightbox() {
-    if (!lightbox || !lightboxImage || !lightboxCaption) return;
     lightbox.hidden = true;
     lightbox.setAttribute("aria-hidden", "true");
     lightboxImage.src = "";
     lightboxImage.alt = "";
     lightboxCaption.textContent = "";
     document.body.style.overflow = "";
-  }
-
-  zoomTriggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
-    });
-  });
-
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  if (lightbox) {
-    lightbox.addEventListener("click", (event) => {
-      if (event.target === lightbox.querySelector(".cap5-lightbox__backdrop")) {
-        closeLightbox();
-      }
-    });
-  }
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && lightbox && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
-
-  /* -----------------------------------
-     INTERAÇÃO DAS ETAPAS DO GRAM
-     ----------------------------------- */
-  const simRoot = root.querySelector("[data-gram-sim]");
-  if (!simRoot) return;
-
-  const steps = Array.from(simRoot.querySelectorAll(".gram-step"));
-  const imageEl = document.getElementById("gram-stage-image");
-  const captionEl = document.getElementById("gram-stage-caption");
-  const pillEl = document.getElementById("gram-stage-pill");
-  const titleEl = document.getElementById("gram-stage-title");
-  const textEl = document.getElementById("gram-stage-text");
-  const prevBtn = document.getElementById("gram-prev");
-  const nextBtn = document.getElementById("gram-next");
-
-  if (!steps.length || !imageEl || !captionEl || !pillEl || !titleEl || !textEl || !prevBtn || !nextBtn) {
-    return;
   }
 
   const stepData = [
@@ -194,8 +107,7 @@
       alt: "Etapa de fixação na coloração de Gram",
       pill: "Etapa preparatória",
       title: "Fixação",
-      caption: "Fixação por calor: preserva a morfologia bacteriana e promove aderência do material à lâmina, preparando a amostra para as etapas subsequentes.",
-      text: "Nesta etapa inicial, o material é fixado à lâmina. Ainda não há diferenciação entre bactérias Gram-positivas e Gram-negativas, mas a amostra fica preparada para receber os reagentes seguintes."
+      text: "Inicialmente, o material é distribuído em uma lâmina de vidro e fixado, geralmente por calor, para preservar a morfologia bacteriana e promover aderência celular. Nesta etapa inicial, ainda não há diferenciação entre bactérias Gram-positivas e Gram-negativas, mas a amostra fica preparada para receber os reagentes seguintes."
     },
     {
       key: "cristal",
@@ -203,8 +115,7 @@
       alt: "Etapa do cristal violeta na coloração de Gram",
       pill: "Corante primário",
       title: "Cristal violeta",
-      caption: "O cristal violeta penetra nas células bacterianas e cora, inicialmente, tanto bactérias Gram-positivas quanto Gram-negativas.",
-      text: "Após a aplicação do corante primário, ambas as bactérias adquirem coloração violácea. Neste momento, ainda não ocorreu a diferenciação estrutural observada ao final do método."
+      text: "Em seguida, aplica-se o corante primário (cristal violeta), que penetra nas células bacterianas. Após sua aplicação, ambas as bactérias adquirem coloração violácea. Neste momento, ainda não ocorreu a diferenciação estrutural observada ao final do método."
     },
     {
       key: "lugol",
@@ -212,8 +123,7 @@
       alt: "Etapa do lugol na coloração de Gram",
       pill: "Mordente",
       title: "Lugol",
-      caption: "O lugol atua como mordente, formando o complexo cristal violeta–iodo no interior das células bacterianas.",
-      text: "Nesta etapa, o complexo cristal violeta–iodo torna-se mais estável dentro da célula. A diferença entre Gram-positivas e Gram-negativas começará a aparecer de forma decisiva apenas na descoloração."
+      text: "A adição do lugol atua como mordente, formando um complexo cristal violeta–iodo no interior da célula. Nesta etapa, o complexo torna-se mais estável dentro da bactéria, preparando a diferenciação que será evidenciada na descoloração."
     },
     {
       key: "alcool",
@@ -221,8 +131,7 @@
       alt: "Etapa do álcool ou álcool-acetona na coloração de Gram",
       pill: "Etapa crítica",
       title: "Álcool/acetona",
-      caption: "Na etapa de descoloração, as bactérias Gram-positivas tendem a reter o complexo cristal violeta–iodo, enquanto as Gram-negativas o perdem.",
-      text: "Aqui ocorre a etapa central do método. A parede espessa de peptidoglicano das Gram-positivas favorece a retenção do complexo cristal violeta–iodo. Já nas Gram-negativas, a parede delgada e a presença de membrana externa facilitam a perda do corante."
+      text: "A etapa crítica do método é a descoloração com álcool ou álcool-acetona. Bactérias com parede celular espessa, rica em peptidoglicano, mantêm o complexo cristal violeta–iodo. Bactérias com parede mais delgada e membrana externa perdem esse complexo durante a descoloração."
     },
     {
       key: "safranina",
@@ -230,23 +139,11 @@
       alt: "Etapa da safranina na coloração de Gram",
       pill: "Contra-corante",
       title: "Safranina",
-      caption: "Após a contra-coloração, as Gram-positivas permanecem azul-violáceas e as Gram-negativas passam a adquirir coloração rosada.",
-      text: "A safranina cora as bactérias que perderam o cristal violeta durante a descoloração. O resultado final permite distinguir bactérias Gram-positivas das Gram-negativas ao microscópio."
+      text: "As bactérias que perderam o complexo durante a descoloração passam a ser coradas pelo contra-corante, geralmente safranina, adquirindo coloração rosada característica. Ao final do método, as Gram-positivas permanecem azul-violáceas e as Gram-negativas adquirem coloração rosada."
     }
   ];
 
   let currentIndex = 0;
-
-  function swapImage(el, newSrc, newAlt) {
-    el.classList.add("is-switching");
-    window.setTimeout(() => {
-      el.src = newSrc;
-      if (newAlt) el.alt = newAlt;
-    }, 110);
-    window.setTimeout(() => {
-      el.classList.remove("is-switching");
-    }, 220);
-  }
 
   function renderStep(index) {
     const item = stepData[index];
@@ -261,11 +158,19 @@
       btn.tabIndex = active ? 0 : -1;
     });
 
-    swapImage(imageEl, item.image, item.alt);
-    captionEl.textContent = item.caption;
-    pillEl.textContent = item.pill;
-    titleEl.textContent = item.title;
-    textEl.textContent = item.text;
+    imageEl.classList.add("is-switching");
+
+    window.setTimeout(() => {
+      imageEl.src = item.image;
+      imageEl.alt = item.alt || "";
+      pillEl.textContent = item.pill;
+      titleEl.textContent = item.title;
+      textEl.textContent = item.text;
+      zoomBtn.dataset.zoomImage = item.image;
+      zoomBtn.dataset.zoomAlt = item.alt;
+      zoomBtn.dataset.zoomCaption = item.text;
+      imageEl.classList.remove("is-switching");
+    }, 120);
 
     prevBtn.disabled = index === 0;
     nextBtn.disabled = index === stepData.length - 1;
@@ -310,66 +215,38 @@
     if (currentIndex < stepData.length - 1) renderStep(currentIndex + 1);
   });
 
-  /* -----------------------------------
-     COMPARADOR ESTRUTURAL
-     ----------------------------------- */
-  const structureButtons = Array.from(root.querySelectorAll(".gram-structure__btn"));
-  const structureImage = document.getElementById("gram-structure-image");
-  const structureName = document.getElementById("gram-structure-name");
-  const structureDescription = document.getElementById("gram-structure-description");
+  zoomBtn.addEventListener("click", () => {
+    openLightbox(
+      zoomBtn.dataset.zoomImage,
+      zoomBtn.dataset.zoomAlt,
+      zoomBtn.dataset.zoomCaption
+    );
+  });
 
-  const structureData = {
-    positivo: {
-      image: "../../assets/capitulo-05/imagens/gram-positivo.png",
-      alt: "Estrutura de bactéria Gram-positiva",
-      name: "Gram-positivas",
-      description: "Apresentam camada espessa de peptidoglicano e ausência de membrana externa. Essa organização favorece a retenção do complexo cristal violeta–iodo após a etapa de descoloração."
-    },
-    negativo: {
-      image: "../../assets/capitulo-05/imagens/gram-negativo.png",
-      alt: "Estrutura de bactéria Gram-negativa",
-      name: "Gram-negativas",
-      description: "Apresentam camada delgada de peptidoglicano e membrana externa. Essa organização facilita a perda do complexo cristal violeta–iodo durante a descoloração e permite a coloração final pela safranina."
-    }
-  };
-
-  function swapStructureImage(el, newSrc, newAlt) {
-    el.classList.add("is-switching");
-    window.setTimeout(() => {
-      el.src = newSrc;
-      if (newAlt) el.alt = newAlt;
-    }, 110);
-    window.setTimeout(() => {
-      el.classList.remove("is-switching");
-    }, 220);
-  }
-
-  function renderStructure(key) {
-    const item = structureData[key];
-    if (!item || !structureImage || !structureName || !structureDescription) return;
-
-    structureButtons.forEach((btn) => {
-      const active = btn.dataset.structure === key;
-      btn.classList.toggle("is-active", active);
-      btn.setAttribute("aria-selected", active ? "true" : "false");
-    });
-
-    swapStructureImage(structureImage, item.image, item.alt);
-    structureName.textContent = item.name;
-    structureDescription.textContent = item.description;
-  }
-
-  structureButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      renderStructure(btn.dataset.structure);
+  compareZooms.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      openLightbox(
+        trigger.dataset.zoomImage,
+        trigger.dataset.zoomAlt,
+        trigger.dataset.zoomCaption
+      );
     });
   });
 
+  closers.forEach((el) => {
+    el.addEventListener("click", closeLightbox);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !lightbox.hidden) {
+      closeLightbox();
+    }
+  });
+
   renderStep(0);
-  renderStructure("positivo");
 })();
 /* =========================
-   Página 42 — Leitura inicial do campo microscópico
+   Página 42 — Identificação bacteriana
    ========================= */
 (function initCap5Page42() {
   const root = document.querySelector(".cap5-page42");
@@ -428,223 +305,368 @@
   const root = document.querySelector(".cap5-page43");
   if (!root) return;
 
-  const zoomTriggers = Array.from(root.querySelectorAll(".cap5-zoomTrigger"));
-  const lightbox = document.getElementById("cap5Lightbox");
-  const lightboxImage = document.getElementById("cap5LightboxImage");
-  const lightboxCaption = document.getElementById("cap5LightboxCaption");
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
+  const steps = Array.from(root.querySelectorAll(".cap5-p43-step"));
+  const eyebrow = root.querySelector("#cap5-p43-panel-eyebrow");
+  const title = root.querySelector("#cap5-p43-panel-title");
+  const text = root.querySelector("#cap5-p43-panel-text");
 
-  if (!zoomTriggers.length || !lightbox || !lightboxImage || !lightboxCaption) return;
+  if (!steps.length || !eyebrow || !title || !text) return;
 
-  function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+  const map = {
+    "1": {
+      eyebrow: "Ponto de partida",
+      title: "Espécie, grupo ou complexo",
+      text: "A identificação define o nível de precisão microbiológica disponível naquele isolamento. Esse dado inicial determina o contexto em que os resultados seguintes serão interpretados."
+    },
+    "2": {
+      eyebrow: "Base biológica",
+      title: "Perfil biológico esperado",
+      text: "A partir da identificação, torna-se possível reconhecer padrões microbiológicos próprios daquele organismo, incluindo comportamentos previsíveis de suscetibilidade ou resistência."
+    },
+    "3": {
+      eyebrow: "Conseqüência técnica",
+      title: "Limites do painel",
+      text: "Nem toda combinação entre microrganismo e antibacteriano precisa aparecer no teste. Em alguns casos, a própria identidade bacteriana já antecipa limitações metodológicas ou previsibilidade do resultado."
+    },
+    "4": {
+      eyebrow: "Integração interpretativa",
+      title: "Leitura crítica do antibiograma",
+      text: "O painel de suscetibilidade passa a ser lido dentro de um contexto microbiológico definido. Assim, o resultado deixa de ser uma lista isolada de antibacterianos e passa a ter significado interpretativo."
+    }
+  };
+
+  function activate(key) {
+    const item = map[key];
+    if (!item) return;
+
+    steps.forEach((btn) => {
+      const active = btn.dataset.p43Step === key;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-selected", active ? "true" : "false");
+      btn.tabIndex = active ? 0 : -1;
+    });
+
+    eyebrow.textContent = item.eyebrow;
+    title.textContent = item.title;
+    text.textContent = item.text;
   }
 
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
+  steps.forEach((btn, index) => {
+    btn.addEventListener("click", () => activate(btn.dataset.p43Step));
 
-  zoomTriggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
+    btn.addEventListener("keydown", (event) => {
+      let nextIndex = index;
+
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        event.preventDefault();
+        nextIndex = (index + 1) % steps.length;
+        steps[nextIndex].focus();
+        activate(steps[nextIndex].dataset.p43Step);
+      }
+
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        event.preventDefault();
+        nextIndex = (index - 1 + steps.length) % steps.length;
+        steps[nextIndex].focus();
+        activate(steps[nextIndex].dataset.p43Step);
+      }
+
+      if (event.key === "Home") {
+        event.preventDefault();
+        steps[0].focus();
+        activate(steps[0].dataset.p43Step);
+      }
+
+      if (event.key === "End") {
+        event.preventDefault();
+        steps[steps.length - 1].focus();
+        activate(steps[steps.length - 1].dataset.p43Step);
+      }
     });
   });
 
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
+  activate("1");
 })();
 /* =========================
-   Página 44 — Identificação bacteriana (continuação)
+   Página 44 — Difusão em disco (tempo)
    ========================= */
-(function initCap5Page44() {
+(function initCap5Page44(){
   const root = document.querySelector(".cap5-page44");
-  if (!root) return;
+  if(!root) return;
+
+  const buttons = root.querySelectorAll(".tempo-btn");
+  const img = root.querySelector("#tempo-img");
+  const caption = root.querySelector("#tempo-caption");
+
+  if(!buttons.length || !img || !caption) return;
+
+  const data = {
+    "0": {
+      src: "../../assets/capitulo-05/imagens/difusao-disco-0h.png",
+      text: "Tempo inicial: o antibacteriano ainda não se difundiu de forma significativa no meio."
+    },
+    "6": {
+      src: "../../assets/capitulo-05/imagens/difusao-disco-6h.png",
+      text: "Início da difusão: pequenas zonas de inibição começam a se formar ao redor dos discos."
+    },
+    "12": {
+      src: "../../assets/capitulo-05/imagens/difusao-disco-12h.png",
+      text: "Difusão progressiva: o gradiente de concentração se estabelece e as zonas de inibição tornam-se mais evidentes."
+    },
+    "18": {
+      src: "../../assets/capitulo-05/imagens/difusao-disco-18h.png",
+      text: "Expansão do halo: a inibição bacteriana ao redor dos discos torna-se mais definida."
+    },
+    "24": {
+      src: "../../assets/capitulo-05/imagens/difusao-disco-24h.png",
+      text: "Leitura final: o halo de inibição está completamente formado e pode ser medido."
+    }
+  };
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const tempo = btn.dataset.tempo;
+      img.src = data[tempo].src;
+      caption.textContent = data[tempo].text;
+
+    });
+  });
 })();
 /* =========================
-   Página 45 — Teste de sensibilidade
+   Página 45 — CIM + padronização
    ========================= */
 (function initCap5Page45() {
   const root = document.querySelector(".cap5-page45");
   if (!root) return;
 
-  const plate = document.getElementById("discPlate");
-  const bacteriaLayer = document.getElementById("discBacteria");
-  const gradient = document.getElementById("discGradient");
-  const halo = document.getElementById("discHalo");
-  const ruler = document.getElementById("discRuler");
+  const tabs = Array.from(root.querySelectorAll(".cap5-p45-cim__tab"));
+  const img = root.querySelector("#cap5-p45-cim-image");
+  const caption = root.querySelector("#cap5-p45-cim-caption");
+  const eyebrow = root.querySelector("#cap5-p45-cim-eyebrow");
+  const title = root.querySelector("#cap5-p45-cim-panel-title");
+  const text = root.querySelector("#cap5-p45-cim-panel-text");
+  const zoomBtn = root.querySelector(".cap5-p45-cim__zoom");
 
-  const pill = document.getElementById("disc-pill");
-  const title = document.getElementById("disc-title");
-  const text = document.getElementById("disc-text");
+  const lightbox = document.getElementById("cap5Lightbox");
+  const lightboxImage = document.getElementById("cap5LightboxImage");
+  const lightboxCaption = document.getElementById("cap5LightboxCaption");
+  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
 
-  const prevBtn = document.getElementById("disc-prev");
-  const nextBtn = document.getElementById("disc-next");
-  const resetBtn = document.getElementById("disc-reset");
+  if (!tabs.length || !img || !caption || !eyebrow || !title || !text || !zoomBtn) return;
 
-  if (!plate || !bacteriaLayer || !gradient || !halo || !ruler || !pill || !title || !text || !prevBtn || !nextBtn || !resetBtn) {
-    return;
-  }
-
-  const steps = [
-    {
-      pill: "Etapa 1",
-      title: "Placa inoculada",
-      text: "A bactéria isolada é distribuída sobre a superfície do ágar, criando um crescimento potencialmente uniforme no meio sólido.",
-      gradientSize: 0,
-      gradientOpacity: 0,
-      haloSize: 0,
-      haloOpacity: 0,
-      hideInsideHalo: false,
-      showRuler: false
+  const views = {
+    crescimento: {
+      src: "../../assets/capitulo-05/imagens/cim-crescimento.png",
+      alt: "Sequência de poços com crescimento visível em diferentes concentrações.",
+      caption: "Nas menores concentrações ainda há crescimento visível nos poços, indicando que a bactéria segue se multiplicando nas condições do ensaio.",
+      eyebrow: "Leitura inicial",
+      title: "Crescimento visível",
+      text: "Enquanto há turvação ou crescimento detectável nos poços, a concentração testada ainda não corresponde ao ponto de inibição visível considerado para a determinação da CIM."
     },
-    {
-      pill: "Etapa 2",
-      title: "Difusão do antibacteriano",
-      text: "O disco libera o antibacteriano, que se difunde radialmente no ágar. A concentração é maior próximo ao disco e diminui progressivamente com a distância.",
-      gradientSize: 64,
-      gradientOpacity: 1,
-      haloSize: 0,
-      haloOpacity: 0,
-      hideInsideHalo: false,
-      showRuler: false
-    },
-    {
-      pill: "Etapa 3",
-      title: "Crescimento bacteriano",
-      text: "Fora da região de maior atividade do antibacteriano, o crescimento bacteriano torna-se visível no meio inoculado.",
-      gradientSize: 68,
-      gradientOpacity: 1,
-      haloSize: 0,
-      haloOpacity: 0,
-      hideInsideHalo: false,
-      showRuler: false
-    },
-    {
-      pill: "Etapa 4",
-      title: "Formação do halo",
-      text: "Se a bactéria for suscetível, ocorre inibição do crescimento ao redor do disco, originando uma zona clara chamada halo de inibição.",
-      gradientSize: 68,
-      gradientOpacity: .82,
-      haloSize: 46,
-      haloOpacity: 1,
-      hideInsideHalo: true,
-      showRuler: false
-    },
-    {
-      pill: "Etapa 5",
-      title: "Leitura em milímetros",
-      text: "Após a incubação, o diâmetro do halo é medido em milímetros. Esse valor será comparado a tabelas interpretativas específicas.",
-      gradientSize: 68,
-      gradientOpacity: .72,
-      haloSize: 46,
-      haloOpacity: 1,
-      hideInsideHalo: true,
-      showRuler: true
+    inibicao: {
+      src: "../../assets/capitulo-05/imagens/cim-inibicao.png",
+      alt: "Sequência de poços sem crescimento visível em concentrações mais altas.",
+      caption: "A transição para ausência de crescimento visível indica o ponto em que se identifica a menor concentração capaz de impedir esse crescimento nas condições do ensaio.",
+      eyebrow: "Ponto interpretativo",
+      title: "Inibição do crescimento",
+      text: "A CIM corresponde à menor concentração em que o crescimento visível deixa de ocorrer. O critério é a inibição observável no ensaio, e não necessariamente morte bacteriana completa."
     }
-  ];
+  };
 
-  let currentStep = 0;
-  let bugs = [];
+  function applyView(key) {
+    const item = views[key];
+    if (!item) return;
 
-  function randomInCircle() {
-    const theta = Math.random() * Math.PI * 2;
-    const radius = Math.sqrt(Math.random()) * 44;
-    return {
-      x: 50 + Math.cos(theta) * radius,
-      y: 50 + Math.sin(theta) * radius
-    };
-  }
-
-  function buildBacteria(count = 110) {
-    bacteriaLayer.innerHTML = "";
-    bugs = [];
-
-    for (let i = 0; i < count; i++) {
-      const el = document.createElement("span");
-      el.className = "cap5-p45-bug";
-      const point = randomInCircle();
-      el.style.left = `${point.x}%`;
-      el.style.top = `${point.y}%`;
-      bacteriaLayer.appendChild(el);
-      bugs.push({ el, ...point });
-    }
-  }
-
-  function setBacteriaVisibility(hideInsideHalo, haloPercent) {
-    const radiusPercent = haloPercent / 2;
-    bugs.forEach((bug) => {
-      const dx = bug.x - 50;
-      const dy = bug.y - 50;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      const inside = distance < radiusPercent * 0.84;
-      bug.el.classList.toggle("is-hidden", hideInsideHalo && inside);
+    tabs.forEach((tab) => {
+      const active = tab.dataset.cimView === key;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
+      tab.tabIndex = active ? 0 : -1;
     });
+
+    img.src = item.src;
+    img.alt = item.alt;
+    caption.textContent = item.caption;
+    eyebrow.textContent = item.eyebrow;
+    title.textContent = item.title;
+    text.textContent = item.text;
+
+    zoomBtn.dataset.zoomImage = item.src;
+    zoomBtn.dataset.zoomAlt = item.alt;
+    zoomBtn.dataset.zoomCaption = item.caption;
   }
 
-  function renderStep(index) {
-    const step = steps[index];
-    if (!step) return;
-    currentStep = index;
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => applyView(tab.dataset.cimView));
 
-    pill.textContent = step.pill;
-    title.textContent = step.title;
-    text.textContent = step.text;
+    tab.addEventListener("keydown", (event) => {
+      let nextIndex = index;
 
-    gradient.style.width = `${step.gradientSize}%`;
-    gradient.style.opacity = String(step.gradientOpacity);
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        event.preventDefault();
+        nextIndex = (index + 1) % tabs.length;
+        tabs[nextIndex].focus();
+        applyView(tabs[nextIndex].dataset.cimView);
+      }
 
-    halo.style.width = `${step.haloSize}%`;
-    halo.style.opacity = String(step.haloOpacity);
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        event.preventDefault();
+        nextIndex = (index - 1 + tabs.length) % tabs.length;
+        tabs[nextIndex].focus();
+        applyView(tabs[nextIndex].dataset.cimView);
+      }
 
-    ruler.style.opacity = step.showRuler ? "1" : "0";
+      if (event.key === "Home") {
+        event.preventDefault();
+        tabs[0].focus();
+        applyView(tabs[0].dataset.cimView);
+      }
 
-    setBacteriaVisibility(step.hideInsideHalo, step.haloSize);
+      if (event.key === "End") {
+        event.preventDefault();
+        tabs[tabs.length - 1].focus();
+        applyView(tabs[tabs.length - 1].dataset.cimView);
+      }
+    });
+  });
 
-    prevBtn.disabled = currentStep === 0;
-    nextBtn.disabled = currentStep === steps.length - 1;
+  function openLightbox(src, alt, cap) {
+    if (!lightbox || !lightboxImage || !lightboxCaption) return;
+    lightboxImage.src = src;
+    lightboxImage.alt = alt || "";
+    lightboxCaption.textContent = cap || "";
+    lightbox.hidden = false;
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
   }
 
-  prevBtn.addEventListener("click", () => {
-    if (currentStep > 0) renderStep(currentStep - 1);
+  function closeLightbox() {
+    if (!lightbox || !lightboxImage || !lightboxCaption) return;
+    lightbox.hidden = true;
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImage.src = "";
+    lightboxImage.alt = "";
+    lightboxCaption.textContent = "";
+    document.body.style.overflow = "";
+  }
+
+  zoomBtn.addEventListener("click", () => {
+    openLightbox(
+      zoomBtn.dataset.zoomImage,
+      zoomBtn.dataset.zoomAlt,
+      zoomBtn.dataset.zoomCaption
+    );
   });
 
-  nextBtn.addEventListener("click", () => {
-    if (currentStep < steps.length - 1) renderStep(currentStep + 1);
+  closers.forEach((el) => {
+    el.addEventListener("click", closeLightbox);
   });
 
-  resetBtn.addEventListener("click", () => {
-    renderStep(0);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox && !lightbox.hidden) {
+      closeLightbox();
+    }
   });
 
-  buildBacteria();
-  renderStep(0);
+  applyView("crescimento");
 })();
 /* =========================
-   Página 46 — Microdiluição em caldo e determinação da CIM
+   Página 46 — Breakpoints e categorias interpretativas
    ========================= */
 (function initCap5Page46() {
   const root = document.querySelector(".cap5-page46");
+  if (!root) return;
+
+  const tabs = Array.from(root.querySelectorAll(".cap5-p46-bar__tab"));
+  const pill = root.querySelector("#cap5-p46-panel-pill");
+  const title = root.querySelector("#cap5-p46-panel-title");
+  const text = root.querySelector("#cap5-p46-panel-text");
+
+  if (!tabs.length || !pill || !title || !text) return;
+
+  const map = {
+    s: {
+      pillText: "Categoria padrão",
+      pillClass: "cap5-p46-panel__pill cap5-p46-panel__pill--s",
+      title: "Sensível (S)",
+      text: "Indica que o valor obtido no teste está dentro da faixa associada a alta probabilidade de sucesso terapêutico quando a exposição ao antibacteriano é apropriada para o sítio de infecção e o regime posológico recomendado."
+    },
+    i: {
+      pillText: "Ponto que mais gera erro",
+      pillClass: "cap5-p46-panel__pill cap5-p46-panel__pill--i",
+      title: "Sensível, aumentando exposição (I)",
+      text: "Corresponde a uma faixa limítrofe de suscetibilidade. Nessa situação, a probabilidade de sucesso terapêutico depende de maior exposição ao antibacteriano, o que pode ocorrer, por exemplo, em regimes posológicos otimizados ou em locais do organismo onde a concentração do fármaco é naturalmente mais elevada."
+    },
+    r: {
+      pillText: "Baixa probabilidade",
+      pillClass: "cap5-p46-panel__pill cap5-p46-panel__pill--r",
+      title: "Resistente (R)",
+      text: "Indica que o valor obtido no teste ultrapassa o limite associado à probabilidade aceitável de inibição bacteriana, mesmo quando se considera aumento de exposição ao antibacteriano."
+    }
+  };
+
+  function activate(key) {
+    const item = map[key];
+    if (!item) return;
+
+    tabs.forEach((tab) => {
+      const active = tab.dataset.p46Tab === key;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
+      tab.tabIndex = active ? 0 : -1;
+    });
+
+    pill.className = item.pillClass;
+    pill.textContent = item.pillText;
+    title.textContent = item.title;
+    text.textContent = item.text;
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => activate(tab.dataset.p46Tab));
+
+    tab.addEventListener("keydown", (event) => {
+      let nextIndex = index;
+
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        event.preventDefault();
+        nextIndex = (index + 1) % tabs.length;
+        tabs[nextIndex].focus();
+        activate(tabs[nextIndex].dataset.p46Tab);
+      }
+
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        event.preventDefault();
+        nextIndex = (index - 1 + tabs.length) % tabs.length;
+        tabs[nextIndex].focus();
+        activate(tabs[nextIndex].dataset.p46Tab);
+      }
+
+      if (event.key === "Home") {
+        event.preventDefault();
+        tabs[0].focus();
+        activate(tabs[0].dataset.p46Tab);
+      }
+
+      if (event.key === "End") {
+        event.preventDefault();
+        tabs[tabs.length - 1].focus();
+        activate(tabs[tabs.length - 1].dataset.p46Tab);
+      }
+    });
+  });
+
+  activate("i");
+})();
+/* =========================
+   Página 47 — Observações do laudo: ESBL
+   ========================= */
+(function initCap5Page47() {
+  const root = document.querySelector(".cap5-page47");
   if (!root) return;
 
   const zoomTriggers = Array.from(root.querySelectorAll(".cap5-zoomTrigger"));
@@ -692,13 +714,6 @@
       closeLightbox();
     }
   });
-})();
-/* =========================
-   Página 47 — Breakpoints e categorias interpretativas
-   ========================= */
-(function initCap5Page47() {
-  const root = document.querySelector(".cap5-page47");
-  if (!root) return;
 })();
 /* =========================
    Página 48 — Observações do laudo que modificam a interpretação

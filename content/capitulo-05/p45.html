@@ -16,30 +16,6 @@
 
 <body class="cap5-page45">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
   <main class="container page-shell">
 
     <header class="page-header">
@@ -51,126 +27,144 @@
 
     <section class="prose" aria-label="Texto principal">
 
+      <h2>Microdiluição em caldo e determinação da CIM</h2>
+
       <p>
-        Após a identificação do microrganismo, o laboratório realiza o teste de sensibilidade antimicrobiana, cujo objetivo é avaliar o comportamento da bactéria frente a concentrações conhecidas de diferentes antibacterianos em condições laboratoriais padronizadas <sup>1</sup>.
+        Outro método amplamente utilizado é a microdiluição em caldo, que permite determinar a concentração inibitória mínima (CIM).
       </p>
 
       <p>
-        Esses testes avaliam, em condições laboratoriais padronizadas, se o crescimento bacteriano é inibido na presença de concentrações definidas de determinado antibacteriano. O resultado obtido corresponde ao comportamento observado <em>in vitro</em>, sob condições metodológicas previamente definidas e controladas <sup>2</sup>.
+        Nesse procedimento, a bactéria é exposta a concentrações progressivamente crescentes do antibacteriano em meio líquido. Essas concentrações são organizadas em diluições seriadas, geralmente em progressão de base dois.
       </p>
 
-      <section class="cap5-p45-concept" aria-labelledby="cap5-p45-concept-title">
-        <h2 id="cap5-p45-concept-title">A lógica do ensaio microbiológico</h2>
-
-        <div class="cap5-p45-concept__row">
-          <div class="cap5-p45-concept__box">
-            <strong>Bactéria<br>isolada</strong>
-          </div>
-          <span class="cap5-p45-concept__plus" aria-hidden="true">+</span>
-
-          <div class="cap5-p45-concept__box">
-            <strong>Antibacteriano</strong>
-            <small>Concentrações conhecidas</small>
-          </div>
-          <span class="cap5-p45-concept__plus" aria-hidden="true">+</span>
-
-          <div class="cap5-p45-concept__box">
-            <strong>Condições laboratoriais padronizadas</strong>
-          </div>
-
-          <span class="cap5-p45-concept__arrow" aria-hidden="true">→</span>
-
-          <div class="cap5-p45-concept__result">
-            <strong>Comportamento<br><em>in vitro</em></strong>
-          </div>
+      <section class="cap5-p45-cim" aria-labelledby="cap5-p45-cim-title">
+        <div class="cap5-p45-cim__head">
+          <h2 id="cap5-p45-cim-title">Onde o crescimento deixa de ser visível</h2>
+          <p>
+            Na microdiluição, o ponto interpretativo central é identificar a menor concentração em que o crescimento visível deixa de ocorrer nas condições do ensaio.
+          </p>
         </div>
-      </section>
 
-      <p>
-        Na rotina microbiológica clínica, dois princípios metodológicos são utilizados com maior frequência: difusão em disco e microdiluição em caldo <sup>1</sup>.
-      </p>
+        <div class="cap5-p45-cim__controls" role="tablist" aria-label="Etapas visuais da microdiluição">
+          <button
+            class="cap5-p45-cim__tab is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-cim-view="crescimento"
+          >
+            Crescimento visível
+          </button>
 
-      <h2 class="cap5-p45-subtitle">Difusão em disco</h2>
+          <button
+            class="cap5-p45-cim__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-cim-view="inibicao"
+          >
+            Inibição do crescimento
+          </button>
+        </div>
 
-      <p>
-        No método de difusão em disco, discos de papel impregnados com quantidades padronizadas de antibacteriano são posicionados sobre a superfície de um meio de cultura previamente inoculado com a bactéria isolada.
-      </p>
+        <div class="cap5-p45-cim__stage">
+          <figure class="cap5-p45-cim__figure">
+            <button
+              class="cap5-zoomTrigger cap5-p45-cim__zoom"
+              type="button"
+              data-zoom-image="../../assets/capitulo-05/imagens/cim-crescimento.png"
+              data-zoom-alt="Sequência de poços com crescimento visível em diferentes concentrações."
+              data-zoom-caption="Nas menores concentrações ainda há crescimento visível nos poços, o que indica que a inibição ainda não foi alcançada nesse intervalo."
+              aria-label="Ampliar imagem da sequência de microdiluição"
+            >
+              <img
+                id="cap5-p45-cim-image"
+                src="../../assets/capitulo-05/imagens/cim-crescimento.png"
+                alt="Sequência de poços com crescimento visível em diferentes concentrações."
+                loading="lazy"
+              />
+            </button>
+            <figcaption id="cap5-p45-cim-caption" class="cap5-p45-cim__caption">
+              Nas menores concentrações ainda há crescimento visível nos poços, indicando que a bactéria segue se multiplicando nas condições do ensaio.
+            </figcaption>
+          </figure>
 
-      <p>
-        Durante a incubação, o antibacteriano difunde-se radialmente no ágar, formando um gradiente de concentração. Próximo ao disco, a concentração é mais elevada; à medida que se afasta, a concentração diminui progressivamente.
-      </p>
-
-      <section class="cap5-p45-diffusion" data-disc-diffusion aria-labelledby="cap5-p45-diffusion-title">
-        <div class="cap5-p45-diffusion__head">
-          <div>
-            <p class="cap5-p45-diffusion__eyebrow">Simulação guiada</p>
-            <h2 id="cap5-p45-diffusion-title" class="cap5-p45-diffusion__title">Como o halo de inibição se forma</h2>
-            <p class="cap5-p45-diffusion__subtitle">
-              Observe a sequência: inoculação do ágar, difusão do antibacteriano, crescimento bacteriano e formação da zona de inibição.
+          <aside class="cap5-p45-cim__panel" aria-live="polite">
+            <span id="cap5-p45-cim-eyebrow" class="cap5-p45-cim__eyebrow">Leitura inicial</span>
+            <h3 id="cap5-p45-cim-panel-title" class="cap5-p45-cim__title">Crescimento visível</h3>
+            <p id="cap5-p45-cim-panel-text" class="cap5-p45-cim__text">
+              Enquanto há turvação ou crescimento detectável nos poços, a concentração testada ainda não corresponde ao ponto de inibição visível considerado para a determinação da CIM.
             </p>
-          </div>
-        </div>
-
-        <div class="cap5-p45-diffusion__controls" role="group" aria-label="Controles da simulação">
-          <button class="btn" type="button" id="disc-prev">← Etapa anterior</button>
-          <button class="btn" type="button" id="disc-next">Próxima etapa →</button>
-          <button class="btn ghost" type="button" id="disc-reset">Reiniciar</button>
-        </div>
-
-        <div class="cap5-p45-diffusion__stage">
-          <div class="cap5-p45-plateWrap">
-            <div class="cap5-p45-plate" id="discPlate" aria-label="Placa de ágar com disco de antibacteriano e halo de inibição">
-              <div class="cap5-p45-plate__agar"></div>
-
-              <div class="cap5-p45-plate__gradient" id="discGradient" aria-hidden="true"></div>
-              <div class="cap5-p45-plate__halo" id="discHalo" aria-hidden="true"></div>
-              <div class="cap5-p45-plate__disk" aria-hidden="true"></div>
-
-              <div class="cap5-p45-plate__bacteria" id="discBacteria" aria-hidden="true"></div>
-
-              <div class="cap5-p45-ruler" id="discRuler" aria-hidden="true">
-                <div class="cap5-p45-ruler__line"></div>
-                <div class="cap5-p45-ruler__tick cap5-p45-ruler__tick--start"></div>
-                <div class="cap5-p45-ruler__tick cap5-p45-ruler__tick--end"></div>
-                <div class="cap5-p45-ruler__label">Halo de inibição medido em mm</div>
-              </div>
-            </div>
-          </div>
-
-          <aside class="cap5-p45-panel" aria-live="polite">
-            <span class="cap5-p45-panel__pill" id="disc-pill">Etapa 1</span>
-            <h3 class="cap5-p45-panel__title" id="disc-title">Placa inoculada</h3>
-            <p class="cap5-p45-panel__text" id="disc-text">
-              A bactéria isolada é distribuída sobre a superfície do ágar, criando um crescimento potencialmente uniforme no meio sólido.
-            </p>
-
-            <ul class="cap5-p45-panel__legend">
-              <li><span class="cap5-p45-panel__dot cap5-p45-panel__dot--disk"></span> Disco com antibacteriano</li>
-              <li><span class="cap5-p45-panel__dot cap5-p45-panel__dot--gradient"></span> Região de maior concentração</li>
-              <li><span class="cap5-p45-panel__dot cap5-p45-panel__dot--growth"></span> Crescimento bacteriano</li>
-              <li><span class="cap5-p45-panel__dot cap5-p45-panel__dot--halo"></span> Zona de inibição</li>
-            </ul>
           </aside>
         </div>
       </section>
 
       <p>
-        Se a bactéria for suscetível ao antibacteriano testado, ocorre inibição do crescimento bacteriano ao redor do disco, formando uma zona clara denominada halo de inibição.
+        Após incubação, avalia-se a presença de crescimento bacteriano em cada concentração testada. A CIM corresponde à menor concentração do antibacteriano capaz de impedir o crescimento visível da bactéria nas condições do ensaio <sup>2</sup>.
       </p>
 
       <p>
-        Após o período de incubação, o diâmetro desse halo é medido em milímetros. Esse valor será posteriormente comparado a tabelas interpretativas que relacionam o tamanho do halo à probabilidade de atividade do antibacteriano contra aquele microrganismo.
+        Diferentemente da difusão em disco, a microdiluição fornece um valor quantitativo direto, expresso como concentração do antibacteriano.
       </p>
 
       <p>
-        Esse método fornece, portanto, uma medida indireta da suscetibilidade bacteriana, baseada no diâmetro da zona de inibição observada no meio sólido.
+        É importante reconhecer que a ausência de crescimento visível não significa necessariamente morte bacteriana completa. O teste mede a inibição do crescimento detectável nas condições laboratoriais estabelecidas <sup>2</sup>.
       </p>
 
-      <div class="cap5-p45-closing">
-        <p>
-          O teste de sensibilidade, portanto, não observa a bactéria em um ambiente clínico real, mas em um cenário laboratorial controlado, no qual o efeito do antibacteriano pode ser mensurado de forma padronizada.
-        </p>
-      </div>
+      <section class="cap5-p45-flow" aria-labelledby="cap5-p45-flow-title">
+        <div class="cap5-p45-flow__head">
+          <h2 id="cap5-p45-flow-title">Padronização do teste</h2>
+          <p>
+            Para que os resultados sejam comparáveis e interpretáveis, diversos parâmetros são rigorosamente padronizados:
+          </p>
+        </div>
+
+        <ul class="cap5-p45-list">
+          <li>concentração do inóculo bacteriano</li>
+          <li>composição do meio de cultura</li>
+          <li>pH e concentração de cátions</li>
+          <li>temperatura e tempo de incubação</li>
+          <li>critérios de leitura do resultado</li>
+        </ul>
+
+        <div class="cap5-p45-flow__track">
+          <article class="cap5-p45-node">
+            <span class="cap5-p45-node__eyebrow">Condição inicial</span>
+            <h3>Padronizar</h3>
+            <p>
+              O teste precisa começar sob condições controladas para que o comportamento bacteriano observado seja comparável entre diferentes leituras e laboratórios.
+            </p>
+          </article>
+
+          <div class="cap5-p45-arrow" aria-hidden="true">→</div>
+
+          <article class="cap5-p45-node">
+            <span class="cap5-p45-node__eyebrow">Execução técnica</span>
+            <h3>Medir</h3>
+            <p>
+              Halo ou CIM são valores microbiológicos mensuráveis produzidos em ambiente laboratorial padronizado, e não interpretações finais por si mesmos.
+            </p>
+          </article>
+
+          <div class="cap5-p45-arrow" aria-hidden="true">→</div>
+
+          <article class="cap5-p45-node">
+            <span class="cap5-p45-node__eyebrow">Leitura crítica</span>
+            <h3>Interpretar</h3>
+            <p>
+              O valor obtido só ganha significado clínico-laboratorial quando posteriormente é comparado a critérios interpretativos específicos.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <p>
+        Pequenas variações nesses fatores podem modificar o diâmetro do halo ou o valor da CIM. Por isso, os testes seguem protocolos técnicos estabelecidos por comitês especializados em testes de suscetibilidade.
+      </p>
+
+      <p class="cap5-p45-closing">
+        Independentemente do método utilizado, o teste de sensibilidade gera um dado microbiológico mensurável. Esse valor isolado, entretanto, ainda não define se a bactéria será classificada como sensível ou resistente. Para que isso ocorra, o resultado precisa ser comparado a critérios interpretativos específicos.
+      </p>
 
     </section>
 

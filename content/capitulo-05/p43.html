@@ -16,30 +16,6 @@
 
 <body class="cap5-page43">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
   <main class="container page-shell">
 
     <header class="page-header">
@@ -52,62 +28,89 @@
     <section class="prose" aria-label="Texto principal">
 
       <p>
-        Após o crescimento do microrganismo em meio de cultura e a avaliação morfológica inicial, o laboratório realiza a identificação bacteriana. Essa etapa define o agente isolado e estabelece o contexto biológico necessário para interpretar corretamente o teste de suscetibilidade.
+        Em algumas situações, a identificação pode ser limitada ao nível de grupo ou complexo bacteriano, em vez de uma única espécie. Isso ocorre quando espécies próximas apresentam características fenotípicas muito semelhantes ou quando a diferenciação não possui relevância clínica significativa. Exemplos incluem complexos bacterianos como <em>Enterobacter cloacae</em> complex ou grupos como os estreptococos do grupo viridans.
+      </p>
+
+      <section class="cap5-p43-logic" aria-labelledby="cap5-p43-logic-title">
+        <div class="cap5-p43-logic__head">
+          <h2 id="cap5-p43-logic-title">O que a identificação muda na leitura do laudo</h2>
+          <p>
+            A identificação bacteriana não encerra o raciocínio microbiológico. Ela define a base interpretativa a partir da qual o painel de suscetibilidade passa a fazer sentido.
+          </p>
+        </div>
+
+        <div class="cap5-p43-track" role="tablist" aria-label="Sequência interpretativa da identificação bacteriana">
+          <button
+            class="cap5-p43-step is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-p43-step="1"
+          >
+            <span class="cap5-p43-step__n">1</span>
+            <span class="cap5-p43-step__label">Espécie, grupo ou complexo</span>
+          </button>
+
+          <span class="cap5-p43-arrow" aria-hidden="true">→</span>
+
+          <button
+            class="cap5-p43-step"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p43-step="2"
+          >
+            <span class="cap5-p43-step__n">2</span>
+            <span class="cap5-p43-step__label">Perfil biológico esperado</span>
+          </button>
+
+          <span class="cap5-p43-arrow" aria-hidden="true">→</span>
+
+          <button
+            class="cap5-p43-step"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p43-step="3"
+          >
+            <span class="cap5-p43-step__n">3</span>
+            <span class="cap5-p43-step__label">Limites do painel</span>
+          </button>
+
+          <span class="cap5-p43-arrow" aria-hidden="true">→</span>
+
+          <button
+            class="cap5-p43-step"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p43-step="4"
+          >
+            <span class="cap5-p43-step__n">4</span>
+            <span class="cap5-p43-step__label">Leitura crítica do antibiograma</span>
+          </button>
+        </div>
+
+        <div class="cap5-p43-panel" aria-live="polite">
+          <div class="cap5-p43-panel__eyebrow" id="cap5-p43-panel-eyebrow">Ponto de partida</div>
+          <h3 class="cap5-p43-panel__title" id="cap5-p43-panel-title">Espécie, grupo ou complexo</h3>
+          <p class="cap5-p43-panel__text" id="cap5-p43-panel-text">
+            A identificação define o nível de precisão microbiológica disponível naquele isolamento. Esse dado inicial determina o contexto em que os resultados seguintes serão interpretados.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        A definição correta da espécie é um elemento central para a interpretação do antibiograma. Diferentes bactérias apresentam perfis característicos de suscetibilidade e resistência. Algumas possuem fenótipo esperado resistente, ou seja, uma propriedade natural da espécie que impede a atividade de determinadas classes de antibacterianos. Nesses casos, o teste de sensibilidade pode nem ser realizado para certas combinações microrganismo–fármaco, pois o resultado já é previsível <sup>1</sup>.
       </p>
 
       <p>
-        A identificação pode começar por características observadas no próprio crescimento bacteriano. Aspectos como morfologia das colônias, padrão de hemólise em ágar sangue, pigmentação e odor característico podem fornecer indícios iniciais sobre o grupo bacteriano envolvido. Essas informações orientam a escolha dos testes adicionais necessários para confirmar a identificação.
+        Por exemplo, espécies do gênero <em>Enterococcus</em> apresentam fenótipo esperado resistente às cefalosporinas, enquanto <em>Pseudomonas aeruginosa</em> possui baixa suscetibilidade natural a diversos antibacterianos frequentemente utilizados contra outras bactérias Gram-negativas. O reconhecimento da espécie permite antecipar essas limitações e interpretar o painel de suscetibilidade de forma mais adequada.
       </p>
 
-      <figure class="cap5-p43-culture">
-        <button
-          class="cap5-zoomTrigger"
-          type="button"
-          data-zoom-image="../../assets/capitulo-05/imagens/cultura-bacteriana-agar-sangue.png"
-          data-zoom-alt="Placa de ágar sangue com crescimento bacteriano."
-          data-zoom-caption="Aspectos do crescimento bacteriano em meio de cultura podem fornecer indícios iniciais relevantes para a identificação."
-          aria-label="Ampliar imagem de crescimento bacteriano em ágar sangue"
-        >
-          <img
-            src="../../assets/capitulo-05/imagens/cultura-bacteriana-agar-sangue.png"
-            alt="Placa de ágar sangue com crescimento bacteriano."
-            loading="lazy"
-          />
-        </button>
-        <figcaption class="cap5-p43-caption">
-          Morfologia das colônias, hemólise, pigmentação e outros aspectos do crescimento podem orientar a escolha dos testes seguintes.
-        </figcaption>
-      </figure>
-
-      <p>
-        Tradicionalmente, a identificação baseia-se em testes fenotípicos bioquímicos, que avaliam propriedades metabólicas da bactéria. Esses testes investigam, por exemplo, a capacidade de fermentar determinados açúcares, produzir enzimas específicas ou utilizar substratos particulares. A combinação desses resultados gera um perfil metabólico característico que permite classificar o microrganismo em determinada espécie ou grupo bacteriano <sup>3</sup>.
+      <p class="cap5-p43-emphasis">
+        Assim, a identificação bacteriana não representa apenas a atribuição de um nome ao microrganismo isolado. Ela define o contexto microbiológico no qual os resultados do teste de sensibilidade serão interpretados e orienta a leitura crítica do antibiograma.
       </p>
-
-      <figure class="cap5-p43-flow">
-        <button
-          class="cap5-zoomTrigger"
-          type="button"
-          data-zoom-image="../../assets/capitulo-05/imagens/identificacao-fenotipica-fluxo.png"
-          data-zoom-alt="Fluxo de identificação fenotípica a partir de colônias bacterianas."
-          data-zoom-caption="A observação inicial das colônias orienta a escolha dos testes fenotípicos que gerarão o perfil metabólico usado na classificação bacteriana."
-          aria-label="Ampliar fluxo de identificação fenotípica"
-        >
-          <img
-            src="../../assets/capitulo-05/imagens/identificacao-fenotipica-fluxo.png"
-            alt="Fluxo de identificação fenotípica a partir de colônias bacterianas."
-            loading="lazy"
-          />
-        </button>
-        <figcaption class="cap5-p43-caption">
-          O raciocínio fenotípico parte dos indícios observados no crescimento bacteriano e evolui para testes metabólicos direcionados.
-        </figcaption>
-      </figure>
-
-      <div class="cap5-p43-closing">
-        <p>
-          Assim, a identificação bacteriana não começa apenas com a atribuição de um nome ao microrganismo isolado. Ela se inicia na leitura cuidadosa do crescimento bacteriano e na seleção racional dos testes capazes de transformar indícios laboratoriais em classificação microbiológica.
-        </p>
-      </div>
 
     </section>
 
@@ -118,19 +121,6 @@
     </nav>
 
   </main>
-
-  <div class="cap5-lightbox" id="cap5Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap5-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap5-lightbox__dialog">
-      <button class="cap5-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap5-lightbox__figure">
-        <img id="cap5LightboxImage" src="" alt="" />
-        <figcaption id="cap5LightboxCaption" class="cap5-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-05.js"></script>

@@ -16,137 +16,83 @@
 
 <body class="cap5-page44">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
   <main class="container page-shell">
 
     <header class="page-header">
       <div>
         <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
-        <h1 class="page-title">Identificação bacteriana</h1>
+        <h1 class="page-title">Teste de sensibilidade</h1>
       </div>
     </header>
 
-    <section class="prose" aria-label="Texto principal">
+    <section class="prose">
 
       <p>
-        Atualmente, muitos laboratórios utilizam sistemas automatizados, que integram múltiplos testes bioquímicos em painéis padronizados e comparam os resultados obtidos com bancos de dados microbiológicos validados. O sistema calcula a probabilidade de correspondência entre o perfil observado e as espécies registradas na base de referência <sup>5</sup>.
+        Após a identificação do microrganismo, o laboratório realiza o teste de sensibilidade antimicrobiana, cujo objetivo é avaliar o comportamento da bactéria frente a concentrações conhecidas de diferentes antibacterianos em condições laboratoriais padronizadas <sup>1</sup>.
       </p>
 
       <p>
-        Outro método amplamente incorporado à rotina microbiológica é a espectrometria de massa por MALDI-TOF. Nesse método, proteínas bacterianas são ionizadas e analisadas de acordo com seu padrão espectral. O perfil obtido é comparado a bibliotecas de referência, permitindo identificação rápida e precisa de grande parte das bactérias de relevância clínica.
+        Esses testes avaliam, em condições laboratoriais padronizadas, se o crescimento bacteriano é inibido na presença de concentrações definidas de determinado antibacteriano. O resultado obtido corresponde ao comportamento observado <em>in vitro</em>, sob condições metodológicas previamente definidas e controladas <sup>2</sup>.
       </p>
-
-      <div class="cap5-p44-methods">
-        <article class="cap5-p44-method">
-          <h2>Sistemas automatizados</h2>
-          <p>
-            Integram múltiplos testes bioquímicos em painéis padronizados e relacionam o perfil observado a bancos de dados validados.
-          </p>
-        </article>
-
-        <article class="cap5-p44-method">
-          <h2>MALDI-TOF</h2>
-          <p>
-            Analisa o padrão espectral de proteínas bacterianas e compara o resultado com bibliotecas de referência para identificação rápida.
-          </p>
-        </article>
-      </div>
 
       <p>
-        Em algumas situações, a identificação pode ser limitada ao nível de grupo ou complexo bacteriano, em vez de uma única espécie. Isso ocorre quando espécies próximas apresentam características fenotípicas muito semelhantes ou quando a diferenciação não possui relevância clínica significativa. Exemplos incluem complexos bacterianos como <em>Enterobacter cloacae</em> complex ou grupos como os estreptococos do grupo viridans.
+        Na rotina microbiológica clínica, dois princípios metodológicos são utilizados com maior frequência: difusão em disco e microdiluição em caldo <sup>1</sup>.
       </p>
 
-      <section class="cap5-p44-tree" aria-labelledby="cap5-p44-tree-title">
-        <div class="cap5-p44-tree__head">
-          <h2 id="cap5-p44-tree-title">Quando identificar até a espécie — e quando agrupar</h2>
-          <p>
-            A decisão depende do impacto clínico de distinguir espécies próximas entre si.
-          </p>
+      <h2>Difusão em disco</h2>
+
+      <p>
+        No método de difusão em disco, discos de papel impregnados com quantidades padronizadas de antibacteriano são posicionados sobre a superfície de um meio de cultura previamente inoculado com a bactéria isolada.
+      </p>
+
+      <!-- INTERAÇÃO -->
+      <section class="cap5-p44-tempo">
+
+        <div class="cap5-p44-controls">
+          <button class="tempo-btn active" data-tempo="0">0h</button>
+          <button class="tempo-btn" data-tempo="6">6h</button>
+          <button class="tempo-btn" data-tempo="12">12h</button>
+          <button class="tempo-btn" data-tempo="18">18h</button>
+          <button class="tempo-btn" data-tempo="24">24h</button>
         </div>
 
-        <div class="cap5-p44-tree__question">
-          As espécies próximas apresentam relevância clínica, perfis de resistência ou tratamentos distintos?
-        </div>
+        <figure class="cap5-p44-figure">
+          <img id="tempo-img" src="../../assets/capitulo-05/imagens/difusao-disco-0h.png" alt="Placa de cultura tempo 0" />
+          <figcaption id="tempo-caption">
+            Tempo inicial: o antibacteriano ainda não se difundiu de forma significativa no meio.
+          </figcaption>
+        </figure>
 
-        <div class="cap5-p44-tree__branches">
-          <article class="cap5-p44-branch cap5-p44-branch--yes">
-            <span class="cap5-p44-branch__label">Sim</span>
-            <div class="cap5-p44-branch__card">
-              <h3>Identificar até o nível exato da espécie</h3>
-              <p>
-                A diferenciação específica pode alterar a interpretação microbiológica, a previsão de resistência e a leitura do painel terapêutico.
-              </p>
-            </div>
-          </article>
-
-          <article class="cap5-p44-branch cap5-p44-branch--no">
-            <span class="cap5-p44-branch__label">Não</span>
-            <div class="cap5-p44-branch__card">
-              <h3>Agrupar em nível de grupo ou complexo</h3>
-              <p>
-                Quando as características são muito semelhantes na rotina e a distinção não modifica a conduta interpretativa, o agrupamento pode ser suficiente.
-              </p>
-
-              <div class="cap5-p44-examples">
-                <strong>Exemplos:</strong>
-                <ul>
-                  <li><em>Enterobacter cloacae</em> complex</li>
-                  <li>Estreptococos do grupo viridans</li>
-                </ul>
-              </div>
-            </div>
-          </article>
-        </div>
       </section>
 
       <p>
-        A definição correta da espécie é um elemento central para a interpretação do antibiograma. Diferentes bactérias apresentam perfis característicos de suscetibilidade e resistência. Algumas possuem fenótipo esperado resistente, ou seja, uma propriedade natural da espécie que impede a atividade de determinadas classes de antibacterianos. Nesses casos, o teste de sensibilidade pode nem ser realizado para certas combinações microrganismo–fármaco, pois o resultado já é previsível <sup>1</sup>.
+        Durante a incubação, o antibacteriano difunde-se radialmente no ágar, formando um gradiente de concentração. Próximo ao disco, a concentração é mais elevada; à medida que se afasta, a concentração diminui progressivamente.
       </p>
 
       <p>
-        Por exemplo, espécies do gênero <em>Enterococcus</em> apresentam fenótipo esperado resistente às cefalosporinas, enquanto <em>Pseudomonas aeruginosa</em> possui baixa suscetibilidade natural a diversos antibacterianos frequentemente utilizados contra outras bactérias Gram-negativas. O reconhecimento da espécie permite antecipar essas limitações e interpretar o painel de suscetibilidade de forma mais adequada.
+        Se a bactéria for suscetível ao antibacteriano testado, ocorre inibição do crescimento bacteriano ao redor do disco, formando uma zona clara denominada halo de inibição.
       </p>
 
-      <div class="cap5-p44-closing">
-        <p>
-          Assim, a identificação bacteriana não representa apenas a atribuição de um nome ao microrganismo isolado. Ela define o contexto microbiológico no qual os resultados do teste de sensibilidade serão interpretados e orienta a leitura crítica do antibiograma.
-        </p>
-      </div>
+      <p>
+        Após o período de incubação, o diâmetro desse halo é medido em milímetros. Esse valor será posteriormente comparado a tabelas interpretativas que relacionam o tamanho do halo à probabilidade de atividade do antibacteriano contra aquele microrganismo.
+      </p>
+
+      <p class="cap5-highlight">
+        Esse método fornece, portanto, uma medida indireta da suscetibilidade bacteriana, baseada no diâmetro da zona de inibição observada no meio sólido.
+      </p>
 
     </section>
 
-    <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p43.html" aria-label="Ir para a página anterior">← Anterior</button>
+    <nav class="pager">
+      <button class="btn" data-prev="p43.html">← Anterior</button>
       <div class="center">Capítulo 5 · Página 44</div>
-      <button class="btn" type="button" data-next="p45.html" aria-label="Ir para a próxima página">Próxima →</button>
+      <button class="btn" data-next="p45.html">Próxima →</button>
     </nav>
 
   </main>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-05.js"></script>
+
 </body>
 </html>

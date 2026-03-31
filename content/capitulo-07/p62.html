@@ -1,196 +1,94 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Capítulo 7 — Página 62</title>
 
-<title>Capítulo 8 — Página 69</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="../../css/base.css">
-<link rel="stylesheet" href="../../css/components.css">
-<link rel="stylesheet" href="../../css/capitulo-08.css">
-
-<style>
-
-.prose p{
-text-indent:1.9em;
-}
-
-.diagram{
-margin:30px 0;
-border:1px solid rgba(0,0,0,.10);
-border-radius:14px;
-background:#fff;
-padding:18px;
-}
-
-.diagram svg{
-width:100%;
-height:auto;
-display:block;
-}
-
-.caption{
-margin-top:12px;
-font-size:13px;
-opacity:.85;
-text-align:center;
-text-indent:0;
-}
-
-.alert-band{
-margin:26px 0;
-padding:18px 20px;
-border-left:5px solid #E53935;
-background:linear-gradient(180deg, rgba(229,57,53,.08), rgba(229,57,53,.03));
-border-radius:12px;
-}
-
-.alert-band p{
-margin:0;
-text-indent:0;
-}
-
-.callout{
-margin:26px 0;
-padding:18px 20px;
-border-left:5px solid #1E88E5;
-background:linear-gradient(180deg, rgba(30,136,229,.08), rgba(30,136,229,.03));
-border-radius:12px;
-}
-
-.callout p{
-margin:0;
-text-indent:0;
-}
-
-</style>
-
+  <link rel="stylesheet" href="../../css/base.css"/>
+  <link rel="stylesheet" href="../../css/components.css"/>
+  <link rel="stylesheet" href="../../css/capitulo-07.css"/>
 </head>
 
-<body>
+<body class="cap7-page62">
 
-<main class="container">
+<main class="page-shell">
 
 <header class="page-header">
-<div>
-<div class="chapter">Capítulo 8 — Síndromes Clínicas</div>
-<h1>Raciocínio sindrômico em antibioticoterapia</h1>
-</div>
+  <div class="chapter">Capítulo 7 — Principais Efeitos Adversos por Classe</div>
+  <h1 class="page-title">Como os efeitos adversos se relacionam ao mecanismo de ação</h1>
 </header>
 
 <section class="prose">
 
 <p>
-A decisão de iniciar antibioticoterapia raramente ocorre após identificação microbiológica definitiva. Na maior parte das situações clínicas, o médico precisa tomar decisões terapêuticas antes da confirmação etiológica. Nesse contexto, o raciocínio sindrômico torna-se ferramenta central para orientar a escolha inicial do tratamento.
+A escolha de um antibacteriano não envolve apenas atividade microbiológica contra o patógeno. Toda prescrição implica também uma avaliação de risco previsível para o paciente. O princípio da toxicidade seletiva, fundamento da antibioticoterapia, é inerentemente relativo. A diferença estrutural e bioquímica entre bactérias e células humanas amplia a margem terapêutica, mas não elimina a possibilidade de dano ao hospedeiro <sup>1</sup>.
+</p>
+
+<!-- IMAGEM PRINCIPAL -->
+<figure class="cap7-figure">
+  <button
+    class="cap1-zoomTrigger"
+    type="button"
+    data-zoom-image="../../assets/capitulo-07/imagens/toxicidade-seletiva-relativa.png"
+    data-zoom-alt="Relação entre eficácia bactericida e dano ao hospedeiro"
+    data-zoom-caption="A sobreposição entre eficácia bactericida e dano ao hospedeiro representa o risco biológico inerente à terapia."
+  >
+    <img
+      src="../../assets/capitulo-07/imagens/toxicidade-seletiva-relativa.png"
+      alt="Relação entre eficácia bactericida e dano ao hospedeiro"
+      loading="lazy"
+    />
+  </button>
+
+  <figcaption class="cap7-caption">
+    Relação entre eficácia terapêutica e risco de dano ao hospedeiro. Clique para ampliar.
+  </figcaption>
+</figure>
+
+<p>
+Os efeitos adversos dos antibacterianos podem surgir por diferentes mecanismos biológicos. Em alguns casos, decorrem da proximidade funcional entre estruturas bacterianas e componentes celulares humanos. Em outros, resultam de respostas imunológicas ao fármaco, interferência em organelas celulares, especialmente mitocôndrias, ou da alteração do equilíbrio da microbiota comensal <sup>2</sup>.
 </p>
 
 <p>
-Uma síndrome clínica representa um conjunto relativamente consistente de manifestações clínicas, sinais físicos e padrões epidemiológicos que sugerem determinados grupos de microrganismos como causas mais prováveis. Essa abordagem permite iniciar tratamento empírico racional enquanto se aguarda confirmação laboratorial.
+Na prática clínica, esses eventos não se manifestam como conceitos farmacológicos abstratos, mas como complicações concretas que influenciam diretamente a evolução do paciente. Podem incluir insuficiência renal associada a fármacos nefrotóxicos, manifestações cutâneas relacionadas a reações de hipersensibilidade, alterações hematológicas durante terapias prolongadas ou diarreia associada à disbiose intestinal e ao risco de infecção por <em>Clostridioides difficile</em>.
 </p>
 
 <p>
-A lógica sindrômica não substitui o diagnóstico etiológico, mas organiza a tomada de decisão inicial. Ao reconhecer padrões clínicos relativamente previsíveis, o médico pode selecionar cobertura antimicrobiana proporcional ao risco microbiológico mais provável.
+Nos últimos anos, revisões regulatórias e dados de farmacovigilância reforçaram a importância da avaliação individual de risco. Fluoroquinolonas, por exemplo, passaram a ter seu uso mais restrito após evidências de associação com neuropatia periférica, tendinopatia e possíveis eventos cardiovasculares em determinadas populações. De forma semelhante, a nefrotoxicidade associada a polimixinas tornou-se elemento central na decisão terapêutica em infecções causadas por microrganismos multirresistentes.
 </p>
+
+<p>
+Estudos de farmacovigilância indicam que reações adversas relacionadas a antibacterianos permanecem causa frequente de notificação e hospitalização. Parte desses eventos pode ser evitada por seleção adequada da classe, ajuste de dose, duração apropriada do tratamento e monitorização dirigida <sup>3</sup>.
+</p>
+
+<p>
+A compreensão dos efeitos adversos torna-se mais clara quando analisada a partir do mecanismo de ação do fármaco. Em vez de memorizar listas extensas de toxicidades, é possível antecipar riscos ao reconhecer a relação entre o alvo bacteriano e estruturas humanas biologicamente relacionadas.
+</p>
+
+<!-- RACIOCÍNIO CENTRAL -->
+<div class="cap7-flow">
+  <span>Mecanismo bacteriano</span>
+  <span class="arrow">→</span>
+  <span>Estrutura humana correlata</span>
+  <span class="arrow">→</span>
+  <span class="highlighted">Manifestação clínica previsível</span>
+</div>
+
+<!-- DESTAQUE EDITORIAL -->
+<div class="highlight">
+  A toxicidade seletiva não representa ausência de risco, mas uma diferença relativa de sensibilidade entre bactérias e células humanas.
+</div>
 
 </section>
-
-<div class="alert-band">
-<p>
-A abordagem sindrômica permite iniciar tratamento antibacteriano racional mesmo antes da confirmação microbiológica do agente etiológico.
-</p>
-</div>
-
-<div class="diagram">
-
-<svg viewBox="0 0 930 420">
-
-<text x="465" y="34" text-anchor="middle" font-size="18" font-weight="bold" fill="#1F2937">
-Lógica do raciocínio sindrômico
-</text>
-
-<!-- card 1 -->
-
-<rect x="60" y="110" width="240" height="220" rx="18" fill="#1E88E5"/>
-
-<text x="180" y="140" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">
-Sinais e sintomas
-</text>
-
-<text x="90" y="180" font-size="13" fill="#fff">febre</text>
-<text x="90" y="205" font-size="13" fill="#fff">dor localizada</text>
-<text x="90" y="230" font-size="13" fill="#fff">alterações laboratoriais</text>
-<text x="90" y="255" font-size="13" fill="#fff">sinais sistêmicos</text>
-
-<!-- card 2 -->
-
-<rect x="345" y="110" width="240" height="220" rx="18" fill="#43A047"/>
-
-<text x="465" y="140" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">
-Síndrome clínica
-</text>
-
-<text x="375" y="180" font-size="13" fill="#fff">pneumonia</text>
-<text x="375" y="205" font-size="13" fill="#fff">infecção urinária</text>
-<text x="375" y="230" font-size="13" fill="#fff">infecção de pele</text>
-<text x="375" y="255" font-size="13" fill="#fff">infecção abdominal</text>
-
-<!-- card 3 -->
-
-<rect x="630" y="110" width="240" height="220" rx="18" fill="#FB8C00"/>
-
-<text x="750" y="140" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">
-Probabilidade etiológica
-</text>
-
-<text x="660" y="180" font-size="13" fill="#fff">patógenos mais prováveis</text>
-<text x="660" y="205" font-size="13" fill="#fff">perfil epidemiológico</text>
-<text x="660" y="230" font-size="13" fill="#fff">fatores de risco</text>
-<text x="660" y="255" font-size="13" fill="#fff">gravidade clínica</text>
-
-<!-- arrows -->
-
-<line x1="300" y1="220" x2="345" y2="220" stroke="#374151" stroke-width="3"/>
-<polygon points="345,220 335,215 335,225" fill="#374151"/>
-
-<line x1="585" y1="220" x2="630" y2="220" stroke="#374151" stroke-width="3"/>
-<polygon points="630,220 620,215 620,225" fill="#374151"/>
-
-</svg>
-
-<p class="caption">
-O reconhecimento da síndrome clínica organiza a interpretação de sinais e sintomas e permite estimar os agentes etiológicos mais prováveis.
-</p>
-
-</div>
-
-<section class="prose">
-
-<p>
-A abordagem baseada em síndromes clínicas também ajuda a evitar ampliação desnecessária do espectro antimicrobiano. Ao compreender quais microrganismos são mais frequentemente associados a determinada apresentação clínica, o médico pode direcionar a terapia empírica de maneira proporcional ao risco microbiológico esperado.
-</p>
-
-<p>
-Nos capítulos seguintes serão discutidas algumas das principais síndromes infecciosas encontradas na prática clínica, incluindo infecções respiratórias, infecções urinárias e infecções de pele e partes moles.
-</p>
-
-</section>
-
-<div class="callout">
-<p>
-O raciocínio sindrômico conecta manifestações clínicas, probabilidade etiológica e escolha terapêutica inicial enquanto se aguarda confirmação microbiológica.
-</p>
-</div>
 
 <nav class="pager">
-
-<button class="btn" data-prev="p68.html">← Anterior</button>
-
-<div class="center">Capítulo 8 · Página 69</div>
-
-<button class="btn" data-next="p70.html">Próxima →</button>
-
+  <button class="btn" data-prev="p61.html">← Anterior</button>
+  <div class="center">Capítulo 7 · Página 62</div>
+  <button class="btn primary" data-next="p63.html">Próxima →</button>
 </nav>
 
 </main>

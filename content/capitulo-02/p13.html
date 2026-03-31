@@ -7,47 +7,24 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-01.css" />
   <link rel="stylesheet" href="../../css/capitulo-02.css" />
 </head>
 
-<body class="cap2-page13">
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
+<body class="cap1-shell cap2-page13">
 
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
+  <main class="page-shell">
 
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
-  <main class="container page-shell cap2-shell">
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 2 — Mecanismos de Ação dos Antibacterianos</div>
-        <h1 class="page-title">Inibição da síntese da parede celular</h1>
-      </div>
+      <div class="chapter">Capítulo 2 — Mecanismos de Ação dos Antibacterianos</div>
+      <h1 class="page-title">Inibição da síntese da parede celular</h1>
     </header>
 
-    <section class="prose cap2-reading-flow" aria-label="Texto principal">
+    <section class="prose" aria-label="Texto principal">
       <p>
         A parede celular bacteriana é uma estrutura essencial para a manutenção da forma, da resistência mecânica e da estabilidade osmótica da célula. Seu principal componente é o peptidoglicano, uma rede tridimensional formada por cadeias alternadas de N-acetilglicosamina (NAG) e N-acetilmurâmico (NAM), interligadas por pontes peptídicas que conferem rigidez estrutural <sup>1</sup>.
       </p>
@@ -56,266 +33,95 @@
         A síntese do peptidoglicano ocorre de forma coordenada durante o crescimento bacteriano. Novas subunidades são produzidas no citoplasma, transportadas através da membrana citoplasmática e incorporadas à malha estrutural já existente. Esse processo envolve diversas enzimas, entre elas as proteínas ligadoras de penicilina (PBPs), responsáveis pelas etapas finais de ligação cruzada do peptidoglicano <sup>2</sup>.
       </p>
 
-      <aside class="cap2-p13-highlight" aria-label="Ideia central da página 13">
-        <p>
-          A parede celular é um dos alvos mais críticos da terapia antibacteriana, pois sua integridade define a viabilidade da bactéria.
-        </p>
-      </aside>
-
       <p>
         A integridade dessa rede estrutural é fundamental para que a bactéria resista à pressão osmótica interna. Alterações na síntese do peptidoglicano comprometem progressivamente a estabilidade da parede celular e podem levar à ruptura da célula bacteriana.
       </p>
     </section>
 
-    <section class="cap2-wall-explorer" aria-label="Etapas da síntese do peptidoglicano e pontos de interferência farmacológica" data-wall-explorer>
-      <div class="cap2-p13-stageIntro">
-        <p>
-          A sequência abaixo permite acompanhar a formação do peptidoglicano e identificar em quais etapas diferentes classes de antibacterianos interferem.
-        </p>
-      </div>
+    <section class="cap2-p13-stage" data-cap2-wall aria-label="Síntese do peptidoglicano e interferência farmacológica">
 
-      <div class="cap2-wall-explorer__header">
-        <p class="cap2-wall-explorer__eyebrow" data-wall-group>Etapas da síntese do peptidoglicano</p>
-        <h2 class="cap2-wall-explorer__title" data-wall-phase-title>1) Formação dos precursores no citoplasma</h2>
-      </div>
+      <p class="cap2-p13-intro">
+        Selecione uma das abas para visualizar o processo normal de síntese da parede celular ou a forma como diferentes antibacterianos interferem nesse mecanismo.
+      </p>
 
-      <div class="cap2-wall-explorer__nav" role="tablist" aria-label="Fases do processo">
-        <button
-          class="cap2-wall-chip is-active"
-          type="button"
-          role="tab"
-          aria-selected="true"
-          aria-controls="cap2-wall-panel-1"
-          id="cap2-wall-tab-1"
-          data-target="1"
-          data-group="Etapas da síntese do peptidoglicano"
-          data-title="1) Formação dos precursores no citoplasma"
-          data-image="../../assets/capitulo-02/imagens/parede-celular-etapa-01.png"
-          data-alt="Etapa 1 da síntese do peptidoglicano: formação dos precursores no citoplasma."
-          data-caption="Etapa 1 — Formação dos precursores no citoplasma."
-        >
-          Etapa 1
+      <div class="cap2-p13-tabs" role="tablist" aria-label="Mecanismo de ação sobre a parede celular">
+        <button class="cap2-p13-tab is-active" type="button" role="tab" aria-selected="true" data-wall-tab="sintese">
+          Síntese do peptidoglicano
         </button>
-
-        <button
-          class="cap2-wall-chip"
-          type="button"
-          role="tab"
-          aria-selected="false"
-          aria-controls="cap2-wall-panel-2"
-          id="cap2-wall-tab-2"
-          data-target="2"
-          data-group="Etapas da síntese do peptidoglicano"
-          data-title="2) Transporte através da membrana citoplasmática"
-          data-image="../../assets/capitulo-02/imagens/parede-celular-etapa-02.png"
-          data-alt="Etapa 2 da síntese do peptidoglicano: transporte através da membrana citoplasmática."
-          data-caption="Etapa 2 — Transporte através da membrana citoplasmática."
-          tabindex="-1"
-        >
-          Etapa 2
-        </button>
-
-        <button
-          class="cap2-wall-chip"
-          type="button"
-          role="tab"
-          aria-selected="false"
-          aria-controls="cap2-wall-panel-3"
-          id="cap2-wall-tab-3"
-          data-target="3"
-          data-group="Etapas da síntese do peptidoglicano"
-          data-title="3) Incorporação à parede existente"
-          data-image="../../assets/capitulo-02/imagens/parede-celular-etapa-03.png"
-          data-alt="Etapa 3 da síntese do peptidoglicano: incorporação à parede existente."
-          data-caption="Etapa 3 — Incorporação à parede existente."
-          tabindex="-1"
-        >
-          Etapa 3
-        </button>
-
-        <button
-          class="cap2-wall-chip"
-          type="button"
-          role="tab"
-          aria-selected="false"
-          aria-controls="cap2-wall-panel-4"
-          id="cap2-wall-tab-4"
-          data-target="4"
-          data-group="Etapas da síntese do peptidoglicano"
-          data-title="4) Formação das ligações cruzadas"
-          data-image="../../assets/capitulo-02/imagens/parede-celular-etapa-04.png"
-          data-alt="Etapa 4 da síntese do peptidoglicano: formação das ligações cruzadas."
-          data-caption="Etapa 4 — Formação das ligações cruzadas."
-          tabindex="-1"
-        >
-          Etapa 4
-        </button>
-
-        <button
-          class="cap2-wall-chip"
-          type="button"
-          role="tab"
-          aria-selected="false"
-          aria-controls="cap2-wall-panel-5"
-          id="cap2-wall-tab-5"
-          data-target="5"
-          data-group="Pontos de interferência farmacológica"
-          data-title="β-lactâmicos"
-          data-image="../../assets/capitulo-02/imagens/parede-celular-etapa-05.png"
-          data-alt="Interferência farmacológica dos beta-lactâmicos na síntese da parede celular."
-          data-caption="Interferência farmacológica — β-lactâmicos."
-          tabindex="-1"
-        >
+        <button class="cap2-p13-tab" type="button" role="tab" aria-selected="false" data-wall-tab="beta">
           β-lactâmicos
         </button>
-
-        <button
-          class="cap2-wall-chip"
-          type="button"
-          role="tab"
-          aria-selected="false"
-          aria-controls="cap2-wall-panel-6"
-          id="cap2-wall-tab-6"
-          data-target="6"
-          data-group="Pontos de interferência farmacológica"
-          data-title="Glicopeptídeos e lise osmótica"
-          data-image="../../assets/capitulo-02/imagens/parede-celular-etapa-06.png"
-          data-alt="Interferência farmacológica dos glicopeptídeos e lise osmótica."
-          data-caption="Interferência farmacológica — glicopeptídeos e lise osmótica."
-          tabindex="-1"
-        >
+        <button class="cap2-p13-tab" type="button" role="tab" aria-selected="false" data-wall-tab="glico">
           Glicopeptídeos
         </button>
       </div>
 
-      <div class="cap2-wall-explorer__body">
-        <figure class="cap2-wall-figure">
+      <div class="cap2-p13-board">
+
+        <figure class="cap2-p13-figure">
           <button
-            class="cap2-wall-zoomTrigger"
+            class="cap2-zoomTrigger"
             type="button"
-            aria-label="Ampliar imagem da fase selecionada"
-            data-wall-zoom-trigger
+            data-zoom-image="../../assets/capitulo-02/imagens/sintese-peptidoglicano.png"
+            data-zoom-alt="Etapas da síntese do peptidoglicano na parede celular bacteriana"
+            data-zoom-caption="Etapas da síntese do peptidoglicano na parede celular bacteriana. Clique na imagem para ampliar."
+            aria-label="Ampliar imagem da síntese do peptidoglicano"
           >
             <img
-              src="../../assets/capitulo-02/imagens/parede-celular-etapa-01.png"
-              alt="Etapa 1 da síntese do peptidoglicano: formação dos precursores no citoplasma."
-              class="cap2-wall-figure__img"
-              data-wall-image
+              id="cap2P13Image"
+              src="../../assets/capitulo-02/imagens/sintese-pepridoglicano.png"
+              alt="Etapas da síntese do peptidoglicano na parede celular bacteriana"
+              loading="lazy"
             />
           </button>
-          <figcaption class="cap2-wall-figure__caption" data-wall-caption>
-            Etapa 1 — Formação dos precursores no citoplasma. Clique na imagem para ampliar.
+          <figcaption id="cap2P13Caption" class="caption">
+            Etapas da síntese do peptidoglicano na parede celular bacteriana. Clique na imagem para ampliar.
           </figcaption>
         </figure>
 
-        <div class="cap2-wall-texts" aria-live="polite">
-          <article
-            class="cap2-wall-panel is-active"
-            id="cap2-wall-panel-1"
-            role="tabpanel"
-            aria-labelledby="cap2-wall-tab-1"
-            data-panel="1"
-          >
-            <p>
-              Unidades de NAG e NAM são sintetizadas e associadas a pequenas cadeias peptídicas, formando precursores solúveis.
-            </p>
-          </article>
+        <div class="cap2-p13-panel" aria-live="polite">
+          <h2 id="cap2P13Title" class="cap2-p13-panel__title">Etapas da síntese do peptidoglicano</h2>
 
-          <article
-            class="cap2-wall-panel"
-            id="cap2-wall-panel-2"
-            role="tabpanel"
-            aria-labelledby="cap2-wall-tab-2"
-            data-panel="2"
-            hidden
-          >
-            <p>
-              Os precursores são transportados para a face externa da membrana citoplasmática por meio de um carreador lipídico denominado bactoprenol.
-            </p>
-          </article>
-
-          <article
-            class="cap2-wall-panel"
-            id="cap2-wall-panel-3"
-            role="tabpanel"
-            aria-labelledby="cap2-wall-tab-3"
-            data-panel="3"
-            hidden
-          >
-            <p>
-              As novas subunidades são adicionadas à rede de peptidoglicano por reações de transglicosilação, ampliando a estrutura da parede celular.
-            </p>
-          </article>
-
-          <article
-            class="cap2-wall-panel"
-            id="cap2-wall-panel-4"
-            role="tabpanel"
-            aria-labelledby="cap2-wall-tab-4"
-            data-panel="4"
-            hidden
-          >
-            <p>
-              As PBPs catalisam a reação de transpeptidação, formando pontes entre cadeias peptídicas adjacentes. Essas ligações cruzadas conferem resistência mecânica à parede celular.
-            </p>
-          </article>
-
-          <article
-            class="cap2-wall-panel"
-            id="cap2-wall-panel-5"
-            role="tabpanel"
-            aria-labelledby="cap2-wall-tab-5"
-            data-panel="5"
-            hidden
-          >
-            <p>
-              Esse processo envolve diversas enzimas, entre elas as proteínas ligadoras de penicilina (PBPs), responsáveis pelas etapas finais de ligação cruzada do peptidoglicano <sup>2</sup>.
-            </p>
-            <p>
-              <strong>β-lactâmicos:</strong> Ligam-se às PBPs e impedem a reação de transpeptidação. Embora a síntese de novas subunidades continue, a parede celular formada torna-se estruturalmente instável.
-            </p>
-          </article>
-
-          <article
-            class="cap2-wall-panel"
-            id="cap2-wall-panel-6"
-            role="tabpanel"
-            aria-labelledby="cap2-wall-tab-6"
-            data-panel="6"
-            hidden
-          >
-            <p>
-              <strong>Glicopeptídeos:</strong> ligam-se à extremidade D-Ala-D-Ala dos precursores do peptidoglicano, bloqueando estereoquimicamente etapas de incorporação e ligação cruzada da parede celular.
-            </p>
-            <p>
-              A perda progressiva da integridade do peptidoglicano compromete a capacidade da bactéria de resistir à pressão osmótica interna, podendo resultar em lise celular, especialmente durante fases de crescimento ativo <sup>4</sup>.
-            </p>
-          </article>
+          <div id="cap2P13Body" class="cap2-p13-panel__body">
+            <p>1) Formação dos precursores no citoplasma: unidades de NAG e NAM são sintetizadas e associadas a pequenas cadeias peptídicas, formando precursores solúveis.</p>
+            <p>2) Transporte através da membrana citoplasmática: Os precursores são transportados para a face externa da membrana citoplasmática por meio de um carreador lipídico denominado bactoprenol.</p>
+            <p>3) Incorporação à parede existente: As novas subunidades são adicionadas à rede de peptidoglicano por reações de transglicosilação, ampliando a estrutura da parede celular.</p>
+            <p>4) Formação das ligações cruzadas: As PBPs catalisam a reação de transpeptidação, formando pontes entre cadeias peptídicas adjacentes. Essas ligações cruzadas conferem resistência mecânica à parede celular.</p>
+          </div>
         </div>
+
       </div>
+    </section>
+
+    <section class="prose" aria-label="Fechamento do texto">
+      <p>
+        A perda progressiva da integridade do peptidoglicano compromete a capacidade da bactéria de resistir à pressão osmótica interna, podendo resultar em lise celular, especialmente durante fases de crescimento ativo <sup>4</sup>.
+      </p>
     </section>
 
     <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p12.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 2 · Página 13</div>
-      <button class="btn" type="button" data-next="p14.html" aria-label="Ir para a próxima página">Próxima →</button>
+      <button class="btn primary" type="button" data-next="p14.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
+
   </main>
 
-  <div class="cap2-lightbox" id="cap2WallLightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap2-lightbox__backdrop" data-wall-lightbox-close></div>
+  <div class="cap2-lightbox" id="cap2Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <div class="cap2-lightbox__backdrop" data-lightbox-close></div>
 
     <div class="cap2-lightbox__dialog">
-      <button class="cap2-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-wall-lightbox-close>✕</button>
+      <button class="cap2-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
 
       <figure class="cap2-lightbox__figure">
-        <img id="cap2WallLightboxImage" src="" alt="" />
-        <figcaption id="cap2WallLightboxCaption" class="cap2-lightbox__caption"></figcaption>
+        <img id="cap2LightboxImage" src="" alt="" />
+        <figcaption id="cap2LightboxCaption" class="cap2-lightbox__caption"></figcaption>
       </figure>
     </div>
   </div>
 
   <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-01.js"></script>
   <script src="../../js/capitulo-02.js"></script>
 </body>
 </html>

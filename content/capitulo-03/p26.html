@@ -5,301 +5,107 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Capítulo 3 — Página 26</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
   <link rel="stylesheet" href="../../css/capitulo-03.css" />
-
-  <style>
-    /* Página 26 — estilos locais */
-
-    .c03-stage{
-      margin:24px 0;
-      padding:16px;
-      border:1px solid var(--line);
-      border-radius:16px;
-      background:#fff;
-    }
-
-    .c03-grid{
-      display:grid;
-      gap:18px;
-    }
-
-    @media (min-width: 900px){
-      .c03-grid{
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .c03-card{
-      border:1px solid rgba(0,0,0,.10);
-      border-radius:16px;
-      padding:14px;
-      background:#fff;
-      transition:opacity .3s ease;
-    }
-
-    .c03-card h3{
-      margin-top:0;
-      font-size:16px;
-    }
-
-    .c03-controls{
-      margin-top:14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
-
-    .c03-btn{
-      padding:10px 16px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:#f3f4f6;
-      cursor:pointer;
-      font-weight:600;
-      transition:.2s ease;
-      min-width:200px;
-      text-align:center;
-    }
-
-    .c03-btn:hover{ background:#e5e7eb; }
-
-    .c03-btn.blue{
-      background: rgba(30,136,229,.10);
-      border-color: rgba(30,136,229,.35);
-    }
-
-    .c03-btn.orange{
-      background: rgba(251,140,0,.10);
-      border-color: rgba(251,140,0,.35);
-    }
-
-    .c03-diagram{
-      margin-top:14px;
-      border:1px solid rgba(0,0,0,.10);
-      border-radius:14px;
-      background:#fff;
-      overflow:hidden;
-    }
-
-    .c03-diagram svg{
-      width:100%;
-      height:auto;
-      display:block;
-    }
-
-    .node{
-      fill:#F3F4F6;
-      stroke:#9CA3AF;
-      stroke-width:1.5;
-      transition:opacity .3s ease;
-    }
-
-    .node.cross{
-      fill: rgba(30,136,229,.10);
-      stroke: rgba(30,136,229,.45);
-    }
-
-    .node.multi{
-      fill: rgba(251,140,0,.12);
-      stroke: rgba(251,140,0,.55);
-    }
-
-    .arrow{
-      stroke:#6B7280;
-      stroke-width:2;
-      marker-end:url(#arrowHead);
-      fill:none;
-    }
-
-    .title{
-      font-size:13px;
-      fill:#111827;
-      font-weight:700;
-    }
-
-    .label{
-      font-size:12px;
-      fill:#374151;
-      pointer-events:none;
-    }
-
-    .dim{ opacity:.15; }
-
-    .legend{
-      margin-top:14px;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(0,0,0,.10);
-      background:rgba(255,255,255,.75);
-      font-size:14px;
-      line-height:1.6;
-      color:#374151;
-    }
-
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-weight:700;
-      margin-right:12px;
-      margin-bottom:6px;
-    }
-
-    .dot{ width:10px;height:10px;border-radius:999px;display:inline-block; }
-    .dot.blue{ background:#1E88E5; }
-    .dot.orange{ background:#FB8C00; }
-
-  </style>
 </head>
 
-<body>
-<main class="container">
+<body class="cap3-page26">
+
+<main class="page-shell cap3-shell">
 
 <header class="page-header">
-  <div>
-    <div class="chapter">Capítulo 3 — Mecanismos de Resistência Bacteriana</div>
-    <h1>Resistência cruzada e multirresistência</h1>
-  </div>
+  <div class="chapter">Capítulo 3 — Mecanismos de Resistência Bacteriana</div>
+  <h1 class="page-title">Redução de permeabilidade e bombas de efluxo</h1>
 </header>
 
-<section class="prose">
-  <p>
-    A resistência cruzada ocorre quando um único mecanismo adaptativo reduz a suscetibilidade a dois ou mais antibacterianos, geralmente pertencentes à mesma classe ou que compartilham alvo molecular semelhante <sup class="ref">12,26</sup>.
-  </p>
-</section>
+<section class="prose cap3-reading-flow">
 
-<section class="c03-stage">
+<p>
+A eficácia de um antibacteriano depende não apenas da integridade de seu alvo molecular, mas também da capacidade do fármaco de alcançar concentração intracelular suficiente para exercer efeito biológico. Alterações que reduzem a entrada do antibacteriano na célula bacteriana ou aumentam sua eliminação ativa constituem mecanismos importantes de resistência.
+</p>
 
-  <div class="c03-grid">
+<p>
+Nas bactérias Gram-negativas, a membrana externa representa uma barreira estrutural adicional. A entrada de muitas moléculas antibacterianas ocorre por meio de porinas, proteínas que formam canais hidrofílicos através dos quais pequenas moléculas podem atravessar a membrana.
+</p>
 
-    <div class="c03-card" id="cardCross">
-      <h3>Resistência cruzada</h3>
-      <p>
-        Um único mecanismo explica o padrão observado entre fármacos relacionados. Alterações na subunidade 50S podem reduzir simultaneamente a afinidade de macrolídeos, lincosamidas e estreptograminas. De modo semelhante, mutações na DNA girase podem comprometer a atividade de diferentes fluoroquinolonas <sup class="ref">12,26</sup>.
-      </p>
-      <p>
-        Do ponto de vista clínico, compreender resistência cruzada evita substituições ineficazes dentro da mesma classe farmacológica.
-      </p>
-    </div>
+<!-- INTERAÇÃO PRINCIPAL -->
+<figure class="cap3-p26-figure">
 
-    <div class="c03-card" id="cardMulti">
-      <h3>Multirresistência</h3>
-      <p>
-        Refere-se à presença simultânea de resistência a múltiplas classes distintas de antibacterianos. Geralmente resulta da coexistência de diferentes mecanismos adaptativos, como produção de β-lactamase associada à redução de permeabilidade ou ativação de bombas de efluxo.
-      </p>
-      <p>
-        Elementos genéticos móveis podem carregar múltiplos genes de resistência, produzindo impacto amplo no perfil de suscetibilidade <sup class="ref">2</sup>.
-      </p>
-    </div>
+  <button class="cap3-p26-toggle" type="button">
 
-  </div>
+    <img
+      id="cap3P26ImgA"
+      src="../../assets/capitulo-03/imagens/porinas-suscetivel.png"
+      alt="Estado suscetível com entrada de antibacteriano"
+    />
 
-  <div class="c03-controls">
-    <button class="c03-btn blue" onclick="destacar('cross')">Destacar resistência cruzada</button>
-    <button class="c03-btn orange" onclick="destacar('multi')">Destacar multirresistência</button>
-    <button class="c03-btn" onclick="resetar()">Mostrar ambas</button>
-  </div>
+    <img
+      id="cap3P26ImgB"
+      src="../../assets/capitulo-03/imagens/porinas-resistente.png"
+      alt="Estado resistente com redução de entrada"
+    />
 
-  <div class="c03-diagram">
-    <svg viewBox="0 0 760 360" role="img" aria-label="Comparação entre resistência cruzada e multirresistência">
+  </button>
 
-      <defs>
-        <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-          <path d="M0,0 L10,3 L0,6 Z" fill="#6B7280"></path>
-        </marker>
-      </defs>
+  <figcaption class="cap3-p26-caption">
+    <strong>Redução de permeabilidade:</strong> alterações quantitativas ou estruturais nas porinas reduzem a entrada de antibacterianos, limitando sua concentração intracelular.
+  </figcaption>
 
-      <text x="20" y="28" class="title">
-        Padrão de resistência no antibiograma
-      </text>
+</figure>
 
-      <!-- Resistência cruzada -->
-      <rect x="80" y="90" width="240" height="60" rx="14" class="node cross" id="n1"></rect>
-      <text x="100" y="125" class="label">Macrolídeo A</text>
+<p>
+Modificações quantitativas, como redução da expressão de porinas, ou alterações estruturais nesses canais podem diminuir a permeabilidade da membrana. Como consequência, uma quantidade menor de antibacteriano alcança o espaço periplasmático ou o citoplasma bacteriano. Mesmo quando o fármaco permanece ativo e o alvo molecular está preservado, a concentração intracelular pode tornar-se insuficiente para produzir efeito terapêutico <sup>1,9</sup>.
+</p>
 
-      <rect x="80" y="170" width="240" height="60" rx="14" class="node cross" id="n2"></rect>
-      <text x="100" y="205" class="label">Macrolídeo B</text>
+<p>
+Outro mecanismo importante envolve as bombas de efluxo. Essas proteínas transmembrana utilizam energia celular para expulsar substâncias potencialmente tóxicas do interior da bactéria, incluindo antibacterianos <sup>9</sup>.
+</p>
 
-      <rect x="80" y="250" width="240" height="60" rx="14" class="node cross" id="n3"></rect>
-      <text x="100" y="285" class="label">Macrolídeo C</text>
+<p>
+O aumento da expressão ou da eficiência dessas bombas reduz o tempo de permanência do fármaco no interior celular, diminuindo sua concentração intracelular e, consequentemente, sua atividade antibacteriana.
+</p>
 
-      <text x="80" y="70" class="label">Mesmo alvo → mesmo mecanismo</text>
+<p>
+Diferentemente da inativação enzimática ou da alteração do alvo molecular, os mecanismos relacionados à concentração intracelular não modificam a estrutura do antibacteriano nem do seu alvo biológico. Em vez disso, interferem na quantidade de fármaco disponível no local de ação.
+</p>
 
-      <!-- Multirresistência -->
-      <rect x="440" y="90" width="240" height="60" rx="14" class="node multi" id="m1"></rect>
-      <text x="460" y="125" class="label">β-lactâmico</text>
+<p>
+Por essa razão, alterações de permeabilidade e aumento do efluxo costumam estar associadas a elevações graduais da concentração inibitória mínima (MIC) observadas em testes laboratoriais.
+</p>
 
-      <rect x="440" y="170" width="240" height="60" rx="14" class="node multi" id="m2"></rect>
-      <text x="460" y="205" class="label">Fluoroquinolona</text>
+<p>
+Esses mecanismos raramente atuam de forma isolada. A associação entre produção de β-lactamases e redução da expressão de porinas, por exemplo, pode aumentar substancialmente o grau de resistência observado em determinadas bactérias Gram-negativas.
+</p>
 
-      <rect x="440" y="250" width="240" height="60" rx="14" class="node multi" id="m3"></rect>
-      <text x="460" y="285" class="label">Aminoglicosídeo</text>
+<p>
+Além disso, algumas bombas de efluxo apresentam baixa especificidade, sendo capazes de expulsar diferentes classes de antibacterianos. Essa característica contribui para o desenvolvimento de perfis de multirresistência, nos quais um único mecanismo influencia simultaneamente vários grupos farmacológicos.
+</p>
 
-      <text x="440" y="70" class="label">Múltiplos alvos → múltiplos mecanismos</text>
+<p>
+Compreender esses processos é importante na interpretação de resultados laboratoriais nos quais se observa aumento progressivo da MIC sem evidência clara de enzimas inativadoras ou modificação do alvo molecular.
+</p>
 
-    </svg>
-  </div>
+<p>
+Na prática clínica, esse padrão pode ser observado quando um isolado bacteriano apresenta resistência moderada a diferentes classes de antibacterianos sem identificação de β-lactamases específicas. Nesses casos, investigações adicionais podem demonstrar superexpressão de bombas de efluxo associada à redução da expressão de porinas, resultando em diminuição da concentração intracelular de múltiplos fármacos.
+</p>
 
-  <div class="legend">
-    <div class="chip"><span class="dot blue"></span>Resistência cruzada</div>
-    <div class="chip"><span class="dot orange"></span>Multirresistência</div>
-
-    <div style="margin-top:10px;">
-      Na resistência cruzada, um único mecanismo explica o padrão dentro de uma classe.  
-      Na multirresistência, diferentes mecanismos ampliam o espectro de resistência para classes distintas.
-    </div>
-  </div>
-
-</section>
-
-<section class="prose">
-  <p>
-    É fundamental distinguir os dois conceitos. Na resistência cruzada, um único mecanismo explica o padrão observado entre fármacos relacionados. Na multirresistência, diferentes mecanismos atuam simultaneamente, ampliando o espectro de resistência para classes farmacológicas distintas <sup class="ref">26</sup>.
-  </p>
-
-  <p>
-    Ao analisar um antibiograma, reconhecer padrões de resistência agrupados auxilia na identificação provável do mecanismo subjacente e orienta decisões terapêuticas mais racionais <sup class="ref">23,26</sup>.
-  </p>
 </section>
 
 <nav class="pager">
   <button class="btn" data-prev="p25.html">← Anterior</button>
-  <button class="btn" data-next="p27.html">Próxima →</button>
+  <div class="center">Capítulo 3 · Página 26</div>
+  <button class="btn primary" data-next="p27.html">Próxima →</button>
 </nav>
 
 </main>
 
-<script>
-  function destacar(tipo){
-    resetar();
-
-    if(tipo === 'cross'){
-      document.getElementById('cardMulti').classList.add('dim');
-      document.getElementById('m1').classList.add('dim');
-      document.getElementById('m2').classList.add('dim');
-      document.getElementById('m3').classList.add('dim');
-    }
-
-    if(tipo === 'multi'){
-      document.getElementById('cardCross').classList.add('dim');
-      document.getElementById('n1').classList.add('dim');
-      document.getElementById('n2').classList.add('dim');
-      document.getElementById('n3').classList.add('dim');
-    }
-  }
-
-  function resetar(){
-    document.getElementById('cardCross').classList.remove('dim');
-    document.getElementById('cardMulti').classList.remove('dim');
-
-    ['n1','n2','n3','m1','m2','m3'].forEach(id=>{
-      document.getElementById(id).classList.remove('dim');
-    });
-  }
-</script>
+<script src="../../js/app.js"></script>
+<script src="../../js/capitulo-03.js"></script>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 /* js/sw.js - PWA (cache estático + atualização limpa) */
 
-const VERSION = "v1.1.1";              // << aumente quando mudar CSS/JS
+const VERSION = "v1.1.2";             // << aumente quando mudar CSS/JS
 const CACHE_STATIC = `static-${VERSION}`;
 
 const STATIC_ASSETS = [

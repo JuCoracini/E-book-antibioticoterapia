@@ -16,30 +16,6 @@
 
 <body class="cap5-page39">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
   <main class="container page-shell">
 
     <header class="page-header">
@@ -49,31 +25,15 @@
       </div>
     </header>
 
-    <section class="prose cap5-p39-prose" aria-label="Texto principal">
+    <section class="prose">
 
       <p>
         O resultado microbiológico não corresponde a uma prescrição terapêutica. Ele representa a síntese de um processo técnico padronizado que envolve coleta adequada da amostra, processamento laboratorial, identificação do microrganismo e avaliação da suscetibilidade aos antibacterianos <sup>1</sup>.
       </p>
 
-      <figure class="cap5-p39-figure">
-        <button
-          class="cap5-p39-zoomTrigger"
-          type="button"
-          data-zoom-image="../../assets/capitulo-05/imagens/laudo-nao-e-prescricao.png"
-          data-zoom-alt="Imagem conceitual mostrando que o laudo microbiológico não corresponde diretamente à prescrição terapêutica."
-          data-zoom-caption="O laudo microbiológico representa a síntese de um processo técnico padronizado e não uma decisão terapêutica direta."
-          aria-label="Ampliar imagem conceitual sobre laudo microbiológico e prescrição terapêutica"
-        >
-          <img
-            src="../../assets/capitulo-05/imagens/laudo-nao-e-prescricao.png"
-            alt="Imagem conceitual mostrando que o laudo microbiológico não corresponde diretamente à prescrição terapêutica."
-            loading="lazy"
-          />
-        </button>
-        <figcaption class="cap5-p39-caption">
-          O resultado microbiológico não corresponde diretamente a uma prescrição terapêutica.
-        </figcaption>
-      </figure>
+      <p class="cap5-lead">
+        A interpretação do laudo microbiológico exige reconhecer a diferença entre o dado laboratorial e a decisão clínica.
+      </p>
 
       <p>
         Cada uma dessas etapas segue protocolos metodológicos definidos por normas técnicas que buscam garantir reprodutibilidade e comparabilidade dos resultados entre diferentes laboratórios. O dado liberado no laudo expressa, portanto, o comportamento do microrganismo frente a determinados antibacterianos em condições laboratoriais controladas <sup>1</sup>.
@@ -83,41 +43,45 @@
         Essas condições incluem padronização do inóculo bacteriano, composição do meio de cultura, temperatura de incubação, tempo de crescimento e critérios interpretativos estabelecidos por comitês técnicos. O objetivo é reduzir variáveis experimentais e permitir que os resultados obtidos sejam interpretados de forma consistente <sup>1</sup>.
       </p>
 
-      <div class="cap5-p39-flow" aria-label="Etapas do processo laboratorial">
-        <span>Coleta adequada</span>
-        <span class="cap5-p39-flow__arrow" aria-hidden="true">→</span>
-        <span>Processamento laboratorial</span>
-        <span class="cap5-p39-flow__arrow" aria-hidden="true">→</span>
-        <span>Identificação do microrganismo</span>
-        <span class="cap5-p39-flow__arrow" aria-hidden="true">→</span>
-        <span>Avaliação da suscetibilidade</span>
-      </div>
+      <!-- BLOCO HORIZONTAL ELEGANTE (SEM CAIXA) -->
+      <section class="cap5-horizontal">
 
-      <p>
-        O laudo microbiológico normalmente integra três níveis principais de informação.
-      </p>
+        <div class="cap5-horizontal__intro">
+          O laudo microbiológico normalmente integra três níveis principais de informação.
+        </div>
 
-      <section class="cap5-p39-levels" aria-label="Três níveis principais de informação do laudo microbiológico">
-        <article class="cap5-p39-level">
-          <h2>1. Informação morfológica inicial</h2>
-          <p>
-            Frequentemente obtida por bacterioscopia e coloração de Gram, fornece dados preliminares sobre a estrutura bacteriana, como morfologia e arranjo celular.
-          </p>
-        </article>
+        <div class="cap5-horizontal__flow">
 
-        <article class="cap5-p39-level">
-          <h2>2. Identificação do microrganismo</h2>
-          <p>
-            Define a espécie ou grupo bacteriano isolado a partir de métodos fenotípicos, automatizados ou baseados em espectrometria de massa.
-          </p>
-        </article>
+          <article>
+            <span class="n">1</span>
+            <h3>Informação morfológica inicial</h3>
+            <p>
+              Frequentemente obtida por bacterioscopia e coloração de Gram, fornece dados preliminares sobre a estrutura bacteriana, como morfologia e arranjo celular.
+            </p>
+          </article>
 
-        <article class="cap5-p39-level">
-          <h2>3. Perfil de suscetibilidade antimicrobiana</h2>
-          <p>
-            Resulta dos testes de sensibilidade, nos quais a bactéria é exposta a concentrações conhecidas de antibacterianos em ambiente laboratorial padronizado. O resultado é expresso por categorias interpretativas ou, em alguns casos, por valores quantitativos de concentração inibitória mínima.
-          </p>
-        </article>
+          <div class="arrow">→</div>
+
+          <article>
+            <span class="n">2</span>
+            <h3>Identificação do microrganismo</h3>
+            <p>
+              Define a espécie ou grupo bacteriano isolado a partir de métodos fenotípicos, automatizados ou baseados em espectrometria de massa.
+            </p>
+          </article>
+
+          <div class="arrow">→</div>
+
+          <article>
+            <span class="n">3</span>
+            <h3>Perfil de suscetibilidade antimicrobiana</h3>
+            <p>
+              Resulta dos testes de sensibilidade, nos quais a bactéria é exposta a concentrações conhecidas de antibacterianos em ambiente laboratorial padronizado.
+            </p>
+          </article>
+
+        </div>
+
       </section>
 
       <p>
@@ -125,37 +89,25 @@
       </p>
 
       <p>
-        A confiabilidade do resultado depende do cumprimento rigoroso dos procedimentos técnicos e dos controles de qualidade aplicados ao processo laboratorial. Ainda assim, o resultado representa uma estimativa microbiológica obtida in vitro. Elementos clínicos relevantes, como perfusão tecidual, presença de biofilme, estado imunológico do paciente e características farmacocinéticas da droga, não fazem parte das condições do teste <sup>2</sup>.
+        A confiabilidade do resultado depende do cumprimento rigoroso dos procedimentos técnicos e dos controles de qualidade aplicados ao processo laboratorial. Ainda assim, o resultado representa uma estimativa microbiológica obtida <em>in vitro</em>. Elementos clínicos relevantes, como perfusão tecidual, presença de biofilme, estado imunológico do paciente e características farmacocinéticas da droga, não fazem parte das condições do teste <sup>2</sup>.
       </p>
 
-      <p>
+      <p class="cap5-closing">
         Por essa razão, o laudo microbiológico deve ser interpretado como uma ferramenta técnica que informa o comportamento do microrganismo no ambiente experimental. A decisão terapêutica depende da integração desse dado com o contexto clínico em que a infecção ocorre.
       </p>
 
     </section>
 
-    <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p38.html" aria-label="Ir para a página anterior">← Anterior</button>
+    <nav class="pager">
+      <button class="btn" data-prev="../capitulo-01/p10.html">← Anterior</button>
       <div class="center">Capítulo 5 · Página 39</div>
-      <button class="btn" type="button" data-next="p40.html" aria-label="Ir para a próxima página">Próxima →</button>
+      <button class="btn" data-next="p40.html">Próxima →</button>
     </nav>
 
   </main>
 
-  <div class="cap5-lightbox" id="cap5Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap5-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap5-lightbox__dialog">
-      <button class="cap5-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap5-lightbox__figure">
-        <img id="cap5LightboxImage" src="" alt="" />
-        <figcaption id="cap5LightboxCaption" class="cap5-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
-
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-05.js"></script>
+
 </body>
 </html>

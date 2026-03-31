@@ -1,4 +1,9 @@
 /* =========================
+   Capítulo 04 — Página 30
+   Exposição antimicrobiana e seleção de resistência
+   ========================= */
+
+/* =========================
    Página 30 — Figura com zoom
    ========================= */
 (function initCap4Page30Zoom() {
@@ -13,7 +18,7 @@
   if (!lightbox || !lightboxImage || !lightboxCaption) return;
 
   function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
+    lightboxImage.src = src || "";
     lightboxImage.alt = alt || "";
     lightboxCaption.textContent = caption || "";
     lightbox.hidden = false;
@@ -52,7 +57,7 @@
 })();
 
 /* =========================
-   Página 30 — Interação aplicada
+   Página 30 — Leitura comparativa
    ========================= */
 (function initCap4Page30Scenario() {
   const root = document.querySelector("[data-cap4-p30]");
@@ -61,35 +66,40 @@
   const tabs = Array.from(root.querySelectorAll("[data-p30-tab]"));
   const title = root.querySelector("[data-p30-title]");
   const text = root.querySelector("[data-p30-text]");
+  const consequence = root.querySelector("[data-p30-consequence]");
   const susBar = root.querySelector('[data-bar="susceptible"]');
   const lessBar = root.querySelector('[data-bar="less"]');
-  const susValue = root.querySelector('[data-bar-value="susceptible"]');
-  const lessValue = root.querySelector('[data-bar-value="less"]');
-  const panel = root.querySelector(".cap4-p30-panel");
 
-  if (!tabs.length || !title || !text || !susBar || !lessBar || !susValue || !lessValue || !panel) return;
+  if (
+    !tabs.length ||
+    !title ||
+    !text ||
+    !consequence ||
+    !susBar ||
+    !lessBar
+  ) return;
 
   const scenarios = {
     low: {
-      title: "Exposição abaixo da MIC",
-      text: "Quando a concentração efetiva não ultrapassa de forma adequada o limiar necessário para inibição, a população bacteriana tende a persistir globalmente. Nesse contexto, o ambiente seletivo é insuficiente para controle consistente da infecção e não há supressão eficaz das subpopulações presentes.",
-      susceptible: 78,
-      less: 22,
-      tone: "rgba(95,126,160,.10)"
+      title: "Exposição insuficiente",
+      text: "A concentração não ultrapassa de forma consistente o limiar necessário para inibição bacteriana, permitindo a manutenção global da população microbiana.",
+      consequence: "Predomina persistência da infecção, com baixa resposta terapêutica e manutenção da carga bacteriana.",
+      susceptibleWidth: "78%",
+      lessWidth: "22%"
     },
     mid: {
-      title: "Permanência na janela de seleção",
-      text: "Quando a exposição permanece por tempo relevante na faixa intermediária, bactérias mais suscetíveis tendem a ser suprimidas antes que a população seja completamente erradicada. Nesse cenário, variantes com menor suscetibilidade relativa permanecem viáveis e passam a representar fração progressivamente maior da população residual.",
-      susceptible: 35,
-      less: 65,
-      tone: "rgba(30,136,229,.10)"
+      title: "Janela de seleção mutante",
+      text: "A exposição elimina preferencialmente as bactérias mais suscetíveis, mas não erradica de modo completo a população bacteriana remanescente.",
+      consequence: "Ocorre expansão relativa de subpopulações com menor suscetibilidade, favorecendo seleção progressiva durante o tratamento.",
+      susceptibleWidth: "35%",
+      lessWidth: "65%"
     },
     high: {
-      title: "Exposição acima da faixa crítica",
-      text: "Quando a exposição alcança níveis consistentemente superiores aos necessários para inibição e morte bacteriana, a probabilidade de eliminação das variantes presentes é maior. Nesse cenário, a população residual tende a ser reduzida de modo mais uniforme, diminuindo a oportunidade de seleção incompleta.",
-      susceptible: 12,
-      less: 18,
-      tone: "rgba(217,106,67,.12)"
+      title: "Exposição eficaz",
+      text: "A concentração permanece consistentemente acima dos níveis necessários para efeito antimicrobiano, reduzindo de forma mais homogênea a população bacteriana.",
+      consequence: "Há maior probabilidade de controle microbiológico, com menor oportunidade de seleção de variantes menos suscetíveis.",
+      susceptibleWidth: "12%",
+      lessWidth: "18%"
     }
   };
 
@@ -106,11 +116,10 @@
 
     title.textContent = data.title;
     text.textContent = data.text;
-    susBar.style.width = `${data.susceptible}%`;
-    lessBar.style.width = `${data.less}%`;
-    susValue.textContent = `${data.susceptible}%`;
-    lessValue.textContent = `${data.less}%`;
-    panel.style.background = data.tone;
+    consequence.textContent = data.consequence;
+
+    susBar.style.width = data.susceptibleWidth;
+    lessBar.style.width = data.lessWidth;
   }
 
   tabs.forEach((tab) => {
@@ -151,6 +160,11 @@
   setScenario("mid");
 })();
 /* =========================
+   Capítulo 04 — Página 31
+   Via de administração
+   ========================= */
+
+/* =========================
    Página 31 — Figura com zoom
    ========================= */
 (function initCap4Page31Zoom() {
@@ -165,7 +179,7 @@
   if (!lightbox || !lightboxImage || !lightboxCaption) return;
 
   function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
+    lightboxImage.src = src || "";
     lightboxImage.alt = alt || "";
     lightboxCaption.textContent = caption || "";
     lightbox.hidden = false;
@@ -202,95 +216,11 @@
     }
   });
 })();
-
 /* =========================
-   Página 31 — Interação leve
+   Capítulo 04 — Página 32
+   Via de administração e determinação da exposição antimicrobiana
    ========================= */
-(function initCap4Page31Scenario() {
-  const root = document.querySelector("[data-cap4-p31]");
-  if (!root) return;
 
-  const tabs = Array.from(root.querySelectorAll("[data-p31-tab]"));
-  const title = root.querySelector("[data-p31-title]");
-  const text = root.querySelector("[data-p31-text]");
-  const fill = root.querySelector("[data-p31-meter-fill]");
-  const value = root.querySelector("[data-p31-meter-value]");
-  const panel = root.querySelector(".cap4-p31-panel");
-
-  if (!tabs.length || !title || !text || !fill || !value || !panel) return;
-
-  const scenarios = {
-    wide: {
-      title: "Alta margem farmacodinâmica",
-      text: "Quando a exposição alcançada permanece com folga em relação à CIM, pequenas variações farmacocinéticas têm menor probabilidade de comprometer o efeito antimicrobiano. Nesse cenário, a margem entre concentração atingida e limiar microbiológico é mais favorável.",
-      width: "82%",
-      value: "Ampla",
-      tone: "rgba(31,60,136,.05)"
-    },
-    narrow: {
-      title: "Margem farmacodinâmica estreita",
-      text: "Quando a concentração atingida se aproxima da CIM, a margem de segurança farmacodinâmica torna-se menor. Em pacientes com variabilidade farmacocinética significativa, reduções discretas de exposição podem ser suficientes para comprometer a probabilidade de atingir o efeito desejado.",
-      width: "36%",
-      value: "Estreita",
-      tone: "rgba(217,106,67,.10)"
-    }
-  };
-
-  function setScenario(key) {
-    const data = scenarios[key];
-    if (!data) return;
-
-    tabs.forEach((tab) => {
-      const active = tab.dataset.p31Tab === key;
-      tab.classList.toggle("is-active", active);
-      tab.setAttribute("aria-selected", active ? "true" : "false");
-      tab.tabIndex = active ? 0 : -1;
-    });
-
-    title.textContent = data.title;
-    text.textContent = data.text;
-    fill.style.width = data.width;
-    value.textContent = data.value;
-    panel.style.background = data.tone;
-  }
-
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      setScenario(tab.dataset.p31Tab);
-    });
-
-    tab.addEventListener("keydown", (e) => {
-      const i = tabs.indexOf(tab);
-
-      if (e.key === "ArrowRight") {
-        e.preventDefault();
-        tabs[(i + 1) % tabs.length].focus();
-      }
-
-      if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        tabs[(i - 1 + tabs.length) % tabs.length].focus();
-      }
-
-      if (e.key === "Home") {
-        e.preventDefault();
-        tabs[0].focus();
-      }
-
-      if (e.key === "End") {
-        e.preventDefault();
-        tabs[tabs.length - 1].focus();
-      }
-
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        setScenario(tab.dataset.p31Tab);
-      }
-    });
-  });
-
-  setScenario("wide");
-})();
 /* =========================
    Página 32 — Zoom da figura
    ========================= */
@@ -306,7 +236,7 @@
   if (!lightbox || !lightboxImage || !lightboxCaption) return;
 
   function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
+    lightboxImage.src = src || "";
     lightboxImage.alt = alt || "";
     lightboxCaption.textContent = caption || "";
     lightbox.hidden = false;
@@ -344,56 +274,87 @@
   });
 })();
 /* =========================
-   Página 33 — Zoom da figura
+   Página 33 — Matriz de decisão clínica
    ========================= */
-(function initCap4Page33Zoom() {
-  const triggers = Array.from(document.querySelectorAll(".cap4-page33 .cap4-zoomTrigger"));
-  if (!triggers.length) return;
+(function initCap4Page33(){
+  const root = document.querySelector("[data-cap4-p33]");
+  if (!root) return;
 
-  const lightbox = document.getElementById("cap4Lightbox");
-  const lightboxImage = document.getElementById("cap4LightboxImage");
-  const lightboxCaption = document.getElementById("cap4LightboxCaption");
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
+  const buttons = Array.from(root.querySelectorAll(".cap4-p33-hotspot"));
+  const title = root.querySelector("[data-title]");
+  const text = root.querySelector("[data-text]");
 
-  if (!lightbox || !lightboxImage || !lightboxCaption) return;
+  if (!buttons.length || !title || !text) return;
 
-  function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+  const scenarios = {
+    vo: {
+      title: "Uso VO seguro / transição",
+      text: "Corresponde a cenários de baixa gravidade, com estabilidade hemodinâmica e absorção gastrointestinal previsível, nos quais a administração por via oral pode alcançar exposição sistêmica adequada."
+    },
+    monitoramento: {
+      title: "Monitoramento clínico rigoroso",
+      text: "Aplica-se a situações em que a absorção permanece preservada, mas o risco de progressão da infecção é maior, exigindo reavaliação clínica próxima da resposta terapêutica."
+    },
+    avaliacao: {
+      title: "Avaliação de biodisponibilidade",
+      text: "Representa condições de menor gravidade, porém com absorção menos previsível. Nesses casos, a decisão depende da capacidade real de atingir concentrações eficazes no organismo."
+    },
+    iv: {
+      title: "Uso obrigatório IV",
+      text: "Em sepse, choque ou alta carga bacteriana, a via intravenosa reduz a variabilidade da exposição, garante início imediato da concentração plasmática e aumenta a probabilidade de controle inicial da infecção."
+    }
+  };
+
+  function setScenario(key){
+    const data = scenarios[key];
+    if (!data) return;
+
+    title.textContent = data.title;
+    text.textContent = data.text;
+
+    buttons.forEach((btn) => {
+      const active = btn.dataset.area === key;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
+    });
   }
 
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      setScenario(btn.dataset.area);
+    });
 
-  triggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
+    btn.addEventListener("keydown", (e) => {
+      const i = buttons.indexOf(btn);
+
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        buttons[(i + 1) % buttons.length].focus();
+      }
+
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        buttons[(i - 1 + buttons.length) % buttons.length].focus();
+      }
+
+      if (e.key === "Home") {
+        e.preventDefault();
+        buttons[0].focus();
+      }
+
+      if (e.key === "End") {
+        e.preventDefault();
+        buttons[buttons.length - 1].focus();
+      }
+
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        setScenario(btn.dataset.area);
+      }
     });
   });
 
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
+  setScenario("vo");
 })();
 /* =========================
    Página 34 — Figura com zoom
@@ -457,6 +418,7 @@
 
   const tabs = Array.from(root.querySelectorAll("[data-p34-tab]"));
   const title = root.querySelector("[data-p34-title]");
+  const subtitle = root.querySelector("[data-p34-subtitle]");
   const text = root.querySelector("[data-p34-text]");
   const panel = root.querySelector(".cap4-p34-panel");
 
@@ -472,30 +434,46 @@
     auc: root.querySelector('[data-p34-meter-value="auc"]')
   };
 
-  if (!tabs.length || !title || !text || !panel || !fills.time || !fills.peak || !fills.auc) return;
+
+ if (
+  !tabs.length ||
+  !title ||
+  !subtitle ||
+  !text ||
+  !panel ||
+  !fills.time ||
+  !fills.peak ||
+  !fills.auc ||
+  !values.time ||
+  !values.peak ||
+  !values.auc
+) return;
 
   const scenarios = {
     time: {
       title: "%fT>MIC",
+      subtitle: "Foco no tempo acima da CIM",
       text: "Neste padrão, o determinante principal da eficácia é o período durante o qual a fração livre do antibacteriano permanece acima da CIM ao longo do intervalo entre doses. O foco está na manutenção da exposição eficaz por tempo suficiente.",
-      widths: { time: "84%", peak: "28%", auc: "46%" },
+      widths: { time: "84%", peak: "24%", auc: "44%" },
       labels: { time: "Alto", peak: "Baixo", auc: "Moderado" },
-      tone: "rgba(56,197,216,.09)"
-    },
+      tone: "rgba(56,197,216,.09)",
+         },
     peak: {
       title: "Cmax/MIC",
+      subtitle: "Foco na magnitude do pico",
       text: "Neste padrão, a magnitude do pico alcançado em relação à CIM correlaciona-se com maior velocidade e intensidade de redução da carga bacteriana. O alvo farmacodinâmico está concentrado na relação entre concentração máxima e limiar microbiológico.",
-      widths: { time: "22%", peak: "84%", auc: "42%" },
+      widths: { time: "20%", peak: "84%", auc: "40%" },
       labels: { time: "Baixo", peak: "Alto", auc: "Moderado" },
-      tone: "rgba(204,76,174,.09)"
-    },
+      tone: "rgba(204,76,174,.09)",
+      },
     auc: {
       title: "AUC/MIC",
+      subtitle: "Foco na exposição total",
       text: "Neste padrão, tanto a intensidade quanto a duração da exposição contribuem para o efeito antimicrobiano. A ênfase recai sobre a exposição total ao longo do tempo, e reduções sustentadas na área sob a curva podem comprometer o índice global.",
-      widths: { time: "44%", peak: "40%", auc: "84%" },
+      widths: { time: "42%", peak: "38%", auc: "84%" },
       labels: { time: "Moderado", peak: "Moderado", auc: "Alto" },
-      tone: "rgba(43,176,118,.09)"
-    }
+      tone: "rgba(43,176,118,.09)",
+       }
   };
 
   function setScenario(key) {
@@ -510,6 +488,7 @@
     });
 
     title.textContent = data.title;
+    subtitle.textContent = data.subtitle;
     text.textContent = data.text;
     panel.style.background = data.tone;
 
@@ -520,7 +499,7 @@
     values.time.textContent = data.labels.time;
     values.peak.textContent = data.labels.peak;
     values.auc.textContent = data.labels.auc;
-  }
+    }
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
@@ -552,120 +531,50 @@
 
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        setScenario(tab.dataset.p34tab);
+        setScenario(tab.dataset.p34Tab);
       }
     });
   });
 
   setScenario("time");
 })();
-/* =========================
-   Página 35 — Zoom das figuras
-   ========================= */
-(function initCap4Page35Zoom() {
-  const triggers = Array.from(document.querySelectorAll(".cap4-page35 .cap4-p35-zoomTrigger"));
-  if (!triggers.length) return;
+/* Página 35 interação */
 
-  const lightbox = document.getElementById("cap4Lightbox");
-  const lightboxImage = document.getElementById("cap4LightboxImage");
-  const lightboxCaption = document.getElementById("cap4LightboxCaption");
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
+(function(){
 
-  if (!lightbox || !lightboxImage || !lightboxCaption) return;
+  const hotspots = document.querySelectorAll(".hotspot");
+  const title = document.getElementById("p35-title");
+  const text = document.getElementById("p35-text");
 
-  function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  triggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
-    });
-  });
-
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
-})();
-
-/* =========================
-   Página 35 — Comparação interativa
-   ========================= */
-(function initCap4Page35Compare() {
-  const root = document.querySelector("[data-cap4-p35]");
-  if (!root) return;
-
-  const cards = Array.from(root.querySelectorAll("[data-p35-card]"));
-  const focusBox = root.querySelector(".cap4-p35-focus__box");
-  const focusTitle = root.querySelector("[data-p35-focus-title]");
-  const focusText = root.querySelector("[data-p35-focus-text]");
-
-  if (!cards.length || !focusBox || !focusTitle || !focusText) return;
+  if(!hotspots.length) return;
 
   const content = {
-    stable: {
-      title: "Perfusão e distribuição preservadas",
-      text: "Neste cenário, a relação entre concentração plasmática e exposição no foco infeccioso é mais previsível, favorecendo o alcance do índice farmacodinâmico necessário para eficácia terapêutica.",
-      tone: "rgba(43,176,118,.09)"
+    plasma: {
+      title: "Plasma",
+      text: "A concentração plasmática representa o ponto inicial da exposição, mas não garante níveis adequados no foco infeccioso."
     },
-    critical: {
-      title: "Perfusão deficiente e exposição heterogênea",
-      text: "Aqui, a concentração plasmática deixa de representar com fidelidade a exposição no sítio da infecção. Expansão do volume de distribuição, perfusão comprometida e microambientes desfavoráveis reduzem a probabilidade de eficácia terapêutica.",
-      tone: "rgba(212,98,68,.10)"
+    intersticio: {
+      title: "Interstício",
+      text: "A perfusão tecidual e o volume de distribuição determinam quanto do fármaco consegue alcançar os tecidos."
+    },
+    celulas: {
+      title: "Compartimento celular",
+      text: "A lipofilicidade do fármaco influencia sua capacidade de atravessar membranas e atingir locais intracelulares."
+    },
+    foco: {
+      title: "Foco infeccioso",
+      text: "Barreiras anatômicas e o microambiente local podem reduzir a concentração efetiva, comprometendo a resposta terapêutica."
     }
   };
 
-  function activate(key) {
-    cards.forEach((card) => {
-      const active = card.dataset.p35Card === key;
-      card.classList.toggle("is-active", active);
-    });
-
-    focusTitle.textContent = content[key].title;
-    focusText.textContent = content[key].text;
-    focusBox.style.background = content[key].tone;
-  }
-
-  cards.forEach((card) => {
-    const key = card.dataset.p35Card;
-
-    card.addEventListener("mouseenter", () => activate(key));
-    card.addEventListener("focus", () => activate(key));
-    card.addEventListener("click", () => activate(key));
-
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        activate(key);
-      }
+  hotspots.forEach(h => {
+    h.addEventListener("click", () => {
+      const key = h.dataset.info;
+      title.textContent = content[key].title;
+      text.textContent = content[key].text;
     });
   });
 
-  activate("stable");
 })();
 /* =========================
    Página 36 — Zoom da figura
@@ -682,7 +591,7 @@
   if (!lightbox || !lightboxImage || !lightboxCaption) return;
 
   function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
+    lightboxImage.src = src || "";
     lightboxImage.alt = alt || "";
     lightboxCaption.textContent = caption || "";
     lightbox.hidden = false;
@@ -723,7 +632,7 @@
 /* =========================
    Página 36 — Hotspots do biofilme
    ========================= */
-(function initCap4Page34Hotspots() {
+(function initCap4Page36Hotspots() {
   const root = document.querySelector("[data-cap4-p36]");
   if (!root) return;
 
@@ -736,29 +645,29 @@
   if (!buttons.length || !title || !text || !aside || tags.length < 2) return;
 
   const content = {
-    matrix: {
-      title: "Matriz extracelular",
-      text: "A matriz que envolve o biofilme funciona como barreira física e química. Ela pode retardar a difusão do antibacteriano, criando gradientes de concentração entre a periferia e as regiões mais profundas da estrutura.",
-      tags: ["Difusão limitada", "Barreira física"],
+    gradient: {
+      title: "Gradiente de concentração",
+      text: "A concentração do antibacteriano é maior na região externa do biofilme e diminui progressivamente à medida que o fármaco tenta penetrar sua estrutura. Assim, alta exposição fora do biofilme não garante a mesma intensidade de exposição nas camadas internas.",
+      tags: ["Difusão desigual", "Exposição decrescente"],
       tone: "rgba(31,60,136,.05)"
     },
+    matrix: {
+      title: "Matriz extracelular",
+      text: "A matriz que envolve o biofilme funciona como barreira física à difusão do antibacteriano. Ela retarda o fluxo do fármaco e contribui para a formação de gradientes de concentração entre a periferia e o interior da estrutura.",
+      tags: ["Barreira física", "Penetração limitada"],
+      tone: "rgba(176,120,43,.10)"
+    },
     surface: {
-      title: "Camadas superficiais",
-      text: "As bactérias mais externas tendem a estar mais expostas ao fármaco e, em geral, mantêm atividade metabólica mais elevada. Por isso, antibacterianos que atuam melhor em células em crescimento podem exercer efeito mais intenso nessa região.",
+      title: "Bactérias superficiais",
+      text: "As bactérias mais externas tendem a receber maior exposição ao antibacteriano e, em geral, mantêm atividade metabólica mais elevada. Por isso, costumam ser mais vulneráveis do que as populações localizadas em regiões profundas.",
       tags: ["Maior exposição", "Metabolismo ativo"],
-      tone: "rgba(43,176,118,.08)"
+      tone: "rgba(43,176,118,.09)"
     },
     deep: {
-      title: "Camadas profundas e persisters",
-      text: "Nas regiões mais profundas do biofilme podem predominar células com metabolismo reduzido e tolerância fenotípica aumentada. Essa condição não depende necessariamente de resistência genética estável, mas reduz a previsibilidade da resposta ao tratamento.",
-      tags: ["Persisters", "Tolerância fenotípica"],
+      title: "Camadas profundas",
+      text: "Nas regiões mais internas do biofilme, a penetração do fármaco é menor e podem predominar bactérias com metabolismo reduzido e maior tolerância fenotípica. Isso diminui a eficácia farmacodinâmica mesmo sem resistência genética estável.",
+      tags: ["Tolerância fenotípica", "Resposta imprevisível"],
       tone: "rgba(212,98,68,.10)"
-    },
-    micro: {
-      title: "Microambiente local",
-      text: "Variações locais de pH, disponibilidade de oxigênio e acúmulo de detritos celulares alteram tanto a atividade do antibacteriano quanto a eficácia da resposta imune. O biofilme, portanto, não é apenas uma barreira estrutural, mas um ecossistema farmacodinâmico próprio.",
-      tags: ["Baixo pH / O₂", "Resposta alterada"],
-      tone: "rgba(176,120,43,.10)"
     }
   };
 
@@ -767,7 +676,9 @@
     if (!data) return;
 
     buttons.forEach((btn) => {
-      btn.classList.toggle("is-active", btn.dataset.p36Key === key);
+      const active = btn.dataset.p36Key === key;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
     });
 
     title.textContent = data.title;
@@ -781,7 +692,30 @@
     const key = btn.dataset.p36Key;
 
     btn.addEventListener("click", () => activate(key));
+
     btn.addEventListener("keydown", (e) => {
+      const i = buttons.indexOf(btn);
+
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        buttons[(i + 1) % buttons.length].focus();
+      }
+
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        buttons[(i - 1 + buttons.length) % buttons.length].focus();
+      }
+
+      if (e.key === "Home") {
+        e.preventDefault();
+        buttons[0].focus();
+      }
+
+      if (e.key === "End") {
+        e.preventDefault();
+        buttons[buttons.length - 1].focus();
+      }
+
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         activate(key);
@@ -789,7 +723,7 @@
     });
   });
 
-  activate("matrix");
+  activate("gradient");
 })();
 /* =========================
    Página 37 — Zoom da figura
@@ -806,7 +740,7 @@
   if (!lightbox || !lightboxImage || !lightboxCaption) return;
 
   function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
+    lightboxImage.src = src || "";
     lightboxImage.alt = alt || "";
     lightboxCaption.textContent = caption || "";
     lightbox.hidden = false;
@@ -843,6 +777,142 @@
     }
   });
 })();
+
+/* =========================
+   Página 37 — Leitura guiada
+   ========================= */
+(function initCap4Page37Scenario() {
+  const root = document.querySelector("[data-cap4-p37]");
+  if (!root) return;
+
+  const tabs = Array.from(root.querySelectorAll("[data-p37-tab]"));
+  const title = root.querySelector("[data-p37-title]");
+  const subtitle = root.querySelector("[data-p37-subtitle]");
+  const text = root.querySelector("[data-p37-text]");
+  const panel = root.querySelector(".cap4-p37-panel");
+  const tags = Array.from(root.querySelectorAll("[data-p37-tag]"));
+
+  const fills = {
+    sens: root.querySelector('[data-p37-bar="sens"]'),
+    pressure: root.querySelector('[data-p37-bar="pressure"]'),
+    residual: root.querySelector('[data-p37-bar="residual"]')
+  };
+
+  const values = {
+    sens: root.querySelector('[data-p37-bar-value="sens"]'),
+    pressure: root.querySelector('[data-p37-bar-value="pressure"]'),
+    residual: root.querySelector('[data-p37-bar-value="residual"]')
+  };
+
+  if (
+    !tabs.length ||
+    !title ||
+    !subtitle ||
+    !text ||
+    !panel ||
+    tags.length < 2 ||
+    !fills.sens ||
+    !fills.pressure ||
+    !fills.residual ||
+    !values.sens ||
+    !values.pressure ||
+    !values.residual
+  ) return;
+
+  const scenarios = {
+    initial: {
+      title: "População inicial heterogênea",
+      subtitle: "Nem todas as bactérias têm o mesmo grau de suscetibilidade",
+      text: "Antes do início do tratamento, a população bacteriana já pode incluir subgrupos com diferentes níveis de suscetibilidade. Isso significa que a exposição antimicrobiana atuará sobre uma população biologicamente heterogênea, e não sobre um conjunto uniforme de células.",
+      tags: ["Variabilidade pré-existente", "Resposta desigual"],
+      widths: { sens: "84%", pressure: "18%", residual: "22%" },
+      labels: { sens: "Alta", pressure: "Baixa", residual: "Baixo" },
+      tone: "rgba(31,60,136,.05)"
+    },
+    selection: {
+      title: "Seleção durante a exposição",
+      subtitle: "As mais sensíveis são eliminadas com maior rapidez",
+      text: "Quando a exposição ao antibacteriano se estabelece, as bactérias mais suscetíveis tendem a ser eliminadas preferencialmente. Se a exposição for insuficiente ou inconsistente, parte das subpopulações menos suscetíveis pode sobreviver sob pressão seletiva.",
+      tags: ["Pressão farmacológica", "Sobrevivência diferencial"],
+      widths: { sens: "38%", pressure: "84%", residual: "52%" },
+      labels: { sens: "Moderada", pressure: "Alta", residual: "Moderado" },
+      tone: "rgba(30,136,229,.08)"
+    },
+    shift: {
+      title: "Deslocamento populacional",
+      subtitle: "A população residual passa a ser relativamente menos suscetível",
+      text: "A repetição desse padrão ao longo do tratamento pode modificar progressivamente a composição da população remanescente. O resultado não é apenas persistência bacteriana, mas enriquecimento relativo de variantes que exigem maior exposição para serem controladas.",
+      tags: ["Predomínio residual", "CIM mais elevada"],
+      widths: { sens: "18%", pressure: "60%", residual: "84%" },
+      labels: { sens: "Baixa", pressure: "Moderada", residual: "Alto" },
+      tone: "rgba(212,106,47,.10)"
+    }
+  };
+
+  function setScenario(key) {
+    const data = scenarios[key];
+    if (!data) return;
+
+    tabs.forEach((tab) => {
+      const active = tab.dataset.p37Tab === key;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
+      tab.tabIndex = active ? 0 : -1;
+    });
+
+    title.textContent = data.title;
+    subtitle.textContent = data.subtitle;
+    text.textContent = data.text;
+    tags[0].textContent = data.tags[0];
+    tags[1].textContent = data.tags[1];
+    panel.style.background = data.tone;
+
+    fills.sens.style.width = data.widths.sens;
+    fills.pressure.style.width = data.widths.pressure;
+    fills.residual.style.width = data.widths.residual;
+
+    values.sens.textContent = data.labels.sens;
+    values.pressure.textContent = data.labels.pressure;
+    values.residual.textContent = data.labels.residual;
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      setScenario(tab.dataset.p37Tab);
+    });
+
+    tab.addEventListener("keydown", (e) => {
+      const i = tabs.indexOf(tab);
+
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        tabs[(i + 1) % tabs.length].focus();
+      }
+
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        tabs[(i - 1 + tabs.length) % tabs.length].focus();
+      }
+
+      if (e.key === "Home") {
+        e.preventDefault();
+        tabs[0].focus();
+      }
+
+      if (e.key === "End") {
+        e.preventDefault();
+        tabs[tabs.length - 1].focus();
+      }
+
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        setScenario(tab.dataset.p37Tab);
+      }
+    });
+  });
+
+  setScenario("initial");
+})();
 /* =========================
    Página 38 — Quiz de revisão
    ========================= */
@@ -851,14 +921,16 @@
   if (!root) return;
 
   const questions = Array.from(root.querySelectorAll(".cap4-p38Question"));
+  const doneBox = root.querySelector(".cap4-p38Done");
+  const progress = root.querySelector(".cap4-p38Progress");
   const prevBtn = root.querySelector('[data-p38-action="prev"]');
   const nextBtn = root.querySelector('[data-p38-action="next"]');
-  const progress = root.querySelector(".cap4-p38Progress");
-  const doneBox = root.querySelector(".cap4-p38Done");
+
+  if (!questions.length || !doneBox || !progress || !prevBtn || !nextBtn) return;
 
   let currentIndex = 0;
 
-  function parseFeedbackMap(questionEl) {
+  function parseJSONTemplate(questionEl) {
     const tpl = questionEl.querySelector(".cap4-p38FeedbackMap");
     if (!tpl) return {};
     try {
@@ -868,153 +940,159 @@
     }
   }
 
-  function updateNav() {
-    questions.forEach((q, i) => {
-      q.classList.toggle("active", i === currentIndex);
-    });
+  function getQuestionState(questionEl) {
+    return {
+      options: Array.from(questionEl.querySelectorAll(".cap4-p38Options button")),
+      confirmBtn: questionEl.querySelector('[data-p38-action="confirm"]'),
+      resetBtn: questionEl.querySelector('[data-p38-action="reset"]'),
+      feedback: questionEl.querySelector(".cap4-p38Feedback"),
+      rationaleTpl: questionEl.querySelector(".cap4-p38Rationale"),
+      feedbackMap: parseJSONTemplate(questionEl),
+      selected: null,
+      confirmed: false
+    };
+  }
 
-    if (progress) {
+  const states = new Map();
+  questions.forEach((q) => states.set(q, getQuestionState(q)));
+
+  function allConfirmed() {
+    return questions.every((q) => states.get(q).confirmed);
+  }
+
+  function updateProgress() {
+    if (currentIndex < questions.length) {
       progress.textContent = `Questão ${currentIndex + 1} de ${questions.length}`;
+    } else {
+      progress.textContent = "Quiz concluído";
     }
-
-    if (prevBtn) prevBtn.disabled = currentIndex === 0;
-    if (nextBtn) nextBtn.disabled = currentIndex === questions.length - 1;
   }
 
-  function handleOptionSelection(questionEl, btn) {
-    const optionButtons = Array.from(questionEl.querySelectorAll(".cap4-p38Options button"));
-    const confirmBtn = questionEl.querySelector('[data-p38-action="confirm"]');
-
-    optionButtons.forEach((option) => {
-      option.classList.remove("is-selected");
-    });
-
-    btn.classList.add("is-selected");
-    questionEl.dataset.selected = btn.dataset.answer || "";
-
-    if (confirmBtn) confirmBtn.disabled = false;
+  function updateNav() {
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex >= questions.length - 1 || !states.get(questions[currentIndex]).confirmed;
   }
 
-  function confirmAnswer(questionEl) {
-    const selected = questionEl.dataset.selected;
-    if (!selected) return;
+  function showDone() {
+    questions.forEach((q) => q.classList.remove("active"));
+    doneBox.hidden = false;
+    currentIndex = questions.length;
+    updateProgress();
+    prevBtn.disabled = false;
+    nextBtn.disabled = true;
+  }
 
-    const optionButtons = Array.from(questionEl.querySelectorAll(".cap4-p38Options button"));
-    const confirmBtn = questionEl.querySelector('[data-p38-action="confirm"]');
-    const resetBtn = questionEl.querySelector('[data-p38-action="reset"]');
-    const feedbackEl = questionEl.querySelector(".cap4-p38Feedback");
-    const feedbackMap = parseFeedbackMap(questionEl);
+  function renderFeedback(questionEl) {
+    const state = states.get(questionEl);
+    if (!state.selected) return;
 
-    optionButtons.forEach((btn) => {
-      btn.disabled = true;
-      btn.classList.remove("is-selected");
-      if (btn.dataset.correct === "true") {
-        btn.classList.add("is-correct");
+    const data = state.feedbackMap[state.selected] || null;
+    const rationaleHTML = state.rationaleTpl ? state.rationaleTpl.innerHTML.trim() : "";
+
+    if (!data) return;
+
+    state.feedback.innerHTML = `
+      <div class="cap4-p38FeedbackCard cap4-p38FeedbackCard--${data.type === "correct" ? "correct" : "error"}">
+        <h3 class="cap4-p38FeedbackTitle">${data.title}</h3>
+        <p class="cap4-p38FeedbackText">${data.text}</p>
+        <div class="cap4-p38RationaleBox">${rationaleHTML}</div>
+      </div>
+    `;
+  }
+
+  function updateQuestionUI(questionEl) {
+    const state = states.get(questionEl);
+
+    state.options.forEach((btn) => {
+      const selected = btn.dataset.answer === state.selected;
+      btn.classList.toggle("is-selected", selected);
+
+      if (state.confirmed) {
+        const isCorrect = btn.dataset.correct === "true";
+        btn.classList.toggle("is-correct", isCorrect);
+        btn.classList.toggle("is-wrong", selected && !isCorrect);
+        btn.disabled = true;
+      } else {
+        btn.classList.remove("is-correct", "is-wrong");
+        btn.disabled = false;
       }
-      if (btn.dataset.answer === selected && btn.dataset.correct !== "true") {
-        btn.classList.add("is-wrong");
-      }
     });
 
-    const feedback = feedbackMap[selected];
-    if (feedback && feedbackEl) {
-      feedbackEl.hidden = false;
-      feedbackEl.classList.remove("is-correct", "is-error");
-      feedbackEl.classList.add(feedback.type === "correct" ? "is-correct" : "is-error");
-      feedbackEl.innerHTML = `
-        <h3 class="cap4-p38FeedbackTitle">${feedback.title}</h3>
-        <p class="cap4-p38FeedbackText">${feedback.text}</p>
-      `;
-    }
-
-    questionEl.dataset.answered = "true";
-    if (confirmBtn) confirmBtn.hidden = true;
-    if (resetBtn) resetBtn.hidden = false;
-
-    const allAnswered = questions.every((q) => q.dataset.answered === "true");
-    if (allAnswered && doneBox) {
-      doneBox.hidden = false;
-    }
+    state.confirmBtn.disabled = !state.selected || state.confirmed;
+    state.resetBtn.hidden = !state.confirmed;
   }
 
-  function resetQuestion(questionEl) {
-    const optionButtons = Array.from(questionEl.querySelectorAll(".cap4-p38Options button"));
-    const confirmBtn = questionEl.querySelector('[data-p38-action="confirm"]');
-    const resetBtn = questionEl.querySelector('[data-p38-action="reset"]');
-    const feedbackEl = questionEl.querySelector(".cap4-p38Feedback");
+  function goTo(index) {
+    if (index < 0 || index >= questions.length) return;
 
-    optionButtons.forEach((btn) => {
-      btn.disabled = false;
-      btn.classList.remove("is-selected", "is-correct", "is-wrong");
-    });
-
-    questionEl.dataset.selected = "";
-    questionEl.dataset.answered = "false";
-
-    if (confirmBtn) {
-      confirmBtn.hidden = false;
-      confirmBtn.disabled = true;
-    }
-
-    if (resetBtn) {
-      resetBtn.hidden = true;
-    }
-
-    if (feedbackEl) {
-      feedbackEl.hidden = true;
-      feedbackEl.classList.remove("is-correct", "is-error");
-      feedbackEl.innerHTML = "";
-    }
-
-    if (doneBox) {
-      doneBox.hidden = true;
-    }
+    doneBox.hidden = true;
+    questions.forEach((q, i) => q.classList.toggle("active", i === index));
+    currentIndex = index;
+    updateProgress();
+    updateNav();
   }
 
   questions.forEach((questionEl) => {
-    questionEl.dataset.selected = "";
-    questionEl.dataset.answered = "false";
+    const state = states.get(questionEl);
 
-    const optionButtons = Array.from(questionEl.querySelectorAll(".cap4-p38Options button"));
-    const confirmBtn = questionEl.querySelector('[data-p38-action="confirm"]');
-    const resetBtn = questionEl.querySelector('[data-p38-action="reset"]');
-    const feedbackEl = questionEl.querySelector(".cap4-p38Feedback");
-
-    if (feedbackEl) feedbackEl.hidden = true;
-
-    optionButtons.forEach((btn) => {
+    state.options.forEach((btn) => {
       btn.addEventListener("click", () => {
-        if (questionEl.dataset.answered === "true") return;
-        handleOptionSelection(questionEl, btn);
+        if (state.confirmed) return;
+        state.selected = btn.dataset.answer;
+        updateQuestionUI(questionEl);
       });
     });
 
-    if (confirmBtn) {
-      confirmBtn.addEventListener("click", () => confirmAnswer(questionEl));
+    state.confirmBtn.addEventListener("click", () => {
+      if (!state.selected || state.confirmed) return;
+      state.confirmed = true;
+      updateQuestionUI(questionEl);
+      renderFeedback(questionEl);
+
+      if (allConfirmed() && currentIndex === questions.length - 1) {
+        nextBtn.textContent = "Concluir";
+      } else {
+        nextBtn.disabled = false;
+      }
+    });
+
+    state.resetBtn.addEventListener("click", () => {
+      state.selected = null;
+      state.confirmed = false;
+      state.feedback.innerHTML = "";
+      updateQuestionUI(questionEl);
+      if (currentIndex === questions.length - 1) {
+        nextBtn.textContent = "Próxima";
+      }
+      updateNav();
+    });
+
+    updateQuestionUI(questionEl);
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex === questions.length) {
+      goTo(questions.length - 1);
+      nextBtn.textContent = allConfirmed() ? "Concluir" : "Próxima";
+      return;
+    }
+    goTo(currentIndex - 1);
+    nextBtn.textContent = currentIndex === questions.length - 1 && allConfirmed() ? "Concluir" : "Próxima";
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (currentIndex === questions.length - 1 && states.get(questions[currentIndex]).confirmed) {
+      showDone();
+      return;
     }
 
-    if (resetBtn) {
-      resetBtn.addEventListener("click", () => resetQuestion(questionEl));
+    if (currentIndex < questions.length - 1) {
+      goTo(currentIndex + 1);
+      nextBtn.textContent = currentIndex === questions.length - 1 && states.get(questions[currentIndex]).confirmed
+        ? "Concluir"
+        : "Próxima";
     }
   });
 
-  if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
-      if (currentIndex > 0) {
-        currentIndex -= 1;
-        updateNav();
-      }
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
-      if (currentIndex < questions.length - 1) {
-        currentIndex += 1;
-        updateNav();
-      }
-    });
-  }
-
-  updateNav();
+  goTo(0);
 })();

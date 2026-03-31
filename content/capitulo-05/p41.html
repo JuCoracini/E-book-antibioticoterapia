@@ -16,30 +16,6 @@
 
 <body class="cap5-page41">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
   <main class="container page-shell">
 
     <header class="page-header">
@@ -52,128 +28,122 @@
     <section class="prose" aria-label="Texto principal">
 
       <p>
-        Entre os métodos de coloração utilizados na rotina laboratorial, a coloração de Gram é a técnica mais empregada. Seu princípio baseia-se na diferença estrutural da parede celular bacteriana, particularmente na espessura da camada de peptidoglicano e na presença ou ausência de membrana externa. Essas diferenças determinam a retenção ou perda do corante durante o processo de descoloração <sup>3</sup>.
+        O procedimento técnico segue uma sequência padronizada. Inicialmente, o material é distribuído em uma lâmina de vidro e fixado, geralmente por calor, para preservar a morfologia bacteriana e promover aderência celular. Em seguida, aplica-se o corante primário (cristal violeta), que penetra nas células bacterianas. A adição do lugol atua como mordente, formando um complexo cristal violeta–iodo no interior da célula.
       </p>
 
-      <figure class="cap5-structure">
-        <button
-          class="cap5-zoomTrigger"
-          type="button"
-          data-zoom-image="../../assets/capitulo-05/imagens/estrutura-parede-gram.png"
-          data-zoom-alt="Comparação estrutural entre bactérias Gram-positivas e Gram-negativas."
-          data-zoom-caption="Comparação estrutural entre bactérias Gram-positivas e Gram-negativas, destacando espessura do peptidoglicano e presença de membrana externa."
-          aria-label="Ampliar comparação estrutural entre Gram-positivas e Gram-negativas"
-        >
-          <img
-            src="../../assets/capitulo-05/imagens/estrutura-parede-gram.png"
-            alt="Comparação estrutural entre bactérias Gram-positivas e Gram-negativas."
-            loading="lazy"
-          />
-        </button>
-        <figcaption class="cap5-structure__caption">
-          A retenção ou perda do corante reflete diretamente a estrutura da parede celular bacteriana.
-        </figcaption>
-      </figure>
-
-      <section class="gram-sim" data-gram-sim aria-labelledby="gram-sim-title">
+      <section class="gram-sim gram-sim--compact" data-gram-sim aria-labelledby="gram-sim-title">
         <div class="gram-sim__header">
-          <div>
-            <p class="gram-sim__eyebrow">Simulação guiada</p>
-            <h2 id="gram-sim-title" class="gram-sim__title">Como a coloração de Gram acontece</h2>
-            <p class="gram-sim__subtitle">
-              Percorra as etapas do método e observe como a estrutura da parede celular interfere na retenção ou perda do corante.
-            </p>
-          </div>
+          <h2 id="gram-sim-title" class="gram-sim__title">Como a coloração de Gram acontece</h2>
+          <p class="gram-sim__subtitle">
+            A sequência do método permite compreender como a estrutura da parede celular bacteriana determina a retenção ou a perda do corante ao final da coloração.
+          </p>
         </div>
 
         <div class="gram-sim__controls" role="tablist" aria-label="Etapas da coloração de Gram">
-          <button class="gram-step is-active" type="button" role="tab" aria-selected="true" data-step="fixacao">
-            1. Fixação
-          </button>
-          <button class="gram-step" type="button" role="tab" aria-selected="false" data-step="cristal">
-            2. Cristal violeta
-          </button>
-          <button class="gram-step" type="button" role="tab" aria-selected="false" data-step="lugol">
-            3. Lugol
-          </button>
-          <button class="gram-step gram-step--critical" type="button" role="tab" aria-selected="false" data-step="alcool">
-            4. Álcool/acetona
-          </button>
-          <button class="gram-step" type="button" role="tab" aria-selected="false" data-step="safranina">
-            5. Safranina
-          </button>
+          <button class="gram-step is-active" type="button" role="tab" aria-selected="true" data-step="fixacao">1. Fixação</button>
+          <button class="gram-step" type="button" role="tab" aria-selected="false" data-step="cristal">2. Cristal violeta</button>
+          <button class="gram-step" type="button" role="tab" aria-selected="false" data-step="lugol">3. Lugol</button>
+          <button class="gram-step gram-step--critical" type="button" role="tab" aria-selected="false" data-step="alcool">4. Álcool/acetona</button>
+          <button class="gram-step" type="button" role="tab" aria-selected="false" data-step="safranina">5. Safranina</button>
         </div>
 
-        <div class="gram-sim__stage">
-          <figure class="gram-stage-card">
-            <div class="gram-stage-card__imageWrap">
+       <div class="gram-sim__stage">
+  <figure class="gram-stage-card">
+    <button
+      id="gram-stage-zoom"
+      class="gram-stage-card__zoom"
+      type="button"
+      aria-label="Ampliar imagem da etapa atual"
+    >
+      <img
+        id="gram-stage-image"
+        class="gram-stage-card__image"
+        src="../../assets/capitulo-05/imagens/fixacao.png"
+        alt="Etapa de fixação na coloração de Gram"
+      />
+    </button>
+  </figure>
+
+  <aside class="gram-stage-panel" aria-live="polite">
+    <span id="gram-stage-pill" class="gram-stage-panel__pill">Etapa preparatória</span>
+    <h3 id="gram-stage-title" class="gram-stage-panel__title">Fixação</h3>
+    <p id="gram-stage-text" class="gram-stage-panel__text">
+      Inicialmente, o material é distribuído em uma lâmina de vidro e fixado, geralmente por calor, para preservar a morfologia bacteriana e promover aderência celular. Nesta etapa inicial, ainda não há diferenciação entre bactérias Gram-positivas e Gram-negativas, mas a amostra fica preparada para receber os reagentes seguintes.
+    </p>
+
+    <div class="gram-stage-panel__nav">
+      <button id="gram-prev" class="btn" type="button">← Etapa anterior</button>
+      <button id="gram-next" class="btn" type="button">Próxima etapa →</button>
+    </div>
+  </aside>
+</div>
+
+        <div class="gram-sim__focus">
+      <div class="gram-sim__focus-box">
+  A etapa crítica do método é a descoloração com álcool ou álcool-acetona.
+</div>
+      </section>
+
+      <section class="cap5-p41-compare" aria-labelledby="cap5-p41-compare-title">
+        <div class="cap5-p41-compare__head">
+        <h2 id="cap5-p41-compare-title" class="cap5-p41-compare__title">Por que Gram-positivas e Gram-negativas se comportam de modo diferente?</h2>
+          <p class="cap5-p41-compare__subtitle">
+            A retenção ou perda do complexo cristal violeta–iodo depende diretamente da organização da parede celular bacteriana.
+          </p>
+        </div>
+
+        <div class="cap5-p41-compare__grid">
+          <figure class="cap5-p41-compare__card">
+            <button
+              class="cap5-zoomTrigger cap5-p41-compare__zoom"
+              type="button"
+              data-zoom-image="../../assets/capitulo-05/imagens/gram-positivo.png"
+              data-zoom-alt="Estrutura de bactéria Gram-positiva."
+              data-zoom-caption="Bactérias Gram-positivas apresentam camada espessa de peptidoglicano e ausência de membrana externa, favorecendo a retenção do complexo cristal violeta–iodo."
+              aria-label="Ampliar estrutura de bactéria Gram-positiva"
+            >
               <img
-                id="gram-stage-image"
-                class="gram-stage-card__image"
-                src="../../assets/capitulo-05/imagens/fixacao.png"
-                alt="Etapa de fixação na coloração de Gram"
+                src="../../assets/capitulo-05/imagens/gram-positivo.png"
+                alt="Estrutura de bactéria Gram-positiva."
+                loading="lazy"
               />
-            </div>
-            <figcaption id="gram-stage-caption" class="gram-stage-card__caption">
-              Fixação por calor: preserva a morfologia bacteriana e promove aderência do material à lâmina, preparando a amostra para as etapas subsequentes.
+            </button>
+            <figcaption>
+              <strong>Gram-positivas</strong><br>
+              Camada espessa de peptidoglicano e ausência de membrana externa.
             </figcaption>
           </figure>
 
-          <aside class="gram-stage-panel" aria-live="polite">
-            <span id="gram-stage-pill" class="gram-stage-panel__pill">Etapa preparatória</span>
-            <h3 id="gram-stage-title" class="gram-stage-panel__title">Fixação</h3>
-            <p id="gram-stage-text" class="gram-stage-panel__text">
-              Nesta etapa inicial, o material é fixado à lâmina. Ainda não há diferenciação entre bactérias Gram-positivas e Gram-negativas, mas a amostra fica preparada para receber os reagentes seguintes.
-            </p>
-
-            <div class="gram-stage-panel__nav">
-              <button id="gram-prev" class="btn" type="button">← Etapa anterior</button>
-              <button id="gram-next" class="btn" type="button">Próxima etapa →</button>
-            </div>
-          </aside>
-        </div>
-
-        <div class="gram-structure" aria-labelledby="gram-structure-title">
-          <div class="gram-structure__head">
-            <h3 id="gram-structure-title">Base estrutural da diferenciação</h3>
-            <p>
-              A etapa crítica é a descoloração. O comportamento distinto decorre da espessura do peptidoglicano e da presença ou ausência de membrana externa.
-            </p>
-          </div>
-
-          <div class="gram-structure__viewer">
-            <div class="gram-structure__toggle" role="tablist" aria-label="Comparar estruturas bacterianas">
-              <button class="gram-structure__btn is-active" type="button" aria-selected="true" data-structure="positivo">
-                Gram-positivas
-              </button>
-              <button class="gram-structure__btn" type="button" aria-selected="false" data-structure="negativo">
-                Gram-negativas
-              </button>
-            </div>
-
-            <div class="gram-structure__content">
-              <figure class="gram-structure__figure">
-                <img
-                  id="gram-structure-image"
-                  src="../../assets/capitulo-05/imagens/gram-positivo.png"
-                  alt="Estrutura de bactéria Gram-positiva"
-                />
-              </figure>
-
-              <div class="gram-structure__text">
-                <h4 id="gram-structure-name">Gram-positivas</h4>
-                <p id="gram-structure-description">
-                  Apresentam camada espessa de peptidoglicano e ausência de membrana externa. Essa organização favorece a retenção do complexo cristal violeta–iodo após a etapa de descoloração.
-                </p>
-              </div>
-            </div>
-          </div>
+          <figure class="cap5-p41-compare__card">
+            <button
+              class="cap5-zoomTrigger cap5-p41-compare__zoom"
+              type="button"
+              data-zoom-image="../../assets/capitulo-05/imagens/gram-negativo.png"
+              data-zoom-alt="Estrutura de bactéria Gram-negativa."
+              data-zoom-caption="Bactérias Gram-negativas apresentam camada delgada de peptidoglicano e membrana externa, facilitando a perda do complexo cristal violeta–iodo durante a descoloração."
+              aria-label="Ampliar estrutura de bactéria Gram-negativa"
+            >
+              <img
+                src="../../assets/capitulo-05/imagens/gram-negativo.png"
+                alt="Estrutura de bactéria Gram-negativa."
+                loading="lazy"
+              />
+            </button>
+            <figcaption>
+              <strong>Gram-negativas</strong><br>
+              Camada delgada de peptidoglicano e presença de membrana externa.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
-      <div class="highlight">
-        A etapa crítica do método é a descoloração. Bactérias com parede celular espessa, rica em peptidoglicano, mantêm o complexo cristal violeta–iodo e permanecem com coloração azul-violácea, sendo classificadas como Gram-positivas. Bactérias com parede mais delgada e membrana externa perdem esse complexo durante a descoloração e passam a ser coradas pelo contra-corante, geralmente safranina, adquirindo coloração rosada, característica das Gram-negativas <sup>3</sup>.
-      </div>
+      <p class="cap5-p41-emphasis">
+        Bactérias com parede celular espessa, rica em peptidoglicano, mantêm o complexo cristal violeta–iodo e permanecem com coloração azul-violácea, sendo classificadas como Gram-positivas. Bactérias com parede mais delgada e membrana externa perdem esse complexo durante a descoloração e passam a ser coradas pelo contra-corante, geralmente safranina, adquirindo coloração rosada, característica das Gram-negativas.
+      </p>
+
+      <p>
+        Apesar de seu valor inicial, a bacterioscopia possui limitações importantes. O exame não permite identificar a espécie bacteriana nem determinar o perfil de suscetibilidade aos antibacterianos. Seu papel é fornecer uma caracterização estrutural precoce do microrganismo presente na amostra, contribuindo para a interpretação do processo diagnóstico microbiológico.
+      </p>
 
     </section>
 

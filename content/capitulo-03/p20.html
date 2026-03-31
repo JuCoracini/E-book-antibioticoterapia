@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -16,31 +16,7 @@
 
 <body class="cap3-page20">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
-  <main class="container page-shell cap3-shell">
+  <main class="page-shell cap3-shell">
 
     <header class="page-header">
       <div>
@@ -63,138 +39,26 @@
         Do ponto de vista biológico, a resistência representa um processo evolutivo previsível. As populações bacterianas apresentam grande tamanho populacional, elevada taxa de replicação e variabilidade genética contínua. Por essa razão, variantes com menor suscetibilidade ao antibacteriano podem existir mesmo antes da exposição ao fármaco. A introdução do antibacteriano não cria uma característica direcionada; ela altera o ambiente e favorece a sobrevivência das variantes que já possuíam alguma vantagem adaptativa nessa condição <sup>3</sup>.
       </p>
 
-      <section class="cap3-p20-interactive" aria-label="Mudança de frequência relativa das subpopulações bacterianas">
-        <div class="cap3-p20-interactive__intro">
-          <div class="cap3-p20-interactive__line"></div>
-          <p class="cap3-p20-interactive__caption">
-            A resistência pode existir em baixa frequência antes da exposição. O antibacteriano modifica o ambiente e favorece a persistência relativa das subpopulações menos suscetíveis.
-          </p>
-        </div>
+      <figure class="cap3-p20-figure">
+        <button
+          class="cap3-zoomTrigger"
+          type="button"
+          data-zoomImage="../../assets/capitulo-03/imagens/selecao-clonal.png"
+          data-zoomAlt="Esquema de seleção clonal sob pressão antibacteriana"
+          data-zoomCaption="A exposição ao antibacteriano atua como pressão seletiva, reduzindo as bactérias sensíveis e permitindo a expansão de uma subpopulação previamente minoritária."
+          aria-label="Ampliar imagem sobre seleção clonal sob pressão antibacteriana"
+        >
+          <img
+            src="../../assets/capitulo-03/imagens/selecao-clonal.png"
+            alt="Esquema de seleção clonal sob pressão antibacteriana"
+            loading="lazy"
+          />
+        </button>
 
-        <div class="cap3-p20-panel" data-p20-panel>
-          <div class="cap3-p20-panel__controls" role="tablist" aria-label="Etapas do processo seletivo">
-            <button
-              class="cap3-p20-tab is-active"
-              type="button"
-              role="tab"
-              id="cap3-p20-tab-0"
-              aria-selected="true"
-              aria-controls="cap3-p20-stage-0"
-              data-p20-step="0"
-            >
-              População inicial
-            </button>
-
-            <button
-              class="cap3-p20-tab"
-              type="button"
-              role="tab"
-              id="cap3-p20-tab-1"
-              aria-selected="false"
-              aria-controls="cap3-p20-stage-1"
-              data-p20-step="1"
-            >
-              Pressão seletiva
-            </button>
-
-            <button
-              class="cap3-p20-tab"
-              type="button"
-              role="tab"
-              id="cap3-p20-tab-2"
-              aria-selected="false"
-              aria-controls="cap3-p20-stage-2"
-              data-p20-step="2"
-            >
-              Seleção
-            </button>
-          </div>
-
-          <div class="cap3-p20-stage is-active" id="cap3-p20-stage-0" role="tabpanel" aria-labelledby="cap3-p20-tab-0">
-            <div class="cap3-p20-figurewrap">
-              <button
-                class="cap3-p20-zoomTrigger"
-                type="button"
-                data-zoom-image="../../assets/capitulo-03/imagens/selecao-inicial.png"
-                data-zoom-alt="Placa representando população inicial com minoria de subpopulações menos suscetíveis."
-                data-zoom-caption="População inicial com minoria de subpopulações menos suscetíveis."
-                aria-label="Ampliar figura da população inicial"
-              >
-                <img
-                  src="../../assets/capitulo-03/imagens/selecao-inicial.png"
-                  alt="Placa representando população inicial com minoria de subpopulações menos suscetíveis."
-                  loading="lazy"
-                />
-                <span class="cap3-p20-figurewrap__hint">Clique para ampliar</span>
-              </button>
-            </div>
-            <p class="cap3-p20-stage__text">
-              Antes da exposição, variantes com menor suscetibilidade ao antibacteriano já podem estar presentes em baixa frequência na população bacteriana.
-            </p>
-          </div>
-
-          <div class="cap3-p20-stage" id="cap3-p20-stage-1" role="tabpanel" aria-labelledby="cap3-p20-tab-1" hidden>
-            <div class="cap3-p20-figurewrap cap3-p20-figurewrap--during">
-              <button
-                class="cap3-p20-zoomTrigger"
-                type="button"
-                data-zoom-image="../../assets/capitulo-03/imagens/selecao-inicial.png"
-                data-zoom-alt="População inicial sob pressão seletiva do antibacteriano."
-                data-zoom-caption="Representação da pressão seletiva exercida pelo antibacteriano sobre a população inicial."
-                aria-label="Ampliar figura da pressão seletiva"
-              >
-                <img
-                  src="../../assets/capitulo-03/imagens/selecao-inicial.png"
-                  alt="População inicial sob pressão seletiva do antibacteriano."
-                  loading="lazy"
-                />
-                <span class="cap3-p20-antibiotic" aria-hidden="true"></span>
-                <span class="cap3-p20-highlight cap3-p20-highlight--one" aria-hidden="true"></span>
-                <span class="cap3-p20-highlight cap3-p20-highlight--two" aria-hidden="true"></span>
-                <span class="cap3-p20-fadezone" aria-hidden="true"></span>
-                <span class="cap3-p20-figurewrap__hint">Clique para ampliar</span>
-              </button>
-            </div>
-            <p class="cap3-p20-stage__text">
-              Quando o antibacteriano é introduzido, ele atua como agente de seleção: a subpopulação mais sensível é reduzida com maior intensidade, enquanto variantes menos suscetíveis persistem.
-            </p>
-          </div>
-
-          <div class="cap3-p20-stage" id="cap3-p20-stage-2" role="tabpanel" aria-labelledby="cap3-p20-tab-2" hidden>
-            <div class="cap3-p20-figurewrap">
-              <button
-                class="cap3-p20-zoomTrigger"
-                type="button"
-                data-zoom-image="../../assets/capitulo-03/imagens/selecao-final.png"
-                data-zoom-alt="Placa representando aumento da frequência relativa das subpopulações menos suscetíveis após seleção."
-                data-zoom-caption="Após seleção, aumenta a frequência relativa das subpopulações menos suscetíveis."
-                aria-label="Ampliar figura após seleção"
-              >
-                <img
-                  src="../../assets/capitulo-03/imagens/selecao-final.png"
-                  alt="Placa representando aumento da frequência relativa das subpopulações menos suscetíveis após seleção."
-                  loading="lazy"
-                />
-                <span class="cap3-p20-figurewrap__hint">Clique para ampliar</span>
-              </button>
-            </div>
-            <p class="cap3-p20-stage__text">
-              Após a pressão seletiva, a frequência relativa das subpopulações menos suscetíveis aumenta, deslocando o equilíbrio populacional.
-            </p>
-          </div>
-
-          <div class="cap3-p20-legend" aria-hidden="true">
-            <span class="cap3-legend-item">
-              <span class="cap3-dot cap3-dot--sensivel"></span>
-              <span>subpopulação mais sensível</span>
-            </span>
-            <span class="cap3-legend-item">
-              <span class="cap3-dot cap3-dot--menos-suscetivel"></span>
-              <span>subpopulação menos suscetível</span>
-            </span>
-          </div>
-        </div>
-      </section>
+        <figcaption class="cap3-p20-figcaption">
+          <strong>Seleção clonal sob pressão antibacteriana:</strong> a imagem sintetiza a lógica central do processo. Antes da exposição, a população bacteriana pode conter variantes menos suscetíveis em baixa frequência. Com a introdução do antibacteriano, as bactérias sensíveis são reduzidas com maior intensidade, enquanto a subpopulação menos suscetível persiste e se expande. O resultado é o deslocamento do equilíbrio populacional em favor das variantes adaptativamente mais vantajosas naquele ambiente.
+        </figcaption>
+      </figure>
 
       <p>
         Quando o antibacteriano é introduzido, as bactérias mais sensíveis tendem a ter seu crescimento inibido ou são eliminadas, enquanto subpopulações menos suscetíveis conseguem persistir e ocupar o nicho ecológico deixado pelas demais. Nesse contexto, o antibacteriano atua como agente de seleção, deslocando o equilíbrio entre subpopulações bacterianas e aumentando a frequência relativa de mecanismos que reduzem sua atividade <sup>3</sup>.
@@ -217,7 +81,7 @@
     <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p19.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 3 · Página 20</div>
-      <button class="btn" type="button" data-next="p21.html" aria-label="Ir para a próxima página">Próxima →</button>
+      <button class="btn primary" type="button" data-next="p21.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
 
   </main>

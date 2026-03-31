@@ -16,31 +16,7 @@
 
 <body class="cap4-page34">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
-  <main class="container page-shell cap4-shell">
+  <main class="page-shell">
 
     <header class="page-header">
       <div>
@@ -93,7 +69,7 @@
         <div class="cap4-p34-stage__inner">
 
           <div class="cap4-p34-controls" role="tablist" aria-label="Seleção do índice farmacodinâmico">
-            <button class="cap4-p34-tab" type="button" role="tab" aria-selected="true" data-p34tab="time">%fT&gt;MIC</button>
+            <button class="cap4-p34-tab is-active" type="button" role="tab" aria-selected="true" data-p34-tab="time">%fT&gt;MIC</button>
             <button class="cap4-p34-tab" type="button" role="tab" aria-selected="false" data-p34-tab="peak">Cmax/MIC</button>
             <button class="cap4-p34-tab" type="button" role="tab" aria-selected="false" data-p34-tab="auc">AUC/MIC</button>
           </div>
@@ -101,12 +77,13 @@
           <div class="cap4-p34-panel">
             <p class="cap4-p34-panel__eyebrow">Leitura aplicada</p>
             <h2 class="cap4-p34-panel__title" data-p34-title>%fT&gt;MIC</h2>
+            <p class="cap4-p34-panel__subtitle" data-p34-subtitle>Foco no tempo acima da CIM</p>
             <p class="cap4-p34-panel__text" data-p34-text>
               Neste padrão, o determinante principal da eficácia é o período durante o qual a fração livre do antibacteriano permanece acima da CIM ao longo do intervalo entre doses. O foco está na manutenção da exposição eficaz por tempo suficiente.
             </p>
           </div>
 
-          <div class="cap4-p34-meter" aria-label="Ênfase relativa do índice selecionado">
+                    <div class="cap4-p34-meter" aria-label="Ênfase relativa do índice selecionado">
             <div class="cap4-p34-meter__row">
               <span class="cap4-p34-meter__label">%fT&gt;MIC</span>
               <div class="cap4-p34-meter__track" aria-hidden="true">
@@ -120,7 +97,7 @@
               <div class="cap4-p34-meter__track" aria-hidden="true">
                 <div class="cap4-p34-meter__fill cap4-p34-meter__fill--peak" data-p34-meter="peak"></div>
               </div>
-              <span class="cap4-p34-meter__value" data-p34-meter-value="peak">Moderado</span>
+              <span class="cap4-p34-meter__value" data-p34-meter-value="peak">Baixo</span>
             </div>
 
             <div class="cap4-p34-meter__row">

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capítulo 10 — Página 87</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-10.css" />
+</head>
+
+<body class="cap10-page87">
+
+  <main class="page-shell">
+
+    <header class="page-header">
+      <div class="chapter">Capítulo 10 — Simulação Clínica Integrada</div>
+      <h1 class="page-title">Simulação 4 — Tempo e ajuste responsável</h1>
+    </header>
+
+    <section class="prose" aria-label="Texto principal">
+
+      <p>
+        Homem, 55 anos, em acompanhamento por doença hematológica, encontra-se em período de neutropenia profunda após tratamento recente.
+      </p>
+
+      <p>
+        Evolui com febre, taquicardia e sinais de risco infeccioso sistêmico, sem foco clínico evidente ao exame inicial.
+      </p>
+
+      <p>
+        Culturas são coletadas imediatamente.
+      </p>
+
+      <p>
+        Neste cenário, a ausência de um foco infeccioso definido não reduz a probabilidade de bacteremia. A decisão inicial precisa considerar o risco do atraso terapêutico em um hospedeiro altamente vulnerável.
+      </p>
+
+    </section>
+
+    <section class="cap10-p87-sim" data-cap10-p87>
+
+      <div class="cap10-p87-step is-active" data-p87-step="1">
+
+        <p class="cap10-p87-question">
+          Diante desse contexto, qual princípio deve orientar a decisão inicial?
+        </p>
+
+        <div class="cap10-p87-options">
+          <button class="cap10-p87-option" type="button" data-p87-choice="aguardar">
+            Aguardar os resultados microbiológicos antes de iniciar estratégia antimicrobiana
+          </button>
+
+          <button class="cap10-p87-option" type="button" data-p87-choice="iniciar">
+            Iniciar prontamente uma estratégia com cobertura adequada após a coleta das culturas
+          </button>
+
+          <button class="cap10-p87-option" type="button" data-p87-choice="observar">
+            Observar a evolução clínica por mais algumas horas antes de decidir
+          </button>
+        </div>
+
+      </div>
+
+      <div class="cap10-p87-step" data-p87-step="2" hidden>
+
+        <p class="cap10-p87-feedback" id="cap10P87Feedback"></p>
+
+        <button class="cap10-p87-next" type="button" data-p87-next="3">
+          Continuar
+        </button>
+
+      </div>
+
+      <div class="cap10-p87-step" data-p87-step="3" hidden>
+
+        <p>
+          Após 48 horas de tratamento, o paciente permanece febril, porém mantém estabilidade clínica e não surgem novos sinais de deterioração.
+        </p>
+
+        <p>
+          As culturas permanecem negativas até o momento.
+        </p>
+
+        <p>
+          Agora, a questão já não é apenas quando iniciar, mas como interpretar a persistência da febre em um paciente com neutropenia profunda.
+        </p>
+
+        <p class="cap10-p87-question">
+          Qual leitura é mais coerente com esse momento do caso?
+        </p>
+
+        <div class="cap10-p87-options">
+          <button class="cap10-p87-option" type="button" data-p87-choice="falha-automatica">
+            A febre persistente isoladamente confirma falha terapêutica e exige ampliação imediata do espectro
+          </button>
+
+          <button class="cap10-p87-option" type="button" data-p87-choice="reavaliar-contexto">
+            A persistência da febre deve ser interpretada junto da evolução clínica global e dos novos dados disponíveis
+          </button>
+
+          <button class="cap10-p87-option" type="button" data-p87-choice="associar-rotina">
+            A persistência da febre justifica associação rotineira de múltiplos agentes, independentemente de novos achados
+          </button>
+        </div>
+
+      </div>
+
+      <div class="cap10-p87-step" data-p87-step="4" hidden>
+
+        <p class="cap10-p87-feedback" id="cap10P87FeedbackFinal"></p>
+
+        <button class="cap10-p87-next" type="button" data-p87-next="5">
+          Continuar
+        </button>
+
+      </div>
+
+      <div class="cap10-p87-step" data-p87-step="5" hidden>
+
+        <p class="cap10-p87-final">
+          Em cenários de alto risco, iniciar precocemente é essencial. Ampliar automaticamente depois, não.
+        </p>
+
+        <p class="cap10-p87-final-sub">
+          A febre em neutropenia profunda exige resposta rápida, mas a persistência febril isolada não substitui a reavaliação clínica estruturada.
+        </p>
+
+        <p class="cap10-p87-final-sub">
+          A decisão racional combina tempo de início adequado, cobertura proporcional ao risco e reinterpretação contínua diante da evolução e dos dados microbiológicos.
+        </p>
+
+        <p class="cap10-p87-highlight">
+          Em antibioticoterapia, urgência inicial e precisão subsequente precisam caminhar juntas.
+        </p>
+
+      </div>
+
+    </section>
+
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p86.html">← Anterior</button>
+      <div class="center">Capítulo 10 · Página 87</div>
+      <button class="btn primary" type="button" data-next="p88.html">Próxima →</button>
+    </nav>
+
+  </main>
+
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-10.js"></script>
+</body>
+</html>

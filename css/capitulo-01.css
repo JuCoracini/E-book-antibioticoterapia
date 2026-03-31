@@ -1,2067 +1,2213 @@
+/* =====================================================
+   CAPÍTULO 01 
+   ===================================================== */
+
 /* =========================
-   Capítulo 01 — CSS específico
-   Inclui:
-   - Página 1: AMR (pressão seletiva)
-   - Página 2: Timeline
-   - Página 3: Árvore conceitual
-   - Página 4: Toxicidade seletiva
-   - Página 5: Janela terapêutica
-   - Página 6: Espectro de ação
-   - Página 7: CCI
-   - Página 8: Terapia empírica x dirigida
-   - Página 9: Profilaxia
+   AJUSTES GERAIS DO CAPÍTULO
    ========================= */
 
-/* -------------------------
-   Página 1 — AMR (pressão seletiva)
-   ------------------------- */
-.amr-card{
-  margin: 18px 0 18px;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
+.cap1-shell{
+  position: relative;
+}
+.page-shell{
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 48px 56px;
+  background: #ffffff;
+  border: 1px solid #e6e9ef;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+.prose{
+  max-width: 720px;
+  margin: 0 auto;
+}
+/* =========================
+   SISTEMA TIPOGRÁFICO OFICIAL — CAPÍTULO 1
+   ========================= */
+
+.cap1-body-text{
+  font-size: 14.8px;
+  line-height: 1.75;
+  color: #2f2f2f;
+  text-align: justify;
+  text-indent: 1.6em;
+}
+
+/* SUBTÍTULOS — mais discretos e elegantes */
+.cap1-subtitle{
+  margin: 18px 0 10px;
+  font-family: 'Merriweather', serif;
+  font-size: 16px; /* ↓ menor */
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--azul-escuro);
+  text-indent: 0;
+}
+
+/* TEXTOS DE APOIO */
+.cap1-helper-text{
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+  text-indent: 0;
+}
+
+/* NOTAS CENTRALIZADAS */
+.cap1-center-note{
+  text-align: center;
+  text-indent: 0;
+}
+/* =========================
+   TOOLBAR DE LEITURA
+   ========================= */
+
+.reader-toolbar{
+  max-width: 900px;
+  margin: 18px auto 0;
+  padding: 10px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(31,60,136,.10);
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(18,38,63,.06);
+}
+
+.reader-toolbar__group{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.reader-toolbar__label{
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.reader-btn{
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #1f1f1f;
+  border-radius: 10px;
+  padding: 7px 10px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background-color .16s ease;
+}
+
+.reader-btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.38);
+}
+
+.reader-btn:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(30,136,229,.16);
+}
+
+/* =========================
+   BOTÕES AUXILIARES
+   ========================= */
+
+.btn.ghost{
   background: transparent;
-  box-shadow: none;
 }
 
-.amr-sub{
-  margin: 0 0 12px;
-  color: rgba(31,31,31,.72);
+/* =========================
+   LIGHTBOX CAPÍTULO 1
+   ========================= */
+
+.cap1-lightbox[hidden]{
+  display: none !important;
+}
+
+.cap1-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.cap1-lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,29,.82);
+  backdrop-filter: blur(4px);
+}
+
+.cap1-lightbox__dialog{
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  margin: 4vh auto;
+  padding: 18px 18px 14px;
+  overflow: auto;
+}
+
+.cap1-lightbox__close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cap1-lightbox__close:hover{
+  background: rgba(255,255,255,.20);
+}
+
+.cap1-lightbox__figure{
+  margin: 0;
+}
+
+.cap1-lightbox__figure img{
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.cap1-lightbox__caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,.88);
   font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+/* =========================
+   PADRÃO TIPOGRÁFICO GLOBAL — CAPÍTULO 1 (FIXO)
+   ========================= */
+
+.cap1-shell{
+  font-family: 'Merriweather', serif;
+  color: #2f2f2f;
 }
 
-.petri-wrap{
-  margin: 10px 0 10px;
+/* TEXTO PRINCIPAL (PADRÃO LIVRO) */
+.cap1-shell .prose p{
+  font-size: 14.8px;
+  line-height: 1.75;
+  text-align: justify;
+  text-indent: 1.6em;
+  margin: 0 0 14px;
 }
 
-.petri{
+/* GARANTE QUE PRIMEIRO PARÁGRAFO TAMBÉM TENHA RECUO */
+.cap1-shell .prose p:first-of-type{
+  text-indent: 1.6em;
+}
+
+/* REFERÊNCIAS SOBRESCRITAS */
+.cap1-shell sup{
+  font-size: 0.7em;
+  color: #9ca3af;
+}
+
+/* TÍTULO PRINCIPAL */
+.page-title{
+  font-family: 'Merriweather', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--azul-escuro);
+  margin-bottom: 18px;
+}
+
+/* CAPÍTULO HEADER */
+.chapter{
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+
+/* ELEMENTOS QUE NÃO DEVEM TER RECUO */
+.amr-intro,
+.amr-guidance,
+.amr-step,
+.highlight,
+.amr-controls{
+  text-indent: 0 !important;
+}
+
+/* DESTAQUE MAIS ELEGANTE (MENOS PESADO) */
+.highlight{
+  max-width: 720px;
+  margin: 18px auto;
+  padding: 12px 14px;
+  border-left: 3px solid var(--azul-turquesa);
+  background: rgba(30,136,229,0.05);
+  border-radius: 8px;
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+/* =========================
+   PÁGINA 1 — PRESSÃO SELETIVA
+   ========================= */
+
+.cap1-page1 .amr-intro{
+  max-width: 640px;
+  margin: 0 auto 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+  text-align: center;
+  text-indent: 0;
+}
+
+.cap1-page1 .amr-card{
+  max-width: 720px;
+  margin: 18px auto 18px;
+}
+
+.cap1-page1 .amr-sub{
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: #6b7280;
+  text-align: center;
+  text-indent: 0;
+}
+
+.cap1-page1 .petri-wrap{
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.cap1-page1 .petri{
   position: relative;
   width: 100%;
-  height: 250px;
-  border-radius: 16px;
+  height: 220px;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
   background:
     radial-gradient(circle at 28% 20%, rgba(40,167,69,.08), transparent 55%),
     radial-gradient(circle at 72% 78%, rgba(242,201,76,.12), transparent 55%),
     #fbfbfd;
-  border: 1px solid var(--line);
-  overflow: hidden;
 }
 
-.bug{
+.cap1-page1 .bug{
   position: absolute;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  transform: translate(-50%,-50%);
-  transition: opacity 900ms ease, transform 900ms ease;
-  opacity: 1;
-}
-
-.sensitive{
-  background: #28a745;
-}
-
-.resistant{
-  background: #f2c94c;
-  box-shadow: 0 0 0 1px rgba(125,95,0,.18);
-}
-
-.phase-1 .sensitive{
-  opacity: 0.12;
-  transform: translate(-50%,-50%) scale(0.6);
-}
-
-.phase-2 .resistant{
-  transform: translate(-50%,-50%) scale(1.15);
-}
-
-.amr-controls{
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-top: 10px;
-  flex-wrap: wrap;
-}
-
-.amr-controls .btn{
-  appearance: none;
-  border: 1px solid var(--line);
-  padding: 10px 12px;
-  border-radius: 12px;
-  font-family: var(--font-body);
-  font-size: 14px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.amr-controls .btn.primary{
-  background: var(--blue);
-  color: #fff;
-}
-
-.amr-controls .btn.ghost{
-  background: #fff;
-  color: var(--blue);
-}
-
-.amr-caption{
-  margin: 12px 0 0;
-  color: var(--text);
-}
-
-.amr-key-message{
-  margin: 14px 0 16px;
-  padding: 14px 16px;
-  border-left: 4px solid var(--blue);
-  border-radius: 12px;
-  background: #f5f7fa;
-}
-
-.amr-key-message p{
-  margin: 0;
-  font-weight: 600;
-}
-
-@media (prefers-reduced-motion: reduce){
-  .bug{ transition: none; }
-}
-
-/* =========================
-   Página 2 — Marcos históricos
-   ========================= */
-
-.cap1-page2 .prose sup{
-  font-size: 0.68em;
-  line-height: 0;
-  vertical-align: super;
-  position: relative;
-  top: -0.15em;
-  margin-left: 1px;
-  font-weight: 600;
-  color: inherit;
-}
-
-.cap1-p02-stage{
-  margin: 18px auto 22px;
-  max-width: 1040px;
-}
-
-.cap1-p02-timeline{
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  overflow-x: auto;
-  padding: 4px 0 14px;
-  margin: 0 auto 18px;
-  max-width: 1040px;
-  scroll-behavior: smooth;
-}
-
-.cap1-p02-timeline .cap1-node{
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex: 0 0 auto;
-}
-
-.cap1-p02-timeline .cap1-node button{
-  appearance: none;
-  border: 1px solid rgba(31,60,136,.22);
-  background: transparent;
-  color: var(--blue);
-  padding: 8px 12px;
-  border-radius: 999px;
-  font-weight: 650;
-  cursor: pointer;
-  white-space: nowrap;
-  font-family: var(--font-body);
-  font-size: 13px;
-  transition: transform .12s ease, background .12s ease, border-color .12s ease, color .12s ease;
-}
-
-.cap1-p02-timeline .cap1-node button:hover{
-  transform: translateY(-1px);
-  border-color: rgba(31,60,136,.42);
-  background: rgba(31,60,136,.04);
-}
-
-.cap1-p02-timeline .cap1-node button:focus-visible{
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(31,60,136,.16);
-}
-
-.cap1-p02-timeline .cap1-node button[aria-selected="true"]{
-  background: rgba(31,60,136,.08);
-  border-color: rgba(31,60,136,.55);
-  color: #123d72;
-}
-
-.cap1-p02-timeline .cap1-dot{
   width: 10px;
   height: 10px;
-  border-radius: 999px;
-  background: rgba(31,60,136,.22);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity .8s ease, transform .8s ease;
 }
 
-.cap1-p02-timeline .cap1-node.is-active .cap1-dot{
-  background: var(--blue);
+.cap1-page1 .sensitive{
+  background: #1e88e5;
 }
 
-.cap1-p02-timeline .cap1-bar{
-  height: 2px;
-  width: 64px;
-  background: var(--line);
-  flex: 0 0 auto;
+.cap1-page1 .resistant{
+  background: #fb8c00;
+  box-shadow: 0 0 0 1px rgba(251,140,0,.25);
 }
 
-.cap1-p02-panel{
-  max-width: 1040px;
-  margin: 0 auto;
-  min-height: 470px;
+.cap1-page1 .petri.phase-1 .sensitive{
+  opacity: .15;
+  transform: translate(-50%, -50%) scale(.6);
 }
 
-.cap1-panelPane{
-  animation: cap1P02Fade .24s ease;
+.cap1-page1 .petri.phase-2 .resistant{
+  transform: translate(-50%, -50%) scale(1.18);
 }
 
-.cap1-p02-panelHeader{
-  margin-bottom: 14px;
-}
-
-.cap1-panelTitle{
-  margin: 0;
-  font-family: var(--font-sub);
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 1.22;
-  color: var(--blue);
-  text-indent: 0;
-}
-
-.cap1-p02-panelBody{
-  display: grid;
-  grid-template-columns: 1.02fr 1.18fr;
-  gap: 22px;
-  align-items: start;
-}
-
-.cap1-p02-figure{
-  margin: 0;
-}
-
-.cap1-zoomTrigger{
-  display: block;
-  width: 100%;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  cursor: zoom-in;
-}
-
-.cap1-zoomTrigger img{
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(18,38,63,.10);
-}
-
-.cap1-caption{
-  font-size: 11.5px;
-  line-height: 1.4;
-  color: rgba(31,31,31,.70);
-  padding-top: 8px;
-}
-
-.cap1-text p{
-  margin: 0 0 12px;
-  color: var(--text);
-  font-size: 15px;
-  line-height: 1.72;
-  text-indent: 0;
-}
-
-.cap1-text p:last-child{
-  margin-bottom: 0;
-}
-
-.cap1-lightbox[hidden]{
-  display: none !important;
-}
-
-.cap1-lightbox{
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-}
-
-.cap1-lightbox__backdrop{
-  position: absolute;
-  inset: 0;
-  background: rgba(11,18,29,.82);
-  backdrop-filter: blur(4px);
-}
-
-.cap1-lightbox__dialog{
-  position: relative;
-  z-index: 1;
-  width: min(92vw, 1200px);
-  max-height: 88vh;
-  margin: 4vh auto;
-  padding: 18px 18px 14px;
-  overflow: auto;
-}
-
-.cap1-lightbox__close{
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 42px;
-  height: 42px;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(255,255,255,.12);
-  color: #fff;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.cap1-lightbox__close:hover{
-  background: rgba(255,255,255,.20);
-}
-
-.cap1-lightbox__figure{
-  margin: 0;
-}
-
-.cap1-lightbox__figure img{
-  display: block;
-  width: 100%;
-  max-height: 78vh;
-  object-fit: contain;
-  margin: 0 auto;
-  border-radius: 16px;
-}
-
-.cap1-lightbox__caption{
+.cap1-page1 .amr-controls{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
   margin-top: 10px;
-  color: rgba(255,255,255,.88);
-  font-size: 14px;
+}
+
+.cap1-page1 .amr-guidance{
+  max-width: 720px;
+  margin: 10px auto 0;
+  font-size: 13px;
   line-height: 1.5;
+  color: var(--muted);
   text-align: center;
+  text-indent: 0;
 }
 
-@keyframes cap1P02Fade{
-  from{
-    opacity: 0;
-    transform: translateY(3px);
-  }
-  to{
-    opacity: 1;
-    transform: translateY(0);
-  }
+.cap1-page1 .amr-steps{
+  max-width: 720px;
+  margin: 14px auto 18px;
 }
 
-@media (max-width: 920px){
-  .cap1-p02-panel{
-    min-height: auto;
-  }
-
-  .cap1-p02-panelBody{
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .cap1-p02-timeline .cap1-bar{
-    width: 54px;
-  }
+.cap1-page1 .amr-step{
+  margin: 0 0 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  line-height: 1.7;
+  opacity: .72;
+  transition: background-color .2s ease, transform .2s ease, opacity .2s ease;
+  text-indent: 0;
 }
 
-@media (max-width: 640px){
-  .cap1-panelTitle{
-    font-size: 19px;
-  }
-
-  .cap1-text p{
-    font-size: 14.5px;
-  }
-
-  .cap1-lightbox__dialog{
-    width: min(96vw, 1200px);
-    padding: 16px 10px 12px;
-  }
+.cap1-page1 .amr-step.is-active{
+  background: #f5f7fa;
+  opacity: 1;
+  transform: translateY(-1px);
 }
 
-@media (prefers-reduced-motion: reduce){
-  .cap1-p02-timeline{
-    scroll-behavior: auto !important;
-  }
+.cap1-page1 .amr-step strong{
+  color: #1e88e5;
+}
 
-  .cap1-panelPane{
-    animation: none !important;
-  }
+.cap1-page1 .amr-key-message{
+  max-width: 720px;
+  margin: 12px auto 16px;
+  padding: 12px 14px;
+  border-left: 4px solid #1e88e5;
+  background: #f5f7fa;
+  border-radius: 10px;
+}
+
+.cap1-page1 .amr-key-message p{
+  margin: 0;
+  text-indent: 0;
+}
+.amr-block{
+  max-width: 560px;
+  margin: 16px auto;
+}
+
+.amr-intro{
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  text-indent: 0;
+  margin-bottom: 8px;
+}
+
+.amr-steps{
+  max-width: 560px;
+  margin: 14px auto;
+}
+
+.amr-step{
+  text-indent: 0;
+  font-size: 15px;
+}
+
+.amr-step strong{
+  color: var(--azul-turquesa);
+}
+/* =========================
+   PÁGINA 1 — INTERAÇÃO CLÍNICA
+   ========================= */
+
+.cap1-page1 .amr-block{
+  max-width: 720px;
+  margin: 18px auto;
+}
+
+.cap1-page1 .amr-choices{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.cap1-page1 .amr-choice{
+  border: 1px solid rgba(15,42,68,.15);
+  background: #fff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.cap1-page1 .amr-choice:hover{
+  border-color: var(--azul-turquesa);
+  transform: translateY(-1px);
+}
+
+.cap1-page1 .amr-choice.active{
+  background: var(--azul-turquesa);
+  color: #fff;
+  border-color: var(--azul-turquesa);
+}
+
+.cap1-page1 .amr-feedback{
+  max-width: 640px;
+  margin: 10px auto 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
+  text-indent: 0;
 }
 
 /* =========================
-   Página 3 — Bases conceituais
+   PÁGINA 2 — TIMELINE 
    ========================= */
 
-.cap1-page3 .prose sup{
-  font-size: 0.68em;
-  line-height: 0;
-  vertical-align: super;
-  position: relative;
-  top: -0.15em;
-  margin-left: 1px;
-  font-weight: 600;
-  color: inherit;
-}
-
-.cap1-p03-stage{
-  margin: 22px auto 22px;
-  max-width: 1040px;
-}
-
-.cap1-p03-layout{
-  display: grid;
-  grid-template-columns: minmax(250px, 320px) minmax(0, 1fr);
-  gap: 34px;
-  align-items: start;
-}
-
-.cap1-p03-tree{
-  position: relative;
-  padding-top: 2px;
-}
-
-.cap1-p03-hint{
-  margin: 0 0 14px;
-  color: rgba(31,31,31,.70);
-  font-size: 14px;
-  line-height: 1.5;
-  text-indent: 0;
-}
-
-.cap1-p03-root,
-.cap1-p03-branch{
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.cap1-p03-branch{
-  margin-left: 18px;
-  padding-left: 16px;
-  border-left: 1px solid rgba(31,60,136,.14);
-}
-
-.cap1-p03-node{
-  position: relative;
-  margin: 6px 0;
-}
-
-.cap1-p03-btn{
-  appearance: none;
-  border: 0;
-  background: transparent;
-  padding: 8px 0;
-  margin: 0;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-  font-family: var(--font-body);
-  color: var(--text);
-  display: inline-flex;
-  align-items: center;
+.cap1-page2 .timeline{
+  max-width: 720px;
+  margin: 18px auto 26px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
-  transition: color .18s ease, transform .18s ease;
 }
 
-.cap1-p03-btn:hover{
-  color: var(--blue);
-  transform: translateX(2px);
-}
-
-.cap1-p03-btn:focus-visible{
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(31,60,136,.14);
-  border-radius: 10px;
-  padding-left: 8px;
-}
-
-.cap1-p03-btn[aria-pressed="true"]{
-  color: var(--blue);
-}
-
-.cap1-p03-btn--lvl1{
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.cap1-p03-btn--lvl2{
-  font-weight: 700;
-  font-size: 16px;
-}
-
-.cap1-p03-btn--lvl3{
-  font-weight: 600;
-  font-size: 15px;
-}
-
-.cap1-p03-label{
-  line-height: 1.45;
-}
-
-.cap1-p03-icon{
-  width: 28px;
-  height: 28px;
-  flex: 0 0 28px;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-.cap1-p03-viewer{
-  min-height: 360px;
-}
-
-.cap1-p03-viewerHeader{
-  margin-bottom: 14px;
-}
-
-.cap1-p03-viewerEyebrow{
-  margin: 0 0 4px;
-  color: rgba(31,31,31,.58);
+.cap1-page2 .timeline-item{
   font-family: var(--font-ui);
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  text-indent: 0;
-}
-
-.cap1-p03-viewerTitle{
-  margin: 0;
-  font-family: var(--font-sub);
-  font-size: 24px;
-  line-height: 1.2;
-  color: var(--blue);
-  text-indent: 0;
-}
-
-.cap1-p03-viewerEmpty p{
-  margin: 0;
-  color: rgba(31,31,31,.72);
-  text-indent: 0;
-}
-
-.cap1-p03-viewerContent{
-  animation: cap1P03Fade .24s ease;
-}
-
-.cap1-p03-viewerContent p{
-  margin: 0 0 12px;
-  text-indent: 0;
-  line-height: 1.72;
-}
-
-.cap1-p03-viewerContent p:last-child{
-  margin-bottom: 0;
-}
-
-@keyframes cap1P03Fade{
-  from{
-    opacity: 0;
-    transform: translateY(3px);
-  }
-  to{
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 920px){
-  .cap1-p03-layout{
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .cap1-p03-viewer{
-    min-height: auto;
-  }
-}
-
-@media (max-width: 640px){
-  .cap1-p03-btn--lvl1{
-    font-size: 17px;
-  }
-
-  .cap1-p03-btn--lvl2{
-    font-size: 15.5px;
-  }
-
-  .cap1-p03-btn--lvl3{
-    font-size: 14.5px;
-  }
-
-  .cap1-p03-icon{
-    width: 26px;
-    height: 26px;
-    flex-basis: 26px;
-  }
-
-  .cap1-p03-viewerTitle{
-    font-size: 21px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce){
-  .cap1-p03-btn{
-    transition: none !important;
-  }
-
-  .cap1-p03-viewerContent{
-    animation: none !important;
-  }
-}
-/* =========================
-   Página 4 — Toxicidade seletiva
-   ========================= */
-
-.cap1-page4 .prose sup{
-  font-size: 0.68em;
-  line-height: 0;
-  vertical-align: super;
-  position: relative;
-  top: -0.15em;
-  margin-left: 1px;
-  font-weight: 600;
-  color: inherit;
-}
-
-.cap1-p04-figure{
-  margin: 24px 0 24px;
-}
-
-.cap1-p04-figure .cap1-zoomTrigger{
-  display: block;
-  width: 100%;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  cursor: zoom-in;
-}
-
-.cap1-p04-figure img{
-  display: block;
-  width: 100%;
-  max-width: 920px;
-  margin: 0 auto;
-  height: auto;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(18, 38, 63, 0.10);
-}
-
-.cap1-p04-list{
-  margin: 14px 0 18px 1.1rem;
-  padding: 0;
-}
-
-.cap1-p04-list li{
-  margin: 0 0 12px;
-  padding-left: 4px;
-}
-
-.cap1-p04-transition{
-  margin-top: 18px;
-}
-
-.cap1-caption{
-  font-size: 11.5px;
-  line-height: 1.4;
-  color: rgba(31,31,31,.70);
-  padding-top: 8px;
-  text-indent: 0;
-}
-
-.cap1-lightbox[hidden]{
-  display: none !important;
-}
-
-.cap1-lightbox{
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-}
-
-.cap1-lightbox__backdrop{
-  position: absolute;
-  inset: 0;
-  background: rgba(11,18,29,.82);
-  backdrop-filter: blur(4px);
-}
-
-.cap1-lightbox__dialog{
-  position: relative;
-  z-index: 1;
-  width: min(92vw, 1200px);
-  max-height: 88vh;
-  margin: 4vh auto;
-  padding: 18px 18px 14px;
-  overflow: auto;
-}
-
-.cap1-lightbox__close{
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 42px;
-  height: 42px;
-  border: 0;
+  padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(255,255,255,.12);
-  color: #fff;
-  font-size: 22px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: var(--azul-escuro);
   cursor: pointer;
+  transition: all .2s ease;
 }
 
-.cap1-lightbox__close:hover{
-  background: rgba(255,255,255,.20);
-}
-
-.cap1-lightbox__figure{
-  margin: 0;
-}
-
-.cap1-lightbox__figure img{
-  display: block;
-  width: 100%;
-  max-height: 78vh;
-  object-fit: contain;
-  margin: 0 auto;
-  border-radius: 16px;
-}
-
-.cap1-lightbox__caption{
-  margin-top: 10px;
-  color: rgba(255,255,255,.88);
-  font-size: 14px;
-  line-height: 1.5;
-  text-align: center;
-}
-
-@media (max-width: 900px){
-  .cap1-p04-figure{
-    margin: 20px 0 22px;
-  }
-
-  .cap1-p04-figure img{
-    border-radius: 14px;
-  }
-
-  .cap1-p04-list{
-    margin-left: 1rem;
-  }
-}
-
-@media (max-width: 640px){
-  .cap1-p04-list li{
-    margin-bottom: 10px;
-  }
-
-  .cap1-lightbox__dialog{
-    width: min(96vw, 1200px);
-    padding: 16px 10px 12px;
-  }
-}
-/* =========================
-   Página 5 — Janela terapêutica
-   ========================= */
-
-.cap1-page5 .prose sup{
-  font-size: 0.68em;
-  line-height: 0;
-  vertical-align: super;
-  position: relative;
-  top: -0.16em;
-  margin-left: 1px;
-  font-weight: 600;
-  color: inherit;
-}
-
-.cap1-p05-stage{
-  margin: 30px auto 28px;
-  max-width: 1040px;
-}
-
-.cap1-p05-stage__inner{
-  display: grid;
-  gap: 14px;
-}
-
-.cap1-p05-visual__controls{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 14px;
-  align-items: center;
-}
-
-.cap1-p05-visual__tab{
-  appearance: none;
-  border: 0;
-  background: transparent;
-  padding: 0 0 4px;
-  margin: 0;
-  font: inherit;
-  font-weight: 600;
-  color: #5d6978;
-  cursor: pointer;
-  position: relative;
-  transition: color .2s ease, transform .2s ease;
-}
-
-.cap1-p05-visual__tab::after{
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 100%;
-  height: 2px;
-  background: currentColor;
-  opacity: 0;
-  transform: scaleX(.72);
-  transform-origin: center;
-  transition: opacity .2s ease, transform .2s ease;
-}
-
-.cap1-p05-visual__tab:hover{
+.cap1-page2 .timeline-item:hover{
+  border-color: var(--azul-turquesa);
   transform: translateY(-1px);
 }
 
-.cap1-p05-visual__tab.is-active{
-  color: #174d78;
-}
-
-.cap1-p05-visual__tab.is-active::after{
-  opacity: 1;
-  transform: scaleX(1);
-}
-
-.cap1-p05-visual__tab:focus-visible{
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(31,60,136,.14);
-  border-radius: 8px;
-  padding-inline: 6px;
-}
-
-.cap1-p05-figure{
-  margin: 0;
-}
-
-.cap1-p05-visual__svg{
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.cap1-p05-grid line{
-  stroke: rgba(45, 63, 87, 0.08);
-  stroke-width: 1.2;
-}
-
-.cap1-p05-axis line{
-  stroke: #4d5d72;
-  stroke-width: 2.2;
-  stroke-linecap: round;
-}
-
-.cap1-p05-thresholds line{
-  stroke-width: 2.1;
-  stroke-linecap: round;
-  stroke-dasharray: 8 8;
-}
-
-.cap1-p05-thresholds .is-toxic{
-  stroke: #d56e4b;
-}
-
-.cap1-p05-thresholds .is-effective{
-  stroke: #2d7dd2;
-}
-
-.cap1-p05-windowBand{
-  fill: url(#cap1P05Band);
-}
-
-.cap1-p05-axisLabel{
-  font-family: "Inter", sans-serif;
-  font-size: 23px;
-  font-weight: 600;
-  fill: #334255;
-}
-
-.cap1-p05-lineLabel{
-  font-family: "Inter", sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.cap1-p05-lineLabel--toxic{
-  fill: #c45f40;
-}
-
-.cap1-p05-lineLabel--effective{
-  fill: #266eb7;
-}
-
-.cap1-p05-windowLabel{
-  font-family: "Playfair Display", serif;
-  font-size: 30px;
-  font-weight: 700;
-  fill: #174d78;
-  opacity: .95;
-}
-
-.cap1-p05-zone{
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.cap1-p05-zone--high{
-  fill: #c45f40;
-}
-
-.cap1-p05-zone--ok{
-  fill: #1f6eb8;
-}
-
-.cap1-p05-zone--low{
-  fill: #647487;
-}
-
-.cap1-p05-curve{
-  fill: none;
-  stroke-width: 6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.cap1-p05-curve--low{
-  stroke: #5f7ea0;
-}
-
-.cap1-p05-curve--ok{
-  stroke: #1e88e5;
-}
-
-.cap1-p05-curve--high{
-  stroke: #d96a43;
-}
-
-.cap1-p05-point{
-  filter: none;
-}
-
-.cap1-p05-point--low{
-  fill: #5f7ea0;
-}
-
-.cap1-p05-point--ok{
-  fill: #1e88e5;
-}
-
-.cap1-p05-point--high{
-  fill: #d96a43;
-}
-
-.cap1-p05-caption{
-  margin-top: 10px;
-  font-size: 12px;
-  line-height: 1.45;
-  color: rgba(31,31,31,.70);
-  text-indent: 0;
-}
-
-.cap1-p05-feedback{
-  max-width: 780px;
-  padding: 16px 18px;
-  border-radius: 18px;
-  transition: background-color .22s ease, border-color .22s ease;
-}
-
-.cap1-p05-feedback__eyebrow{
-  margin: 0 0 4px;
-  color: rgba(31,31,31,.58);
-  font-family: var(--font-ui, "Inter", sans-serif);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  text-indent: 0;
-}
-
-.cap1-p05-feedback__state{
-  margin: 0 0 6px;
-  font-family: var(--font-sub, "Playfair Display", serif);
-  font-size: 24px;
-  line-height: 1.2;
-  text-indent: 0;
-}
-
-.cap1-p05-feedback__text{
-  margin: 0;
-  line-height: 1.72;
-  text-indent: 0;
-}
-
-.cap1-p05-feedback--low{
-  background: rgba(95,126,160,.10);
-}
-
-.cap1-p05-feedback--low .cap1-p05-feedback__state{
-  color: #4f6d8d;
-}
-
-.cap1-p05-feedback--ok{
-  background: rgba(30,136,229,.10);
-}
-
-.cap1-p05-feedback--ok .cap1-p05-feedback__state{
-  color: #175d99;
-}
-
-.cap1-p05-feedback--high{
-  background: rgba(217,106,67,.12);
-}
-
-.cap1-p05-feedback--high .cap1-p05-feedback__state{
-  color: #b14f2f;
-}
-
-@media (max-width: 900px){
-  .cap1-p05-stage{
-    margin: 26px auto 24px;
-  }
-
-  .cap1-p05-axisLabel{
-    font-size: 20px;
-  }
-
-  .cap1-p05-lineLabel{
-    font-size: 15px;
-  }
-
-  .cap1-p05-windowLabel{
-    font-size: 24px;
-  }
-
-  .cap1-p05-zone{
-    font-size: 13px;
-  }
-
-  .cap1-p05-curve{
-    stroke-width: 5;
-  }
-}
-
-@media (max-width: 640px){
-  .cap1-p05-visual__controls{
-    gap: 8px 12px;
-  }
-
-  .cap1-p05-visual__tab{
-    font-size: .98rem;
-  }
-
-  .cap1-p05-axisLabel{
-    font-size: 17px;
-  }
-
-  .cap1-p05-lineLabel{
-    font-size: 12px;
-  }
-
-  .cap1-p05-windowLabel{
-    font-size: 19px;
-  }
-
-  .cap1-p05-zone{
-    font-size: 11px;
-  }
-
-  .cap1-p05-feedback{
-    padding: 14px 15px;
-  }
-
-  .cap1-p05-feedback__state{
-    font-size: 21px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce){
-  .cap1-p05-visual__tab,
-  .cap1-p05-feedback{
-    transition: none !important;
-  }
-}
-/* =========================
-   Página 6 — Espectro de ação
-   ========================= */
-
-.cap1-page6 .prose sup{
-  font-size: 0.68em;
-  line-height: 0;
-  vertical-align: super;
-  position: relative;
-  top: -0.16em;
-  margin-left: 1px;
-  font-weight: 600;
-  color: inherit;
-}
-
-.cap1-p06-transition{
-  margin-top: 18px;
-}
-
-.cap1-p06-stage{
-  margin: 26px auto 28px;
-  max-width: 1040px;
-}
-
-.cap1-p06-figure{
-  margin: 0;
-}
-
-.cap1-p06-figure .cap1-zoomTrigger{
-  display: block;
-  width: 100%;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  cursor: zoom-in;
-}
-
-.cap1-p06-figure img{
-  display: block;
-  width: 100%;
-  max-width: 1000px;
-  height: auto;
-  margin: 0 auto;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(18,38,63,.10);
-}
-
-.cap1-caption{
-  font-size: 11.5px;
-  line-height: 1.4;
-  color: rgba(31,31,31,.70);
-  padding-top: 8px;
-  text-indent: 0;
-}
-
-.cap1-p06-closing{
-  margin-top: 22px;
-  max-width: 760px;
-  font-weight: 500;
-}
-
-.cap1-lightbox[hidden]{
-  display: none !important;
-}
-
-.cap1-lightbox{
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-}
-
-.cap1-lightbox__backdrop{
-  position: absolute;
-  inset: 0;
-  background: rgba(11,18,29,.82);
-  backdrop-filter: blur(4px);
-}
-
-.cap1-lightbox__dialog{
-  position: relative;
-  z-index: 1;
-  width: min(92vw, 1200px);
-  max-height: 88vh;
-  margin: 4vh auto;
-  padding: 18px 18px 14px;
-  overflow: auto;
-}
-
-.cap1-lightbox__close{
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 42px;
-  height: 42px;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(255,255,255,.12);
+.cap1-page2 .timeline-item.active{
+  background: var(--azul-turquesa);
   color: #fff;
-  font-size: 22px;
-  cursor: pointer;
+  border-color: var(--azul-turquesa);
 }
 
-.cap1-lightbox__close:hover{
-  background: rgba(255,255,255,.20);
-}
-
-.cap1-lightbox__figure{
-  margin: 0;
-}
-
-.cap1-lightbox__figure img{
-  display: block;
-  width: 100%;
-  max-height: 78vh;
-  object-fit: contain;
+.cap1-page2 .timeline-content{
+  max-width: 560px;
   margin: 0 auto;
-  border-radius: 16px;
+  overflow: hidden;
 }
 
-.cap1-lightbox__caption{
-  margin-top: 10px;
-  color: rgba(255,255,255,.88);
-  font-size: 14px;
-  line-height: 1.5;
-  text-align: center;
-}
-
-@media (max-width: 900px){
-  .cap1-p06-stage{
-    margin: 22px auto 24px;
-  }
-
-  .cap1-p06-figure img{
-    border-radius: 14px;
-  }
-}
-
-@media (max-width: 640px){
-  .cap1-p06-closing{
-    max-width: 100%;
-  }
-
-  .cap1-lightbox__dialog{
-    width: min(96vw, 1200px);
-    padding: 16px 10px 12px;
-  }
-}
-/* =========================
-   Página 7 — Colonização, contaminação e infecção
-   ========================= */
-
-.cap1-page7 .prose sup{
-  font-size: 0.68em;
-  line-height: 0;
-  vertical-align: super;
-  position: relative;
-  top: -0.16em;
-  margin-left: 1px;
+.cap1-page2 .timeline-title{
+  font-size: 17px;
   font-weight: 600;
-  color: inherit;
-}
-
-.cap1-p07-stage{
-  margin: 28px auto 24px;
-  max-width: 1040px;
-}
-
-.cap1-p07-stack{
-  display: grid;
-  gap: 18px;
-}
-
-.cap1-p07-item{
-  border-top: 1px solid rgba(31,60,136,.12);
-  padding-top: 18px;
-}
-
-.cap1-p07-item:first-child{
-  border-top: 0;
-  padding-top: 0;
-}
-
-.cap1-p07-trigger{
-  width: 100%;
-  appearance: none;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 120px minmax(0, 1fr) 28px;
-  gap: 18px;
-  align-items: center;
-  text-align: left;
-  cursor: pointer;
-}
-
-.cap1-p07-trigger:focus-visible{
-  outline: none;
-}
-
-.cap1-p07-trigger:focus-visible .cap1-p07-head{
-  box-shadow: 0 0 0 3px rgba(31,60,136,.14);
-  border-radius: 12px;
-}
-
-.cap1-p07-media{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cap1-p07-media img{
-  display: block;
-  width: 100%;
-  max-width: 110px;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-}
-
-.cap1-p07-head{
-  padding: 8px 0;
-}
-
-.cap1-p07-title{
-  display: block;
-  margin: 0 0 6px;
-  font-family: var(--font-sub, "Playfair Display", serif);
-  font-size: 25px;
-  line-height: 1.15;
-  color: var(--blue);
-}
-
-.cap1-p07-summary{
-  display: block;
-  color: var(--text);
-  line-height: 1.68;
-}
-
-.cap1-p07-icon{
-  font-size: 28px;
-  line-height: 1;
-  color: rgba(31,60,136,.55);
-  transition: transform .2s ease, color .2s ease;
-}
-
-.cap1-p07-item.is-active .cap1-p07-icon{
-  transform: rotate(45deg);
-  color: var(--blue);
-}
-
-.cap1-p07-panel{
-  padding: 10px 0 2px 138px;
-}
-
-.cap1-p07-panelText p{
-  margin: 0 0 12px;
+  color: var(--azul-escuro);
+  margin-bottom: 14px;
   text-indent: 0;
 }
 
-.cap1-p07-panelText p:last-child{
-  margin-bottom: 0;
-}
-
-.cap1-p07-list{
-  margin: 10px 0 14px 1.1rem;
-  padding: 0;
-}
-
-.cap1-p07-list li{
-  margin: 0 0 8px;
-  padding-left: 4px;
-}
-
-.cap1-p07-sinteseTitle{
-  margin-top: 28px;
-  font-weight: 600;
-}
-
-.cap1-p07-flow{
-  margin: 18px auto 22px;
-  max-width: 1040px;
-  display: grid;
-  gap: 18px;
-}
-
-.cap1-p07-flowRoot{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 18px;
+.cap1-page2 .timeline-block{
+  display: block;
+  max-width: 560px;
   margin: 0 auto;
-  font-family: var(--font-sub, "Playfair Display", serif);
-  font-size: 24px;
-  line-height: 1.2;
-  color: var(--blue);
 }
 
-.cap1-p07-flowBranches{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+/* IMAGEM */
+.cap1-page2 .timeline-figure{
+  margin: 0;
 }
 
-.cap1-p07-flowBranch{
-  position: relative;
-  padding-top: 18px;
+.cap1-page2 .timeline-figure img{
+  display: block;
+
+  width: 100%;
+  max-width: 420px !important; /* ← força de verdade */
+
+  height: auto;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  object-fit: contain;
 }
 
-.cap1-p07-flowBranch::before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 1px;
-  height: 14px;
-  background: rgba(31,60,136,.18);
-  transform: translateX(-50%);
-}
-
-.cap1-p07-flowLabel{
-  min-height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--text);
-  line-height: 1.6;
-  padding: 0 8px;
-}
-
-.cap1-p07-flowResult{
+.cap1-page2 .timeline-caption{
   margin-top: 10px;
+  margin-bottom: 14px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted);
   text-align: center;
-  font-family: var(--font-sub, "Playfair Display", serif);
-  font-size: 21px;
-  line-height: 1.2;
-  color: var(--blue);
 }
 
-.cap1-p07-closing{
-  margin-top: 20px;
-  max-width: 780px;
-  font-weight: 500;
+/* TEXTO */
+.cap1-page2 .timeline-text{
+  font-size: 14.8px;
+  line-height: 1.75;
+  text-align: justify;
+  text-indent: 0;
+  color: #2f2f2f;
+  margin-top: 6px;
 }
 
-@media (max-width: 900px){
-  .cap1-p07-trigger{
-    grid-template-columns: 96px minmax(0, 1fr) 24px;
-    gap: 14px;
-  }
+/* ESPAÇO FINAL DA PÁGINA */
+.cap1-page2 .prose p:last-of-type{
+  margin-top: 26px;
+}
 
-  .cap1-p07-media img{
-    max-width: 88px;
-  }
-
-  .cap1-p07-title{
-    font-size: 22px;
-  }
-
-  .cap1-p07-panel{
-    padding-left: 110px;
-  }
-
-  .cap1-p07-flowBranches{
+/* RESPONSIVO */
+@media (max-width: 760px){
+  .cap1-page2 .timeline-block{
     grid-template-columns: 1fr;
-    gap: 14px;
   }
 
-  .cap1-p07-flowBranch::before{
-    display: none;
+  .cap1-page2 .timeline-figure img{
+    margin: 0 auto;
   }
 
-  .cap1-p07-flowLabel{
-    min-height: auto;
-  }
-}
-
-@media (max-width: 640px){
-  .cap1-p07-trigger{
-    grid-template-columns: 72px minmax(0, 1fr) 20px;
-    gap: 12px;
-    align-items: start;
-  }
-
-  .cap1-p07-media img{
-    max-width: 68px;
-  }
-
-  .cap1-p07-title{
-    font-size: 20px;
-  }
-
-  .cap1-p07-summary{
-    font-size: 14.5px;
-  }
-
-  .cap1-p07-panel{
-    padding-left: 0;
-    margin-top: 12px;
-  }
-
-  .cap1-p07-icon{
-    font-size: 24px;
-  }
-
-  .cap1-p07-flowRoot{
-    font-size: 21px;
+  .cap1-page2 .timeline-caption{
     text-align: center;
   }
-
-  .cap1-p07-flowResult{
-    font-size: 19px;
-  }
 }
-
-@media (prefers-reduced-motion: reduce){
-  .cap1-p07-icon{
-    transition: none !important;
-  }
+.cap1-page2 .prose p:last-of-type{
+  margin-top: 32px;
 }
 /* =========================
-   Página 8 — Terapia empírica e terapia dirigida
+   PÁGINA 3 — ÁRVORE CONCEITUAL
    ========================= */
 
-.cap1-page8 .prose sup{
-  font-size: 0.68em;
-  line-height: 0;
-  vertical-align: super;
-  position: relative;
-  top: -0.16em;
-  margin-left: 1px;
-  font-weight: 600;
-  color: inherit;
+.cap1-page3 .concept-tree{
+  max-width: 640px;
+  margin: 24px auto 26px;
 }
 
-.cap1-p08-figureBlock{
-  margin: 26px auto 28px;
-  max-width: 1040px;
-}
-
-.cap1-p08-figure{
-  margin: 0;
-}
-
-.cap1-p08-figure .cap1-zoomTrigger{
-  display: block;
-  width: 100%;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  cursor: zoom-in;
-}
-
-.cap1-p08-figure img{
-  display: block;
-  width: 100%;
-  max-width: 980px;
-  height: auto;
-  margin: 0 auto;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(18,38,63,.10);
-}
-
-.cap1-caption{
-  font-size: 11.5px;
-  line-height: 1.4;
-  color: rgba(31,31,31,.70);
-  padding-top: 8px;
-  text-indent: 0;
-}
-
-.cap1-p08-subtitle{
-  margin-top: 26px;
-  font-weight: 600;
-}
-
-.cap1-p08-modalTriggerWrap{
-  margin: 24px auto 20px;
-  max-width: 1040px;
-}
-
-.cap1-p08-modalTrigger{
-  width: 100%;
-  appearance: none;
-  border: 0;
-  background: rgba(31,60,136,.05);
-  padding: 18px 20px;
-  border-radius: 18px;
-  text-align: left;
-  cursor: pointer;
-  transition: background-color .2s ease, transform .2s ease;
-}
-
-.cap1-p08-modalTrigger:hover{
-  background: rgba(31,60,136,.08);
-  transform: translateY(-1px);
-}
-
-.cap1-p08-modalTrigger:focus-visible{
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(31,60,136,.14);
-}
-
-.cap1-p08-modalTrigger__eyebrow{
-  display: block;
-  margin-bottom: 4px;
-  color: rgba(31,31,31,.58);
-  font-family: var(--font-ui, "Inter", sans-serif);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-}
-
-.cap1-p08-modalTrigger__title{
-  display: block;
-  margin-bottom: 6px;
-  font-family: var(--font-sub, "Playfair Display", serif);
-  font-size: 26px;
-  line-height: 1.2;
-  color: var(--blue);
-}
-
-.cap1-p08-modalTrigger__text{
-  display: block;
-  color: var(--text);
-  line-height: 1.65;
-}
-
-.cap1-p08-flow{
-  margin: 18px auto 24px;
-  max-width: 1040px;
-  display: grid;
-  gap: 18px;
-}
-
-.cap1-p08-flow__lead p{
-  margin: 0;
-  text-indent: 0;
-}
-
-.cap1-p08-flow__actions{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.cap1-p08-card{
-  appearance: none;
-  border: 1px solid rgba(31,60,136,.14);
-  background: transparent;
-  border-radius: 16px;
-  padding: 16px 16px 14px;
-  text-align: left;
-  cursor: pointer;
-  transition: border-color .2s ease, background-color .2s ease, transform .2s ease;
-}
-
-.cap1-p08-card:hover{
-  transform: translateY(-1px);
-  border-color: rgba(31,60,136,.28);
-}
-
-.cap1-p08-card:focus-visible{
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(31,60,136,.12);
-}
-
-.cap1-p08-card.is-active{
-  border-color: rgba(31,60,136,.38);
-  background: rgba(31,60,136,.05);
-}
-
-.cap1-p08-card__title{
-  display: block;
-  margin-bottom: 6px;
-  font-family: var(--font-sub, "Playfair Display", serif);
-  font-size: 22px;
-  line-height: 1.2;
-  color: var(--blue);
-}
-
-.cap1-p08-card__text{
-  display: block;
-  color: var(--text);
-  line-height: 1.6;
-}
-
-.cap1-p08-panel{
-  padding: 18px 20px;
-  border-radius: 18px;
-  background: rgba(31,60,136,.05);
-}
-
-.cap1-p08-panel__kicker{
-  margin: 0 0 4px;
-  color: rgba(31,31,31,.58);
-  font-family: var(--font-ui, "Inter", sans-serif);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  text-indent: 0;
-}
-
-.cap1-p08-panel__title{
-  margin: 0 0 6px;
-  font-family: var(--font-sub, "Playfair Display", serif);
-  font-size: 24px;
-  line-height: 1.2;
-  color: var(--blue);
-  text-indent: 0;
-}
-
-.cap1-p08-panel__text{
-  margin: 0 0 6px;
-  line-height: 1.7;
-  text-indent: 0;
-}
-
-.cap1-p08-panel__tag{
-  margin: 0;
-  color: rgba(31,60,136,.78);
-  font-weight: 600;
-  text-indent: 0;
-}
-
-.cap1-lightbox[hidden]{
-  display: none !important;
-}
-
-.cap1-lightbox{
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-}
-
-.cap1-lightbox__backdrop{
-  position: absolute;
-  inset: 0;
-  background: rgba(11,18,29,.82);
-  backdrop-filter: blur(4px);
-}
-
-.cap1-lightbox__dialog{
-  position: relative;
-  z-index: 1;
-  width: min(92vw, 1200px);
-  max-height: 88vh;
-  margin: 4vh auto;
-  padding: 18px 18px 14px;
-  overflow: auto;
-}
-
-.cap1-lightbox__close{
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 42px;
-  height: 42px;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(255,255,255,.12);
-  color: #fff;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.cap1-lightbox__close:hover{
-  background: rgba(255,255,255,.20);
-}
-
-.cap1-lightbox__figure{
-  margin: 0;
-}
-
-.cap1-lightbox__figure img{
-  display: block;
-  width: 100%;
-  max-height: 78vh;
-  object-fit: contain;
-  margin: 0 auto;
-  border-radius: 16px;
-}
-
-.cap1-lightbox__caption{
-  margin-top: 10px;
-  color: rgba(255,255,255,.88);
-  font-size: 14px;
-  line-height: 1.5;
-  text-align: center;
-}
-
-@media (max-width: 920px){
-  .cap1-p08-flow__actions{
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px){
-  .cap1-p08-modalTrigger__title{
-    font-size: 22px;
-  }
-
-  .cap1-p08-card__title{
-    font-size: 20px;
-  }
-
-  .cap1-p08-panel__title{
-    font-size: 22px;
-  }
-
-  .cap1-lightbox__dialog{
-    width: min(96vw, 1200px);
-    padding: 16px 10px 12px;
-  }
-}
-/* =========================
-   Página 9 — Profilaxia antibacteriana
-   ========================= */
-
-.cap1-page9 .prose sup{
-  font-size: 0.68em;
-  line-height: 0;
-  vertical-align: super;
-  position: relative;
-  top: -0.16em;
-  margin-left: 1px;
-  font-weight: 600;
-  color: inherit;
-}
-
-.cap1-p09-subtitle{
-  margin-top: 24px;
-  font-weight: 600;
-}
-
-.cap1-p09-pillars{
-  margin: 18px auto 26px;
-  max-width: 1040px;
-}
-
-.cap1-p09-pillars__track{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.cap1-p09-pillar{
-  padding: 16px 16px 14px;
-  border: 1px solid rgba(31,60,136,.14);
-  border-radius: 18px;
-  background: rgba(31,60,136,.03);
-}
-
-.cap1-p09-pillar__title{
-  margin: 0 0 6px;
-  font-family: var(--font-sub, "Playfair Display", serif);
-  font-size: 22px;
-  line-height: 1.2;
-  color: var(--blue);
-}
-
-.cap1-p09-pillar__text{
-  margin: 0;
-  line-height: 1.65;
-  color: var(--text);
-}
-
-.cap1-p09-figureBlock{
-  margin: 24px auto 28px;
-  max-width: 1040px;
-}
-
-.cap1-p09-figure{
-  margin: 0;
-}
-
-.cap1-p09-figure .cap1-zoomTrigger{
-  display: block;
-  width: 100%;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  cursor: zoom-in;
-}
-
-.cap1-p09-figure img{
-  display: block;
-  width: 100%;
-  max-width: 980px;
-  height: auto;
-  margin: 0 auto;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(18,38,63,.10);
-}
-
-.cap1-caption{
-  font-size: 11.5px;
-  line-height: 1.4;
-  color: rgba(31,31,31,.70);
-  padding-top: 8px;
-  text-indent: 0;
-}
-
-.cap1-p09-emphasis{
-  margin-top: 22px;
-}
-
-.cap1-highlight{
-  margin-top: 26px;
-  max-width: 780px;
-  font-weight: 500;
-}
-
-.cap1-lightbox[hidden]{
-  display: none !important;
-}
-
-.cap1-lightbox{
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-}
-
-.cap1-lightbox__backdrop{
-  position: absolute;
-  inset: 0;
-  background: rgba(11,18,29,.82);
-  backdrop-filter: blur(4px);
-}
-
-.cap1-lightbox__dialog{
-  position: relative;
-  z-index: 1;
-  width: min(92vw, 1200px);
-  max-height: 88vh;
-  margin: 4vh auto;
-  padding: 18px 18px 14px;
-  overflow: auto;
-}
-
-.cap1-lightbox__close{
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 42px;
-  height: 42px;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(255,255,255,.12);
-  color: #fff;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.cap1-lightbox__close:hover{
-  background: rgba(255,255,255,.20);
-}
-
-.cap1-lightbox__figure{
-  margin: 0;
-}
-
-.cap1-lightbox__figure img{
-  display: block;
-  width: 100%;
-  max-height: 78vh;
-  object-fit: contain;
-  margin: 0 auto;
-  border-radius: 16px;
-}
-
-.cap1-lightbox__caption{
-  margin-top: 10px;
-  color: rgba(255,255,255,.88);
-  font-size: 14px;
-  line-height: 1.5;
-  text-align: center;
-}
-
-@media (max-width: 920px){
-  .cap1-p09-pillars__track{
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px){
-  .cap1-p09-pillar__title{
-    font-size: 20px;
-  }
-
-  .cap1-lightbox__dialog{
-    width: min(96vw, 1200px);
-    padding: 16px 10px 12px;
-  }
-}
-/* =========================
-   Página 10 — Quiz de revisão
-   ========================= */
-
-.cap1-page10 .cap1-reading-flow{
-  max-width: 780px;
-  margin-inline: auto;
-}
-
-.cap1-p10Quiz{
-  max-width: 860px;
-  margin: 28px auto 0;
-}
-
-.cap1-p10Nav{
+.cap1-page3 .concept-tree__top,
+.cap1-page3 .concept-tree__middle{
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  justify-content: center;
+}
+
+.cap1-page3 .concept-tree__line--vertical{
+  width: 2px;
+  height: 22px;
+  background: linear-gradient(to bottom, rgba(14,116,144,.22), rgba(14,116,144,.70));
+  margin: 0 auto;
+}
+
+.cap1-page3 .concept-tree__line--horizontal{
+  width: 52%;
+  height: 2px;
+  background: linear-gradient(to right, rgba(14,116,144,.18), rgba(14,116,144,.65), rgba(14,116,144,.18));
+  margin: 0 auto 14px;
+}
+
+.cap1-page3 .concept-tree__line--vertical-lower{
+  margin-top: 6px;
+}
+
+.cap1-page3 .concept-tree__line--horizontal-lower{
+  width: 84%;
   margin-bottom: 18px;
 }
 
-.cap1-p10NavBtn{
-  appearance: none;
-  border: 1px solid rgba(31,60,136,.16);
-  background: #fff;
-  color: var(--blue);
-  border-radius: 12px;
-  padding: 10px 14px;
-  font-family: var(--font-body);
-  font-size: 14px;
-  cursor: pointer;
-  transition: border-color .2s ease, background-color .2s ease, transform .2s ease;
+.cap1-page3 .concept-node{
+  max-width: 430px;
+  text-align: center;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #f8fcfd 0%, #eef8f8 100%);
+  box-shadow: 0 6px 16px rgba(15, 42, 68, 0.06);
 }
 
-.cap1-p10NavBtn:hover:not(:disabled){
-  border-color: rgba(31,60,136,.35);
-  background: rgba(31,60,136,.04);
+.cap1-page3 .concept-node--root{
+  border: 1px solid rgba(14,116,144,.18);
+}
+
+.cap1-page3 .concept-node--focus{
+  border: 1px solid rgba(26,188,156,.24);
+  background: linear-gradient(180deg, #f4fcfb 0%, #e8f8f4 100%);
+}
+
+.cap1-page3 .concept-node__label{
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: var(--azul-escuro);
+  margin-bottom: 6px;
+}
+
+.cap1-page3 .concept-node__text{
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-color);
+  text-indent: 0;
+  text-align: center;
+}
+
+.cap1-page3 .concept-tree__branches{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.cap1-page3 .concept-card{
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(15,42,68,.08);
+  box-shadow: 0 6px 18px rgba(15,42,68,.05);
+}
+
+.cap1-page3 .concept-card__media{
+  padding: 12px 12px 8px;
+  background: linear-gradient(180deg, #fbfefe 0%, #f4fbfb 100%);
+}
+
+.cap1-page3 .concept-card__media img{
+  display: block;
+  width: 100%;
+  max-width: 170px;
+  margin: 0 auto;
+  height: auto;
+}
+
+.cap1-page3 .concept-card__body{
+  padding: 10px 12px 14px;
+  text-align: center;
+}
+
+.cap1-page3 .concept-card__title{
+  margin: 0 0 6px;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--verde-oceano);
+}
+
+.cap1-page3 .concept-card__text{
+  margin: 0;
+  font-size: 12.8px;
+  line-height: 1.52;
+  color: var(--text-color);
+  text-indent: 0;
+  text-align: center;
+}
+
+@media (max-width: 760px){
+  .cap1-page3 .concept-tree__branches{
+    grid-template-columns: 1fr;
+  }
+
+  .cap1-page3 .concept-tree__line--horizontal,
+  .cap1-page3 .concept-tree__line--horizontal-lower{
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom, rgba(14,116,144,.18), rgba(14,116,144,.65));
+  }
+
+  .cap1-page3 .concept-card__media img{
+    max-width: 180px;
+  }
+}
+/* =========================
+   PÁGINA 3 — ÁRVORE CONCEITUAL INTERATIVA
+   ========================= */
+
+.cap1-page3 .tree-wrap{
+  max-width: 700px;
+  margin: 24px auto 28px;
+}
+
+.cap1-page3 .tree-top,
+.cap1-page3 .tree-middle{
+  display: flex;
+  justify-content: center;
+}
+
+.cap1-page3 .tree-line--v{
+  width: 2px;
+  height: 22px;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, rgba(14,116,144,.24), rgba(14,116,144,.72));
+}
+
+.cap1-page3 .tree-line--h{
+  width: 84%;
+  height: 2px;
+  margin: 0 auto 18px;
+  background: linear-gradient(to right, rgba(26,188,156,.18), rgba(26,188,156,.78), rgba(26,188,156,.18));
+}
+
+.cap1-page3 .tree-node{
+  appearance: none;
+  border: 1px solid rgba(14,116,144,.22);
+  background: linear-gradient(180deg, #f7fcfd 0%, #edf9f8 100%);
+  border-radius: 16px;
+  padding: 14px 22px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(15,42,68,.06);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.cap1-page3 .tree-node:hover,
+.cap1-page3 .tree-card:hover{
+  transform: translateY(-2px);
+}
+
+.cap1-page3 .tree-node.is-active,
+.cap1-page3 .tree-card.is-active{
+  border-color: rgba(26,188,156,.70);
+  box-shadow: 0 10px 24px rgba(26,188,156,.12);
+}
+
+.cap1-page3 .tree-node--top{
+  min-width: 260px;
+}
+
+.cap1-page3 .tree-node--middle{
+  min-width: 240px;
+}
+
+.cap1-page3 .tree-node__title{
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--azul-escuro);
+  line-height: 1.2;
+}
+
+.cap1-page3 .tree-branches{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.cap1-page3 .tree-card{
+  appearance: none;
+  border: 1px solid rgba(15,42,68,.10);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbfc 100%);
+  border-radius: 16px;
+  padding: 12px 12px 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(15,42,68,.05);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.cap1-page3 .tree-card img{
+  display: block;
+  width: 100%;
+  max-width: 175px;
+  margin: 0 auto 10px;
+  height: auto;
+}
+
+.cap1-page3 .tree-card__title{
+  display: block;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--verde-oceano);
+}
+
+.cap1-page3 .tree-panel{
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px 18px;
+  border-left: 4px solid var(--azul-turquesa);
+  background: linear-gradient(180deg, #f7fcfb 0%, #effaf8 100%);
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(15,42,68,.05);
+}
+
+.cap1-page3 .tree-panel__content p{
+  margin: 0 0 10px;
+  text-indent: 0;
+}
+
+.cap1-page3 .tree-panel__content p:last-child{
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px){
+  .cap1-page3 .tree-branches{
+    grid-template-columns: 1fr;
+  }
+
+  .cap1-page3 .tree-line--h{
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom, rgba(26,188,156,.18), rgba(26,188,156,.78));
+  }
+}
+/* Página 4 — lista de alvos */
+
+.cap1-p04-list{
+  max-width: 560px;
+  margin: 14px auto 18px;
+  padding-left: 18px;
+
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.cap1-p04-list li{
+  margin-bottom: 6px;
+}
+.cap1-p04-figure img{
+  max-width: 420px;
+}
+/* =========================
+   PÁGINA 4 — TOXICIDADE SELETIVA
+   ========================= */
+
+.cap1-page4 .cap1-p04-figure{
+  max-width: 760px;
+  margin: 22px auto 18px;
+}
+
+.cap1-page4 .cap1-p04-figure img{
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+
+  border-radius: 12px;
+  box-shadow: 0 10px 26px rgba(15,42,68,.10);
+
+  cursor: zoom-in;
+}
+
+.cap1-page4 .cap1-p04-caption{
+  text-align: center;
+  color: var(--verde-oceano);
+}
+
+.cap1-page4 .cap1-p04-lead{
+  max-width: 560px;
+  margin: 10px auto 10px;
+  text-indent: 0;
+}
+
+.cap1-page4 .cap1-p04-list-wrap{
+  max-width: 560px;
+  margin: 0 auto 18px;
+  padding: 12px 16px;
+  background: linear-gradient(180deg, #f5fbfb 0%, #eef8f8 100%);
+  border-left: 4px solid var(--azul-turquesa);
+  border-radius: 10px;
+}
+
+.cap1-page4 .cap1-p04-list{
+  margin: 0;
+  padding-left: 18px;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.cap1-page4 .cap1-p04-list li{
+  margin-bottom: 6px;
+}
+
+.cap1-page4 .cap1-p04-list li:last-child{
+  margin-bottom: 0;
+}
+
+.cap1-page4 .cap1-p04-transition{
+  max-width: 560px;
+  margin: 14px auto 14px;
+  padding: 10px 12px;
+  text-indent: 0;
+  color: var(--azul-escuro);
+  background: linear-gradient(180deg, #f7fcfd 0%, #eef7fb 100%);
+  border-left: 4px solid var(--verde-oceano);
+  border-radius: 10px;
+}
+/* =========================
+   PÁGINA 5 — JANELA TERAPÊUTICA
+   ========================= */
+
+.cap1-page5 .cap1-p05-intro{
+  max-width: 560px;
+  margin: 8px auto 12px;
+  text-indent: 0;
+  text-align: center;
+  color: var(--verde-oceano);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.cap1-page5 .cap1-p05-stage{
+  max-width: 760px;
+  margin: 16px auto 24px;
+}
+
+.cap1-page5 .cap1-p05-stage__inner{
+  padding: 18px 18px 16px;
+  background: linear-gradient(180deg, #fbfefe 0%, #f2faf8 100%);
+  border: 1px solid rgba(14,116,144,.10);
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(15,42,68,.05);
+}
+
+.cap1-page5 .cap1-p05-visual__controls{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.cap1-page5 .cap1-p05-visual__tab{
+  appearance: none;
+  border: 1px solid rgba(15,42,68,.14);
+  background: #ffffff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background-color .16s ease;
+}
+
+.cap1-page5 .cap1-p05-visual__tab:hover{
   transform: translateY(-1px);
 }
 
-.cap1-p10NavBtn:disabled{
-  opacity: .45;
+.cap1-page5 .cap1-p05-visual__tab[aria-selected="true"]{
+  background: var(--azul-turquesa);
+  color: #ffffff;
+  border-color: var(--azul-turquesa);
+}
+
+.cap1-page5 .cap1-p05-figure{
+  max-width: 720px;
+  margin: 0 auto 14px;
+}
+
+.cap1-page5 .cap1-p05-visual__svg{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.cap1-page5 .cap1-p05-caption{
+  margin-top: 8px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.cap1-page5 .cap1-p05-feedback{
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  border-left: 4px solid var(--verde-oceano);
+  background: linear-gradient(180deg, #f6fcfb 0%, #edf8f5 100%);
+  border-radius: 12px;
+}
+
+.cap1-page5 .cap1-p05-feedback__eyebrow{
+  margin: 0 0 4px;
+  text-indent: 0;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--verde-oceano);
+}
+
+.cap1-page5 .cap1-p05-feedback__state{
+  margin: 0 0 6px;
+  font-family: var(--font-ui);
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--azul-escuro);
+}
+
+.cap1-page5 .cap1-p05-feedback__text{
+  margin: 0;
+  text-indent: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.cap1-page5 .cap1-p05-grid line{
+  stroke: rgba(15,42,68,.12);
+  stroke-width: 1.5;
+}
+
+.cap1-page5 .cap1-p05-windowBand{
+  fill: url(#cap1P05Band);
+  stroke: rgba(26,188,156,.22);
+  stroke-width: 1.5;
+}
+
+.cap1-page5 .cap1-p05-thresholds .is-effective{
+  stroke: #0e7490;
+  stroke-width: 3;
+  stroke-dasharray: 8 8;
+}
+
+.cap1-page5 .cap1-p05-thresholds .is-toxic{
+  stroke: #0f2a44;
+  stroke-width: 3;
+  stroke-dasharray: 8 8;
+}
+
+.cap1-page5 .cap1-p05-axis line{
+  stroke: #334155;
+  stroke-width: 3;
+}
+
+.cap1-page5 .cap1-p05-axisLabel{
+  font-family: var(--font-ui);
+  font-size: 24px;
+  fill: #334155;
+  font-weight: 600;
+}
+
+.cap1-page5 .cap1-p05-lineLabel{
+  font-family: var(--font-ui);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cap1-page5 .cap1-p05-lineLabel--toxic{
+  fill: #0f2a44;
+}
+
+.cap1-page5 .cap1-p05-lineLabel--effective{
+  fill: #0e7490;
+}
+
+.cap1-page5 .cap1-p05-windowLabel{
+  font-family: var(--font-ui);
+  font-size: 28px;
+  font-weight: 700;
+  fill: #0b5b63;
+}
+
+.cap1-page5 .cap1-p05-zone{
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.cap1-page5 .cap1-p05-zone--high{
+  fill: #0f2a44;
+}
+
+.cap1-page5 .cap1-p05-zone--ok{
+  fill: #0e7490;
+}
+
+.cap1-page5 .cap1-p05-zone--low{
+  fill: #64748b;
+}
+
+.cap1-page5 .cap1-p05-curve{
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.cap1-page5 .cap1-p05-curve--low{
+  stroke: #94a3b8;
+}
+
+.cap1-page5 .cap1-p05-curve--ok{
+  stroke: #14b8a6;
+}
+
+.cap1-page5 .cap1-p05-curve--high{
+  stroke: #0f2a44;
+}
+
+.cap1-page5 .cap1-p05-point--low{
+  fill: #94a3b8;
+}
+
+.cap1-page5 .cap1-p05-point--ok{
+  fill: #14b8a6;
+}
+
+.cap1-page5 .cap1-p05-point--high{
+  fill: #0f2a44;
+}
+
+@media (max-width: 760px){
+  .cap1-page5 .cap1-p05-stage__inner{
+    padding: 14px 12px;
+  }
+
+  .cap1-page5 .cap1-p05-feedback{
+    padding: 12px 14px;
+  }
+}
+.cap1-page5 .cap1-p05-feedback--low{
+  border-left-color: #94a3b8;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.cap1-page5 .cap1-p05-feedback--ok{
+  border-left-color: var(--verde-oceano);
+  background: linear-gradient(180deg, #f6fcfb 0%, #edf8f5 100%);
+}
+
+.cap1-page5 .cap1-p05-feedback--high{
+  border-left-color: var(--azul-escuro);
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+}
+/* =========================
+   PÁGINA 6 — ESPECTRO DE AÇÃO
+   ========================= */
+
+.cap1-page6 .cap1-p06-transition{
+  max-width: 560px;
+  margin: 10px auto 14px;
+  text-indent: 0;
+  color: var(--verde-oceano);
+}
+
+.cap1-page6 .cap1-p06-stage{
+  max-width: 760px;
+  margin: 0 auto 22px;
+}
+
+.cap1-page6 .cap1-p06-stage__inner{
+  padding: 18px 18px 16px;
+  background: linear-gradient(180deg, #fbfefe 0%, #f3faf9 100%);
+  border: 1px solid rgba(14,116,144,.10);
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(15,42,68,.05);
+}
+
+.cap1-page6 .cap1-p06-controls{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.cap1-page6 .cap1-p06-tab{
+  appearance: none;
+  border: 1px solid rgba(15,42,68,.14);
+  background: #fff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background-color .16s ease;
+}
+
+.cap1-page6 .cap1-p06-tab:hover{
+  transform: translateY(-1px);
+}
+
+.cap1-page6 .cap1-p06-tab[aria-selected="true"]{
+  background: var(--azul-turquesa);
+  color: #fff;
+  border-color: var(--azul-turquesa);
+}
+
+.cap1-page6 .cap1-p06-board{
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.cap1-page6 .cap1-p06-spectrum{
+  padding: 16px 16px 14px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(15,42,68,.08);
+}
+
+.cap1-page6 .cap1-p06-group{
+  margin-bottom: 14px;
+}
+
+.cap1-page6 .cap1-p06-group:last-child{
+  margin-bottom: 0;
+}
+
+.cap1-page6 .cap1-p06-label{
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--azul-escuro);
+}
+
+.cap1-page6 .cap1-p06-bar{
+  height: 18px;
+  border-radius: 999px;
+  background: #e8eef2;
+  overflow: hidden;
+}
+
+.cap1-page6 .cap1-p06-fill{
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  transition: width .28s ease;
+}
+
+.cap1-page6 .cap1-p06-group:nth-child(1) .cap1-p06-fill{
+  background: linear-gradient(90deg, #14b8a6 0%, #0e7490 100%);
+}
+
+.cap1-page6 .cap1-p06-group:nth-child(2) .cap1-p06-fill{
+  background: linear-gradient(90deg, #0e7490 0%, #0f2a44 100%);
+}
+
+.cap1-page6 .cap1-p06-group:nth-child(3) .cap1-p06-fill{
+  background: linear-gradient(90deg, #7dd3c7 0%, #14b8a6 100%);
+}
+
+.cap1-page6 .cap1-p06-group--impact .cap1-p06-fill{
+  background: linear-gradient(90deg, #94a3b8 0%, #0f2a44 100%);
+}
+
+.cap1-page6 .cap1-p06-feedback{
+  padding: 16px 16px 14px;
+  border-left: 4px solid var(--verde-oceano);
+  background: linear-gradient(180deg, #f6fcfb 0%, #edf8f5 100%);
+  border-radius: 12px;
+}
+
+.cap1-page6 .cap1-p06-feedback__eyebrow{
+  margin: 0 0 4px;
+  text-indent: 0;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--verde-oceano);
+}
+
+.cap1-page6 .cap1-p06-feedback__title{
+  margin: 0 0 6px;
+  font-family: var(--font-ui);
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--azul-escuro);
+}
+
+.cap1-page6 .cap1-p06-feedback__text{
+  margin: 0;
+  text-indent: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.cap1-page6 .cap1-p06-feedback--restrito{
+  border-left-color: var(--verde-oceano);
+  background: linear-gradient(180deg, #f6fcfb 0%, #edf8f5 100%);
+}
+
+.cap1-page6 .cap1-p06-feedback--ampliado{
+  border-left-color: var(--azul-turquesa);
+  background: linear-gradient(180deg, #f5fbfd 0%, #edf6fb 100%);
+}
+
+.cap1-page6 .cap1-p06-feedback--muito-amplo{
+  border-left-color: var(--azul-escuro);
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+}
+
+.cap1-page6 .cap1-p06-closing{
+  max-width: 560px;
+  margin: 12px auto 0;
+  padding: 10px 12px;
+  text-indent: 0;
+  color: var(--azul-escuro);
+  background: linear-gradient(180deg, #f7fcfd 0%, #eef7fb 100%);
+  border-left: 4px solid var(--verde-oceano);
+  border-radius: 10px;
+}
+
+@media (max-width: 760px){
+  .cap1-page6 .cap1-p06-stage__inner{
+    padding: 14px 12px;
+  }
+
+  .cap1-page6 .cap1-p06-board{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+/* =========================
+   PÁGINA 7 — COLONIZAÇÃO, CONTAMINAÇÃO E INFECÇÃO
+   ========================= */
+
+.cap1-page7 .cap1-p07-intro{
+  max-width: 560px;
+  margin: 10px auto 14px;
+  text-indent: 0;
+  color: var(--verde-oceano);
+}
+
+.cap1-page7 .cap1-p07-stage{
+  max-width: 780px;
+  margin: 0 auto 22px;
+}
+
+.cap1-page7 .cap1-p07-stage__inner{
+  padding: 18px 18px 16px;
+  background: linear-gradient(180deg, #fbfefe 0%, #f3faf9 100%);
+  border: 1px solid rgba(14,116,144,.10);
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(15,42,68,.05);
+}
+
+.cap1-page7 .cap1-p07-tabs{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.cap1-page7 .cap1-p07-tab{
+  appearance: none;
+  border: 1px solid rgba(15,42,68,.14);
+  background: #fff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background-color .16s ease;
+}
+
+.cap1-page7 .cap1-p07-tab:hover{
+  transform: translateY(-1px);
+}
+
+.cap1-page7 .cap1-p07-tab[aria-selected="true"]{
+  background: var(--azul-turquesa);
+  color: #fff;
+  border-color: var(--azul-turquesa);
+}
+
+.cap1-page7 .cap1-p07-panelWrap{
+  max-width: 680px;
+  margin: 0 auto 20px;
+}
+
+.cap1-page7 .cap1-p07-panel{
+  padding: 16px 18px;
+  border-left: 4px solid var(--verde-oceano);
+  background: linear-gradient(180deg, #f6fcfb 0%, #edf8f5 100%);
+  border-radius: 12px;
+}
+
+.cap1-page7 .cap1-p07-panelTitle{
+  margin: 0 0 10px;
+  font-family: var(--font-ui);
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--azul-escuro);
+}
+
+.cap1-page7 .cap1-p07-panel p{
+  margin: 0 0 10px;
+  text-indent: 0;
+}
+
+.cap1-page7 .cap1-p07-panel p:last-child{
+  margin-bottom: 0;
+}
+
+.cap1-page7 .cap1-p07-listWrap{
+  margin: 10px 0 12px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,.68);
+  border-radius: 10px;
+}
+
+.cap1-page7 .cap1-p07-listLead{
+  margin: 0 0 8px;
+  text-indent: 0;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--verde-oceano);
+}
+
+.cap1-page7 .cap1-p07-list{
+  margin: 0;
+  padding-left: 18px;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.cap1-page7 .cap1-p07-list li{
+  margin-bottom: 5px;
+}
+
+.cap1-page7 .cap1-p07-list li:last-child{
+  margin-bottom: 0;
+}
+
+.cap1-page7 .cap1-p07-flow{
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 18px 16px 6px;
+  border-top: 1px solid rgba(15,42,68,.08);
+}
+
+.cap1-page7 .cap1-p07-flowRoot{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.cap1-page7 .cap1-p07-flowBranches{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.cap1-page7 .cap1-p07-flowBranches::before{
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 16.5%;
+  right: 16.5%;
+  height: 2px;
+  background: linear-gradient(to right, rgba(26,188,156,.20), rgba(26,188,156,.75), rgba(26,188,156,.20));
+}
+
+.cap1-page7 .cap1-p07-branch{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cap1-page7 .cap1-p07-branchLine{
+  width: 2px;
+  height: 18px;
+  background: linear-gradient(to bottom, rgba(26,188,156,.18), rgba(26,188,156,.75));
+  margin-bottom: 8px;
+}
+
+.cap1-page7 .cap1-p07-flowNode{
+  width: 100%;
+  min-height: 118px;
+  padding: 12px 12px 10px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(15,42,68,.08);
+  box-shadow: 0 6px 16px rgba(15,42,68,.04);
+  text-align: center;
+}
+
+.cap1-page7 .cap1-p07-flowNode--root{
+  max-width: 260px;
+  min-height: auto;
+  background: linear-gradient(180deg, #f7fcfd 0%, #eef8f8 100%);
+  border-color: rgba(14,116,144,.18);
+}
+
+.cap1-page7 .cap1-p07-flowNode--colonizacao{
+  border-top: 4px solid #14b8a6;
+}
+
+.cap1-page7 .cap1-p07-flowNode--contaminacao{
+  border-top: 4px solid #0e7490;
+}
+
+.cap1-page7 .cap1-p07-flowNode--infeccao{
+  border-top: 4px solid #0f2a44;
+}
+
+.cap1-page7 .cap1-p07-flowNodeLabel{
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--verde-oceano);
+}
+
+.cap1-page7 .cap1-p07-flowNode strong{
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.25;
+  color: var(--azul-escuro);
+}
+
+.cap1-page7 .cap1-p07-flowNode p{
+  margin: 0;
+  font-size: 12.8px;
+  line-height: 1.45;
+  color: var(--text-color);
+}
+
+@media (max-width: 760px){
+  .cap1-page7 .cap1-p07-stage__inner{
+    padding: 14px 12px;
+  }
+
+  .cap1-page7 .cap1-p07-flowBranches{
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .cap1-page7 .cap1-p07-flowBranches::before{
+    display: none;
+  }
+
+  .cap1-page7 .cap1-p07-flowNode{
+    min-height: auto;
+  }
+}
+/* =========================
+   PÁGINA 8 — TERAPIA EMPÍRICA E DIRIGIDA
+   ========================= */
+
+.cap1-page8 .cap1-p08-intro{
+  max-width: 560px;
+  margin: 10px auto 14px;
+  text-indent: 0;
+  color: var(--verde-oceano);
+}
+
+.cap1-page8 .cap1-p08-stage{
+  max-width: 780px;
+  margin: 0 auto 22px;
+}
+
+.cap1-page8 .cap1-p08-stage__inner{
+  padding: 18px 18px 16px;
+  background: linear-gradient(180deg, #fbfefe 0%, #f3faf9 100%);
+  border: 1px solid rgba(14,116,144,.10);
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(15,42,68,.05);
+}
+
+.cap1-page8 .cap1-p08-flow{
+  max-width: 520px;
+  margin: 0 auto 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cap1-page8 .cap1-p08-flowStep{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cap1-page8 .cap1-p08-flowNode{
+  width: 100%;
+  max-width: 360px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(15,42,68,.08);
+  box-shadow: 0 6px 16px rgba(15,42,68,.04);
+  text-align: center;
+}
+
+.cap1-page8 .cap1-p08-flowNode strong{
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--azul-escuro);
+}
+
+.cap1-page8 .cap1-p08-flowNode--root{
+  border-top: 4px solid var(--verde-oceano);
+}
+
+.cap1-page8 .cap1-p08-flowNode--empiric{
+  border-top: 4px solid var(--azul-turquesa);
+}
+
+.cap1-page8 .cap1-p08-flowNode--review{
+  border-top: 4px solid var(--azul-escuro);
+}
+
+.cap1-page8 .cap1-p08-flowArrow{
+  margin: 6px 0;
+  font-family: var(--font-ui);
+  font-size: 22px;
+  line-height: 1;
+  color: var(--verde-oceano);
+}
+
+.cap1-page8 .cap1-p08-tabs{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.cap1-page8 .cap1-p08-tab{
+  appearance: none;
+  border: 1px solid rgba(15,42,68,.14);
+  background: #fff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background-color .16s ease;
+}
+
+.cap1-page8 .cap1-p08-tab:hover{
+  transform: translateY(-1px);
+}
+
+.cap1-page8 .cap1-p08-tab[aria-selected="true"]{
+  background: var(--azul-turquesa);
+  color: #fff;
+  border-color: var(--azul-turquesa);
+}
+
+.cap1-page8 .cap1-p08-panelWrap{
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.cap1-page8 .cap1-p08-panel{
+  padding: 16px 18px;
+  border-left: 4px solid var(--verde-oceano);
+  background: linear-gradient(180deg, #f6fcfb 0%, #edf8f5 100%);
+  border-radius: 12px;
+}
+
+.cap1-page8 .cap1-p08-panelTitle{
+  margin: 0 0 10px;
+  font-family: var(--font-ui);
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--azul-escuro);
+}
+
+.cap1-page8 .cap1-p08-panel p{
+  margin: 0 0 10px;
+  text-indent: 0;
+}
+
+.cap1-page8 .cap1-p08-panel p:last-child{
+  margin-bottom: 0;
+}
+
+.cap1-page8 .cap1-p08-closing{
+  max-width: 560px;
+  margin: 12px auto 0;
+  padding: 10px 12px;
+  text-indent: 0;
+  color: var(--azul-escuro);
+  background: linear-gradient(180deg, #f7fcfd 0%, #eef7fb 100%);
+  border-left: 4px solid var(--verde-oceano);
+  border-radius: 10px;
+}
+
+@media (max-width: 760px){
+  .cap1-page8 .cap1-p08-stage__inner{
+    padding: 14px 12px;
+  }
+
+  .cap1-page8 .cap1-p08-flowNode{
+    max-width: 100%;
+  }
+}
+/* =========================
+   PÁGINA 9 — PROFILAXIA ANTIBACTERIANA
+   ========================= */
+
+.cap1-page9 .cap1-p09-intro{
+  max-width: 560px;
+  margin: 10px auto 14px;
+  text-indent: 0;
+  color: var(--verde-oceano);
+}
+
+.cap1-page9 .cap1-p09-stage{
+  max-width: 800px;
+  margin: 0 auto 22px;
+}
+
+.cap1-page9 .cap1-p09-stage__inner{
+  padding: 18px 18px 16px;
+  background: linear-gradient(180deg, #fbfefe 0%, #f3faf9 100%);
+  border: 1px solid rgba(14,116,144,.10);
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(15,42,68,.05);
+}
+
+.cap1-page9 .cap1-p09-pillars{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.cap1-page9 .cap1-p09-pillar{
+  padding: 14px 14px 12px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(15,42,68,.08);
+  box-shadow: 0 6px 16px rgba(15,42,68,.04);
+  text-align: center;
+}
+
+.cap1-page9 .cap1-p09-pillar__title{
+  margin: 0 0 8px;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.25;
+  color: var(--azul-escuro);
+}
+
+.cap1-page9 .cap1-p09-pillar__text{
+  margin: 0;
+  text-indent: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cap1-page9 .cap1-p09-note{
+  max-width: 640px;
+  margin: 0 auto 16px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--azul-turquesa);
+  background: linear-gradient(180deg, #f7fcfd 0%, #eef7fb 100%);
+  border-radius: 10px;
+}
+
+.cap1-page9 .cap1-p09-note p{
+  margin: 0;
+  text-indent: 0;
+}
+
+.cap1-page9 .cap1-p09-tabs{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.cap1-page9 .cap1-p09-tab{
+  appearance: none;
+  border: 1px solid rgba(15,42,68,.14);
+  background: #fff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background-color .16s ease;
+}
+
+.cap1-page9 .cap1-p09-tab:hover{
+  transform: translateY(-1px);
+}
+
+.cap1-page9 .cap1-p09-tab[aria-selected="true"]{
+  background: var(--azul-turquesa);
+  color: #fff;
+  border-color: var(--azul-turquesa);
+}
+
+.cap1-page9 .cap1-p09-panelWrap{
+  max-width: 700px;
+  margin: 0 auto 18px;
+}
+
+.cap1-page9 .cap1-p09-panel{
+  padding: 16px 18px;
+  border-left: 4px solid var(--verde-oceano);
+  background: linear-gradient(180deg, #f6fcfb 0%, #edf8f5 100%);
+  border-radius: 12px;
+}
+
+.cap1-page9 .cap1-p09-panelTitle{
+  margin: 0 0 10px;
+  font-family: var(--font-ui);
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--azul-escuro);
+}
+
+.cap1-page9 .cap1-p09-panel p{
+  margin: 0;
+  text-indent: 0;
+}
+
+.cap1-page9 .cap1-p09-flow{
+  max-width: 760px;
+  margin: 0 auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(15,42,68,.08);
+}
+
+.cap1-page9 .cap1-p09-flowRoot{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.cap1-page9 .cap1-p09-flowBranches{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.cap1-page9 .cap1-p09-flowBranches::before{
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 24%;
+  right: 24%;
+  height: 2px;
+  background: linear-gradient(to right, rgba(26,188,156,.20), rgba(26,188,156,.75), rgba(26,188,156,.20));
+}
+
+.cap1-page9 .cap1-p09-branch{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cap1-page9 .cap1-p09-branchLine{
+  width: 2px;
+  height: 18px;
+  background: linear-gradient(to bottom, rgba(26,188,156,.18), rgba(26,188,156,.75));
+  margin-bottom: 8px;
+}
+
+.cap1-page9 .cap1-p09-flowNode{
+  width: 100%;
+  padding: 12px 12px 10px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(15,42,68,.08);
+  box-shadow: 0 6px 16px rgba(15,42,68,.04);
+  text-align: center;
+}
+
+.cap1-page9 .cap1-p09-flowNode--root{
+  max-width: 280px;
+  background: linear-gradient(180deg, #f7fcfd 0%, #eef8f8 100%);
+  border-color: rgba(14,116,144,.18);
+}
+
+.cap1-page9 .cap1-p09-flowNode--sim{
+  border-top: 4px solid var(--verde-oceano);
+}
+
+.cap1-page9 .cap1-p09-flowNode--nao{
+  border-top: 4px solid var(--azul-escuro);
+}
+
+.cap1-page9 .cap1-p09-flowNode strong{
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.25;
+  color: var(--azul-escuro);
+}
+
+.cap1-page9 .cap1-p09-flowNode p{
+  margin: 0;
+  font-size: 12.8px;
+  line-height: 1.45;
+  color: var(--text-color);
+  text-indent: 0;
+}
+
+.cap1-page9 .cap1-p09-subbranches{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cap1-page9 .cap1-p09-subnode{
+  padding: 12px 10px 10px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid rgba(15,42,68,.08);
+  box-shadow: 0 4px 12px rgba(15,42,68,.04);
+  text-align: center;
+}
+
+.cap1-page9 .cap1-p09-subnode--yes{
+  border-top: 4px solid var(--azul-turquesa);
+}
+
+.cap1-page9 .cap1-p09-subnode--no{
+  border-top: 4px solid #94a3b8;
+}
+
+.cap1-page9 .cap1-p09-subnode strong{
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--azul-escuro);
+}
+
+.cap1-page9 .cap1-p09-subnode p{
+  margin: 0;
+  font-size: 12.6px;
+  line-height: 1.4;
+  text-indent: 0;
+}
+
+.cap1-page9 .cap1-p09-closing{
+  max-width: 560px;
+  margin: 12px auto 0;
+  padding: 10px 12px;
+  text-indent: 0;
+  color: var(--azul-escuro);
+  background: linear-gradient(180deg, #f7fcfd 0%, #eef7fb 100%);
+  border-left: 4px solid var(--verde-oceano);
+  border-radius: 10px;
+}
+
+@media (max-width: 760px){
+  .cap1-page9 .cap1-p09-stage__inner{
+    padding: 14px 12px;
+  }
+
+  .cap1-page9 .cap1-p09-pillars{
+    grid-template-columns: 1fr;
+  }
+
+  .cap1-page9 .cap1-p09-flowBranches{
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .cap1-page9 .cap1-p09-flowBranches::before{
+    display: none;
+  }
+
+  .cap1-page9 .cap1-p09-subbranches{
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================
+   PÁGINA 10 — QUIZ (REFINADO)
+   ========================= */
+
+.cap1-page10 .cap1-p10Quiz{
+  max-width: 760px;
+  margin: 0 auto 24px;
+}
+
+.cap1-page10 .cap1-p10Nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.cap1-page10 .cap1-p10NavBtn{
+  border: none;
+  background: transparent;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--azul-escuro);
+  cursor: pointer;
+  opacity: .7;
+  transition: opacity .2s ease;
+}
+
+.cap1-page10 .cap1-p10NavBtn:hover{
+  opacity: 1;
+}
+
+.cap1-page10 .cap1-p10Progress{
+  font-size: 12px;
+  color: var(--verde-oceano);
+}
+
+.cap1-page10 .cap1-p10Question{
+  padding: 20px 22px;
+  border-radius: 16px;
+  background: linear-gradient(180deg,#fbfefe 0%,#f2faf9 100%);
+  border: 1px solid rgba(14,116,144,.10);
+}
+
+.cap1-page10 .cap1-p10Case{
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.cap1-page10 .cap1-p10Prompt{
+  margin-bottom: 14px;
+  color: var(--azul-escuro);
+}
+
+.cap1-page10 .cap1-p10Options{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cap1-page10 .cap1-p10Options button{
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(15,42,68,.12);
+  background: #fff;
+  cursor: pointer;
+  transition: all .18s ease;
+  font-size: 14px;
+}
+
+.cap1-page10 .cap1-p10Options button:hover{
+  border-color: var(--azul-turquesa);
+  transform: translateY(-1px);
+}
+
+.cap1-page10 .cap1-p10Options button.selected{
+  border-color: var(--azul-turquesa);
+  background: rgba(26,188,156,.06);
+}
+
+.cap1-page10 .cap1-p10Options button.correct{
+  border-color: var(--verde-oceano);
+  background: rgba(16,185,129,.08);
+}
+
+.cap1-page10 .cap1-p10Options button.error{
+  border-color: #ef4444;
+  background: rgba(239,68,68,.06);
+}
+
+.cap1-page10 .cap1-p10Letter{
+  font-weight: 700;
+  color: var(--azul-escuro);
+  min-width: 18px;
+}
+
+.cap1-page10 .cap1-p10Actions{
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.cap1-page10 .cap1-p10Btn{
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-family: var(--font-ui);
+  cursor: pointer;
+}
+
+.cap1-page10 .cap1-p10Btn--primary{
+  background: var(--azul-turquesa);
+  color: #fff;
+  border: none;
+}
+
+.cap1-page10 .cap1-p10Btn--primary:disabled{
+  opacity: .4;
   cursor: not-allowed;
 }
 
-.cap1-p10Progress{
-  color: rgba(31,31,31,.68);
-  font-size: 14px;
-  text-align: center;
-  min-width: 120px;
+.cap1-page10 .cap1-p10Btn--ghost{
+  background: transparent;
+  border: 1px solid rgba(15,42,68,.2);
 }
 
+.cap1-page10 .cap1-p10Feedback{
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  background: #fff;
+  border-left: 4px solid var(--azul-turquesa);
+}
+
+.cap1-page10 .cap1-p10Feedback.correct{
+  border-left-color: var(--verde-oceano);
+}
+
+.cap1-page10 .cap1-p10Feedback.error{
+  border-left-color: #ef4444;
+}
+
+.cap1-page10 .cap1-p10DoneCard{
+  text-align: center;
+  padding: 26px 20px;
+  border-radius: 16px;
+  background: linear-gradient(180deg,#f7fcfd 0%,#eef7fb 100%);
+}
+
+.cap1-page10 .cap1-p10Badge{
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  font-size: 11px;
+  border-radius: 999px;
+  background: var(--verde-oceano);
+  color: #fff;
+}
+
+.cap1-page10 .cap1-p10Closing{
+  margin-top: 12px;
+  text-align: left;
+}
 .cap1-p10Question{
   display: none;
 }
@@ -2070,235 +2216,44 @@
   display: block;
 }
 
-.cap1-p10Case{
-  margin: 0 0 14px;
-  line-height: 1.8;
-}
-
-.cap1-p10Prompt{
-  margin: 0 0 16px;
-  font-weight: 600;
-  line-height: 1.7;
-  text-indent: 0;
-}
-
-.cap1-p10Options{
-  display: grid;
-  gap: 12px;
-}
-
-.cap1-p10Options button{
-  appearance: none;
-  width: 100%;
-  border: 1px solid rgba(31,60,136,.16);
-  border-radius: 16px;
-  background: #fff;
-  padding: 14px 16px;
-  text-align: left;
-  display: grid;
-  grid-template-columns: 34px minmax(0,1fr);
-  gap: 12px;
-  align-items: start;
-  cursor: pointer;
-  font-family: var(--font-body);
-  color: var(--text);
-  line-height: 1.65;
-  transition: border-color .2s ease, background-color .2s ease, transform .2s ease, box-shadow .2s ease;
-}
-
-.cap1-p10Options button:hover:not(:disabled){
-  border-color: rgba(31,60,136,.34);
-  background: rgba(31,60,136,.03);
-  transform: translateY(-1px);
-}
-
-.cap1-p10Options button:focus-visible{
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(31,60,136,.12);
-}
-
-.cap1-p10Options button.selected{
-  border-color: rgba(31,60,136,.44);
-  background: rgba(31,60,136,.07);
-}
-
-.cap1-p10Options button.correct{
-  border-color: rgba(40,167,69,.42);
-  background: rgba(40,167,69,.10);
-}
-
-.cap1-p10Options button.incorrect{
-  border-color: rgba(220,53,69,.32);
-  background: rgba(220,53,69,.08);
-}
-
-.cap1-p10Options button:disabled{
-  cursor: default;
-}
-
-.cap1-p10Letter{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
-  background: rgba(31,60,136,.08);
-  color: var(--blue);
-  font-weight: 700;
-  line-height: 1;
-  margin-top: 2px;
-}
-
-.cap1-p10Actions{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 16px;
-}
-
-.cap1-p10Btn{
-  appearance: none;
-  border-radius: 12px;
-  padding: 10px 16px;
-  font-family: var(--font-body);
-  font-size: 14px;
-  cursor: pointer;
-  transition: transform .2s ease, opacity .2s ease, background-color .2s ease, border-color .2s ease;
-}
-
-.cap1-p10Btn:hover:not(:disabled){
-  transform: translateY(-1px);
-}
-
-.cap1-p10Btn:disabled{
-  opacity: .45;
+.cap1-p10NavBtn:disabled{
+  opacity: .35;
   cursor: not-allowed;
 }
-
-.cap1-p10Btn--primary{
-  border: 0;
-  background: var(--blue);
-  color: #fff;
+----------------
+.chapter{
+  color: #2A9D8F; /* verde oceano */
 }
 
-.cap1-p10Btn--ghost{
-  border: 1px solid rgba(31,60,136,.16);
-  background: #fff;
-  color: var(--blue);
+.page-title{
+  color: #1f3c88; /* azul escuro */
 }
 
-.cap1-p10Feedback{
-  margin-top: 16px;
-  padding: 16px 18px;
-  border-radius: 16px;
-  line-height: 1.7;
-  display: none;
+.cap1-subtitle{
+  color: #1E88E5; /* azul turquesa */
 }
 
-.cap1-p10Feedback.is-visible{
-  display: block;
+.highlight{
+  border-left: 4px solid #1E88E5;
+  background: rgba(30,136,229,0.06);
 }
 
-.cap1-p10Feedback.correct{
-  background: rgba(40,167,69,.10);
-  border: 1px solid rgba(40,167,69,.18);
+.amr-step strong{
+  color: #1E88E5;
 }
 
-.cap1-p10Feedback.error{
-  background: rgba(220,53,69,.08);
-  border: 1px solid rgba(220,53,69,.16);
+.btn.primary{
+  background: #1E88E5;
+  border-color: #1E88E5;
 }
 
-.cap1-p10FeedbackTitle{
-  margin: 0 0 6px;
-  font-weight: 700;
-  text-indent: 0;
+.btn.primary:hover{
+  background: #166fc1;
 }
 
-.cap1-p10FeedbackText{
-  margin: 0;
-  text-indent: 0;
+body{
+  background: #f4f7fb;
 }
-
-.cap1-p10Done{
-  margin-top: 8px;
-}
-
-.cap1-p10DoneCard{
-  padding: 18px 20px;
-  border-radius: 18px;
-  background: rgba(31,60,136,.05);
-}
-
-.cap1-p10Badge{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 28px;
-  padding: 0 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .03em;
-  text-transform: uppercase;
-}
-
-.cap1-p10Badge--done{
-  background: rgba(40,167,69,.12);
-  color: #1f7a35;
-}
-
-.cap1-p10DoneText{
-  margin: 10px 0 0;
-  text-indent: 0;
-}
-
-.cap1-refBox{
-  max-width: 860px;
-  margin: 36px auto 0;
-}
-
-.cap1-refBox summary{
-  cursor: pointer;
-  font-weight: 600;
-  color: var(--blue);
-}
-
-.cap1-refContent{
-  margin-top: 14px;
-  font-size: 13px;
-  line-height: 1.65;
-}
-
-.cap1-refContent p{
-  margin: 0 0 10px;
-  text-indent: 0;
-}
-
-@media (max-width: 640px){
-  .cap1-p10Nav{
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .cap1-p10Progress{
-    order: -1;
-    width: 100%;
-  }
-
-  .cap1-p10Options button{
-    grid-template-columns: 30px minmax(0,1fr);
-    gap: 10px;
-    padding: 13px 14px;
-  }
-
-  .cap1-p10Letter{
-    width: 28px;
-    height: 28px;
-  }
-
-  .cap1-p10Actions{
-    flex-wrap: wrap;
-  }
+.cap1-page2 img{
+  max-width: 100% !important;
 }
