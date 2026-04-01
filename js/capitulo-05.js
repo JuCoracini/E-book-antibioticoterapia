@@ -663,161 +663,122 @@
   activate("i");
 })();
 /* =========================
-   Página 47 — Observações do laudo: ESBL
+   Página 47 — ESBL interação
    ========================= */
-(function initCap5Page47() {
-  const root = document.querySelector(".cap5-page47");
-  if (!root) return;
 
-  const zoomTriggers = Array.from(root.querySelectorAll(".cap5-zoomTrigger"));
-  const lightbox = document.getElementById("cap5Lightbox");
-  const lightboxImage = document.getElementById("cap5LightboxImage");
-  const lightboxCaption = document.getElementById("cap5LightboxCaption");
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
+(function initPage47ESBL(){
 
-  if (!zoomTriggers.length || !lightbox || !lightboxImage || !lightboxCaption) return;
+  const root = document.querySelector("[data-esbl]");
+  if(!root) return;
 
-  function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+  const buttons = root.querySelectorAll(".cap5-esbl-btn");
+  const img = document.getElementById("esbl-img");
+  const title = document.getElementById("esbl-title");
+  const desc = document.getElementById("esbl-desc");
+
+  const data = {
+    1: {
+      img: "../../assets/capitulo-05/imagens/esbl-padrao.png",
+      title: "Padrão de suscetibilidade não uniforme",
+      desc: "Diferenças nos halos entre cefalosporinas sugerem a presença de um mecanismo de resistência."
+    },
+    2: {
+      img: "../../assets/capitulo-05/imagens/esbl-confirmacao.png",
+      title: "Efeito do inibidor enzimático",
+      desc: "Aumento do halo na presença de clavulanato indica atividade de β-lactamase."
+    },
+    3: {
+      img: "../../assets/capitulo-05/imagens/esbl-confirmacao.png",
+      title: "Interpretação clínica",
+      desc: "Esse padrão deve ser interpretado como ESBL, mesmo que alguns resultados apareçam como sensíveis."
+    }
+  };
+
+  function update(step){
+    img.style.opacity = 0;
+
+    setTimeout(()=>{
+      img.src = data[step].img;
+      title.textContent = data[step].title;
+      desc.textContent = data[step].desc;
+      img.style.opacity = 1;
+    },150);
+
+    buttons.forEach(b=>{
+      b.classList.toggle("is-active", b.dataset.step == step);
+    });
   }
 
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  zoomTriggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
+  buttons.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      update(btn.dataset.step);
     });
   });
 
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
 })();
-/* =========================
-   Página 48 — Observações do laudo que modificam a interpretação
-   ========================= */
-(function initCap5Page48() {
-  const root = document.querySelector(".cap5-page48");
-  if (!root) return;
+(function initPage48(){
 
-  const triggers = Array.from(root.querySelectorAll(".cap5-p48-zoomTrigger"));
-  const lightbox = document.getElementById("cap5Lightbox");
-  const lightboxImage = document.getElementById("cap5LightboxImage");
-  const lightboxCaption = document.getElementById("cap5LightboxCaption");
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
+  const root = document.querySelector("[data-carb]");
+  if(!root) return;
 
-  if (!triggers.length || !lightbox || !lightboxImage || !lightboxCaption) return;
+  const buttons = root.querySelectorAll(".cap5-carb-btn");
+  const img = document.getElementById("carb-img");
+  const title = document.getElementById("carb-title");
+  const desc = document.getElementById("carb-desc");
 
-  function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+  const data = {
+
+    1: {
+      img: "../../assets/capitulo-05/imagens/ampc-cfo.png",
+      title: "Suspeita de AmpC",
+      desc: "Espécies como Enterobacter e Serratia podem apresentar produção induzível de AmpC, o que interfere na interpretação do antibiograma."
+    },
+
+    2: {
+      img: "../../assets/capitulo-05/imagens/ampc-cfo-ab.png",
+      title: "Confirmação de AmpC",
+      desc: "Aumento do halo na presença de inibidor sugere produção de β-lactamase do tipo AmpC."
+    },
+
+    3: {
+      img: "../../assets/capitulo-05/imagens/carbapenemase-triagem.png",
+      title: "Alerta para carbapenemase",
+      desc: "Redução do halo em carbapenêmicos pode indicar presença de carbapenemase."
+    },
+
+    4: {
+      img: "../../assets/capitulo-05/imagens/carbapenemase-mcim.png",
+      title: "Confirmação laboratorial",
+      desc: "Testes como o mCIM demonstram a inativação do antibacteriano pela enzima."
+    },
+
+    5: {
+      img: "../../assets/capitulo-05/imagens/carbapenemase-mcim.png",
+      title: "Interpretação clínica",
+      desc: "Nem todo resultado sensível é confiável. Esses mecanismos indicam risco de falha terapêutica."
+    }
+
+  };
+
+  function update(step){
+    img.style.opacity = 0;
+
+    setTimeout(()=>{
+      img.src = data[step].img;
+      title.textContent = data[step].title;
+      desc.textContent = data[step].desc;
+      img.style.opacity = 1;
+    },150);
+
+    buttons.forEach(btn=>{
+      btn.classList.toggle("is-active", btn.dataset.step == step);
+    });
   }
 
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  triggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
+  buttons.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      update(btn.dataset.step);
     });
   });
 
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
-})();
-/* =========================
-   Página 49 — Mecanismos que modificam a leitura do laudo
-   ========================= */
-(function initCap5Page49() {
-  const root = document.querySelector(".cap5-page49");
-  if (!root) return;
-
-  const triggers = Array.from(root.querySelectorAll(".cap5-p49-zoomTrigger"));
-  const lightbox = document.getElementById("cap5Lightbox");
-  const lightboxImage = document.getElementById("cap5LightboxImage");
-  const lightboxCaption = document.getElementById("cap5LightboxCaption");
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
-
-  if (!triggers.length || !lightbox || !lightboxImage || !lightboxCaption) return;
-
-  function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  triggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
-    });
-  });
-
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
 })();

@@ -1813,697 +1813,134 @@
   }
 }
 /* =========================
-   Página 47 — Observações do laudo: ESBL
+   Página 47 — ESBL interação
    ========================= */
 
-.cap5-page47 .prose sup{
-  font-size: 0.68em;
-  line-height: 0;
-  vertical-align: super;
-  position: relative;
-  top: -0.15em;
-  margin-left: 1px;
-  font-weight: 600;
-  color: inherit;
+.cap5-esbl{
+  margin: 32px 0;
 }
 
-.cap5-page47 .page-header{
-  margin-bottom: 18px;
-}
-
-.cap5-page47 .page-header .chapter{
-  color: #0b7f8f;
-  font-family: var(--font-ui);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-}
-
-.cap5-page47 .page-title{
-  margin: 10px 0 0;
-  color: var(--azul-escuro);
-  font-family: var(--font-sub);
-  font-size: 34px;
-  line-height: 1.08;
-}
-
-.cap5-page47 .prose{
-  overflow-x: hidden;
-}
-
-.cap5-page47 .prose > p{
-  margin-bottom: 1.05em;
-}
-
-/* figura principal */
-
-.cap5-p47-figure{
-  margin: 28px auto 22px;
-  width: 100%;
-  max-width: 560px;
-}
-
-.cap5-p47-figure .cap5-zoomTrigger{
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  cursor: zoom-in;
-}
-
-.cap5-p47-figure img{
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 12px 28px rgba(18,38,63,.10);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.cap5-p47-figure .cap5-zoomTrigger:hover img{
-  transform: translateY(-1px);
-  box-shadow: 0 16px 34px rgba(18,38,63,.14);
-}
-
-.cap5-p47-caption{
-  padding-top: 8px;
-  font-size: 11.5px;
-  line-height: 1.45;
-  color: rgba(31,31,31,.70);
-  text-indent: 0;
-  text-align: center;
-}
-
-/* comparação */
-
-.cap5-p47-compare{
-  margin: 30px 0 28px;
-  padding-top: 14px;
-  border-top: 2px solid transparent;
-  border-image: linear-gradient(90deg, rgba(30,136,229,.7), rgba(38,166,154,.7)) 1;
-}
-
-.cap5-p47-compare__head{
-  margin-bottom: 18px;
-}
-
-.cap5-p47-compare__head h2{
-  margin: 0 0 8px;
-  color: #1f3551;
-  font-family: var(--font-sub);
-  font-size: 28px;
-  line-height: 1.08;
-  text-indent: 0;
-}
-
-.cap5-p47-compare__head p{
-  margin: 0;
-  color: rgba(31,31,31,.74);
-  line-height: 1.6;
-  text-indent: 0;
-}
-
-.cap5-p47-compare__stage{
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, .92fr);
-  gap: 18px;
-  align-items: start;
-}
-
-.cap5-p47-compare__card{
-  margin: 0;
-  min-width: 0;
-}
-
-.cap5-p47-compare__label{
-  display: inline-block;
-  margin-bottom: 10px;
-  color: rgba(31,31,31,.56);
-  font-family: var(--font-ui);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-  text-indent: 0;
-}
-
-.cap5-p47-compare__zoom{
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  cursor: zoom-in;
-}
-
-.cap5-p47-compare__zoom img{
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 12px 28px rgba(18,38,63,.10);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.cap5-p47-compare__zoom:hover img{
-  transform: translateY(-1px);
-  box-shadow: 0 16px 34px rgba(18,38,63,.14);
-}
-
-.cap5-p47-compare__text{
-  margin-top: 10px;
-  color: rgba(31,31,31,.82);
-  line-height: 1.55;
-  text-indent: 0;
-}
-
-.cap5-p47-compare__arrow{
+.cap5-esbl-controls{
   display: flex;
-  align-items: center;
+  gap: 8px;
   justify-content: center;
-  color: rgba(30,136,229,.55);
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1;
-  min-height: 180px;
+  margin-bottom: 18px;
 }
 
-/* impacto clínico */
-
-.cap5-p47-impact{
-  margin: 0;
-  padding: 12px 12px 12px 14px;
-  border-left: 3px solid #FB8C00;
-  background: rgba(251,140,0,.06);
-  border-radius: 0 8px 8px 0;
-  min-width: 0;
-}
-
-.cap5-p47-impact__eyebrow{
-  display: inline-block;
-  margin-bottom: 6px;
-  color: #b86a00;
-  font-family: var(--font-ui);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-  text-indent: 0;
-}
-
-.cap5-p47-impact h2{
-  margin: 0 0 8px;
-  color: #1f3551;
-  font-family: var(--font-sub);
-  font-size: 24px;
-  line-height: 1.08;
-  text-indent: 0;
-}
-
-.cap5-p47-impact p{
-  margin: 0;
-  color: rgba(31,31,31,.86);
-  line-height: 1.58;
-  text-indent: 0;
-}
-
-/* lightbox */
-
-.cap5-lightbox[hidden]{
-  display: none !important;
-}
-
-.cap5-lightbox{
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-}
-
-.cap5-lightbox__backdrop{
-  position: absolute;
-  inset: 0;
-  background: rgba(11,18,29,.82);
-  backdrop-filter: blur(4px);
-}
-
-.cap5-lightbox__dialog{
-  position: relative;
-  z-index: 1;
-  width: min(92vw, 1200px);
-  max-height: 88vh;
-  margin: 4vh auto;
-  padding: 18px 18px 14px;
-  overflow: auto;
-}
-
-.cap5-lightbox__close{
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 42px;
-  height: 42px;
+.cap5-esbl-btn{
   border: 0;
-  border-radius: 999px;
-  background: rgba(255,255,255,.12);
-  color: #fff;
-  font-size: 22px;
+  background: transparent;
+  font-size: 13px;
   cursor: pointer;
+  color: rgba(31,31,31,.5);
 }
 
-.cap5-lightbox__figure{
-  margin: 0;
+.cap5-esbl-btn.is-active{
+  color: #1E88E5;
+  font-weight: 700;
 }
 
-.cap5-lightbox__figure img{
-  display: block;
+.cap5-esbl-stage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.cap5-esbl-image img{
+  max-width: 340px;
   width: 100%;
-  max-height: 78vh;
-  object-fit: contain;
-  margin: 0 auto;
-  border-radius: 16px;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(18,38,63,.12);
+  transition: opacity .25s ease;
 }
 
-.cap5-lightbox__caption{
-  margin-top: 10px;
-  color: rgba(255,255,255,.88);
-  font-size: 14px;
-  line-height: 1.5;
+.cap5-esbl-text{
+  max-width: 480px;
   text-align: center;
 }
 
-/* responsivo */
-
-@media (max-width: 1180px){
-  .cap5-p47-compare__stage{
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .cap5-p47-compare__arrow{
-    display: none;
-  }
+.cap5-esbl-text h3{
+  margin: 0 0 6px;
+  color: #1f3551;
+  font-family: var(--font-sub);
 }
 
-@media (max-width: 980px){
-  .cap5-page47 .page-title{
-    font-size: 32px;
-  }
-
-  .cap5-p47-compare__head h2,
-  .cap5-p47-impact h2{
-    font-size: 27px;
-  }
+.cap5-esbl-text p{
+  margin: 0;
+  text-indent: 0;
 }
 
-@media (max-width: 640px){
-  .cap5-page47 .page-title{
-    font-size: 27px;
-  }
-
-  .cap5-p47-compare__head h2,
-  .cap5-p47-impact h2{
-    font-size: 24px;
-  }
-
-  .cap5-lightbox__dialog{
-    width: min(96vw, 1200px);
-    padding: 16px 10px 12px;
-  }
+.cap5-decision{
+  margin-top: 20px;
+  border-left: 3px solid #26A69A;
+  padding-left: 10px;
+  font-weight: 500;
+  color: #1f3551;
 }
 /* =========================
-   Página 48 — Observações do laudo que modificam a interpretação
+   Página 48 — continuidade padrão
    ========================= */
 
-.cap5-page48 .prose sup{
-  font-size: 0.68em;
-  line-height: 0;
-  vertical-align: super;
-  position: relative;
-  top: -0.15em;
-  margin-left: 1px;
-  font-weight: 600;
-  color: inherit;
+.cap5-page48 .prose{
+  max-width: 680px;
+  margin: 0 auto;
 }
 
-.cap5-page48 .page-header{
-  margin-bottom: 18px;
-}
-
-.cap5-page48 .page-header .chapter{
-  color: #0b7f8f;
-  font-family: var(--font-ui);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-}
-
-.cap5-page48 .page-title{
-  margin: 10px 0 0;
-  color: #7655a0;
-  font-family: var(--font-sub);
-  font-size: 36px;
-  line-height: 1.08;
-}
-
-.cap5-p48-prose > p{
-  margin-bottom: 1.05em;
-}
-
-.cap5-p48-figure{
+.cap5-carb-controls{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
   margin: 24px 0 18px;
 }
 
-.cap5-p48-zoomTrigger{
-  display: block;
-  width: 100%;
+.cap5-carb-btn{
   border: 0;
   background: transparent;
-  padding: 0;
-  margin: 0;
-  cursor: zoom-in;
-}
-
-.cap5-p48-zoomTrigger img{
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-  border-radius: 14px;
-  box-shadow: 0 10px 28px rgba(18,38,63,.08);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.cap5-p48-zoomTrigger:hover img{
-  transform: translateY(-1px);
-  box-shadow: 0 14px 34px rgba(18,38,63,.10);
-}
-
-.cap5-p48-caption{
-  padding-top: 8px;
-  font-size: 11.5px;
-  line-height: 1.4;
-  color: rgba(31,31,31,.70);
-  text-indent: 0;
-}
-
-.cap5-p48-highlight{
-  margin-top: 18px;
-  padding: 14px 16px;
-  border-left: 4px solid #1e88e5;
-  border-radius: 12px;
-  background: #f5f7fa;
-  color: #1f3551;
-  font-weight: 500;
-  line-height: 1.55;
-  text-indent: 0;
-}
-
-.cap5-lightbox[hidden]{
-  display: none !important;
-}
-
-.cap5-lightbox{
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-}
-
-.cap5-lightbox__backdrop{
-  position: absolute;
-  inset: 0;
-  background: rgba(11,18,29,.82);
-  backdrop-filter: blur(4px);
-}
-
-.cap5-lightbox__dialog{
-  position: relative;
-  z-index: 1;
-  width: min(92vw, 1200px);
-  max-height: 88vh;
-  margin: 4vh auto;
-  padding: 18px 18px 14px;
-  overflow: auto;
-}
-
-.cap5-lightbox__close{
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 42px;
-  height: 42px;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(255,255,255,.12);
-  color: #fff;
-  font-size: 22px;
+  font-size: 13px;
+  color: rgba(31,31,31,.5);
   cursor: pointer;
 }
 
-.cap5-lightbox__close:hover{
-  background: rgba(255,255,255,.20);
-}
-
-.cap5-lightbox__figure{
-  margin: 0;
-}
-
-.cap5-lightbox__figure img{
-  display: block;
-  width: 100%;
-  max-height: 78vh;
-  object-fit: contain;
-  margin: 0 auto;
-  border-radius: 16px;
-}
-
-.cap5-lightbox__caption{
-  margin-top: 10px;
-  color: rgba(255,255,255,.88);
-  font-size: 14px;
-  line-height: 1.5;
-  text-align: center;
-}
-
-@media (max-width: 900px){
-  .cap5-page48 .page-title{
-    font-size: 31px;
-  }
-}
-
-@media (max-width: 640px){
-  .cap5-page48 .page-title{
-    font-size: 27px;
-  }
-
-  .cap5-lightbox__dialog{
-    width: min(96vw, 1200px);
-    padding: 16px 10px 12px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce){
-  .cap5-p48-zoomTrigger img{
-    transition: none !important;
-  }
-}
-/* =========================
-   Página 49 — Mecanismos que modificam a leitura do laudo
-   ========================= */
-
-.cap5-page49 .prose sup{
-  font-size: 0.68em;
-  line-height: 0;
-  vertical-align: super;
-  position: relative;
-  top: -0.15em;
-  margin-left: 1px;
+.cap5-carb-btn.is-active{
+  color: #1E88E5;
   font-weight: 600;
-  color: inherit;
 }
 
-.cap5-page49 .page-header{
-  margin-bottom: 18px;
+.cap5-carb-stage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
 }
 
-.cap5-page49 .page-header .chapter{
-  color: #0b7f8f;
-  font-family: var(--font-ui);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-}
-
-.cap5-page49 .page-title{
-  margin: 10px 0 0;
-  color: #7655a0;
-  font-family: var(--font-sub);
-  font-size: 36px;
-  line-height: 1.08;
-}
-
-.cap5-p49-prose > p{
-  margin-bottom: 1.05em;
-}
-
-.cap5-p49-grid{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
-  margin: 26px 0 22px;
-  align-items: start;
-}
-
-.cap5-p49-card{
-  margin: 0;
-}
-
-.cap5-p49-zoomTrigger{
-  display: block;
+.cap5-carb-image img{
+  max-width: 320px;
   width: 100%;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  cursor: zoom-in;
-}
-
-.cap5-p49-zoomTrigger img{
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-  border-radius: 18px;
-  box-shadow: 0 10px 28px rgba(18,38,63,.08);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.cap5-p49-zoomTrigger:hover img{
-  transform: translateY(-1px);
-  box-shadow: 0 14px 34px rgba(18,38,63,.11);
-}
-
-.cap5-p49-caption{
-  padding-top: 9px;
-  font-size: 11.5px;
-  line-height: 1.45;
-  color: rgba(31,31,31,.70);
-  text-indent: 0;
-  text-align: center;
-}
-
-.cap5-p49-highlight{
-  margin-top: 18px;
-  padding: 14px 16px;
-  border-left: 4px solid #1e88e5;
   border-radius: 12px;
-  background: #f5f7fa;
+  box-shadow: 0 12px 28px rgba(18,38,63,.12);
+}
+
+.cap5-carb-text{
+  text-align: center;
+  max-width: 420px;
+}
+
+.cap5-carb-text h3{
+  margin-bottom: 6px;
   color: #1f3551;
-  font-weight: 500;
-  line-height: 1.55;
+  font-family: var(--font-sub);
+}
+
+.cap5-carb-text p{
+  margin: 0;
   text-indent: 0;
 }
 
-.cap5-lightbox[hidden]{
-  display: none !important;
-}
-
-.cap5-lightbox{
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-}
-
-.cap5-lightbox__backdrop{
-  position: absolute;
-  inset: 0;
-  background: rgba(11,18,29,.82);
-  backdrop-filter: blur(4px);
-}
-
-.cap5-lightbox__dialog{
-  position: relative;
-  z-index: 1;
-  width: min(92vw, 1200px);
-  max-height: 88vh;
-  margin: 4vh auto;
-  padding: 18px 18px 14px;
-  overflow: auto;
-}
-
-.cap5-lightbox__close{
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 42px;
-  height: 42px;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(255,255,255,.12);
-  color: #fff;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.cap5-lightbox__close:hover{
-  background: rgba(255,255,255,.20);
-}
-
-.cap5-lightbox__figure{
-  margin: 0;
-}
-
-.cap5-lightbox__figure img{
-  display: block;
-  width: 100%;
-  max-height: 78vh;
-  object-fit: contain;
-  margin: 0 auto;
-  border-radius: 16px;
-}
-
-.cap5-lightbox__caption{
-  margin-top: 10px;
-  color: rgba(255,255,255,.88);
-  font-size: 14px;
-  line-height: 1.5;
-  text-align: center;
-}
-
-@media (max-width: 900px){
-  .cap5-page49 .page-title{
-    font-size: 31px;
-  }
-
-  .cap5-p49-grid{
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-}
-
-@media (max-width: 640px){
-  .cap5-page49 .page-title{
-    font-size: 27px;
-  }
-
-  .cap5-lightbox__dialog{
-    width: min(96vw, 1200px);
-    padding: 16px 10px 12px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce){
-  .cap5-p49-zoomTrigger img{
-    transition: none !important;
-  }
+.cap5-decision{
+  margin-top: 20px;
+  border-left: 3px solid #26A69A;
+  padding-left: 10px;
+  font-weight: 500;
+  color: #1f3551;
 }

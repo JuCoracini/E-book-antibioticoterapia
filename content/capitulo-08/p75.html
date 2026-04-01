@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+<title>Capítulo 8 — Página 75</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../../css/base.css"/>
+<link rel="stylesheet" href="../../css/components.css"/>
+<link rel="stylesheet" href="../../css/capitulo-08.css"/>
+</head>
+
+<body>
+
+<div class="reader-toolbar" aria-label="Controles de leitura">
+  <div class="reader-toolbar__group">
+    <span class="reader-toolbar__label">Texto</span>
+    <button class="reader-btn" data-font="decrease" type="button">A-</button>
+    <button class="reader-btn" data-font="reset" type="button">A</button>
+    <button class="reader-btn" data-font="increase" type="button">A+</button>
+  </div>
+
+  <div class="reader-toolbar__group">
+    <span class="reader-toolbar__label">Zoom</span>
+    <button class="reader-btn" data-zoom="decrease" type="button">-</button>
+    <button class="reader-btn" data-zoom="reset" type="button">100%</button>
+    <button class="reader-btn" data-zoom="increase" type="button">+</button>
+  </div>
+
+  <div class="reader-toolbar__group">
+    <span class="reader-toolbar__label">Acessibilidade</span>
+    <button class="reader-btn" data-vision="default" type="button">Padrão</button>
+    <button class="reader-btn" data-vision="protanopia" type="button">Protan</button>
+    <button class="reader-btn" data-vision="deuteranopia" type="button">Deuter</button>
+    <button class="reader-btn" data-vision="tritanopia" type="button">Tritan</button>
+  </div>
+</div>
+
+<main class="container page-shell">
+
+  <header class="page-header">
+    <div>
+      <div class="chapter">Capítulo 8 — Antibioticoterapia nas Principais Infecções</div>
+      <h1 class="page-title">Quiz de revisão</h1>
+    </div>
+  </header>
+
+  <section class="prose">
+
+    <section class="cap8-quiz" data-cap8-quiz aria-label="Quiz de revisão">
+
+      <div class="cap8-quizNav" aria-label="Navegação das questões">
+        <button class="cap8-quizNavBtn" type="button" data-action="prev">Anterior</button>
+        <div class="cap8-quizProgress" aria-live="polite"></div>
+        <button class="cap8-quizNavBtn" type="button" data-action="next">Próxima</button>
+      </div>
+
+      <!-- QUESTÃO 1 -->
+      <div class="cap8-question active" data-q="1">
+
+        <div class="cap8-questionMeta">
+          <span class="cap8-questionBadge">Questão 1</span>
+          <span class="cap8-questionType">Revisão clínica</span>
+        </div>
+
+        <div class="cap8-caseCard">
+          <p class="cap8-caseLabel">Situação clínica</p>
+          <p class="cap8-case">
+            Um paciente jovem procura atendimento com tosse, febre baixa e mal-estar há dois dias. A radiografia de tórax não demonstra consolidação pulmonar, e o exame físico não revela sinais focais de infecção.
+          </p>
+        </div>
+
+        <p class="cap8-prompt">
+          Qual princípio da antibioticoterapia deve orientar a decisão inicial nesse cenário?
+        </p>
+
+        <div class="cap8-options" role="group" aria-label="Alternativas da questão 1">
+          <button type="button" data-answer="a">
+            <span class="cap8-optionLetter">A</span>
+            <span class="cap8-optionText">A presença de febre justifica início imediato de antibacteriano.</span>
+          </button>
+
+          <button type="button" data-answer="b" data-correct="true">
+            <span class="cap8-optionLetter">B</span>
+            <span class="cap8-optionText">A decisão terapêutica deve considerar a plausibilidade clínica de infecção bacteriana.</span>
+          </button>
+
+          <button type="button" data-answer="c">
+            <span class="cap8-optionLetter">C</span>
+            <span class="cap8-optionText">Antibacterianos devem ser iniciados sempre que sintomas respiratórios estiverem presentes.</span>
+          </button>
+
+          <button type="button" data-answer="d">
+            <span class="cap8-optionLetter">D</span>
+            <span class="cap8-optionText">O tratamento empírico deve incluir cobertura para patógenos multirresistentes.</span>
+          </button>
+        </div>
+
+        <div class="cap8-actions">
+          <button class="cap8-btn cap8-btn--primary" type="button" data-action="confirm" disabled>Confirmar resposta</button>
+          <button class="cap8-btn cap8-btn--ghost" type="button" data-action="reset" hidden>Refazer</button>
+        </div>
+
+        <div class="cap8-feedback" role="region" aria-live="polite"></div>
+
+        <template class="cap8-rationale">
+          <div class="cap8-feedbackBlock">
+            <p class="cap8-feedbackTitle">Resposta correta</p>
+            <p class="cap8-feedbackAnswer">
+              B) A decisão terapêutica deve considerar a plausibilidade clínica de infecção bacteriana.
+            </p>
+
+            <div class="cap8-feedbackList">
+              <p><strong>A)</strong> Incorreta — A febre isoladamente não define infecção bacteriana nem indica automaticamente necessidade de antibacteriano.</p>
+              <p><strong>B)</strong> Correta — A antibioticoterapia deve ser iniciada quando o quadro clínico apresenta probabilidade consistente de infecção bacteriana, considerando sinais clínicos, exames complementares e contexto epidemiológico.</p>
+              <p><strong>C)</strong> Incorreta — Muitos quadros respiratórios agudos são virais e autolimitados, nos quais antibacterianos não oferecem benefício clínico.</p>
+              <p><strong>D)</strong> Incorreta — A amplitude do espectro antimicrobiano deve ser proporcional ao risco individual de resistência bacteriana.</p>
+            </div>
+
+            <div class="cap8-keyPoint">
+              <strong>Princípio-chave:</strong> a decisão inicial deve partir da plausibilidade clínica de infecção bacteriana, e não da presença isolada de sintomas inespecíficos.
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-- QUESTÃO 2 -->
+      <div class="cap8-question" data-q="2">
+
+        <div class="cap8-questionMeta">
+          <span class="cap8-questionBadge">Questão 2</span>
+          <span class="cap8-questionType">Revisão clínica</span>
+        </div>
+
+        <div class="cap8-caseCard">
+          <p class="cap8-caseLabel">Situação clínica</p>
+          <p class="cap8-case">
+            Um paciente internado apresenta infecção intra-abdominal com abscesso identificado em exame de imagem. Antibioticoterapia apropriada foi iniciada, porém nenhuma intervenção foi realizada para drenagem da coleção.
+          </p>
+        </div>
+
+        <p class="cap8-prompt">
+          Qual princípio da antibioticoterapia ajuda a explicar a persistência da infecção nesse cenário?
+        </p>
+
+        <div class="cap8-options" role="group" aria-label="Alternativas da questão 2">
+          <button type="button" data-answer="a">
+            <span class="cap8-optionLetter">A</span>
+            <span class="cap8-optionText">O antibacteriano é suficiente para tratar qualquer infecção intra-abdominal.</span>
+          </button>
+
+          <button type="button" data-answer="b" data-correct="true">
+            <span class="cap8-optionLetter">B</span>
+            <span class="cap8-optionText">A ausência de controle adequado do foco infeccioso pode comprometer o sucesso terapêutico.</span>
+          </button>
+
+          <button type="button" data-answer="c">
+            <span class="cap8-optionLetter">C</span>
+            <span class="cap8-optionText">A associação de múltiplos antibacterianos seria suficiente para resolver a infecção.</span>
+          </button>
+
+          <button type="button" data-answer="d">
+            <span class="cap8-optionLetter">D</span>
+            <span class="cap8-optionText">A persistência da infecção indica necessariamente resistência bacteriana.</span>
+          </button>
+        </div>
+
+        <div class="cap8-actions">
+          <button class="cap8-btn cap8-btn--primary" type="button" data-action="confirm" disabled>Confirmar resposta</button>
+          <button class="cap8-btn cap8-btn--ghost" type="button" data-action="reset" hidden>Refazer</button>
+        </div>
+
+        <div class="cap8-feedback" role="region" aria-live="polite"></div>
+
+        <template class="cap8-rationale">
+          <div class="cap8-feedbackBlock">
+            <p class="cap8-feedbackTitle">Resposta correta</p>
+            <p class="cap8-feedbackAnswer">
+              B) A ausência de controle adequado do foco infeccioso pode comprometer o sucesso terapêutico.
+            </p>
+
+            <div class="cap8-feedbackList">
+              <p><strong>A)</strong> Incorreta — Em muitas infecções intra-abdominais, antibacterianos isoladamente não são suficientes sem intervenção sobre o foco infeccioso.</p>
+              <p><strong>B)</strong> Correta — O controle do foco, como drenagem de abscessos ou correção cirúrgica da lesão, frequentemente é determinante para a resolução da infecção.</p>
+              <p><strong>C)</strong> Incorreta — A associação de antibacterianos não substitui intervenções necessárias para controle anatômico da infecção.</p>
+              <p><strong>D)</strong> Incorreta — A persistência da infecção pode ocorrer mesmo quando o microrganismo é sensível ao antibacteriano utilizado.</p>
+            </div>
+
+            <div class="cap8-keyPoint">
+              <strong>Princípio-chave:</strong> em infecções intra-abdominais, cobertura antimicrobiana adequada não substitui o controle efetivo do foco infeccioso.
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="cap8-done" hidden>
+        <div class="cap8-doneCard" role="status" aria-live="polite">
+          <span class="cap8-doneBadge">Concluído</span>
+          <p>Você concluiu a revisão do capítulo.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <details class="cap8-refBox">
+      <summary>Referências</summary>
+      <div class="cap8-refContent">
+        <p>1. Universidade Aberta do SUS. Abordagem a problemas de vias urinárias. 2018. Report.</p>
+        <p>2. Colégio Brasileiro de Cirurgiões. Condutas em infecção intra-abdominal. 2020. Report.</p>
+        <p>3. Instituto Latino-Americano de Sepse. Diretrizes para tratamento da sepse. 2022. Report.</p>
+        <p>4. Sociedade Brasileira de Infectologia. Diretrizes brasileiras para terapia antimicrobiana parenteral ambulatorial. 2017. Report.</p>
+      </div>
+    </details>
+
+  </section>
+
+ <nav class="pager">
+      <button class="btn" data-prev="p74.html">← Anterior</button>
+      <div class="center">Capítulo 8 · Página 75 de 75</div>
+      <button class="btn primary" data-next="p76.html">Próxima →</button>
+    </nav>
+
+</main>
+
+<script src="../../js/app.js"></script>
+<script src="../../js/capitulo-08.js"></script>
+</body>
+</html>

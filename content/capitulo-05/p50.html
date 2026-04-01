@@ -3,183 +3,145 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Capítulo 5 — Página 39</title>
+  <title>Capítulo 5 — Página 50</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
   <link rel="stylesheet" href="../../css/capitulo-05.css" />
 </head>
 
-<body class="cap5-page39">
-
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
+<body class="cap5-page50">
 
   <main class="container page-shell">
 
     <header class="page-header">
       <div>
         <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
-        <h1 class="page-title">Identificação bacteriana</h1>
+        <h1 class="page-title">Como ler o antibiograma de forma estruturada</h1>
       </div>
     </header>
 
     <section class="prose" aria-label="Texto principal">
 
       <p>
-        Após o crescimento do microrganismo em meio de cultura e a avaliação morfológica inicial, o laboratório realiza a identificação bacteriana. Essa etapa define o agente isolado e estabelece o contexto biológico necessário para interpretar corretamente o teste de suscetibilidade.
+        O antibiograma deve ser interpretado como parte de um laudo microbiológico completo, e não como uma lista independente de antibacterianos. A leitura adequada exige considerar a sequência de informações que compõem o resultado do laboratório.
       </p>
 
       <p>
-        A identificação pode começar por características observadas no próprio crescimento bacteriano. Aspectos como morfologia das colônias, padrão de hemólise em ágar sangue, pigmentação e odor característico podem fornecer indícios iniciais sobre o grupo bacteriano envolvido. Essas informações orientam a escolha dos testes adicionais necessários para confirmar a identificação.
+        Uma abordagem estruturada pode ser organizada em etapas sucessivas.
       </p>
 
-      <section class="id-growth" aria-labelledby="id-growth-title">
-        <div class="id-growth__header">
-          <p class="id-growth__eyebrow">Exploração guiada</p>
-          <h2 id="id-growth-title" class="id-growth__title">Do crescimento às pistas de identificação</h2>
-          <p class="id-growth__subtitle">
-            A placa de cultura não fornece apenas crescimento visível. Ela oferece sinais fenotípicos que ajudam a orientar a identificação do microrganismo.
-          </p>
+      <section class="cap5-p50-nav" aria-label="Sequência de leitura do antibiograma">
+        <div class="cap5-p50-nav__track">
+          <button class="cap5-p50-nav__btn is-active" type="button" data-target="cap5-p50-step1" aria-label="Ir para a etapa 1">
+            <span class="cap5-p50-nav__n">1</span>
+            <span class="cap5-p50-nav__label">Microrganismo</span>
+          </button>
+
+          <button class="cap5-p50-nav__btn" type="button" data-target="cap5-p50-step2" aria-label="Ir para a etapa 2">
+            <span class="cap5-p50-nav__n">2</span>
+            <span class="cap5-p50-nav__label">Origem da amostra</span>
+          </button>
+
+          <button class="cap5-p50-nav__btn" type="button" data-target="cap5-p50-step3" aria-label="Ir para a etapa 3">
+            <span class="cap5-p50-nav__n">3</span>
+            <span class="cap5-p50-nav__label">Observações</span>
+          </button>
+
+          <button class="cap5-p50-nav__btn" type="button" data-target="cap5-p50-step4" aria-label="Ir para a etapa 4">
+            <span class="cap5-p50-nav__n">4</span>
+            <span class="cap5-p50-nav__label">Categorias</span>
+          </button>
+
+          <button class="cap5-p50-nav__btn" type="button" data-target="cap5-p50-step5" aria-label="Ir para a etapa 5">
+            <span class="cap5-p50-nav__n">5</span>
+            <span class="cap5-p50-nav__label">Integração clínica</span>
+          </button>
         </div>
 
-        <div class="id-growth__figureWrap">
-          <div class="id-growth__figure">
-            <img
-              id="id-growth-image"
-              src="../../assets/capitulo-05/imagens/meio-de-cultura.png"
-              alt="Placa de cultura com pistas fenotípicas para identificação bacteriana"
-            />
-          </div>
-
-          <div class="id-growth__hotspots" role="tablist" aria-label="Pistas observadas na placa de cultura">
-            <button class="id-growth__hotspot is-active" type="button" aria-selected="true" data-growth-key="morfologia">
-              Morfologia das colônias
-            </button>
-            <button class="id-growth__hotspot" type="button" aria-selected="false" data-growth-key="hemolise">
-              Padrão de hemólise
-            </button>
-            <button class="id-growth__hotspot" type="button" aria-selected="false" data-growth-key="pigmentacao">
-              Pigmentação
-            </button>
-            <button class="id-growth__hotspot" type="button" aria-selected="false" data-growth-key="odor">
-              Odor característico
-            </button>
-          </div>
-        </div>
-
-        <div class="id-growth__panel" aria-live="polite">
-          <span id="id-growth-pill" class="id-growth__pill">Pista fenotípica</span>
-          <h3 id="id-growth-name" class="id-growth__name">Morfologia das colônias</h3>
-          <p id="id-growth-text" class="id-growth__text">
-            O aspecto das colônias — tamanho, formato, superfície, bordas e relevo — pode sugerir grupos bacterianos específicos e orientar os testes adicionais necessários para a identificação.
-          </p>
-        </div>
+        <p class="cap5-p50-nav__hint">
+          A leitura do antibiograma depende da sequência de interpretação do laudo microbiológico.
+        </p>
       </section>
 
-      <p>
-        Tradicionalmente, a identificação baseia-se em testes fenotípicos bioquímicos, que avaliam propriedades metabólicas da bactéria. Esses testes investigam, por exemplo, a capacidade de fermentar determinados açúcares, produzir enzimas específicas ou utilizar substratos particulares. A combinação desses resultados gera um perfil metabólico característico que permite classificar o microrganismo em determinada espécie ou grupo bacteriano <sup>3</sup>.
-      </p>
+      <section class="cap5-p50-steps">
 
-      <p>
-        Atualmente, muitos laboratórios utilizam sistemas automatizados, que integram múltiplos testes bioquímicos em painéis padronizados e comparam os resultados obtidos com bancos de dados microbiológicos validados. O sistema calcula a probabilidade de correspondência entre o perfil observado e as espécies registradas na base de referência <sup>5</sup>.
-      </p>
+        <section class="cap5-p50-step is-active" id="cap5-p50-step1">
+          <h2 class="cap5-p50-step__title">1. Identificar o microrganismo isolado</h2>
 
-      <p>
-        Outro método amplamente incorporado à rotina microbiológica é a espectrometria de massa por MALDI-TOF. Nesse método, proteínas bacterianas são ionizadas e analisadas de acordo com seu padrão espectral. O perfil obtido é comparado a bibliotecas de referência, permitindo identificação rápida e precisa de grande parte das bactérias de relevância clínica.
-      </p>
+          <p>
+            A espécie bacteriana fornece o primeiro contexto interpretativo do resultado. Diferentes bactérias apresentam perfis característicos de suscetibilidade e resistência, incluindo mecanismos de fenótipo esperado resistente <sup>1</sup>.
+          </p>
 
-      <section class="id-methods" aria-labelledby="id-methods-title" data-id-methods>
-        <div class="id-methods__header">
-          <p class="id-methods__eyebrow">Métodos de identificação</p>
-          <h2 id="id-methods-title" class="id-methods__title">Como o laboratório confirma a identidade do microrganismo</h2>
-        </div>
+          <p>
+            A identificação do microrganismo também ajuda a avaliar a plausibilidade clínica do isolamento. Nem todo microrganismo detectado em cultura representa necessariamente o agente responsável pela infecção.
+          </p>
+        </section>
 
-        <div class="id-methods__tabs" role="tablist" aria-label="Métodos de identificação bacteriana">
-          <button class="id-methods__tab is-active" type="button" aria-selected="true" data-method="fenotipicos">
-            Testes fenotípicos
-          </button>
-          <button class="id-methods__tab" type="button" aria-selected="false" data-method="automatizados">
-            Sistemas automatizados
-          </button>
-          <button class="id-methods__tab" type="button" aria-selected="false" data-method="maldi">
-            MALDI-TOF
-          </button>
-        </div>
+        <section class="cap5-p50-step" id="cap5-p50-step2">
+          <h2 class="cap5-p50-step__title">2. Considerar a origem da amostra</h2>
 
-        <div class="id-methods__stage">
-          <div class="id-methods__media">
-            <img
-              id="id-method-image"
-              src="../../assets/capitulo-05/imagens/proteinas-bacterianas.png"
-              alt="Ilustração representando método fenotípico de identificação bacteriana"
-            />
-          </div>
+          <p>
+            O significado clínico do isolamento depende do sítio de onde a amostra foi obtida. A presença de uma bactéria em hemocultura possui implicações diferentes da detecção do mesmo microrganismo em secreções respiratórias ou em material de superfície.
+          </p>
 
-          <div class="id-methods__content" aria-live="polite">
-            <span id="id-method-pill" class="id-methods__pill">Método clássico</span>
-            <h3 id="id-method-name" class="id-methods__name">Testes fenotípicos bioquímicos</h3>
-            <p id="id-method-text" class="id-methods__text">
-              Avaliam propriedades metabólicas da bactéria, como fermentação de açúcares, produção de enzimas e uso de substratos específicos. A combinação desses resultados compõe um perfil capaz de orientar a identificação.
-            </p>
+          <p>
+            A interpretação do antibiograma precisa ser contextualizada com a possibilidade de colonização, contaminação da amostra ou infecção verdadeira.
+          </p>
+        </section>
 
-            <div id="id-method-maldi-steps" class="id-methods__miniSteps" hidden>
-              <button type="button" class="id-methods__miniStep is-active" data-maldi-step="proteinas">1. Proteínas bacterianas</button>
-              <button type="button" class="id-methods__miniStep" data-maldi-step="ionizacao">2. Ionização</button>
-              <button type="button" class="id-methods__miniStep" data-maldi-step="espectral">3. Padrão espectral</button>
-              <button type="button" class="id-methods__miniStep" data-maldi-step="biblioteca">4. Biblioteca de referência</button>
-            </div>
-          </div>
-        </div>
+        <section class="cap5-p50-step" id="cap5-p50-step3">
+          <h2 class="cap5-p50-step__title">3. Verificar observações laboratoriais</h2>
+
+          <p>
+            O laudo pode incluir informações adicionais relacionadas a mecanismos de resistência específicos. Observações como produção de ESBL, presença de carbapenemase, identificação de MRSA, VRE ou outros fenótipos de resistência modificam a leitura do painel de antibacterianos.
+          </p>
+
+          <p>
+            Esses dados representam características biológicas do microrganismo e devem ser considerados antes da análise das categorias interpretativas.
+          </p>
+        </section>
+
+        <section class="cap5-p50-step" id="cap5-p50-step4">
+          <h2 class="cap5-p50-step__title">4. Analisar as categorias de suscetibilidade</h2>
+
+          <p>
+            Somente após compreender o contexto microbiológico do laudo faz sentido avaliar as categorias interpretativas apresentadas no antibiograma.
+          </p>
+
+          <p>
+            A classificação como as categorias S, I e R resulta da aplicação de critérios técnicos sobre o valor obtido no teste de suscetibilidade. Essas categorias indicam a probabilidade microbiológica de inibição bacteriana nas condições consideradas pelos parâmetros farmacológicos utilizados para definir os breakpoints <sup>1</sup>.
+          </p>
+
+          <p>
+            Quando disponível, o valor da concentração inibitória mínima pode fornecer informação adicional, especialmente quando se encontra próximo aos pontos de corte estabelecidos.
+          </p>
+        </section>
+
+        <section class="cap5-p50-step" id="cap5-p50-step5">
+          <h2 class="cap5-p50-step__title">5. Integrar o resultado ao contexto clínico</h2>
+
+          <p>
+            O antibiograma informa o comportamento da bactéria no ambiente laboratorial. A decisão terapêutica depende da integração desse dado com fatores clínicos, como o foco infeccioso, a penetração do antibacteriano no tecido afetado, a presença de biofilme e as características farmacocinéticas do paciente.
+          </p>
+
+          <p>
+            A interpretação adequada surge da integração entre microbiologia, farmacologia e contexto clínico.
+          </p>
+        </section>
+
       </section>
-
-      <p>
-        Em algumas situações, a identificação pode ser limitada ao nível de grupo ou complexo bacteriano, em vez de uma única espécie. Isso ocorre quando espécies próximas apresentam características fenotípicas muito semelhantes ou quando a diferenciação não possui relevância clínica significativa. Exemplos incluem complexos bacterianos como <em>Enterobacter cloacae</em> complex ou grupos como os estreptococos do grupo viridans.
-      </p>
-
-      <p>
-        A definição correta da espécie é um elemento central para a interpretação do antibiograma. Diferentes bactérias apresentam perfis característicos de suscetibilidade e resistência. Algumas possuem fenótipo esperado resistente, ou seja, uma propriedade natural da espécie que impede a atividade de determinadas classes de antibacterianos. Nesses casos, o teste de sensibilidade pode nem ser realizado para certas combinações microrganismo–fármaco, pois o resultado já é previsível <sup>1</sup>.
-      </p>
-
-      <p>
-        Por exemplo, espécies do gênero <em>Enterococcus</em> apresentam fenótipo esperado resistente às cefalosporinas, enquanto <em>Pseudomonas aeruginosa</em> possui baixa suscetibilidade natural a diversos antibacterianos frequentemente utilizados contra outras bactérias Gram-negativas. O reconhecimento da espécie permite antecipar essas limitações e interpretar o painel de suscetibilidade de forma mais adequada.
-      </p>
-
-      <p>
-        Assim, a identificação bacteriana não representa apenas a atribuição de um nome ao microrganismo isolado. Ela define o contexto microbiológico no qual os resultados do teste de sensibilidade serão interpretados e orienta a leitura crítica do antibiograma.
-      </p>
 
     </section>
 
     <nav class="pager" aria-label="Paginação">
-      <a class="btn" href="p38.html">← Anterior</a>
-      <div class="center">Capítulo 5 · Página 39</div>
-      <a class="btn" href="p40.html">Próxima →</a>
+      <button class="btn" type="button" data-prev="p49.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 5 · Página 50</div>
+      <button class="btn" type="button" data-next="p51.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
 
   </main>

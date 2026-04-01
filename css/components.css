@@ -100,3 +100,163 @@
 
   border-radius: 6px;
 }
+/* =========================
+   CAPA (GLOBAL)
+   ========================= */
+
+.capa-page{
+  background: linear-gradient(
+    180deg,
+    #f7fbff 0%,
+    #eaf4fb 100%
+  );
+}
+
+.capa-container{
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 100px 60px;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Conteúdo */
+
+.capa-conteudo{
+  text-align: center;
+}
+
+/* Título */
+
+.capa-titulo{
+  font-family: 'Playfair Display', serif;
+  font-size: 46px;
+  line-height: 1.2;
+  color: #123C66;
+  margin-bottom: 28px;
+}
+
+/* Subtítulo */
+
+.capa-subtitulo{
+  font-size: 18px;
+  color: #2E2E2E;
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto 40px;
+}
+
+/* Linha */
+
+.capa-linha{
+  width: 80px;
+  height: 3px;
+  background: #2A7FA6;
+  margin: 0 auto 30px;
+  border-radius: 2px;
+}
+
+/* Autor */
+
+.capa-autoria{
+  font-size: 16px;
+  color: #1F3F5B;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+/* Instituição */
+
+.capa-instituicao{
+  font-size: 14px;
+  color: #6b7c8c;
+}
+/* =========================
+   SUMÁRIO (GLOBAL)
+   ========================= */
+
+.sumario-container{
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 70px 60px;
+}
+
+/* Título */
+
+.sumario-titulo{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: #123C66;
+  margin-bottom: 50px;
+}
+
+/* Lista */
+
+.sumario-lista{
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Item clicável */
+
+.sumario-item{
+  display: grid;
+  grid-template-columns: 130px 1fr 50px;
+  align-items: baseline;
+  position: relative;
+  text-decoration: none;
+}
+
+/* Linha pontilhada */
+
+.sumario-item::after{
+  content: "";
+  position: absolute;
+  left: 130px;
+  right: 50px;
+  bottom: 6px;
+  border-bottom: 1px dotted rgba(18,60,102,0.25);
+}
+
+/* Texto */
+
+.sumario-capitulo{
+  font-weight: 600;
+  color: #1F3F5B;
+  font-size: 15px;
+}
+
+.sumario-titulo-cap{
+  font-size: 15.5px;
+  color: #2E2E2E;
+  line-height: 1.6;
+}
+
+.sumario-pagina{
+  text-align: right;
+  font-weight: 500;
+  color: #1F3F5B;
+  font-size: 14px;
+}
+
+/* Fundo branco sobre linha */
+
+.sumario-capitulo,
+.sumario-titulo-cap,
+.sumario-pagina{
+  background: #fff;
+  padding: 0 4px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover discreto (elegante) */
+
+.sumario-item:hover .sumario-titulo-cap{
+  color: #2A7FA6;
+}

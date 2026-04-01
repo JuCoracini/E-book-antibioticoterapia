@@ -1145,31 +1145,50 @@
    ========================= */
 
 .cap6-page59 .cap6-p59-stage{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin: 22px auto;
   max-width: 760px;
+  margin: 22px auto;
 }
 
-.cap6-page59 .cap6-p59-card{
-  padding: 16px;
-  border-radius: 14px;
-  background: linear-gradient(180deg,#ffffff,#f7fbfc);
-  border: 1px solid rgba(15,42,68,.08);
-  box-shadow: 0 6px 18px rgba(15,42,68,.05);
+.cap6-page59 .cap6-p59-tabs{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 14px;
 }
 
-.cap6-page59 .cap6-p59-card h3{
-  margin: 0 0 8px;
-  font-size: 15px;
+.cap6-page59 .cap6-p59-tabs button{
+  border: 1px solid rgba(15,42,68,.14);
+  background: #fff;
   color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.cap6-page59 .cap6-p59-card p{
-  margin: 0;
-  font-size: 13.5px;
+.cap6-page59 .cap6-p59-tabs button[aria-selected="true"]{
+  background: var(--azul-turquesa);
+  color: #fff;
+  border-color: var(--azul-turquesa);
+}
+
+.cap6-page59 .cap6-p59-panel{
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cap6-page59 .cap6-p59-panel h2{
+  font-size: 22px;
+  color: var(--azul-escuro);
+  margin-bottom: 8px;
+}
+
+.cap6-page59 .cap6-p59-panel p{
+  font-size: 14px;
   line-height: 1.6;
+  color: var(--text-color);
   text-indent: 0;
 }
 
@@ -1178,155 +1197,64 @@
   margin: 18px auto;
   padding: 12px 14px;
   border-left: 4px solid var(--azul-turquesa);
-  background: linear-gradient(180deg,#f7fcfd,#eef7fb);
+  background: linear-gradient(180deg, #f7fcfd 0%, #eef7fb 100%);
   border-radius: 10px;
   color: var(--azul-escuro);
-}
-
-@media(max-width:760px){
-  .cap6-page59 .cap6-p59-stage{
-    grid-template-columns: 1fr;
-  }
+  line-height: 1.7;
+  text-indent: 0;
 }
 /* =========================
    PÁGINA 60
    ========================= */
 
-.cap6-page60 .cap6-p60-stage{
-  max-width: 760px;
+.cap6-page60 .cap6-p60-check{
+  max-width: 720px;
   margin: 22px auto;
+  padding: 18px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #f7fcfd 0%, #eef7fb 100%);
+  border: 1px solid rgba(15,42,68,.08);
 }
 
-.cap6-page60 .cap6-p60-flow{
+.cap6-page60 .cap6-p60-title{
+  text-align: center;
+  font-weight: 600;
+  color: var(--azul-escuro);
+  margin-bottom: 14px;
+}
+
+.cap6-page60 .cap6-p60-list{
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 10px;
+  margin-bottom: 14px;
 }
 
-.cap6-page60 .cap6-p60-node{
-  padding: 10px 14px;
-  border-radius: 12px;
-  background: #ffffff;
-  border: 1px solid rgba(15,42,68,.1);
-  font-size: 13px;
-  text-align: center;
-}
-
-.cap6-page60 .cap6-p60-node--start{
-  background: var(--azul-turquesa);
-  color: #fff;
-}
-
-.cap6-page60 .cap6-p60-node--final{
-  background: #f1f5f9;
-  font-weight: 600;
-}
-
-.cap6-page60 .cap6-p60-branch{
-  display: flex;
-  gap: 10px;
-}
-
-.cap6-page60 .cap6-p60-decision{
-  border: 1px solid rgba(15,42,68,.15);
-  background: #fff;
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 12px;
+.cap6-page60 .cap6-p60-list label{
+  font-size: 14px;
   cursor: pointer;
 }
 
-.cap6-page60 .cap6-p60-decision:hover{
-  background: #eef6fb;
-}
-
 .cap6-page60 .cap6-p60-result{
-  margin-top: 14px;
-  padding: 12px;
-  border-left: 4px solid var(--azul-turquesa);
-  background: #f8fcff;
-  border-radius: 10px;
   text-align: center;
+  font-size: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #ffffff;
+  border-left: 4px solid var(--verde-oceano);
+  color: var(--azul-escuro);
+  transition: all .3s ease;
 }
 
 .cap6-page60 .cap6-p60-highlight{
   max-width: 720px;
   margin: 18px auto;
-  padding: 12px;
+  padding: 12px 14px;
   border-left: 4px solid var(--azul-turquesa);
-  background: #f7fcfd;
+  background: linear-gradient(180deg, #f7fcfd 0%, #eef7fb 100%);
   border-radius: 10px;
-}
-/* =========================
-   PÁGINA 60
-   ========================= */
-
-.cap6-page60 .cap6-p60-stage{
-  max-width: 760px;
-  margin: 22px auto;
-}
-
-.cap6-page60 .cap6-p60-flow{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.cap6-page60 .cap6-p60-node{
-  padding: 10px 14px;
-  border-radius: 12px;
-  background: #ffffff;
-  border: 1px solid rgba(15,42,68,.1);
-  font-size: 13px;
-  text-align: center;
-}
-
-.cap6-page60 .cap6-p60-node--start{
-  background: var(--azul-turquesa);
-  color: #fff;
-}
-
-.cap6-page60 .cap6-p60-node--final{
-  background: #f1f5f9;
-  font-weight: 600;
-}
-
-.cap6-page60 .cap6-p60-branch{
-  display: flex;
-  gap: 10px;
-}
-
-.cap6-page60 .cap6-p60-decision{
-  border: 1px solid rgba(15,42,68,.15);
-  background: #fff;
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.cap6-page60 .cap6-p60-decision:hover{
-  background: #eef6fb;
-}
-
-.cap6-page60 .cap6-p60-result{
-  margin-top: 14px;
-  padding: 12px;
-  border-left: 4px solid var(--azul-turquesa);
-  background: #f8fcff;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.cap6-page60 .cap6-p60-highlight{
-  max-width: 720px;
-  margin: 18px auto;
-  padding: 12px;
-  border-left: 4px solid var(--azul-turquesa);
-  background: #f7fcfd;
-  border-radius: 10px;
+  color: var(--azul-escuro);
+  line-height: 1.7;
 }
 /* =========================
    PÁGINA 61 — QUIZ

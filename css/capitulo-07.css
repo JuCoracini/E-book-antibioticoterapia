@@ -247,6 +247,62 @@
     transform: translateY(0);
   }
 }
+/* =========================
+   PÁGINA 64 — INTERAÇÃO
+   ========================= */
+
+.cap7-p64-flow{
+  max-width: 720px;
+  margin: 18px auto 22px;
+}
+
+.cap7-p64-track{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.cap7-p64-step{
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: var(--azul-escuro);
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.cap7-p64-step:hover{
+  transform: translateY(-1px);
+  border-color: var(--azul-turquesa);
+}
+
+.cap7-p64-step.is-active{
+  background: var(--azul-turquesa);
+  color: #fff;
+  border-color: var(--azul-turquesa);
+}
+
+.cap7-p64-panel{
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  border-left: 4px solid var(--azul-turquesa);
+  background: linear-gradient(180deg,#f7fcfd,#eef8f8);
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(15,42,68,.05);
+}
+
+.cap7-p64-pane p{
+  margin: 0;
+  font-size: 14.2px;
+  line-height: 1.7;
+}
 /* =====================================================
    CAPÍTULO 07
    PÁGINA 65 — INIBIDORES DA SÍNTESE DE ÁCIDOS NUCLEICOS
@@ -501,5 +557,559 @@
 
   .cap7-p65-panel{
     padding: 12px 14px;
+  }
+}
+/* =========================
+   PÁGINA 66
+   ========================= */
+
+.cap7-page66 .cap7-figure{
+  max-width: 760px;
+  margin: 24px auto 20px;
+  text-align: center;
+}
+
+.cap7-page66 .cap7-figure img{
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  display: block;
+
+  border-radius: 14px;
+  box-shadow: 0 10px 26px rgba(15,42,68,.10);
+
+  cursor: zoom-in;
+}
+
+.cap7-page66 .cap7-caption{
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--verde-oceano);
+  text-align: center;
+}
+/* =====================================================
+   CAPÍTULO 07
+   PÁGINA 67 — INIBIDORES DA VIA DO FOLATO
+   ===================================================== */
+
+.cap7-page67 .cap7-p67-figure{
+  max-width: 760px;
+  margin: 22px auto 18px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: cap7P67FadeIn .55s ease forwards;
+}
+
+.cap7-page67 .cap7-p67-figure .cap7-zoomTrigger{
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.cap7-page67 .cap7-p67-figure img{
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 26px rgba(15,42,68,.10);
+  transition: transform .25s ease;
+}
+
+.cap7-page67 .cap7-p67-figure img:hover{
+  transform: scale(1.01);
+}
+
+.cap7-page67 .cap7-p67-stage{
+  max-width: 760px;
+  margin: 18px auto 22px;
+}
+
+.cap7-page67 .cap7-p67-stage__inner{
+  padding: 18px 18px 16px;
+  background: linear-gradient(180deg, #fbfefe 0%, #f2faf8 100%);
+  border: 1px solid rgba(14,116,144,.10);
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(15,42,68,.05);
+}
+
+.cap7-page67 .cap7-p67-tabs{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.cap7-page67 .cap7-p67-tab{
+  appearance: none;
+  border: 1px solid rgba(15,42,68,.14);
+  background: #ffffff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background-color .16s ease, color .16s ease;
+}
+
+.cap7-page67 .cap7-p67-tab:hover{
+  transform: translateY(-1px);
+}
+
+.cap7-page67 .cap7-p67-tab[aria-selected="true"]{
+  background: var(--azul-turquesa);
+  color: #ffffff;
+  border-color: var(--azul-turquesa);
+}
+
+.cap7-page67 .cap7-p67-panel{
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.cap7-page67 .cap7-p67-panel__eyebrow{
+  margin: 0 0 4px;
+  text-indent: 0;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--verde-oceano);
+  text-align: center;
+}
+
+.cap7-page67 .cap7-p67-panel__title{
+  margin: 0 0 8px;
+  text-indent: 0;
+  font-family: var(--font-body);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--azul-escuro);
+  text-align: center;
+}
+
+.cap7-page67 .cap7-p67-panel__lead{
+  max-width: 620px;
+  margin: 0 auto 16px;
+  text-indent: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.cap7-page67 .cap7-p67-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  max-width: 620px;
+  margin: 0 auto 14px;
+}
+
+.cap7-page67 .cap7-p67-card{
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid rgba(15,42,68,.08);
+  box-shadow: 0 5px 14px rgba(15,42,68,.04);
+}
+
+.cap7-page67 .cap7-p67-card__label{
+  margin: 0 0 6px;
+  text-indent: 0;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--verde-oceano);
+}
+
+.cap7-page67 .cap7-p67-card__text{
+  margin: 0;
+  text-indent: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-color);
+}
+
+.cap7-page67 .cap7-p67-summary{
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  border-left: 4px solid var(--azul-turquesa);
+  background: linear-gradient(180deg, #f7fcfd 0%, #eef7fb 100%);
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-color);
+  text-indent: 0;
+}
+
+@keyframes cap7P67FadeIn{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 760px){
+  .cap7-page67 .cap7-p67-stage__inner{
+    padding: 14px 12px;
+  }
+
+  .cap7-page67 .cap7-p67-panel__title{
+    font-size: 21px;
+  }
+
+  .cap7-page67 .cap7-p67-card,
+  .cap7-page67 .cap7-p67-summary{
+    padding: 12px 14px;
+  }
+
+  .cap7-page67 .cap7-p67-figure img{
+    max-width: 100%;
+  }
+}
+/* =====================================================
+   CAPÍTULO 07
+   PÁGINA 68 — QUIZ DE REVISÃO
+   ===================================================== */
+
+.cap7-page68 .cap7-reading-flow{
+  margin-bottom: 18px;
+}
+
+.cap7-p68Quiz{
+  max-width: 780px;
+  margin: 0 auto 26px;
+}
+
+.cap7-p68Nav{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.cap7-p68NavBtn{
+  appearance: none;
+  border: 1px solid rgba(15,42,68,.14);
+  background: #ffffff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background-color .16s ease;
+}
+
+.cap7-p68NavBtn:hover{
+  transform: translateY(-1px);
+  border-color: var(--azul-turquesa);
+}
+
+.cap7-p68NavBtn:disabled{
+  opacity: .45;
+  cursor: default;
+  transform: none;
+}
+
+.cap7-p68Progress{
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--verde-oceano);
+}
+
+.cap7-p68Question{
+  display: none;
+}
+
+.cap7-p68Question.active{
+  display: block;
+}
+
+.cap7-p68Case{
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-color);
+}
+
+.cap7-p68Prompt{
+  margin: 0 0 14px;
+  text-indent: 0 !important;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--azul-escuro);
+}
+
+.cap7-p68Options{
+  display: grid;
+  gap: 10px;
+}
+
+.cap7-p68Options button{
+  appearance: none;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(15,42,68,.10);
+  background: #ffffff;
+  cursor: pointer;
+  text-align: left;
+  transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease, background-color .16s ease;
+}
+
+.cap7-p68Options button:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.24);
+  box-shadow: 0 8px 18px rgba(15,42,68,.05);
+}
+
+.cap7-p68Options button.is-selected{
+  border-color: var(--azul-turquesa);
+  box-shadow: 0 0 0 3px rgba(30,136,229,.10);
+  background: linear-gradient(180deg, #f9fcff 0%, #f3f9fd 100%);
+}
+
+.cap7-p68Options button.is-correct{
+  border-color: #1f9d74;
+  background: linear-gradient(180deg, #f4fcf8 0%, #ecf8f2 100%);
+}
+
+.cap7-p68Options button.is-error{
+  border-color: #d97706;
+  background: linear-gradient(180deg, #fffaf3 0%, #fdf4e7 100%);
+}
+
+.cap7-p68Options button[disabled]{
+  cursor: default;
+}
+
+.cap7-p68Letter{
+  width: 32px;
+  height: 32px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #eef4f8;
+  color: var(--azul-escuro);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.cap7-p68Actions{
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.cap7-p68Btn{
+  appearance: none;
+  border-radius: 999px;
+  padding: 9px 16px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .16s ease, opacity .16s ease, background-color .16s ease, border-color .16s ease;
+}
+
+.cap7-p68Btn:hover{
+  transform: translateY(-1px);
+}
+
+.cap7-p68Btn:disabled{
+  opacity: .45;
+  cursor: default;
+  transform: none;
+}
+
+.cap7-p68Btn--primary{
+  border: 1px solid var(--azul-turquesa);
+  background: var(--azul-turquesa);
+  color: #ffffff;
+}
+
+.cap7-p68Btn--ghost{
+  border: 1px solid rgba(15,42,68,.14);
+  background: #ffffff;
+  color: var(--azul-escuro);
+}
+
+.cap7-p68Feedback{
+  margin-top: 16px;
+}
+
+.cap7-p68FeedbackCard{
+  padding: 16px 18px;
+  border-radius: 14px;
+  border-left: 4px solid var(--azul-turquesa);
+  background: linear-gradient(180deg, #f7fcfd 0%, #eef7fb 100%);
+  box-shadow: 0 8px 22px rgba(15,42,68,.05);
+}
+
+.cap7-p68FeedbackCard--correct{
+  border-left-color: #1f9d74;
+  background: linear-gradient(180deg, #f4fcf8 0%, #ecf8f2 100%);
+}
+
+.cap7-p68FeedbackCard--error{
+  border-left-color: #d97706;
+  background: linear-gradient(180deg, #fffaf3 0%, #fdf4e7 100%);
+}
+
+.cap7-p68FeedbackTitle{
+  margin: 0 0 8px;
+  text-indent: 0 !important;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.cap7-p68FeedbackText{
+  margin: 0;
+  text-indent: 0 !important;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-color);
+}
+
+.cap7-p68RationaleBox{
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(15,42,68,.08);
+}
+
+.cap7-p68RationaleBox p{
+  text-indent: 0 !important;
+}
+
+.cap7-p68Done[hidden]{
+  display: none !important;
+}
+
+.cap7-p68DoneCard{
+  max-width: 680px;
+  margin: 18px auto 0;
+  padding: 18px 18px 16px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #fbfefe 0%, #f2faf8 100%);
+  border: 1px solid rgba(14,116,144,.10);
+  box-shadow: 0 8px 22px rgba(15,42,68,.05);
+  text-align: center;
+}
+
+.cap7-p68Badge{
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.cap7-p68Badge--done{
+  background: #eaf7f2;
+  color: #1f7a5a;
+}
+
+.cap7-p68DoneText{
+  margin: 12px 0 10px;
+  text-indent: 0 !important;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.cap7-p68Closing p{
+  text-indent: 0 !important;
+  line-height: 1.75;
+}
+
+.cap7-refBox{
+  max-width: 780px;
+  margin: 0 auto 22px;
+  border: 1px solid rgba(15,42,68,.10);
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.cap7-refBox summary{
+  cursor: pointer;
+  list-style: none;
+  padding: 14px 16px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.cap7-refBox summary::-webkit-details-marker{
+  display: none;
+}
+
+.cap7-refContent{
+  padding: 0 16px 16px;
+}
+
+.cap7-refContent p{
+  text-indent: 0 !important;
+  font-size: 13.2px;
+  line-height: 1.65;
+  margin: 0 0 10px;
+}
+
+@media (max-width: 760px){
+  .cap7-p68Nav{
+    grid-template-columns: 1fr;
+  }
+
+  .cap7-p68NavBtn{
+    width: 100%;
+  }
+
+  .cap7-p68Options button{
+    grid-template-columns: 36px 1fr;
+    padding: 13px 14px;
+  }
+
+  .cap7-p68Actions{
+    flex-direction: column;
+  }
+
+  .cap7-p68Btn{
+    width: 100%;
+  }
+
+  .cap7-p68FeedbackCard,
+  .cap7-p68DoneCard{
+    padding: 14px 14px 13px;
   }
 }

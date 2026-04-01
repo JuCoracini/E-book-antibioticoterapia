@@ -351,95 +351,89 @@
   activate("subexp");
 })();
 /* =========================
-   PÁGINA 60 — DECISÃO
+   PÁGINA 59 — CONSEQUÊNCIAS
    ========================= */
 
 (function(){
-  const root = document.querySelector('[data-cap6-p60]');
-  if(!root) return;
 
-  const resultBox = root.querySelector('[data-result]');
+  document.addEventListener("DOMContentLoaded", function(){
 
-  let state = {};
+    const root = document.querySelector("[data-cap6-p59]");
+    if(!root) return;
 
-  function updateResult(){
-    if(state.step1 === 'no'){
-      resultBox.innerHTML = 'Não há indicação de antibacteriano → NÃO ASSOCIAR';
-      return;
-    }
+    const tabs = root.querySelectorAll("[data-p59-tab]");
+    const title = root.querySelector("[data-p59-title]");
+    const text = root.querySelector("[data-p59-text]");
 
-    if(state.step1 === 'yes' && state.step2 === 'yes' && state.step3 === 'yes'){
-      resultBox.innerHTML = 'Monoterapia adequada → NÃO ASSOCIAR';
-      return;
-    }
+    const map = {
+      organismo: {
+        title: "Impacto no paciente",
+        text: "A exposição simultânea a múltiplos antibacterianos aumenta o risco de toxicidade sistêmica, eventos adversos e interações medicamentosas, especialmente em pacientes com comorbidades."
+      },
+      microbiota: {
+        title: "Impacto na microbiota",
+        text: "A redução da diversidade bacteriana favorece desequilíbrios ecológicos e permite a expansão de microrganismos oportunistas, incluindo patógenos como Clostridioides difficile."
+      },
+      ecossistema: {
+        title: "Impacto no ambiente hospitalar",
+        text: "A pressão seletiva contínua favorece a emergência e disseminação de microrganismos multirresistentes, reduzindo progressivamente as opções terapêuticas disponíveis."
+      }
+    };
 
-    if(state.step2 === 'no'){
-      resultBox.innerHTML = 'Incerteza etiológica → associação empírica pode ser considerada (transitória)';
-      return;
-    }
+    tabs.forEach(tab => {
+      tab.addEventListener("click", function(){
 
-    if(state.step3 === 'no'){
-      resultBox.innerHTML = 'Falha de exposição → ajustar dose/intervalo/penetração (não resolver com associação)';
-      return;
-    }
-  }
+        const key = this.dataset.p59Tab;
 
-  root.querySelectorAll('.cap6-p60-decision').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      const step = btn.dataset.step;
-      const answer = btn.dataset.answer;
+        tabs.forEach(t => t.setAttribute("aria-selected","false"));
+        this.setAttribute("aria-selected","true");
 
-      state['step'+step] = answer;
+        if(map[key]){
+          title.textContent = map[key].title;
+          text.textContent = map[key].text;
+        }
 
-      updateResult();
+      });
     });
+
   });
 
 })();
 /* =========================
-   PÁGINA 60 — DECISÃO
+   PÁGINA 60 — CHECKLIST
    ========================= */
 
-(function(){
-  const root = document.querySelector('[data-cap6-p60]');
+(function initCap6Page60(){
+
+  const root = document.querySelector("[data-cap6-p60]");
   if(!root) return;
 
-  const resultBox = root.querySelector('[data-result]');
+  const checks = root.querySelectorAll("input[type='checkbox']");
+  const result = root.querySelector("[data-result]");
 
-  let state = {};
+  function evaluate(){
 
-  function updateResult(){
-    if(state.step1 === 'no'){
-      resultBox.innerHTML = 'Não há indicação de antibacteriano → NÃO ASSOCIAR';
-      return;
+    const sensivel = root.querySelector("[data-item='sensivel']").checked;
+    const mono = root.querySelector("[data-item='mono']").checked;
+    const poli = root.querySelector("[data-item='poli']").checked;
+    const evolucao = root.querySelector("[data-item='evolucao']").checked;
+
+    if(sensivel && mono && !poli && evolucao){
+      result.textContent = "A associação NÃO se justifica. A monoterapia é suficiente.";
+      result.style.borderLeftColor = "#1abc9c";
+    }
+    else if(poli){
+      result.textContent = "A associação pode ser necessária devido à possibilidade de infecção polimicrobiana.";
+      result.style.borderLeftColor = "#f39c12";
+    }
+    else{
+      result.textContent = "Reavalie os critérios clínicos e microbiológicos antes de manter associação.";
+      result.style.borderLeftColor = "#3498db";
     }
 
-    if(state.step1 === 'yes' && state.step2 === 'yes' && state.step3 === 'yes'){
-      resultBox.innerHTML = 'Monoterapia adequada → NÃO ASSOCIAR';
-      return;
-    }
-
-    if(state.step2 === 'no'){
-      resultBox.innerHTML = 'Incerteza etiológica → associação empírica pode ser considerada (transitória)';
-      return;
-    }
-
-    if(state.step3 === 'no'){
-      resultBox.innerHTML = 'Falha de exposição → ajustar dose/intervalo/penetração (não resolver com associação)';
-      return;
-    }
   }
 
-  root.querySelectorAll('.cap6-p60-decision').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      const step = btn.dataset.step;
-      const answer = btn.dataset.answer;
-
-      state['step'+step] = answer;
-
-      updateResult();
-    });
-  });
+  checks.forEach(c => c.addEventListener("change", evaluate));
 
 })();
 /* =========================

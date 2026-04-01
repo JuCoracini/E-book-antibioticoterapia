@@ -1,5 +1,5 @@
 /* =========================
-   Capítulo 08 — Página 62
+   Capítulo 08 — Página 69
    ========================= */
 (function initCap8FocusMap() {
   const root = document.querySelector("[data-cap8-focus]");
@@ -92,7 +92,7 @@
   activate("respiratorio");
 })();
 /* =========================
-   Capítulo 08 — Página 63
+   Capítulo 08 — Página 70
    ========================= */
 (function initCap8RespDiagram() {
   const root = document.querySelector("[data-cap8-resp]");
@@ -180,7 +180,7 @@
   activate("consolidacao");
 })();
 /* =========================
-   Capítulo 08 — Página 65
+   Capítulo 08 — Página 72
    Infecções intra-abdominais
    ========================= */
 (function initCap8IIA() {
@@ -259,7 +259,7 @@
   activate("isolada");
 })();
 /* =========================
-   CAPÍTULO 8 — PÁGINA 68
+   CAPÍTULO 8 — PÁGINA 75
    Quiz de revisão
    ========================= */
 
