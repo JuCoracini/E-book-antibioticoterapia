@@ -29,11 +29,11 @@
   flex: 1;
   max-width: 220px;
   padding: 12px 10px;
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform .2s ease;
 }
 
 .cap5-horizontal article:hover{
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .cap5-horizontal .n{
@@ -65,7 +65,7 @@
 
 .cap5-horizontal p{
   margin: 0;
-  font-size: 13.5px;
+  font-size: 14px;
   line-height: 1.55;
   text-indent: 0;
   color: rgba(31,31,31,.85);
@@ -79,17 +79,27 @@
   color: rgba(30,136,229,.45);
 }
 
-.cap5-page39 .prose p:nth-of-type(6){
-  border-left: 3px solid #26A69A;
-  padding-left: 10px;
-  margin-top: 18px;
+/* PONTE */
+
+.cap5-bridge{
+  margin: 22px auto 6px;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(31,31,31,.65);
+  letter-spacing: .02em;
 }
 
+/* FECHAMENTO */
+
 .cap5-closing{
-  margin-top: 20px;
+  margin-top: 28px;
+  padding-left: 12px;
+  border-left: 4px solid #26A69A;
   font-weight: 500;
   color: #1f3551;
 }
+
+/* RESPONSIVO */
 
 @media (max-width: 760px){
   .cap5-horizontal__flow{
@@ -107,17 +117,173 @@
   }
 }
 /* =========================
-   Paginação — destaque próximo 
+   CAPÍTULO 5 — BASE
    ========================= */
 
-.pager .btn[data-next]{
-  color: #26A69A;
-  border-color: rgba(38,166,154,.35);
+.cap5-page41 .prose{
+  max-width: 760px;
+  margin: 0 auto;
 }
 
-.pager .btn[data-next]:hover{
-  background: rgba(38,166,154,.08);
-  border-color: rgba(38,166,154,.55);
+/* =========================
+   INTERAÇÃO GRAM
+   ========================= */
+
+.gram-sim{
+  margin: 28px 0 24px;
+}
+
+.gram-sim__title{
+  text-align: center;
+  font-family: var(--font-title);
+  font-size: 20px;
+  color: #1f3551;
+  margin-bottom: 10px;
+}
+
+/* CONTROLES */
+
+.gram-sim__controls{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.gram-step{
+  border: none;
+  background: #e9eef4;
+  color: #1f3551;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.gram-step.is-active{
+  background: linear-gradient(135deg,#1E88E5,#26A69A);
+  color: #fff;
+}
+
+.gram-step--critical{
+  border: 2px solid #e53935;
+}
+
+/* ÁREA PRINCIPAL */
+
+.gram-sim__stage{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+/* IMAGEM CONTROLADA (CORREÇÃO PRINCIPAL) */
+
+.gram-stage-card{
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.gram-stage-card__image{
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+}
+
+/* TEXTO */
+
+.gram-stage-panel{
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.gram-stage-panel__title{
+  font-family: var(--font-sub);
+  color: #1f3551;
+  margin-bottom: 6px;
+}
+
+.gram-stage-panel__text{
+  color: rgba(31,31,31,.85);
+}
+
+/* NAVEGAÇÃO */
+
+.gram-stage-panel__nav{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* DESTAQUE ETAPA CRÍTICA */
+
+.gram-sim__focus-box{
+  margin-top: 14px;
+  text-align: center;
+  font-weight: 500;
+  color: #b71c1c;
+}
+
+/* =========================
+   COMPARAÇÃO GRAM
+   ========================= */
+
+.cap5-p41-compare{
+  margin-top: 30px;
+}
+
+.cap5-p41-compare__title{
+  text-align: center;
+  font-family: var(--font-title);
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+.cap5-p41-compare__grid{
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+}
+
+.cap5-p41-compare__grid figure{
+  text-align: center;
+}
+
+.cap5-p41-compare__grid img{
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+}
+
+/* =========================
+   RESPONSIVO
+   ========================= */
+
+@media (max-width: 700px){
+
+  .gram-sim__stage{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .gram-stage-card{
+    max-width: 220px;
+  }
+
+  .cap5-p41-compare__grid{
+    flex-direction: column;
+    align-items: center;
+  }
+
 }
 /* =========================
    Página 40 — Bacterioscopia e coloração de Gram
@@ -595,7 +761,6 @@
   height: auto;
 }
 
-
 /* =========================
    Página 42 — Identificação bacteriana
    ========================= */
@@ -905,6 +1070,33 @@
     transition: none !important;
   }
 }
+.cap5-p42-culture,
+.cap5-p42-flow{
+  margin-top: 28px;
+}
+
+.cap5-p42-caption{
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: rgba(31,31,31,.72);
+}
+
+.cap5-p42-flow{
+  padding-top: 12px;
+  border-top: 1px solid rgba(31,53,81,.08);
+}
+.cap5-p42-methods{
+  margin-top: 34px;
+}
+
+.cap5-p42-method{
+  transition: transform .2s ease;
+}
+
+.cap5-p42-method:hover{
+  transform: translateY(-2px);
+}
+
 /* =========================
    Página 43 — Identificação bacteriana
    ========================= */
@@ -1119,6 +1311,20 @@
     font-size: 21px;
   }
 }
+.cap5-p43-panel{
+  border-left: 4px solid #26A69A;
+  padding-left: 14px;
+  margin-top: 16px;
+}
+
+.cap5-p43-step.is-active{
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.cap5-p43-step{
+  opacity: .55;
+}
 /* =========================
    Página 44 — Difusão em disco
    ========================= */
@@ -1175,6 +1381,29 @@
   border-left: 3px solid #26A69A;
   font-weight: 500;
   color: #1f3551;
+}
+.cap5-p44-tempo{
+  margin: 32px 0 26px;
+  padding-top: 12px;
+  border-top: 2px solid rgba(30,136,229,.15);
+}
+
+.cap5-p44-controls{
+  justify-content: center;
+}
+
+.cap5-p44-figure{
+  margin-top: 14px;
+}
+
+.cap5-p44-figure img{
+  max-width: 360px;
+}
+
+.cap5-p44-figure figcaption{
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
 }
 /* =========================
    Página 45 — CIM + padronização
@@ -1495,6 +1724,26 @@
     font-size: 21px;
   }
 }
+.cap5-p45-cim__panel{
+  border-left: 4px solid #1E88E5;
+  padding-left: 14px;
+}
+
+.cap5-p45-cim__tab.is-active{
+  background: linear-gradient(135deg,#1E88E5,#26A69A);
+  color: #fff;
+}
+
+.cap5-p45-cim__figure img{
+  max-width: 420px;
+}
+.cap5-p45-node{
+  transition: transform .2s ease;
+}
+
+.cap5-p45-node:hover{
+  transform: translateY(-2px);
+}
 /* =========================
    Página 46 — Breakpoints e categorias interpretativas
    ========================= */
@@ -1812,135 +2061,1520 @@
     font-size: 21px;
   }
 }
-/* =========================
-   Página 47 — ESBL interação
-   ========================= */
-
-.cap5-esbl{
-  margin: 32px 0;
+.cap5-p46-flow__node--highlight{
+  background: linear-gradient(135deg, rgba(30,136,229,.08), rgba(38,166,154,.08));
+  border-radius: 10px;
+  padding: 10px 12px;
 }
 
-.cap5-esbl-controls{
-  display: flex;
-  gap: 8px;
-  justify-content: center;
+.cap5-p46-flow__node--highlight h3{
+  color: #1E88E5;
+}
+.cap5-p46-flow__node{
+  transition: transform .2s ease;
+}
+
+.cap5-p46-flow__node:hover{
+  transform: translateY(-2px);
+}
+.cap5-p46-bar__tab{
+  transition: all .2s ease;
+}
+
+.cap5-p46-bar__tab.is-active{
+  transform: translateY(-2px);
+}
+
+.cap5-p46-bar__tab.is-i{
+  border: 2px solid #f9a825;
+}
+
+.cap5-p46-panel__pill--i{
+  background: #f9a825;
+  color: #fff;
+}
+.cap5-p46-closing{
+  margin-top: 26px;
+  padding-left: 12px;
+  border-left: 4px solid #26A69A;
+  color: #1f3551;
+  font-weight: 500;
+}
+/* =========================
+   Página 47 — ESBL
+   ========================= */
+
+.cap5-page47 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap5-p47-esbl{
+  margin: 30px 0 28px;
+  padding-top: 14px;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, rgba(30,136,229,.72), rgba(38,166,154,.72)) 1;
+}
+
+.cap5-p47-esbl__head{
   margin-bottom: 18px;
 }
 
-.cap5-esbl-btn{
-  border: 0;
-  background: transparent;
-  font-size: 13px;
-  cursor: pointer;
-  color: rgba(31,31,31,.5);
-}
-
-.cap5-esbl-btn.is-active{
-  color: #1E88E5;
-  font-weight: 700;
-}
-
-.cap5-esbl-stage{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-.cap5-esbl-image img{
-  max-width: 340px;
-  width: 100%;
-  border-radius: 14px;
-  box-shadow: 0 12px 28px rgba(18,38,63,.12);
-  transition: opacity .25s ease;
-}
-
-.cap5-esbl-text{
-  max-width: 480px;
-  text-align: center;
-}
-
-.cap5-esbl-text h3{
-  margin: 0 0 6px;
+.cap5-p47-esbl__head h2{
+  margin: 0 0 8px;
   color: #1f3551;
   font-family: var(--font-sub);
-}
-
-.cap5-esbl-text p{
-  margin: 0;
+  font-size: 29px;
+  line-height: 1.08;
   text-indent: 0;
 }
 
-.cap5-decision{
-  margin-top: 20px;
-  border-left: 3px solid #26A69A;
-  padding-left: 10px;
-  font-weight: 500;
-  color: #1f3551;
-}
-/* =========================
-   Página 48 — continuidade padrão
-   ========================= */
-
-.cap5-page48 .prose{
-  max-width: 680px;
-  margin: 0 auto;
+.cap5-p47-esbl__head p{
+  margin: 0;
+  color: rgba(31,31,31,.74);
+  line-height: 1.6;
+  text-indent: 0;
 }
 
-.cap5-carb-controls{
+.cap5-p47-esbl__controls{
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 24px 0 18px;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
 }
 
-.cap5-carb-btn{
+.cap5-p47-esbl__tab{
+  appearance: none;
+  border: 1px solid rgba(31,53,81,.12);
+  background: #fff;
+  color: #1f3551;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease;
+}
+
+.cap5-p47-esbl__tab:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.28);
+  box-shadow: 0 10px 18px rgba(18,38,63,.05);
+}
+
+.cap5-p47-esbl__tab.is-active{
+  background: linear-gradient(135deg, #1E88E5, #26A69A);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 12px 22px rgba(18,38,63,.08);
+}
+
+.cap5-p47-esbl__stage{
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.cap5-p47-esbl__figure{
+  margin: 0;
+}
+
+.cap5-p47-esbl__zoom{
+  display: block;
+  width: 100%;
   border: 0;
   background: transparent;
-  font-size: 13px;
-  color: rgba(31,31,31,.5);
-  cursor: pointer;
+  padding: 0;
+  cursor: zoom-in;
 }
 
-.cap5-carb-btn.is-active{
+.cap5-p47-esbl__zoom img{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(18,38,63,.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.cap5-p47-esbl__zoom:hover img{
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(18,38,63,.11);
+}
+
+.cap5-p47-esbl__caption{
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(31,31,31,.70);
+  text-align: center;
+  text-indent: 0;
+}
+
+.cap5-p47-esbl__panel{
+  padding: 16px 16px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(31,53,81,.10);
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,251,253,.96));
+  box-shadow: 0 14px 28px rgba(18,38,63,.06);
+}
+
+.cap5-p47-esbl__eyebrow{
+  margin-bottom: 6px;
+  color: rgba(31,31,31,.56);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap5-p47-esbl__title{
+  margin: 0 0 10px;
+  color: #1f3551;
+  font-family: var(--font-sub);
+  font-size: 24px;
+  line-height: 1.12;
+  text-indent: 0;
+}
+
+.cap5-p47-esbl__text{
+  margin: 0;
+  color: rgba(31,31,31,.86);
+  line-height: 1.64;
+  text-indent: 0;
+}
+
+.cap5-p47-esbl__note{
+  margin-top: 14px;
+  padding-left: 12px;
+  border-left: 4px solid #26A69A;
+  color: #1f3551;
+  font-weight: 500;
+  line-height: 1.56;
+  text-indent: 0;
+}
+
+@media (max-width: 1080px){
+  .cap5-p47-esbl__stage{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 760px){
+  .cap5-p47-esbl__head h2{
+    font-size: 26px;
+  }
+
+  .cap5-p47-esbl__title{
+    font-size: 22px;
+  }
+}
+/* =========================
+   Página 48 — AmpC e carbapenemases
+   ========================= */
+
+.cap5-page48 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap5-p48-mechanisms{
+  margin: 30px 0 28px;
+  padding-top: 14px;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, rgba(30,136,229,.72), rgba(38,166,154,.72)) 1;
+}
+
+.cap5-p48-mechanisms__head{
+  margin-bottom: 18px;
+}
+
+.cap5-p48-mechanisms__head h2{
+  margin: 0 0 8px;
+  color: #1f3551;
+  font-family: var(--font-sub);
+  font-size: 29px;
+  line-height: 1.08;
+  text-indent: 0;
+}
+
+.cap5-p48-mechanisms__head p{
+  margin: 0;
+  color: rgba(31,31,31,.74);
+  line-height: 1.6;
+  text-indent: 0;
+}
+
+.cap5-p48-mechanisms__tabs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.cap5-p48-mechanisms__tab{
+  appearance: none;
+  border: 1px solid rgba(31,53,81,.12);
+  background: #fff;
+  color: #1f3551;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease;
+}
+
+.cap5-p48-mechanisms__tab:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.28);
+  box-shadow: 0 10px 18px rgba(18,38,63,.05);
+}
+
+.cap5-p48-mechanisms__tab.is-active{
+  background: linear-gradient(135deg, #1E88E5, #26A69A);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 12px 22px rgba(18,38,63,.08);
+}
+
+.cap5-p48-mechanisms__viewer{
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.cap5-p48-mechanisms__figure{
+  margin: 0;
+}
+
+.cap5-p48-mechanisms__zoom{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: zoom-in;
+}
+
+.cap5-p48-mechanisms__zoom img{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(18,38,63,.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.cap5-p48-mechanisms__zoom:hover img{
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(18,38,63,.11);
+}
+
+.cap5-p48-mechanisms__caption{
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(31,31,31,.70);
+  text-align: center;
+  text-indent: 0;
+}
+
+.cap5-p48-mechanisms__panel{
+  padding: 16px 16px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(31,53,81,.10);
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,251,253,.96));
+  box-shadow: 0 14px 28px rgba(18,38,63,.06);
+}
+
+.cap5-p48-mechanisms__eyebrow{
+  margin-bottom: 6px;
+  color: rgba(31,31,31,.56);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap5-p48-mechanisms__title{
+  margin: 0 0 10px;
+  color: #1f3551;
+  font-family: var(--font-sub);
+  font-size: 24px;
+  line-height: 1.12;
+  text-indent: 0;
+}
+
+.cap5-p48-mechanisms__text{
+  margin: 0;
+  color: rgba(31,31,31,.86);
+  line-height: 1.64;
+  text-indent: 0;
+}
+
+.cap5-p48-closing{
+  margin-top: 22px;
+  padding-left: 12px;
+  border-left: 4px solid #26A69A;
+  color: #1f3551;
+  font-weight: 500;
+}
+
+@media (max-width: 1080px){
+  .cap5-p48-mechanisms__viewer{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 760px){
+  .cap5-p48-mechanisms__head h2{
+    font-size: 26px;
+  }
+
+  .cap5-p48-mechanisms__title{
+    font-size: 22px;
+  }
+}
+/* =========================
+   Página 49 — Mecanismos que modificam a interpretação
+   ========================= */
+
+.cap5-page49 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap5-p49-mechanisms{
+  margin: 30px 0 28px;
+  padding-top: 14px;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, rgba(30,136,229,.72), rgba(38,166,154,.72)) 1;
+}
+
+.cap5-p49-mechanisms__head{
+  margin-bottom: 18px;
+}
+
+.cap5-p49-mechanisms__head h2{
+  margin: 0 0 8px;
+  color: #1f3551;
+  font-family: var(--font-sub);
+  font-size: 29px;
+  line-height: 1.08;
+  text-indent: 0;
+}
+
+.cap5-p49-mechanisms__head p{
+  margin: 0;
+  color: rgba(31,31,31,.74);
+  line-height: 1.6;
+  text-indent: 0;
+}
+
+.cap5-p49-mechanisms__tabs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.cap5-p49-mechanisms__tab{
+  appearance: none;
+  border: 1px solid rgba(31,53,81,.12);
+  background: #fff;
+  color: #1f3551;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease;
+}
+
+.cap5-p49-mechanisms__tab:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.28);
+  box-shadow: 0 10px 18px rgba(18,38,63,.05);
+}
+
+.cap5-p49-mechanisms__tab.is-active{
+  background: linear-gradient(135deg, #1E88E5, #26A69A);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 12px 22px rgba(18,38,63,.08);
+}
+
+.cap5-p49-mechanisms__viewer{
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, .92fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.cap5-p49-mechanisms__figure{
+  margin: 0;
+}
+
+.cap5-p49-mechanisms__zoom{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: zoom-in;
+}
+
+.cap5-p49-mechanisms__zoom img{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(18,38,63,.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.cap5-p49-mechanisms__zoom:hover img{
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(18,38,63,.11);
+}
+
+.cap5-p49-mechanisms__caption{
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(31,31,31,.70);
+  text-align: center;
+  text-indent: 0;
+}
+
+.cap5-p49-mechanisms__panel{
+  padding: 16px 16px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(31,53,81,.10);
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,251,253,.96));
+  box-shadow: 0 14px 28px rgba(18,38,63,.06);
+}
+
+.cap5-p49-mechanisms__eyebrow{
+  margin-bottom: 6px;
+  color: rgba(31,31,31,.56);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap5-p49-mechanisms__title{
+  margin: 0 0 10px;
+  color: #1f3551;
+  font-family: var(--font-sub);
+  font-size: 24px;
+  line-height: 1.12;
+  text-indent: 0;
+}
+
+.cap5-p49-mechanisms__text{
+  margin: 0;
+  color: rgba(31,31,31,.86);
+  line-height: 1.64;
+  text-indent: 0;
+}
+
+.cap5-p49-closing{
+  margin-top: 22px;
+  padding-left: 12px;
+  border-left: 4px solid #26A69A;
+  color: #1f3551;
+  font-weight: 500;
+}
+
+@media (max-width: 1080px){
+  .cap5-p49-mechanisms__viewer{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 760px){
+  .cap5-p49-mechanisms__head h2{
+    font-size: 26px;
+  }
+
+  .cap5-p49-mechanisms__title{
+    font-size: 22px;
+  }
+}
+/* =========================
+   Página 50 — Como ler o antibiograma de forma estruturada
+   ========================= */
+
+.cap5-page50 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap5-p50-steps{
+  margin: 30px 0 28px;
+  padding-top: 14px;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, rgba(30,136,229,.72), rgba(38,166,154,.72)) 1;
+}
+
+.cap5-p50-steps__head{
+  margin-bottom: 18px;
+}
+
+.cap5-p50-steps__head h2{
+  margin: 0 0 8px;
+  color: #1f3551;
+  font-family: var(--font-sub);
+  font-size: 29px;
+  line-height: 1.08;
+  text-indent: 0;
+}
+
+.cap5-p50-steps__head p{
+  margin: 0;
+  color: rgba(31,31,31,.74);
+  line-height: 1.6;
+  text-indent: 0;
+}
+
+.cap5-p50-steps__stage{
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.18fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.cap5-p50-steps__tabs{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cap5-p50-steps__tab{
+  appearance: none;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+  text-align: left;
+  border: 1px solid rgba(31,53,81,.12);
+  background: #fff;
+  color: #1f3551;
+  padding: 14px 14px;
+  border-radius: 16px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+}
+
+.cap5-p50-steps__tab:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.26);
+  box-shadow: 0 10px 20px rgba(18,38,63,.05);
+}
+
+.cap5-p50-steps__tab.is-active{
+  background: linear-gradient(135deg, rgba(30,136,229,.08), rgba(38,166,154,.08));
+  border-color: rgba(30,136,229,.30);
   color: #1E88E5;
+  box-shadow: 0 12px 24px rgba(18,38,63,.06);
+}
+
+.cap5-p50-steps__n{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1E88E5, #26A69A);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 6px 14px rgba(30,136,229,.22);
+}
+
+.cap5-p50-steps__panel{
+  padding: 18px 18px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(31,53,81,.10);
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,251,253,.96));
+  box-shadow: 0 14px 28px rgba(18,38,63,.06);
+}
+
+.cap5-p50-steps__eyebrow{
+  margin-bottom: 6px;
+  color: rgba(31,31,31,.56);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap5-p50-steps__title{
+  margin: 0 0 10px;
+  color: #1f3551;
+  font-family: var(--font-sub);
+  font-size: 24px;
+  line-height: 1.12;
+  text-indent: 0;
+}
+
+.cap5-p50-steps__text{
+  margin: 0;
+  color: rgba(31,31,31,.86);
+  line-height: 1.64;
+  text-indent: 0;
+}
+
+.cap5-p50-closing{
+  margin-top: 22px;
+  padding-left: 12px;
+  border-left: 4px solid #26A69A;
+  color: #1f3551;
+  font-weight: 500;
+}
+
+@media (max-width: 1080px){
+  .cap5-p50-steps__stage{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 760px){
+  .cap5-p50-steps__head h2{
+    font-size: 26px;
+  }
+
+  .cap5-p50-steps__title{
+    font-size: 22px;
+  }
+}
+/* =========================
+   Página 51 — Erros frequentes e limites da interpretação do antibiograma
+   ========================= */
+
+.cap5-page51 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap5-p51-errors{
+  margin: 30px 0 30px;
+  padding-top: 14px;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, rgba(30,136,229,.72), rgba(38,166,154,.72)) 1;
+}
+
+.cap5-p51-errors__head{
+  margin-bottom: 18px;
+}
+
+.cap5-p51-errors__head h2{
+  margin: 0 0 8px;
+  color: #1f3551;
+  font-family: var(--font-sub);
+  font-size: 29px;
+  line-height: 1.08;
+  text-indent: 0;
+}
+
+.cap5-p51-errors__head p{
+  margin: 0;
+  color: rgba(31,31,31,.74);
+  line-height: 1.6;
+  text-indent: 0;
+}
+
+.cap5-p51-errors__stage{
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.2fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.cap5-p51-errors__tabs{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cap5-p51-errors__tab{
+  appearance: none;
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(31,53,81,.12);
+  background: #fff;
+  color: #1f3551;
+  padding: 14px 14px;
+  border-radius: 16px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+}
+
+.cap5-p51-errors__tab:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.26);
+  box-shadow: 0 10px 20px rgba(18,38,63,.05);
+}
+
+.cap5-p51-errors__tab.is-active{
+  background: linear-gradient(135deg, rgba(30,136,229,.08), rgba(38,166,154,.08));
+  border-color: rgba(30,136,229,.30);
+  color: #1E88E5;
+  box-shadow: 0 12px 24px rgba(18,38,63,.06);
+}
+
+.cap5-p51-errors__panel{
+  padding: 18px 18px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(31,53,81,.10);
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,251,253,.96));
+  box-shadow: 0 14px 28px rgba(18,38,63,.06);
+}
+
+.cap5-p51-errors__eyebrow{
+  margin-bottom: 6px;
+  color: rgba(31,31,31,.56);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap5-p51-errors__title{
+  margin: 0 0 14px;
+  color: #1f3551;
+  font-family: var(--font-sub);
+  font-size: 24px;
+  line-height: 1.15;
+  text-indent: 0;
+}
+
+.cap5-p51-errors__split{
+  display: grid;
+  gap: 12px;
+}
+
+.cap5-p51-errors__block{
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+}
+
+.cap5-p51-errors__block h4{
+  margin: 0 0 8px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap5-p51-errors__block p{
+  margin: 0;
+  text-indent: 0;
+  line-height: 1.62;
+}
+
+.cap5-p51-errors__block--wrong{
+  background: rgba(198,40,40,.05);
+  border: 1px solid rgba(198,40,40,.14);
+}
+
+.cap5-p51-errors__block--wrong h4{
+  color: #b3261e;
+}
+
+.cap5-p51-errors__block--right{
+  background: rgba(38,166,154,.06);
+  border: 1px solid rgba(38,166,154,.16);
+}
+
+.cap5-p51-errors__block--right h4{
+  color: #0f6f66;
+}
+
+.cap5-p51-closing{
+  margin-top: 24px;
+  padding-left: 12px;
+  border-left: 4px solid #26A69A;
+  color: #1f3551;
+  font-weight: 500;
+}
+
+@media (max-width: 1080px){
+  .cap5-p51-errors__stage{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 760px){
+  .cap5-p51-errors__head h2{
+    font-size: 26px;
+  }
+
+  .cap5-p51-errors__title{
+    font-size: 22px;
+  }
+}
+/* =========================
+   Página 52 — Integração das informações do antibiograma
+   ========================= */
+
+.cap5-page52 .prose sup{
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.cap5-p52-case{
+  margin: 30px 0 30px;
+  padding-top: 14px;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, rgba(30,136,229,.72), rgba(38,166,154,.72)) 1;
+}
+
+.cap5-p52-case__head{
+  margin-bottom: 18px;
+}
+
+.cap5-p52-case__head h2{
+  margin: 0 0 8px;
+  color: #1f3551;
+  font-family: var(--font-sub);
+  font-size: 29px;
+  line-height: 1.08;
+  text-indent: 0;
+}
+
+.cap5-p52-case__head p{
+  margin: 0;
+  color: rgba(31,31,31,.74);
+  line-height: 1.6;
+  text-indent: 0;
+}
+
+.cap5-p52-stage{
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, .95fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.cap5-p52-report{
+  position: relative;
+  padding: 18px 18px 16px;
+  border: 1px solid rgba(31,53,81,.10);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,251,253,.96));
+  box-shadow: 0 14px 30px rgba(18,38,63,.07);
+}
+
+.cap5-p52-report__topline{
+  width: 76px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #1E88E5, #26A69A);
+  margin-bottom: 14px;
+}
+
+.cap5-p52-report__meta{
+  display: grid;
+  gap: 10px;
+}
+
+.cap5-p52-report__row{
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 8px 10px;
+  border-radius: 12px;
+  transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.cap5-p52-report__row.is-active,
+.cap5-p52-report__tableWrap.is-active{
+  background: rgba(30,136,229,.06);
+  box-shadow: inset 0 0 0 1px rgba(30,136,229,.12);
+}
+
+.cap5-p52-report__label{
+  color: rgba(31,31,31,.58);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap5-p52-report__value{
+  color: #1f3551;
+  font-weight: 500;
+  text-indent: 0;
+}
+
+.cap5-p52-report__tableWrap{
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 16px;
+  transition: background .2s ease, box-shadow .2s ease;
+}
+
+.cap5-p52-report__table{
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(18,38,63,.05);
+}
+
+.cap5-p52-report__table th{
+  padding: 12px 14px;
+  text-align: left;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  color: #1f3551;
+  background: rgba(31,53,81,.05);
+  border-bottom: 1px solid rgba(31,53,81,.10);
+}
+
+.cap5-p52-report__table td{
+  padding: 11px 14px;
+  border-bottom: 1px solid rgba(31,53,81,.08);
+  text-indent: 0;
+}
+
+.cap5-p52-report__table tbody tr:last-child td{
+  border-bottom: 0;
+}
+
+.cap5-p52-result--s td:last-child{
+  color: #0f6f66;
   font-weight: 600;
 }
 
-.cap5-carb-stage{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
+.cap5-p52-result--i td:last-child{
+  color: #b07100;
+  font-weight: 600;
 }
 
-.cap5-carb-image img{
-  max-width: 320px;
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 12px 28px rgba(18,38,63,.12);
+.cap5-p52-result--r td:last-child{
+  color: #b3261e;
+  font-weight: 600;
 }
 
-.cap5-carb-text{
-  text-align: center;
-  max-width: 420px;
-}
-
-.cap5-carb-text h3{
-  margin-bottom: 6px;
-  color: #1f3551;
-  font-family: var(--font-sub);
-}
-
-.cap5-carb-text p{
-  margin: 0;
+.cap5-p52-report__note{
+  margin: 10px 2px 0;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: rgba(31,31,31,.68);
   text-indent: 0;
 }
 
-.cap5-decision{
-  margin-top: 20px;
-  border-left: 3px solid #26A69A;
-  padding-left: 10px;
-  font-weight: 500;
+.cap5-p52-guide{
+  padding: 16px 16px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(31,53,81,.10);
+  background: linear-gradient(180deg, rgba(30,136,229,.04), rgba(38,166,154,.04));
+  box-shadow: 0 14px 28px rgba(18,38,63,.05);
+}
+
+.cap5-p52-guide__tabs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.cap5-p52-guide__tab{
+  appearance: none;
+  border: 1px solid rgba(31,53,81,.12);
+  background: #fff;
   color: #1f3551;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+}
+
+.cap5-p52-guide__tab:hover{
+  transform: translateY(-1px);
+}
+
+.cap5-p52-guide__tab.is-active{
+  background: linear-gradient(135deg, #1E88E5, #26A69A);
+  color: #fff;
+  border-color: transparent;
+}
+
+.cap5-p52-guide__panel{
+  padding-left: 12px;
+  border-left: 4px solid #26A69A;
+}
+
+.cap5-p52-guide__eyebrow{
+  margin-bottom: 6px;
+  color: rgba(31,31,31,.56);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-indent: 0;
+}
+
+.cap5-p52-guide__title{
+  margin: 0 0 8px;
+  color: #1f3551;
+  font-family: var(--font-sub);
+  font-size: 24px;
+  line-height: 1.1;
+  text-indent: 0;
+}
+
+.cap5-p52-guide__text{
+  margin: 0;
+  color: rgba(31,31,31,.86);
+  line-height: 1.64;
+  text-indent: 0;
+}
+
+.cap5-p52-closing{
+  margin-top: 24px;
+  padding-left: 12px;
+  border-left: 4px solid #26A69A;
+  color: #1f3551;
+  font-weight: 500;
+}
+
+@media (max-width: 1080px){
+  .cap5-p52-stage{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 760px){
+  .cap5-p52-case__head h2{
+    font-size: 26px;
+  }
+
+  .cap5-p52-report__row{
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .cap5-p52-guide__title{
+    font-size: 22px;
+  }
+}
+/* =========================
+   PÁGINA 53 — QUIZ DE REVISÃO
+   ========================= */
+
+.cap5-page53 .page-shell{
+  max-width: 1040px;
+}
+
+.cap5-reading-flow{
+  margin-bottom: 24px;
+}
+
+.cap5-p53Quiz{
+  margin: 22px 0 28px;
+}
+
+.cap5-p53Nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+  padding: 10px 14px;
+  border: 1px solid rgba(31,53,81,.10);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(30,136,229,.04), rgba(38,166,154,.03));
+}
+
+.cap5-p53NavBtn{
+  appearance: none;
+  border: 1px solid rgba(31,53,81,.14);
+  background: #fff;
+  color: #1f3551;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.cap5-p53NavBtn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.35);
+  background: rgba(30,136,229,.04);
+}
+
+.cap5-p53NavBtn:disabled{
+  opacity: .42;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cap5-p53Progress{
+  min-width: 120px;
+  text-align: center;
+  color: rgba(31,31,31,.72);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cap5-p53Question{
+  display: none;
+}
+
+.cap5-p53Question.active{
+  display: block;
+}
+
+.cap5-p53Case{
+  margin: 0 0 14px;
+  color: #1f3551;
+  font-weight: 500;
+}
+
+.cap5-p53Prompt{
+  margin: 0 0 18px;
+  font-weight: 600;
+  color: #1f3551;
+}
+
+.cap5-p53Options{
+  display: grid;
+  gap: 12px;
+}
+
+.cap5-p53Options button{
+  appearance: none;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 12px;
+  text-align: left;
+  border: 1px solid rgba(31,53,81,.12);
+  border-radius: 18px;
+  background: #fff;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.cap5-p53Options button:hover{
+  transform: translateY(-1px);
+  border-color: rgba(30,136,229,.30);
+  box-shadow: 0 10px 22px rgba(18,38,63,.06);
+}
+
+.cap5-p53Options button.is-selected{
+  border-color: rgba(30,136,229,.42);
+  background: rgba(30,136,229,.05);
+  box-shadow: 0 10px 22px rgba(18,38,63,.08);
+}
+
+.cap5-p53Options button.is-correct{
+  border-color: rgba(38,166,154,.45);
+  background: rgba(38,166,154,.08);
+}
+
+.cap5-p53Options button.is-wrong{
+  border-color: rgba(198,40,40,.35);
+  background: rgba(198,40,40,.06);
+}
+
+.cap5-p53Options button[disabled]{
+  cursor: default;
+}
+
+.cap5-p53Letter{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1E88E5, #26A69A);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: 1px;
+  box-shadow: 0 6px 14px rgba(30,136,229,.22);
+}
+
+.cap5-p53Actions{
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.cap5-p53Btn{
+  appearance: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .18s ease, opacity .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.cap5-p53Btn:hover{
+  transform: translateY(-1px);
+}
+
+.cap5-p53Btn:disabled{
+  opacity: .45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cap5-p53Btn--primary{
+  border: 1px solid rgba(30,136,229,.30);
+  background: linear-gradient(135deg, #1E88E5, #26A69A);
+  color: #fff;
+}
+
+.cap5-p53Btn--ghost{
+  border: 1px solid rgba(31,53,81,.16);
+  background: #fff;
+  color: #1f3551;
+}
+
+.cap5-p53Feedback{
+  margin-top: 18px;
+  display: none;
+}
+
+.cap5-p53Feedback.is-visible{
+  display: block;
+}
+
+.cap5-p53FeedbackCard{
+  border-radius: 18px;
+  padding: 16px 18px;
+  border: 1px solid rgba(31,53,81,.10);
+  background: #fff;
+  box-shadow: 0 12px 26px rgba(18,38,63,.06);
+}
+
+.cap5-p53FeedbackCard--correct{
+  border-left: 4px solid #26A69A;
+}
+
+.cap5-p53FeedbackCard--error{
+  border-left: 4px solid #c62828;
+}
+
+.cap5-p53FeedbackTitle{
+  margin: 0 0 8px;
+  color: #1f3551;
+  font-family: var(--font-sub);
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.cap5-p53FeedbackText{
+  margin: 0;
+  color: rgba(31,31,31,.86);
+  line-height: 1.62;
+  text-indent: 0;
+}
+
+.cap5-p53Done[hidden]{
+  display: none !important;
+}
+
+.cap5-p53DoneCard{
+  margin-top: 18px;
+  padding: 22px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(31,53,81,.10);
+  background: linear-gradient(180deg, rgba(30,136,229,.04), rgba(38,166,154,.04));
+  box-shadow: 0 14px 28px rgba(18,38,63,.06);
+}
+
+.cap5-p53Badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cap5-p53Badge--done{
+  background: rgba(38,166,154,.12);
+  color: #0f6f66;
+}
+
+.cap5-p53DoneText{
+  margin: 12px 0 10px;
+  color: #1f3551;
+  font-family: var(--font-sub);
+  font-size: 24px;
+  line-height: 1.15;
+  text-indent: 0;
+}
+
+.cap5-p53Closing p{
+  margin: 0;
+  text-indent: 0;
+  line-height: 1.65;
+}
+
+.cap5-refBox{
+  margin-top: 22px;
+  border: 1px solid rgba(31,53,81,.10);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.cap5-refBox summary{
+  cursor: pointer;
+  list-style: none;
+  padding: 14px 18px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f3551;
+  background: rgba(30,136,229,.04);
+}
+
+.cap5-refBox summary::-webkit-details-marker{
+  display: none;
+}
+
+.cap5-refContent{
+  padding: 16px 18px 18px;
+}
+
+.cap5-refContent p{
+  margin: 0 0 12px;
+  text-indent: 0;
+  font-size: 14px;
+  line-height: 1.58;
+}
+
+@media (max-width: 820px){
+  .cap5-p53Nav{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cap5-p53Progress{
+    width: 100%;
+    order: -1;
+  }
+
+  .cap5-p53Actions{
+    flex-wrap: wrap;
+  }
+}
+.pager .btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.pager .btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }

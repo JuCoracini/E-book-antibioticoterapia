@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -35,106 +35,63 @@
         Uma abordagem estruturada pode ser organizada em etapas sucessivas.
       </p>
 
-      <section class="cap5-p50-nav" aria-label="Sequência de leitura do antibiograma">
-        <div class="cap5-p50-nav__track">
-          <button class="cap5-p50-nav__btn is-active" type="button" data-target="cap5-p50-step1" aria-label="Ir para a etapa 1">
-            <span class="cap5-p50-nav__n">1</span>
-            <span class="cap5-p50-nav__label">Microrganismo</span>
-          </button>
-
-          <button class="cap5-p50-nav__btn" type="button" data-target="cap5-p50-step2" aria-label="Ir para a etapa 2">
-            <span class="cap5-p50-nav__n">2</span>
-            <span class="cap5-p50-nav__label">Origem da amostra</span>
-          </button>
-
-          <button class="cap5-p50-nav__btn" type="button" data-target="cap5-p50-step3" aria-label="Ir para a etapa 3">
-            <span class="cap5-p50-nav__n">3</span>
-            <span class="cap5-p50-nav__label">Observações</span>
-          </button>
-
-          <button class="cap5-p50-nav__btn" type="button" data-target="cap5-p50-step4" aria-label="Ir para a etapa 4">
-            <span class="cap5-p50-nav__n">4</span>
-            <span class="cap5-p50-nav__label">Categorias</span>
-          </button>
-
-          <button class="cap5-p50-nav__btn" type="button" data-target="cap5-p50-step5" aria-label="Ir para a etapa 5">
-            <span class="cap5-p50-nav__n">5</span>
-            <span class="cap5-p50-nav__label">Integração clínica</span>
-          </button>
+      <section class="cap5-p50-steps" aria-labelledby="cap5-p50-steps-title">
+        <div class="cap5-p50-steps__head">
+          <h2 id="cap5-p50-steps-title">Sequência de leitura do laudo microbiológico</h2>
+          <p>
+            A interpretação adequada não começa pelas categorias S, I e R. Ela depende de uma ordem de leitura que integra microbiologia, plausibilidade clínica e contexto terapêutico.
+          </p>
         </div>
 
-        <p class="cap5-p50-nav__hint">
-          A leitura do antibiograma depende da sequência de interpretação do laudo microbiológico.
-        </p>
+        <div class="cap5-p50-steps__stage">
+          <div class="cap5-p50-steps__tabs" role="tablist" aria-label="Etapas de leitura estruturada do antibiograma">
+            <button class="cap5-p50-steps__tab is-active" type="button" role="tab" aria-selected="true" data-p50-step="1">
+              <span class="cap5-p50-steps__n">1</span>
+              <span>Identificar o microrganismo</span>
+            </button>
+
+            <button class="cap5-p50-steps__tab" type="button" role="tab" aria-selected="false" data-p50-step="2">
+              <span class="cap5-p50-steps__n">2</span>
+              <span>Considerar a amostra</span>
+            </button>
+
+            <button class="cap5-p50-steps__tab" type="button" role="tab" aria-selected="false" data-p50-step="3">
+              <span class="cap5-p50-steps__n">3</span>
+              <span>Verificar observações</span>
+            </button>
+
+            <button class="cap5-p50-steps__tab" type="button" role="tab" aria-selected="false" data-p50-step="4">
+              <span class="cap5-p50-steps__n">4</span>
+              <span>Analisar S / I / R</span>
+            </button>
+
+            <button class="cap5-p50-steps__tab" type="button" role="tab" aria-selected="false" data-p50-step="5">
+              <span class="cap5-p50-steps__n">5</span>
+              <span>Integrar ao contexto clínico</span>
+            </button>
+          </div>
+
+          <aside class="cap5-p50-steps__panel" aria-live="polite">
+            <div class="cap5-p50-steps__eyebrow" id="cap5-p50-eyebrow">Primeira leitura</div>
+            <h3 class="cap5-p50-steps__title" id="cap5-p50-title">Identificar o microrganismo isolado</h3>
+            <p class="cap5-p50-steps__text" id="cap5-p50-text">
+              A espécie bacteriana fornece o primeiro contexto interpretativo do resultado. Diferentes bactérias apresentam perfis característicos de suscetibilidade e resistência, incluindo mecanismos de fenótipo esperado resistente. A identificação do microrganismo também ajuda a avaliar a plausibilidade clínica do isolamento. Nem todo microrganismo detectado em cultura representa necessariamente o agente responsável pela infecção.
+            </p>
+          </aside>
+        </div>
       </section>
 
-      <section class="cap5-p50-steps">
+      <p>
+        Somente após compreender o contexto microbiológico do laudo faz sentido avaliar as categorias interpretativas apresentadas no antibiograma. A classificação como as categorias S, I e R resulta da aplicação de critérios técnicos sobre o valor obtido no teste de suscetibilidade. Essas categorias indicam a probabilidade microbiológica de inibição bacteriana nas condições consideradas pelos parâmetros farmacológicos utilizados para definir os breakpoints <sup>1</sup>.
+      </p>
 
-        <section class="cap5-p50-step is-active" id="cap5-p50-step1">
-          <h2 class="cap5-p50-step__title">1. Identificar o microrganismo isolado</h2>
+      <p>
+        Quando disponível, o valor da concentração inibitória mínima pode fornecer informação adicional, especialmente quando se encontra próximo aos pontos de corte estabelecidos.
+      </p>
 
-          <p>
-            A espécie bacteriana fornece o primeiro contexto interpretativo do resultado. Diferentes bactérias apresentam perfis característicos de suscetibilidade e resistência, incluindo mecanismos de fenótipo esperado resistente <sup>1</sup>.
-          </p>
-
-          <p>
-            A identificação do microrganismo também ajuda a avaliar a plausibilidade clínica do isolamento. Nem todo microrganismo detectado em cultura representa necessariamente o agente responsável pela infecção.
-          </p>
-        </section>
-
-        <section class="cap5-p50-step" id="cap5-p50-step2">
-          <h2 class="cap5-p50-step__title">2. Considerar a origem da amostra</h2>
-
-          <p>
-            O significado clínico do isolamento depende do sítio de onde a amostra foi obtida. A presença de uma bactéria em hemocultura possui implicações diferentes da detecção do mesmo microrganismo em secreções respiratórias ou em material de superfície.
-          </p>
-
-          <p>
-            A interpretação do antibiograma precisa ser contextualizada com a possibilidade de colonização, contaminação da amostra ou infecção verdadeira.
-          </p>
-        </section>
-
-        <section class="cap5-p50-step" id="cap5-p50-step3">
-          <h2 class="cap5-p50-step__title">3. Verificar observações laboratoriais</h2>
-
-          <p>
-            O laudo pode incluir informações adicionais relacionadas a mecanismos de resistência específicos. Observações como produção de ESBL, presença de carbapenemase, identificação de MRSA, VRE ou outros fenótipos de resistência modificam a leitura do painel de antibacterianos.
-          </p>
-
-          <p>
-            Esses dados representam características biológicas do microrganismo e devem ser considerados antes da análise das categorias interpretativas.
-          </p>
-        </section>
-
-        <section class="cap5-p50-step" id="cap5-p50-step4">
-          <h2 class="cap5-p50-step__title">4. Analisar as categorias de suscetibilidade</h2>
-
-          <p>
-            Somente após compreender o contexto microbiológico do laudo faz sentido avaliar as categorias interpretativas apresentadas no antibiograma.
-          </p>
-
-          <p>
-            A classificação como as categorias S, I e R resulta da aplicação de critérios técnicos sobre o valor obtido no teste de suscetibilidade. Essas categorias indicam a probabilidade microbiológica de inibição bacteriana nas condições consideradas pelos parâmetros farmacológicos utilizados para definir os breakpoints <sup>1</sup>.
-          </p>
-
-          <p>
-            Quando disponível, o valor da concentração inibitória mínima pode fornecer informação adicional, especialmente quando se encontra próximo aos pontos de corte estabelecidos.
-          </p>
-        </section>
-
-        <section class="cap5-p50-step" id="cap5-p50-step5">
-          <h2 class="cap5-p50-step__title">5. Integrar o resultado ao contexto clínico</h2>
-
-          <p>
-            O antibiograma informa o comportamento da bactéria no ambiente laboratorial. A decisão terapêutica depende da integração desse dado com fatores clínicos, como o foco infeccioso, a penetração do antibacteriano no tecido afetado, a presença de biofilme e as características farmacocinéticas do paciente.
-          </p>
-
-          <p>
-            A interpretação adequada surge da integração entre microbiologia, farmacologia e contexto clínico.
-          </p>
-        </section>
-
-      </section>
+      <p class="cap5-p50-closing">
+        A interpretação adequada surge da integração entre microbiologia, farmacologia e contexto clínico.
+      </p>
 
     </section>
 
@@ -146,7 +103,6 @@
 
   </main>
 
-  <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-05.js"></script>
 </body>
 </html>

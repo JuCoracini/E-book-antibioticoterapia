@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -16,79 +16,119 @@
 
 <body class="cap5-page47">
 
-<main class="container page-shell">
+  <main class="container page-shell">
 
-<header class="page-header">
-  <div>
-    <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
-    <h1 class="page-title">Observações do laudo que modificam a interpretação</h1>
-  </div>
-</header>
+    <header class="page-header">
+      <div>
+        <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
+        <h1 class="page-title">Observações do laudo que modificam a interpretação</h1>
+      </div>
+    </header>
 
-<section class="prose">
+    <section class="prose" aria-label="Texto principal">
 
-<p>
-Além das categorias interpretativas do antibiograma, o laudo microbiológico pode incluir observações adicionais relacionadas a mecanismos específicos de resistência bacteriana. Essas informações não substituem o resultado do teste de sensibilidade, mas podem modificar a forma como o painel de antibacterianos deve ser interpretado.
-</p>
-
-<p>
-Alguns mecanismos de resistência produzem alterações previsíveis no perfil de suscetibilidade e, por essa razão, são frequentemente destacados no laudo microbiológico. A presença dessas observações indica que o laboratório identificou um mecanismo biológico capaz de interferir na atividade de determinadas classes de antibacterianos.
-</p>
-
-<p class="cap5-lead">
-A interpretação adequada dessas observações exige reconhecer padrões microbiológicos e compreender seu impacto na escolha terapêutica.
-</p>
-
-<!-- INTERAÇÃO PRINCIPAL -->
-
-<section class="cap5-esbl" data-esbl>
-
-  <div class="cap5-esbl-controls">
-    <button class="cap5-esbl-btn is-active" data-step="1">Reconhecer padrão</button>
-    <button class="cap5-esbl-btn" data-step="2">Testar hipótese</button>
-    <button class="cap5-esbl-btn" data-step="3">Tomar decisão</button>
-  </div>
-
-  <div class="cap5-esbl-stage">
-
-    <button class="cap5-zoomTrigger cap5-esbl-image"
-      data-zoom-image="../../assets/capitulo-05/imagens/esbl-padrao.png"
-      data-zoom-alt="Placa com diferentes halos de cefalosporinas"
-      data-zoom-caption="Padrão de suscetibilidade irregular entre cefalosporinas pode sugerir presença de mecanismo de resistência."
-    >
-      <img id="esbl-img"
-        src="../../assets/capitulo-05/imagens/esbl-padrao.png"
-        alt="Placa com diferentes halos de cefalosporinas">
-    </button>
-
-    <div class="cap5-esbl-text">
-      <h3 id="esbl-title">Padrão de suscetibilidade não uniforme</h3>
-      <p id="esbl-desc">
-        Diferenças nos halos de inibição entre cefalosporinas podem indicar a presença de um mecanismo de resistência que interfere de forma seletiva na atividade desses antibacterianos.
+      <p>
+        Além das categorias interpretativas do antibiograma, o laudo microbiológico pode incluir observações adicionais relacionadas a mecanismos específicos de resistência bacteriana. Essas informações não substituem o resultado do teste de sensibilidade, mas podem modificar a forma como o painel de antibacterianos deve ser interpretado.
       </p>
-    </div>
 
+      <p>
+        Alguns mecanismos de resistência produzem alterações previsíveis no perfil de suscetibilidade e, por essa razão, são frequentemente destacados no laudo microbiológico. A presença dessas observações indica que o laboratório identificou um mecanismo biológico capaz de interferir na atividade de determinadas classes de antibacterianos.
+      </p>
+
+      <p>
+        Entre os mecanismos mais frequentemente relatados na prática clínica estão as β-lactamases de espectro estendido (ESBL). Essas enzimas são produzidas por algumas bactérias da ordem Enterobacterales e possuem capacidade de hidrolisar diversas penicilinas e cefalosporinas de amplo espectro. A detecção desse mecanismo modifica a interpretação de parte do painel de β-lactâmicos de acordo com as regras interpretativas adotadas pelo sistema normativo do laboratório <sup>6</sup>.
+      </p>
+
+      <section class="cap5-p47-esbl" aria-labelledby="cap5-p47-esbl-title">
+        <div class="cap5-p47-esbl__head">
+          <h2 id="cap5-p47-esbl-title">Como a ESBL muda o significado do painel</h2>
+          <p>
+            A leitura adequada não depende apenas do resultado final do antibiograma, mas do reconhecimento do mecanismo que está por trás dele.
+          </p>
+        </div>
+
+        <div class="cap5-p47-esbl__controls" role="tablist" aria-label="Etapas de interpretação da ESBL">
+          <button
+            class="cap5-p47-esbl__tab is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-p47-step="mecanismo"
+          >
+            1. Mecanismo biológico
+          </button>
+
+          <button
+            class="cap5-p47-esbl__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p47-step="impacto"
+          >
+            2. Impacto no laudo
+          </button>
+        </div>
+
+        <div class="cap5-p47-esbl__stage">
+          <figure class="cap5-p47-esbl__figure">
+            <button
+              class="cap5-zoomTrigger cap5-p47-esbl__zoom"
+              type="button"
+              id="cap5-p47-zoom"
+              data-zoom-image="../../assets/capitulo-05/imagens/esbl-mecanismo.png"
+              data-zoom-alt="Esquema ilustrativo do mecanismo de produção de ESBL."
+              data-zoom-caption="A produção de ESBL leva à hidrólise de penicilinas e cefalosporinas de amplo espectro, interferindo diretamente na atividade desses antibacterianos."
+              aria-label="Ampliar esquema do mecanismo da ESBL"
+            >
+              <img
+                id="cap5-p47-image"
+                src="../../assets/capitulo-05/imagens/esbl-mecanismo.png"
+                alt="Esquema ilustrativo do mecanismo de produção de ESBL."
+                loading="lazy"
+              />
+            </button>
+            <figcaption id="cap5-p47-caption" class="cap5-p47-esbl__caption">
+              A produção de ESBL leva à hidrólise de penicilinas e cefalosporinas de amplo espectro, interferindo diretamente na atividade desses antibacterianos.
+            </figcaption>
+          </figure>
+
+          <aside class="cap5-p47-esbl__panel" aria-live="polite">
+            <div class="cap5-p47-esbl__eyebrow" id="cap5-p47-eyebrow">Produção enzimática</div>
+            <h3 class="cap5-p47-esbl__title" id="cap5-p47-title">Mecanismo biológico da ESBL</h3>
+            <p class="cap5-p47-esbl__text" id="cap5-p47-text">
+              As ESBL são enzimas produzidas por Enterobacterales capazes de degradar penicilinas e cefalosporinas de amplo espectro. O reconhecimento desse mecanismo explica por que o painel de β-lactâmicos não deve ser lido apenas como uma lista de resultados isolados, mas como expressão de um perfil biológico de resistência.
+            </p>
+
+            <div class="cap5-p47-esbl__note" id="cap5-p47-note">
+              O ponto central não é apenas “qual antibacteriano apareceu no laudo”, mas qual mecanismo está alterando o significado daquele painel.
+            </div>
+          </aside>
+        </div>
+      </section>
+
+    </section>
+
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p46.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 5 · Página 47</div>
+      <button class="btn" type="button" data-next="p48.html" aria-label="Ir para a próxima página">Próxima →</button>
+    </nav>
+
+  </main>
+
+  <div class="cap5-lightbox" id="cap5Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <div class="cap5-lightbox__backdrop" data-lightbox-close></div>
+
+    <div class="cap5-lightbox__dialog">
+      <button class="cap5-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
+
+      <figure class="cap5-lightbox__figure">
+        <img id="cap5LightboxImage" src="" alt="" />
+        <figcaption id="cap5LightboxCaption" class="cap5-lightbox__caption"></figcaption>
+      </figure>
+    </div>
   </div>
 
-</section>
-
-<p>
-Entre os mecanismos mais frequentemente relatados na prática clínica estão as β-lactamases de espectro estendido (ESBL). Essas enzimas são produzidas por algumas bactérias da ordem Enterobacterales e possuem capacidade de hidrolisar diversas penicilinas e cefalosporinas de amplo espectro. A detecção desse mecanismo modifica a interpretação de parte do painel de β-lactâmicos de acordo com as regras interpretativas adotadas pelo sistema normativo do laboratório <sup>6</sup>.
-</p>
-
-<p class="cap5-decision">
-Esse padrão é compatível com produção de β-lactamase de espectro estendido (ESBL) e deve ser interpretado como resistência funcional às cefalosporinas envolvidas, independentemente do resultado individual apresentado no antibiograma.
-</p>
-
-</section>
-
-<nav class="pager">
-  <button class="btn" data-prev="p46.html">← Anterior</button>
-  <div class="center">Capítulo 5 · Página 47</div>
-  <button class="btn" data-next="p48.html">Próxima →</button>
-</nav>
-
-</main>
-<script src="../../js/capitulo-05.js"></script>
+  <script src="../../js/capitulo-05.js"></script>
 </body>
 </html>

@@ -1,202 +1,231 @@
-<!-- FILE: capitulo-05/p42.html -->
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Capítulo 5 — Página 42</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+  <title>Capítulo 5 — Página 53</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../../css/base.css" />
-  <link rel="stylesheet" href="../../css/components.css" />
-  <link rel="stylesheet" href="../../css/capitulo-05.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/base.css"/>
+  <link rel="stylesheet" href="../../css/components.css"/>
+  <link rel="stylesheet" href="../../css/capitulo-05.css"/>
 </head>
 
-<body class="cap5-page42">
+<body class="cap5-page53">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
-  <main class="container page-shell">
+  <main class="page-shell">
 
     <header class="page-header">
       <div>
         <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
-        <h1 class="page-title">Observações do laudo que modificam a interpretação</h1>
+        <h1 class="page-title">Quiz de revisão</h1>
       </div>
     </header>
 
-    <section class="prose" aria-label="Texto principal">
-
+    <section class="prose cap5-reading-flow" aria-label="Introdução do quiz">
       <p>
-        Além das categorias interpretativas do antibiograma, o laudo microbiológico pode incluir observações adicionais relacionadas a mecanismos específicos de resistência bacteriana. Essas informações não substituem o resultado do teste de sensibilidade, mas podem modificar a forma como o painel de antibacterianos deve ser interpretado.
+        As situações a seguir exploram princípios apresentados neste capítulo. Analise cada cenário considerando a interpretação do antibiograma, os limites da CIM, os breakpoints e os fenótipos microbiológicos esperados.
       </p>
-
-      <p>
-        Alguns mecanismos de resistência produzem alterações previsíveis no perfil de suscetibilidade e, por essa razão, são frequentemente destacados no laudo microbiológico. A presença dessas observações indica que o laboratório identificou um mecanismo biológico capaz de interferir na atividade de determinadas classes de antibacterianos.
-      </p>
-
-      <figure class="cap5-figure cap5-res-figure">
-        <div class="cap5-res-figure__svg" role="img" aria-label="Imagem conceitual de mecanismos de resistência: enzimas, alteração de alvo, permeabilidade e outros mecanismos">
-          <svg viewBox="0 0 980 260" width="100%" height="auto" aria-hidden="true" focusable="false">
-            <defs>
-              <linearGradient id="resBg" x1="0" x2="1">
-                <stop offset="0%" stop-color="rgba(31,60,136,.05)"></stop>
-                <stop offset="100%" stop-color="rgba(31,60,136,.02)"></stop>
-              </linearGradient>
-            </defs>
-
-            <rect x="20" y="20" width="940" height="220" rx="18" fill="url(#resBg)" stroke="rgba(31,31,31,.10)"></rect>
-
-            <g transform="translate(70,70)">
-              <rect x="0" y="0" width="250" height="140" rx="16" fill="#fff" stroke="rgba(31,31,31,.12)"></rect>
-              <text x="18" y="34" font-family="Inter, sans-serif" font-size="16" fill="rgba(31,31,31,.80)" font-weight="700">Enzimas inativadoras</text>
-              <text x="18" y="66" font-family="Inter, sans-serif" font-size="14" fill="rgba(31,31,31,.70)">β-lactamases (ESBL, AmpC)</text>
-              <text x="18" y="92" font-family="Inter, sans-serif" font-size="14" fill="rgba(31,31,31,.70)">carbapenemases</text>
-              <circle cx="220" cy="40" r="18" fill="rgba(31,60,136,.10)" stroke="rgba(31,60,136,.25)"></circle>
-              <path d="M214 40 L226 40" stroke="rgba(31,60,136,.55)" stroke-width="3" stroke-linecap="round"></path>
-              <path d="M220 34 L220 46" stroke="rgba(31,60,136,.55)" stroke-width="3" stroke-linecap="round"></path>
-            </g>
-
-            <g transform="translate(365,70)">
-              <rect x="0" y="0" width="250" height="140" rx="16" fill="#fff" stroke="rgba(31,31,31,.12)"></rect>
-              <text x="18" y="34" font-family="Inter, sans-serif" font-size="16" fill="rgba(31,31,31,.80)" font-weight="700">Alteração do alvo</text>
-              <text x="18" y="66" font-family="Inter, sans-serif" font-size="14" fill="rgba(31,31,31,.70)">MRSA</text>
-              <text x="18" y="92" font-family="Inter, sans-serif" font-size="14" fill="rgba(31,31,31,.70)">VRE</text>
-              <circle cx="220" cy="40" r="18" fill="rgba(31,60,136,.10)" stroke="rgba(31,60,136,.25)"></circle>
-              <path d="M212 40 C216 32, 224 32, 228 40 C224 48, 216 48, 212 40 Z" fill="rgba(31,60,136,.35)"></path>
-            </g>
-
-            <g transform="translate(660,70)">
-              <rect x="0" y="0" width="250" height="140" rx="16" fill="#fff" stroke="rgba(31,31,31,.12)"></rect>
-              <text x="18" y="34" font-family="Inter, sans-serif" font-size="16" fill="rgba(31,31,31,.80)" font-weight="700">Fenótipos especiais</text>
-              <text x="18" y="66" font-family="Inter, sans-serif" font-size="14" fill="rgba(31,31,31,.70)">MLSB induzível</text>
-              <text x="18" y="92" font-family="Inter, sans-serif" font-size="14" fill="rgba(31,31,31,.70)">alta resistência a aminoglicosídeos</text>
-              <circle cx="220" cy="40" r="18" fill="rgba(31,60,136,.10)" stroke="rgba(31,60,136,.25)"></circle>
-              <path d="M212 46 L228 46" stroke="rgba(31,60,136,.55)" stroke-width="3" stroke-linecap="round"></path>
-              <path d="M212 40 L228 40" stroke="rgba(31,60,136,.55)" stroke-width="3" stroke-linecap="round"></path>
-              <path d="M212 34 L228 34" stroke="rgba(31,60,136,.55)" stroke-width="3" stroke-linecap="round"></path>
-            </g>
-
-            <text x="60" y="230" font-family="Inter, sans-serif" font-size="13" fill="rgba(31,31,31,.60)">
-              Observações do laudo podem sinalizar mecanismos com impacto sobre classes inteiras de antibacterianos.
-            </text>
-          </svg>
-        </div>
-
-        <figcaption>
-          <strong>Mecanismos bacterianos de resistência.</strong>
-          A resistência pode decorrer da produção de enzimas inativadoras, modificação do alvo do antibacteriano, redução de permeabilidade ou outros mecanismos capazes de alterar o perfil de suscetibilidade observado no antibiograma.
-        </figcaption>
-      </figure>
-
-      <section class="resistance-map" data-resistance-map aria-labelledby="resistance-map-title">
-        <h2 id="resistance-map-title" class="cap5-h2">Mecanismos que modificam a leitura do laudo</h2>
-
-        <div class="resistance-map__buttons" role="tablist" aria-label="Mecanismos de resistência">
-          <button type="button" role="tab" aria-selected="true" tabindex="0" data-mech="esbl" class="active">ESBL</button>
-          <button type="button" role="tab" aria-selected="false" tabindex="-1" data-mech="ampc">AmpC</button>
-          <button type="button" role="tab" aria-selected="false" tabindex="-1" data-mech="carbapenemase">Carbapenemases</button>
-          <button type="button" role="tab" aria-selected="false" tabindex="-1" data-mech="mrsa">MRSA</button>
-          <button type="button" role="tab" aria-selected="false" tabindex="-1" data-mech="vre">VRE</button>
-          <button type="button" role="tab" aria-selected="false" tabindex="-1" data-mech="mlsb">MLSB induzível</button>
-          <button type="button" role="tab" aria-selected="false" tabindex="-1" data-mech="hlar">Alta resistência a aminoglicosídeos</button>
-        </div>
-
-        <div class="resistance-map__panel" role="region" aria-live="polite" aria-label="Painel do mecanismo selecionado">
-          <!-- preenchido via JS -->
-        </div>
-
-        <noscript>
-          <div class="resistance-map__panel">
-            <p>Entre os mecanismos mais frequentemente relatados na prática clínica estão as β-lactamases de espectro estendido (ESBL). Essas enzimas são produzidas por algumas bactérias da ordem Enterobacterales e possuem capacidade de hidrolisar diversas penicilinas e cefalosporinas de amplo espectro. A detecção desse mecanismo modifica a interpretação de parte do painel de β-lactâmicos de acordo com as regras interpretativas adotadas pelo sistema normativo do laboratório (6).</p>
-          </div>
-        </noscript>
-      </section>
-
-      <section class="cap5-res-cards" aria-labelledby="res-cards-title">
-        <h2 id="res-cards-title" class="cap5-h2">Cards-resumo dos principais mecanismos</h2>
-
-        <div class="cap5-res-cards__grid">
-          <article class="cap5-card">
-            <h3>ESBL e AmpC</h3>
-            <p>Enzimas β-lactamases podem alterar de forma importante a leitura de penicilinas, cefalosporinas e outros β-lactâmicos.</p>
-          </article>
-
-          <article class="cap5-card">
-            <h3>Carbapenemases</h3>
-            <p>Indicam mecanismos com impacto microbiológico e epidemiológico amplo, frequentemente associados a perfis de resistência extensos.</p>
-          </article>
-
-          <article class="cap5-card">
-            <h3>Alteração de alvo</h3>
-            <p>Fenótipos como MRSA e VRE decorrem de mudança estrutural no alvo do antibacteriano.</p>
-          </article>
-
-          <article class="cap5-card">
-            <h3>Fenótipos especiais</h3>
-            <p>Algumas observações, como MLSB induzível ou alta resistência a aminoglicosídeos, mudam a leitura de antibacterianos específicos ou de combinações entre drogas.</p>
-          </article>
-        </div>
-      </section>
-
-      <div class="cap5-callout" role="note" aria-label="Caixa conceitual">
-        <p class="cap5-callout__title">Como essas observações mudam a leitura do antibiograma</p>
-        <p class="cap5-callout__text">
-          As observações do laudo não substituem o teste de sensibilidade, mas acrescentam contexto biológico para interpretar o painel de antibacterianos.
-          Em vez de analisar cada droga isoladamente, o estudante deve compreender o perfil microbiológico como um conjunto integrado de informações.
-        </p>
-      </div>
-
-      <div class="cap5-example" role="note" aria-label="Exemplo didático">
-        <p class="cap5-example__title">Exemplo didático</p>
-        <p><strong>Microrganismo identificado:</strong> Escherichia coli</p>
-        <p><strong>Observação do laudo:</strong> ESBL detectada</p>
-        <p><strong>O que essa observação acrescenta?</strong></p>
-        <p>
-          Ela informa que o perfil de suscetibilidade precisa ser interpretado à luz da produção de uma enzima capaz de hidrolisar diversos β-lactâmicos. O resultado deixa de ser apenas uma tabela de antibacterianos e passa a representar um fenótipo bacteriano específico.
-        </p>
-      </div>
-
-      <p>
-        Essas observações representam informações adicionais sobre o comportamento biológico da bactéria isolada. Elas devem ser interpretadas em conjunto com a espécie identificada e com as categorias de suscetibilidade apresentadas no antibiograma.
-      </p>
-
     </section>
 
+    <section class="cap5-p53Quiz" data-cap5-p53 aria-label="Quiz de revisão">
+
+      <div class="cap5-p53Nav" aria-label="Navegação das questões">
+        <button class="cap5-p53NavBtn" type="button" data-p53-action="prev">Anterior</button>
+        <div class="cap5-p53Progress" aria-live="polite"></div>
+        <button class="cap5-p53NavBtn" type="button" data-p53-action="next">Próxima</button>
+      </div>
+
+      <!-- QUESTÃO 1 -->
+      <div class="cap5-p53Question active" data-q="1">
+        <p class="cap5-p53Case">
+          1) Um antibiograma mostra dois antibacterianos classificados como sensíveis para a mesma bactéria isolada. Um deles apresenta CIM menor que o outro. O estudante conclui que o antibacteriano com menor CIM será necessariamente o mais eficaz no tratamento.
+        </p>
+
+        <p class="cap5-p53Prompt">
+          Qual princípio ajuda a explicar por que essa interpretação pode estar incorreta?
+        </p>
+
+        <div class="cap5-p53Options" role="group" aria-label="Alternativas da questão 1">
+          <button type="button" data-answer="a" data-correct="true">
+            <span class="cap5-p53Letter">A</span>
+            <span>A interpretação da CIM depende da relação com os breakpoints e da exposição farmacológica alcançada no organismo</span>
+          </button>
+
+          <button type="button" data-answer="b">
+            <span class="cap5-p53Letter">B</span>
+            <span>A bactéria pode alterar imediatamente seu metabolismo após o início do tratamento</span>
+          </button>
+
+          <button type="button" data-answer="c">
+            <span class="cap5-p53Letter">C</span>
+            <span>A concentração inibitória mínima varia entre diferentes pacientes durante a terapia</span>
+          </button>
+
+          <button type="button" data-answer="d">
+            <span class="cap5-p53Letter">D</span>
+            <span>A categoria “sensível” indica que todos os antibacterianos possuem a mesma potência clínica</span>
+          </button>
+        </div>
+
+        <div class="cap5-p53Actions">
+          <button class="cap5-p53Btn cap5-p53Btn--primary" type="button" data-p53-action="confirm" disabled>Confirmar</button>
+          <button class="cap5-p53Btn cap5-p53Btn--ghost" type="button" data-p53-action="reset" hidden>Refazer</button>
+        </div>
+
+        <div class="cap5-p53Feedback" role="region" aria-live="polite"></div>
+
+        <template class="cap5-p53FeedbackMap">
+{
+  "a": {
+    "type": "correct",
+    "title": "Interpretação adequada",
+    "text": "A CIM deve ser interpretada em relação aos breakpoints estabelecidos e às características farmacocinéticas e farmacodinâmicas do antibacteriano. Diferenças pequenas entre valores próximos ao ponto de corte nem sempre possuem relevância clínica (1,2)."
+  },
+  "b": {
+    "type": "error",
+    "title": "Raciocínio inadequado",
+    "text": "Alterações metabólicas bacterianas podem ocorrer, mas não explicam diretamente a interpretação da CIM obtida no teste laboratorial."
+  },
+  "c": {
+    "type": "error",
+    "title": "Conceito incorreto",
+    "text": "A CIM é determinada em condições laboratoriais padronizadas e não varia entre pacientes para o mesmo isolado bacteriano."
+  },
+  "d": {
+    "type": "error",
+    "title": "Generalização indevida",
+    "text": "A categoria “sensível” indica probabilidade microbiológica de inibição, mas não estabelece equivalência entre todos os antibacterianos."
+  }
+}
+        </template>
+
+        <template class="cap5-p53Rationale">
+          <p><strong>Resposta correta:</strong></p>
+          <p>A) A interpretação da CIM depende da relação com os breakpoints e da exposição farmacológica alcançada no organismo</p>
+
+          <p><strong>Feedback</strong></p>
+          <p>A) Correta — A CIM deve ser interpretada em relação aos breakpoints estabelecidos e às características farmacocinéticas e farmacodinâmicas do antibacteriano. Diferenças pequenas entre valores próximos ao ponto de corte nem sempre possuem relevância clínica (1,2).</p>
+          <p>B) Incorreta — Alterações metabólicas bacterianas podem ocorrer, mas não explicam diretamente a interpretação da CIM obtida no teste laboratorial.</p>
+          <p>C) Incorreta — A CIM é determinada em condições laboratoriais padronizadas e não varia entre pacientes para o mesmo isolado bacteriano.</p>
+          <p>D) Incorreta — A categoria “sensível” indica probabilidade microbiológica de inibição, mas não estabelece equivalência entre todos os antibacterianos.</p>
+        </template>
+      </div>
+
+      <!-- QUESTÃO 2 -->
+      <div class="cap5-p53Question" data-q="2">
+        <p class="cap5-p53Case">
+          2) Um laudo microbiológico identifica <em>Enterococcus faecalis</em> em cultura clínica. O estudante observa que cefalosporinas não aparecem no painel do antibiograma e interpreta essa ausência como uma falha do laboratório.
+        </p>
+
+        <p class="cap5-p53Prompt">
+          Qual conceito microbiológico explica melhor essa situação?
+        </p>
+
+        <div class="cap5-p53Options" role="group" aria-label="Alternativas da questão 2">
+          <button type="button" data-answer="a" data-correct="true">
+            <span class="cap5-p53Letter">A</span>
+            <span>Algumas bactérias apresentam fenótipo esperado resistente a determinadas classes de antibacterianos</span>
+          </button>
+
+          <button type="button" data-answer="b">
+            <span class="cap5-p53Letter">B</span>
+            <span>O laboratório seleciona antibacterianos aleatoriamente para compor o painel</span>
+          </button>
+
+          <button type="button" data-answer="c">
+            <span class="cap5-p53Letter">C</span>
+            <span>A ausência indica que o teste de sensibilidade não foi realizado corretamente</span>
+          </button>
+
+          <button type="button" data-answer="d">
+            <span class="cap5-p53Letter">D</span>
+            <span>O antibiograma deve incluir todos os antibacterianos disponíveis no mercado</span>
+          </button>
+        </div>
+
+        <div class="cap5-p53Actions">
+          <button class="cap5-p53Btn cap5-p53Btn--primary" type="button" data-p53-action="confirm" disabled>Confirmar</button>
+          <button class="cap5-p53Btn cap5-p53Btn--ghost" type="button" data-p53-action="reset" hidden>Refazer</button>
+        </div>
+
+        <div class="cap5-p53Feedback" role="region" aria-live="polite"></div>
+
+        <template class="cap5-p53FeedbackMap">
+{
+  "a": {
+    "type": "correct",
+    "title": "Interpretação adequada",
+    "text": "Certas espécies bacterianas possuem resistência natural a determinadas classes de antibacterianos. Os enterococos apresentam fenótipo esperado resistente às cefalosporinas, razão pela qual essa classe geralmente não é incluída no painel de suscetibilidade para esse microrganismo (1)."
+  },
+  "b": {
+    "type": "error",
+    "title": "Conceito incorreto",
+    "text": "A escolha dos antibacterianos testados segue critérios microbiológicos e normativos definidos por comitês técnicos."
+  },
+  "c": {
+    "type": "error",
+    "title": "Interpretação inadequada",
+    "text": "A ausência de um antibacteriano no painel não indica erro técnico, mas aplicação de critérios metodológicos."
+  },
+  "d": {
+    "type": "error",
+    "title": "Generalização indevida",
+    "text": "O antibiograma não é um catálogo de todas as opções terapêuticas; ele inclui antibacterianos com interpretação validada para aquela espécie bacteriana."
+  }
+}
+        </template>
+
+        <template class="cap5-p53Rationale">
+          <p><strong>Resposta correta:</strong></p>
+          <p>A) Algumas bactérias apresentam fenótipo esperado resistente a determinadas classes de antibacterianos</p>
+
+          <p><strong>Feedback</strong></p>
+          <p>A) Correta — Certas espécies bacterianas possuem resistência natural a determinadas classes de antibacterianos. Os enterococos apresentam fenótipo esperado resistente às cefalosporinas, razão pela qual essa classe geralmente não é incluída no painel de suscetibilidade para esse microrganismo (1).</p>
+          <p>B) Incorreta — A escolha dos antibacterianos testados segue critérios microbiológicos e normativos definidos por comitês técnicos.</p>
+          <p>C) Incorreta — A ausência de um antibacteriano no painel não indica erro técnico, mas aplicação de critérios metodológicos.</p>
+          <p>D) Incorreta — O antibiograma não é um catálogo de todas as opções terapêuticas; ele inclui antibacterianos com interpretação validada para aquela espécie bacteriana.</p>
+        </template>
+      </div>
+
+      <div class="cap5-p53Done" hidden>
+        <div class="cap5-p53DoneCard" role="status" aria-live="polite">
+          <span class="cap5-p53Badge cap5-p53Badge--done">Concluído</span>
+          <p class="cap5-p53DoneText">Você concluiu o quiz de revisão deste capítulo.</p>
+          <div class="cap5-p53Closing">
+            <p>
+              A leitura adequada do antibiograma exige compreender que valores laboratoriais, categorias interpretativas e observações adicionais do laudo devem ser integrados criticamente. O raciocínio microbiológico depende não apenas do resultado do teste, mas também do contexto biológico da espécie bacteriana, dos breakpoints e dos limites metodológicos envolvidos na interpretação.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <details class="cap5-refBox">
+      <summary>Referências</summary>
+      <div class="cap5-refContent">
+        <p>1. BrCAST – Comitê Brasileiro de Testes de Sensibilidade aos Antimicrobianos. Tabela de pontos de corte clínicos BrCAST para interpretação de CIMs e diâmetros de halo [Internet]. São Paulo; 2025 [cited 2025 Feb 19]. Report. Available from: https://brcast.org.br</p>
+        <p>2. Kadeřábková N, Mahmood AJS, Mavridou DAI. Antibiotic susceptibility testing using minimum inhibitory concentration (MIC) assays. npj Antimicrobials and Resistance. 2024 Nov 7;2(1):37. doi:10.1038/s44259-024-00051-6</p>
+        <p>3. Murray PR, Rosenthal KS, Pfaller MA. Medical Microbiology. 10th ed. Philadelphia: Elsevier; 2025.</p>
+        <p>4. Agência Nacional de Vigilância Sanitária. Manual de microbiologia clínica para o controle de infecção relacionada à assistência à saúde. Brasília; 2023. Report.</p>
+        <p>5. Calderaro A, Chezzi C. MALDI-TOF MS: A Reliable Tool in the Real Life of the Clinical Microbiology Laboratory. Microorganisms. 2024 Feb 3;12(2):322. doi:10.3390/microorganisms12020322</p>
+        <p>6. Bush K, Bradford PA. Epidemiology of β-Lactamase-Producing Pathogens. Clin Microbiol Rev. 2020 Mar 18;33(2). doi:10.1128/CMR.00047-19</p>
+      </div>
+    </details>
+
     <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p41.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 5 · Página 42</div>
-      <button class="btn" type="button" data-next="p43.html" aria-label="Ir para a próxima página">Próxima →</button>
+      <button class="btn" type="button" data-prev="p52.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 5 · Página 53</div>
+      <button class="btn" type="button" data-next="../capitulo-06/p54.html" aria-label="Ir para a próxima página">Capítulo 6 →</button>
     </nav>
 
   </main>
 
-  <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-05.js"></script>
 </body>
 </html>

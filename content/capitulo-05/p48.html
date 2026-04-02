@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Capítulo 5 — Página 48</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
   <link rel="stylesheet" href="../../css/capitulo-05.css" />
@@ -12,75 +16,115 @@
 
 <body class="cap5-page48">
 
-<main class="container page-shell">
+  <main class="container page-shell">
 
-<header class="page-header">
-  <div>
-    <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
-    <h1 class="page-title">Observações do laudo que modificam a interpretação</h1>
-  </div>
-</header>
+    <header class="page-header">
+      <div>
+        <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
+        <h1 class="page-title">Observações do laudo que modificam a interpretação</h1>
+      </div>
+    </header>
 
-<section class="prose">
+    <section class="prose" aria-label="Texto principal">
 
-<p>
-Outro mecanismo relevante envolve a produção de β-lactamases do tipo AmpC. Essas enzimas podem estar presentes de forma cromossômica em determinadas espécies bacterianas e apresentar expressão induzível durante a exposição a alguns antibacterianos. Algumas espécies dos gêneros Enterobacter, Citrobacter, Serratia, Providencia e Morganella são classicamente associadas à possibilidade de produção de AmpC cromossômica e podem apresentar expressão induzível durante a exposição a determinados β-lactâmicos. A identificação dessas bactérias já indica a possibilidade de produção de AmpC e influencia a leitura do painel de suscetibilidade <sup>6</sup>.
-</p>
-
-<p>
-Entre os mecanismos que comprometem a atividade de carbapenêmicos estão as carbapenemases, enzimas capazes de hidrolisar antibacterianos dessa classe. Essas enzimas podem ser classificadas em diferentes grupos, como KPC, metalo-β-lactamases (por exemplo, NDM, VIM ou IMP) e variantes do tipo OXA. A presença dessas enzimas costuma estar associada a perfis de resistência mais amplos e possui relevância epidemiológica importante <sup>6</sup>.
-</p>
-
-<p>
-Alguns mecanismos de resistência não envolvem produção de β-lactamases, mas sim alterações estruturais no alvo do antibacteriano. Um exemplo é o Staphylococcus aureus resistente à meticilina (MRSA), no qual ocorre modificação das proteínas ligadoras de penicilina. Essa alteração reduz a afinidade por β-lactâmicos relevantes e modifica a interpretação laboratorial dessa classe conforme as regras aplicáveis ao sistema adotado <sup>3</sup>.
-</p>
-
-<!-- INTERAÇÃO -->
-
-<section class="cap5-carb" data-carb>
-
-  <div class="cap5-carb-controls">
-    <button class="cap5-carb-btn is-active" data-step="1">Triagem</button>
-    <button class="cap5-carb-btn" data-step="2">Confirmação</button>
-    <button class="cap5-carb-btn" data-step="3">Interpretação</button>
-  </div>
-
-  <div class="cap5-carb-stage">
-
-    <button class="cap1-zoomTrigger cap5-carb-image"
-      data-zoom-image="../../assets/capitulo-05/imagens/carbapenemase-triagem.png"
-      data-zoom-caption="Redução do halo em carbapenêmicos pode indicar produção de carbapenemase.">
-      
-      <img id="carb-img"
-        src="../../assets/capitulo-05/imagens/carbapenemase-triagem.png"
-        alt="Triagem de carbapenemase">
-    </button>
-
-    <div class="cap5-carb-text">
-      <h3 id="carb-title">Sinal de alerta no antibiograma</h3>
-      <p id="carb-desc">
-        Redução do halo de inibição em carbapenêmicos pode indicar a presença de um mecanismo de resistência relevante.
+      <p>
+        Outro mecanismo relevante envolve a produção de β-lactamases do tipo AmpC. Essas enzimas podem estar presentes de forma cromossômica em determinadas espécies bacterianas e apresentar expressão induzível durante a exposição a alguns antibacterianos. Algumas espécies dos gêneros <em>Enterobacter</em>, <em>Citrobacter</em>, <em>Serratia</em>, <em>Providencia</em> e <em>Morganella</em> são classicamente associadas à possibilidade de produção de AmpC cromossômica e podem apresentar expressão induzível durante a exposição a determinados β-lactâmicos. A identificação dessas bactérias já indica a possibilidade de produção de AmpC e influencia a leitura do painel de suscetibilidade <sup>6</sup>.
       </p>
-    </div>
 
+      <p>
+        Entre os mecanismos que comprometem a atividade de carbapenêmicos estão as carbapenemases, enzimas capazes de hidrolisar antibacterianos dessa classe. Essas enzimas podem ser classificadas em diferentes grupos, como KPC, metalo-β-lactamases (por exemplo, NDM, VIM ou IMP) e variantes do tipo OXA. A presença dessas enzimas costuma estar associada a perfis de resistência mais amplos e possui relevância epidemiológica importante <sup>6</sup>.
+      </p>
+
+      <section class="cap5-p48-mechanisms" aria-labelledby="cap5-p48-title-section">
+        <div class="cap5-p48-mechanisms__head">
+          <h2 id="cap5-p48-title-section">Como essas observações mudam a leitura do painel</h2>
+          <p>
+            A presença do mecanismo detectado modifica a interpretação do antibiograma e deve ser considerada antes da leitura isolada dos resultados do painel.
+          </p>
+        </div>
+
+        <div class="cap5-p48-mechanisms__tabs" role="tablist" aria-label="Mecanismos relevantes">
+          <button
+            class="cap5-p48-mechanisms__tab is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-p48-step="ampc"
+          >
+            AmpC
+          </button>
+
+          <button
+            class="cap5-p48-mechanisms__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p48-step="carb"
+          >
+            Carbapenemases
+          </button>
+        </div>
+
+        <div class="cap5-p48-mechanisms__viewer">
+          <figure class="cap5-p48-mechanisms__figure">
+            <button
+              class="cap5-zoomTrigger cap5-p48-mechanisms__zoom"
+              type="button"
+              id="cap5-p48-zoom"
+              data-zoom-image="../../assets/capitulo-05/imagens/ampc-inducao.png"
+              data-zoom-alt="Esquema ilustrativo da AmpC cromossômica com expressão induzível."
+              data-zoom-caption="A identificação de espécies com possibilidade de AmpC cromossômica já sinaliza risco interpretativo, especialmente pela possibilidade de expressão induzível durante a exposição a β-lactâmicos."
+              aria-label="Ampliar imagem do mecanismo selecionado"
+            >
+              <img
+                id="cap5-p48-image"
+                src="../../assets/capitulo-05/imagens/ampc-inducao.png"
+                alt="Esquema ilustrativo da AmpC cromossômica com expressão induzível."
+                loading="lazy"
+              />
+            </button>
+            <figcaption id="cap5-p48-caption" class="cap5-p48-mechanisms__caption">
+              A identificação de espécies com possibilidade de AmpC cromossômica já sinaliza risco interpretativo, especialmente pela possibilidade de expressão induzível durante a exposição a β-lactâmicos.
+            </figcaption>
+          </figure>
+
+          <aside class="cap5-p48-mechanisms__panel" aria-live="polite">
+            <div class="cap5-p48-mechanisms__eyebrow" id="cap5-p48-eyebrow">Produção enzimática induzível</div>
+            <h3 class="cap5-p48-mechanisms__title" id="cap5-p48-title">AmpC cromossômica</h3>
+            <p class="cap5-p48-mechanisms__text" id="cap5-p48-text">
+              Em determinadas espécies, a simples identificação bacteriana já indica a possibilidade de produção de AmpC cromossômica. Nesses casos, a exposição a alguns β-lactâmicos pode induzir a expressão enzimática, tornando a leitura inicial do painel potencialmente enganosa antes da indução e criando risco de falha terapêutica durante o tratamento.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <p class="cap5-p48-closing">
+        Esses mecanismos não representam apenas um detalhe microbiológico adicional. Eles alteram a forma como o laudo deve ser interpretado e reforçam que a leitura do antibiograma depende da integração entre identificação bacteriana, mecanismos de resistência e categorias de suscetibilidade.
+      </p>
+
+    </section>
+
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p47.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 5 · Página 48</div>
+      <button class="btn" type="button" data-next="p49.html" aria-label="Ir para a próxima página">Próxima →</button>
+    </nav>
+
+  </main>
+
+  <div class="cap5-lightbox" id="cap5Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <div class="cap5-lightbox__backdrop" data-lightbox-close></div>
+
+    <div class="cap5-lightbox__dialog">
+      <button class="cap5-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
+
+      <figure class="cap5-lightbox__figure">
+        <img id="cap5LightboxImage" src="" alt="" />
+        <figcaption id="cap5LightboxCaption" class="cap5-lightbox__caption"></figcaption>
+      </figure>
+    </div>
   </div>
 
-</section>
-
-<p class="cap5-decision">
-A presença de carbapenemase deve ser interpretada como um mecanismo de resistência de alto impacto, capaz de comprometer a atividade dos carbapenêmicos independentemente do resultado isolado do antibiograma.
-</p>
-
-</section>
-
-<nav class="pager">
-  <button class="btn" data-prev="p47.html">← Anterior</button>
-  <div class="center">Capítulo 5 · Página 48</div>
-  <button class="btn" data-next="p49.html">Próxima →</button>
-</nav>
-
-</main>
-
-<script src="../../js/capitulo-05.js"></script>
+  <script src="../../js/capitulo-05.js"></script>
 </body>
 </html>

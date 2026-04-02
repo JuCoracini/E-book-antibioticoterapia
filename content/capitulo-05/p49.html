@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -16,95 +16,89 @@
 
 <body class="cap5-page49">
 
-  <div class="reader-toolbar" aria-label="Controles de leitura">
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Texto</span>
-      <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-      <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-      <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Zoom</span>
-      <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-      <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-      <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-    </div>
-
-    <div class="reader-toolbar__group">
-      <span class="reader-toolbar__label">Acessibilidade</span>
-      <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-      <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-      <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-      <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-    </div>
-  </div>
-
   <main class="container page-shell">
 
     <header class="page-header">
       <div>
         <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
-        <h1 class="page-title">Mecanismos que modificam a leitura do laudo</h1>
+        <h1 class="page-title">Observações do laudo que modificam a interpretação</h1>
       </div>
     </header>
 
-    <section class="prose cap5-p49-prose" aria-label="Texto principal">
+    <section class="prose" aria-label="Texto principal">
 
       <p>
-        As observações adicionais do laudo microbiológico costumam refletir mecanismos biológicos de resistência que interferem na atividade dos antibacterianos. De modo geral, esses mecanismos podem ser organizados em dois grandes grupos: aqueles que destroem ou inativam o fármaco e aqueles que modificam o alvo de ação, reduzindo sua afinidade pelo antibacteriano.
+        Alguns mecanismos de resistência não envolvem produção de β-lactamases, mas sim alterações estruturais no alvo do antibacteriano. Um exemplo é o <em>Staphylococcus aureus</em> resistente à meticilina (MRSA), no qual ocorre modificação das proteínas ligadoras de penicilina. Essa alteração reduz a afinidade por β-lactâmicos relevantes e modifica a interpretação laboratorial dessa classe conforme as regras aplicáveis ao sistema adotado <sup>3</sup>.
       </p>
 
-      <section class="cap5-p49-grid" aria-label="Dois caminhos principais dos mecanismos de resistência">
+      <p>
+        Outro exemplo envolve os enterococos resistentes à vancomicina (VRE), nos quais ocorre modificação do alvo molecular do glicopeptídeo. A presença desse mecanismo altera a atividade da vancomicina e possui implicações relevantes no ambiente hospitalar <sup>3</sup>.
+      </p>
 
-        <figure class="cap5-p49-card">
-          <button
-            class="cap5-p49-zoomTrigger"
-            type="button"
-            data-zoom-image="../../assets/capitulo-05/imagens/destruicao-enzimatica.png"
-            data-zoom-alt="Card ilustrando destruição enzimática como mecanismo de resistência bacteriana."
-            data-zoom-caption="Na destruição enzimática, a bactéria produz enzimas que hidrolisam ou inativam o antibacteriano antes que ele exerça seu efeito."
-            aria-label="Ampliar imagem sobre destruição enzimática"
-          >
-            <img
-              src="../../assets/capitulo-05/imagens/destruicao-enzimatica.png"
-              alt="Card ilustrando destruição enzimática como mecanismo de resistência bacteriana."
-              loading="lazy"
-            />
-          </button>
-          <figcaption class="cap5-p49-caption">
-            Mecanismos de destruição enzimática incluem, entre outros, ESBL, AmpC e carbapenemases.
-          </figcaption>
-        </figure>
+      <section class="cap5-p49-mechanisms" aria-labelledby="cap5-p49-mechanisms-title">
+        <div class="cap5-p49-mechanisms__head">
+          <h2 id="cap5-p49-mechanisms-title">Mecanismos que mudam o significado do painel</h2>
+          <p>
+            Essas observações laboratoriais não substituem o antibiograma, mas alteram a forma como seus resultados devem ser lidos.
+          </p>
+        </div>
 
-        <figure class="cap5-p49-card">
-          <button
-            class="cap5-p49-zoomTrigger"
-            type="button"
-            data-zoom-image="../../assets/capitulo-05/imagens/modificacao-de-alvo.png"
-            data-zoom-alt="Card ilustrando modificação de alvo como mecanismo de resistência bacteriana."
-            data-zoom-caption="Na modificação de alvo, a bactéria altera a estrutura sobre a qual o antibacteriano atuaria, reduzindo a afinidade do fármaco."
-            aria-label="Ampliar imagem sobre modificação de alvo"
-          >
-            <img
-              src="../../assets/capitulo-05/imagens/modificacao-de-alvo.png"
-              alt="Card ilustrando modificação de alvo como mecanismo de resistência bacteriana."
-              loading="lazy"
-            />
-          </button>
-          <figcaption class="cap5-p49-caption">
-            Mecanismos de modificação de alvo incluem exemplos como MRSA e VRE.
-          </figcaption>
-        </figure>
+        <div class="cap5-p49-mechanisms__stage">
+          <div class="cap5-p49-mechanisms__tabs" role="tablist" aria-label="Mecanismos de resistência">
+            <button class="cap5-p49-mechanisms__tab is-active" type="button" role="tab" aria-selected="true" data-p49-step="mrsa">
+              MRSA
+            </button>
+            <button class="cap5-p49-mechanisms__tab" type="button" role="tab" aria-selected="false" data-p49-step="vre">
+              VRE
+            </button>
+            <button class="cap5-p49-mechanisms__tab" type="button" role="tab" aria-selected="false" data-p49-step="mlsb">
+              MLSB induzível
+            </button>
+            <button class="cap5-p49-mechanisms__tab" type="button" role="tab" aria-selected="false" data-p49-step="hlar">
+              HLAR
+            </button>
+          </div>
 
+          <div class="cap5-p49-mechanisms__viewer">
+            <figure class="cap5-p49-mechanisms__figure">
+              <button
+                class="cap5-zoomTrigger cap5-p49-mechanisms__zoom"
+                type="button"
+                id="cap5-p49-zoom"
+                data-zoom-image="../../assets/capitulo-05/imagens/mrsa-pbp2a.png"
+                data-zoom-alt="Esquema ilustrativo do mecanismo de resistência do MRSA."
+                data-zoom-caption="No MRSA, a modificação das proteínas ligadoras de penicilina reduz a afinidade por β-lactâmicos relevantes e altera a interpretação dessa classe."
+                aria-label="Ampliar imagem do mecanismo selecionado"
+              >
+                <img
+                  id="cap5-p49-image"
+                  src="../../assets/capitulo-05/imagens/mrsa-pbp2a.png"
+                  alt="Esquema ilustrativo do mecanismo de resistência do MRSA."
+                  loading="lazy"
+                />
+              </button>
+              <figcaption id="cap5-p49-caption" class="cap5-p49-mechanisms__caption">
+                No MRSA, a modificação das proteínas ligadoras de penicilina reduz a afinidade por β-lactâmicos relevantes e altera a interpretação dessa classe.
+              </figcaption>
+            </figure>
+
+            <aside class="cap5-p49-mechanisms__panel" aria-live="polite">
+              <div class="cap5-p49-mechanisms__eyebrow" id="cap5-p49-eyebrow">Alteração de alvo</div>
+              <h3 class="cap5-p49-mechanisms__title" id="cap5-p49-title">MRSA</h3>
+              <p class="cap5-p49-mechanisms__text" id="cap5-p49-text">
+                No <em>Staphylococcus aureus</em> resistente à meticilina (MRSA), ocorre modificação das proteínas ligadoras de penicilina. Essa alteração reduz a afinidade por β-lactâmicos relevantes e modifica a interpretação laboratorial dessa classe conforme as regras aplicáveis ao sistema adotado.
+              </p>
+            </aside>
+          </div>
+        </div>
       </section>
 
       <p>
-        Essa organização ajuda a interpretar com mais clareza por que determinadas observações do laudo possuem impacto tão relevante. Em um caso, o fármaco pode ser destruído antes de agir; em outro, ele até alcança a bactéria, mas encontra um alvo estruturalmente alterado. Nas páginas seguintes, esses mecanismos serão detalhados em sua repercussão sobre o antibiograma.
+        Também podem aparecer observações relacionadas a fenótipos específicos de resistência, como o fenótipo MLSB induzível, que pode resultar em falha terapêutica com clindamicina apesar de resultado inicial de sensibilidade. Outro exemplo é a resistência de alto nível a aminoglicosídeos em <em>Enterococcus</em>, que interfere no potencial de sinergismo entre classes antimicrobianas.
       </p>
 
-      <p class="cap5-p49-highlight">
-        Antes de olhar apenas para as letras do antibiograma, é necessário reconhecer qual mecanismo biológico está por trás da observação relatada no laudo.
+      <p class="cap5-p49-closing">
+        Essas observações representam informações adicionais sobre o comportamento biológico da bactéria isolada. Elas devem ser interpretadas em conjunto com a espécie identificada e com as categorias de suscetibilidade apresentadas no antibiograma.
       </p>
 
     </section>
@@ -130,7 +124,6 @@
     </div>
   </div>
 
-  <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-05.js"></script>
 </body>
 </html>
