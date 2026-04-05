@@ -104,10 +104,10 @@
   }
 
   const feedbackMap = {
-    adequado: "A exposição adequada reduz significativamente a população sensível, mas pode permitir a sobrevivência de variantes resistentes já presentes.",
-    subdose: "A exposição insuficiente não elimina de forma eficaz as bactérias sensíveis, favorecendo a persistência da população e a seleção progressiva de resistência.",
-    interrupcao: "A interrupção precoce mantém uma população bacteriana viável, permitindo a expansão de variantes menos suscetíveis."
-  };
+  adequado: "A exposição adequada tende a produzir maior controle da carga bacteriana e menor probabilidade de persistência do foco infeccioso, embora não elimine o risco ecológico associado ao uso do antibacteriano.",
+  subdose: "A exposição insuficiente combina dois problemas: reduz a eficácia clínica no controle da infecção e mantém pressão antimicrobiana em nível inadequado, favorecendo um ambiente biologicamente desfavorável.",
+  interrupcao: "A interrupção precoce desfaz parte do efeito obtido, permitindo repopulação bacteriana e aumentando a chance de evolução clínica insatisfatória, especialmente quando o foco infeccioso ainda não foi controlado."
+};
 
   choices.forEach(btn => {
     btn.addEventListener("click", () => {
