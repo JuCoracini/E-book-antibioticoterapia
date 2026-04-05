@@ -148,3 +148,31 @@ document.addEventListener("click", function(e){
     }
   });
 })();
+/* =========================
+   SUMÁRIO — NAVEGAÇÃO
+   ========================= */
+
+(function initSummaryNavigation(){
+  const prevButton = document.querySelector('.sumario-page [data-prev]');
+  const nextButton = document.querySelector('.sumario-page [data-next]');
+
+  function go(button){
+    if(!button) return;
+    const target = button.dataset.prev || button.dataset.next;
+    if(target){
+      window.location.href = target;
+    }
+  }
+
+  if(prevButton){
+    prevButton.addEventListener('click', function(){
+      go(this);
+    });
+  }
+
+  if(nextButton){
+    nextButton.addEventListener('click', function(){
+      go(this);
+    });
+  }
+})();
