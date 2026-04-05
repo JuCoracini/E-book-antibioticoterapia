@@ -16,7 +16,6 @@
 
   <main class="page-shell cap1-shell">
 
-    <!-- HEADER -->
     <header class="page-header">
       <div class="chapter">Capítulo 1 — Fundamentos Conceituais dos Antibacterianos</div>
       <h1 class="page-title">Evolução da Antibioticoterapia</h1>
@@ -32,28 +31,104 @@
 
       <p>Quando o antibacteriano é introduzido, os microrganismos sensíveis tendem a ser eliminados de forma predominante. As bactérias portadoras de mecanismos de resistência sobrevivem à exposição e passam a predominar na população. Esse processo caracteriza a seleção de variantes resistentes, que passam a predominar na população bacteriana sob pressão antimicrobiana.</p>
 
-     
-      <div class="amr-block">
+      <section class="amr-figure" aria-labelledby="amrFigureTitle" data-amr-figure>
+        <h2 id="amrFigureTitle" class="amr-figure__title">
+          Diferentes formas de uso de um antibacteriano produzem efeitos distintos sobre a população bacteriana.
+        </h2>
 
-  <p class="amr-intro">
-    Considere diferentes formas de uso de um antibacteriano e observe o impacto sobre a população bacteriana:
-  </p>
+        <p class="amr-figure__intro">
+          Selecione um cenário e observe como a exposição modifica simultaneamente o controle da infecção e a persistência relativa de bactérias resistentes.
+        </p>
 
-  <div class="petri-wrap">
-    <div id="petri" class="petri"></div>
-  </div>
+        <div
+          class="amr-selector"
+          role="tablist"
+          aria-label="Cenários de exposição ao antibacteriano"
+        >
+          <button
+            class="amr-selector__tab is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="amrPanel"
+            id="amrTabAdequado"
+            data-amr-scenario="adequado"
+          >
+            Exposição terapêutica adequada
+          </button>
 
-  <div class="amr-choices">
-   <button class="amr-choice" data-scenario="adequado">Exposição terapêutica adequada</button>
-<button class="amr-choice" data-scenario="subdose">Exposição subterapêutica</button>
-<button class="amr-choice" data-scenario="interrupcao">Suspensão precoce</button>
-  </div>
+          <button
+            class="amr-selector__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="amrPanel"
+            id="amrTabSubdose"
+            data-amr-scenario="subdose"
+          >
+            Exposição subterapêutica
+          </button>
 
-  <p id="amrFeedback" class="amr-feedback"></p>
+          <button
+            class="amr-selector__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="amrPanel"
+            id="amrTabInterrupcao"
+            data-amr-scenario="interrupcao"
+          >
+            Suspensão precoce
+          </button>
+        </div>
 
-</div>
+        <div
+          id="amrPanel"
+          class="amr-stage"
+          role="tabpanel"
+          aria-labelledby="amrTabAdequado"
+          data-amr-panel
+        >
+          <div class="amr-stage__plate" id="petri" aria-hidden="true"></div>
 
-      <!-- DESTAQUE EDITORIAL -->
+          <div class="amr-stage__legend" aria-hidden="true">
+            <span class="amr-stage__legendItem">
+              <span class="amr-stage__dot amr-stage__dot--sensitive"></span>
+              Bactérias sensíveis
+            </span>
+            <span class="amr-stage__legendItem">
+              <span class="amr-stage__dot amr-stage__dot--resistant"></span>
+              Bactérias resistentes
+            </span>
+          </div>
+
+          <div class="amr-metrics">
+            <div class="amr-metric">
+              <p class="amr-metric__label">Controle do foco infeccioso</p>
+              <div class="amr-metric__track" aria-hidden="true">
+                <span class="amr-metric__fill" id="amrControlFill"></span>
+              </div>
+              <p class="amr-metric__value" id="amrControlLabel">Elevado</p>
+            </div>
+
+            <div class="amr-metric">
+              <p class="amr-metric__label">Persistência relativa de resistentes</p>
+              <div class="amr-metric__track" aria-hidden="true">
+                <span class="amr-metric__fill amr-metric__fill--resistance" id="amrResistanceFill"></span>
+              </div>
+              <p class="amr-metric__value" id="amrResistanceLabel">Baixa predominância residual</p>
+            </div>
+          </div>
+
+          <div class="amr-text">
+            <h3 class="amr-text__title" id="amrScenarioTitle">Exposição terapêutica adequada</h3>
+            <p class="amr-text__body" id="amrFeedback">
+              A exposição adequada tende a reduzir de forma mais consistente a população bacteriana sensível e a favorecer melhor controle clínico do foco infeccioso. A fração resistente remanescente mantém relevância biológica, mas a carga total da população bacteriana tende a ser menor.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <div class="highlight">
         Em geral, os antibacterianos não induzem diretamente o surgimento da resistência. Eles selecionam variantes bacterianas resistentes que já estavam presentes na população.
       </div>
@@ -64,11 +139,11 @@
 
     </section>
 
-   <nav class="pager">
-  <button class="btn" data-prev="../sumário/p00.html">← Anterior</button>
-  <div class="center">Capítulo 1 · Página 1 de 10</div>
-  <button class="btn primary" data-next="p02.html">Próxima →</button>
-</nav>
+    <nav class="pager">
+      <button class="btn" data-prev="../sumário/p00.html">← Anterior</button>
+      <div class="center">Capítulo 1 · Página 1 de 10</div>
+      <button class="btn primary" data-next="p02.html">Próxima →</button>
+    </nav>
 
   </main>
 

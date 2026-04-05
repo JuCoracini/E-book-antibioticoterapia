@@ -56,75 +56,265 @@
 })();
 
 /* =========================
-   PÁGINA 1 — AMR (CENÁRIOS CLÍNICOS)
+   PÁGINA 1 — EXPOSIÇÃO AO ANTIBACTERIANO
    ========================= */
 
 (function initPage1AMR(){
+  const root = document.querySelector("[data-amr-figure]");
+  if(!root) return;
 
   const petri = document.getElementById("petri");
-  const choices = document.querySelectorAll(".amr-choice");
+  const tabs = Array.from(root.querySelectorAll("[data-amr-scenario]"));
+  const panel = root.querySelector("[data-amr-panel]");
+  const scenarioTitle = document.getElementById("amrScenarioTitle");
   const feedback = document.getElementById("amrFeedback");
+  const controlFill = document.getElementById("amrControlFill");
+  const resistanceFill = document.getElementById("amrResistanceFill");
+  const controlLabel = document.getElementById("amrControlLabel");
+  const resistanceLabel = document.getElementById("amrResistanceLabel");
 
-  if(!petri || !choices.length || !feedback) return;
+  if(
+    !petri ||
+    !tabs.length ||
+    !panel ||
+    !scenarioTitle ||
+    !feedback ||
+    !controlFill ||
+    !resistanceFill ||
+    !controlLabel ||
+    !resistanceLabel
+  ){
+    return;
+  }
 
-  function spawn(type){
+  const TOTAL_SENSITIVE = 54;
+  const TOTAL_RESISTANT = 12;
+
+  const scenarioMap = {
+    adequado: {
+      tabId: "amrTabAdequado",
+      title: "Exposição terapêutica adequada",
+      text: "A exposição adequada tende a reduzir de forma mais consistente a população bacteriana sensível e a favorecer melhor controle clínico do foco infeccioso. A fração resistente remanescente mantém relevância biológica, mas a carga total da população bacteriana tende a ser menor.",
+      controlWidth: "86%",
+      resistanceWidth: "28%",
+      controlLabel: "Elevado",
+      resistanceLabel: "Baixa predominância residual",
+      visual: {
+        sensitiveVisible: 12,
+        resistantVisible: 8,
+        resistantPersistent: 5,
+        regrowthSensitive: 0,
+        regrowthResistant: 0
+      }
+    },
+    subdose: {
+      tabId: "amrTabSubdose",
+      title: "Exposição subterapêutica",
+      text: "A exposição insuficiente combina menor eficácia clínica com manutenção de pressão seletiva em intensidade inadequada. O resultado tende a ser controle incompleto da infecção, com persistência relativa mais expressiva das bactérias menos suscetíveis.",
+      controlWidth: "42%",
+      resistanceWidth: "68%",
+      controlLabel: "Limitado",
+      resistanceLabel: "Persistência relativa aumentada",
+      visual: {
+        sensitiveVisible: 30,
+        resistantVisible: 11,
+        resistantPersistent: 8,
+        regrowthSensitive: 6,
+        regrowthResistant: 2
+      }
+    },
+    interrupcao: {
+      tabId: "amrTabInterrupcao",
+      title: "Suspensão precoce",
+      text: "Quando a exposição é interrompida antes do controle adequado do foco, parte da população bacteriana volta a se expandir. Clinicamente, isso favorece evolução insatisfatória; biologicamente, preserva a relevância das variantes resistentes na população remanescente.",
+      controlWidth: "24%",
+      resistanceWidth: "78%",
+      controlLabel: "Instável",
+      resistanceLabel: "Predominância relativa marcante",
+      visual: {
+        sensitiveVisible: 36,
+        resistantVisible: 12,
+        resistantPersistent: 9,
+        regrowthSensitive: 12,
+        regrowthResistant: 4
+      }
+    }
+  };
+
+  function clamp(min, value, max){
+    return Math.max(min, Math.min(value, max));
+  }
+
+  function randomInRange(min, max){
+    return Math.random() * (max - min) + min;
+  }
+
+  function generatePointInEllipse(width, height, padding){
+    const angle = Math.random() * Math.PI * 2;
+    const radius = Math.sqrt(Math.random());
+
+    const a = (width / 2) - padding;
+    const b = (height / 2) - padding;
+
+    const x = (width / 2) + (radius * a * Math.cos(angle));
+    const y = (height / 2) + (radius * b * Math.sin(angle));
+
+    return {
+      left: clamp(padding, x, width - padding),
+      top: clamp(padding, y, height - padding)
+    };
+  }
+
+  function buildPopulation(config){
+    const items = [];
+
+    for(let i = 0; i < TOTAL_SENSITIVE; i += 1){
+      let state = "visible";
+
+      if(i >= config.sensitiveVisible){
+        state = "faded";
+      }
+
+      if(i < config.regrowthSensitive){
+        state = "regrowing";
+      }
+
+      items.push({
+        type: "sensitive",
+        state
+      });
+    }
+
+    for(let i = 0; i < TOTAL_RESISTANT; i += 1){
+      let state = "visible";
+
+      if(i >= config.resistantVisible){
+        state = "faded";
+      }
+
+      if(i < config.resistantPersistent){
+        state = "persistent";
+      }
+
+      if(i < config.regrowthResistant){
+        state = "regrowing";
+      }
+
+      items.push({
+        type: "resistant",
+        state
+      });
+    }
+
+    return items.sort(() => Math.random() - 0.5);
+  }
+
+  function createBug(item, width, height){
+    const dot = document.createElement("span");
+    const point = generatePointInEllipse(width, height, 14);
+
+    dot.className = `bug ${item.type}`;
+    dot.style.left = `${point.left}px`;
+    dot.style.top = `${point.top}px`;
+
+    if(item.state === "faded"){
+      dot.classList.add("is-faded");
+      dot.style.opacity = String(randomInRange(0.08, 0.18));
+    }
+
+    if(item.state === "visible"){
+      dot.style.opacity = String(randomInRange(0.72, 0.92));
+    }
+
+    if(item.state === "persistent"){
+      dot.classList.add("is-persistent");
+      dot.style.opacity = String(randomInRange(0.9, 1));
+    }
+
+    if(item.state === "regrowing"){
+      dot.classList.add("is-regrowing");
+      dot.style.opacity = String(randomInRange(0.82, 0.96));
+    }
+
+    return dot;
+  }
+
+  function renderPlate(key){
+    const scenario = scenarioMap[key];
+    if(!scenario) return;
 
     petri.innerHTML = "";
 
-    for(let i = 0; i < 70; i++){
+    const rect = petri.getBoundingClientRect();
+    const width = rect.width || 640;
+    const height = rect.height || 280;
+    const population = buildPopulation(scenario.visual);
 
-      const dot = document.createElement("div");
-      dot.className = "bug";
-
-      const isResistant = i < 10;
-
-      dot.classList.add(isResistant ? "resistant" : "sensitive");
-
-      if(type === "adequado"){
-        if(!isResistant){
-          dot.style.opacity = 0.1;
-        }
-      }
-
-      if(type === "subdose"){
-        if(!isResistant){
-          dot.style.opacity = 0.4;
-        }
-      }
-
-      if(type === "interrupcao"){
-        dot.style.opacity = 1;
-      }
-
-      dot.style.left = `${Math.random() * 100}%`;
-      dot.style.top = `${Math.random() * 100}%`;
-
-      petri.appendChild(dot);
-    }
+    population.forEach(item => {
+      petri.appendChild(createBug(item, width, height));
+    });
   }
 
-  const feedbackMap = {
-  adequado: "A exposição adequada tende a produzir maior controle da carga bacteriana e menor probabilidade de persistência do foco infeccioso, embora não elimine o risco ecológico associado ao uso do antibacteriano.",
-  subdose: "A exposição insuficiente combina dois problemas: reduz a eficácia clínica no controle da infecção e mantém pressão antimicrobiana em nível inadequado, favorecendo um ambiente biologicamente desfavorável.",
-  interrupcao: "A interrupção precoce desfaz parte do efeito obtido, permitindo repopulação bacteriana e aumentando a chance de evolução clínica insatisfatória, especialmente quando o foco infeccioso ainda não foi controlado."
-};
+  function updateMetrics(key){
+    const scenario = scenarioMap[key];
+    if(!scenario) return;
 
-  choices.forEach(btn => {
-    btn.addEventListener("click", () => {
+    controlFill.style.width = scenario.controlWidth;
+    resistanceFill.style.width = scenario.resistanceWidth;
+    controlLabel.textContent = scenario.controlLabel;
+    resistanceLabel.textContent = scenario.resistanceLabel;
+    scenarioTitle.textContent = scenario.title;
+    feedback.textContent = scenario.text;
+  }
 
-      choices.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
+  function activate(key){
+    const scenario = scenarioMap[key];
+    if(!scenario) return;
 
-      const scenario = btn.dataset.scenario;
+    tabs.forEach(tab => {
+      const isActive = tab.dataset.amrScenario === key;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-selected", isActive ? "true" : "false");
+      tab.setAttribute("tabindex", isActive ? "0" : "-1");
+    });
 
-      spawn(scenario);
-      feedback.textContent = feedbackMap[scenario];
+    panel.setAttribute("aria-labelledby", scenario.tabId);
+    updateMetrics(key);
+    renderPlate(key);
+  }
 
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      activate(tab.dataset.amrScenario);
+    });
+
+    tab.addEventListener("keydown", event => {
+      const currentIndex = tabs.indexOf(tab);
+      let nextIndex = null;
+
+      if(event.key === "ArrowRight"){
+        nextIndex = (currentIndex + 1) % tabs.length;
+      }
+
+      if(event.key === "ArrowLeft"){
+        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      }
+
+      if(nextIndex === null) return;
+
+      event.preventDefault();
+      tabs[nextIndex].focus();
+      activate(tabs[nextIndex].dataset.amrScenario);
     });
   });
 
-  spawn("adequado");
+  activate("adequado");
 
+  window.addEventListener("resize", () => {
+    const activeTab = root.querySelector("[data-amr-scenario][aria-selected='true']");
+    const activeKey = activeTab ? activeTab.dataset.amrScenario : "adequado";
+    renderPlate(activeKey);
+  });
 })();
 /* =========================
    PÁGINA 2 — TIMELINE FINAL
