@@ -1,122 +1,15 @@
-<!doctype html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url=./content/sumário/capa.html">
+  <title>Redirecionando...</title>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Princípios Básicos de Antibioticoterapia</title>
-
-<link rel="manifest" href="./manifest.webmanifest">
-
-<meta name="theme-color" content="#1f3c88">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="./css/base.css">
-<link rel="stylesheet" href="./css/components.css">
-
+  <script>
+    window.location.replace("./content/sumário/capa.html");
+  </script>
 </head>
 
 <body>
-
-<div class="reader-toolbar" aria-label="Controles de leitura">
-  <div class="reader-toolbar__group">
-    <span class="reader-toolbar__label">Texto</span>
-    <button class="reader-btn" type="button" data-font="decrease" aria-label="Diminuir tamanho da letra">A−</button>
-    <button class="reader-btn" type="button" data-font="reset" aria-label="Restaurar tamanho da letra">A</button>
-    <button class="reader-btn" type="button" data-font="increase" aria-label="Aumentar tamanho da letra">A+</button>
-  </div>
-
-  <div class="reader-toolbar__group">
-    <span class="reader-toolbar__label">Zoom</span>
-    <button class="reader-btn" type="button" data-zoom="decrease" aria-label="Diminuir zoom">−</button>
-    <button class="reader-btn" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
-    <button class="reader-btn" type="button" data-zoom="increase" aria-label="Aumentar zoom">+</button>
-  </div>
-
-  <div class="reader-toolbar__group">
-    <span class="reader-toolbar__label">Acessibilidade</span>
-    <button class="reader-btn" type="button" data-vision="default" aria-label="Modo de cores padrão">Padrão</button>
-    <button class="reader-btn" type="button" data-vision="protanopia" aria-label="Modo acessível para protanopia">Protan</button>
-    <button class="reader-btn" type="button" data-vision="deuteranopia" aria-label="Modo acessível para deuteranopia">Deuter</button>
-    <button class="reader-btn" type="button" data-vision="tritanopia" aria-label="Modo acessível para tritanopia">Tritan</button>
-  </div>
-</div>
-
-<main class="container page-shell">
-
-<header class="page-header">
-
-<div>
-<p class="chapter-label">E-BOOK INTERATIVO</p>
-
-<h1 class="page-title">
-Princípios Básicos de Antibioticoterapia
-</h1>
-
-<p class="page-subtitle">
-Material educacional interativo voltado aos fundamentos conceituais
-da antibioticoterapia.
-</p>
-
-</div>
-
-</header>
-
-<section class="prose">
-
-<p>
-Este e-book apresenta os princípios fundamentais da antibioticoterapia
-com abordagem conceitual, integrada a esquemas visuais e recursos
-interativos que auxiliam o raciocínio clínico.
-</p>
-
-<p>
-Cada capítulo foi estruturado para permitir leitura sequencial,
-com navegação semelhante à progressão de páginas de um livro.
-</p>
-
-</section>
-
-<nav class="pager">
-
-<button class="btn" disabled aria-disabled="true">
-← Anterior
-</button>
-
-<div class="center">Página inicial</div>
-
-<button class="btn" data-next="./content/capitulo-01/p01.html">
-Iniciar →
-</button>
-
-</nav>
-
-</main>
-
-<div class="modal-overlay" data-modal-overlay hidden></div>
-
-<section class="modal" data-modal hidden>
-  <div class="modal__dialog">
-    <button class="modal__close" data-modal-close aria-label="Fechar">×</button>
-    <h2 id="modalTitle" class="modal__title"></h2>
-    <div class="modal__body" data-modal-body></div>
-  </div>
-</section>
-
-<script src="./js/app.js"></script>
-
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./js/sw.js").catch(()=>{});
-  });
-}
-</script>
-
 </body>
 </html>

@@ -133,3 +133,18 @@ document.addEventListener("click", function(e){
   }
 
 });
+/* =========================
+   CAPA — NAVEGAÇÃO
+   ========================= */
+
+(function initCoverNextButton(){
+  const nextButton = document.querySelector(".cover-next[data-next]");
+  if(!nextButton) return;
+
+  nextButton.addEventListener("click", function(){
+    const target = this.dataset.next;
+    if(target){
+      window.location.href = target;
+    }
+  });
+})();

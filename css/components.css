@@ -260,3 +260,228 @@
 .sumario-item:hover .sumario-titulo-cap{
   color: #2A7FA6;
 }
+/* =========================
+   CAPA FINAL
+   ========================= */
+
+.cover-clean{
+  background: linear-gradient(180deg, #eef4f7 0%, #edf3f6 100%);
+}
+
+.cover-clean .cover-book{
+  width: min(100%, 900px);
+  margin: 28px auto;
+}
+
+.cover-clean .cover-a4{
+  position: relative;
+  min-height: 1120px;
+  display: grid;
+  grid-template-columns: 36% 64%;
+  background:
+    radial-gradient(circle at 78% 16%, rgba(30, 136, 229, 0.05), transparent 24%),
+    radial-gradient(circle at 20% 76%, rgba(20, 184, 166, 0.04), transparent 24%),
+    linear-gradient(180deg, #fbfcfd 0%, #f8fafc 100%);
+  overflow: hidden;
+}
+
+.cover-clean .cover-a4::before{
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(15, 42, 68, 0.10);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cover-clean .cover-top-right{
+  position: absolute;
+  top: 34px;
+  right: 34px;
+  z-index: 3;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.cover-clean .cover-logo{
+  display: block;
+  height: auto;
+  object-fit: contain;
+}
+
+.cover-clean .cover-logo--famema{
+  width: 180px;
+}
+
+.cover-clean .cover-logo--estado{
+  width: 150px;
+}
+
+.cover-clean .cover-left{
+  position: relative;
+  z-index: 2;
+  min-height: 1120px;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.cover-clean .cover-membrane{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.cover-clean .cover-right{
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 54px 100px 36px;
+}
+
+.cover-clean .cover-title-block{
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.cover-clean .cover-title{
+  margin: 0;
+  font-family: 'Playfair Display', 'Merriweather', serif;
+  font-size: 56px;
+  line-height: 1.08;
+  font-weight: 700;
+  color: #0f2a44;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.cover-clean .cover-divider{
+  width: 104px;
+  height: 2px;
+  margin: 24px auto 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(30, 136, 229, 0.85) 0%, rgba(20, 184, 166, 0.85) 100%);
+}
+
+.cover-clean .cover-subtitle{
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1279b8;
+}
+
+.cover-clean .cover-year{
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  transform: translateX(-50%);
+  z-index: 3;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #6b7280;
+}
+
+.cover-clean .cover-next{
+  position: absolute;
+  right: 34px;
+  bottom: 24px;
+  z-index: 4;
+}
+
+@media (max-width: 900px){
+  .cover-clean .cover-a4{
+    min-height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .cover-clean .cover-left{
+    min-height: 360px;
+  }
+
+  .cover-clean .cover-right{
+    padding: 36px 28px 96px;
+  }
+
+  .cover-clean .cover-title{
+    font-size: 42px;
+  }
+
+  .cover-clean .cover-top-right{
+    top: 24px;
+    right: 24px;
+  }
+
+  .cover-clean .cover-logo--famema{
+    width: 148px;
+  }
+
+  .cover-clean .cover-logo--estado{
+    width: 124px;
+  }
+
+  .cover-clean .cover-next{
+    right: 24px;
+    bottom: 20px;
+  }
+
+  .cover-clean .cover-year{
+    bottom: 26px;
+  }
+}
+
+@media (max-width: 640px){
+  .cover-clean .cover-a4::before{
+    inset: 12px;
+  }
+
+  .cover-clean .cover-left{
+    min-height: 260px;
+  }
+
+  .cover-clean .cover-right{
+    padding: 24px 18px 88px;
+  }
+
+  .cover-clean .cover-title{
+    font-size: 32px;
+  }
+
+  .cover-clean .cover-subtitle{
+    font-size: 14px;
+  }
+
+  .cover-clean .cover-top-right{
+    top: 18px;
+    right: 18px;
+    gap: 10px;
+  }
+
+  .cover-clean .cover-logo--famema{
+    width: 118px;
+  }
+
+  .cover-clean .cover-logo--estado{
+    width: 98px;
+  }
+
+  .cover-clean .cover-next{
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .cover-clean .cover-year{
+    bottom: 20px;
+    font-size: 12px;
+  }
+}

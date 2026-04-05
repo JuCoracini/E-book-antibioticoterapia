@@ -140,3 +140,190 @@ body{
     max-width: 100%;
   }
 }
+/* =========================
+   CAPA — GRID EDITORIAL A4
+   ========================= */
+
+.cover-a4{
+  position: relative;
+  height: 100%;
+  min-height: 90vh;
+  padding: 40px 60px;
+}
+
+/* GRID PRINCIPAL */
+.cover-grid{
+  display: grid;
+  grid-template-columns: 55% 45%;
+  height: 100%;
+  align-items: center;
+}
+
+/* IMAGEM */
+.cover-image-area{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.cover-img{
+  width: 100%;
+  max-width: 520px;
+  opacity: 0.95;
+}
+
+/* TEXTO */
+.cover-text-area{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+
+  padding-left: 40px;
+}
+
+.cover-title{
+  font-family: "Playfair Display", serif;
+  font-size: 46px;
+  line-height: 1.15;
+  color: #0f2f5a;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.cover-subtitle{
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  color: #2a6f97;
+  letter-spacing: 1px;
+  text-align: right;
+}
+
+/* ANO */
+.cover-year{
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 14px;
+  color: #666;
+}
+/* =========================
+   CAPA — CORREÇÃO FINAL
+   ========================= */
+
+.cover-a4{
+  position: relative;
+  min-height: 1120px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 18px 48px rgba(15, 47, 90, 0.10);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 43% 57%;
+}
+
+.cover-a4__image{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 46% center;
+  opacity: 0.92;
+}
+
+.cover-a4__content{
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 90px 70px 120px 70px;
+}
+
+.cover-a4__title{
+  margin: 0;
+  max-width: 100%;
+  font-family: "Playfair Display", serif;
+  font-size: 3.15rem;
+  line-height: 1.03;
+  font-weight: 700;
+  color: #183a63;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  white-space: normal;
+}
+
+.cover-a4__kicker{
+  margin: 0 0 22px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: #2a8c9d;
+}
+
+.cover-a4__title{
+  margin: 0;
+  max-width: 100%;
+
+  font-family: "Playfair Display", serif;
+  font-size: 3.6rem; /* 🔥 reduzido */
+  line-height: 1.02;
+  font-weight: 700;
+  color: #183a63;
+
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+.cover-a4__line{
+  width: 118px;
+  height: 3px;
+  margin: 24px auto 24px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2a8c9d 0%, #49a68d 100%);
+}
+
+.cover-a4__subtitle{
+  margin: 0 auto;
+  max-width: 340px;
+
+  font-family: "Merriweather", serif;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: #4c5b68;
+  text-align: center;
+}
+
+.cover-a4__year{
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  color: #6b7884;
+}
+
+@media (max-width: 1100px){
+  .cover-a4{
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .cover-a4__visual{
+    min-height: 420px;
+  }
+
+  .cover-a4__content{
+    padding: 48px 32px 96px;
+  }
+
+  .cover-a4__title{
+    font-size: 3rem;
+  }
+}
