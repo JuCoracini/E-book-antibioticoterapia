@@ -59,29 +59,42 @@
    ========================= */
 
 (function initPage11Targets(){
-  const root = document.querySelector(".cap2-page11");
+  const root = document.querySelector(".cap2-targets");
   if(!root) return;
 
-  const buttons = root.querySelectorAll("[data-target]");
-  const feedback = root.querySelector("#targetFeedback");
+  const buttons = Array.from(root.querySelectorAll("[data-target]"));
+  const feedback = document.getElementById("targetFeedback");
 
   if(!buttons.length || !feedback) return;
 
-  const map = {
-    parede: "A perda da integridade estrutural leva à lise celular bacteriana.",
-    ribossomo: "A interrupção da síntese proteica impede o crescimento e a multiplicação bacteriana.",
-    dna: "A inibição da replicação e transcrição impede a propagação bacteriana.",
-    folato: "A interrupção da síntese de nucleotídeos compromete o metabolismo celular.",
-    membrana: "A desorganização da membrana leva à perda de viabilidade celular."
+  const feedbackMap = {
+    parede: "Inibição da síntese da parede celular compromete a formação do peptidoglicano, reduz a resistência mecânica da bactéria e favorece lise osmótica, sobretudo em microrganismos em crescimento ativo.",
+    ribossomo: "Inibição da síntese proteica impede a produção de proteínas essenciais ao metabolismo e à multiplicação bacteriana, comprometendo funções vitais da célula.",
+    dna: "Interferência na síntese de ácidos nucleicos compromete replicação, transcrição ou ambos, impedindo a multiplicação bacteriana e a manutenção de processos celulares essenciais.",
+    folato: "Inibição da síntese do folato bloqueia a produção de precursores metabólicos necessários à síntese de nucleotídeos e, consequentemente, à formação de DNA e à multiplicação bacteriana.",
+    membrana: "Desorganização da membrana citoplasmática altera a permeabilidade seletiva e a integridade estrutural da célula, levando à perda rápida de funções essenciais e de viabilidade bacteriana."
   };
 
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      buttons.forEach((b) => b.classList.remove("is-active"));
-      btn.classList.add("is-active");
-      feedback.textContent = map[btn.dataset.target] || "";
+  function activate(target){
+    const text = feedbackMap[target];
+    if(!text) return;
+
+    buttons.forEach(button => {
+      const active = button.dataset.target === target;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+
+    feedback.textContent = text;
+  }
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      activate(button.dataset.target);
     });
   });
+
+  activate("parede");
 })();
 
 /* =========================

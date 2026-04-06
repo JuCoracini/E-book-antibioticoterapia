@@ -445,7 +445,6 @@
 /* =========================
    PÁGINA 5 — JANELA TERAPÊUTICA
    ========================= */
-
 (function initPage5Window(){
   const root = document.querySelector("[data-cap1-window]");
   if(!root) return;
@@ -477,22 +476,29 @@
   };
 
   function activate(key){
+    const item = map[key];
+    if(!item) return;
+
     tabs.forEach(tab => {
-      tab.setAttribute("aria-selected", tab.dataset.windowTab === key ? "true" : "false");
+      const active = tab.dataset.windowTab === key;
+      tab.setAttribute("aria-selected", active ? "true" : "false");
+      tab.classList.toggle("is-active", active);
     });
 
     scenes.forEach(scene => {
-      scene.hidden = scene.dataset.windowScene !== key;
+      const active = scene.dataset.windowScene === key;
+      scene.classList.toggle("is-active", active);
     });
 
-    const item = map[key];
     state.textContent = item.title;
     text.textContent = item.text;
     feedback.className = item.klass;
   }
 
   tabs.forEach(tab => {
-    tab.addEventListener("click", () => activate(tab.dataset.windowTab));
+    tab.addEventListener("click", () => {
+      activate(tab.dataset.windowTab);
+    });
   });
 
   activate("ok");
@@ -674,53 +680,17 @@ document.querySelectorAll(".cap1-p10Options button").forEach(btn=>{
   });
 });
 /* =========================
-   PÁGINA 10 — QUIZ DE REVISÃO
+   PÁGINA 10 — SÍNTESE CLÍNICA
    ========================= */
 
-(function initPage10Quiz(){
+(function initPage10ClinicalSynthesis(){
   const root = document.querySelector("[data-cap1-p10]");
   if(!root) return;
 
   const questions = Array.from(root.querySelectorAll(".cap1-p10Question"));
-  const done = root.querySelector(".cap1-p10Done");
-  const progress = root.querySelector(".cap1-p10Progress");
-  const prevBtn = root.querySelector('[data-p10-action="prev"]');
-  const nextBtn = root.querySelector('[data-p10-action="next"]');
+  if(!questions.length) return;
 
-  if(!questions.length || !progress || !prevBtn || !nextBtn) return;
-
-  let currentIndex = 0;
-
-  function updateNav(){
-    progress.textContent = `Questão ${currentIndex + 1} de ${questions.length}`;
-    prevBtn.disabled = currentIndex === 0;
-    nextBtn.disabled = currentIndex === questions.length - 1;
-  }
-
-  function showQuestion(index){
-    questions.forEach((q, i) => {
-      q.classList.toggle("active", i === index);
-      q.hidden = i !== index;
-    });
-
-    if(done) done.hidden = true;
-    currentIndex = index;
-    updateNav();
-  }
-
-  function showDone(){
-    questions.forEach(q => {
-      q.classList.remove("active");
-      q.hidden = true;
-    });
-
-    if(done) done.hidden = false;
-    progress.textContent = "Quiz concluído";
-    prevBtn.disabled = true;
-    nextBtn.disabled = true;
-  }
-
-  questions.forEach((question, qIndex) => {
+  questions.forEach(question => {
     const optionButtons = Array.from(question.querySelectorAll(".cap1-p10Options button"));
     const confirmBtn = question.querySelector('[data-p10-action="confirm"]');
     const resetBtn = question.querySelector('[data-p10-action="reset"]');
@@ -731,24 +701,40 @@ document.querySelectorAll(".cap1-p10Options button").forEach(btn=>{
 
     let selectedAnswer = null;
     let confirmed = false;
-
     let feedbackMap = {};
+
     try{
       feedbackMap = JSON.parse(feedbackTemplate.innerHTML.trim());
     }catch(err){
-      console.error("Erro ao ler feedback do quiz:", err);
+      console.error("Erro ao ler feedback da síntese clínica:", err);
+      return;
     }
 
-    optionButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
+    function resetQuestion(){
+      confirmed = false;
+      selectedAnswer = null;
+
+      optionButtons.forEach(button => {
+        button.disabled = false;
+        button.classList.remove("selected", "correct", "error");
+      });
+
+      feedbackBox.innerHTML = "";
+      feedbackBox.className = "cap1-p10Feedback";
+
+      confirmBtn.hidden = false;
+      confirmBtn.disabled = true;
+      resetBtn.hidden = true;
+    }
+
+    optionButtons.forEach(button => {
+      button.addEventListener("click", () => {
         if(confirmed) return;
 
-        optionButtons.forEach(b => {
-          b.classList.remove("selected");
-        });
+        optionButtons.forEach(item => item.classList.remove("selected"));
+        button.classList.add("selected");
 
-        btn.classList.add("selected");
-        selectedAnswer = btn.dataset.answer || null;
+        selectedAnswer = button.dataset.answer || null;
         confirmBtn.disabled = !selectedAnswer;
       });
     });
@@ -762,7 +748,9 @@ document.querySelectorAll(".cap1-p10Options button").forEach(btn=>{
       const correct = question.querySelector('.cap1-p10Options button[data-correct="true"]');
       const item = feedbackMap[selectedAnswer];
 
-      optionButtons.forEach(b => b.disabled = true);
+      optionButtons.forEach(button => {
+        button.disabled = true;
+      });
 
       if(chosen){
         if(chosen.dataset.correct === "true"){
@@ -784,43 +772,10 @@ document.querySelectorAll(".cap1-p10Options button").forEach(btn=>{
 
       confirmBtn.hidden = true;
       resetBtn.hidden = false;
-
-      if(qIndex === questions.length - 1){
-        nextBtn.disabled = false;
-      }
     });
 
-    resetBtn.addEventListener("click", () => {
-      confirmed = false;
-      selectedAnswer = null;
+    resetBtn.addEventListener("click", resetQuestion);
 
-      optionButtons.forEach(b => {
-        b.disabled = false;
-        b.classList.remove("selected", "correct", "error");
-      });
-
-      feedbackBox.innerHTML = "";
-      feedbackBox.className = "cap1-p10Feedback";
-
-      confirmBtn.hidden = false;
-      confirmBtn.disabled = true;
-      resetBtn.hidden = true;
-    });
+    resetQuestion();
   });
-
-  prevBtn.addEventListener("click", () => {
-    if(currentIndex > 0){
-      showQuestion(currentIndex - 1);
-    }
-  });
-
-  nextBtn.addEventListener("click", () => {
-    if(currentIndex < questions.length - 1){
-      showQuestion(currentIndex + 1);
-    }else{
-      showDone();
-    }
-  });
-
-  showQuestion(0);
 })();

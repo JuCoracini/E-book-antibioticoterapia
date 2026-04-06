@@ -16,7 +16,7 @@
 
 <body class="cap1-page5">
 
-  <main class="page-shell">
+<main class="page-shell cap1-shell">
 
     <header class="page-header">
       <div class="chapter">Capítulo 1 — Fundamentos Conceituais dos Antibacterianos</div>
@@ -41,7 +41,7 @@
       </p>
 
       <p class="cap1-p05-intro">
-        Compare três cenários de exposição ao antibacteriano e observe quando a concentração fica abaixo, dentro ou acima da janela terapêutica.
+        A figura a seguir sintetiza a relação entre exposição ao antibacteriano e janela terapêutica.
       </p>
     </section>
 
@@ -55,85 +55,85 @@
         </div>
 
         <figure class="cap1-p05-figure">
-          <svg class="cap1-p05-visual__svg" viewBox="0 0 1200 760" aria-labelledby="cap1P05Title cap1P05Desc" role="img">
-            <title id="cap1P05Title">Relação entre concentração do antibacteriano e janela terapêutica</title>
-            <desc id="cap1P05Desc">Figura interativa com três cenários: baixa exposição, exposição terapêutica e exposição excessiva.</desc>
+  <svg class="cap1-p05-visual__svg" viewBox="0 0 1200 760" aria-labelledby="cap1P05Title cap1P05Desc" role="img">
+    <title id="cap1P05Title">Relação entre concentração do antibacteriano e janela terapêutica</title>
+    <desc id="cap1P05Desc">Figura interativa com três cenários: baixa exposição, exposição terapêutica e exposição excessiva.</desc>
 
-            <defs>
-              <linearGradient id="cap1P05Band" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0%" stop-color="#dff6f1" />
-                <stop offset="100%" stop-color="#eef9f7" />
-              </linearGradient>
-            </defs>
+    <defs>
+      <linearGradient id="cap1P05Band" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#dff6f1" />
+        <stop offset="100%" stop-color="#eef9f7" />
+      </linearGradient>
+    </defs>
 
-            <rect x="0" y="0" width="1200" height="760" fill="#ffffff" />
+    <rect x="0" y="0" width="1200" height="760" fill="#ffffff" />
 
-            <g transform="translate(120,52)">
-              <g class="cap1-p05-grid">
-                <line x1="0" y1="580" x2="840" y2="580"></line>
-                <line x1="0" y1="470" x2="840" y2="470"></line>
-                <line x1="0" y1="360" x2="840" y2="360"></line>
-                <line x1="0" y1="250" x2="840" y2="250"></line>
-                <line x1="0" y1="140" x2="840" y2="140"></line>
-              </g>
+    <g transform="translate(120,52)">
+      <g class="cap1-p05-grid">
+        <line x1="0" y1="580" x2="840" y2="580"></line>
+        <line x1="0" y1="470" x2="840" y2="470"></line>
+        <line x1="0" y1="360" x2="840" y2="360"></line>
+        <line x1="0" y1="250" x2="840" y2="250"></line>
+        <line x1="0" y1="140" x2="840" y2="140"></line>
+      </g>
 
-              <rect x="0" y="250" width="840" height="220" class="cap1-p05-windowBand"></rect>
+      <rect x="0" y="250" width="840" height="220" class="cap1-p05-windowBand"></rect>
 
-              <g class="cap1-p05-thresholds">
-                <line x1="0" y1="470" x2="840" y2="470" class="is-effective"></line>
-                <line x1="0" y1="250" x2="840" y2="250" class="is-toxic"></line>
-              </g>
+      <g class="cap1-p05-thresholds">
+        <line x1="0" y1="470" x2="840" y2="470" class="is-effective"></line>
+        <line x1="0" y1="250" x2="840" y2="250" class="is-toxic"></line>
+      </g>
 
-              <g class="cap1-p05-axis">
-                <line x1="0" y1="40" x2="0" y2="600"></line>
-                <line x1="0" y1="580" x2="860" y2="580"></line>
-              </g>
+      <g class="cap1-p05-axis">
+        <line x1="0" y1="40" x2="0" y2="600"></line>
+        <line x1="0" y1="580" x2="860" y2="580"></line>
+      </g>
 
-              <text x="-66" y="318" class="cap1-p05-axisLabel cap1-p05-axisLabel--y" transform="rotate(-90 -66 318)">Concentração</text>
-              <text x="360" y="665" class="cap1-p05-axisLabel">Tempo</text>
+      <text x="-66" y="318" class="cap1-p05-axisLabel cap1-p05-axisLabel--y" transform="rotate(-90 -66 318)">Concentração</text>
+      <text x="360" y="665" class="cap1-p05-axisLabel">Tempo</text>
 
-              <text x="856" y="255" class="cap1-p05-lineLabel cap1-p05-lineLabel--toxic">Limiar de toxicidade</text>
-              <text x="856" y="475" class="cap1-p05-lineLabel cap1-p05-lineLabel--effective">Limiar eficaz</text>
+      <text x="856" y="255" class="cap1-p05-lineLabel cap1-p05-lineLabel--toxic">Limiar de toxicidade</text>
+      <text x="856" y="475" class="cap1-p05-lineLabel cap1-p05-lineLabel--effective">Limiar eficaz</text>
 
-              <text x="270" y="380" class="cap1-p05-windowLabel">Janela terapêutica</text>
+      <text x="270" y="380" class="cap1-p05-windowLabel">Janela terapêutica</text>
 
-              <text x="856" y="152" class="cap1-p05-zone cap1-p05-zone--high">maior risco de toxicidade</text>
-              <text x="856" y="365" class="cap1-p05-zone cap1-p05-zone--ok">faixa de eficácia e segurança relativa</text>
-              <text x="856" y="542" class="cap1-p05-zone cap1-p05-zone--low">exposição insuficiente</text>
+      <text x="856" y="152" class="cap1-p05-zone cap1-p05-zone--high">maior risco de toxicidade</text>
+      <text x="856" y="365" class="cap1-p05-zone cap1-p05-zone--ok">faixa de eficácia e segurança relativa</text>
+      <text x="856" y="542" class="cap1-p05-zone cap1-p05-zone--low">exposição insuficiente</text>
 
-              <g data-window-scene="low" hidden>
-                <path
-                  class="cap1-p05-curve cap1-p05-curve--low"
-                  d="M 20 560 C 120 540, 220 520, 320 495 C 420 470, 520 448, 620 430 C 715 416, 785 410, 820 410">
-                </path>
-                <circle class="cap1-p05-point cap1-p05-point--low" cx="760" cy="411" r="8"></circle>
-              </g>
+     <g class="cap1-p05-scene" data-window-scene="low">
+  <path
+    class="cap1-p05-curve cap1-p05-curve--low"
+    d="M 20 560 C 120 542, 220 518, 320 496 C 420 476, 520 455, 620 438 C 710 425, 780 417, 820 414">
+  </path>
+  <circle class="cap1-p05-point cap1-p05-point--low" cx="760" cy="418" r="6"></circle>
+</g>
 
-              <g data-window-scene="ok">
-                <path
-                  class="cap1-p05-curve cap1-p05-curve--ok"
-                  d="M 20 545 C 105 510, 185 445, 250 372 C 315 300, 385 275, 455 295 C 535 318, 605 360, 680 400 C 740 430, 790 450, 820 462">
-                </path>
-                <circle class="cap1-p05-point cap1-p05-point--ok" cx="560" cy="334" r="8"></circle>
-              </g>
+<g class="cap1-p05-scene is-active" data-window-scene="ok">
+  <path
+    class="cap1-p05-curve cap1-p05-curve--ok"
+    d="M 20 548 C 95 520, 170 455, 245 378 C 310 312, 382 282, 452 298 C 528 316, 600 358, 675 402 C 738 436, 790 452, 820 462">
+  </path>
+  <circle class="cap1-p05-point cap1-p05-point--ok" cx="560" cy="334" r="6"></circle>
+</g>
 
-              <g data-window-scene="high" hidden>
-                <path
-                  class="cap1-p05-curve cap1-p05-curve--high"
-                  d="M 20 548 C 90 488, 155 360, 220 212 C 265 112, 320 82, 380 125 C 450 176, 520 286, 600 370 C 680 452, 760 508, 820 535">
-                </path>
-                <circle class="cap1-p05-point cap1-p05-point--high" cx="306" cy="99" r="8"></circle>
-              </g>
-            </g>
-          </svg>
+<g class="cap1-p05-scene" data-window-scene="high">
+  <path
+    class="cap1-p05-curve cap1-p05-curve--high"
+    d="M 20 550 C 85 500, 145 386, 210 230 C 255 126, 315 92, 378 132 C 448 178, 520 284, 600 366 C 680 448, 758 505, 820 534">
+  </path>
+  <circle class="cap1-p05-point cap1-p05-point--high" cx="310" cy="106" r="6"></circle>
+</g>
+    </g>
+  </svg>
 
-          <figcaption class="cap1-p05-caption">
-            Relação entre concentração do antibacteriano e resposta biológica, destacando a janela terapêutica.
-          </figcaption>
-        </figure>
+  <figcaption class="cap1-p05-caption">
+    Relação entre concentração do antibacteriano e resposta biológica, destacando a janela terapêutica.
+  </figcaption>
+</figure>
 
         <div class="cap1-p05-feedback cap1-p05-feedback--ok" data-window-feedback aria-live="polite">
-          <p class="cap1-p05-feedback__eyebrow">Leitura da figura</p>
+        
           <h2 class="cap1-p05-feedback__state" data-window-state>Exposição terapêutica</h2>
           <p class="cap1-p05-feedback__text" data-window-text>
             Neste cenário, a concentração do antibacteriano ultrapassa o nível mínimo necessário para efeito terapêutico e permanece abaixo do limiar em que a toxicidade se torna mais provável.
