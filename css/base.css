@@ -95,10 +95,6 @@ body{
   text-indent: 1.8em;
 }
 
-.prose p:first-child{
-  text-indent: 0;
-}
-
 /* REFERÊNCIAS */
 .prose sup{
   font-size: 0.65em;
@@ -326,4 +322,12 @@ body{
   .cover-a4__title{
     font-size: 3rem;
   }
+}
+.prose p{
+  text-align: justify;
+  text-indent: 1.6em;
+  margin: 0 0 14px;
+}
+.prose p:first-of-type{
+  text-indent: 1.6em;
 }

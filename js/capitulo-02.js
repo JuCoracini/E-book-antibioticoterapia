@@ -100,90 +100,44 @@
 /* =========================
    PÁGINA 13 — PAREDE CELULAR
    ========================= */
+const states = {
+  sintese: {
+    src: "../../assets/capitulo-02/imagens/sintese-peptidoglicano.png",
+    alt: "Etapas da síntese do peptidoglicano na parede celular bacteriana",
+    caption: "Etapas da síntese do peptidoglicano na parede celular bacteriana. Clique na imagem para ampliar.",
+    title: "Etapas da síntese do peptidoglicano",
+    body: `
+      <p>1) Formação dos precursores no citoplasma: unidades de NAG e NAM são sintetizadas e associadas a pequenas cadeias peptídicas, formando precursores solúveis.</p>
+      <p>2) Transporte através da membrana citoplasmática: Os precursores são transportados para a face externa da membrana citoplasmática por meio de um carreador lipídico denominado bactoprenol.</p>
+      <p>3) Incorporação à parede existente: As novas subunidades são adicionadas à rede de peptidoglicano por reações de transglicosilação, ampliando a estrutura da parede celular.</p>
+      <p>4) Formação das ligações cruzadas: As PBPs catalisam a reação de transpeptidação, formando pontes entre cadeias peptídicas adjacentes. Essas ligações cruzadas conferem resistência mecânica à parede celular.</p>
+    `
+  },
 
-(function initPage13Wall(){
-  const root = document.querySelector("[data-cap2-wall]");
-  if(!root) return;
+  beta: {
+    src: "../../assets/capitulo-02/imagens/beta-lactamicos-transpeptidacao.png",
+    alt: "Interferência dos β-lactâmicos na etapa de transpeptidação do peptidoglicano",
+    caption: "Interferência dos β-lactâmicos na etapa de transpeptidação do peptidoglicano. Clique na imagem para ampliar.",
+    title: "β-lactâmicos",
+    body: `
+      <p>Os β-lactâmicos ligam-se às proteínas ligadoras de penicilina (PBPs), enzimas envolvidas nas etapas finais da síntese da parede celular bacteriana.</p>
+      <p>Ao ocuparem esses alvos, impedem a reação de transpeptidação responsável pela formação das ligações cruzadas entre cadeias peptídicas adjacentes do peptidoglicano.</p>
+      <p>Com isso, a parede celular recém-sintetizada perde resistência mecânica e torna-se progressivamente incapaz de sustentar a integridade estrutural da bactéria, favorecendo lise celular, especialmente durante fases de crescimento ativo <sup>2,4</sup>.</p>
+    `
+  },
 
-  const tabs = Array.from(root.querySelectorAll("[data-wall-tab]"));
-  const image = document.getElementById("cap2P13Image");
-  const caption = document.getElementById("cap2P13Caption");
-  const title = document.getElementById("cap2P13Title");
-  const body = document.getElementById("cap2P13Body");
-  const zoomButton = root.querySelector(".cap2-zoomTrigger");
-
-  if(!tabs.length || !image || !caption || !zoomButton || !title || !body) return;
-
-  const states = {
-    sintese: {
-      src: "../../assets/capitulo-02/imagens/sintese-peptidoglicano.png",
-      alt: "Etapas da síntese do peptidoglicano na parede celular bacteriana",
-      caption: "Etapas da síntese do peptidoglicano na parede celular bacteriana. Clique na imagem para ampliar.",
-      title: "Etapas da síntese do peptidoglicano",
-      body: `
-        <p>1) Formação dos precursores no citoplasma: unidades de NAG e NAM são sintetizadas e associadas a pequenas cadeias peptídicas, formando precursores solúveis.</p>
-        <p>2) Transporte através da membrana citoplasmática: Os precursores são transportados para a face externa da membrana citoplasmática por meio de um carreador lipídico denominado bactoprenol.</p>
-        <p>3) Incorporação à parede existente: As novas subunidades são adicionadas à rede de peptidoglicano por reações de transglicosilação, ampliando a estrutura da parede celular.</p>
-        <p>4) Formação das ligações cruzadas: As PBPs catalisam a reação de transpeptidação, formando pontes entre cadeias peptídicas adjacentes. Essas ligações cruzadas conferem resistência mecânica à parede celular.</p>
-      `
-    },
-
-    beta: {
-      src: "../../assets/capitulo-02/imagens/beta-lactamicos-transpeptidacao.png",
-      alt: "Interferência dos β-lactâmicos na etapa de transpeptidação do peptidoglicano",
-      caption: "Interferência dos β-lactâmicos na etapa de transpeptidação do peptidoglicano. Clique na imagem para ampliar.",
-      title: "β-lactâmicos",
-      body: `
-        <p>Os β-lactâmicos ligam-se às proteínas ligadoras de penicilina (PBPs), enzimas envolvidas nas etapas finais da síntese da parede celular bacteriana.</p>
-        <p>Ao ocuparem esses alvos, impedem a reação de transpeptidação responsável pela formação das ligações cruzadas entre cadeias peptídicas adjacentes do peptidoglicano.</p>
-        <p>Com isso, a parede celular recém-sintetizada perde resistência mecânica e torna-se progressivamente incapaz de sustentar a integridade estrutural da bactéria, favorecendo lise celular, especialmente durante fases de crescimento ativo <sup>2,4</sup>.</p>
-      `
-    },
-
-    glico: {
-      src: "../../assets/capitulo-02/imagens/glicopeptideos-dala-dala.png",
-      alt: "Interferência dos glicopeptídeos na incorporação e ligação cruzada do peptidoglicano",
-      caption: "Interferência dos glicopeptídeos na incorporação e ligação cruzada do peptidoglicano. Clique na imagem para ampliar.",
-      title: "Glicopeptídeos",
-      body: `
-        <p>Os glicopeptídeos atuam por mecanismo distinto dos β-lactâmicos. Em vez de se ligarem às PBPs, ligam-se diretamente à extremidade terminal D-Ala-D-Ala dos precursores do peptidoglicano.</p>
-        <p>Essa ligação cria impedimento estérico que dificulta a incorporação das novas subunidades à parede em formação e compromete também as etapas posteriores de ligação cruzada.</p>
-        <p>Como consequência, a estrutura do peptidoglicano torna-se progressivamente instável, reduzindo a resistência da parede celular e favorecendo lise bacteriana em condições apropriadas <sup>1,2</sup>.</p>
-      `
-    }
-  };
-
-  function render(key){
-    const state = states[key];
-    if(!state) return;
-
-    tabs.forEach((tab) => {
-      const active = tab.dataset.wallTab === key;
-      tab.classList.toggle("is-active", active);
-      tab.setAttribute("aria-selected", active ? "true" : "false");
-    });
-
-    image.src = state.src;
-    image.alt = state.alt;
-
-    zoomButton.dataset.zoomImage = state.src;
-    zoomButton.dataset.zoomAlt = state.alt;
-    zoomButton.dataset.zoomCaption = state.caption;
-
-    caption.textContent = state.caption;
-    title.textContent = state.title;
-    body.innerHTML = state.body;
+  glico: {
+    src: "../../assets/capitulo-02/imagens/glicopeptideos-dala-dala.png",
+    alt: "Interferência dos glicopeptídeos na incorporação e ligação cruzada do peptidoglicano",
+    caption: "Interferência dos glicopeptídeos na incorporação e ligação cruzada do peptidoglicano. Clique na imagem para ampliar.",
+    title: "Glicopeptídeos",
+    body: `
+      <p>Os glicopeptídeos atuam por mecanismo distinto dos β-lactâmicos. Em vez de se ligarem às PBPs, ligam-se diretamente à extremidade terminal D-Ala-D-Ala dos precursores do peptidoglicano.</p>
+      <p>Essa ligação cria impedimento estérico que dificulta a incorporação das novas subunidades à parede em formação e compromete também as etapas posteriores de ligação cruzada.</p>
+      <p>Como consequência, a estrutura do peptidoglicano torna-se progressivamente instável, reduzindo a resistência da parede celular e favorecendo lise bacteriana em condições apropriadas <sup>1,2</sup>.</p>
+    `
   }
-
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      render(tab.dataset.wallTab);
-    });
-  });
-
-  render("sintese");
-})();
-
+};
 /* =========================
    PÁGINA 14 — MEMBRANA CITOPLASMÁTICA
    ========================= */
