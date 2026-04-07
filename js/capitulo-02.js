@@ -178,7 +178,7 @@ const states = {
         src: "../../assets/capitulo-02/imagens/polimixina-fase-1.png",
         alt: "Ligação inicial da polimixina ao envelope bacteriano",
         caption: "Ligação inicial da polimixina ao envelope bacteriano. Clique para ampliar.",
-        text: "Polimixinas: ligam-se inicialmente ao lipid A do lipopolissacarídeo (LPS) da membrana externa de bactérias Gram-negativas, deslocando cátions divalentes estabilizadores e promovendo desorganização do envelope bacteriano, aumento da permeabilidade e colapso funcional da célula <sup>1</sup>."
+        text: "Polimixinas: ligam-se inicialmente ao lipid A, um componente do lipopolissacarídeo (LPS) da membrana externa de bactérias Gram-negativas, deslocando cátions divalentes estabilizadores e promovendo desorganização do envelope bacteriano, aumento da permeabilidade e colapso funcional da célula <sup>1</sup>."
       },
       {
         src: "../../assets/capitulo-02/imagens/polimixina-fase-2.png",
@@ -481,7 +481,7 @@ const states = {
       caption: "Etapas gerais da replicação e transcrição do DNA bacteriano. Clique para ampliar.",
       title: "Processo geral",
       text: `
-        <p>A replicação bacteriana depende da abertura da dupla hélice, do controle do superenovelamento e da síntese ordenada de novas fitas de DNA.</p>
+        <p>A replicação bacteriana depende da abertura da dupla hélice, do controle do superenrolamento e da síntese ordenada de novas fitas de DNA.</p>
         <p>Paralelamente, a transcrição converte a informação genética em RNA mensageiro por ação da RNA polimerase, tornando possível a síntese de proteínas necessárias ao funcionamento celular.</p>
       `
     },

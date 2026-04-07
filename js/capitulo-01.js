@@ -325,6 +325,10 @@
   const content = document.getElementById("timelineContent");
   const buttons = document.querySelectorAll(".timeline-item");
 
+  const lightbox = document.getElementById("cap1Lightbox");
+  const lightboxImage = document.getElementById("cap1LightboxImage");
+  const lightboxCaption = document.getElementById("cap1LightboxCaption");
+
   if(!content || !buttons.length) return;
 
   const data = {
@@ -332,81 +336,139 @@
     "1928": {
       title: "1928 — Descoberta da Penicilina",
       img: "../../assets/capitulo-01/imagens/Era Fleming.png",
-      caption: "Imagem referente à descoberta da penicilina.",
-      text: "Em 1928, Alexander Fleming observou que substâncias produzidas por fungos do gênero Penicillium eram capazes de inibir o crescimento bacteriano em condições experimentais."
+      caption: "Representação de Alexander Fleming na descoberta da penicilina, em 1928.",
+      text: "Em 1928, Alexander Fleming observou que substâncias produzidas por fungos do gênero <em>Penicillium sp.</em> eram capazes de inibir o crescimento bacteriano em condições experimentais. Embora essa observação inicial não tenha sido imediatamente aplicada à prática clínica, ela abriu caminho para uma nova abordagem terapêutica ao demonstrar que compostos naturais poderiam ser isolados e desenvolvidos como agentes antibacterianos <sup>5</sup>."
     },
 
     "1935": {
       title: "1935 — Introdução das Sulfonamidas",
       img: "../../assets/capitulo-01/imagens/1935.png",
-      caption: "Uso inicial de antimicrobianos sistêmicos.",
-      text: "A introdução das sulfonamidas representou um dos primeiros usos sistemáticos de agentes antimicrobianos na prática médica."
+      caption: "Estrutura química das sulfonamidas, que inauguraram a quimioterapia antibacteriana sistêmica ao interferirem na síntese do ácido fólico bacteriano.",
+      text: "Em 1935, a introdução das sulfonamidas marcou o início da quimioterapia antibacteriana sistêmica com eficácia comprovada. Esses fármacos interferem na via de síntese do ácido fólico bacteriano, evidenciando que vias metabólicas específicas do microrganismo poderiam ser exploradas terapeuticamente. Essa descoberta consolidou o conceito de toxicidade seletiva, baseado nas diferenças bioquímicas entre bactérias e células humanas <sup>6</sup>."
     },
 
     "1940": {
-      title: "1940–1943 — Produção da penicilina",
+      title: "1940–1943 — Produção Industrial da Penicilina",
       img: "../../assets/capitulo-01/imagens/1940.png",
-      caption: "Expansão da produção da penicilina.",
-      text: "A produção em larga escala permitiu a aplicação clínica sistemática da penicilina."
+      caption: "Expansão da produção industrial de penicilina na década de 1940, permitindo sua aplicação em larga escala no tratamento de infecções bacterianas graves.",
+      text: "Entre 1940 e 1943, o desenvolvimento de métodos de produção em larga escala permitiu a utilização clínica da penicilina, especialmente durante a Segunda Guerra Mundial. O impacto terapêutico foi imediato, com melhora significativa no tratamento de infecções bacterianas graves. A consolidação do uso clínico da penicilina também estimulou o desenvolvimento de novas classes de antibacterianos nas décadas seguintes <sup>4,5</sup>."
     },
 
     "1943": {
-      title: "1943–1960 — Idade de ouro dos antibióticos",
+      title: "1943–1960 — A Idade de Ouro dos Antibacterianos",
       img: "../../assets/capitulo-01/imagens/1943.png",
-      caption: "Expansão das classes antibacterianas.",
-      text: "Diversas classes foram descobertas, ampliando significativamente as possibilidades terapêuticas."
+      caption: "Evolução histórica da descoberta de classes antibacterianas ao longo do tempo, com concentração máxima entre 1940 e 1960 e redução progressiva nas décadas seguintes.",
+      text: "Este período é caracterizado pela rápida descoberta e desenvolvimento de múltiplas classes de agentes antibacterianos. Nesse intervalo foram introduzidos, entre outros, aminoglicosídeos, tetraciclinas, macrolídeos, cloranfenicol e glicopeptídeos <sup>4</sup>. Grande parte desses compostos foi identificada a partir de metabólitos produzidos por microrganismos ambientais, especialmente espécies do gênero <em>Streptomyces sp.</em>. A diversidade de novos antibacterianos ampliou significativamente as possibilidades terapêuticas contra infecções bacterianas e consolidou a antibioticoterapia como um dos pilares da medicina moderna. Com o passar das décadas, entretanto, o ritmo de descoberta de novas classes diminuiu progressivamente. A identificação de compostos realmente inovadores tornou-se mais complexa, enquanto o surgimento e a disseminação de mecanismos de resistência bacteriana passaram a limitar a eficácia de muitos antibacterianos previamente introduzidos <sup>4,7</sup>."
     },
 
     "1961": {
-      title: "1961 — MRSA",
+      title: "1961 — Identificação do <em>Staphylococcus aureus</em> resistente à meticilina (MRSA)",
       img: "../../assets/capitulo-01/imagens/1961.png",
-      caption: "Emergência da resistência bacteriana.",
-      text: "A resistência à meticilina evidenciou a capacidade adaptativa das bactérias."
+      caption: "Antibiograma por difusão em disco demonstrando halos de inibição ao redor de discos com antibacterianos ativos, enquanto a ausência ou redução desses halos indica resistência bacteriana.",
+      text: "Em 1961, poucos anos após a introdução da meticilina, foram descritas cepas de <em>Staphylococcus aureus</em> resistentes a esse antibacteriano. O achado evidenciou a rapidez com que bactérias podem se adaptar à pressão seletiva exercida pelos antimicrobianos. Nesse caso, a resistência decorre principalmente da aquisição do gene mecA, que leva à expressão de uma proteína ligadora de penicilina adicional, PBP2a, com baixa afinidade pelos antibacterianos β-lactâmicos. Esse mecanismo compromete a eficácia dessa classe terapêutica e demonstra como alterações em alvos moleculares podem afetar classes inteiras de fármacos <sup>2,3</sup>."
     },
 
     "1988": {
-      title: "1988 — VRE",
+      title: "1988 — Identificação de <em>Enterococcus sp.</em> resistente à vancomicina (VRE)",
       img: "../../assets/capitulo-01/imagens/1988.png",
-      caption: "Resistência à vancomicina.",
-      text: "Mostrou que antibacterianos de última linha também podem perder eficácia."
+      caption: "Teste de difusão em disco demonstrando resistência à vancomicina, com crescimento bacteriano até o limite do disco, indicando ausência de efeito inibitório.",
+      text: "Em 1988 foram descritos os primeiros isolados clínicos de <em>Enterococcus sp.</em> resistentes à vancomicina. Esse evento representou um marco importante na evolução da resistência antimicrobiana, pois a vancomicina havia sido considerada por décadas uma das principais opções terapêuticas para infecções causadas por bactérias Gram-positivas multirresistentes. A resistência nesses microrganismos está associada à aquisição de genes que modificam o alvo da vancomicina na síntese da parede celular bacteriana. O surgimento do VRE demonstrou que mesmo antibacterianos considerados de última linha podem perder eficácia diante da capacidade adaptativa das populações bacterianas <sup>8,9</sup>."
     },
 
     "2018": {
-      title: "2018 — Padronização BrCAST",
+      title: "2018 — Padronização nacional para testes de suscetibilidade",
       img: "../../assets/capitulo-01/imagens/2018.png",
-      caption: "Padronização dos testes.",
-      text: "Integra microbiologia, PK/PD e evidência clínica."
+      caption: "Cultura com antibiograma apresentando valores de MIC e interpretação (S, I, R), integrando dados microbiológicos e farmacológicos para orientar a decisão terapêutica.",
+      text: "Em 2018, a Portaria nº 64 do Ministério da Saúde determinou a adoção das normas de interpretação baseadas no EUCAST (Comitê Europeu sobre Teste de Susceptibilidade Antimicrobiana), implementadas no Brasil por meio do Comitê Brasileiro de Testes de Sensibilidade aos Antimicrobianos (BrCAST), estabelecendo padronização nacional para testes de suscetibilidade antimicrobiana <sup>10,11</sup>. Esses critérios definem os valores utilizados para classificar isolados bacterianos como suscetíveis (S), suscetíveis sob exposição aumentada (I) ou resistentes (R), influenciando diretamente a interpretação do antibiograma e a escolha terapêutica <sup>12</sup>. Os breakpoints, ou valores de referência para interpretar o nível de sensibilidade de uma bactéria, não representam características intrínsecas deste microrganismo. Eles são critérios interpretativos construídos a partir da integração entre dados microbiológicos, farmacocinéticos, farmacodinâmicos e evidências clínicas. Essa padronização fortalece a integração entre microbiologia laboratorial e tomada de decisão clínica baseada em parâmetros objetivos."
     }
 
   };
 
- function render(key){
-  const item = data[key];
+  function openLightbox(src, alt, caption){
+    if(!lightbox || !lightboxImage || !lightboxCaption) return;
 
-  content.innerHTML = `
-    <h2 class="timeline-title">${item.title}</h2>
+    lightboxImage.src = src || "";
+    lightboxImage.alt = alt || "";
+    lightboxCaption.innerHTML = caption || "";
 
-    <div class="timeline-block">
-      
-      <figure class="timeline-figure">
-        <img src="${item.img}" alt="">
-        <figcaption class="timeline-caption">
-          ${item.caption || ""}
-        </figcaption>
-      </figure>
+    lightbox.hidden = false;
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lightbox-open");
+  }
 
-      <p class="timeline-text">${item.text}</p>
+  function closeLightbox(){
+    if(!lightbox || !lightboxImage || !lightboxCaption) return;
 
-    </div>
-  `;
-}
+    lightbox.hidden = true;
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImage.src = "";
+    lightboxImage.alt = "";
+    lightboxCaption.innerHTML = "";
+    document.body.classList.remove("lightbox-open");
+  }
 
-  buttons.forEach(btn=>{
-    btn.addEventListener("click", ()=>{
-      buttons.forEach(b=>b.classList.remove("active"));
+  function render(key){
+    const item = data[key];
+    if(!item) return;
+
+    const safeTitle = item.title.replace(/"/g, "&quot;");
+    const safeCaption = (item.caption || "").replace(/"/g, "&quot;");
+
+    content.innerHTML = `
+      <h2 class="timeline-title">${item.title}</h2>
+
+      <div class="timeline-block">
+        <figure class="timeline-figure">
+          <button
+            class="cap1-zoomTrigger"
+            type="button"
+            data-zoom-image="${item.img}"
+            data-zoom-alt="${safeTitle}"
+            data-zoom-caption="${safeCaption}"
+            aria-label="Ampliar imagem"
+          >
+            <img src="${item.img}" alt="${item.title}">
+          </button>
+
+          <figcaption class="timeline-caption">
+            ${item.caption || ""}
+          </figcaption>
+        </figure>
+
+        <p class="timeline-text">${item.text}</p>
+      </div>
+    `;
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      buttons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       render(btn.dataset.year);
     });
+  });
+
+  document.addEventListener("click", (e) => {
+    const zoomTrigger = e.target.closest(".cap1-zoomTrigger");
+    if(zoomTrigger){
+      openLightbox(
+        zoomTrigger.dataset.zoomImage,
+        zoomTrigger.dataset.zoomAlt,
+        zoomTrigger.dataset.zoomCaption
+      );
+      return;
+    }
+
+    const closeTrigger = e.target.closest("[data-lightbox-close]");
+    if(closeTrigger){
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape" && lightbox && !lightbox.hidden){
+      closeLightbox();
+    }
   });
 
   render("1928");

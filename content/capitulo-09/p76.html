@@ -74,25 +74,23 @@
 
     </section>
 
-    <nav class="pager">
-      <button class="btn" data-prev="p75.html">← Anterior</button>
-      <div class="center">Capítulo 9 · Página 76</div>
-      <button class="btn primary" data-next="p77.html">Próxima →</button>
+<nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p75.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 9 · Página 76 de 89</div>
+      <button class="btn primary" type="button" data-next="p77.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
 
   </main>
 
-  <!-- LIGHTBOX -->
-
-  <div class="cap9-lightbox" id="cap9Lightbox" hidden>
-    <div class="cap9-lightbox__backdrop" data-close></div>
+  <div class="cap9-lightbox" id="cap7Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <div class="cap9-lightbox__backdrop" data-lightbox-close></div>
 
     <div class="cap9-lightbox__dialog">
-      <button class="cap9-lightbox__close" data-close>✕</button>
+      <button class="cap9-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
 
-      <figure>
-        <img id="cap9LightboxImage" />
-        <figcaption id="cap9LightboxCaption"></figcaption>
+      <figure class="cap9-lightbox__figure">
+        <img id="cap9LightboxImage" src="" alt="" />
+        <figcaption id="cap9LightboxCaption" class="cap9-lightbox__caption"></figcaption>
       </figure>
     </div>
   </div>

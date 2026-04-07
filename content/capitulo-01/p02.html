@@ -45,97 +45,29 @@
 
 </section>
 
-    <nav class="pager">
-      <button class="btn" data-prev="p01.html">← Anterior</button>
-      <div class="center">Capítulo 1 · Página 2 de 10</div>
-      <button class="btn primary" data-next="p03.html">Próxima →</button>
+   <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p01.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 1 · Página 2 de 89</div>
+      <button class="btn primary" type="button" data-next="p03.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
 
   </main>
 
-  <script src="../../js/app.js"></script>
+<div class="cap1-lightbox" id="cap1Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+  <div class="cap1-lightbox__backdrop" data-lightbox-close></div>
 
-  <script>
-  (function(){
+  <div class="cap1-lightbox__dialog">
+    <button class="cap1-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
 
-    const content = document.getElementById("timelineContent");
-    const buttons = document.querySelectorAll(".timeline-item");
+    <figure class="cap1-lightbox__figure">
+      <img id="cap1LightboxImage" src="" alt="" />
+      <figcaption id="cap1LightboxCaption" class="cap1-lightbox__caption"></figcaption>
+    </figure>
+  </div>
+</div>
 
-    const data = {
-
-      "1928": {
-        title: "1928 — Descoberta da Penicilina",
-        img: "../../assets/capitulo-01/imagens/Era Fleming.png",
-        text: `Em 1928, Alexander Fleming observou que substâncias produzidas por fungos do gênero Penicillium eram capazes de inibir o crescimento bacteriano em condições experimentais. Embora essa observação inicial não tenha sido imediatamente aplicada à prática clínica, ela abriu caminho para uma nova abordagem terapêutica ao demonstrar que compostos naturais poderiam ser isolados e desenvolvidos como agentes antibacterianos <sup>5</sup>.`
-      },
-
-      "1935": {
-        title: "1935 — Introdução das Sulfonamidas",
-        img: "../../assets/capitulo-01/imagens/1935.png",
-        text: `Em 1935, a introdução das sulfonamidas marcou o início da quimioterapia antibacteriana sistêmica com eficácia comprovada. Esses fármacos interferem na via de síntese do ácido fólico bacteriano, evidenciando que vias metabólicas específicas do microrganismo poderiam ser exploradas terapeuticamente. Essa descoberta consolidou o conceito de toxicidade seletiva, baseado nas diferenças bioquímicas entre bactérias e células humanas <sup>6</sup>.`
-      },
-
-      "1940": {
-        title: "1940–1943 — Produção Industrial da Penicilina",
-        img: "../../assets/capitulo-01/imagens/1940.png",
-        text: `Entre 1940 e 1943, o desenvolvimento de métodos de produção em larga escala permitiu a utilização clínica da penicilina, especialmente durante a Segunda Guerra Mundial. O impacto terapêutico foi imediato, com melhora significativa no tratamento de infecções bacterianas graves. A consolidação do uso clínico da penicilina também estimulou o desenvolvimento de novas classes de antibacterianos nas décadas seguintes <sup>4,5</sup>.`
-      },
-
-      "1943": {
-        title: "1943–1960 — A Idade de Ouro dos Antibióticos",
-        img: "../../assets/capitulo-01/imagens/1943.png",
-        text: `Este período é caracterizado pela rápida descoberta e desenvolvimento de múltiplas classes de agentes antibacterianos. Nesse intervalo foram introduzidos, entre outros, aminoglicosídeos, tetraciclinas, macrolídeos, cloranfenicol e glicopeptídeos <sup>4</sup>.
-Grande parte desses compostos foi identificada a partir de metabólitos produzidos por microrganismos ambientais, especialmente espécies do gênero Streptomyces. A diversidade de novos antibacterianos ampliou significativamente as possibilidades terapêuticas contra infecções bacterianas e consolidou a antibioticoterapia como um dos pilares da medicina moderna. Com o passar das décadas, entretanto, o ritmo de descoberta de novas classes diminuiu progressivamente. A identificação de compostos realmente inovadores tornou-se mais complexa, enquanto o surgimento e a disseminação de mecanismos de resistência bacteriana passaram a limitar a eficácia de muitos antibacterianos previamente introduzidos <sup>4,7</sup>.`
-      },
-
-      "1961": {
-        title: "1961 — Identificação do Staphylococcus aureus resistente à meticilina (MRSA)",
-        img: "../../assets/capitulo-01/imagens/1961.png",
-        text: `Em 1961, poucos anos após a introdução da meticilina, foram descritas cepas de Staphylococcus aureus resistentes a esse antibacteriano. O achado evidenciou a rapidez com que bactérias podem se adaptar à pressão seletiva exercida pelos antimicrobianos. Nesse caso, a resistência decorre principalmente da aquisição do gene mecA, que leva à expressão de uma proteína ligadora de penicilina adicional, PBP2a, com baixa afinidade pelos antibacterianos β-lactâmicos. Esse mecanismo compromete a eficácia dessa classe terapêutica e demonstra como alterações em alvos moleculares podem afetar classes inteiras de fármacos <sup>2,3</sup>.`
-      },
-
-      "1988": {
-        title: "1988 — Identificação de Enterococcus resistente à vancomicina (VRE)",
-        img: "../../assets/capitulo-01/imagens/1988.png",
-        text: `Em 1988 foram descritos os primeiros isolados clínicos de Enterococcus resistentes à vancomicina. Esse evento representou um marco importante na evolução da resistência antimicrobiana, pois a vancomicina havia sido considerada por décadas uma das principais opções terapêuticas para infecções causadas por bactérias Gram-positivas multirresistentes. A resistência nesses microrganismos está associada à aquisição de genes que modificam o alvo da vancomicina na síntese da parede celular bacteriana. O surgimento do VRE demonstrou que mesmo antibacterianos considerados de última linha podem perder eficácia diante da capacidade adaptativa das populações bacterianas <sup>8,9</sup>.`
-      },
-
-      "2018": {
-        title: "2018 — Padronização nacional para testes de suscetibilidade",
-        img: "../../assets/capitulo-01/imagens/2018.png",
-        text: `Em 2018, a Portaria nº 64 do Ministério da Saúde determinou a adoção das normas de interpretação baseadas no EUCAST, implementadas no Brasil por meio do Comitê Brasileiro de Testes de Sensibilidade aos Antimicrobianos (BrCAST), estabelecendo padronização nacional para testes de suscetibilidade antimicrobiana <sup>10,11</sup>.
-Esses critérios definem os valores utilizados para classificar isolados bacterianos como suscetíveis (S), suscetíveis sob exposição aumentada (I) ou resistentes (R), influenciando diretamente a interpretação do antibiograma e a escolha terapêutica <sup>12</sup>.
-Os breakpoints não representam características intrínsecas da bactéria. Eles são critérios interpretativos construídos a partir da integração entre dados microbiológicos, farmacocinéticos, farmacodinâmicos e evidências clínicas. Essa padronização fortalece a integração entre microbiologia laboratorial e tomada de decisão clínica baseada em parâmetros objetivos.
-`
-      }
-
-    };
-
-    function render(key){
-      const item = data[key];
-
-      content.innerHTML = `
-        <h2 class="timeline-title">${item.title}</h2>
-
-        <div class="timeline-block">
-          <img src="${item.img}" data-zoom="${item.img}">
-          <p class="timeline-text">${item.text}</p>
-        </div>
-      `;
-    }
-
-    buttons.forEach(btn=>{
-      btn.addEventListener("click", ()=>{
-        buttons.forEach(b=>b.classList.remove("active"));
-        btn.classList.add("active");
-        render(btn.dataset.year);
-      });
-    });
-
-    render("1928");
-
-  })();
-  </script>
+<script src="../../js/app.js"></script>
+<script src="../../js/capitulo-01.js"></script>
 
 </body>
 </html>

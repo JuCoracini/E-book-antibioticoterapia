@@ -734,6 +734,16 @@ body[class^="cap1-page"] .prose p:first-of-type{
 .cap1-page2 .prose p:last-of-type{
   margin-top: 32px;
 }
+.cap1-page2 .timeline-figure .cap1-zoomTrigger{
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
 /* =========================
    PÁGINA 3 — ÁRVORE CONCEITUAL
    ========================= */

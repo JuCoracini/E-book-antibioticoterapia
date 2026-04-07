@@ -84,16 +84,29 @@ Assim, a interferência na membrana bacteriana pode implicar maior risco de inte
 
 </section>
 
-<nav class="pager">
-<button class="btn" data-prev="p65.html">← Anterior</button>
-<div class="center">Capítulo 7 · Página 66</div>
-<button class="btn primary" data-next="p67.html">Próxima →</button>
-</nav>
+<nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p65.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <div class="center">Capítulo 7 · Página 66 de 89</div>
+      <button class="btn primary" type="button" data-next="p67.html" aria-label="Ir para a próxima página">Próxima →</button>
+    </nav>
 
-</main>
+  </main>
 
-<script src="../../js/app.js"></script>
-<script src="../../js/capitulo-07.js"></script>
+  <div class="cap7-lightbox" id="cap7Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <div class="cap7-lightbox__backdrop" data-lightbox-close></div>
+
+    <div class="cap7-lightbox__dialog">
+      <button class="cap7-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
+
+      <figure class="cap7-lightbox__figure">
+        <img id="cap7LightboxImage" src="" alt="" />
+        <figcaption id="cap7LightboxCaption" class="cap7-lightbox__caption"></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-07.js"></script>
 
 </body>
 </html>
