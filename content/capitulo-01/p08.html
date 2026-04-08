@@ -43,20 +43,19 @@
       <p>
         Nesses cenários, o risco de progressão rápida da infecção costuma ser maior do que o risco potencial associado à utilização inicial de um esquema antimicrobiano com cobertura mais ampla.
       </p>
-
-      </section>
+    </section>
 
     <section class="cap1-p08-stage" aria-label="Fluxo de reavaliação da terapia empírica" data-cap1-therapy>
       <div class="cap1-p08-stage__inner">
 
-        <div class="cap1-p08-flow">
+        <div class="cap1-p08-flow" aria-hidden="true">
           <div class="cap1-p08-flowStep">
             <div class="cap1-p08-flowNode cap1-p08-flowNode--root">
               <strong>Suspeita clínica de infecção</strong>
             </div>
           </div>
 
-          <div class="cap1-p08-flowArrow" aria-hidden="true">↓</div>
+          <div class="cap1-p08-flowArrow">↓</div>
 
           <div class="cap1-p08-flowStep">
             <div class="cap1-p08-flowNode">
@@ -64,7 +63,7 @@
             </div>
           </div>
 
-          <div class="cap1-p08-flowArrow" aria-hidden="true">↓</div>
+          <div class="cap1-p08-flowArrow">↓</div>
 
           <div class="cap1-p08-flowStep">
             <div class="cap1-p08-flowNode cap1-p08-flowNode--empiric">
@@ -72,7 +71,7 @@
             </div>
           </div>
 
-          <div class="cap1-p08-flowArrow" aria-hidden="true">↓</div>
+          <div class="cap1-p08-flowArrow">↓</div>
 
           <div class="cap1-p08-flowStep">
             <div class="cap1-p08-flowNode cap1-p08-flowNode--review">
@@ -82,13 +81,13 @@
         </div>
 
         <div class="cap1-p08-tabs" role="tablist" aria-label="Possíveis decisões após reavaliação">
-          <button class="cap1-p08-tab is-active" type="button" role="tab" aria-selected="true" data-therapy-tab="manter">
+          <button class="cap1-p08-tab is-active" type="button" role="tab" aria-selected="true" tabindex="0" data-therapy-tab="manter">
             Manter
           </button>
-          <button class="cap1-p08-tab" type="button" role="tab" aria-selected="false" data-therapy-tab="descalonar">
+          <button class="cap1-p08-tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-therapy-tab="descalonar">
             Descalonar
           </button>
-          <button class="cap1-p08-tab" type="button" role="tab" aria-selected="false" data-therapy-tab="suspender">
+          <button class="cap1-p08-tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-therapy-tab="suspender">
             Suspender
           </button>
         </div>
@@ -97,10 +96,7 @@
           <div class="cap1-p08-panel" data-therapy-pane="manter">
             <h2 class="cap1-p08-panelTitle">Manter o esquema inicial</h2>
             <p>
-              Um componente central no gerenciamento do uso de antimicrobianos é a reavaliação sistemática da terapia empírica após 48 a 72 horas de tratamento. Nesse intervalo, os resultados microbiológicos preliminares e a evolução clínica do paciente costumam fornecer informações adicionais que permitem revisar a estratégia terapêutica <sup>2,20</sup>.
-            </p>
-            <p>
-              A reavaliação pode resultar na manutenção do esquema inicial, quando o tratamento se mostra adequado ao quadro clínico e aos dados microbiológicos disponíveis.
+              A manutenção do esquema inicial é apropriada quando a evolução clínica e os dados microbiológicos disponíveis permanecem compatíveis com a escolha terapêutica adotada <sup>2,20</sup>.
             </p>
           </div>
 
@@ -142,7 +138,7 @@
       </p>
     </section>
 
-   <nav class="pager" aria-label="Paginação">
+    <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p07.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 1 · Página 8 de 89</div>
       <button class="btn primary" type="button" data-next="p09.html" aria-label="Ir para a próxima página">Próxima →</button>

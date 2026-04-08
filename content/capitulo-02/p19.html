@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css"/>
   <link rel="stylesheet" href="../../css/components.css"/>
@@ -23,35 +23,37 @@
     <header class="page-header">
       <div>
         <div class="chapter">Capítulo 2 — Mecanismos de Ação dos Antibacterianos</div>
-        <h1 class="page-title">Síntese clínica do capítulo</h1>
+        <h1 class="page-title">Quiz de revisão</h1>
       </div>
     </header>
 
     <section class="prose cap2-reading-flow" aria-label="Introdução do quiz">
       <p>
-         Os cenários a seguir integram conceitos centrais deste capítulo. Em cada situação, a interpretação adequada depende da articulação entre microbiologia, contexto clínico e princípio terapêutico.
+        As situações a seguir articulam mecanismos de ação, atividade microbiológica e toxicidade seletiva. Em cada cenário, a interpretação adequada depende da relação entre alvo bacteriano, comportamento populacional e contexto clínico.
       </p>
     </section>
 
-    <section class="cap2-p19Quiz" data-cap2-p19 aria-label="Síntese clínica do capítulo">
-
-      <div class="cap2-p19Nav" aria-label="Navegação das situações">
-        <button class="cap2-p19NavBtn" type="button" data-p19-action="prev">Anterior</button>
-        <div class="cap2-p19Progress" aria-live="polite"></div>
-        <button class="cap2-p19NavBtn" type="button" data-p19-action="next">Próxima</button>
+    <section class="cap2-p19Quiz" data-cap2-p19 aria-label="Quiz de revisão do capítulo 2">
+      <div class="cap2-p19Status" aria-live="polite" data-p19-status>
+        <span class="cap2-p19Status__label">Leitura aplicada do capítulo</span>
+        <span class="cap2-p19Status__value">0 de 2 situações confirmadas</span>
       </div>
 
-      <!-- QUESTÃO 1 -->
-      <div class="cap2-p19Question active" data-q="1">
+      <article class="cap2-p19Question" data-q="1" data-question-state="pending">
+        <div class="cap2-p19QuestionHeader">
+          <span class="cap2-p19Kicker">Situação clínica 1</span>
+          <h2 class="cap2-p19QuestionTitle">Atividade dependente de crescimento bacteriano</h2>
+        </div>
+
         <p class="cap2-p19Case">
-          1) Na endocardite infecciosa, bactérias presentes nas vegetações valvares podem permanecer em alta densidade e com crescimento lento, muitas em fase estacionária. Nessa situação, antibacterianos dependentes da divisão bacteriana, como os β-lactâmicos, tendem a apresentar menor atividade bactericida em comparação com sua ação sobre microrganismos em multiplicação ativa. Esse fenômeno contribui para a necessidade de tratamento prolongado e, em algumas situações, de terapia combinada, visando aumentar a eficácia bactericida e favorecer a esterilização das vegetações.
+          Durante a discussão de um caso clínico em enfermaria, um estudante observa que determinados antibacterianos apresentam maior atividade quando as bactérias estão em fase de multiplicação ativa. Na endocardite infecciosa, bactérias presentes nas vegetações valvares podem permanecer em alta densidade e com crescimento lento, muitas em fase estacionária. Nessa situação, antibacterianos dependentes da divisão bacteriana, como os β-lactâmicos, tendem a apresentar menor atividade bactericida em comparação com sua ação sobre microrganismos em multiplicação ativa. Esse fenômeno contribui para a necessidade de tratamento prolongado e, em algumas situações, de terapia combinada, visando aumentar a eficácia bactericida e favorecer a esterilização das vegetações.
         </p>
 
         <p class="cap2-p19Prompt">
           Qual característica do mecanismo de ação explica esse comportamento?
         </p>
 
-        <div class="cap2-p19Options" role="group" aria-label="Alternativas da questão 1">
+        <div class="cap2-p19Options" role="group" aria-label="Alternativas da situação clínica 1">
           <button type="button" data-answer="a" data-correct="true">
             <span class="cap2-p19Letter">A</span>
             <span>Esses fármacos atuam principalmente sobre estruturas envolvidas na síntese da parede celular ou na replicação do DNA.</span>
@@ -74,8 +76,12 @@
         </div>
 
         <div class="cap2-p19Actions">
-          <button class="cap2-p19Btn cap2-p19Btn--primary" type="button" data-p19-action="confirm" disabled>Confirmar</button>
-          <button class="cap2-p19Btn cap2-p19Btn--ghost" type="button" data-p19-action="reset" hidden>Refazer</button>
+          <button class="cap2-p19Btn cap2-p19Btn--primary" type="button" data-p19-action="confirm" disabled>
+            Confirmar interpretação
+          </button>
+          <button class="cap2-p19Btn cap2-p19Btn--ghost" type="button" data-p19-action="reset" hidden>
+            Refazer
+          </button>
         </div>
 
         <div class="cap2-p19Feedback" role="region" aria-live="polite"></div>
@@ -104,52 +110,51 @@
   }
 }
         </template>
+      </article>
 
-        <template class="cap2-p19Rationale">
-          <p><strong>Resposta correta:</strong></p>
-          <p>A) Esses fármacos atuam principalmente sobre estruturas envolvidas na síntese da parede celular ou na replicação do DNA.</p>
+      <article class="cap2-p19Question" data-q="2" data-question-state="pending">
+        <div class="cap2-p19QuestionHeader">
+          <span class="cap2-p19Kicker">Situação clínica 2</span>
+          <h2 class="cap2-p19QuestionTitle">Toxicidade seletiva e alvo ribossomal</h2>
+        </div>
 
-          <p>
-            Alguns antibacterianos apresentam maior atividade quando as bactérias estão em crescimento ativo, porque interferem em processos que ocorrem durante a multiplicação celular, como a síntese da parede celular, a replicação do DNA e a formação de ligações estruturais essenciais. Quando as bactérias se encontram em fase estacionária ou apresentam metabolismo reduzido, esses processos ocorrem com menor intensidade, o que pode diminuir a atividade de certos antibacterianos.
-          </p>
-        </template>
-      </div>
-
-      <!-- QUESTÃO 2 -->
-      <div class="cap2-p19Question" data-q="2">
         <p class="cap2-p19Case">
-          2) Durante uma aula sobre farmacologia antimicrobiana, um professor explica que diferentes classes de antibacterianos atuam sobre estruturas celulares específicas das bactérias.
+          Paciente de 24 anos procurou atendimento com febre, tosse seca, cefaleia e mal-estar há 5 dias, tendo sido diagnosticado com pneumonia atípica. O médico prescreveu claritromicina. Durante a discussão do caso, o preceptor relata ao interno de medicina que o antibacteriano prescrito interfere na síntese proteica e questiona se esse mesmo mecanismo poderia afetar essa função na paciente.
         </p>
 
         <p class="cap2-p19Prompt">
-          Por que essas estruturas representam alvos adequados para a ação dos antibacterianos?
+          Qual alternativa explica corretamente por que esse mecanismo pode atuar preferencialmente sobre a bactéria?
         </p>
 
-        <div class="cap2-p19Options" role="group" aria-label="Alternativas da questão 2">
+        <div class="cap2-p19Options" role="group" aria-label="Alternativas da situação clínica 2">
           <button type="button" data-answer="a">
             <span class="cap2-p19Letter">A</span>
-            <span>Porque são estruturas presentes apenas em bactérias e completamente ausentes nas células humanas.</span>
+            <span>O fármaco inibe a síntese da parede celular bacteriana, estrutura idêntica à encontrada nas células humanas, portanto, pode afetar a paciente.</span>
           </button>
 
           <button type="button" data-answer="b" data-correct="true">
             <span class="cap2-p19Letter">B</span>
-            <span>Porque apresentam diferenças estruturais ou metabólicas em relação às células humanas, permitindo toxicidade seletiva.</span>
+            <span>O fármaco atua sobre o ribossomo bacteriano 50S, enquanto as células humanas possuem ribossomos 80S, estruturalmente diferentes.</span>
           </button>
 
           <button type="button" data-answer="c">
             <span class="cap2-p19Letter">C</span>
-            <span>Porque estão localizadas exclusivamente na superfície da célula bacteriana.</span>
+            <span>O fármaco bloqueia a replicação do DNA humano com maior intensidade do que a do DNA bacteriano, causando efeitos indesejáveis para a paciente.</span>
           </button>
 
           <button type="button" data-answer="d">
             <span class="cap2-p19Letter">D</span>
-            <span>Porque são ativadas apenas durante infecções clínicas.</span>
+            <span>O fármaco destrói indiscriminadamente as membranas das células bacterianas e das células do hospedeiro.</span>
           </button>
         </div>
 
         <div class="cap2-p19Actions">
-          <button class="cap2-p19Btn cap2-p19Btn--primary" type="button" data-p19-action="confirm" disabled>Confirmar</button>
-          <button class="cap2-p19Btn cap2-p19Btn--ghost" type="button" data-p19-action="reset" hidden>Refazer</button>
+          <button class="cap2-p19Btn cap2-p19Btn--primary" type="button" data-p19-action="confirm" disabled>
+            Confirmar interpretação
+          </button>
+          <button class="cap2-p19Btn cap2-p19Btn--ghost" type="button" data-p19-action="reset" hidden>
+            Refazer
+          </button>
         </div>
 
         <div class="cap2-p19Feedback" role="region" aria-live="polite"></div>
@@ -158,47 +163,43 @@
 {
   "a": {
     "type": "error",
-    "title": "Conceito incompleto",
-    "text": "Nem todos os alvos são completamente ausentes nas células humanas. Em muitos casos, o que permite a ação terapêutica é a existência de diferenças estruturais ou funcionais suficientes entre bactérias e hospedeiro."
+    "title": "Conceito incorreto",
+    "text": "Macrolídeos não atuam sobre a parede celular, e a parede bacteriana não é idêntica a estruturas humanas. O ponto central do caso é a diferença entre o alvo ribossomal bacteriano e o humano."
   },
   "b": {
     "type": "correct",
-    "title": "Conceito adequado",
-    "text": "Os antibacterianos exploram diferenças estruturais e metabólicas entre bactérias e células humanas, princípio conhecido como toxicidade seletiva. Entre os principais alvos explorados encontram-se a parede celular bacteriana, ausente nas células humanas; os ribossomos bacterianos 70S, diferentes dos ribossomos humanos 80S; as enzimas da replicação do DNA bacteriano; e vias metabólicas específicas, como a síntese do folato. Essas diferenças permitem que os antibacterianos interfiram em processos essenciais da bactéria com impacto relativamente menor sobre as células do hospedeiro."
+    "title": "Interpretação adequada",
+    "text": "Nessa situação ocorre toxicidade seletiva. Os macrolídeos atuam preferencialmente sobre o ribossomo bacteriano 50S, enquanto as células humanas possuem ribossomos 80S, estruturalmente diferentes. Essa diferença permite inibição preferencial da síntese proteica bacteriana, com menor impacto sobre as células do hospedeiro."
   },
   "c": {
     "type": "error",
-    "title": "Raciocínio incorreto",
-    "text": "Os alvos dos antibacterianos não estão necessariamente apenas na superfície da bactéria. Muitos situam-se no interior celular, como ribossomos, topoisomerases, RNA polimerase e enzimas metabólicas."
+    "title": "Mecanismo inadequado",
+    "text": "O caso não descreve interferência predominante na replicação do DNA humano. A claritromicina é um macrolídeo, e seu mecanismo principal envolve a inibição da síntese proteica bacteriana por atuação no ribossomo."
   },
   "d": {
     "type": "error",
-    "title": "Afirmação incorreta",
-    "text": "Essas estruturas não são ativadas apenas durante infecções clínicas; elas fazem parte do funcionamento celular bacteriano normal e por isso podem ser exploradas terapeuticamente."
+    "title": "Raciocínio incompatível com a classe",
+    "text": "Macrolídeos não atuam por destruição indiscriminada de membranas. O mecanismo central dessa classe envolve ligação ao ribossomo bacteriano e interferência na tradução."
   }
 }
         </template>
+      </article>
 
-        <template class="cap2-p19Rationale">
-          <p><strong>Resposta correta:</strong></p>
-          <p>B) Porque apresentam diferenças estruturais ou metabólicas em relação às células humanas, permitindo toxicidade seletiva.</p>
-
-          <p>
-            Os antibacterianos exploram diferenças estruturais e metabólicas entre bactérias e células humanas, princípio conhecido como toxicidade seletiva. Entre os principais alvos explorados encontram-se a parede celular bacteriana, ausente nas células humanas; os ribossomos bacterianos 70S, diferentes dos ribossomos humanos 80S; as enzimas da replicação do DNA bacteriano; e vias metabólicas específicas, como a síntese do folato. Essas diferenças permitem que os antibacterianos interfiram em processos essenciais da bactéria com impacto relativamente menor sobre as células do hospedeiro.
-          </p>
-        </template>
-      </div>
-
-      <div class="cap2-p19Done" hidden>
-        <div class="cap2-p19DoneCard" role="status" aria-live="polite">
-          <span class="cap2-p19Badge cap2-p19Badge--done">Concluído</span>
-          <p class="cap2-p19DoneText">Você concluiu o quiz de revisão deste capítulo.</p>
-          <div class="cap2-p19Closing">
-            <p>
-              A compreensão dos alvos celulares bacterianos, dos mecanismos farmacológicos de interferência e dos padrões de resposta microbiológica permite interpretar com maior precisão por que diferentes classes apresentam comportamentos distintos frente às bactérias. Essa base conceitual é essencial para o uso racional dos antibacterianos.
-            </p>
-          </div>
+      <section class="cap2-p19Completion" data-p19-completion hidden aria-live="polite">
+        <div class="cap2-p19Completion__header">
+          <span class="cap2-p19Completion__kicker">Fechamento clínico</span>
+          <h2 class="cap2-p19Completion__title">Síntese dos mecanismos de ação dos antibacterianos</h2>
         </div>
+
+        <p class="cap2-p19Completion__text" data-p19-completion-text>
+          Ao final do capítulo, a interpretação do efeito de um antibacteriano exige relacionar alvo celular, fase de crescimento bacteriano e grau de seletividade em relação ao hospedeiro. Essa articulação é o que permite compreender por que classes distintas apresentam comportamentos microbiológicos e perfis terapêuticos diferentes.
+        </p>
+      </section>
+
+      <div class="cap2-p19ClosingBlock">
+        <p>
+          Ao final do capítulo, a compreensão dos alvos celulares bacterianos, dos mecanismos farmacológicos de interferência e dos padrões de resposta microbiológica permite interpretar com maior precisão por que diferentes classes apresentam comportamentos distintos frente às bactérias. Essa base conceitual é essencial para o uso racional dos antibacterianos.
+        </p>
       </div>
     </section>
 
@@ -212,7 +213,7 @@
       </div>
     </details>
 
- <nav class="pager" aria-label="Paginação">
+    <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p18.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 2 · Página 19 de 89</div>
       <button class="btn primary" type="button" data-next="../capitulo-03/p20.html" aria-label="Ir para a próxima página">Próxima →</button>

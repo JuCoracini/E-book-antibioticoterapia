@@ -14,9 +14,9 @@
   <link rel="stylesheet" href="../../css/capitulo-02.css" />
 </head>
 
-<body class="cap2-page16">
+<body class="cap2-shell cap2-page16">
 
-  <main class="page-shell cap2-shell">
+  <main class="page-shell">
 
     <header class="page-header">
       <div class="chapter">Capítulo 2 — Mecanismos de Ação dos Antibacterianos</div>
@@ -44,21 +44,70 @@
       </p>
 
       <div class="cap2-p16-tabs" role="tablist" aria-label="Síntese de ácidos nucleicos">
-        <button class="cap2-p16-tab is-active" type="button" aria-selected="true" data-nucleic-tab="processo">Processo</button>
-        <button class="cap2-p16-tab" type="button" aria-selected="false" data-nucleic-tab="fluoroquinolonas">Fluoroquinolonas</button>
-        <button class="cap2-p16-tab" type="button" aria-selected="false" data-nucleic-tab="rifamicinas">Rifamicinas</button>
-        <button class="cap2-p16-tab" type="button" aria-selected="false" data-nucleic-tab="nitroimidazois">Nitroimidazóis</button>
+        <button
+          class="cap2-p16-tab is-active"
+          type="button"
+          role="tab"
+          id="cap2P16TabProcesso"
+          aria-selected="true"
+          aria-controls="cap2P16Panel"
+          tabindex="0"
+          data-nucleic-tab="processo"
+        >
+          Processo
+        </button>
+
+        <button
+          class="cap2-p16-tab"
+          type="button"
+          role="tab"
+          id="cap2P16TabFluoroquinolonas"
+          aria-selected="false"
+          aria-controls="cap2P16Panel"
+          tabindex="-1"
+          data-nucleic-tab="fluoroquinolonas"
+        >
+          Fluoroquinolonas
+        </button>
+
+        <button
+          class="cap2-p16-tab"
+          type="button"
+          role="tab"
+          id="cap2P16TabRifamicinas"
+          aria-selected="false"
+          aria-controls="cap2P16Panel"
+          tabindex="-1"
+          data-nucleic-tab="rifamicinas"
+        >
+          Rifamicinas
+        </button>
+
+        <button
+          class="cap2-p16-tab"
+          type="button"
+          role="tab"
+          id="cap2P16TabNitroimidazois"
+          aria-selected="false"
+          aria-controls="cap2P16Panel"
+          tabindex="-1"
+          data-nucleic-tab="nitroimidazois"
+        >
+          Nitroimidazóis
+        </button>
       </div>
 
-      <div class="cap2-p16-board">
-
+      <div
+        id="cap2P16Panel"
+        class="cap2-p16-board"
+        role="tabpanel"
+        aria-labelledby="cap2P16TabProcesso"
+      >
         <figure class="cap2-p16-figure">
           <button
-            class="cap2-zoomTrigger"
+            class="cap2-p16-zoom"
             type="button"
-            data-zoom-image="../../assets/capitulo-02/imagens/acidos-nucleicos-processo.png"
-            data-zoom-alt="Etapas gerais da replicação e transcrição do DNA bacteriano"
-            data-zoom-caption="Etapas gerais da replicação e transcrição do DNA bacteriano. Clique para ampliar."
+            data-zoom="../../assets/capitulo-02/imagens/acidos-nucleicos-processo.png"
             aria-label="Ampliar imagem da síntese de ácidos nucleicos"
           >
             <img
@@ -68,6 +117,7 @@
               loading="lazy"
             />
           </button>
+
           <figcaption id="cap2P16Caption" class="caption">
             Etapas gerais da replicação e transcrição do DNA bacteriano. Clique para ampliar.
           </figcaption>
@@ -77,7 +127,6 @@
           <h2 id="cap2P16Title" class="cap2-p16-panel__title">Processo geral</h2>
           <div id="cap2P16Text" class="cap2-p16-panel__text"></div>
         </div>
-
       </div>
     </section>
 
@@ -87,26 +136,13 @@
       </p>
     </section>
 
-   <nav class="pager" aria-label="Paginação">
+    <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p15.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 2 · Página 16 de 89</div>
       <button class="btn primary" type="button" data-next="p17.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
 
   </main>
-
-  <div class="cap2-lightbox" id="cap2Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap2-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap2-lightbox__dialog">
-      <button class="cap2-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap2-lightbox__figure">
-        <img id="cap2LightboxImage" src="" alt="" />
-        <figcaption id="cap2LightboxCaption" class="cap2-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-02.js"></script>

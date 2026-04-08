@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Capítulo 1 — Página 1</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -13,7 +13,6 @@
 </head>
 
 <body class="cap1-page1">
-
   <main class="page-shell cap1-shell">
 
     <header class="page-header">
@@ -22,7 +21,6 @@
     </header>
 
     <section class="prose">
-
       <p>O desenvolvimento e a ampla utilização de antimicrobianos, especialmente os antibacterianos, ao longo do século XX transformaram profundamente o tratamento das doenças infecciosas. Antes de sua disponibilidade, infecções como pneumonias bacterianas, sepse e complicações infecciosas pós-operatórias estavam associadas a elevada mortalidade, mesmo em hospitais estruturados. Na ausência de terapias direcionadas ao microrganismo causador, as intervenções limitavam-se ao suporte clínico e ao manejo das complicações, sem possibilidade de interferência direta sobre o agente infeccioso <sup>1</sup>.</p>
 
       <p>A introdução de fármacos capazes de atuar seletivamente sobre estruturas bacterianas modificou esse cenário. Ao comprometer a viabilidade bacteriana, esses fármacos ampliaram de maneira significativa as possibilidades terapêuticas e preventivas. Tornou-se possível o tratamento efetivo de infecções potencialmente fatais, a realização mais segura de procedimentos cirúrgicos complexos e o desenvolvimento de intervenções médicas que dependem de controle rigoroso de infecções, como transplantes de órgãos, terapias imunossupressoras e cuidados intensivos modernos <sup>2</sup>.</p>
@@ -65,6 +63,7 @@
             aria-controls="amrPanel"
             id="amrTabSubdose"
             data-amr-scenario="subdose"
+            tabindex="-1"
           >
             Exposição subterapêutica
           </button>
@@ -77,6 +76,7 @@
             aria-controls="amrPanel"
             id="amrTabInterrupcao"
             data-amr-scenario="interrupcao"
+            tabindex="-1"
           >
             Suspensão precoce
           </button>
@@ -136,11 +136,10 @@
       <p>Atualmente compreende-se que a resistência bacteriana constitui uma consequência evolutiva previsível da exposição aos antibacterianos. Esse fenômeno pode resultar de mutações espontâneas ou da aquisição de genes de resistência por transferência horizontal, frequentemente mediada por plasmídeos, transposons ou outros elementos genéticos móveis <sup>3</sup>.</p>
 
       <p>Nas últimas décadas, a resistência antimicrobiana consolidou-se como um problema estrutural de saúde pública global. Estimativas indicam que, em 2019, aproximadamente 4,95 milhões de mortes estiveram associadas à resistência bacteriana. Esses dados evidenciam o impacto desse fenômeno não apenas nos desfechos clínicos individuais, mas também na organização dos sistemas de saúde e na eficácia das estratégias terapêuticas disponíveis globalmente <sup>1</sup>.</p>
-
     </section>
 
-    <nav class="pager">
-      <button class="btn" data-prev="../sumário/p00.html">← Anterior</button>
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" data-prev="../sumario/p00.html">← Anterior</button>
       <div class="center">Capítulo 1 · Página 1 de 89</div>
       <button class="btn primary" data-next="p02.html">Próxima →</button>
     </nav>
@@ -149,6 +148,5 @@
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-01.js"></script>
-
 </body>
 </html>

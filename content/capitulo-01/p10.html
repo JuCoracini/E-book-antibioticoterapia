@@ -34,8 +34,12 @@
     </section>
 
     <section class="cap1-p10Quiz" data-cap1-p10 aria-label="Síntese clínica do capítulo">
+      <div class="cap1-p10Status" aria-live="polite" data-p10-status>
+        <span class="cap1-p10Status__label">Leitura aplicada do capítulo</span>
+        <span class="cap1-p10Status__value">0 de 2 situações confirmadas</span>
+      </div>
 
-      <article class="cap1-p10Question" data-q="1">
+      <article class="cap1-p10Question" data-q="1" data-question-state="pending">
         <div class="cap1-p10QuestionHeader">
           <span class="cap1-p10Kicker">Situação clínica 1</span>
           <h2 class="cap1-p10QuestionTitle">Interpretação de achado microbiológico</h2>
@@ -72,8 +76,12 @@
         </div>
 
         <div class="cap1-p10Actions">
-          <button class="cap1-p10Btn cap1-p10Btn--primary" type="button" data-p10-action="confirm" disabled>Confirmar interpretação</button>
-          <button class="cap1-p10Btn cap1-p10Btn--ghost" type="button" data-p10-action="reset" hidden>Refazer</button>
+          <button class="cap1-p10Btn cap1-p10Btn--primary" type="button" data-p10-action="confirm" disabled>
+            Confirmar interpretação
+          </button>
+          <button class="cap1-p10Btn cap1-p10Btn--ghost" type="button" data-p10-action="reset" hidden>
+            Refazer
+          </button>
         </div>
 
         <div class="cap1-p10Feedback" role="region" aria-live="polite"></div>
@@ -104,7 +112,7 @@
         </template>
       </article>
 
-      <article class="cap1-p10Question" data-q="2">
+      <article class="cap1-p10Question" data-q="2" data-question-state="pending">
         <div class="cap1-p10QuestionHeader">
           <span class="cap1-p10Kicker">Situação clínica 2</span>
           <h2 class="cap1-p10QuestionTitle">Classificação da estratégia terapêutica</h2>
@@ -141,8 +149,12 @@
         </div>
 
         <div class="cap1-p10Actions">
-          <button class="cap1-p10Btn cap1-p10Btn--primary" type="button" data-p10-action="confirm" disabled>Confirmar interpretação</button>
-          <button class="cap1-p10Btn cap1-p10Btn--ghost" type="button" data-p10-action="reset" hidden>Refazer</button>
+          <button class="cap1-p10Btn cap1-p10Btn--primary" type="button" data-p10-action="confirm" disabled>
+            Confirmar interpretação
+          </button>
+          <button class="cap1-p10Btn cap1-p10Btn--ghost" type="button" data-p10-action="reset" hidden>
+            Refazer
+          </button>
         </div>
 
         <div class="cap1-p10Feedback" role="region" aria-live="polite"></div>
@@ -172,6 +184,17 @@
 }
         </template>
       </article>
+
+      <section class="cap1-p10Completion" data-p10-completion hidden aria-live="polite">
+        <div class="cap1-p10Completion__header">
+          <span class="cap1-p10Completion__kicker">Fechamento clínico</span>
+          <h2 class="cap1-p10Completion__title">Síntese da tomada de decisão em antibioticoterapia</h2>
+        </div>
+
+        <p class="cap1-p10Completion__text" data-p10-completion-text>
+          Ao final do capítulo, a decisão de usar um antibacteriano já não pode ser entendida como simples resposta a uma cultura positiva ou a um diagnóstico inespecífico. Ela depende de reconhecer quando há infecção ativa, distinguir tratamento de profilaxia e definir se a conduta inicial deve ser empírica ou posteriormente dirigida.
+        </p>
+      </section>
 
       <div class="cap1-p10ClosingBlock">
         <p>
@@ -211,9 +234,9 @@
       </div>
     </details>
 
- <nav class="pager" aria-label="Paginação">
+    <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p09.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 2 · Página 10 de 89</div>
+      <div class="center">Capítulo 1 · Página 10 de 89</div>
       <button class="btn primary" type="button" data-next="../capitulo-02/p11.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
 

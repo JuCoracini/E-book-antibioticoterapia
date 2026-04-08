@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Capítulo 2 — Página 11</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -13,16 +13,13 @@
 </head>
 
 <body class="cap2-shell cap2-page11">
-
   <main class="page-shell">
-
     <header class="page-header">
       <div class="chapter">Capítulo 2 — Mecanismos de Ação dos Antibacterianos</div>
       <h1 class="page-title">Alvos celulares dos antibacterianos</h1>
     </header>
 
     <section class="prose">
-
       <p>
         A atividade dos antibacterianos decorre da interferência seletiva em estruturas e processos indispensáveis à sobrevivência e à multiplicação bacteriana <sup>1,2</sup>. Cada classe farmacológica interage com um alvo molecular específico, e essa interação determina diferenças no espectro de ação, no perfil de segurança, no comportamento microbiológico e no potencial de desenvolvimento de resistência.
       </p>
@@ -31,17 +28,22 @@
         A possibilidade de intervenção terapêutica resulta das diferenças estruturais e funcionais entre células bacterianas e células humanas, permitindo que determinados componentes bacterianos sejam atingidos preferencialmente, com preservação relativa das estruturas análogas do hospedeiro <sup>3</sup>.
       </p>
 
-      <figure class="cap2-p11-figure">
-       <button class="cap2-zoomTrigger"
-  type="button"
-  data-zoom-image="../../assets/capitulo-02/imagens/alvos-celulares-bacteria.png"
-  data-zoom-alt="Principais alvos celulares explorados pelos antibacterianos"
-  data-zoom-caption="Principais alvos celulares explorados pelos antibacterianos.">
-          <img src="../../assets/capitulo-02/imagens/alvos-celulares-bacteria.png" />
+      <figure class="cap2-p11-figure figure">
+        <button
+          class="cap2-p11-zoom"
+          type="button"
+          data-zoom="../../assets/capitulo-02/imagens/alvos-celulares-bacteria.png"
+          aria-label="Ampliar imagem dos principais alvos celulares dos antibacterianos"
+        >
+          <img
+            src="../../assets/capitulo-02/imagens/alvos-celulares-bacteria.png"
+            alt="Representação esquemática dos principais alvos celulares dos antibacterianos na bactéria, incluindo parede celular, ribossomos 70S, ácidos nucleicos, síntese do folato e membrana citoplasmática"
+          />
         </button>
-        <figcaption class="cap1-caption cap2-p11-caption">
-  Representação esquemática dos principais alvos celulares dos antibacterianos na bactéria, incluindo parede celular, ribossomos 70S, ácidos nucleicos, síntese do folato e membrana citoplasmática. Clique na imagem para ampliar.
-</figcaption>
+
+        <figcaption class="caption cap2-p11-caption">
+          Representação esquemática dos principais alvos celulares dos antibacterianos na bactéria, incluindo parede celular, ribossomos 70S, ácidos nucleicos, síntese do folato e membrana citoplasmática. Clique na imagem para ampliar.
+        </figcaption>
       </figure>
 
       <p>
@@ -52,22 +54,95 @@
         Esses sistemas participam de funções essenciais da célula bacteriana, incluindo manutenção da estabilidade estrutural, produção de proteínas, replicação do material genético e metabolismo energético.
       </p>
 
-      <div class="cap2-targets">
-<p class="cap2-targets-intro">
-  Selecione um alvo para visualizar qual função bacteriana é comprometida quando esse sistema é inibido:
-</p>
+      <section class="cap2-targets" aria-labelledby="cap2TargetsTitle" data-cap2-targets>
+        <h2 id="cap2TargetsTitle" class="cap2-targets-title">
+          A relevância clínica de cada alvo depende do tipo de função bacteriana comprometida quando esse sistema é inibido.
+        </h2>
 
-        <div class="cap2-targets-buttons">
-          <button class="btn is-active" data-target="parede">Parede celular</button>
-<button class="btn" data-target="ribossomo">Ribossomo</button>
-<button class="btn" data-target="dna">DNA/RNA</button>
-<button class="btn" data-target="folato">Folato</button>
-<button class="btn" data-target="membrana">Membrana</button>
+        <p class="cap2-targets-intro">
+          Selecione um alvo para observar como a inibição se traduz em perda funcional da célula bacteriana e qual padrão de resposta tende a ser esperado.
+        </p>
+
+        <div
+          class="cap2-targets-buttons"
+          role="tablist"
+          aria-label="Alvos celulares dos antibacterianos"
+        >
+          <button
+            class="btn is-active"
+            type="button"
+            role="tab"
+            id="cap2TargetTabParede"
+            aria-selected="true"
+            aria-controls="cap2TargetPanel"
+            data-target="parede"
+          >
+            Parede celular
+          </button>
+
+          <button
+            class="btn"
+            type="button"
+            role="tab"
+            id="cap2TargetTabRibossomo"
+            aria-selected="false"
+            aria-controls="cap2TargetPanel"
+            tabindex="-1"
+            data-target="ribossomo"
+          >
+            Ribossomo
+          </button>
+
+          <button
+            class="btn"
+            type="button"
+            role="tab"
+            id="cap2TargetTabDNA"
+            aria-selected="false"
+            aria-controls="cap2TargetPanel"
+            tabindex="-1"
+            data-target="dna"
+          >
+            DNA/RNA
+          </button>
+
+          <button
+            class="btn"
+            type="button"
+            role="tab"
+            id="cap2TargetTabFolato"
+            aria-selected="false"
+            aria-controls="cap2TargetPanel"
+            tabindex="-1"
+            data-target="folato"
+          >
+            Folato
+          </button>
+
+          <button
+            class="btn"
+            type="button"
+            role="tab"
+            id="cap2TargetTabMembrana"
+            aria-selected="false"
+            aria-controls="cap2TargetPanel"
+            tabindex="-1"
+            data-target="membrana"
+          >
+            Membrana
+          </button>
         </div>
 
-       <p id="targetFeedback" class="cap2-targets-feedback"></p>
-
-      </div>
+        <div
+          id="cap2TargetPanel"
+          class="cap2-targets-panel"
+          role="tabpanel"
+          aria-labelledby="cap2TargetTabParede"
+        >
+          <p id="cap2TargetPanelTitle" class="cap2-targets-panel__title"></p>
+          <div id="cap2TargetPanelBody" class="cap2-targets-panel__body"></div>
+        </div>
+      </section>
 
       <p>
         Com base nesses alvos celulares, os mecanismos de ação dos antibacterianos podem ser organizados em cinco categorias principais:
@@ -86,34 +161,18 @@
       </p>
 
       <p>
-  A natureza do alvo influencia o padrão de resposta microbiológica observado após a exposição ao antibacteriano.
-</p>
-
+        A natureza do alvo influencia o padrão de resposta microbiológica observado após a exposição ao antibacteriano.
+      </p>
     </section>
 
-      <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p10.html" aria-label="Ir para a página anterior">← Anterior</button>
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="../capitulo-01/p10.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 2 · Página 11 de 89</div>
       <button class="btn primary" type="button" data-next="p12.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
-
   </main>
-
-  <div class="cap2-lightbox" id="cap2Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-  <div class="cap2-lightbox__backdrop" data-lightbox-close></div>
-
-  <div class="cap2-lightbox__dialog">
-    <button class="cap2-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-    <figure class="cap2-lightbox__figure">
-      <img id="cap2LightboxImage" src="" alt="" />
-      <figcaption id="cap2LightboxCaption" class="cap2-lightbox__caption"></figcaption>
-    </figure>
-  </div>
-</div>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-02.js"></script>
-
 </body>
 </html>

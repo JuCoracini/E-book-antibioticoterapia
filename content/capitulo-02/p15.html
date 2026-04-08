@@ -11,11 +11,10 @@
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
-  <link rel="stylesheet" href="../../css/capitulo-01.css" />
   <link rel="stylesheet" href="../../css/capitulo-02.css" />
 </head>
 
-<body class="cap1-shell cap2-page15">
+<body class="cap2-shell cap2-page15">
 
   <main class="page-shell">
 
@@ -53,20 +52,58 @@
       </p>
 
       <div class="cap2-p15-tabs" role="tablist" aria-label="Síntese proteica bacteriana">
-        <button class="cap2-p15-tab is-active" type="button" aria-selected="true" data-protein-group="processo">Processo</button>
-        <button class="cap2-p15-tab" type="button" aria-selected="false" data-protein-group="30s">30S</button>
-        <button class="cap2-p15-tab" type="button" aria-selected="false" data-protein-group="50s">50S</button>
+        <button
+          class="cap2-p15-tab is-active"
+          type="button"
+          role="tab"
+          id="cap2P15TabProcesso"
+          aria-selected="true"
+          aria-controls="cap2P15Panel"
+          tabindex="0"
+          data-protein-group="processo"
+        >
+          Processo
+        </button>
+
+        <button
+          class="cap2-p15-tab"
+          type="button"
+          role="tab"
+          id="cap2P15Tab30S"
+          aria-selected="false"
+          aria-controls="cap2P15Panel"
+          tabindex="-1"
+          data-protein-group="30s"
+        >
+          30S
+        </button>
+
+        <button
+          class="cap2-p15-tab"
+          type="button"
+          role="tab"
+          id="cap2P15Tab50S"
+          aria-selected="false"
+          aria-controls="cap2P15Panel"
+          tabindex="-1"
+          data-protein-group="50s"
+        >
+          50S
+        </button>
       </div>
 
-      <div class="cap2-p15-board">
+      <div
+        id="cap2P15Panel"
+        class="cap2-p15-board"
+        role="tabpanel"
+        aria-labelledby="cap2P15TabProcesso"
+      >
 
         <figure class="cap2-p15-figure">
           <button
-            class="cap2-zoomTrigger"
+            class="cap2-p15-zoom"
             type="button"
-            data-zoom-image="../../assets/capitulo-02/imagens/ribossomo-iniciacao.png"
-            data-zoom-alt="Etapa de iniciação da síntese proteica bacteriana"
-            data-zoom-caption="Etapa de iniciação da síntese proteica bacteriana. Clique para ampliar."
+            data-zoom="../../assets/capitulo-02/imagens/ribossomo-iniciacao.png"
             aria-label="Ampliar imagem da síntese proteica bacteriana"
           >
             <img
@@ -76,15 +113,16 @@
               loading="lazy"
             />
           </button>
+
           <figcaption id="cap2P15Caption" class="caption">
             Etapa de iniciação da síntese proteica bacteriana. Clique para ampliar.
           </figcaption>
         </figure>
 
         <div class="cap2-p15-controls">
-          <button class="btn" type="button" id="cap2P15Prev">← Etapa anterior</button>
+          <button class="btn ghost" type="button" id="cap2P15Prev" aria-label="Voltar uma etapa">← Etapa</button>
           <div id="cap2P15Step" class="cap2-p15-step" aria-live="polite"></div>
-          <button class="btn primary" type="button" id="cap2P15Next">Próxima etapa →</button>
+          <button class="btn primary" type="button" id="cap2P15Next" aria-label="Avançar uma etapa">Etapa →</button>
         </div>
 
         <div class="cap2-p15-panel" aria-live="polite">
@@ -101,7 +139,7 @@
       </p>
     </section>
 
-   <nav class="pager" aria-label="Paginação">
+    <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p14.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 2 · Página 15 de 89</div>
       <button class="btn primary" type="button" data-next="p16.html" aria-label="Ir para a próxima página">Próxima →</button>
@@ -109,21 +147,7 @@
 
   </main>
 
-  <div class="cap2-lightbox" id="cap2Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap2-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap2-lightbox__dialog">
-      <button class="cap2-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap2-lightbox__figure">
-        <img id="cap2LightboxImage" src="" alt="" />
-        <figcaption id="cap2LightboxCaption" class="cap2-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
-
   <script src="../../js/app.js"></script>
-  <script src="../../js/capitulo-01.js"></script>
   <script src="../../js/capitulo-02.js"></script>
 </body>
 </html>

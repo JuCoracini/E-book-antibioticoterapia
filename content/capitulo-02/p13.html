@@ -11,12 +11,10 @@
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
-  <link rel="stylesheet" href="../../css/capitulo-01.css" />
   <link rel="stylesheet" href="../../css/capitulo-02.css" />
 </head>
 
 <body class="cap2-shell cap2-page13">
-
   <main class="page-shell">
 
     <header class="page-header">
@@ -30,7 +28,7 @@
       </p>
 
       <p>
-        A síntese do peptidoglicano depende de etapas coordenadas e de enzimas específicas, como as transpeptidase, que são as proteínas ligadoras de penicilina (PBPs), responsáveis pelas etapas finais de ligação cruzada da parede celular <sup>2</sup>.
+        A síntese do peptidoglicano depende de etapas coordenadas e de enzimas específicas, como as transpeptidases, também chamadas proteínas ligadoras de penicilina (PBPs), responsáveis pelas etapas finais de ligação cruzada da parede celular <sup>2</sup>.
       </p>
 
       <p>
@@ -39,32 +37,63 @@
     </section>
 
     <section class="cap2-p13-stage" data-cap2-wall aria-label="Síntese do peptidoglicano e interferência farmacológica">
-
       <p class="cap2-p13-intro">
         Selecione uma das abas para visualizar o processo normal de síntese da parede celular ou a forma como diferentes antibacterianos interferem nesse mecanismo.
       </p>
 
-      <div class="cap2-p13-tabs" role="tablist">
-        <button class="cap2-p13-tab is-active" type="button" aria-selected="true" data-wall-tab="sintese">
+      <div class="cap2-p13-tabs" role="tablist" aria-label="Mecanismos relacionados à parede celular">
+        <button
+          class="cap2-p13-tab is-active"
+          type="button"
+          role="tab"
+          id="cap2P13TabSintese"
+          aria-selected="true"
+          aria-controls="cap2P13Panel"
+          tabindex="0"
+          data-wall-tab="sintese"
+        >
           Síntese do peptidoglicano
         </button>
-        <button class="cap2-p13-tab" type="button" aria-selected="false" data-wall-tab="beta">
+
+        <button
+          class="cap2-p13-tab"
+          type="button"
+          role="tab"
+          id="cap2P13TabBeta"
+          aria-selected="false"
+          aria-controls="cap2P13Panel"
+          tabindex="-1"
+          data-wall-tab="beta"
+        >
           β-lactâmicos
         </button>
-        <button class="cap2-p13-tab" type="button" aria-selected="false" data-wall-tab="glico">
+
+        <button
+          class="cap2-p13-tab"
+          type="button"
+          role="tab"
+          id="cap2P13TabGlico"
+          aria-selected="false"
+          aria-controls="cap2P13Panel"
+          tabindex="-1"
+          data-wall-tab="glico"
+        >
           Glicopeptídeos
         </button>
       </div>
 
-      <div class="cap2-p13-board">
-
+      <div
+        id="cap2P13Panel"
+        class="cap2-p13-board"
+        role="tabpanel"
+        aria-labelledby="cap2P13TabSintese"
+      >
         <figure class="cap2-p13-figure">
           <button
-            class="cap2-zoomTrigger"
+            class="cap2-p13-zoom"
             type="button"
-            data-zoom-image="../../assets/capitulo-02/imagens/sintese-peptidoglicano.png"
-            data-zoom-alt="Etapas da síntese do peptidoglicano na parede celular bacteriana"
-            data-zoom-caption="Etapas da síntese do peptidoglicano na parede celular bacteriana. Clique para ampliar."
+            data-zoom="../../assets/capitulo-02/imagens/sintese-peptidoglicano.png"
+            aria-label="Ampliar imagem da síntese do peptidoglicano"
           >
             <img
               id="cap2P13Image"
@@ -86,17 +115,12 @@
 
           <div id="cap2P13Body" class="cap2-p13-panel__body">
             <p>1) Formação dos precursores no citoplasma: unidades de NAG e NAM são sintetizadas e associadas a pequenas cadeias peptídicas, formando precursores solúveis.</p>
-
             <p>2) Transporte através da membrana citoplasmática: os precursores são transportados para a face externa da membrana por meio de um carreador lipídico denominado bactoprenol.</p>
-
             <p>3) Incorporação à parede existente: as novas subunidades são adicionadas à rede de peptidoglicano por reações de transglicosilação, ampliando a estrutura da parede celular.</p>
-
             <p>4) Formação das ligações cruzadas: as PBPs catalisam a reação de transpeptidação, formando pontes entre cadeias peptídicas adjacentes, conferindo resistência mecânica à parede celular.</p>
-
             <p><strong>Implicação clínica:</strong> antibacterianos que atuam nessa etapa tendem a ser mais eficazes em bactérias em crescimento ativo.</p>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -106,7 +130,7 @@
       </p>
     </section>
 
-     <nav class="pager" aria-label="Paginação">
+    <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p12.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 2 · Página 13 de 89</div>
       <button class="btn primary" type="button" data-next="p14.html" aria-label="Ir para a próxima página">Próxima →</button>
@@ -114,23 +138,7 @@
 
   </main>
 
-  <!-- LIGHTBOX CAPÍTULO 2 -->
-
-  <div class="cap2-lightbox" id="cap2Lightbox" hidden aria-hidden="true">
-    <div class="cap2-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap2-lightbox__dialog">
-      <button class="cap2-lightbox__close" type="button" data-lightbox-close>✕</button>
-
-      <figure class="cap2-lightbox__figure">
-        <img id="cap2LightboxImage" src="" alt="" />
-        <figcaption id="cap2LightboxCaption" class="cap2-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
-
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-02.js"></script>
-
 </body>
 </html>

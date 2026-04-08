@@ -14,9 +14,9 @@
   <link rel="stylesheet" href="../../css/capitulo-02.css" />
 </head>
 
-<body class="cap2-page18">
+<body class="cap2-shell cap2-page18">
 
-  <main class="page-shell cap2-shell">
+  <main class="page-shell">
 
     <header class="page-header">
       <div class="chapter">Capítulo 2 — Mecanismos de Ação dos Antibacterianos</div>
@@ -36,75 +36,75 @@
     <section class="cap2-p18-stage" data-cap2-response aria-label="Comparação entre resposta bacteriostática e bactericida">
 
       <p class="cap2-p18-intro">
-        Selecione cada painel para comparar visualmente os padrões de resposta populacional após a exposição ao antibacteriano.
+        Selecione um padrão de resposta para observar a representação visual correspondente e sua interpretação microbiológica.
       </p>
 
-      <div class="cap2-p18-compare">
+      <div class="cap2-p18-tabs" role="tablist" aria-label="Comparação entre bacteriostático e bactericida">
+        <button
+          class="cap2-p18-tab is-active"
+          type="button"
+          role="tab"
+          id="cap2P18TabBacteriostatico"
+          aria-selected="true"
+          aria-controls="cap2P18Panel"
+          tabindex="0"
+          data-response-tab="bacteriostatico"
+        >
+          Bacteriostático
+        </button>
 
-        <article class="cap2-p18-card is-active" data-response-card="bacteriostatico" tabindex="0" role="button" aria-pressed="true" aria-label="Ver explicação de bacteriostático">
-          <div class="cap2-p18-card__media">
-            <button
-              class="cap2-zoomTrigger"
-              type="button"
-              data-zoom-image="../../assets/capitulo-02/imagens/bacteriostatico-resposta-populacional.png"
-              data-zoom-alt="Representação visual de resposta bacteriostática"
-              data-zoom-caption="Representação visual de resposta bacteriostática. Clique para ampliar."
-              aria-label="Ampliar imagem de bacteriostático"
-            >
-              <img
-                src="../../assets/capitulo-02/imagens/bacteriostatico-resposta-populacional.png"
-                alt="Representação visual de resposta bacteriostática"
-                loading="lazy"
-              />
-            </button>
+        <button
+          class="cap2-p18-tab"
+          type="button"
+          role="tab"
+          id="cap2P18TabBactericida"
+          aria-selected="false"
+          aria-controls="cap2P18Panel"
+          tabindex="-1"
+          data-response-tab="bactericida"
+        >
+          Bactericida
+        </button>
+      </div>
 
-            <div class="cap2-p18-overlay is-visible" data-response-overlay="bacteriostatico">
-              <div class="cap2-p18-overlay__inner">
-                <h2>Bacteriostático</h2>
-                <p>A multiplicação bacteriana é interrompida ou significativamente reduzida, resultando em estabilização do número de bactérias viáveis.</p>
-                <p>Muitos fármacos que interferem na síntese proteica ou em vias metabólicas bacterianas tendem a apresentar esse padrão microbiológico.</p>
-              </div>
-            </div>
-          </div>
-        </article>
+      <div
+        id="cap2P18Panel"
+        class="cap2-p18-board"
+        role="tabpanel"
+        aria-labelledby="cap2P18TabBacteriostatico"
+      >
+        <figure class="cap2-p18-figure">
+          <button
+            class="cap2-p18-zoom"
+            type="button"
+            data-zoom="../../assets/capitulo-02/imagens/bacteriostatico-resposta-populacional.png"
+            aria-label="Ampliar imagem de resposta bacteriostática"
+          >
+            <img
+              id="cap2P18Image"
+              src="../../assets/capitulo-02/imagens/bacteriostatico-resposta-populacional.png"
+              alt="Representação visual de resposta bacteriostática"
+              loading="lazy"
+            />
+          </button>
 
-        <article class="cap2-p18-card" data-response-card="bactericida" tabindex="0" role="button" aria-pressed="false" aria-label="Ver explicação de bactericida">
-          <div class="cap2-p18-card__media">
-            <button
-              class="cap2-zoomTrigger"
-              type="button"
-              data-zoom-image="../../assets/capitulo-02/imagens/bactericida-resposta-populacional.png"
-              data-zoom-alt="Representação visual de resposta bactericida"
-              data-zoom-caption="Representação visual de resposta bactericida. Clique para ampliar."
-              aria-label="Ampliar imagem de bactericida"
-            >
-              <img
-                src="../../assets/capitulo-02/imagens/bactericida-resposta-populacional.png"
-                alt="Representação visual de resposta bactericida"
-                loading="lazy"
-              />
-            </button>
+          <figcaption id="cap2P18Caption" class="caption">
+            Representação visual de resposta bacteriostática. Clique para ampliar.
+          </figcaption>
+        </figure>
 
-            <div class="cap2-p18-overlay" data-response-overlay="bactericida">
-              <div class="cap2-p18-overlay__inner">
-                <h2>Bactericida</h2>
-                <p>Observa-se redução progressiva da população bacteriana ao longo do tempo, frequentemente associada a dano celular relevante e perda de viabilidade.</p>
-                <p>De modo geral, antibacterianos que interferem diretamente em estruturas essenciais, como os que atuam na parede celular ou promovem dano relevante ao DNA, frequentemente apresentam esse padrão.</p>
-              </div>
-            </div>
-          </div>
-        </article>
-
+        <div class="cap2-p18-panel" aria-live="polite">
+          <h2 id="cap2P18Title" class="cap2-p18-panel__title">Bacteriostático</h2>
+          <div id="cap2P18Text" class="cap2-p18-panel__text"></div>
+        </div>
       </div>
 
       <figure class="cap2-p18-graph">
         <button
-          class="cap2-zoomTrigger"
+          class="cap2-p18-zoom"
           type="button"
-          data-zoom-image="../../assets/capitulo-02/imagens/grafico-bactericida-bacteriostatico.png"
-          data-zoom-alt="Gráfico comparando crescimento sem intervenção, resposta bacteriostática e resposta bactericida"
-          data-zoom-caption="Gráfico comparando crescimento sem intervenção, resposta bacteriostática e resposta bactericida. Clique para ampliar."
-          aria-label="Ampliar gráfico comparativo"
+          data-zoom="../../assets/capitulo-02/imagens/grafico-bactericida-bacteriostatico.png"
+          aria-label="Ampliar gráfico comparativo entre bactericida e bacteriostático"
         >
           <img
             src="../../assets/capitulo-02/imagens/grafico-bactericida-bacteriostatico.png"
@@ -112,6 +112,7 @@
             loading="lazy"
           />
         </button>
+
         <figcaption class="caption">
           Comparação entre crescimento sem intervenção, estabilização bacteriostática e queda progressiva bactericida. Clique para ampliar.
         </figcaption>
@@ -137,26 +138,13 @@
       </p>
     </section>
 
-   <nav class="pager" aria-label="Paginação">
+    <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p17.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 2 · Página 18 de 89</div>
       <button class="btn primary" type="button" data-next="p19.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
 
   </main>
-
-  <div class="cap2-lightbox" id="cap2Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap2-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap2-lightbox__dialog">
-      <button class="cap2-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap2-lightbox__figure">
-        <img id="cap2LightboxImage" src="" alt="" />
-        <figcaption id="cap2LightboxCaption" class="cap2-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-02.js"></script>

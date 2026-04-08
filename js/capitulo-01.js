@@ -1,67 +1,10 @@
-/* =====================================================
-   CAPÍTULO 01 — JS LIMPO
-   Páginas estabilizadas: 1 e 2
-   ===================================================== */
-
-/* =========================
-   LIGHTBOX ÚNICO
-   ========================= */
-
-(function initCap1Lightbox(){
-  const lightbox = document.getElementById("cap1Lightbox");
-  const img = document.getElementById("cap1LightboxImage");
-  const caption = document.getElementById("cap1LightboxCaption");
-
-  if(!lightbox || !img || !caption) return;
-
-  function open(src, alt, text){
-    img.src = src || "";
-    img.alt = alt || "";
-    caption.textContent = text || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function close(){
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    img.src = "";
-    img.alt = "";
-    caption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  document.addEventListener("click", function(e){
-    const trigger = e.target.closest(".cap1-zoomTrigger");
-    if(trigger){
-      open(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
-      return;
-    }
-
-    if(e.target.closest("[data-lightbox-close]")){
-      close();
-    }
-  });
-
-  document.addEventListener("keydown", function(e){
-    if(e.key === "Escape" && !lightbox.hidden){
-      close();
-    }
-  });
-})();
-
 /* =========================
    PÁGINA 1 — EXPOSIÇÃO AO ANTIBACTERIANO
    ========================= */
 
-(function initPage1AMR(){
+(function initPage1AMR() {
   const root = document.querySelector("[data-amr-figure]");
-  if(!root) return;
+  if (!root) return;
 
   const petri = document.getElementById("petri");
   const tabs = Array.from(root.querySelectorAll("[data-amr-scenario]"));
@@ -73,7 +16,7 @@
   const controlLabel = document.getElementById("amrControlLabel");
   const resistanceLabel = document.getElementById("amrResistanceLabel");
 
-  if(
+  if (
     !petri ||
     !tabs.length ||
     !panel ||
@@ -83,12 +26,13 @@
     !resistanceFill ||
     !controlLabel ||
     !resistanceLabel
-  ){
+  ) {
     return;
   }
 
   const TOTAL_SENSITIVE = 54;
   const TOTAL_RESISTANT = 12;
+  let resizeFrame = null;
 
   const scenarioMap = {
     adequado: {
@@ -141,23 +85,23 @@
     }
   };
 
-  function clamp(min, value, max){
+  function clamp(min, value, max) {
     return Math.max(min, Math.min(value, max));
   }
 
-  function randomInRange(min, max){
+  function randomInRange(min, max) {
     return Math.random() * (max - min) + min;
   }
 
-  function generatePointInEllipse(width, height, padding){
+  function generatePointInEllipse(width, height, padding) {
     const angle = Math.random() * Math.PI * 2;
     const radius = Math.sqrt(Math.random());
 
-    const a = (width / 2) - padding;
-    const b = (height / 2) - padding;
+    const a = width / 2 - padding;
+    const b = height / 2 - padding;
 
-    const x = (width / 2) + (radius * a * Math.cos(angle));
-    const y = (height / 2) + (radius * b * Math.sin(angle));
+    const x = width / 2 + radius * a * Math.cos(angle);
+    const y = height / 2 + radius * b * Math.sin(angle);
 
     return {
       left: clamp(padding, x, width - padding),
@@ -165,51 +109,45 @@
     };
   }
 
-  function buildPopulation(config){
+  function buildPopulation(config) {
     const items = [];
 
-    for(let i = 0; i < TOTAL_SENSITIVE; i += 1){
+    for (let i = 0; i < TOTAL_SENSITIVE; i += 1) {
       let state = "visible";
 
-      if(i >= config.sensitiveVisible){
+      if (i >= config.sensitiveVisible) {
         state = "faded";
       }
 
-      if(i < config.regrowthSensitive){
+      if (i < config.regrowthSensitive) {
         state = "regrowing";
       }
 
-      items.push({
-        type: "sensitive",
-        state
-      });
+      items.push({ type: "sensitive", state });
     }
 
-    for(let i = 0; i < TOTAL_RESISTANT; i += 1){
+    for (let i = 0; i < TOTAL_RESISTANT; i += 1) {
       let state = "visible";
 
-      if(i >= config.resistantVisible){
+      if (i >= config.resistantVisible) {
         state = "faded";
       }
 
-      if(i < config.resistantPersistent){
+      if (i < config.resistantPersistent) {
         state = "persistent";
       }
 
-      if(i < config.regrowthResistant){
+      if (i < config.regrowthResistant) {
         state = "regrowing";
       }
 
-      items.push({
-        type: "resistant",
-        state
-      });
+      items.push({ type: "resistant", state });
     }
 
     return items.sort(() => Math.random() - 0.5);
   }
 
-  function createBug(item, width, height){
+  function createBug(item, width, height) {
     const dot = document.createElement("span");
     const point = generatePointInEllipse(width, height, 14);
 
@@ -217,21 +155,21 @@
     dot.style.left = `${point.left}px`;
     dot.style.top = `${point.top}px`;
 
-    if(item.state === "faded"){
+    if (item.state === "faded") {
       dot.classList.add("is-faded");
       dot.style.opacity = String(randomInRange(0.08, 0.18));
     }
 
-    if(item.state === "visible"){
+    if (item.state === "visible") {
       dot.style.opacity = String(randomInRange(0.72, 0.92));
     }
 
-    if(item.state === "persistent"){
+    if (item.state === "persistent") {
       dot.classList.add("is-persistent");
       dot.style.opacity = String(randomInRange(0.9, 1));
     }
 
-    if(item.state === "regrowing"){
+    if (item.state === "regrowing") {
       dot.classList.add("is-regrowing");
       dot.style.opacity = String(randomInRange(0.82, 0.96));
     }
@@ -239,25 +177,30 @@
     return dot;
   }
 
-  function renderPlate(key){
+  function getActiveKey() {
+    const activeTab = root.querySelector("[data-amr-scenario][aria-selected='true']");
+    return activeTab ? activeTab.dataset.amrScenario : "adequado";
+  }
+
+  function renderPlate(key) {
     const scenario = scenarioMap[key];
-    if(!scenario) return;
+    if (!scenario) return;
 
     petri.innerHTML = "";
 
     const rect = petri.getBoundingClientRect();
     const width = rect.width || 640;
-    const height = rect.height || 280;
+    const height = rect.height || 228;
     const population = buildPopulation(scenario.visual);
 
-    population.forEach(item => {
+    population.forEach((item) => {
       petri.appendChild(createBug(item, width, height));
     });
   }
 
-  function updateMetrics(key){
+  function updateMetrics(key) {
     const scenario = scenarioMap[key];
-    if(!scenario) return;
+    if (!scenario) return;
 
     controlFill.style.width = scenario.controlWidth;
     resistanceFill.style.width = scenario.resistanceWidth;
@@ -267,11 +210,11 @@
     feedback.textContent = scenario.text;
   }
 
-  function activate(key){
+  function activate(key) {
     const scenario = scenarioMap[key];
-    if(!scenario) return;
+    if (!scenario) return;
 
-    tabs.forEach(tab => {
+    tabs.forEach((tab) => {
       const isActive = tab.dataset.amrScenario === key;
       tab.classList.toggle("is-active", isActive);
       tab.setAttribute("aria-selected", isActive ? "true" : "false");
@@ -283,24 +226,24 @@
     renderPlate(key);
   }
 
-  tabs.forEach(tab => {
+  tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       activate(tab.dataset.amrScenario);
     });
 
-    tab.addEventListener("keydown", event => {
+    tab.addEventListener("keydown", (event) => {
       const currentIndex = tabs.indexOf(tab);
       let nextIndex = null;
 
-      if(event.key === "ArrowRight"){
+      if (event.key === "ArrowRight") {
         nextIndex = (currentIndex + 1) % tabs.length;
       }
 
-      if(event.key === "ArrowLeft"){
+      if (event.key === "ArrowLeft") {
         nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
       }
 
-      if(nextIndex === null) return;
+      if (nextIndex === null) return;
 
       event.preventDefault();
       tabs[nextIndex].focus();
@@ -308,31 +251,29 @@
     });
   });
 
-  activate("adequado");
-
   window.addEventListener("resize", () => {
-    const activeTab = root.querySelector("[data-amr-scenario][aria-selected='true']");
-    const activeKey = activeTab ? activeTab.dataset.amrScenario : "adequado";
-    renderPlate(activeKey);
+    if (resizeFrame) {
+      window.cancelAnimationFrame(resizeFrame);
+    }
+
+    resizeFrame = window.requestAnimationFrame(() => {
+      renderPlate(getActiveKey());
+    });
   });
+
+  activate("adequado");
 })();
 /* =========================
    PÁGINA 2 — TIMELINE FINAL
    ========================= */
 
 (function initPage2Timeline(){
-
   const content = document.getElementById("timelineContent");
   const buttons = document.querySelectorAll(".timeline-item");
-
-  const lightbox = document.getElementById("cap1Lightbox");
-  const lightboxImage = document.getElementById("cap1LightboxImage");
-  const lightboxCaption = document.getElementById("cap1LightboxCaption");
 
   if(!content || !buttons.length) return;
 
   const data = {
-
     "1928": {
       title: "1928 — Descoberta da Penicilina",
       img: "../../assets/capitulo-01/imagens/Era Fleming.png",
@@ -381,31 +322,7 @@
       caption: "Cultura com antibiograma apresentando valores de MIC e interpretação (S, I, R), integrando dados microbiológicos e farmacológicos para orientar a decisão terapêutica.",
       text: "Em 2018, a Portaria nº 64 do Ministério da Saúde determinou a adoção das normas de interpretação baseadas no EUCAST (Comitê Europeu sobre Teste de Susceptibilidade Antimicrobiana), implementadas no Brasil por meio do Comitê Brasileiro de Testes de Sensibilidade aos Antimicrobianos (BrCAST), estabelecendo padronização nacional para testes de suscetibilidade antimicrobiana <sup>10,11</sup>. Esses critérios definem os valores utilizados para classificar isolados bacterianos como suscetíveis (S), suscetíveis sob exposição aumentada (I) ou resistentes (R), influenciando diretamente a interpretação do antibiograma e a escolha terapêutica <sup>12</sup>. Os breakpoints, ou valores de referência para interpretar o nível de sensibilidade de uma bactéria, não representam características intrínsecas deste microrganismo. Eles são critérios interpretativos construídos a partir da integração entre dados microbiológicos, farmacocinéticos, farmacodinâmicos e evidências clínicas. Essa padronização fortalece a integração entre microbiologia laboratorial e tomada de decisão clínica baseada em parâmetros objetivos."
     }
-
   };
-
-  function openLightbox(src, alt, caption){
-    if(!lightbox || !lightboxImage || !lightboxCaption) return;
-
-    lightboxImage.src = src || "";
-    lightboxImage.alt = alt || "";
-    lightboxCaption.innerHTML = caption || "";
-
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.classList.add("lightbox-open");
-  }
-
-  function closeLightbox(){
-    if(!lightbox || !lightboxImage || !lightboxCaption) return;
-
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.innerHTML = "";
-    document.body.classList.remove("lightbox-open");
-  }
 
   function render(key){
     const item = data[key];
@@ -422,6 +339,7 @@
           <button
             class="cap1-zoomTrigger"
             type="button"
+            data-zoom="${item.img}"
             data-zoom-image="${item.img}"
             data-zoom-alt="${safeTitle}"
             data-zoom-caption="${safeCaption}"
@@ -448,57 +366,32 @@
     });
   });
 
-  document.addEventListener("click", (e) => {
-    const zoomTrigger = e.target.closest(".cap1-zoomTrigger");
-    if(zoomTrigger){
-      openLightbox(
-        zoomTrigger.dataset.zoomImage,
-        zoomTrigger.dataset.zoomAlt,
-        zoomTrigger.dataset.zoomCaption
-      );
-      return;
-    }
-
-    const closeTrigger = e.target.closest("[data-lightbox-close]");
-    if(closeTrigger){
-      closeLightbox();
-    }
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if(e.key === "Escape" && lightbox && !lightbox.hidden){
-      closeLightbox();
-    }
-  });
-
   render("1928");
-
 })();
 /* =========================
    PÁGINA 3 — ÁRVORE CONCEITUAL
    ========================= */
 
 (function initPage3Tree(){
-  const buttons = document.querySelectorAll("[data-tree-target]");
-  const panes = document.querySelectorAll("[data-tree-pane]");
+  const root = document.querySelector(".cap1-page3");
+  if(!root) return;
+
+  const buttons = root.querySelectorAll("[data-tree-target]");
+  const panes = root.querySelectorAll("[data-tree-pane]");
 
   if(!buttons.length || !panes.length) return;
 
   function activate(key){
-    buttons.forEach(btn => {
+    buttons.forEach((btn) => {
       btn.classList.toggle("is-active", btn.dataset.treeTarget === key);
     });
 
-    panes.forEach(pane => {
-      if(pane.dataset.treePane === key){
-        pane.hidden = false;
-      }else{
-        pane.hidden = true;
-      }
+    panes.forEach((pane) => {
+      pane.hidden = pane.dataset.treePane !== key;
     });
   }
 
-  buttons.forEach(btn => {
+  buttons.forEach((btn) => {
     btn.addEventListener("click", () => activate(btn.dataset.treeTarget));
   });
 
@@ -507,8 +400,9 @@
 /* =========================
    PÁGINA 5 — JANELA TERAPÊUTICA
    ========================= */
+
 (function initPage5Window(){
-  const root = document.querySelector("[data-cap1-window]");
+  const root = document.querySelector(".cap1-page5 [data-cap1-window]");
   if(!root) return;
 
   const tabs = Array.from(root.querySelectorAll("[data-window-tab]"));
@@ -541,13 +435,14 @@
     const item = map[key];
     if(!item) return;
 
-    tabs.forEach(tab => {
+    tabs.forEach((tab) => {
       const active = tab.dataset.windowTab === key;
       tab.setAttribute("aria-selected", active ? "true" : "false");
+      tab.setAttribute("tabindex", active ? "0" : "-1");
       tab.classList.toggle("is-active", active);
     });
 
-    scenes.forEach(scene => {
+    scenes.forEach((scene) => {
       const active = scene.dataset.windowScene === key;
       scene.classList.toggle("is-active", active);
     });
@@ -557,9 +452,28 @@
     feedback.className = item.klass;
   }
 
-  tabs.forEach(tab => {
+  tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       activate(tab.dataset.windowTab);
+    });
+
+    tab.addEventListener("keydown", (event) => {
+      const currentIndex = tabs.indexOf(tab);
+      let nextIndex = null;
+
+      if(event.key === "ArrowRight"){
+        nextIndex = (currentIndex + 1) % tabs.length;
+      }
+
+      if(event.key === "ArrowLeft"){
+        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      }
+
+      if(nextIndex === null) return;
+
+      event.preventDefault();
+      tabs[nextIndex].focus();
+      activate(tabs[nextIndex].dataset.windowTab);
     });
   });
 
@@ -570,7 +484,7 @@
    ========================= */
 
 (function initPage6Spectrum(){
-  const root = document.querySelector("[data-cap1-spectrum]");
+  const root = document.querySelector(".cap1-page6 [data-cap1-spectrum]");
   if(!root) return;
 
   const tabs = Array.from(root.querySelectorAll("[data-spectrum-tab]"));
@@ -611,10 +525,11 @@
     const item = map[key];
     if(!item) return;
 
-    tabs.forEach(tab => {
+    tabs.forEach((tab) => {
       const active = tab.dataset.spectrumTab === key;
       tab.classList.toggle("is-active", active);
       tab.setAttribute("aria-selected", active ? "true" : "false");
+      tab.setAttribute("tabindex", active ? "0" : "-1");
     });
 
     fills.gp.style.width = item.widths.gp;
@@ -627,8 +542,27 @@
     feedback.className = item.klass;
   }
 
-  tabs.forEach(tab => {
+  tabs.forEach((tab) => {
     tab.addEventListener("click", () => activate(tab.dataset.spectrumTab));
+
+    tab.addEventListener("keydown", (event) => {
+      const currentIndex = tabs.indexOf(tab);
+      let nextIndex = null;
+
+      if(event.key === "ArrowRight"){
+        nextIndex = (currentIndex + 1) % tabs.length;
+      }
+
+      if(event.key === "ArrowLeft"){
+        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      }
+
+      if(nextIndex === null) return;
+
+      event.preventDefault();
+      tabs[nextIndex].focus();
+      activate(tabs[nextIndex].dataset.spectrumTab);
+    });
   });
 
   activate("restrito");
@@ -638,7 +572,7 @@
    ========================= */
 
 (function initPage7CCI(){
-  const root = document.querySelector("[data-cap1-cci]");
+  const root = document.querySelector(".cap1-page7 [data-cap1-cci]");
   if(!root) return;
 
   const tabs = Array.from(root.querySelectorAll("[data-cci-tab]"));
@@ -647,29 +581,49 @@
   if(!tabs.length || !panes.length) return;
 
   function activate(key){
-    tabs.forEach(tab => {
+    tabs.forEach((tab) => {
       const active = tab.dataset.cciTab === key;
       tab.classList.toggle("is-active", active);
       tab.setAttribute("aria-selected", active ? "true" : "false");
+      tab.setAttribute("tabindex", active ? "0" : "-1");
     });
 
-    panes.forEach(pane => {
+    panes.forEach((pane) => {
       pane.hidden = pane.dataset.cciPane !== key;
     });
   }
 
-  tabs.forEach(tab => {
+  tabs.forEach((tab) => {
     tab.addEventListener("click", () => activate(tab.dataset.cciTab));
+
+    tab.addEventListener("keydown", (event) => {
+      const currentIndex = tabs.indexOf(tab);
+      let nextIndex = null;
+
+      if(event.key === "ArrowRight"){
+        nextIndex = (currentIndex + 1) % tabs.length;
+      }
+
+      if(event.key === "ArrowLeft"){
+        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      }
+
+      if(nextIndex === null) return;
+
+      event.preventDefault();
+      tabs[nextIndex].focus();
+      activate(tabs[nextIndex].dataset.cciTab);
+    });
   });
 
   activate("colonizacao");
 })();
 /* =========================
-   PÁGINA 8 — TERAPIA EMPÍRICA E DIRIGIDA
+   PÁGINA 8 — TERAPIA EMPÍRICA E TERAPIA DIRIGIDA
    ========================= */
 
 (function initPage8Therapy(){
-  const root = document.querySelector("[data-cap1-therapy]");
+  const root = document.querySelector(".cap1-page8 [data-cap1-therapy]");
   if(!root) return;
 
   const tabs = Array.from(root.querySelectorAll("[data-therapy-tab]"));
@@ -678,19 +632,39 @@
   if(!tabs.length || !panes.length) return;
 
   function activate(key){
-    tabs.forEach(tab => {
+    tabs.forEach((tab) => {
       const active = tab.dataset.therapyTab === key;
       tab.classList.toggle("is-active", active);
       tab.setAttribute("aria-selected", active ? "true" : "false");
+      tab.setAttribute("tabindex", active ? "0" : "-1");
     });
 
-    panes.forEach(pane => {
+    panes.forEach((pane) => {
       pane.hidden = pane.dataset.therapyPane !== key;
     });
   }
 
-  tabs.forEach(tab => {
+  tabs.forEach((tab) => {
     tab.addEventListener("click", () => activate(tab.dataset.therapyTab));
+
+    tab.addEventListener("keydown", (event) => {
+      const currentIndex = tabs.indexOf(tab);
+      let nextIndex = null;
+
+      if(event.key === "ArrowRight"){
+        nextIndex = (currentIndex + 1) % tabs.length;
+      }
+
+      if(event.key === "ArrowLeft"){
+        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      }
+
+      if(nextIndex === null) return;
+
+      event.preventDefault();
+      tabs[nextIndex].focus();
+      activate(tabs[nextIndex].dataset.therapyTab);
+    });
   });
 
   activate("manter");
@@ -700,7 +674,7 @@
    ========================= */
 
 (function initPage9Profilaxia(){
-  const root = document.querySelector("[data-cap1-profilaxia]");
+  const root = document.querySelector(".cap1-page9 [data-cap1-profilaxia]");
   if(!root) return;
 
   const tabs = Array.from(root.querySelectorAll("[data-profilaxia-tab]"));
@@ -709,76 +683,130 @@
   if(!tabs.length || !panes.length) return;
 
   function activate(key){
-    tabs.forEach(tab => {
+    tabs.forEach((tab) => {
       const active = tab.dataset.profilaxiaTab === key;
       tab.classList.toggle("is-active", active);
       tab.setAttribute("aria-selected", active ? "true" : "false");
+      tab.setAttribute("tabindex", active ? "0" : "-1");
     });
 
-    panes.forEach(pane => {
+    panes.forEach((pane) => {
       pane.hidden = pane.dataset.profilaxiaPane !== key;
     });
   }
 
-  tabs.forEach(tab => {
+  tabs.forEach((tab) => {
     tab.addEventListener("click", () => activate(tab.dataset.profilaxiaTab));
+
+    tab.addEventListener("keydown", (event) => {
+      const currentIndex = tabs.indexOf(tab);
+      let nextIndex = null;
+
+      if(event.key === "ArrowRight"){
+        nextIndex = (currentIndex + 1) % tabs.length;
+      }
+
+      if(event.key === "ArrowLeft"){
+        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      }
+
+      if(nextIndex === null) return;
+
+      event.preventDefault();
+      tabs[nextIndex].focus();
+      activate(tabs[nextIndex].dataset.profilaxiaTab);
+    });
   });
 
   activate("indicacao");
 })();
-document.querySelectorAll(".cap1-p10Options button").forEach(btn=>{
-  btn.addEventListener("click", function(){
-    const group = this.closest(".cap1-p10Options");
-    group.querySelectorAll("button").forEach(b=>{
-      b.classList.remove("selected");
-    });
-
-    this.classList.add("selected");
-
-    const confirmBtn = this.closest(".cap1-p10Question")
-      .querySelector('[data-p10-action="confirm"]');
-
-    confirmBtn.disabled = false;
-  });
-});
 /* =========================
    PÁGINA 10 — SÍNTESE CLÍNICA
    ========================= */
 
-(function initPage10ClinicalSynthesis(){
+(function initPage10ClinicalSynthesis() {
   const root = document.querySelector("[data-cap1-p10]");
-  if(!root) return;
+  if (!root) return;
 
   const questions = Array.from(root.querySelectorAll(".cap1-p10Question"));
-  if(!questions.length) return;
+  const statusValue = root.querySelector(".cap1-p10Status__value");
+  const completion = root.querySelector("[data-p10-completion]");
+  const completionText = root.querySelector("[data-p10-completion-text]");
 
-  questions.forEach(question => {
-    const optionButtons = Array.from(question.querySelectorAll(".cap1-p10Options button"));
+  if (!questions.length) return;
+
+  const completionMap = {
+    perfect:
+      "Você articulou os dois eixos centrais desta síntese: resultado microbiológico não substitui julgamento clínico, e a estratégia inicial em infecção grave presumida costuma ser empírica, com reavaliação posterior à luz dos dados laboratoriais.",
+    partial:
+      "A leitura clínica começa a se consolidar, mas ainda exige atenção a dois pontos: cultura positiva não basta, sozinha, para definir infecção ativa; e a escolha entre terapia empírica, dirigida ou profilática depende do momento clínico da decisão.",
+    needsReview:
+      "Vale revisar o encadeamento clínico do capítulo: primeiro, reconhecer se há infecção verdadeira; depois, definir se há indicação de tratamento; por fim, classificar corretamente se a conduta é empírica, dirigida ou profilática."
+  };
+
+  function updateStatus() {
+    const confirmedCount = questions.filter(
+      (question) => question.dataset.questionState === "confirmed"
+    ).length;
+
+    if (statusValue) {
+      statusValue.textContent = `${confirmedCount} de ${questions.length} situações confirmadas`;
+    }
+
+    if (!completion || !completionText) return;
+
+    if (confirmedCount !== questions.length) {
+      completion.hidden = true;
+      return;
+    }
+
+    const correctCount = questions.filter(
+      (question) => question.dataset.result === "correct"
+    ).length;
+
+    if (correctCount === questions.length) {
+      completionText.textContent = completionMap.perfect;
+    } else if (correctCount >= 1) {
+      completionText.textContent = completionMap.partial;
+    } else {
+      completionText.textContent = completionMap.needsReview;
+    }
+
+    completion.hidden = false;
+  }
+
+  questions.forEach((question) => {
+    const optionButtons = Array.from(
+      question.querySelectorAll(".cap1-p10Options button")
+    );
     const confirmBtn = question.querySelector('[data-p10-action="confirm"]');
     const resetBtn = question.querySelector('[data-p10-action="reset"]');
     const feedbackBox = question.querySelector(".cap1-p10Feedback");
     const feedbackTemplate = question.querySelector(".cap1-p10FeedbackMap");
 
-    if(!confirmBtn || !resetBtn || !feedbackBox || !feedbackTemplate) return;
+    if (!confirmBtn || !resetBtn || !feedbackBox || !feedbackTemplate) return;
 
     let selectedAnswer = null;
     let confirmed = false;
     let feedbackMap = {};
 
-    try{
+    try {
       feedbackMap = JSON.parse(feedbackTemplate.innerHTML.trim());
-    }catch(err){
-      console.error("Erro ao ler feedback da síntese clínica:", err);
+    } catch (error) {
+      console.error("Erro ao ler feedback da síntese clínica:", error);
       return;
     }
 
-    function resetQuestion(){
+    function resetQuestion() {
       confirmed = false;
       selectedAnswer = null;
+      question.dataset.questionState = "pending";
+      question.dataset.result = "";
 
-      optionButtons.forEach(button => {
+      optionButtons.forEach((button) => {
         button.disabled = false;
         button.classList.remove("selected", "correct", "error");
+        button.setAttribute("aria-pressed", "false");
       });
 
       feedbackBox.innerHTML = "";
@@ -787,14 +815,23 @@ document.querySelectorAll(".cap1-p10Options button").forEach(btn=>{
       confirmBtn.hidden = false;
       confirmBtn.disabled = true;
       resetBtn.hidden = true;
+
+      updateStatus();
     }
 
-    optionButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        if(confirmed) return;
+    optionButtons.forEach((button) => {
+      button.setAttribute("aria-pressed", "false");
 
-        optionButtons.forEach(item => item.classList.remove("selected"));
+      button.addEventListener("click", () => {
+        if (confirmed) return;
+
+        optionButtons.forEach((item) => {
+          item.classList.remove("selected");
+          item.setAttribute("aria-pressed", "false");
+        });
+
         button.classList.add("selected");
+        button.setAttribute("aria-pressed", "true");
 
         selectedAnswer = button.dataset.answer || null;
         confirmBtn.disabled = !selectedAnswer;
@@ -802,30 +839,38 @@ document.querySelectorAll(".cap1-p10Options button").forEach(btn=>{
     });
 
     confirmBtn.addEventListener("click", () => {
-      if(!selectedAnswer || confirmed) return;
+      if (!selectedAnswer || confirmed) return;
 
       confirmed = true;
 
-      const chosen = question.querySelector(`.cap1-p10Options button[data-answer="${selectedAnswer}"]`);
-      const correct = question.querySelector('.cap1-p10Options button[data-correct="true"]');
+      const chosen = question.querySelector(
+        `.cap1-p10Options button[data-answer="${selectedAnswer}"]`
+      );
+      const correct = question.querySelector(
+        '.cap1-p10Options button[data-correct="true"]'
+      );
       const item = feedbackMap[selectedAnswer];
+      const isCorrect = Boolean(chosen && chosen.dataset.correct === "true");
 
-      optionButtons.forEach(button => {
+      question.dataset.questionState = "confirmed";
+      question.dataset.result = isCorrect ? "correct" : "error";
+
+      optionButtons.forEach((button) => {
         button.disabled = true;
       });
 
-      if(chosen){
-        if(chosen.dataset.correct === "true"){
+      if (chosen) {
+        if (isCorrect) {
           chosen.classList.add("correct");
           feedbackBox.className = "cap1-p10Feedback correct";
-        }else{
+        } else {
           chosen.classList.add("error");
-          if(correct) correct.classList.add("correct");
+          if (correct) correct.classList.add("correct");
           feedbackBox.className = "cap1-p10Feedback error";
         }
       }
 
-      if(item){
+      if (item) {
         feedbackBox.innerHTML = `
           <p><strong>${item.title}</strong></p>
           <p>${item.text}</p>
@@ -834,10 +879,14 @@ document.querySelectorAll(".cap1-p10Options button").forEach(btn=>{
 
       confirmBtn.hidden = true;
       resetBtn.hidden = false;
+
+      updateStatus();
     });
 
     resetBtn.addEventListener("click", resetQuestion);
 
     resetQuestion();
   });
+
+  updateStatus();
 })();
