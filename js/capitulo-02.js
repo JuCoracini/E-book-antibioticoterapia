@@ -265,8 +265,7 @@
           caption: "Estrutura da membrana citoplasmática bacteriana. Clique para ampliar.",
           title: "Funções essenciais da membrana citoplasmática",
           text: `
-            <p>A membrana citoplasmática participa da manutenção do gradiente eletroquímico, regula a passagem de substâncias e abriga processos importantes de geração de energia.</p>
-            <p>Por isso, sua integridade não é apenas estrutural: ela condiciona funções metabólicas indispensáveis à viabilidade bacteriana.</p>
+            <p>A organização da membrana citoplasmática permite a manutenção do gradiente eletroquímico, fundamental para a produção de energia e para o funcionamento de sistemas de transporte seletivo. A integridade dessa estrutura é indispensável para a homeostase celular.</p>
           `
         }
       ]

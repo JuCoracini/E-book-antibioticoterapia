@@ -131,12 +131,14 @@ textarea{
   text-align: justify;
 }
 
-.prose p{
+/* RECUO EM TODOS OS PARÁGRAFOS (CONTROLADO) */
+.prose > p{
   max-width: var(--text-width);
   margin: 0 auto 14px;
   text-indent: 1.6em;
 }
 
+/* LISTAS */
 .prose ul,
 .prose ol{
   max-width: var(--text-width);
@@ -150,6 +152,15 @@ textarea{
 
 .prose li:last-child{
   margin-bottom: 0;
+}
+
+/* SUBTÍTULOS INTERNOS */
+.prose h3{
+  margin: 26px auto 10px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--azul-escuro);
+  text-indent: 0;
 }
 
 /* REFERÊNCIAS */
@@ -235,7 +246,7 @@ figcaption{
   }
 
   .prose,
-  .prose p,
+  .prose > p,
   .prose ul,
   .prose ol{
     max-width: 100%;

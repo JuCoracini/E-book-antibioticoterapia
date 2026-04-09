@@ -36,24 +36,39 @@
 
   const image = lightbox.querySelector("img");
   const closeButton = lightbox.querySelector(".lightbox__close");
+
   let lastFocusedElement = null;
+  let isOpen = false;
 
   function openLightbox(src, alt) {
+    if (isOpen) return;
+    isOpen = true;
+
     lastFocusedElement = document.activeElement;
+
     image.src = src || "";
     image.alt = alt || "";
+
     lightbox.hidden = false;
     lightbox.setAttribute("aria-hidden", "false");
+
     document.body.style.overflow = "hidden";
+
     closeButton?.focus();
   }
 
   function closeLightbox() {
+    if (!isOpen) return;
+    isOpen = false;
+
     lightbox.hidden = true;
     lightbox.setAttribute("aria-hidden", "true");
+
     image.src = "";
     image.alt = "";
+
     document.body.style.overflow = "";
+
     lastFocusedElement?.focus?.();
   }
 
@@ -67,7 +82,6 @@
 
       const src =
         trigger.getAttribute("data-zoom") ||
-        trigger.getAttribute("src") ||
         nestedImage?.getAttribute("src") ||
         "";
 
@@ -86,7 +100,7 @@
   });
 
   document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && !lightbox.hidden) {
+    if (event.key === "Escape" && isOpen) {
       closeLightbox();
     }
   });
@@ -97,10 +111,11 @@
    ========================= */
 
 document.addEventListener("click", function (event) {
-  const next = event.target.closest("[data-next]");
 
+  const next = event.target.closest("[data-next]");
   if (next && !next.hasAttribute("disabled")) {
     event.preventDefault();
+
     const url = next.getAttribute("data-next");
 
     if (url) {
@@ -110,13 +125,14 @@ document.addEventListener("click", function (event) {
   }
 
   const prev = event.target.closest("[data-prev]");
-
   if (prev && !prev.hasAttribute("disabled")) {
     event.preventDefault();
+
     const url = prev.getAttribute("data-prev");
 
     if (url) {
       window.location.href = url;
     }
   }
+
 });

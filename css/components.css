@@ -11,25 +11,15 @@
   max-width: 620px;
 }
 
-.figure > button{
+/* ELEMENTO INTERATIVO FLEXÍVEL (NÃO DEPENDE DE BUTTON) */
+.figure [data-zoom]{
   display: block;
   width: 100%;
-  padding: 0;
-  border: 0;
-  outline: none;
-  background: transparent;
-  box-shadow: none;
-  appearance: none;
-  -webkit-appearance: none;
   cursor: zoom-in;
   line-height: 0;
 }
 
-.figure > button::-moz-focus-inner{
-  border: 0;
-  padding: 0;
-}
-
+/* IMAGEM */
 .figure img{
   display: block;
   width: 100%;
@@ -41,6 +31,7 @@
   cursor: zoom-in;
 }
 
+/* LEGENDA */
 .caption{
   margin-top: 10px;
   font-size: 12px;
@@ -91,7 +82,7 @@
 }
 
 /* =========================
-   DESTAQUE
+   DESTAQUE (SEM CAIXA PESADA)
    ========================= */
 
 .highlight{

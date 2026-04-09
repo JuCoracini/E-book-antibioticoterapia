@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -19,10 +19,8 @@
   <main class="page-shell cap3-shell">
 
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 3 — Mecanismos de Resistência Bacteriana</div>
-        <h1 class="page-title">Relação entre mecanismo de ação e resistência</h1>
-      </div>
+      <div class="chapter">Capítulo 3 — Mecanismos de Resistência Bacteriana</div>
+      <h1 class="page-title">Relação entre mecanismo de ação e resistência</h1>
     </header>
 
     <section class="prose cap3-reading-flow" aria-label="Texto principal">
@@ -39,12 +37,12 @@
         De maneira semelhante, antibacterianos que interferem na síntese proteica podem ser afetados por modificações estruturais nos ribossomos bacterianos ou por mecanismos que reduzem a concentração intracelular do fármaco, como bombas de efluxo.
       </p>
 
-      <figure class="cap3-p27-figure" aria-label="Correspondência entre ataque farmacológico, alvo e adaptação bacteriana">
+      <figure class="figure cap3-p27-figure" aria-label="Correspondência entre ataque farmacológico, alvo e adaptação bacteriana">
         <button
           class="cap3-p27-spotlight"
           id="cap3P27Spotlight"
           type="button"
-          aria-describedby="cap3P27Hint"
+          aria-describedby="cap3P27Hint cap3P27Progress"
           aria-label="Avançar destaque do raciocínio entre ataque, alvo e defesa bacteriana"
         >
           <img
@@ -59,12 +57,19 @@
           <span class="cap3-p27-focus cap3-p27-focus--3" aria-hidden="true"></span>
         </button>
 
-        <figcaption class="cap3-p27-caption">
-          <strong>Correspondência tática:</strong> o mecanismo de resistência tende a guardar relação com o ponto em que o antibacteriano atua. Clique na imagem para acompanhar, em sequência, o ataque farmacológico, o alvo biológico e a adaptação bacteriana correspondente.
+        <figcaption class="caption cap3-p27-caption">
+          <strong>Correspondência tática:</strong> o mecanismo de resistência tende a guardar relação com o ponto em que o antibacteriano atua. Clique na imagem para percorrer a sequência: ataque farmacológico, alvo biológico e adaptação bacteriana correspondente.
         </figcaption>
 
+        <div class="cap3-p27-progress" id="cap3P27Progress" aria-live="polite">
+          <span class="cap3-p27-progress__dot is-active"></span>
+          <span class="cap3-p27-progress__dot"></span>
+          <span class="cap3-p27-progress__dot"></span>
+          <span class="cap3-p27-progress__label">Etapa 1 de 3</span>
+        </div>
+
         <p class="cap3-p27-hint" id="cap3P27Hint">
-          Clique para avançar entre os três focos de leitura.
+          Clique para percorrer a sequência: ataque → alvo → adaptação.
         </p>
       </figure>
 
@@ -80,19 +85,23 @@
         Esse raciocínio não substitui os testes laboratoriais utilizados para caracterizar o mecanismo de resistência, mas contribui para integrar a interpretação microbiológica ao contexto clínico.
       </p>
 
-      <div class="cap3-p27-matrixWrap">
+      <figure class="figure cap3-p27-matrixFigure">
         <button
-          class="cap3-p27-matrixBtn"
           type="button"
-          id="cap3P27MatrixBtn"
+          data-zoom="../../assets/capitulo-03/imagens/matriz-correspondencia.png"
           aria-label="Ampliar matriz de correspondência entre mecanismo de ação e resistência"
-          data-zoomimage="../../assets/capitulo-03/imagens/matriz-correspondencia.png"
-          data-zoomalt="Tabela resumindo a correspondência entre alvo biológico, ação do fármaco e adaptação bacteriana esperada"
-          data-zoomcaption="Matriz de correspondência tática: a natureza do alvo farmacológico ajuda a antecipar os mecanismos de resistência biologicamente mais prováveis."
         >
-          Ver correspondência completa
+          <img
+            src="../../assets/capitulo-03/imagens/matriz-correspondencia.png"
+            alt="Tabela resumindo a correspondência entre alvo biológico, ação do fármaco e adaptação bacteriana esperada"
+            loading="lazy"
+          />
         </button>
-      </div>
+
+        <figcaption class="caption cap3-p27-matrixCaption">
+          <strong>Matriz de correspondência tática:</strong> a natureza do alvo farmacológico ajuda a antecipar os mecanismos de resistência biologicamente mais prováveis.
+        </figcaption>
+      </figure>
 
       <p>
         Além disso, diferentes mecanismos podem atuar de forma combinada. A associação entre produção de enzimas inativadoras e redução da permeabilidade da membrana, por exemplo, pode elevar significativamente o grau de resistência observado. De maneira semelhante, bombas de efluxo podem ampliar o impacto de mutações que alteram o alvo molecular.
@@ -108,26 +117,13 @@
 
     </section>
 
-   <nav class="pager" aria-label="Paginação">
+    <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p26.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 3 · Página 27 de 89</div>
       <button class="btn primary" type="button" data-next="p28.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
 
   </main>
-
-  <div class="cap3-lightbox" id="cap3Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap3-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap3-lightbox__dialog">
-      <button class="cap3-lightbox__close" type="button" data-lightbox-close aria-label="Fechar imagem ampliada">×</button>
-
-      <figure class="cap3-lightbox__figure">
-        <img id="cap3LightboxImage" src="" alt="" />
-        <figcaption class="cap3-lightbox__caption" id="cap3LightboxCaption"></figcaption>
-      </figure>
-    </div>
-  </div>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-03.js"></script>

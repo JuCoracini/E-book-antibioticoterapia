@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -16,96 +16,120 @@
 
 <body class="cap3-page26">
 
-<main class="page-shell cap3-shell">
+  <main class="page-shell cap3-shell">
 
-<header class="page-header">
-  <div class="chapter">Capítulo 3 — Mecanismos de Resistência Bacteriana</div>
-  <h1 class="page-title">Redução de permeabilidade e bombas de efluxo</h1>
-</header>
+    <header class="page-header">
+      <div class="chapter">Capítulo 3 — Mecanismos de Resistência Bacteriana</div>
+      <h1 class="page-title">Redução de permeabilidade e bombas de efluxo</h1>
+    </header>
 
-<section class="prose cap3-reading-flow">
+    <section class="prose cap3-reading-flow" aria-label="Texto principal">
 
-<p>
-A eficácia de um antibacteriano depende não apenas da integridade de seu alvo molecular, mas também da capacidade do fármaco de alcançar concentração intracelular suficiente para exercer efeito biológico. Alterações que reduzem a entrada do antibacteriano na célula bacteriana ou aumentam sua eliminação ativa constituem mecanismos importantes de resistência.
-</p>
+      <p>
+        A eficácia de um antibacteriano depende não apenas da integridade de seu alvo molecular, mas também da capacidade do fármaco de alcançar concentração intracelular suficiente para exercer efeito biológico. Alterações que reduzem a entrada do antibacteriano na célula bacteriana ou aumentam sua eliminação ativa constituem mecanismos importantes de resistência.
+      </p>
 
-<p>
-Nas bactérias Gram-negativas, a membrana externa representa uma barreira estrutural adicional. A entrada de muitas moléculas antibacterianas ocorre por meio de porinas, proteínas que formam canais hidrofílicos através dos quais pequenas moléculas podem atravessar a membrana.
-</p>
+      <p>
+        Nas bactérias Gram-negativas, a membrana externa representa uma barreira estrutural adicional. A entrada de muitas moléculas antibacterianas ocorre por meio de porinas, proteínas que formam canais hidrofílicos através dos quais pequenas moléculas podem atravessar a membrana.
+      </p>
 
-<!-- INTERAÇÃO PRINCIPAL -->
-<figure class="cap3-p26-figure">
+      <section class="cap3-p26-compare" aria-label="Comparação entre maior e menor permeabilidade bacteriana">
+        <div class="cap3-p26-grid">
 
-  <button class="cap3-p26-toggle" type="button">
+          <article class="cap3-p26-card">
+            <h2 class="cap3-p26-cardTitle">Maior entrada do antibacteriano</h2>
 
-    <img
-      id="cap3P26ImgA"
-      src="../../assets/capitulo-03/imagens/porinas-suscetivel.png"
-      alt="Estado suscetível com entrada de antibacteriano"
-    />
+            <figure class="figure cap3-p26-figure">
+              <button
+                type="button"
+                data-zoom="../../assets/capitulo-03/imagens/porinas-suscetivel.png"
+                aria-label="Ampliar imagem de bactéria com entrada preservada do antibacteriano"
+              >
+                <img
+                  src="../../assets/capitulo-03/imagens/porinas-suscetivel.png"
+                  alt="Estado suscetível com entrada preservada de antibacteriano através das porinas"
+                  loading="lazy"
+                />
+              </button>
 
-    <img
-      id="cap3P26ImgB"
-      src="../../assets/capitulo-03/imagens/porinas-resistente.png"
-      alt="Estado resistente com redução de entrada"
-    />
+              <figcaption class="caption cap3-p26-caption">
+                <strong>Permeabilidade preservada:</strong> a presença e o funcionamento adequados das porinas favorecem a entrada do antibacteriano, permitindo maior concentração intracelular e melhor acesso ao alvo bacteriano.
+              </figcaption>
+            </figure>
+          </article>
 
-  </button>
+          <article class="cap3-p26-card">
+            <h2 class="cap3-p26-cardTitle">Menor entrada do antibacteriano</h2>
 
-  <figcaption class="cap3-p26-caption">
-    <strong>Redução de permeabilidade:</strong> alterações quantitativas ou estruturais nas porinas reduzem a entrada de antibacterianos, limitando sua concentração intracelular.
-  </figcaption>
+            <figure class="figure cap3-p26-figure">
+              <button
+                type="button"
+                data-zoom="../../assets/capitulo-03/imagens/porinas-resistente.png"
+                aria-label="Ampliar imagem de bactéria com redução de permeabilidade"
+              >
+                <img
+                  src="../../assets/capitulo-03/imagens/porinas-resistente.png"
+                  alt="Estado resistente com redução da entrada de antibacteriano por alterações nas porinas"
+                  loading="lazy"
+                />
+              </button>
 
-</figure>
+              <figcaption class="caption cap3-p26-caption">
+                <strong>Redução de permeabilidade:</strong> alterações quantitativas ou estruturais nas porinas reduzem a entrada do antibacteriano, limitando a concentração intracelular disponível para ação.
+              </figcaption>
+            </figure>
+          </article>
 
-<p>
-Modificações quantitativas, como redução da expressão de porinas, ou alterações estruturais nesses canais podem diminuir a permeabilidade da membrana. Como consequência, uma quantidade menor de antibacteriano alcança o espaço periplasmático ou o citoplasma bacteriano. Mesmo quando o fármaco permanece ativo e o alvo molecular está preservado, a concentração intracelular pode tornar-se insuficiente para produzir efeito terapêutico <sup>1,9</sup>.
-</p>
+        </div>
+      </section>
 
-<p>
-Outro mecanismo importante envolve as bombas de efluxo. Essas proteínas transmembrana utilizam energia celular para expulsar substâncias potencialmente tóxicas do interior da bactéria, incluindo antibacterianos <sup>9</sup>.
-</p>
+      <p>
+        Modificações quantitativas, como redução da expressão de porinas, ou alterações estruturais nesses canais podem diminuir a permeabilidade da membrana. Como consequência, uma quantidade menor de antibacteriano alcança o espaço periplasmático ou o citoplasma bacteriano. Mesmo quando o fármaco permanece ativo e o alvo molecular está preservado, a concentração intracelular pode tornar-se insuficiente para produzir efeito terapêutico <sup>1,9</sup>.
+      </p>
 
-<p>
-O aumento da expressão ou da eficiência dessas bombas reduz o tempo de permanência do fármaco no interior celular, diminuindo sua concentração intracelular e, consequentemente, sua atividade antibacteriana.
-</p>
+      <p>
+        Outro mecanismo importante envolve as bombas de efluxo. Essas proteínas transmembrana utilizam energia celular para expulsar substâncias potencialmente tóxicas do interior da bactéria, incluindo antibacterianos <sup>9</sup>.
+      </p>
 
-<p>
-Diferentemente da inativação enzimática ou da alteração do alvo molecular, os mecanismos relacionados à concentração intracelular não modificam a estrutura do antibacteriano nem do seu alvo biológico. Em vez disso, interferem na quantidade de fármaco disponível no local de ação.
-</p>
+      <p>
+        O aumento da expressão ou da eficiência dessas bombas reduz o tempo de permanência do fármaco no interior celular, diminuindo sua concentração intracelular e, consequentemente, sua atividade antibacteriana.
+      </p>
 
-<p>
-Por essa razão, alterações de permeabilidade e aumento do efluxo costumam estar associadas a elevações graduais da concentração inibitória mínima (MIC) observadas em testes laboratoriais.
-</p>
+      <p>
+        Diferentemente da inativação enzimática ou da alteração do alvo molecular, os mecanismos relacionados à concentração intracelular não modificam a estrutura do antibacteriano nem do seu alvo biológico. Em vez disso, interferem na quantidade de fármaco disponível no local de ação.
+      </p>
 
-<p>
-Esses mecanismos raramente atuam de forma isolada. A associação entre produção de β-lactamases e redução da expressão de porinas, por exemplo, pode aumentar substancialmente o grau de resistência observado em determinadas bactérias Gram-negativas.
-</p>
+      <p>
+        Por essa razão, alterações de permeabilidade e aumento do efluxo costumam estar associadas a elevações graduais da concentração inibitória mínima (MIC) observadas em testes laboratoriais.
+      </p>
 
-<p>
-Além disso, algumas bombas de efluxo apresentam baixa especificidade, sendo capazes de expulsar diferentes classes de antibacterianos. Essa característica contribui para o desenvolvimento de perfis de multirresistência, nos quais um único mecanismo influencia simultaneamente vários grupos farmacológicos.
-</p>
+      <p>
+        Esses mecanismos raramente atuam de forma isolada. A associação entre produção de β-lactamases e redução da expressão de porinas, por exemplo, pode aumentar substancialmente o grau de resistência observado em determinadas bactérias Gram-negativas.
+      </p>
 
-<p>
-Compreender esses processos é importante na interpretação de resultados laboratoriais nos quais se observa aumento progressivo da MIC sem evidência clara de enzimas inativadoras ou modificação do alvo molecular.
-</p>
+      <p>
+        Além disso, algumas bombas de efluxo apresentam baixa especificidade, sendo capazes de expulsar diferentes classes de antibacterianos. Essa característica contribui para o desenvolvimento de perfis de multirresistência, nos quais um único mecanismo influencia simultaneamente vários grupos farmacológicos.
+      </p>
 
-<p>
-Na prática clínica, esse padrão pode ser observado quando um isolado bacteriano apresenta resistência moderada a diferentes classes de antibacterianos sem identificação de β-lactamases específicas. Nesses casos, investigações adicionais podem demonstrar superexpressão de bombas de efluxo associada à redução da expressão de porinas, resultando em diminuição da concentração intracelular de múltiplos fármacos.
-</p>
+      <p>
+        Compreender esses processos é importante na interpretação de resultados laboratoriais nos quais se observa aumento progressivo da MIC sem evidência clara de enzimas inativadoras ou modificação do alvo molecular.
+      </p>
 
-</section>
+      <p>
+        Na prática clínica, esse padrão pode ser observado quando um isolado bacteriano apresenta resistência moderada a diferentes classes de antibacterianos sem identificação de β-lactamases específicas. Nesses casos, investigações adicionais podem demonstrar superexpressão de bombas de efluxo associada à redução da expressão de porinas, resultando em diminuição da concentração intracelular de múltiplos fármacos.
+      </p>
 
-   <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="25.html" aria-label="Ir para a página anterior">← Anterior</button>
+    </section>
+
+    <nav class="pager" aria-label="Paginação">
+      <button class="btn" type="button" data-prev="p25.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 3 · Página 26 de 89</div>
       <button class="btn primary" type="button" data-next="p27.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
 
-</main>
+  </main>
 
-<script src="../../js/app.js"></script>
-<script src="../../js/capitulo-03.js"></script>
-
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-03.js"></script>
 </body>
 </html>

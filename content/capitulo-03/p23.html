@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -30,16 +30,13 @@
       </p>
 
       <p>
-        Diferentemente da transmissão vertical, na qual a informação genética é transmitida de uma célula para suas descendentes durante a replicação, a transferência horizontal ocorre entre bactérias já formadas. Esse mecanismo acelera significativamente a propagação da resistência, pois um único evento de aquisição genética pode introduzir simultaneamente múltiplos genes capazes de alterar o perfil de suscetibilidade do microrganismo <sup>7</sup>.
+        Diferentemente da transmissão vertical, na qual a informação genética é transmitida de uma célula para suas descendentes durante a replicação, a transferência horizontal ocorre entre bactérias previamente formadas. Esse mecanismo acelera significativamente a propagação da resistência, pois um único evento de aquisição genética pode introduzir simultaneamente múltiplos genes capazes de alterar o perfil de suscetibilidade do microrganismo <sup>7</sup>.
       </p>
 
-      <figure class="cap3-p23-compareFigure">
+      <figure class="figure cap3-p23-compareFigure">
         <button
-          class="cap3-zoomTrigger"
           type="button"
-          data-zoomImage="../../assets/capitulo-03/imagens/transmissao-vertical-vs-transferencia-horizontal.png"
-          data-zoomAlt="Comparação entre transmissão vertical e transferência horizontal"
-          data-zoomCaption="Na transmissão vertical, a informação genética é herdada pelas células descendentes durante a replicação. Na transferência horizontal, genes podem ser adquiridos entre bactérias já formadas, acelerando a disseminação da resistência."
+          data-zoom="../../assets/capitulo-03/imagens/transmissao-vertical-vs-transferencia-horizontal.png"
           aria-label="Ampliar imagem de comparação entre transmissão vertical e transferência horizontal"
         >
           <img
@@ -49,7 +46,7 @@
           />
         </button>
 
-        <figcaption class="cap3-p23-compareCaption">
+        <figcaption class="caption cap3-p23-compareCaption">
           <strong>Transmissão vertical × transferência horizontal:</strong> na transmissão vertical, a informação genética é passada às células descendentes durante a divisão bacteriana; na transferência horizontal, genes podem ser adquiridos entre bactérias já formadas, o que acelera a propagação da resistência.
         </figcaption>
       </figure>
@@ -58,41 +55,86 @@
         Os principais mecanismos de transferência horizontal são conjugação, transformação e transdução.
       </p>
 
-      <section class="cap3-p23-switch" aria-label="Mecanismos de transferência horizontal">
-        <div class="cap3-p23-switch__buttons" role="tablist" aria-label="Seleção de mecanismo">
-          <button class="cap3-p23-switch__btn is-active" type="button" data-p23-key="conjugacao" aria-selected="true">Conjugação</button>
-          <button class="cap3-p23-switch__btn" type="button" data-p23-key="transformacao" aria-selected="false">Transformação</button>
-          <button class="cap3-p23-switch__btn" type="button" data-p23-key="transducao" aria-selected="false">Transdução</button>
-        </div>
+      <section class="cap3-p23-grid" aria-label="Mecanismos de transferência horizontal">
 
-        <figure class="cap3-p23-switch__figure">
-          <button
-            class="cap3-zoomTrigger"
-            id="cap3P23ZoomTrigger"
-            type="button"
-            data-zoomImage="../../assets/capitulo-03/imagens/conjugacao-plasmideo.png"
-            data-zoomAlt="Esquema de conjugação bacteriana"
-            data-zoomCaption="Conjugação bacteriana: transferência direta de material genético entre bactérias viáveis por contato físico."
-            aria-label="Ampliar imagem do mecanismo selecionado"
-          >
-            <img
-              id="cap3P23Image"
-              src="../../assets/capitulo-03/imagens/conjugacao-plasmideo.png"
-              alt="Esquema de conjugação bacteriana"
-              loading="lazy"
-            />
-          </button>
+        <article class="cap3-p23-card">
+          <h2 class="cap3-p23-cardTitle">Conjugação</h2>
 
-          <figcaption id="cap3P23Caption" class="cap3-p23-switch__caption">
-            <strong>Conjugação:</strong> transferência direta de material genético entre bactérias viáveis por contato físico.
-          </figcaption>
-        </figure>
+          <figure class="figure cap3-p23-figure">
+            <button
+              type="button"
+              data-zoom="../../assets/capitulo-03/imagens/conjugacao-plasmideo.png"
+              aria-label="Ampliar imagem de conjugação bacteriana"
+            >
+              <img
+                src="../../assets/capitulo-03/imagens/conjugacao-plasmideo.png"
+                alt="Esquema de conjugação bacteriana"
+                loading="lazy"
+              />
+            </button>
 
-        <div class="cap3-p23-switch__panel">
-          <p id="cap3P23Text">
-            Na conjugação, a transferência genética ocorre por contato direto entre duas bactérias viáveis. Geralmente, uma das células possui um plasmídeo conjugativo que contém genes responsáveis pela formação de uma estrutura de ligação, como o pili sexual. Esse pili estabelece conexão física entre a bactéria doadora e a receptora, formando uma ponte citoplasmática através da qual o material genético pode ser transferido. Durante o processo, o plasmídeo é replicado e uma das fitas de DNA é transferida para a célula receptora. Ao final, ambas as bactérias passam a possuir cópia do plasmídeo, o que pode modificar imediatamente o perfil de resistência da bactéria receptora.
+            <figcaption class="caption cap3-p23-caption">
+              <strong>Conjugação:</strong> transferência direta de material genético entre bactérias viáveis por contato físico.
+            </figcaption>
+          </figure>
+
+          <p class="cap3-p23-cardText">
+            Na conjugação, a transferência genética ocorre por contato direto entre duas bactérias viáveis. Geralmente, uma das células possui um plasmídeo conjugativo que contém genes responsáveis pela formação de uma estrutura de ligação, como o pili sexual. Esse pili estabelece conexão física entre a bactéria doadora e a receptora, formando uma ponte citoplasmática por meio da qual o material genético pode ser transferido. Durante o processo, o plasmídeo é replicado e uma das fitas de DNA é transferida para a célula receptora. Ao final, ambas as bactérias passam a possuir cópia do plasmídeo, o que pode modificar imediatamente o perfil de resistência da bactéria receptora.
           </p>
-        </div>
+        </article>
+
+        <article class="cap3-p23-card">
+          <h2 class="cap3-p23-cardTitle">Transformação</h2>
+
+          <figure class="figure cap3-p23-figure">
+            <button
+              type="button"
+              data-zoom="../../assets/capitulo-03/imagens/transformacao-dna-livre.png"
+              aria-label="Ampliar imagem de transformação bacteriana"
+            >
+              <img
+                src="../../assets/capitulo-03/imagens/transformacao-dna-livre.png"
+                alt="Esquema de transformação bacteriana por DNA livre"
+                loading="lazy"
+              />
+            </button>
+
+            <figcaption class="caption cap3-p23-caption">
+              <strong>Transformação:</strong> captação de DNA livre do ambiente por célula competente, com possível integração ao genoma.
+            </figcaption>
+          </figure>
+
+          <p class="cap3-p23-cardText">
+            Na transformação, fragmentos de DNA livre presentes no ambiente, geralmente provenientes da lise de outras bactérias, podem ser captados por células que se encontram em estado de competência. A competência corresponde a uma condição fisiológica na qual a bactéria expressa proteínas capazes de reconhecer e internalizar DNA extracelular. Uma vez no interior da célula, esse DNA pode ser degradado ou integrar-se ao genoma bacteriano por recombinação, caso exista homologia suficiente. Quando o fragmento incorporado contém um gene de resistência funcional e adequadamente expresso, a bactéria passa a apresentar o novo fenótipo de resistência.
+          </p>
+        </article>
+
+        <article class="cap3-p23-card">
+          <h2 class="cap3-p23-cardTitle">Transdução</h2>
+
+          <figure class="figure cap3-p23-figure">
+            <button
+              type="button"
+              data-zoom="../../assets/capitulo-03/imagens/transducao-bacteriofago.png"
+              aria-label="Ampliar imagem de transdução bacteriana"
+            >
+              <img
+                src="../../assets/capitulo-03/imagens/transducao-bacteriofago.png"
+                alt="Esquema de transdução bacteriana mediada por bacteriófagos"
+                loading="lazy"
+              />
+            </button>
+
+            <figcaption class="caption cap3-p23-caption">
+              <strong>Transdução:</strong> transferência de DNA mediada por bacteriófagos, com introdução do material genético em nova célula.
+            </figcaption>
+          </figure>
+
+          <p class="cap3-p23-cardText">
+            Na transdução, a transferência genética ocorre mediada por bacteriófagos, vírus capazes de infectar bactérias. Durante o ciclo replicativo do fago, fragmentos de DNA bacteriano podem ser incorporados às partículas virais em formação. Quando esses vírus infectam outra bactéria, o DNA bacteriano transportado pode ser introduzido na nova célula e integrar-se ao seu genoma por recombinação. Dependendo do tipo de ciclo viral, a transdução pode ser generalizada, envolvendo diferentes fragmentos do genoma bacteriano, ou especializada, quando genes localizados próximos ao sítio de integração do fago são transferidos de forma mais específica.
+          </p>
+        </article>
+
       </section>
 
       <p>
@@ -100,7 +142,7 @@
       </p>
 
       <p>
-        É importante destacar que a transferência horizontal não substitui a seleção clonal; ambos os processos atuam de forma complementar. A aquisição de um gene de resistência torna-se clinicamente relevante quando a bactéria portadora é favorecida pela pressão seletiva exercida pelos antibacterianos e passa a se expandir na população bacteriana <sup>3</sup>.
+        É importante destacar que a transferência horizontal não substitui a seleção clonal, mas ambos os processos atuam de forma complementar. A aquisição de um gene de resistência torna-se clinicamente relevante quando a bactéria portadora é favorecida pela pressão seletiva exercida pelos antibacterianos e passa a se expandir na população bacteriana <sup>3</sup>.
       </p>
 
       <p>
@@ -109,26 +151,13 @@
 
     </section>
 
-   <nav class="pager" aria-label="Paginação">
+    <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p22.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 3 · Página 23 de 89</div>
       <button class="btn primary" type="button" data-next="p24.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
 
   </main>
-
-  <div class="cap3-lightbox" id="cap3Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap3-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap3-lightbox__dialog">
-      <button class="cap3-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap3-lightbox__figure">
-        <img id="cap3LightboxImage" src="" alt="" />
-        <figcaption id="cap3LightboxCaption" class="cap3-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-03.js"></script>

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css"/>
   <link rel="stylesheet" href="../../css/components.css"/>
@@ -29,53 +29,60 @@
 
     <section class="prose cap3-reading-flow" aria-label="Introdução do quiz">
       <p>
-        As situações a seguir exploram mecanismos de resistência bacteriana apresentados neste capítulo. Analise cada cenário relacionando o padrão microbiológico ao mecanismo adaptativo mais provável.
+        As situações a seguir articulam mecanismos de resistência bacteriana, padrão microbiológico e implicações clínicas. Em cada cenário, a interpretação adequada depende da relação entre o perfil observado e o mecanismo adaptativo mais provável.
       </p>
     </section>
 
-    <section class="cap3-p29Quiz" data-cap3-p29 aria-label="Quiz de revisão">
+    <section class="cap3-p29Quiz" data-cap3-p29 aria-label="Quiz de revisão do capítulo 3">
 
-      <div class="cap3-p29Nav" aria-label="Navegação das situações">
-        <button class="cap3-p29NavBtn" type="button" data-p29-action="prev">Anterior</button>
-        <div class="cap3-p29Progress" aria-live="polite"></div>
-        <button class="cap3-p29NavBtn" type="button" data-p29-action="next">Próxima</button>
+      <div class="cap3-p29Status" aria-live="polite" data-p29-status>
+        <span class="cap3-p29Status__label">Leitura aplicada do capítulo</span>
+        <span class="cap3-p29Status__value">0 de 2 situações confirmadas</span>
       </div>
 
-      <!-- QUESTÃO 1 -->
-      <div class="cap3-p29Question active" data-q="1">
+      <article class="cap3-p29Question" data-q="1" data-question-state="pending">
+        <div class="cap3-p29QuestionHeader">
+          <span class="cap3-p29Kicker">Situação clínica 1</span>
+          <h2 class="cap3-p29QuestionTitle">Inativação enzimática de β-lactâmicos</h2>
+        </div>
+
         <p class="cap3-p29Case">
-          1) Um paciente hospitalizado apresenta infecção por <em>Klebsiella pneumoniae</em>. O antibiograma mostra resistência simultânea a diversas cefalosporinas de terceira geração, mas o microrganismo permanece suscetível a uma combinação de β-lactâmico associada a inibidor de β-lactamase.
+          Um paciente hospitalizado apresenta infecção por <em>Klebsiella pneumoniae</em>. O antibiograma mostra resistência simultânea a diversas cefalosporinas de terceira geração, mas o microrganismo permanece suscetível a uma combinação de β-lactâmico associada a inibidor de β-lactamase.
         </p>
 
         <p class="cap3-p29Prompt">
           Qual mecanismo de resistência é mais compatível com esse padrão microbiológico?
         </p>
 
-        <div class="cap3-p29Options" role="group" aria-label="Alternativas da questão 1">
+        <div class="cap3-p29Options" role="group" aria-label="Alternativas da situação clínica 1">
           <button type="button" data-answer="a">
             <span class="cap3-p29Letter">A</span>
-            <span>Modificação do alvo ribossomal</span>
+            <span>Modificação do alvo ribossomal.</span>
           </button>
 
           <button type="button" data-answer="b" data-correct="true">
             <span class="cap3-p29Letter">B</span>
-            <span>Produção de β-lactamase com atividade contra cefalosporinas</span>
+            <span>Produção de β-lactamase com atividade contra cefalosporinas.</span>
           </button>
 
           <button type="button" data-answer="c">
             <span class="cap3-p29Letter">C</span>
-            <span>Redução da permeabilidade da membrana bacteriana</span>
+            <span>Redução da permeabilidade da membrana bacteriana.</span>
           </button>
 
           <button type="button" data-answer="d">
             <span class="cap3-p29Letter">D</span>
-            <span>Alteração da DNA girase</span>
+            <span>Alteração da DNA girase.</span>
           </button>
         </div>
 
         <div class="cap3-p29Actions">
-          <button class="cap3-p29Btn cap3-p29Btn--primary" type="button" data-p29-action="confirm" disabled>Confirmar</button>
-          <button class="cap3-p29Btn cap3-p29Btn--ghost" type="button" data-p29-action="reset" hidden>Refazer</button>
+          <button class="cap3-p29Btn cap3-p29Btn--primary" type="button" data-p29-action="confirm" disabled>
+            Confirmar interpretação
+          </button>
+          <button class="cap3-p29Btn cap3-p29Btn--ghost" type="button" data-p29-action="reset" hidden>
+            Refazer
+          </button>
         </div>
 
         <div class="cap3-p29Feedback" role="region" aria-live="polite"></div>
@@ -100,56 +107,55 @@
   "d": {
     "type": "error",
     "title": "Mecanismo inadequado",
-    "text": "Alterações em DNA girase estão relacionadas, principalmente, à resistência a fluoroquinolonas. Não correspondem ao padrão de resistência seletiva a cefalosporinas descrito no caso."
+    "text": "Alterações em DNA girase estão relacionadas principalmente à resistência a fluoroquinolonas. Não correspondem ao padrão de resistência seletiva a cefalosporinas descrito no caso."
   }
 }
         </template>
+      </article>
 
-        <template class="cap3-p29Rationale">
-          <p><strong>Resposta correta:</strong></p>
-          <p>B) Produção de β-lactamase com atividade contra cefalosporinas.</p>
+      <article class="cap3-p29Question" data-q="2" data-question-state="pending">
+        <div class="cap3-p29QuestionHeader">
+          <span class="cap3-p29Kicker">Situação clínica 2</span>
+          <h2 class="cap3-p29QuestionTitle">Resistência cruzada em fluoroquinolonas</h2>
+        </div>
 
-          <p>
-            A produção de β-lactamases é um dos mecanismos mais comuns de resistência aos β-lactâmicos. Essas enzimas hidrolisam o anel β-lactâmico e inativam o antibacteriano antes que ele alcance seu alvo molecular. Em alguns casos, a associação com inibidores de β-lactamase pode restaurar parcialmente a atividade do fármaco, o que explica o padrão observado no antibiograma.
-          </p>
-        </template>
-      </div>
-
-      <!-- QUESTÃO 2 -->
-      <div class="cap3-p29Question" data-q="2">
         <p class="cap3-p29Case">
-          2) Um isolado bacteriano apresenta resistência simultânea a diversas fluoroquinolonas, embora pertença a uma espécie historicamente sensível a essa classe. Estudos laboratoriais demonstram mutação na enzima DNA girase.
+          Um isolado bacteriano apresenta resistência simultânea a diversas fluoroquinolonas, embora pertença a uma espécie historicamente sensível a essa classe. Estudos laboratoriais demonstram mutação na enzima DNA girase.
         </p>
 
         <p class="cap3-p29Prompt">
           Qual conceito melhor descreve esse fenômeno?
         </p>
 
-        <div class="cap3-p29Options" role="group" aria-label="Alternativas da questão 2">
+        <div class="cap3-p29Options" role="group" aria-label="Alternativas da situação clínica 2">
           <button type="button" data-answer="a">
             <span class="cap3-p29Letter">A</span>
-            <span>Resistência intrínseca</span>
+            <span>Resistência intrínseca.</span>
           </button>
 
           <button type="button" data-answer="b" data-correct="true">
             <span class="cap3-p29Letter">B</span>
-            <span>Resistência cruzada dentro da mesma classe de antibacterianos</span>
+            <span>Resistência cruzada dentro da mesma classe de antibacterianos.</span>
           </button>
 
           <button type="button" data-answer="c">
             <span class="cap3-p29Letter">C</span>
-            <span>Multirresistência associada a múltiplos mecanismos independentes</span>
+            <span>Multirresistência associada a múltiplos mecanismos independentes.</span>
           </button>
 
           <button type="button" data-answer="d">
             <span class="cap3-p29Letter">D</span>
-            <span>Resistência causada por transferência horizontal de plasmídeo</span>
+            <span>Resistência causada por transferência horizontal de plasmídeo.</span>
           </button>
         </div>
 
         <div class="cap3-p29Actions">
-          <button class="cap3-p29Btn cap3-p29Btn--primary" type="button" data-p29-action="confirm" disabled>Confirmar</button>
-          <button class="cap3-p29Btn cap3-p29Btn--ghost" type="button" data-p29-action="reset" hidden>Refazer</button>
+          <button class="cap3-p29Btn cap3-p29Btn--primary" type="button" data-p29-action="confirm" disabled>
+            Confirmar interpretação
+          </button>
+          <button class="cap3-p29Btn cap3-p29Btn--ghost" type="button" data-p29-action="reset" hidden>
+            Refazer
+          </button>
         </div>
 
         <div class="cap3-p29Feedback" role="region" aria-live="polite"></div>
@@ -178,27 +184,23 @@
   }
 }
         </template>
+      </article>
 
-        <template class="cap3-p29Rationale">
-          <p><strong>Resposta correta:</strong></p>
-          <p>B) Resistência cruzada dentro da mesma classe de antibacterianos.</p>
-
-          <p>
-            Quando uma única alteração molecular reduz a suscetibilidade a diferentes antibacterianos que compartilham o mesmo alvo molecular, ocorre resistência cruzada. No caso das fluoroquinolonas, mutações na DNA girase ou na topoisomerase IV podem afetar simultaneamente diversos fármacos dessa classe.
-          </p>
-        </template>
-      </div>
-
-      <div class="cap3-p29Done" hidden>
-        <div class="cap3-p29DoneCard" role="status" aria-live="polite">
-          <span class="cap3-p29Badge cap3-p29Badge--done">Concluído</span>
-          <p class="cap3-p29DoneText">Você concluiu o quiz de revisão deste capítulo.</p>
-          <div class="cap3-p29Closing">
-            <p>
-              A interpretação crítica dos mecanismos de resistência permite relacionar padrões microbiológicos, alvos farmacológicos e implicações terapêuticas. Esse raciocínio é essencial para compreender o antibiograma para além da leitura isolada de sensível ou resistente.
-            </p>
-          </div>
+      <section class="cap3-p29Completion" data-p29-completion hidden aria-live="polite">
+        <div class="cap3-p29Completion__header">
+          <span class="cap3-p29Completion__kicker">Fechamento clínico</span>
+          <h2 class="cap3-p29Completion__title">Síntese da interpretação dos mecanismos de resistência</h2>
         </div>
+
+        <p class="cap3-p29Completion__text" data-p29-completion-text>
+          Ao final deste capítulo, a resistência bacteriana já não pode ser compreendida como simples resultado laboratorial isolado. Sua interpretação depende da relação entre alvo farmacológico, adaptação bacteriana, padrão de suscetibilidade e contexto clínico-epidemiológico.
+        </p>
+      </section>
+
+      <div class="cap3-p29ClosingBlock">
+        <p>
+          Ao final deste capítulo, a resistência bacteriana já não pode ser compreendida como simples resultado laboratorial isolado. Sua interpretação depende da relação entre alvo farmacológico, adaptação bacteriana, padrão de suscetibilidade e contexto clínico-epidemiológico.
+        </p>
       </div>
     </section>
 
@@ -217,7 +219,7 @@
       </div>
     </details>
 
- <nav class="pager" aria-label="Paginação">
+    <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p28.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 3 · Página 29 de 89</div>
       <button class="btn primary" type="button" data-next="../capitulo-04/p30.html" aria-label="Ir para a próxima página">Próxima →</button>

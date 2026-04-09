@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -16,61 +16,35 @@
 
 <body class="cap3-page21">
 
-  <main class="container page-shell cap3-shell">
+  <main class="page-shell cap3-shell">
 
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 3 — Mecanismos de Resistência Bacteriana</div>
-        <h1 class="page-title">Resistência intrínseca e resistência adquirida</h1>
-      </div>
+      <div class="chapter">Capítulo 3 — Mecanismos de Resistência Bacteriana</div>
+      <h1 class="page-title">Resistência intrínseca e resistência adquirida</h1>
     </header>
 
     <section class="prose cap3-reading-flow" aria-label="Texto principal">
 
       <p>
-        A resistência bacteriana pode ser classificada em dois grandes grupos: resistência intrínseca e resistência adquirida <sup>3,5</sup>.
+        A resistência bacteriana pode ser classificada em dois grandes grupos: fenótipo esperado e adquirida <sup>3,5</sup>.
       </p>
 
-      <section class="cap3-p21-compare" data-p21-compare aria-label="Comparação entre resistência intrínseca e resistência adquirida">
+      <section class="cap3-p21-compare" aria-label="Comparação entre resistência intrínseca e resistência adquirida">
 
         <p class="cap3-p21-question">
           Compare os dois padrões: em um caso, a insensibilidade já pertence à espécie bacteriana; no outro, a bactéria modifica seu perfil de suscetibilidade ao adquirir ou selecionar novos mecanismos.
         </p>
 
-        <div class="cap3-p21-panel">
+        <div class="cap3-p21-grid">
 
-          <div class="cap3-p21-tabs" role="tablist" aria-label="Tipos de resistência bacteriana">
-            <button
-              class="cap3-p21-tab is-active"
-              type="button"
-              role="tab"
-              aria-selected="true"
-              data-p21-tab="intrinseca">
-              Resistência intrínseca
-            </button>
+          <article class="cap3-p21-card">
+            <h2 class="cap3-p21-cardTitle">Resistência intrínseca</h2>
 
-            <button
-              class="cap3-p21-tab"
-              type="button"
-              role="tab"
-              aria-selected="false"
-              data-p21-tab="adquirida">
-              Resistência adquirida
-            </button>
-          </div>
-
-          <div
-            class="cap3-p21-stage is-active"
-            data-p21-stage="intrinseca"
-            role="tabpanel">
-
-            <figure class="cap3-p21-figure">
+            <figure class="figure cap3-p21-figure">
               <button
                 class="cap3-zoomTrigger"
                 type="button"
-                data-zoom-image="../../assets/capitulo-03/imagens/resistencia-intrinseca.png"
-                data-zoom-alt="Esquema de resistência intrínseca mostrando insensibilidade natural e previsível, incompatibilidade biológica, barreiras físicas em Gram-negativas e ausência de alvo em Mycoplasma."
-                data-zoom-caption="Resistência intrínseca: trata-se de uma característica natural e previsível da espécie bacteriana. O antibacteriano não consegue agir adequadamente porque encontra barreiras estruturais, dificuldade de acesso ao alvo ou ausência do próprio alvo molecular. Por isso, algumas combinações entre fármaco e microrganismo já são biologicamente inadequadas antes mesmo do antibiograma."
+                data-zoom="../../assets/capitulo-03/imagens/resistencia-intrinseca.png"
                 aria-label="Ampliar imagem de resistência intrínseca"
               >
                 <img
@@ -80,25 +54,20 @@
                 />
               </button>
 
-              <figcaption class="cap3-p21-caption">
+              <figcaption class="caption cap3-p21-caption">
                 Na resistência intrínseca, a insensibilidade decorre de propriedades próprias da espécie bacteriana. A imagem sintetiza três ideias centrais: trata-se de um padrão natural e previsível; a ausência de resposta terapêutica decorre de incompatibilidade biológica entre o mecanismo de ação do fármaco e a estrutura do microrganismo; e exemplos clássicos incluem barreiras físicas em bactérias Gram-negativas e ausência de parede celular em <em>Mycoplasma</em>, situação em que antibacterianos dirigidos ao peptidoglicano não encontram alvo para atuar.
               </figcaption>
             </figure>
-          </div>
+          </article>
 
-          <div
-            class="cap3-p21-stage"
-            data-p21-stage="adquirida"
-            role="tabpanel"
-            hidden>
+          <article class="cap3-p21-card">
+            <h2 class="cap3-p21-cardTitle">Resistência adquirida</h2>
 
-            <figure class="cap3-p21-figure">
+            <figure class="figure cap3-p21-figure">
               <button
                 class="cap3-zoomTrigger"
                 type="button"
-                data-zoom-image="../../assets/capitulo-03/imagens/resistencia-adquirida.png"
-                data-zoom-alt="Esquema de resistência adquirida mostrando mudança de perfil de suscetibilidade, mutação e transferência genética, enzimas inativadoras e pressão seletiva sobre variantes resistentes."
-                data-zoom-caption="Resistência adquirida: ocorre quando uma bactéria previamente suscetível passa a reduzir a eficácia do antibacteriano. A mudança de perfil pode surgir por mutações espontâneas, aquisição de genes por transferência horizontal, produção de enzimas inativadoras e seleção de variantes resistentes sob pressão antimicrobiana. Por isso, diferentemente da resistência intrínseca, esse padrão é dinâmico e varia conforme o contexto epidemiológico."
+                data-zoom="../../assets/capitulo-03/imagens/resistencia-adquirida.png"
                 aria-label="Ampliar imagem de resistência adquirida"
               >
                 <img
@@ -108,21 +77,17 @@
                 />
               </button>
 
-              <figcaption class="cap3-p21-caption">
+              <figcaption class="caption cap3-p21-caption">
                 Na resistência adquirida, uma bactéria previamente suscetível passa a apresentar mecanismos que reduzem a atividade do antibacteriano. A imagem destaca quatro eixos do processo: mudança de perfil de suscetibilidade, origem genética por mutação ou transferência horizontal, produção de mecanismos efetores como enzimas inativadoras e consolidação do fenótipo resistente sob pressão seletiva. Isso explica por que espécies antes consideradas sensíveis podem exibir perfis variáveis ao longo do tempo e entre diferentes instituições.
               </figcaption>
             </figure>
-          </div>
+          </article>
 
         </div>
       </section>
 
       <p>
         A resistência intrínseca corresponde à insensibilidade natural de determinada espécie bacteriana a um antibacteriano específico. Essa característica resulta de propriedades estruturais ou funcionais próprias do microrganismo que impedem que o fármaco alcance seu alvo ou interaja de forma eficaz com ele. Trata-se de uma propriedade inerente à espécie bacteriana, previsível e independente de exposição prévia ao antibacteriano <sup>2</sup>.
-      </p>
-
-      <p>
-        Esse tipo de resistência explica por que algumas combinações entre antibacterianos e microrganismos são consideradas biologicamente inadequadas mesmo antes da realização de testes laboratoriais de suscetibilidade. Nesses casos, a ausência de resposta terapêutica não representa falha do tratamento, mas incompatibilidade entre o mecanismo de ação do fármaco e a estrutura da bactéria.
       </p>
 
       <p>
@@ -155,26 +120,13 @@
 
     </section>
 
-   <nav class="pager" aria-label="Paginação">
+    <nav class="pager" aria-label="Paginação">
       <button class="btn" type="button" data-prev="p20.html" aria-label="Ir para a página anterior">← Anterior</button>
       <div class="center">Capítulo 3 · Página 21 de 89</div>
       <button class="btn primary" type="button" data-next="p22.html" aria-label="Ir para a próxima página">Próxima →</button>
     </nav>
 
   </main>
-
-  <div class="cap3-lightbox" id="cap3Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap3-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap3-lightbox__dialog">
-      <button class="cap3-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap3-lightbox__figure">
-        <img id="cap3LightboxImage" src="" alt="" />
-        <figcaption id="cap3LightboxCaption" class="cap3-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-03.js"></script>

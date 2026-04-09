@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -23,7 +23,7 @@
       <h1 class="page-title">Produção de enzimas inativadoras: β-lactamases</h1>
     </header>
 
-    <section class="prose cap3-reading-flow" aria-label="Texto principal">
+    <section class="prose cap3-reading-flow">
 
       <p>
         Entre os mecanismos de resistência adquirida, a produção de enzimas capazes de inativar o antibacteriano antes que ele alcance seu alvo molecular representa uma das estratégias mais relevantes na prática clínica <sup>5,6</sup>. Nesse contexto, as β-lactamases constituem o modelo mais amplamente estudado.
@@ -33,40 +33,29 @@
         Os antibacterianos β-lactâmicos exercem sua atividade ao se ligarem às proteínas ligadoras de penicilina (PBPs), inibindo etapas essenciais da síntese da parede celular bacteriana.
       </p>
 
-      <section class="cap3-p24-visual" aria-label="Visualização do mecanismo de β-lactamase">
-        <div class="cap3-p24-visual__inner">
+      <section class="cap3-p24-visual">
+        <p class="cap3-p24-visual__intro">
+          Observe como a hidrólise do anel β-lactâmico interrompe a atividade do fármaco antes que ele consiga atuar adequadamente sobre o alvo bacteriano.
+        </p>
 
-          <p class="cap3-p24-visual__intro">
-            Observe como a hidrólise do anel β-lactâmico interrompe a atividade do fármaco antes que ele consiga atuar adequadamente sobre o alvo bacteriano.
-          </p>
+        <figure class="figure cap3-p24-figure">
+          <button
+            type="button"
+            data-zoom="../../assets/capitulo-03/imagens/esbl-mecanismo.png"
+            aria-label="Ampliar imagem do mecanismo de β-lactamase"
+          >
+            <img
+              src="../../assets/capitulo-03/imagens/esbl-mecanismo.png"
+              alt="Mecanismo de β-lactamase mostrando hidrólise do anel β-lactâmico"
+              loading="lazy"
+            />
+          </button>
 
-          <figure class="cap3-p24-figure">
-            <button
-              class="cap3-zoomTrigger"
-              type="button"
-              data-zoomImage="../../assets/capitulo-03/imagens/esbl-mecanismo.png"
-              data-zoomAlt="Mecanismo de β-lactamase mostrando hidrólise do anel β-lactâmico"
-              data-zoomCaption="As β-lactamases hidrolisam o anel β-lactâmico, estrutura indispensável para a atividade do fármaco. Com isso, o antibacteriano perde a capacidade de interagir adequadamente com seu alvo e torna-se funcionalmente inativo."
-              aria-label="Ampliar imagem do mecanismo de β-lactamase"
-            >
-              <img
-                src="../../assets/capitulo-03/imagens/esbl-mecanismo.png"
-                alt="Mecanismo de β-lactamase mostrando hidrólise do anel β-lactâmico"
-                loading="lazy"
-              />
-            </button>
-
-            <figcaption class="cap3-p24-caption">
-              <strong>Inativação enzimática por β-lactamases:</strong> essas enzimas hidrolisam o anel β-lactâmico, estrutura essencial para a atividade do fármaco, tornando o antibacteriano funcionalmente inativo antes que ele exerça seu efeito sobre a parede celular bacteriana.
-            </figcaption>
-          </figure>
-
-        </div>
+          <figcaption class="caption cap3-p24-caption">
+            <strong>Inativação enzimática por β-lactamases:</strong> essas enzimas hidrolisam o anel β-lactâmico, estrutura essencial para a atividade do fármaco, tornando o antibacteriano funcionalmente inativo antes que ele exerça seu efeito sobre a parede celular bacteriana.
+          </figcaption>
+        </figure>
       </section>
-
-      <p>
-        As β-lactamases, por sua vez, hidrolisam o anel β-lactâmico, estrutura fundamental para a atividade desses fármacos. Como consequência, o antibacteriano perde a capacidade de interagir adequadamente com seu alvo e torna-se funcionalmente inativo <sup>6</sup>.
-      </p>
 
       <p>
         Do ponto de vista clínico, a presença dessas enzimas pode modificar de forma significativa as opções terapêuticas inicialmente consideradas adequadas. A simples escolha de um β-lactâmico com espectro mais amplo não garante eficácia quando há produção de enzimas capazes de hidrolisá-lo.
@@ -98,26 +87,13 @@
 
     </section>
 
-   <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p23.html" aria-label="Ir para a página anterior">← Anterior</button>
+    <nav class="pager">
+      <button class="btn" data-prev="p23.html">← Anterior</button>
       <div class="center">Capítulo 3 · Página 24 de 89</div>
-      <button class="btn primary" type="button" data-next="p25.html" aria-label="Ir para a próxima página">Próxima →</button>
+      <button class="btn primary" data-next="p25.html">Próxima →</button>
     </nav>
 
   </main>
-
-  <div class="cap3-lightbox" id="cap3Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap3-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap3-lightbox__dialog">
-      <button class="cap3-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap3-lightbox__figure">
-        <img id="cap3LightboxImage" src="" alt="" />
-        <figcaption id="cap3LightboxCaption" class="cap3-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-03.js"></script>
