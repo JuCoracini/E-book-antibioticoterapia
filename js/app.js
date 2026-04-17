@@ -170,3 +170,25 @@ const AppUtils = {
     document.body.style.overflow = "";
   }
 };
+// =========================
+// BOTÃO GLOBAL DE SUMÁRIO
+// =========================
+
+document.addEventListener("DOMContentLoaded", function () {
+    const botao = document.createElement("button");
+    botao.innerText = "Sumário";
+    botao.className = "btn-sumario-global";
+
+    botao.addEventListener("click", function () {
+        const atual = window.location.pathname;
+
+        if (atual.includes("/content/")) {
+            const base = atual.substring(0, atual.indexOf("/content/"));
+            window.location.href = base + "/content/sumario/p00.html";
+        } else {
+            window.location.href = "content/sumario/p00.html";
+        }
+    });
+
+    document.body.appendChild(botao);
+});

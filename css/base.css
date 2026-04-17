@@ -272,3 +272,37 @@ figcaption{
 .lightbox:not([hidden]){
   opacity: 1;
 }
+/* =========================
+   BOTÃO GLOBAL DE SUMÁRIO
+========================= */
+
+.btn-sumario-global {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 9999;
+
+    padding: 10px 14px;
+    border: none;
+    border-radius: 999px;
+
+    background: #0f3d3e;
+    color: #fff;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+}
+
+.btn-sumario-global:hover {
+    transform: translateY(-2px);
+    background: #14585a;
+}
+
+.btn-sumario-global:active {
+    transform: translateY(0);
+}
