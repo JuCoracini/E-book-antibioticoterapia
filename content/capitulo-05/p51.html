@@ -16,108 +16,134 @@
 
 <body class="cap5-page51">
 
-  <main class="container page-shell">
+  <main class="page-shell">
 
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
-        <h1 class="page-title">Erros frequentes e limites da interpretação do antibiograma</h1>
-      </div>
+      <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
+      <h1 class="page-title">Erros frequentes e limites da interpretação do antibiograma</h1>
     </header>
 
     <section class="prose" aria-label="Texto principal">
 
       <p>
-        A interpretação inadequada do antibiograma costuma ocorrer quando o laudo é analisado de forma fragmentada. O exame fornece informações microbiológicas padronizadas, mas sua leitura exige integração com outros elementos do processo diagnóstico.
+        A interpretação inadequada do antibiograma costuma ocorrer quando o laudo é analisado de forma fragmentada. O exame fornece informações microbiológicas padronizadas, mas sua leitura exige integração com outros elementos do processo diagnóstico <sup>1,2</sup>.
       </p>
 
-      <section class="cap5-p51-errors" aria-labelledby="cap5-p51-errors-title">
-        <div class="cap5-p51-errors__head">
-          <h2 id="cap5-p51-errors-title">Leituras equivocadas que distorcem o significado do laudo</h2>
+      <section class="cap5-p51-map" aria-labelledby="cap5-p51-map-title">
+        <div class="cap5-p51-map__head">
+          <h3 id="cap5-p51-map-title">Armadilhas interpretativas mais frequentes</h3>
           <p>
-            Cada erro a seguir decorre da análise isolada de apenas um elemento do antibiograma. A leitura adequada exige considerar o conjunto das informações microbiológicas e seus limites interpretativos.
+            Cada erro abaixo surge quando um único elemento do laudo passa a ser lido isoladamente. A interpretação adequada depende de recompor o significado microbiológico do resultado antes de transformá-lo em decisão terapêutica.
           </p>
         </div>
 
-        <div class="cap5-p51-errors__stage">
-          <div class="cap5-p51-errors__tabs" role="tablist" aria-label="Erros frequentes de interpretação">
-            <button class="cap5-p51-errors__tab is-active" type="button" role="tab" aria-selected="true" data-p51-step="1">
-              1. “Mais sensível” = melhor
-            </button>
-            <button class="cap5-p51-errors__tab" type="button" role="tab" aria-selected="false" data-p51-step="2">
-              2. “I” = ineficaz
-            </button>
-            <button class="cap5-p51-errors__tab" type="button" role="tab" aria-selected="false" data-p51-step="3">
-              3. CIM isolada
-            </button>
-            <button class="cap5-p51-errors__tab" type="button" role="tab" aria-selected="false" data-p51-step="4">
-              4. Ignorar observações
-            </button>
-            <button class="cap5-p51-errors__tab" type="button" role="tab" aria-selected="false" data-p51-step="5">
-              5. Achar que o painel mostra tudo
-            </button>
+        <div class="cap5-p51-map__controls" role="tablist" aria-label="Erros frequentes na interpretação do antibiograma">
+          <button
+            class="cap5-p51-map__tab is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-p51-step="1"
+          >
+            <span class="cap5-p51-map__n">1</span>
+            <span class="cap5-p51-map__label">“Mais sensível” = melhor</span>
+          </button>
+
+          <button
+            class="cap5-p51-map__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p51-step="2"
+          >
+            <span class="cap5-p51-map__n">2</span>
+            <span class="cap5-p51-map__label">“I” = ineficaz</span>
+          </button>
+
+          <button
+            class="cap5-p51-map__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p51-step="3"
+          >
+            <span class="cap5-p51-map__n">3</span>
+            <span class="cap5-p51-map__label">CIM isolada</span>
+          </button>
+
+          <button
+            class="cap5-p51-map__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p51-step="4"
+          >
+            <span class="cap5-p51-map__n">4</span>
+            <span class="cap5-p51-map__label">Ignorar observações</span>
+          </button>
+
+          <button
+            class="cap5-p51-map__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p51-step="5"
+          >
+            <span class="cap5-p51-map__n">5</span>
+            <span class="cap5-p51-map__label">Painel incompleto = esquecimento</span>
+          </button>
+
+          <button
+            class="cap5-p51-map__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p51-step="6"
+          >
+            <span class="cap5-p51-map__n">6</span>
+            <span class="cap5-p51-map__label">Confundir <em>in vitro</em> com decisão clínica</span>
+          </button>
+        </div>
+
+        <div class="cap5-p51-map__panel" aria-live="polite">
+          <div class="cap5-p51-map__eyebrow" id="cap5-p51-eyebrow">Erro frequente de leitura</div>
+          <h3 class="cap5-p51-map__title" id="cap5-p51-title">
+            Supor que o antibiograma estabelece uma hierarquia entre antibacterianos
+          </h3>
+
+          <div class="cap5-p51-map__body" id="cap5-p51-body">
+            <p>
+              Um equívoco frequente é assumir que o antibiograma estabelece uma hierarquia entre antibacterianos ou que determinados agentes seriam “mais eficazes” por apresentarem resultados favoráveis no teste. Na prática, cada antibacteriano é avaliado individualmente, e as categorias interpretativas indicam probabilidade de inibição bacteriana sob condições específicas de exposição, não permitindo comparações diretas de superioridade entre diferentes fármacos <sup>1,8</sup>.
+            </p>
           </div>
 
-          <aside class="cap5-p51-errors__panel" aria-live="polite">
-            <div class="cap5-p51-errors__eyebrow" id="cap5-p51-eyebrow">Erro frequente</div>
-            <h3 class="cap5-p51-errors__title" id="cap5-p51-title">Selecionar o antibacteriano com maior número de resultados “sensíveis” como se o antibiograma organizasse as opções terapêuticas em ordem de superioridade</h3>
-
-            <div class="cap5-p51-errors__split">
-              <div class="cap5-p51-errors__block cap5-p51-errors__block--wrong">
-                <h4>Leitura equivocada</h4>
-                <p id="cap5-p51-wrong">
-                  O antibiograma seria uma lista hierárquica de opções “melhores” ou “piores”, e o antibacteriano mais frequentemente classificado como sensível seria automaticamente o mais adequado.
-                </p>
-              </div>
-
-              <div class="cap5-p51-errors__block cap5-p51-errors__block--right">
-                <h4>Leitura adequada</h4>
-                <p id="cap5-p51-right">
-                  As categorias interpretativas indicam probabilidade de inibição bacteriana sob determinadas condições de exposição, e não uma hierarquia entre antibacterianos.
-                </p>
-              </div>
-            </div>
-          </aside>
+          <div class="cap5-p51-map__note" id="cap5-p51-note">
+            O laudo informa comportamento microbiológico padronizado, não um ranking terapêutico entre fármacos.
+          </div>
         </div>
       </section>
 
       <p>
-        Além disso, o antibiograma avalia o comportamento da bactéria em ambiente laboratorial controlado. O teste não incorpora variáveis clínicas relevantes, como penetração tecidual do antibacteriano, presença de biofilme, carga bacteriana elevada ou alterações farmacocinéticas do hospedeiro.
+        Por essas razões, o resultado do teste de sensibilidade deve ser compreendido como uma estimativa microbiológica obtida <em>in vitro</em>. A decisão terapêutica depende da integração desse dado com o foco infeccioso, as características do paciente e o contexto clínico em que a infecção ocorre <sup>1,2</sup>.
       </p>
 
       <p>
-        Por essas razões, o resultado do teste de sensibilidade deve ser compreendido como uma estimativa microbiológica obtida <em>in vitro</em>. A decisão terapêutica depende da integração desse dado com o foco infeccioso, as características do paciente e o contexto clínico em que a infecção ocorre.
-      </p>
-
-      <p class="cap5-p51-closing">
         A leitura adequada do antibiograma exige reconhecer tanto o valor quanto as limitações do teste, evitando interpretações simplificadas baseadas em um único elemento do laudo.
       </p>
 
     </section>
 
-  <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p50.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 5 · Página 51 de 89</div>
-      <button class="btn primary" type="button" data-next="p52.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+<nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p50.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 5 · Página 51 de 89</div>
+  <a class="btn primary" href="p52.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
 
- </main>
 
-  <div class="cap5-lightbox" id="cap5Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap5-lightbox__backdrop" data-lightbox-close></div>
+  </main>
 
-    <div class="cap5-lightbox__dialog">
-      <button class="cap5-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap5-lightbox__figure">
-        <img id="cap5LightboxImage" src="" alt="" />
-        <figcaption id="cap5LightboxCaption" class="cap5-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
-
- <script src="../../js/app.js"></script>
- <script src="../../js/capitulo-05.js"></script>
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-05.js"></script>
 
 </body>
 </html>

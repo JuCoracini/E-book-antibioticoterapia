@@ -1,296 +1,275 @@
-/* =====================================================
-   CAPÍTULO 09 — BLOCO DE SUBSTITUIÇÃO JS
-   ===================================================== */
+(function () {
+  "use strict";
 
-(function initCapitulo09(){
-  initCap9Lightbox();
-  initCap9Page79Flow();
-  initCap9Page81Quiz();
-
-  function initCap9Lightbox(){
-    const lightbox = document.getElementById("cap9Lightbox");
-    const img = document.getElementById("cap9LightboxImage");
-    const caption = document.getElementById("cap9LightboxCaption");
-
-    if(!lightbox || !img || !caption) return;
-
-    function open(src, alt, text){
-      img.src = src || "";
-      img.alt = alt || "";
-      caption.textContent = text || "";
-      lightbox.hidden = false;
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-    }
-
-    function close(){
-      lightbox.hidden = true;
-      lightbox.setAttribute("aria-hidden", "true");
-      img.src = "";
-      img.alt = "";
-      caption.textContent = "";
-      document.body.style.overflow = "";
-    }
-
-    document.addEventListener("click", function(e){
-      const trigger = e.target.closest(".cap9-zoomTrigger");
-      if(trigger){
-        open(
-          trigger.dataset.zoomImage,
-          trigger.dataset.zoomAlt,
-          trigger.dataset.zoomCaption
-        );
-        return;
-      }
-
-      if(e.target.closest("[data-lightbox-close]")){
-        close();
-      }
-    });
-
-    document.addEventListener("keydown", function(e){
-      if(e.key === "Escape" && !lightbox.hidden){
-        close();
-      }
-    });
-  }
-
-  function initCap9Page79Flow(){
-    const root = document.querySelector("[data-cap9-flow]");
-    if(!root) return;
+  function initCap9Page79Flow() {
+    const root = document.querySelector(".cap9-page79 [data-cap9-flow]");
+    if (!root) return;
 
     const steps = Array.from(root.querySelectorAll(".cap9-p79-step"));
     const panels = Array.from(root.querySelectorAll(".cap9-p79-panel"));
+    const fill = root.querySelector("[data-cap9-flow-fill]");
 
-    if(!steps.length || !panels.length) return;
+    if (!steps.length || !panels.length) return;
 
-    function activate(stepValue){
-      steps.forEach(function(step){
-        step.classList.toggle("is-active", step.dataset.step === stepValue);
+    function activate(stepValue, moveFocus) {
+      steps.forEach(function (step, index) {
+        const isActive = step.dataset.step === stepValue;
+
+        step.classList.toggle("is-active", isActive);
+        step.setAttribute("aria-selected", isActive ? "true" : "false");
+        step.setAttribute("tabindex", isActive ? "0" : "-1");
+
+        if (isActive && moveFocus) {
+          step.focus();
+        }
+
+        if (isActive && fill) {
+          fill.style.width = (((index + 1) / steps.length) * 100) + "%";
+        }
       });
 
-      panels.forEach(function(panel){
+      panels.forEach(function (panel) {
         panel.hidden = panel.dataset.panel !== stepValue;
       });
     }
 
-    steps.forEach(function(step){
-      step.addEventListener("click", function(){
-        activate(step.dataset.step);
+    steps.forEach(function (step) {
+      step.addEventListener("click", function () {
+        activate(step.dataset.step, false);
+      });
+
+      step.addEventListener("keydown", function (event) {
+        const currentIndex = steps.indexOf(step);
+        let nextIndex = null;
+
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          nextIndex = (currentIndex + 1) % steps.length;
+        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          nextIndex = (currentIndex - 1 + steps.length) % steps.length;
+        } else if (event.key === "Home") {
+          nextIndex = 0;
+        } else if (event.key === "End") {
+          nextIndex = steps.length - 1;
+        }
+
+        if (nextIndex === null) return;
+
+        event.preventDefault();
+        activate(steps[nextIndex].dataset.step, true);
       });
     });
 
     const initialActive = root.querySelector(".cap9-p79-step.is-active");
-    activate(initialActive ? initialActive.dataset.step : steps[0].dataset.step);
+    activate(initialActive ? initialActive.dataset.step : steps[0].dataset.step, false);
   }
 
-  function initCap9Page81Quiz(){
+  function initCap9Page80Decision() {
+    const root = document.querySelector(".cap9-page80 [data-cap9-p80]");
+    if (!root) return;
+
+    const options = Array.from(root.querySelectorAll(".cap9-p80-option"));
+    const panels = Array.from(root.querySelectorAll("[data-p80-panel]"));
+
+    if (!options.length || !panels.length) return;
+
+    function activate(key, moveFocus) {
+      options.forEach(function (option) {
+        const isActive = option.dataset.p80Case === key;
+
+        option.classList.toggle("is-active", isActive);
+        option.setAttribute("aria-selected", isActive ? "true" : "false");
+        option.setAttribute("tabindex", isActive ? "0" : "-1");
+
+        if (isActive && moveFocus) {
+          option.focus();
+        }
+      });
+
+      panels.forEach(function (panel) {
+        panel.hidden = panel.dataset.p80Panel !== key;
+      });
+    }
+
+    options.forEach(function (option) {
+      option.addEventListener("click", function () {
+        activate(option.dataset.p80Case, false);
+      });
+
+      option.addEventListener("keydown", function (event) {
+        const currentIndex = options.indexOf(option);
+        let nextIndex = null;
+
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          nextIndex = (currentIndex + 1) % options.length;
+        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          nextIndex = (currentIndex - 1 + options.length) % options.length;
+        } else if (event.key === "Home") {
+          nextIndex = 0;
+        } else if (event.key === "End") {
+          nextIndex = options.length - 1;
+        }
+
+        if (nextIndex === null) return;
+
+        event.preventDefault();
+        activate(options[nextIndex].dataset.p80Case, true);
+      });
+    });
+
+    const initial = root.querySelector(".cap9-p80-option.is-active");
+    activate(initial ? initial.dataset.p80Case : options[0].dataset.p80Case, false);
+  }
+
+  function initCap9Page81() {
     const root = document.querySelector("[data-cap9-p81]");
-    if(!root) return;
+    if (!root) return;
 
+    const statusValue = root.querySelector(".cap9-p81Status__value");
     const questions = Array.from(root.querySelectorAll(".cap9-p81Question"));
-    const done = root.querySelector(".cap9-p81Done");
-    const progress = root.querySelector(".cap9-p81Progress");
-    const prevBtn = root.querySelector('[data-p81-action="prev"]');
-    const nextBtn = root.querySelector('[data-p81-action="next"]');
+    const completion = root.querySelector("[data-p81-completion]");
 
-    if(!questions.length || !done || !progress || !prevBtn || !nextBtn) return;
+    if (!questions.length) return;
 
-    let currentIndex = 0;
+    function parseFeedbackMap(article) {
+      const template = article.querySelector(".cap9-p81FeedbackMap");
+      if (!template) return {};
 
-    function parseFeedbackMap(question){
-      const tpl = question.querySelector(".cap9-p81FeedbackMap");
-      if(!tpl) return {};
-
-      try{
-        return JSON.parse(tpl.innerHTML.trim());
-      }catch(error){
+      try {
+        return JSON.parse(template.textContent.trim());
+      } catch (error) {
+        console.error("Erro ao ler feedback do quiz da página 81:", error);
         return {};
       }
     }
 
-    function getOptions(question){
-      return Array.from(question.querySelectorAll(".cap9-p81Options button"));
-    }
+    function updateStatus() {
+      const confirmedCount = questions.filter(function (question) {
+        return question.getAttribute("data-question-state") === "confirmed";
+      }).length;
 
-    function getSelected(question){
-      return question.querySelector(".cap9-p81Options button.is-selected");
-    }
-
-    function getCorrect(question){
-      return question.querySelector(".cap9-p81Options button[data-correct='true']");
-    }
-
-    function resetQuestion(question){
-      const options = getOptions(question);
-      const confirmBtn = question.querySelector('[data-p81-action="confirm"]');
-      const resetBtn = question.querySelector('[data-p81-action="reset"]');
-      const feedback = question.querySelector(".cap9-p81Feedback");
-
-      options.forEach(function(btn){
-        btn.classList.remove("is-selected", "is-correct", "is-error");
-        btn.disabled = false;
-      });
-
-      if(confirmBtn) confirmBtn.disabled = true;
-      if(resetBtn) resetBtn.hidden = true;
-
-      if(feedback){
-        feedback.innerHTML = "";
-        feedback.hidden = true;
-        feedback.className = "cap9-p81Feedback";
+      if (statusValue) {
+        statusValue.textContent =
+          confirmedCount + " de " + questions.length + " situações confirmadas";
       }
 
-      question.dataset.answered = "false";
+      if (completion) {
+        completion.hidden = confirmedCount !== questions.length;
+      }
     }
 
-    function renderFeedback(question, answerKey){
-      const map = parseFeedbackMap(question);
-      const item = map[answerKey];
-      const feedback = question.querySelector(".cap9-p81Feedback");
-
-      if(!item || !feedback) return;
-
-      feedback.hidden = false;
-      feedback.className = "cap9-p81Feedback cap9-p81Feedback--" + item.type;
-      feedback.innerHTML = [
-        '<p class="cap9-p81FeedbackTitle">' + item.title + "</p>",
-        '<p class="cap9-p81FeedbackText">' + item.text + "</p>"
-      ].join("");
+    function clearFeedback(feedback) {
+      if (!feedback) return;
+      feedback.className = "cap9-p81Feedback";
+      feedback.innerHTML = "";
     }
 
-    function lockQuestion(question){
-      const options = getOptions(question);
-      const selected = getSelected(question);
-      const correct = getCorrect(question);
+    questions.forEach(function (article) {
+      const options = Array.from(article.querySelectorAll(".cap9-p81Options button"));
+      const confirmButton = article.querySelector('[data-p81-action="confirm"]');
+      const resetButton = article.querySelector('[data-p81-action="reset"]');
+      const feedback = article.querySelector(".cap9-p81Feedback");
+      const feedbackMap = parseFeedbackMap(article);
 
-      options.forEach(function(btn){
-        btn.disabled = true;
-        if(btn === correct){
-          btn.classList.add("is-correct");
+      let selectedAnswer = null;
+
+      function resetQuestion() {
+        selectedAnswer = null;
+        article.setAttribute("data-question-state", "pending");
+
+        options.forEach(function (button) {
+          button.disabled = false;
+          button.classList.remove("is-selected", "is-correct", "is-error");
+          button.setAttribute("aria-pressed", "false");
+        });
+
+        if (confirmButton) {
+          confirmButton.disabled = true;
         }
-      });
 
-      if(selected && selected !== correct){
-        selected.classList.add("is-error");
+        if (resetButton) {
+          resetButton.hidden = true;
+        }
+
+        clearFeedback(feedback);
+        updateStatus();
       }
 
-      question.dataset.answered = "true";
-    }
+      options.forEach(function (button) {
+        button.addEventListener("click", function () {
+          if (article.getAttribute("data-question-state") === "confirmed") return;
 
-    function updateNav(){
-      const lastIndex = questions.length - 1;
-      const inDoneState = !done.hidden;
+          selectedAnswer = button.getAttribute("data-answer");
 
-      progress.textContent = inDoneState
-        ? "Quiz concluído"
-        : "Situação " + (currentIndex + 1) + " de " + questions.length;
-
-      prevBtn.disabled = inDoneState || currentIndex === 0;
-
-      if(inDoneState){
-        nextBtn.disabled = true;
-        return;
-      }
-
-      const currentQuestion = questions[currentIndex];
-      const isLastQuestion = currentIndex === lastIndex;
-      const isAnswered = currentQuestion.dataset.answered === "true";
-
-      nextBtn.disabled = isLastQuestion && !isAnswered;
-    }
-
-    function showQuestion(index){
-      currentIndex = index;
-
-      questions.forEach(function(question, i){
-        question.classList.toggle("active", i === currentIndex);
-      });
-
-      done.hidden = true;
-      updateNav();
-    }
-
-    function showDone(){
-      questions.forEach(function(question){
-        question.classList.remove("active");
-      });
-
-      done.hidden = false;
-      updateNav();
-    }
-
-    questions.forEach(function(question){
-      const options = getOptions(question);
-      const confirmBtn = question.querySelector('[data-p81-action="confirm"]');
-      const resetBtn = question.querySelector('[data-p81-action="reset"]');
-
-      question.dataset.answered = "false";
-
-      options.forEach(function(btn){
-        btn.addEventListener("click", function(){
-          if(question.dataset.answered === "true") return;
-
-          options.forEach(function(opt){
-            opt.classList.remove("is-selected");
+          options.forEach(function (option) {
+            option.classList.remove("is-selected");
+            option.setAttribute("aria-pressed", "false");
           });
 
-          btn.classList.add("is-selected");
+          button.classList.add("is-selected");
+          button.setAttribute("aria-pressed", "true");
 
-          if(confirmBtn){
-            confirmBtn.disabled = false;
+          if (confirmButton) {
+            confirmButton.disabled = false;
           }
         });
       });
 
-      if(confirmBtn){
-        confirmBtn.addEventListener("click", function(){
-          const selected = getSelected(question);
-          if(!selected) return;
+      if (confirmButton) {
+        confirmButton.addEventListener("click", function () {
+          if (!selectedAnswer) return;
 
-          lockQuestion(question);
-          renderFeedback(question, selected.dataset.answer);
-          confirmBtn.disabled = true;
+          const selectedButton = options.find(function (button) {
+            return button.getAttribute("data-answer") === selectedAnswer;
+          });
 
-          if(resetBtn){
-            resetBtn.hidden = false;
+          const entry = feedbackMap[selectedAnswer];
+          if (!selectedButton || !entry || !feedback) return;
+
+          article.setAttribute("data-question-state", "confirmed");
+
+          options.forEach(function (button) {
+            button.disabled = true;
+            button.classList.remove("is-selected");
+            button.setAttribute("aria-pressed", "false");
+          });
+
+          selectedButton.classList.add(entry.type === "correct" ? "is-correct" : "is-error");
+
+          feedback.classList.add("is-visible");
+          feedback.classList.add(entry.type === "correct" ? "is-correct" : "is-error");
+          feedback.innerHTML =
+            '<p class="cap9-p81Feedback__title">' + entry.title + '</p>' +
+            '<p class="cap9-p81Feedback__text">' + entry.text + "</p>";
+
+          confirmButton.disabled = true;
+
+          if (resetButton) {
+            resetButton.hidden = false;
           }
 
-          updateNav();
+          updateStatus();
         });
       }
 
-      if(resetBtn){
-        resetBtn.addEventListener("click", function(){
-          resetQuestion(question);
-          updateNav();
-        });
-      }
-    });
-
-    prevBtn.addEventListener("click", function(){
-      if(currentIndex > 0){
-        showQuestion(currentIndex - 1);
-      }
-    });
-
-    nextBtn.addEventListener("click", function(){
-      const lastIndex = questions.length - 1;
-      const currentQuestion = questions[currentIndex];
-      const isLastQuestion = currentIndex === lastIndex;
-      const isAnswered = currentQuestion.dataset.answered === "true";
-
-      if(isLastQuestion){
-        if(isAnswered){
-          showDone();
-        }
-        return;
+      if (resetButton) {
+        resetButton.addEventListener("click", resetQuestion);
       }
 
-      showQuestion(currentIndex + 1);
+      resetQuestion();
     });
 
-    questions.forEach(resetQuestion);
-    showQuestion(0);
+    updateStatus();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      initCap9Page79Flow();
+      initCap9Page80Decision();
+      initCap9Page81();
+    });
+  } else {
+    initCap9Page79Flow();
+    initCap9Page80Decision();
+    initCap9Page81();
   }
 })();

@@ -24,7 +24,7 @@
   --lh-title: 1.25;
 
   /* CORES */
-  --text-color: #353535;
+  --text-color: #2f2f2f;
   --muted: #6b7280;
 
   --azul-escuro: #0f2a44;
@@ -82,7 +82,8 @@ textarea{
 
 .page-shell{
   width: var(--page-width);
-  min-height: var(--page-height);
+ min-height: var(--page-height);
+height: auto;
   margin: 32px auto;
   padding: 56px 48px 60px;
   background: var(--bg-page);
@@ -134,7 +135,7 @@ textarea{
 /* RECUO EM TODOS OS PARÁGRAFOS (CONTROLADO) */
 .prose > p{
   max-width: var(--text-width);
-  margin: 0 auto 14px;
+  margin: 0 auto 12px;
   text-indent: 1.6em;
 }
 
@@ -169,14 +170,14 @@ sup{
   font-size: 0.65em;
   line-height: 0;
   vertical-align: super;
-  color: #9ca3af;
+  color: #7c8794;
 }
 
 /* LEGENDAS */
 figcaption{
   font-size: var(--fs-caption);
   line-height: 1.45;
-  color: var(--muted);
+  color: #5f6c78;
 }
 
 /* ELEMENTOS QUE NÃO DEVEM TER RECUO */
@@ -211,7 +212,7 @@ figcaption{
 .pager .center{
   font-family: var(--font-ui);
   font-size: var(--fs-pager);
-  color: var(--muted);
+  color: #5f6c78;
   text-align: center;
 }
 
@@ -262,4 +263,12 @@ figcaption{
     width: 100%;
     order: -1;
   }
+}
+.lightbox{
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+
+.lightbox:not([hidden]){
+  opacity: 1;
 }

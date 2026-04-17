@@ -1,149 +1,104 @@
-/* =====================================================
-   CAPÍTULO 10
-   PÁGINA 82 — A DECISÃO COMO PROCESSO CONTÍNUO
-   ===================================================== */
+(function(){
 
-(function initPage82DecisionModel(){
-  const root = document.querySelector("[data-cap10-decision]");
-  if(!root) return;
+const data = {
 
-  const buttons = Array.from(root.querySelectorAll(".cap10-p82-node"));
-  const eyebrow = document.getElementById("cap10DecisionEyebrow");
-  const title = document.getElementById("cap10DecisionTitle");
-  const text = document.getElementById("cap10DecisionText");
-  const impact = document.getElementById("cap10DecisionImpact");
+prob:{
+title:"Probabilidade etiológica",
+text:"A decisão inicial raramente ocorre com identificação microbiológica confirmada. A escolha parte de uma estimativa probabilística construída a partir da síndrome clínica, do sítio provável da infecção e do contexto epidemiológico.",
+logic:"Se essa estimativa for inadequada, aumenta o risco de erro terapêutico precoce."
+},
 
-  if(!buttons.length || !eyebrow || !title || !text || !impact) return;
+grav:{
+title:"Gravidade clínica",
+text:"A gravidade define a tolerância ao erro terapêutico e influencia a amplitude inicial da cobertura antimicrobiana.",
+logic:"Quadros graves exigem menor tolerância à incerteza e maior cobertura inicial."
+},
 
-  const content = {
-    probabilidade: {
-      eyebrow: "Elemento em foco",
-      title: "Probabilidade etiológica",
-      text: "A decisão inicial raramente ocorre com identificação microbiológica confirmada. Por isso, a escolha em antibioticoterapia parte de uma estimativa probabilística construída a partir da síndrome clínica, do sítio provável da infecção, do contexto de aquisição e das características do hospedeiro.",
-      impact: "Quando essa estimativa é mal construída, aumenta o risco de inadequação terapêutica precoce ou de ampliação desnecessária do espectro antimicrobiano."
-    },
-    gravidade: {
-      eyebrow: "Elemento em foco",
-      title: "Gravidade clínica",
-      text: "A gravidade modifica a urgência e a tolerância ao erro terapêutico. Em quadros potencialmente graves, o risco de atraso na instituição de terapia ativa pode superar o risco ecológico inicial de um espectro mais amplo.",
-      impact: "Quanto maior a instabilidade clínica, menor é a margem aceitável para inadequação antimicrobiana precoce."
-    },
-    resistencia: {
-      eyebrow: "Elemento em foco",
-      title: "Mecanismos de resistência",
-      text: "A presença provável ou confirmada de mecanismos específicos de resistência altera a interpretação do esquema em uso. O problema deixa de ser apenas cobertura ampla ou estreita e passa a envolver atividade real frente ao microrganismo envolvido.",
-      impact: "Ignorar o mecanismo de resistência pode manter um tratamento aparentemente robusto, mas microbiologicamente inativo."
-    },
-    pkpd: {
-      eyebrow: "Elemento em foco",
-      title: "Farmacocinética e farmacodinâmica",
-      text: "A escolha de um antibacteriano depende não apenas do espectro, mas também da capacidade de alcançar o sítio da infecção em concentrações eficazes, com exposição compatível com o mecanismo de ação do fármaco.",
-      impact: "Cobertura microbiológica sem exposição farmacológica adequada não garante resposta clínica satisfatória."
-    },
-    impacto: {
-      eyebrow: "Elemento em foco",
-      title: "Impacto individual e coletivo",
-      text: "Toda decisão em antibioticoterapia produz consequências para o paciente individual e para o ecossistema microbiológico ao seu redor. Eventos adversos, disbiose e pressão seletiva fazem parte da análise de risco.",
-      impact: "A prática racional exige tratar a infecção com proporcionalidade, evitando que a estratégia empírica provisória se transforme em exposição desnecessária persistente."
-    }
-  };
+res:{
+title:"Mecanismos de resistência",
+text:"O perfil epidemiológico local e os mecanismos de resistência modificam a escolha empírica.",
+logic:"Ignorar resistência local pode levar à ineficácia terapêutica mesmo com antibacteriano adequado."
+},
 
-  function activate(key){
-    const item = content[key];
-    if(!item) return;
+pkpd:{
+title:"Farmacocinética e farmacodinâmica",
+text:"A eficácia depende da exposição efetiva ao fármaco no foco infeccioso.",
+logic:"Mesmo antibacteriano pode falhar se não atingir concentração adequada no sítio da infecção."
+},
 
-    buttons.forEach((button) => {
-      const active = button.dataset.decisionKey === key;
-      button.classList.toggle("is-active", active);
-      button.setAttribute("aria-pressed", active ? "true" : "false");
-    });
+impact:{
+title:"Impacto individual e coletivo",
+text:"A decisão terapêutica afeta não apenas o paciente, mas também o cenário epidemiológico.",
+logic:"Uso inadequado favorece eventos adversos e seleção de resistência."
+}
 
-    eyebrow.textContent = item.eyebrow;
-    title.textContent = item.title;
-    text.textContent = item.text;
-    impact.textContent = item.impact;
-  }
+};
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      activate(button.dataset.decisionKey);
-    });
-  });
+const nodes=document.querySelectorAll(".node");
 
-  activate("probabilidade");
+nodes.forEach(n=>{
+n.onclick=()=>{
+nodes.forEach(b=>b.classList.remove("active"));
+n.classList.add("active");
+
+const key=n.dataset.key;
+
+document.getElementById("title").textContent=data[key].title;
+document.getElementById("text").textContent=data[key].text;
+document.getElementById("logic").textContent=data[key].logic;
+};
+});
+
 })();
-/* =====================================================
-   CAPÍTULO 10
-   PÁGINA 83 — SIMULAÇÃO 1
-   ===================================================== */
+(function(){
 
-(function initPage83Simulation(){
-  const root = document.querySelector("[data-cap10-p83]");
-  if(!root) return;
+const cards=document.querySelectorAll(".card");
+const feedback=document.getElementById("feedback");
+const nextBtn=document.getElementById("nextBtn");
+const track=document.getElementById("track");
 
-  const steps = Array.from(root.querySelectorAll(".cap10-p83-step"));
-  const feedback = document.getElementById("cap10P83Feedback");
-  const feedbackFinal = document.getElementById("cap10P83FeedbackFinal");
+cards.forEach(card=>{
+card.onclick=()=>{
 
-  if(!steps.length || !feedback || !feedbackFinal) return;
+cards.forEach(c=>c.style.pointerEvents="none");
 
-  function showStep(stepNumber){
-    steps.forEach((step) => {
-      const isTarget = step.dataset.p83Step === String(stepNumber);
-      step.classList.toggle("is-active", isTarget);
-      step.hidden = !isTarget;
-    });
-  }
+const choice=card.dataset.choice;
 
-  function setFirstFeedback(choice){
-    const map = {
-      manter: "Essa estratégia pode aumentar o risco de inadequação terapêutica precoce em um quadro potencialmente grave.",
-      ampliar: "Essa estratégia reduz o risco de cobertura insuficiente inicial, mas amplia a exposição desnecessária e a pressão seletiva.",
-      reavaliar: "Essa estratégia valoriza a estimativa de risco, mas exige cuidado para não atrasar uma resposta em um cenário de maior gravidade."
-    };
+let text="";
+let type="";
 
-    feedback.textContent = map[choice] || "";
-  }
+if(choice==="empirico"){
+text="Decisão adequada: integra probabilidade etiológica e gravidade clínica, permitindo intervenção precoce.";
+type="good";
+}
 
-  function setSecondFeedback(choice){
-    const map = {
-      manter2: "Manter automaticamente a estratégia inicial ignora informações novas que devem redefinir a interpretação do caso.",
-      ajustar: "A integração dos dados microbiológicos permite substituir uma decisão apenas probabilística por uma estratégia mais precisa.",
-      ampliar2: "Ampliar o espectro sem direcionamento específico não substitui adequação terapêutica e pode intensificar riscos sem benefício proporcional."
-    };
+if(choice==="aguardar"){
+text="Conduta arriscada: pode atrasar o início de terapia em cenário potencialmente grave.";
+type="warning";
+}
 
-    feedbackFinal.textContent = map[choice] || "";
-  }
+if(choice==="amplo"){
+text="Conduta inadequada: ampliação sem critério aumenta exposição e risco de resistência.";
+type="error";
+}
 
-  root.addEventListener("click", (event) => {
-    const option = event.target.closest(".cap10-p83-option");
-    const next = event.target.closest(".cap10-p83-next");
+feedback.innerText=text;
+feedback.style.display="block";
 
-    if(option){
-      const choice = option.dataset.p83Choice;
+const item=document.createElement("div");
+item.className="track-item "+type;
+item.innerText=text;
+track.appendChild(item);
 
-      if(choice === "manter" || choice === "ampliar" || choice === "reavaliar"){
-        setFirstFeedback(choice);
-        showStep(2);
-        return;
-      }
+nextBtn.hidden=false;
 
-      if(choice === "manter2" || choice === "ajustar" || choice === "ampliar2"){
-        setSecondFeedback(choice);
-        showStep(4);
-        return;
-      }
-    }
+};
+});
 
-    if(next){
-      const target = next.dataset.p83Next;
-      if(target){
-        showStep(target);
-      }
-    }
-  });
+nextBtn.onclick=()=>{
+window.location.href="p84.html";
+};
 
-  showStep(1);
 })();
 /* =====================================================
    CAPÍTULO 10
@@ -168,24 +123,69 @@
     });
   }
 
+  function lockGroup(option){
+    const group = option.closest(".cap10-p84-options");
+    if(!group) return;
+
+    group.querySelectorAll(".cap10-p84-option").forEach((btn) => {
+      btn.classList.add("is-locked");
+    });
+  }
+
+  function markOption(option, choice){
+    option.classList.add("is-selected");
+
+    if(choice === "ajustar" || choice === "reavaliar-espectro"){
+      option.classList.add("is-correct");
+    } else if(choice === "manter" || choice === "permanecer-amplo"){
+      option.classList.add("is-warning");
+    } else {
+      option.classList.add("is-error");
+    }
+  }
+
   function setFirstFeedback(choice){
     const map = {
-      manter: "Manter automaticamente a estratégia inicial ignora a entrada de novos dados que devem redefinir a interpretação do caso.",
-      ajustar: "A incorporação da identificação microbiológica e do perfil de resistência permite substituir uma decisão apenas probabilística por uma estratégia mais precisa.",
-      ampliar: "Ampliar ainda mais o espectro, sem direcionamento microbiológico, não garante adequação e pode intensificar riscos sem benefício proporcional."
+      manter: `
+        <strong>Interpretação:</strong> manutenção automática da estratégia inicial.<br><br>
+        <strong>Impacto clínico:</strong> ausência de ajuste diante de evidência microbiológica nova.<br><br>
+        <strong>Consequência:</strong> uma decisão que era provisória pode transformar-se em erro persistente ao longo do tratamento.
+      `,
+      ajustar: `
+        <strong>Interpretação:</strong> a decisão passa a incorporar evidência microbiológica direta.<br><br>
+        <strong>Impacto clínico:</strong> aumento da precisão terapêutica e melhor coerência entre microrganismo, resistência e estratégia adotada.<br><br>
+        <strong>Consequência:</strong> a conduta deixa de depender apenas de probabilidade e passa a responder ao risco microbiológico real.
+      `,
+      ampliar: `
+        <strong>Interpretação:</strong> ampliação do espectro sem direcionamento microbiológico específico.<br><br>
+        <strong>Impacto clínico:</strong> aumento de exposição antimicrobiana sem garantia proporcional de benefício.<br><br>
+        <strong>Consequência:</strong> maior risco de toxicidade, desequilíbrio ecológico e seleção de resistência.
+      `
     };
 
-    feedback.textContent = map[choice] || "";
+    feedback.innerHTML = map[choice] || "";
   }
 
   function setSecondFeedback(choice){
     const map = {
-      "permanecer-amplo": "A manutenção automática do espectro mais amplo disponível não representa, por si só, melhor adequação terapêutica.",
-      "reavaliar-espectro": "A proporcionalidade do espectro deve ser reavaliada à luz da suscetibilidade identificada, da evolução clínica e do risco microbiológico real.",
-      associar: "A associação indiscriminada de agentes não substitui coerência entre microrganismo identificado, resistência e estratégia terapêutica."
+      "permanecer-amplo": `
+        <strong>Interpretação:</strong> manutenção automática de esquema amplo por sensação de segurança.<br><br>
+        <strong>Impacto clínico:</strong> prolonga exposição desnecessária quando os dados já permitem reavaliar proporcionalidade.<br><br>
+        <strong>Consequência:</strong> amplia riscos sem substituir adequação terapêutica.
+      `,
+      "reavaliar-espectro": `
+        <strong>Interpretação:</strong> o espectro é reinterpretado à luz da suscetibilidade identificada e da evolução clínica.<br><br>
+        <strong>Impacto clínico:</strong> melhora a proporcionalidade da terapia e reduz exposição antimicrobiana desnecessária.<br><br>
+        <strong>Consequência:</strong> mantém coerência entre precisão microbiológica e racionalidade terapêutica.
+      `,
+      associar: `
+        <strong>Interpretação:</strong> associação de novos agentes sem relação definida com o perfil microbiológico.<br><br>
+        <strong>Impacto clínico:</strong> aumenta complexidade terapêutica, toxicidade e pressão seletiva.<br><br>
+        <strong>Consequência:</strong> mais antibacterianos não significam, por si só, melhor tratamento.
+      `
     };
 
-    feedbackFinal.textContent = map[choice] || "";
+    feedbackFinal.innerHTML = map[choice] || "";
   }
 
   root.addEventListener("click", (event) => {
@@ -194,6 +194,8 @@
 
     if(option){
       const choice = option.dataset.p84Choice;
+      lockGroup(option);
+      markOption(option, choice);
 
       if(choice === "manter" || choice === "ajustar" || choice === "ampliar"){
         setFirstFeedback(choice);
@@ -241,24 +243,69 @@
     });
   }
 
+  function lockGroup(option){
+    const group = option.closest(".cap10-p85-options");
+    if(!group) return;
+
+    group.querySelectorAll(".cap10-p85-option").forEach((btn) => {
+      btn.classList.add("is-locked");
+    });
+  }
+
+  function markOption(option, choice){
+    option.classList.add("is-selected");
+
+    if(choice === "simplificar" || choice === "ajuste-proporcional"){
+      option.classList.add("is-correct");
+    } else if(choice === "manter-associacao" || choice === "cobertura-eterna"){
+      option.classList.add("is-warning");
+    } else {
+      option.classList.add("is-error");
+    }
+  }
+
   function setFirstFeedback(choice){
     const map = {
-      "manter-associacao": "A manutenção automática da estratégia inicial ignora a mudança do cenário microbiológico e a necessidade de reavaliar proporcionalidade.",
-      simplificar: "A reavaliação da necessidade de simplificar a estratégia reconhece que cobertura empírica inicial e manutenção prolongada não obedecem à mesma lógica.",
-      "ampliar-precaucao": "Ampliar ainda mais a cobertura, sem novo fundamento microbiológico, aumenta exposição e pressão seletiva sem benefício proporcional demonstrado."
+      "manter-associacao": `
+        <strong>Interpretação:</strong> manutenção automática da estratégia inicial ampliada.<br><br>
+        <strong>Impacto clínico:</strong> ignora que a cobertura empírica inicial e sua manutenção prolongada obedecem a lógicas diferentes.<br><br>
+        <strong>Consequência:</strong> a proteção inicial contra incerteza transforma-se em exposição desnecessária quando o risco microbiológico real já diminuiu.
+      `,
+      simplificar: `
+        <strong>Interpretação:</strong> a estratégia passa a ser reavaliada à luz da melhora clínica e da suscetibilidade conhecida.<br><br>
+        <strong>Impacto clínico:</strong> favorece proporcionalidade terapêutica, menor toxicidade e menor pressão seletiva.<br><br>
+        <strong>Consequência:</strong> cobertura inicial adequada não precisa ser mantida automaticamente quando o cenário clínico e microbiológico muda.
+      `,
+      "ampliar-precaucao": `
+        <strong>Interpretação:</strong> ampliação adicional do espectro sem novo fundamento microbiológico.<br><br>
+        <strong>Impacto clínico:</strong> aumenta exposição e risco de dano sem benefício proporcional demonstrado.<br><br>
+        <strong>Consequência:</strong> o raciocínio deixa de ser guiado por evidência e passa a ser guiado por excesso de precaução.
+      `
     };
 
-    feedback.textContent = map[choice] || "";
+    feedback.innerHTML = map[choice] || "";
   }
 
   function setSecondFeedback(choice){
     const map = {
-      "cobertura-eterna": "Gravidade inicial não justifica, por si só, manutenção automática de estratégias mais amplas quando os dados posteriores reduzem a incerteza.",
-      "ajuste-proporcional": "Quando o risco microbiológico real diminui e a toxicidade potencial cresce, a estratégia deve ser reinterpretada em termos de precisão e proporcionalidade.",
-      "duplicar-seguranca": "A associação prolongada sem benefício microbiológico adicional transforma uma medida inicial de cobertura em potencial fonte de dano."
+      "cobertura-eterna": `
+        <strong>Interpretação:</strong> transforma gravidade inicial em justificativa permanente para manutenção de esquema amplo.<br><br>
+        <strong>Impacto clínico:</strong> desconsidera toxicidade acumulada e mudança do risco microbiológico real.<br><br>
+        <strong>Consequência:</strong> uma estratégia inicialmente proporcional passa a produzir mais dano do que benefício.
+      `,
+      "ajuste-proporcional": `
+        <strong>Interpretação:</strong> a estratégia é reinterpretada conforme melhora clínica, suscetibilidade conhecida e sinais de toxicidade.<br><br>
+        <strong>Impacto clínico:</strong> favorece equilíbrio entre eficácia, segurança e impacto ecológico.<br><br>
+        <strong>Consequência:</strong> tratar com precisão significa reduzir excesso quando o risco real deixa de justificá-lo.
+      `,
+      "duplicar-seguranca": `
+        <strong>Interpretação:</strong> associação prolongada sem novo ganho microbiológico demonstrado.<br><br>
+        <strong>Impacto clínico:</strong> aumenta toxicidade, complexidade terapêutica e pressão seletiva.<br><br>
+        <strong>Consequência:</strong> mais cobertura não equivale, automaticamente, a melhor tratamento.
+      `
     };
 
-    feedbackFinal.textContent = map[choice] || "";
+    feedbackFinal.innerHTML = map[choice] || "";
   }
 
   root.addEventListener("click", (event) => {
@@ -267,6 +314,8 @@
 
     if(option){
       const choice = option.dataset.p85Choice;
+      lockGroup(option);
+      markOption(option, choice);
 
       if(choice === "manter-associacao" || choice === "simplificar" || choice === "ampliar-precaucao"){
         setFirstFeedback(choice);
@@ -314,24 +363,69 @@
     });
   }
 
+  function lockGroup(option){
+    const group = option.closest(".cap10-p86-options");
+    if(!group) return;
+
+    group.querySelectorAll(".cap10-p86-option").forEach((btn) => {
+      btn.classList.add("is-locked");
+    });
+  }
+
+  function markOption(option, choice){
+    option.classList.add("is-selected");
+
+    if(choice === "avaliar" || choice === "sindrome"){
+      option.classList.add("is-correct");
+    } else if(choice === "repetir" || choice === "idade"){
+      option.classList.add("is-warning");
+    } else {
+      option.classList.add("is-error");
+    }
+  }
+
   function setFirstFeedback(choice){
     const map = {
-      tratar: "O crescimento bacteriano isolado pode induzir tratamento desnecessário quando não há síndrome clínica compatível com infecção ativa.",
-      repetir: "Repetir a cultura raramente modifica a interpretação quando o quadro clínico continua incompatível com infecção urinária.",
-      avaliar: "A decisão racional exige analisar se o achado microbiológico realmente corresponde a doença infecciosa, e não apenas à presença de microrganismos."
+      tratar: `
+        <strong>Interpretação:</strong> o crescimento bacteriano foi transformado diretamente em indicação de antibacteriano.<br><br>
+        <strong>Impacto clínico:</strong> trata colonização estável como se fosse infecção urinária ativa.<br><br>
+        <strong>Consequência:</strong> aumenta exposição desnecessária, risco de eventos adversos e pressão seletiva sem evidência suficiente de benefício.
+      `,
+      repetir: `
+        <strong>Interpretação:</strong> a atenção permanece centrada no exame, e não na coerência clínica do achado.<br><br>
+        <strong>Impacto clínico:</strong> um novo laudo pode reproduzir a mesma colonização sem resolver a ausência de síndrome compatível.<br><br>
+        <strong>Consequência:</strong> a repetição laboratorial não substitui julgamento clínico.
+      `,
+      avaliar: `
+        <strong>Interpretação:</strong> a decisão é construída a partir da relação entre microbiologia e síndrome clínica.<br><br>
+        <strong>Impacto clínico:</strong> evita transformar bacteriúria assintomática em infecção tratável sem base suficiente.<br><br>
+        <strong>Consequência:</strong> preserva coerência diagnóstica e reduz prescrição antimicrobiana desnecessária.
+      `
     };
 
-    feedback.textContent = map[choice] || "";
+    feedback.innerHTML = map[choice] || "";
   }
 
   function setSecondFeedback(choice){
     const map = {
-      laboratorio: "O número de colônias, isoladamente, não distingue colonização de infecção ativa.",
-      sindrome: "A interpretação correta integra o resultado microbiológico à presença de sintomas e sinais compatíveis com síndrome infecciosa.",
-      idade: "Idade avançada, por si só, não transforma colonização assintomática em indicação de antibacteriano."
+      laboratorio: `
+        <strong>Interpretação:</strong> o número de colônias é tratado como critério suficiente para definir doença.<br><br>
+        <strong>Impacto clínico:</strong> reduz a interpretação a um dado laboratorial isolado.<br><br>
+        <strong>Consequência:</strong> favorece medicalização de colonização microbiológica estável.
+      `,
+      sindrome: `
+        <strong>Interpretação:</strong> o achado microbiológico é reinterpretado à luz da presença real de síndrome infecciosa.<br><br>
+        <strong>Impacto clínico:</strong> distingue colonização de infecção e melhora a precisão diagnóstica.<br><br>
+        <strong>Consequência:</strong> evita tratar laudo isolado quando a plausibilidade clínica de infecção permanece baixa.
+      `,
+      idade: `
+        <strong>Interpretação:</strong> a idade passa a funcionar como justificativa terapêutica independente da síndrome clínica.<br><br>
+        <strong>Impacto clínico:</strong> amplia risco de antibacterianos desnecessários em um grupo já vulnerável a eventos adversos.<br><br>
+        <strong>Consequência:</strong> precaução sem critério pode transformar vulnerabilidade em excesso terapêutico.
+      `
     };
 
-    feedbackFinal.textContent = map[choice] || "";
+    feedbackFinal.innerHTML = map[choice] || "";
   }
 
   root.addEventListener("click", (event) => {
@@ -340,6 +434,8 @@
 
     if(option){
       const choice = option.dataset.p86Choice;
+      lockGroup(option);
+      markOption(option, choice);
 
       if(choice === "tratar" || choice === "repetir" || choice === "avaliar"){
         setFirstFeedback(choice);
@@ -387,24 +483,69 @@
     });
   }
 
+  function lockGroup(option){
+    const group = option.closest(".cap10-p87-options");
+    if(!group) return;
+
+    group.querySelectorAll(".cap10-p87-option").forEach((btn) => {
+      btn.classList.add("is-locked");
+    });
+  }
+
+  function markOption(option, choice){
+    option.classList.add("is-selected");
+
+    if(choice === "iniciar" || choice === "reavaliar-contexto"){
+      option.classList.add("is-correct");
+    } else if(choice === "observar" || choice === "falha-automatica"){
+      option.classList.add("is-warning");
+    } else {
+      option.classList.add("is-error");
+    }
+  }
+
   function setFirstFeedback(choice){
     const map = {
-      aguardar: "Em um hospedeiro de alto risco, aguardar confirmação microbiológica antes de agir pode aumentar a probabilidade de deterioração clínica precoce.",
-      iniciar: "Em cenários de maior vulnerabilidade, a resposta inicial precisa priorizar o risco do atraso terapêutico sem perder de vista a necessidade de reavaliação posterior.",
-      observar: "Postergar a decisão em um contexto de neutropenia profunda pode transformar incerteza inicial em atraso clinicamente relevante."
+      aguardar: `
+        <strong>Interpretação:</strong> o início da terapia é adiado até que a microbiologia confirme o agente.<br><br>
+        <strong>Impacto clínico:</strong> em neutropenia profunda, isso amplia a exposição ao risco de progressão precoce da infecção.<br><br>
+        <strong>Consequência:</strong> a incerteza microbiológica não reduz o peso do tempo quando o hospedeiro é altamente vulnerável.
+      `,
+      iniciar: `
+        <strong>Interpretação:</strong> a cobertura adequada é iniciada prontamente após a coleta das culturas.<br><br>
+        <strong>Impacto clínico:</strong> reduz o risco associado ao atraso terapêutico em um contexto de alta vulnerabilidade.<br><br>
+        <strong>Consequência:</strong> a resposta inicial reconhece que, em certos cenários, tempo e adequação precisam caminhar juntos desde o início.
+      `,
+      observar: `
+        <strong>Interpretação:</strong> a decisão é adiada em busca de maior clareza clínica espontânea.<br><br>
+        <strong>Impacto clínico:</strong> transfere para o tempo o custo da incerteza em um paciente com baixa tolerância ao atraso terapêutico.<br><br>
+        <strong>Consequência:</strong> esperar mais pode parecer prudente, mas torna-se clinicamente arriscado em um hospedeiro de alto risco.
+      `
     };
 
-    feedback.textContent = map[choice] || "";
+    feedback.innerHTML = map[choice] || "";
   }
 
   function setSecondFeedback(choice){
     const map = {
-      "falha-automatica": "A persistência de febre, isoladamente, não define falha terapêutica nem justifica ampliação automática do espectro.",
-      "reavaliar-contexto": "A interpretação racional exige integrar persistência febril, estabilidade clínica, evolução global e novos dados microbiológicos.",
-      "associar-rotina": "A associação rotineira de múltiplos agentes, sem nova indicação clara, aumenta toxicidade e pressão seletiva sem benefício proporcional demonstrado."
+      "falha-automatica": `
+        <strong>Interpretação:</strong> a persistência da febre é tratada como prova suficiente de falha terapêutica.<br><br>
+        <strong>Impacto clínico:</strong> transforma um único sinal em gatilho automático para ampliação do espectro.<br><br>
+        <strong>Consequência:</strong> a decisão passa a reagir à febre isoladamente, sem integrar estabilidade clínica e dados microbiológicos disponíveis.
+      `,
+      "reavaliar-contexto": `
+        <strong>Interpretação:</strong> a febre persistente é analisada junto da evolução global do paciente e dos dados disponíveis até o momento.<br><br>
+        <strong>Impacto clínico:</strong> evita escalada precipitada e preserva proporcionalidade terapêutica.<br><br>
+        <strong>Consequência:</strong> a reavaliação clínica estruturada substitui reflexos automáticos de ampliação do espectro.
+      `,
+      "associar-rotina": `
+        <strong>Interpretação:</strong> múltiplos agentes são associados como resposta padrão à persistência da febre.<br><br>
+        <strong>Impacto clínico:</strong> aumenta exposição, toxicidade e pressão seletiva sem novo fundamento clínico ou microbiológico claro.<br><br>
+        <strong>Consequência:</strong> a rotina de ampliar ou associar deixa de ser prudência e passa a ser excesso terapêutico.
+      `
     };
 
-    feedbackFinal.textContent = map[choice] || "";
+    feedbackFinal.innerHTML = map[choice] || "";
   }
 
   root.addEventListener("click", (event) => {
@@ -413,6 +554,8 @@
 
     if(option){
       const choice = option.dataset.p87Choice;
+      lockGroup(option);
+      markOption(option, choice);
 
       if(choice === "aguardar" || choice === "iniciar" || choice === "observar"){
         setFirstFeedback(choice);
@@ -439,45 +582,63 @@
 })();
 /* =====================================================
    CAPÍTULO 10
-   PÁGINA 88 — A DECISÃO COMO PROCESSO CONTÍNUO
+   PÁGINA 88 — SÍNTESE DA DECISÃO EM ANTIBIOTICOTERAPIA
    ===================================================== */
 
-(function initPage88Synthesis(){
-  const root = document.querySelector("[data-cap10-p88]");
+(function initPage88Flow(){
+  const root = document.querySelector(".cap10-page88 .cap10-p88-flow");
   if(!root) return;
 
-  const tabs = Array.from(root.querySelectorAll(".cap10-p88-tab"));
-  const eyebrow = document.getElementById("cap10P88Eyebrow");
-  const title = document.getElementById("cap10P88Title");
-  const text = document.getElementById("cap10P88Text");
-  const impact = document.getElementById("cap10P88Impact");
+  const nodes = Array.from(root.querySelectorAll(".cap10-p88-node"));
+  const eyebrow = document.getElementById("cap10P88FlowEyebrow");
+  const title = document.getElementById("cap10P88FlowTitle");
+  const text = document.getElementById("cap10P88FlowText");
+  const impact = document.getElementById("cap10P88FlowImpact");
 
-  if(!tabs.length || !eyebrow || !title || !text || !impact) return;
+  if(!nodes.length || !eyebrow || !title || !text || !impact) return;
 
   const content = {
-    adequacao: {
-      eyebrow: "Princípio em foco",
-      title: "Adequação precoce",
-      text: "Em situações de maior gravidade, a escolha inicial influencia diretamente o desfecho clínico. O atraso na instituição de terapia ativa pode permitir progressão da infecção e piora do prognóstico.",
-      impact: "Iniciar corretamente, quando o risco microbiológico e clínico justifica, é parte essencial da antibioticoterapia racional."
+    plausibilidade: {
+      eyebrow: "Pergunta decisória em foco",
+      title: "Há plausibilidade de infecção bacteriana?",
+      text: "A decisão não começa no antibacteriano. Ela começa na interpretação clínica do caso. Antes de prescrever, é necessário perguntar se há coerência entre síndrome apresentada, achados clínicos e possibilidade real de infecção bacteriana ativa.",
+      impact: "Quando essa etapa é negligenciada, aumenta o risco de tratar colonização, contaminação ou quadros não bacterianos como se fossem infecção verdadeira."
     },
-    espectro: {
-      eyebrow: "Princípio em foco",
-      title: "Espectro proporcional",
-      text: "Ampliar o espectro pode ser justificável em certos contextos iniciais, mas a manutenção automática de estratégias mais amplas não substitui precisão diagnóstica nem adequação terapêutica.",
-      impact: "A proporcionalidade do espectro depende da integração entre gravidade, probabilidade etiológica, suscetibilidade e risco ecológico."
+    gravidade: {
+      eyebrow: "Pergunta decisória em foco",
+      title: "Qual é a gravidade do quadro e a vulnerabilidade do hospedeiro?",
+      text: "A gravidade e as características do hospedeiro determinam a tolerância ao atraso terapêutico e ao erro inicial. Um mesmo grau de incerteza não tem o mesmo peso em um paciente estável e em um paciente altamente vulnerável.",
+      impact: "Ignorar esse ponto pode levar tanto a atraso terapêutico em cenários graves quanto a ampliação desproporcional em situações de menor risco."
     },
-    "nao-prescrever": {
-      eyebrow: "Princípio em foco",
-      title: "Não prescrever também é decisão",
-      text: "Quando a probabilidade de infecção bacteriana é baixa, a ausência de prescrição antimicrobiana representa uma intervenção clínica ativa, e não omissão terapêutica.",
-      impact: "Evitar exposição desnecessária protege o paciente e contribui para preservar a eficácia futura dos antibacterianos."
+    inicio: {
+      eyebrow: "Pergunta decisória em foco",
+      title: "É necessário iniciar antibacteriano agora?",
+      text: "Em alguns cenários, o risco da espera supera o risco da incerteza. Em outros, a melhor decisão pode ser não iniciar antibacteriano naquele momento. A prescrição racional depende de reconhecer essa diferença.",
+      impact: "Iniciar quando não é necessário expõe o paciente a dano evitável; não iniciar quando o risco é alto pode comprometer desfechos clínicos."
+    },
+    cobertura: {
+      eyebrow: "Pergunta decisória em foco",
+      title: "Que cobertura inicial é proporcional ao risco microbiológico real?",
+      text: "A escolha empírica deve ser suficiente para cobrir os agentes prováveis em função do sítio infeccioso, da gravidade, do hospedeiro e do contexto epidemiológico, sem transformar incerteza em ampliação indiscriminada do espectro.",
+      impact: "O problema não é apenas cobrir pouco, mas também cobrir demais quando isso não traz ganho proporcional."
+    },
+    dados: {
+      eyebrow: "Pergunta decisória em foco",
+      title: "Quais novos dados clínicos e microbiológicos surgiram?",
+      text: "Evolução clínica, culturas, identificação do microrganismo, perfil de suscetibilidade e sinais de toxicidade modificam o significado da decisão inicial. O tratamento em curso precisa ser reinterpretado à luz desses dados.",
+      impact: "Sem integrar informação nova, uma estratégia provisória tende a persistir por inércia."
     },
     reavaliacao: {
-      eyebrow: "Princípio em foco",
-      title: "Reavaliação contínua",
-      text: "A decisão inicial em antibioticoterapia é sempre provisória. À medida que novos dados clínicos e microbiológicos se tornam disponíveis, a estratégia precisa ser reinterpretada.",
-      impact: "A prática racional exige iniciar, observar, interpretar, ajustar e, sempre que possível, simplificar."
+      eyebrow: "Pergunta decisória em foco",
+      title: "A estratégia precisa ser mantida, ajustada, simplificada ou suspensa?",
+      text: "Reavaliar não significa apenas trocar um fármaco por outro. Pode significar manter, descalonar, reduzir espectro, suspender ou redefinir completamente a interpretação diagnóstica do caso.",
+      impact: "A qualidade da antibioticoterapia depende tanto da decisão inicial quanto da capacidade de corrigir sua trajetória."
+    },
+    impacto: {
+      eyebrow: "Pergunta decisória em foco",
+      title: "Qual é o impacto individual e coletivo da decisão tomada?",
+      text: "Toda prescrição afeta o paciente em termos de benefício, toxicidade e exposição desnecessária, mas também afeta o ecossistema microbiológico e a eficácia futura das terapias antimicrobianas.",
+      impact: "Antibioticoterapia racional é sempre clínica e, ao mesmo tempo, ecológica."
     }
   };
 
@@ -485,10 +646,10 @@
     const item = content[key];
     if(!item) return;
 
-    tabs.forEach((tab) => {
-      const active = tab.dataset.p88Key === key;
-      tab.classList.toggle("is-active", active);
-      tab.setAttribute("aria-selected", active ? "true" : "false");
+    nodes.forEach((node) => {
+      const active = node.dataset.p88Node === key;
+      node.classList.toggle("is-active", active);
+      node.setAttribute("aria-pressed", active ? "true" : "false");
     });
 
     eyebrow.textContent = item.eyebrow;
@@ -497,13 +658,13 @@
     impact.textContent = item.impact;
   }
 
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      activate(tab.dataset.p88Key);
+  nodes.forEach((node) => {
+    node.addEventListener("click", () => {
+      activate(node.dataset.p88Node);
     });
   });
 
-  activate("adequacao");
+  activate("plausibilidade");
 })();
 /* =====================================================
    PÁGINA FINAL PREMIUM

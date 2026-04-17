@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -19,76 +19,111 @@
   <main class="page-shell">
 
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 4 — Farmacocinética e Farmacodinâmica Aplicadas</div>
-        <h1 class="page-title">Via de administração</h1>
-      </div>
+      <div class="chapter">Capítulo 4 — Farmacocinética e Farmacodinâmica Aplicadas</div>
+      <h1 class="page-title">Via de administração</h1>
     </header>
 
-    <section class="prose cap4-reading-flow" aria-label="Texto principal">
+    <section class="prose" aria-label="Texto principal">
 
       <p>
-        A exposição efetiva a um antibacteriano não depende exclusivamente da dose administrada, mas também da forma como o fármaco é introduzido no organismo. A via de administração constitui um determinante inicial da farmacocinética, pois influencia diretamente a velocidade com que a concentração sistêmica é alcançada, a previsibilidade dessa exposição e, em determinados casos, a própria extensão da biodisponibilidade do fármaco<sup>1,7</sup>.
+        A exposição efetiva a um antibacteriano não depende exclusivamente da dose administrada, mas também da forma como o fármaco é introduzido no organismo. A via de administração constitui um determinante inicial da farmacocinética, pois influencia diretamente a velocidade com que a concentração sistêmica é alcançada, a previsibilidade dessa exposição e, em determinados casos, a própria extensão da biodisponibilidade do fármaco <sup>10–12</sup>.
       </p>
 
-      <figure class="cap4-p31-figure">
-        <button
-          class="cap4-zoomTrigger"
-          type="button"
-          data-zoom-image="../../assets/capitulo-04/imagens/via-panorama.png"
-          data-zoom-alt="Relação entre dose administrada, via de administração e exposição efetiva sistêmica."
-          data-zoom-caption="Relação entre dose administrada, via de administração e exposição sistêmica. A via de administração determina a velocidade, a previsibilidade e a consistência da exposição antimicrobiana. Clique na imagem para ampliar."
-          aria-label="Ampliar figura sobre via de administração"
-        >
-          <img
-            src="../../assets/capitulo-04/imagens/via-panorama.png"
-            alt="Relação entre dose administrada, via de administração e exposição efetiva sistêmica."
-            loading="lazy"
-          />
-        </button>
-        <figcaption class="cap4-caption">
-          Relação entre dose administrada, via de administração e exposição sistêmica. A via de administração determina a velocidade, a previsibilidade e a consistência da exposição antimicrobiana. Clique na imagem para ampliar.
-        </figcaption>
-      </figure>
+      <section class="cap4-p31-panorama" aria-labelledby="cap4-p31-panorama-title">
+        <div class="cap4-p31-panorama__head">
+          <p class="eyebrow">Modelo conceitual</p>
+          <h3 id="cap4-p31-panorama-title" class="cap4-p31-panorama__title">A via interfere na forma como a exposição sistêmica se constrói</h3>
+          <p class="cap4-p31-panorama__subtitle">
+            A dose administrada não se traduz automaticamente na mesma curva de exposição. O caminho de entrada do fármaco modifica a rapidez, a previsibilidade e a consistência com que a concentração sistêmica é alcançada.
+          </p>
+        </div>
+
+        <figure class="figure cap4-p31-figure">
+          <button
+            type="button"
+            class="cap4-p31-figure__zoom"
+            data-zoom="../../assets/capitulo-04/imagens/via-panorama.png"
+            aria-label="Ampliar figura sobre dose, via de administração e exposição efetiva sistêmica"
+          >
+            <img
+              src="../../assets/capitulo-04/imagens/via-panorama.png"
+              alt="Esquema mostrando que dose administrada e via de administração determinam a exposição efetiva sistêmica."
+              loading="lazy"
+            />
+          </button>
+          <figcaption class="caption">
+            A exposição efetiva resulta da dose administrada, mas é fortemente modulada pela via de administração, que condiciona a forma como a curva concentração–tempo se estabelece.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="cap4-p31-routes" aria-labelledby="cap4-p31-routes-title">
+        <div class="cap4-p31-routes__head">
+          <p class="eyebrow">Comparação clínica</p>
+          <h3 id="cap4-p31-routes-title" class="cap4-p31-routes__title">Como cada via modifica a exposição antimicrobiana</h3>
+          <p class="cap4-p31-routes__subtitle">
+            A diferença entre as vias não é apenas logística. Ela altera o comportamento farmacocinético inicial e, com isso, modifica a qualidade da exposição antimicrobiana.
+          </p>
+        </div>
+
+        <div class="cap4-p31-routes__controls" role="tablist" aria-label="Vias de administração">
+          <button
+            class="cap4-p31-routes__tab is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-p31-route="iv"
+          >
+            Intravenosa
+          </button>
+
+          <button
+            class="cap4-p31-routes__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p31-route="oral"
+          >
+            Oral
+          </button>
+
+          <button
+            class="cap4-p31-routes__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p31-route="parenteral"
+          >
+            Intramuscular / Subcutânea
+          </button>
+        </div>
+
+        <div class="cap4-p31-routes__panel" aria-live="polite">
+          <div class="cap4-p31-routes__eyebrow" id="cap4-p31-eyebrow">Maior previsibilidade da exposição</div>
+          <h3 class="cap4-p31-routes__panelTitle" id="cap4-p31-title">Via intravenosa</h3>
+          <div class="cap4-p31-routes__text" id="cap4-p31-text">
+            <p>
+              Na administração intravenosa, o antibacteriano é introduzido diretamente na circulação sistêmica, resultando em biodisponibilidade completa e início imediato de exposição. Nesse cenário, não há etapa de absorção, e a variabilidade associada a esse processo é praticamente eliminada. Como consequência, a concentração plasmática torna-se mais previsível, especialmente em situações clínicas críticas, nas quais a estabilidade da exposição é determinante para o início da resposta terapêutica <sup>10–12</sup>.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <p>
-        Na administração intravenosa, o antibacteriano é introduzido diretamente na circulação sistêmica, resultando em biodisponibilidade completa e início imediato de exposição. Nesse cenário, não há etapa de absorção, e a variabilidade associada a esse processo é praticamente eliminada. Como consequência, a concentração plasmática torna-se mais previsível, especialmente em situações clínicas críticas, nas quais a estabilidade da exposição é determinante para o início da resposta terapêutica<sup>1,7</sup>.
-      </p>
-
-      <p>
-        Por outro lado, na administração por via oral, a concentração sistêmica depende da absorção gastrointestinal, um processo influenciado por múltiplos fatores fisiológicos e clínicos. Condições como pH gástrico, motilidade intestinal, presença de alimentos, integridade da mucosa e interações medicamentosas podem modificar tanto a fração absorvida quanto a velocidade com que o antibacteriano atinge a circulação sistêmica. Como consequência, a biodisponibilidade pode variar entre indivíduos e entre diferentes momentos clínicos no mesmo paciente<sup>1,7</sup>.
-      </p>
-
-      <p>
-        Outras vias parenterais, como a administração intramuscular ou subcutânea, apresentam características intermediárias entre a via intravenosa e a via oral. Nesses casos, a absorção ocorre a partir do tecido onde o fármaco é depositado e depende, entre outros fatores, da perfusão local, das propriedades físico-químicas da molécula e das condições clínicas do hospedeiro. Em situações de hipoperfusão tecidual, como em estados de choque, essa absorção pode ser imprevisível, aproximando-se de padrões de exposição subótimos<sup>6,8</sup>.
-      </p>
-
-      <p>
-        Dessa forma, a via de administração deve ser compreendida como um componente estrutural da exposição antimicrobiana. Ela estabelece as condições iniciais sob as quais a concentração sistêmica será alcançada, influenciando a rapidez, a previsibilidade e a consistência dessa exposição ao longo do tempo. Esses elementos condicionam o comportamento farmacocinético do antibacteriano e preparam o cenário para sua relação com a atividade antimicrobiana no contexto clínico específico<sup>1,7</sup>.
+        Dessa forma, a via de administração deve ser compreendida como um componente estrutural da exposição antimicrobiana. Ela estabelece as condições iniciais sob as quais a concentração sistêmica será alcançada, influenciando a rapidez, a previsibilidade e a consistência dessa exposição ao longo do tempo. Esses elementos condicionam o comportamento farmacocinético do antibacteriano e definem o cenário para sua relação com a atividade antimicrobiana no contexto clínico específico <sup>10–12</sup>.
       </p>
 
     </section>
 
  <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p30.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 4 · Página 31 de 89</div>
-      <button class="btn primary" type="button" data-next="p32.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+  <a class="btn" href="p30.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 4 · Página 31 de 89</div>
+  <a class="btn primary" href="p32.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
+
+
 
   </main>
-
-  <div class="cap4-lightbox" id="cap4Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap4-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap4-lightbox__dialog">
-      <button class="cap4-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap4-lightbox__figure">
-        <img id="cap4LightboxImage" src="" alt="" />
-        <figcaption id="cap4LightboxCaption" class="cap4-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-04.js"></script>

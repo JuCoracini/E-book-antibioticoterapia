@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Capítulo 6 — Página 60</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
   <link rel="stylesheet" href="../../css/capitulo-06.css" />
@@ -12,89 +16,95 @@
 
 <body class="cap6-page60">
 
-<main class="page-shell">
+  <main class="page-shell">
 
-<header class="page-header">
-  <div class="chapter">Capítulo 6 — Associação Terapêutica e Consequências do Uso Indiscriminado</div>
-  <h1 class="page-title">Quando não associar antibacterianos</h1>
-</header>
+    <header class="page-header">
+      <div class="chapter">CAPÍTULO 6 - Associação Terapêutica e Consequências do Uso Indiscriminado</div>
+      <h1 class="page-title">Quando não associar antibacterianos</h1>
+    </header>
 
-<section class="prose">
+    <section class="prose" aria-label="Texto principal">
 
-<p>
-A decisão de associar antibacterianos deve basear-se em objetivos biológicos claros. Da mesma forma, reconhecer quando não associar faz parte da prescrição racional.
-</p>
+      <p>
+        A decisão de associar antibacterianos deve basear-se em objetivos biológicos claros. Da mesma forma, reconhecer quando não associar faz parte da prescrição racional <sup>1</sup>.
+      </p>
 
-<p>
-Em muitos cenários clínicos, a manutenção de dois antibacterianos ocorre mais por inércia terapêutica do que por necessidade microbiológica. Após o início de um esquema empírico ampliado, a ausência de reavaliação sistemática pode levar à continuidade de combinações que já não apresentam justificativa biológica.
-</p>
+      <p>
+        Em muitos cenários clínicos, a manutenção de dois antibacterianos ocorre mais por inércia terapêutica do que por necessidade microbiológica. Após o início de um esquema empírico ampliado, a ausência de reavaliação sistemática pode levar à continuidade de combinações que não apresentam justificativa biológica <sup>1</sup>.
+      </p>
 
-<p>
-Não há indicação de associação quando o agente etiológico foi identificado e demonstra suscetibilidade inequívoca a um antibacteriano capaz de atingir exposição adequada no foco infeccioso. Quando a monoterapia alcança índices farmacodinâmicos suficientes para suprimir a população bacteriana, a sobreposição de espectros não aumenta proporcionalmente a probabilidade de erradicação.
-</p>
+      <p>
+        Não há indicação de associação quando o agente etiológico foi identificado e demonstra suscetibilidade inequívoca a um antibacteriano capaz de atingir exposição adequada no foco infeccioso. Quando a monoterapia alcança índices farmacodinâmicos suficientes para suprimir a população bacteriana, a sobreposição de espectros não aumenta proporcionalmente a probabilidade de erradicação <sup>2,8</sup>.
+      </p>
 
-</section>
+      <section class="cap6-p60-stage" data-cap6-p60 aria-label="Avaliação clínica da necessidade de associação">
+        <div class="cap6-p60-stage__inner">
 
-<!-- INTERAÇÃO -->
-<section class="cap6-p60-check" data-cap6-p60>
+          <div class="cap6-p60-head">
+            <p class="cap6-p60-head__eyebrow">Revisão terapêutica</p>
+            <h2 class="cap6-p60-head__title">A associação ainda se sustenta?</h2>
+            <p class="cap6-p60-head__lead">
+              Selecione os critérios presentes no cenário clínico para avaliar se a manutenção da associação permanece biologicamente justificada.
+            </p>
+          </div>
 
-  <div class="cap6-p60-title">Avaliação clínica da necessidade de associação</div>
+          <div class="cap6-p60-grid" role="group" aria-label="Critérios de decisão">
+            <button type="button" class="cap6-p60-card" data-item="sensivel" aria-pressed="false">
+              <span class="cap6-p60-card__kicker">Microbiologia</span>
+              <span class="cap6-p60-card__text">Agente etiológico identificado e sensível</span>
+            </button>
 
-  <div class="cap6-p60-list">
+            <button type="button" class="cap6-p60-card" data-item="mono" aria-pressed="false">
+              <span class="cap6-p60-card__kicker">PK/PD</span>
+              <span class="cap6-p60-card__text">Monoterapia com exposição adequada no foco infeccioso</span>
+            </button>
 
-    <label><input type="checkbox" data-item="sensivel"> Agente identificado e sensível</label>
-    <label><input type="checkbox" data-item="mono"> Monoterapia com exposição adequada</label>
-    <label><input type="checkbox" data-item="poli"> Infecção polimicrobiana plausível</label>
-    <label><input type="checkbox" data-item="evolucao"> Evolução clínica favorável</label>
+            <button type="button" class="cap6-p60-card" data-item="poli" aria-pressed="false">
+              <span class="cap6-p60-card__kicker">Etiologia</span>
+              <span class="cap6-p60-card__text">Há evidência plausível de infecção polimicrobiana</span>
+            </button>
 
-  </div>
+            <button type="button" class="cap6-p60-card" data-item="evolucao" aria-pressed="false">
+              <span class="cap6-p60-card__kicker">Clínica</span>
+              <span class="cap6-p60-card__text">Evolução clínica e laboratorial favorável</span>
+            </button>
+          </div>
 
-  <div class="cap6-p60-result" data-result>
-    Selecione os critérios para avaliar a necessidade de associação.
-  </div>
+          <div class="cap6-p60-decision">
+            <p class="cap6-p60-decision__label">Síntese da decisão</p>
+            <div class="cap6-p60-decision__box" data-result>
+              Selecione os critérios para avaliar a necessidade de manter a associação.
+            </div>
+          </div>
 
-</section>
+        </div>
+      </section>
 
-<section class="prose">
+      <p>
+        A combinação também não se justifica quando não existe evidência plausível de infecção polimicrobiana. A utilização simultânea de dois agentes ativos contra a mesma espécie bacteriana, sem objetivo de sinergismo ou prevenção de resistência em situações específicas, tende apenas a ampliar toxicidade e pressão seletiva <sup>1–3</sup>.
+      </p>
 
-<p>
-A combinação também não se justifica quando não existe evidência de infecção polimicrobiana plausível. A utilização simultânea de dois agentes ativos contra a mesma espécie bacteriana, sem objetivo de sinergismo ou prevenção de resistência em situações específicas, tende apenas a ampliar toxicidade e pressão seletiva.
-</p>
+      <p>
+        Outro cenário frequente envolve a tentativa de compensar incerteza diagnóstica persistente. Quando o quadro clínico não é compatível com infecção ativa, ampliar a cobertura antibacteriana não corrige a ausência de diagnóstico definido. Da mesma forma, a associação não substitui intervenções fundamentais, como o controle adequado do foco infeccioso <sup>1</sup>.
+      </p>
 
-<p>
-Outro cenário frequente envolve a tentativa de compensar incerteza diagnóstica persistente. Quando o quadro clínico não é compatível com infecção ativa, ampliar cobertura antibacteriana não corrige a ausência de diagnóstico definido. Da mesma forma, a associação não substitui intervenções fundamentais como controle adequado do foco infeccioso.
-</p>
+      <p>
+        Em pacientes que apresentam evolução clínica favorável, com melhora dos parâmetros clínicos e laboratoriais, a continuidade de combinações iniciais deve ser revisada criticamente. O risco de retirar precocemente um antibacteriano muitas vezes é superestimado, enquanto os efeitos cumulativos da exposição prolongada tendem a ser subestimados <sup>1</sup>.
+      </p>
 
-<p>
-Em pacientes que apresentam evolução clínica favorável, com melhora dos parâmetros clínicos e laboratoriais, a continuidade de combinações iniciais deve ser revisada criticamente. O risco de retirar precocemente um antibacteriano muitas vezes é superestimado, enquanto os efeitos cumulativos da exposição prolongada tendem a ser subestimados.
-</p>
+      <div class="cap6-p60-highlight">
+        A racionalidade terapêutica exige reconhecer que a associação antibacteriana constitui uma estratégia específica, e não um padrão rotineiro de tratamento. Quando a monoterapia é suficiente sob critérios microbiológicos, farmacocinéticos e clínicos, sua manutenção representa a decisão tecnicamente mais consistente <sup>1,2</sup>.
+      </div>
 
-<div class="cap6-p60-highlight">
-A associação antibacteriana constitui uma estratégia específica, e não um padrão rotineiro. Quando a monoterapia é suficiente sob critérios microbiológicos, farmacocinéticos e clínicos, sua manutenção representa a decisão tecnicamente mais consistente.
-</div>
+    </section>
 
-</section>
-
-<nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p59.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 6 · Página 60 de 89</div>
-      <button class="btn primary" type="button" data-next="p61.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+  <nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p59.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 6 · Página 60 de 89</div>
+  <a class="btn primary" href="p61.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
 
   </main>
-
-  <div class="cap6-lightbox" id="cap6Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap6-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap6-lightbox__dialog">
-      <button class="cap6-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap6-lightbox__figure">
-        <img id="cap6LightboxImage" src="" alt="" />
-        <figcaption id="cap6LightboxCaption" class="cap6-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-06.js"></script>

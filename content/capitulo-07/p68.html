@@ -18,7 +18,7 @@
 
 <body class="cap7-page68">
 
-  <main class="page-shell">
+  <main class="page-shell cap7-shell">
 
     <header class="page-header">
       <div>
@@ -27,32 +27,34 @@
       </div>
     </header>
 
-    <section class="prose cap7-reading-flow" aria-label="Introdução do quiz">
+    <section class="prose cap7-reading-flow" aria-label="Introdução do quiz de revisão">
       <p>
-        As situações a seguir exploram relações entre mecanismo de ação e efeitos adversos discutidas neste capítulo. Analise cada cenário considerando a lógica fisiopatológica da toxicidade.
+        As situações a seguir integram os principais mecanismos de toxicidade discutidos neste capítulo. Em cada caso, a interpretação adequada depende de relacionar o mecanismo de ação do antibacteriano às manifestações clínicas observadas.
       </p>
     </section>
 
     <section class="cap7-p68Quiz" data-cap7-p68 aria-label="Quiz de revisão">
-
-      <div class="cap7-p68Nav" aria-label="Navegação das situações">
-        <button class="cap7-p68NavBtn" type="button" data-p68-action="prev">Anterior</button>
-        <div class="cap7-p68Progress" aria-live="polite"></div>
-        <button class="cap7-p68NavBtn" type="button" data-p68-action="next">Próxima</button>
+      <div class="cap7-p68Status" aria-live="polite" data-p68-status>
+        <span class="cap7-p68Status__label">Leitura aplicada do capítulo</span>
+        <span class="cap7-p68Status__value">0 de 2 situações confirmadas</span>
       </div>
 
-      <!-- QUESTÃO 1 -->
-      <div class="cap7-p68Question active" data-q="1">
+      <article class="cap7-p68Question" data-q="1" data-question-state="pending">
+        <div class="cap7-p68QuestionHeader">
+          <span class="cap7-p68Kicker">Situação clínica 1</span>
+          <h2 class="cap7-p68QuestionTitle">Mielossupressão por oxazolidinona</h2>
+        </div>
+
         <p class="cap7-p68Case">
-          1) Um paciente em uso prolongado de linezolida para tratamento de infecção por bactéria multirresistente apresenta queda progressiva de hemoglobina e plaquetas após algumas semanas de terapia.
+          Um paciente em uso prolongado de linezolida para tratamento de infecção por bactéria multirresistente apresenta queda progressiva de hemoglobina e plaquetas após algumas semanas de terapia.
         </p>
 
         <p class="cap7-p68Prompt">
           Qual mecanismo explica melhor esse evento adverso?
         </p>
 
-        <div class="cap7-p68Options" role="group" aria-label="Alternativas da questão 1">
-          <button type="button" data-answer="a" data-correct="true">
+        <div class="cap7-p68Options" role="group" aria-label="Alternativas da situação clínica 1">
+          <button type="button" data-answer="a">
             <span class="cap7-p68Letter">A</span>
             <span>Interferência sobre ribossomos mitocondriais humanos</span>
           </button>
@@ -74,8 +76,12 @@
         </div>
 
         <div class="cap7-p68Actions">
-          <button class="cap7-p68Btn cap7-p68Btn--primary" type="button" data-p68-action="confirm" disabled>Confirmar</button>
-          <button class="cap7-p68Btn cap7-p68Btn--ghost" type="button" data-p68-action="reset" hidden>Refazer</button>
+          <button class="cap7-p68Btn cap7-p68Btn--primary" type="button" data-p68-action="confirm" disabled>
+            Confirmar interpretação
+          </button>
+          <button class="cap7-p68Btn cap7-p68Btn--ghost" type="button" data-p68-action="reset" hidden>
+            Refazer
+          </button>
         </div>
 
         <div class="cap7-p68Feedback" role="region" aria-live="polite"></div>
@@ -84,51 +90,44 @@
 {
   "a": {
     "type": "correct",
-    "title": "Resposta correta",
-    "text": "Oxazolidinonas podem interferir em ribossomos mitocondriais devido à semelhança estrutural com ribossomos bacterianos. Essa interferência pode comprometer a produção de proteínas mitocondriais e resultar em mielossupressão durante exposições prolongadas."
+    "title": "Interpretação adequada",
+    "text": "Oxazolidinonas podem interferir em ribossomos mitocondriais devido à semelhança estrutural com ribossomos bacterianos. Essa interferência compromete a síntese de proteínas mitocondriais e pode resultar em mielossupressão durante exposições prolongadas."
   },
   "b": {
     "type": "error",
-    "title": "Resposta incorreta",
+    "title": "Mecanismo incorreto",
     "text": "O mecanismo principal não envolve inibição direta da replicação do DNA humano."
   },
   "c": {
     "type": "error",
-    "title": "Resposta incorreta",
+    "title": "Interpretação inadequada",
     "text": "A mielossupressão associada à linezolida não costuma resultar de mecanismo imunológico."
   },
   "d": {
     "type": "error",
-    "title": "Resposta incorreta",
+    "title": "Mecanismo incompatível",
     "text": "A toxicidade não decorre de alteração direta da membrana celular."
   }
 }
         </template>
+      </article>
 
-        <template class="cap7-p68Rationale">
-          <p><strong>Resposta correta:</strong></p>
-          <p>A) Interferência sobre ribossomos mitocondriais humanos</p>
+      <article class="cap7-p68Question" data-q="2" data-question-state="pending">
+        <div class="cap7-p68QuestionHeader">
+          <span class="cap7-p68Kicker">Situação clínica 2</span>
+          <h2 class="cap7-p68QuestionTitle">Hipercalemia por sulfametoxazol–trimetoprim</h2>
+        </div>
 
-          <p><strong>Feedback</strong></p>
-          <p>A) Correta — Oxazolidinonas podem interferir em ribossomos mitocondriais devido à semelhança estrutural com ribossomos bacterianos. Essa interferência pode comprometer a produção de proteínas mitocondriais e resultar em mielossupressão durante exposições prolongadas.</p>
-          <p>B) Incorreta — O mecanismo principal não envolve inibição direta da replicação do DNA humano.</p>
-          <p>C) Incorreta — A mielossupressão associada à linezolida não costuma resultar de mecanismo imunológico.</p>
-          <p>D) Incorreta — A toxicidade não decorre de alteração direta da membrana celular.</p>
-        </template>
-      </div>
-
-      <!-- QUESTÃO 2 -->
-      <div class="cap7-p68Question" data-q="2">
         <p class="cap7-p68Case">
-          2) Um paciente idoso em uso de sulfametoxazol–trimetoprim para tratamento de infecção urinária apresenta elevação progressiva do potássio sérico durante o tratamento.
+          Um paciente idoso em uso de sulfametoxazol–trimetoprim para tratamento de infecção urinária apresenta elevação progressiva do potássio sérico durante o tratamento.
         </p>
 
         <p class="cap7-p68Prompt">
           Qual mecanismo farmacológico ajuda a explicar esse evento?
         </p>
 
-        <div class="cap7-p68Options" role="group" aria-label="Alternativas da questão 2">
-          <button type="button" data-answer="a" data-correct="true">
+        <div class="cap7-p68Options" role="group" aria-label="Alternativas da situação clínica 2">
+          <button type="button" data-answer="a">
             <span class="cap7-p68Letter">A</span>
             <span>Bloqueio do canal epitelial de sódio no túbulo distal renal</span>
           </button>
@@ -150,8 +149,12 @@
         </div>
 
         <div class="cap7-p68Actions">
-          <button class="cap7-p68Btn cap7-p68Btn--primary" type="button" data-p68-action="confirm" disabled>Confirmar</button>
-          <button class="cap7-p68Btn cap7-p68Btn--ghost" type="button" data-p68-action="reset" hidden>Refazer</button>
+          <button class="cap7-p68Btn cap7-p68Btn--primary" type="button" data-p68-action="confirm" disabled>
+            Confirmar interpretação
+          </button>
+          <button class="cap7-p68Btn cap7-p68Btn--ghost" type="button" data-p68-action="reset" hidden>
+            Refazer
+          </button>
         </div>
 
         <div class="cap7-p68Feedback" role="region" aria-live="polite"></div>
@@ -160,72 +163,78 @@
 {
   "a": {
     "type": "correct",
-    "title": "Resposta correta",
-    "text": "O trimetoprim pode atuar de maneira semelhante a um bloqueador do canal epitelial de sódio no túbulo distal, reduzindo a excreção de potássio e favorecendo hipercalemia, especialmente em pacientes idosos ou com insuficiência renal."
+    "title": "Interpretação adequada",
+    "text": "O trimetoprim pode atuar de forma semelhante ao amilorida, bloqueando o canal epitelial de sódio no túbulo distal, reduzindo a excreção renal de potássio e favorecendo hipercalemia, especialmente em idosos ou em pacientes com insuficiência renal."
   },
   "b": {
     "type": "error",
-    "title": "Resposta incorreta",
+    "title": "Mecanismo incompatível",
     "text": "O efeito observado é redução da excreção renal de potássio, não aumento."
   },
   "c": {
     "type": "error",
-    "title": "Resposta incorreta",
+    "title": "Interpretação inadequada",
     "text": "O mecanismo não envolve liberação muscular de potássio."
   },
   "d": {
     "type": "error",
-    "title": "Resposta incorreta",
-    "text": "O fármaco não atua diretamente sobre a produção de aldosterona."
+    "title": "Mecanismo incorreto",
+    "text": "O fármaco não atua diretamente sobre a síntese de aldosterona."
   }
 }
         </template>
+      </article>
 
-        <template class="cap7-p68Rationale">
-          <p><strong>Resposta correta:</strong></p>
-          <p>A) Bloqueio do canal epitelial de sódio no túbulo distal renal</p>
-
-          <p><strong>Feedback</strong></p>
-          <p>A) Correta — O trimetoprim pode atuar de maneira semelhante a um bloqueador do canal epitelial de sódio no túbulo distal, reduzindo a excreção de potássio e favorecendo hipercalemia, especialmente em pacientes idosos ou com insuficiência renal.</p>
-          <p>B) Incorreta — O efeito observado é redução da excreção renal de potássio, não aumento.</p>
-          <p>C) Incorreta — O mecanismo não envolve liberação muscular de potássio.</p>
-          <p>D) Incorreta — O fármaco não atua diretamente sobre a produção de aldosterona.</p>
-        </template>
-      </div>
-
-      <div class="cap7-p68Done" hidden>
-        <div class="cap7-p68DoneCard" role="status" aria-live="polite">
-          <span class="cap7-p68Badge cap7-p68Badge--done">Concluído</span>
-          <p class="cap7-p68DoneText">Você concluiu o quiz de revisão deste capítulo.</p>
-          <div class="cap7-p68Closing">
-            <p>
-              A interpretação dos efeitos adversos dos antibacterianos torna-se mais consistente quando associada ao mecanismo de ação, à vulnerabilidade biológica do hospedeiro e às condições clínicas que ampliam o risco de toxicidade.
-            </p>
-          </div>
+      <section class="cap7-p68Completion" data-p68-completion hidden aria-live="polite">
+        <div class="cap7-p68Completion__header">
+          <span class="cap7-p68Completion__kicker">Fechamento clínico</span>
+          <h2 class="cap7-p68Completion__title">Síntese da relação entre mecanismo e toxicidade</h2>
         </div>
+
+        <p class="cap7-p68Completion__text">
+          Ao final do capítulo, os eventos adversos deixam de ser listas desconectadas e passam a ser compreendidos como desdobramentos previsíveis da interação entre o mecanismo de ação do antibacteriano e estruturas ou funções humanas biologicamente relacionadas.
+        </p>
+      </section>
+
+      <div class="cap7-p68ClosingBlock">
+        <p>
+          Ao final do capítulo, os eventos adversos deixam de ser listas desconectadas e passam a ser compreendidos como desdobramentos previsíveis da interação entre o mecanismo de ação do antibacteriano e estruturas ou funções humanas biologicamente relacionadas.
+        </p>
       </div>
     </section>
 
     <details class="cap7-refBox">
       <summary>Referências</summary>
       <div class="cap7-refContent">
-        <p>1. Bush K, Bradford PA. β-Lactams and β-Lactamase Inhibitors: An Overview. Cold Spring Harb Perspect Med. 2016 Aug;6(8):a025247. doi:10.1101/cshperspect.a025247</p>
+        <p>1. Blaser MJ, Cohen JI, Holland SM, editors. Mandell, Douglas, and Bennett’s Principles and Practice of Infectious Diseases. 10th ed. Philadelphia: Elsevier; 2025.</p>
         <p>2. Katzung BG, Trevor AJ. Basic &amp; clinical pharmacology. 14th ed. Katzung BG, Trevor AJ, editors. New York: McGraw-Hill; 2018.</p>
-        <p>3. Sagawa T, Ishida T, Jobu K, Morisawa S, Akagaki K, Kato T, et al. Evaluation of Adverse Events Associated with the Sulfamethoxazole/Trimethoprim Combination Drug. J Clin Med. 2025 Jul 8;14(14):4819. doi:10.3390/jcm14144819</p>
-        <p>4. Stul F, Heytens S, Ebo DG, Sabato V, Piessens V. Safe Penicillin Allergy Delabeling in Primary Care: A Systematic Review and Meta-Analysis. J Allergy Clin Immunol Pract. 2024 Sep;12(9):2415-2426.e1. doi:10.1016/j.jaip.2024.06.017</p>
-        <p>5. Taylor SD, Palmer M. The action mechanism of daptomycin. Bioorg Med Chem. 2016 Dec;24(24):6253–68. doi:10.1016/j.bmc.2016.05.052</p>
-        <p>6. Greenfield A, Deja E, Lee K, Sastry S, Rittmann B. Linezolid and tedizolid adverse effects: a review on serotonin syndrome, myelosuppression, neuropathies, and lactic acidosis. Antimicrobial Stewardship &amp; Healthcare Epidemiology. 2025 Jan 27;5(1):e20. doi:10.1017/ash.2024.487</p>
-        <p>7. Viaggi B, Cangialosi A, Langer M, Olivieri C, Gori A, Corona A, et al. Tissue Penetration of Antimicrobials in Intensive Care Unit Patients: A Systematic Review—Part II. Antibiotics. 2022 Sep 3;11(9):1193. doi:10.3390/antibiotics11091193</p>
+        <p>3. Brunton LL, Hilal-Dandan R, Knollmann BC, editors. Goodman &amp; Gilman’s The Pharmacological Basis of Therapeutics. 14th ed. New York: McGraw-Hill Education; 2023. 1419 p.</p>
+        <p>4. Fishbein SRS, Mahmud B, Dantas G. Antibiotic perturbations to the gut microbiome. Nat Rev Microbiol. 2023 Dec 25;21(12):772–88. doi:10.1038/s41579-023-00933-y</p>
+        <p>5. McDonald LC, Gerding DN, Johnson S, Bakken JS, Carroll KC, Coffin SE, et al. Clinical Practice Guidelines for Clostridium difficile Infection in Adults and Children: 2017 Update by the Infectious Diseases Society of America (IDSA) and Society for Healthcare Epidemiology of America (SHEA). Clinical Infectious Diseases. 2018 Mar 19;66(7):987–94. doi:10.1093/cid/ciy149</p>
+        <p>6. Anwar AI, Lu L, Plaisance CJ, Daniel CP, Flanagan CJ, Wenger DM, et al. Fluoroquinolones: Neurological Complications and Side Effects in Clinical Practice. Cureus. 2024 Feb 20. doi:10.7759/cureus.54565</p>
+        <p>7. Pasternak B, Inghammar M, Svanström H. Fluoroquinolone use and risk of aortic aneurysm and dissection: nationwide cohort study. BMJ. 2018 Mar 8;k678. doi:10.1136/bmj.k678</p>
         <p>8. AYSERT-YILDIZ P, ÖZGEN-TOP Ö, ŞENTÜRK AF, KANIK S, ÖZGER HS, DİZBAY M. Polymyxin B vs. colistin: the comparison of neurotoxic and nephrotoxic effects of the two polymyxins. BMC Infect Dis. 2024 Aug 26;24(1):862. doi:10.1186/s12879-024-09759-2</p>
-        <p>9. Wiley MB, Bennett KK, Siegrist EA, Neely SB, Sassine J, White BP. Incidence and risk factors for musculoskeletal adverse effects associated with daptomycin in patients receiving outpatient parenteral antimicrobial therapy. Antimicrobial Stewardship &amp; Healthcare Epidemiology. 2025 Jul 31;5(1):e169. doi:10.1017/ash.2025.10087</p>
+        <p>9. Greenfield A, Deja E, Lee K, Sastry S, Rittmann B. Linezolid and tedizolid adverse effects: a review on serotonin syndrome, myelosuppression, neuropathies, and lactic acidosis. Antimicrobial Stewardship &amp; Healthcare Epidemiology. 2025 Jan 27;5(1):e20. doi:10.1017/ash.2024.487</p>
+        <p>10. De Waele JJ, Schouten J, Beovic B, Tabah A, Leone M. Antimicrobial de-escalation as part of antimicrobial stewardship in intensive care: no simple answers to simple questions—a viewpoint of experts. Intensive Care Med. 2020 Feb 5;46(2):236–44. doi:10.1007/s00134-019-05871-z</p>
+        <p>11. Stul F, Heytens S, Ebo DG, Sabato V, Piessens V. Safe Penicillin Allergy Delabeling in Primary Care: A Systematic Review and Meta-Analysis. J Allergy Clin Immunol Pract. 2024 Sep;12(9):2415-2426.e1. doi:10.1016/j.jaip.2024.06.017</p>
+        <p>12. Bradley JS, Jackson MA. The Use of Systemic and Topical Fluoroquinolones. Pediatrics. 2011 Oct 1;128(4):e1034–45. doi:10.1542/peds.2011-1496</p>
+        <p>13. Craig WA. State‐of‐the‐Art Clinical Article: Pharmacokinetic/Pharmacodynamic Parameters: Rationale for Antibacterial Dosing of Mice and Men. Clinical Infectious Diseases. 1998 Jan;26(1):1–10. doi:10.1086/516284</p>
+        <p>14. Nielsen EI, Friberg LE. Pharmacokinetic-Pharmacodynamic Modeling of Antibacterial Drugs. Pharmacol Rev. 2013 Jul;65(3):1053–90. doi:10.1124/pr.111.005769</p>
+        <p>15. Taylor SD, Palmer M. The action mechanism of daptomycin. Bioorg Med Chem. 2016 Dec;24(24):6253–68. doi:10.1016/j.bmc.2016.05.052</p>
+        <p>16. Wiley MB, Bennett KK, Siegrist EA, Neely SB, Sassine J, White BP. Incidence and risk factors for musculoskeletal adverse effects associated with daptomycin in patients receiving outpatient parenteral antimicrobial therapy. Antimicrobial Stewardship &amp; Healthcare Epidemiology. 2025 Jul 31;5(1):e169. doi:10.1017/ash.2025.10087</p>
+        <p>17. Sagawa T, Ishida T, Jobu K, Morisawa S, Akagaki K, Kato T, et al. Evaluation of Adverse Events Associated with the Sulfamethoxazole/Trimethoprim Combination Drug. J Clin Med. 2025 Jul 8;14(14):4819. doi:10.3390/jcm14144819</p>
       </div>
     </details>
 
-  <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p67.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 7 · Página 68 de 89</div>
-      <button class="btn primary" type="button" data-next="../capitulo-08/p69.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+<nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p67.html" aria-label="Ir para a página anterior">← Anterior</a>
+
+  <div class="center">Capítulo 7 · Página 68 de 89</div>
+
+  <a class="btn primary" href="../capitulo-08/p69.html" aria-label="Ir para a próxima página">
+    Próxima →
+  </a>
+</nav>
 
   </main>
 

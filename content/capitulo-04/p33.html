@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -19,96 +19,102 @@
   <main class="page-shell">
 
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 4 — Farmacocinética e Farmacodinâmica Aplicadas</div>
-        <h1 class="page-title">Via de administração e implicações clínicas na resposta terapêutica</h1>
-      </div>
+      <div class="chapter">Capítulo 4 — Farmacocinética e Farmacodinâmica Aplicadas</div>
+      <h1 class="page-title">Via de administração e implicações clínicas na resposta terapêutica</h1>
     </header>
 
-    <section class="prose cap4-reading-flow" aria-label="Texto principal">
+    <section class="prose" aria-label="Texto principal">
 
       <p>
-        A relação entre via de administração e exposição antimicrobiana adquire relevância clínica quando se considera que a eficácia do tratamento depende da concentração efetivamente alcançada no foco infeccioso. Mesmo na presença de um microrganismo classificado como suscetível, a falha em atingir níveis adequados de exposição pode comprometer a resposta terapêutica <sup>1,9</sup>.
+        A relação entre via de administração e exposição antimicrobiana adquire relevância clínica quando se considera que a eficácia do tratamento depende da concentração efetivamente alcançada no foco infeccioso. Mesmo na presença de um microrganismo classificado como suscetível, a falha em atingir níveis adequados de exposição pode comprometer a resposta terapêutica <sup>8,13</sup>.
       </p>
 
       <p>
-        Em condições clínicas nas quais a absorção é previsível e a biodisponibilidade do fármaco é elevada, a administração por via oral pode resultar em exposições sistêmicas semelhantes às obtidas por via intravenosa. Nesses cenários, a escolha da via não implica necessariamente diferença na eficácia, desde que os parâmetros farmacocinéticos permitam atingir os índices farmacodinâmicos desejados <sup>1,8</sup>.
+        Em condições clínicas nas quais a absorção é previsível e a biodisponibilidade do fármaco é elevada, a administração por via oral pode resultar em exposições sistêmicas semelhantes às obtidas por via intravenosa. Nesses cenários, a escolha da via não implica necessariamente diferença na eficácia, desde que os parâmetros farmacocinéticos permitam atingir os índices farmacodinâmicos desejados <sup>6,10</sup>.
       </p>
 
-      <section class="cap4-p33-matrix" data-cap4-p33 aria-label="Matriz de decisão da via de administração">
-        <div class="cap4-p33-matrix__image">
-          <img
-            src="../../assets/capitulo-04/imagens/matriz-decisao-via-administracao.png"
-            alt="Matriz de decisão relacionando previsibilidade de absorção gastrointestinal e risco de progressão da infecção para escolha da via de administração"
-            loading="lazy"
-          />
+      <p>
+        Entretanto, em situações de maior gravidade clínica ou de instabilidade fisiológica, a previsibilidade da absorção torna-se limitada. Estados como sepse, choque ou alterações hemodinâmicas significativas podem comprometer a perfusão do trato gastrointestinal e reduzir a absorção de fármacos administrados por via oral. Nesses contextos, a utilização da via intravenosa permite reduzir a variabilidade da exposição e garantir que a concentração plasmática inicial atinja rapidamente níveis compatíveis com atividade antimicrobiana <sup>7,9,14</sup>.
+      </p>
 
-          <button
-            class="cap4-p33-hotspot"
-            type="button"
-            data-area="vo"
-            aria-label="Ler interpretação do quadrante uso VO seguro e transição"
-            aria-pressed="false">
-          </button>
-
-          <button
-            class="cap4-p33-hotspot"
-            type="button"
-            data-area="monitoramento"
-            aria-label="Ler interpretação do quadrante monitoramento clínico rigoroso"
-            aria-pressed="false">
-          </button>
-
-          <button
-            class="cap4-p33-hotspot"
-            type="button"
-            data-area="avaliacao"
-            aria-label="Ler interpretação do quadrante avaliação de biodisponibilidade"
-            aria-pressed="false">
-          </button>
-
-          <button
-            class="cap4-p33-hotspot"
-            type="button"
-            data-area="iv"
-            aria-label="Ler interpretação do quadrante uso obrigatório intravenoso"
-            aria-pressed="false">
-          </button>
+      <section class="cap4-p33-matrix" aria-labelledby="cap4-p33-matrix-title">
+        <div class="cap4-p33-matrix__head">
+          <p class="eyebrow">Integração clínica</p>
+          <h3 id="cap4-p33-matrix-title" class="cap4-p33-matrix__title">A escolha da via depende da gravidade e da previsibilidade da absorção</h3>
+          <p class="cap4-p33-matrix__subtitle">
+            A matriz organiza visualmente o problema clínico: quanto maior o risco de progressão da infecção e menor a previsibilidade da absorção gastrointestinal, menor a segurança de depender da via oral como estratégia inicial.
+          </p>
         </div>
 
-        <div class="cap4-p33-panel" aria-live="polite">
-          <h3 data-title></h3>
-          <p data-text></p>
+        <figure class="figure cap4-p33-figure">
+          <button
+            type="button"
+            class="cap4-p33-figure__zoom"
+            data-zoom="../../assets/capitulo-04/imagens/matriz-decisao-via-administracao.png"
+            aria-label="Ampliar matriz clínica de decisão da via de administração"
+          >
+            <img
+              src="../../assets/capitulo-04/imagens/matriz-decisao-via-administracao.png"
+              alt="Matriz clínica relacionando previsibilidade da absorção gastrointestinal e risco de progressão da infecção para orientar o uso de via oral ou intravenosa."
+              loading="lazy"
+            />
+          </button>
+          <figcaption class="caption">
+            A escolha da via de administração não depende apenas do fármaco, mas da interação entre a previsibilidade da absorção e o risco de progressão da infecção. Em cenários de baixa gravidade e absorção previsível, a via oral pode ser adequada; à medida que a gravidade aumenta ou a absorção se torna incerta, a via intravenosa torna-se necessária para garantir exposição eficaz e reduzir variabilidade.
+          </figcaption>
+        </figure>
+
+        <div class="cap4-p33-guide" aria-label="Leitura guiada da matriz">
+          <div class="cap4-p33-guide__controls" role="tablist" aria-label="Quadrantes da matriz de decisão">
+            <button class="cap4-p33-guide__chip is-active" type="button" role="tab" aria-selected="true" data-p33-zone="vo">
+              VO seguro / transição
+            </button>
+            <button class="cap4-p33-guide__chip" type="button" role="tab" aria-selected="false" data-p33-zone="monitor">
+              Monitoramento rigoroso
+            </button>
+            <button class="cap4-p33-guide__chip" type="button" role="tab" aria-selected="false" data-p33-zone="biodisponibilidade">
+              Avaliar biodisponibilidade
+            </button>
+            <button class="cap4-p33-guide__chip" type="button" role="tab" aria-selected="false" data-p33-zone="iv">
+              Uso obrigatório IV
+            </button>
+          </div>
+
+          <div class="cap4-p33-guide__panel" aria-live="polite">
+            <div class="cap4-p33-guide__eyebrow" id="cap4-p33-eyebrow">Zona de menor risco farmacocinético</div>
+            <h3 class="cap4-p33-guide__title" id="cap4-p33-title">Via oral segura ou transição para VO</h3>
+            <div class="cap4-p33-guide__text" id="cap4-p33-text">
+              <p>
+                Quando a absorção gastrointestinal é previsível e a gravidade clínica é menor, a via oral pode sustentar exposição sistêmica adequada. Nessa situação, o raciocínio não é “oral sempre funciona”, mas que o alvo farmacodinâmico pode ser alcançado sem perda relevante de eficácia.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       <p>
-        Entretanto, em situações de maior gravidade clínica ou de instabilidade fisiológica, a previsibilidade da absorção torna-se limitada. Estados como sepse, choque ou alterações hemodinâmicas significativas podem comprometer a perfusão do trato gastrointestinal e reduzir a absorção de fármacos administrados por via oral. Nesses contextos, a utilização da via intravenosa permite reduzir a variabilidade da exposição e garantir que a concentração plasmática inicial atinja rapidamente níveis compatíveis com atividade antimicrobiana <sup>6,8</sup>.
+        A escolha da via também influencia a velocidade de início da ação terapêutica. Em infecções com alta carga bacteriana ou risco de progressão rápida, atrasos na obtenção de concentrações eficazes podem permitir a persistência e multiplicação do microrganismo. A administração intravenosa, ao proporcionar elevação imediata da concentração plasmática, pode reduzir esse intervalo crítico e aumentar a probabilidade de controle inicial da infecção <sup>5,7</sup>.
       </p>
 
       <p>
-        A escolha da via também influencia a velocidade de início da ação terapêutica. Em infecções com alta carga bacteriana ou risco de progressão rápida, atrasos na obtenção de concentrações eficazes podem permitir a persistência e multiplicação do microrganismo. A administração intravenosa, ao proporcionar elevação imediata da concentração plasmática, pode reduzir esse intervalo crítico e aumentar a probabilidade de controle inicial da infecção <sup>1,6</sup>.
+        Outro aspecto relevante é a possibilidade de discordância entre a classificação microbiológica e a resposta clínica. Um microrganismo classificado como suscetível no antibiograma pode não responder ao tratamento se a exposição alcançada no organismo não for suficiente para ultrapassar a CIM no sítio infeccioso. Nesses casos, a limitação não está na atividade intrínseca do fármaco, mas na incapacidade de atingir concentrações adequadas, frequentemente influenciada pela via de administração e por fatores farmacocinéticos associados <sup>8,13</sup>.
       </p>
 
       <p>
-        Outro aspecto relevante é a possibilidade de discordância entre a classificação microbiológica e a resposta clínica. Um microrganismo classificado como suscetível no antibiograma pode não responder ao tratamento se a exposição alcançada no organismo não for suficiente para ultrapassar a CIM no sítio infeccioso. Nesses casos, a limitação não está na atividade intrínseca do fármaco, mas na incapacidade de atingir concentrações adequadas, frequentemente influenciada pela via de administração e por fatores farmacocinéticos associados <sup>1,9</sup>.
+        Além disso, a escolha inadequada da via pode contribuir para manutenção da exposição em níveis subótimos, favorecendo a permanência de bactérias em faixas próximas à janela de seleção mutante. Esse cenário pode não resultar em falha terapêutica imediata, mas aumenta a probabilidade de seleção de subpopulações com menor suscetibilidade ao longo do tratamento <sup>1,4</sup>.
       </p>
 
       <p>
-        Além disso, a escolha inadequada da via pode contribuir para manutenção da exposição em níveis subótimos, favorecendo a permanência de bactérias em faixas próximas à janela de seleção mutante. Esse cenário pode não resultar em falha terapêutica imediata, mas aumenta a probabilidade de seleção de subpopulações com menor suscetibilidade ao longo do tratamento <sup>4,5</sup>.
-      </p>
-
-      <p>
-        Dessa forma, a via de administração deve ser integrada à avaliação farmacocinética e farmacodinâmica do tratamento antimicrobiano. Sua escolha influencia não apenas a concentração alcançada, mas também a velocidade, a previsibilidade e a consistência da exposição ao fármaco. Esses elementos, por sua vez, determinam a posição da curva concentração-tempo em relação à CIM e a probabilidade de atingir o efeito antimicrobiano desejado no contexto clínico específico <sup>1,7</sup>.
+        Dessa forma, a via de administração deve ser integrada à avaliação farmacocinética e farmacodinâmica do tratamento antimicrobiano. Sua escolha influencia não apenas a concentração alcançada, mas também a velocidade, a previsibilidade e a consistência da exposição ao fármaco. Esses elementos, por sua vez, determinam a posição da curva concentração-tempo em relação à CIM e a probabilidade de atingir o efeito antimicrobiano desejado no contexto clínico específico <sup>5,6</sup>.
       </p>
 
     </section>
 
- <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p32.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 4 · Página 33 de 89</div>
-      <button class="btn primary" type="button" data-next="p34.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+<nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p32.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 4 · Página 33 de 89</div>
+  <a class="btn primary" href="p34.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
 
   </main>
 

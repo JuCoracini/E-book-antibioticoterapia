@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css"/>
   <link rel="stylesheet" href="../../css/components.css"/>
@@ -18,7 +18,7 @@
 
 <body class="cap6-page61">
 
-  <main class="page-shell">
+  <main class="page-shell cap6-shell">
 
     <header class="page-header">
       <div>
@@ -27,55 +27,61 @@
       </div>
     </header>
 
-    <section class="prose cap6-reading-flow" aria-label="Introdução do quiz">
+    <section class="prose cap6-reading-flow" aria-label="Introdução do Quiz de revisão">
       <p>
-        As situações a seguir exploram os princípios discutidos neste capítulo. Analise cada cenário considerando o racional da associação antibacteriana, seus limites farmacológicos e suas consequências ecológicas e clínicas.
+        As situações a seguir articulam princípios centrais deste capítulo. Em cada cenário, a decisão terapêutica depende da integração entre microbiologia, exposição farmacológica, justificativa biológica da associação e revisão crítica da conduta inicial.
       </p>
     </section>
 
     <section class="cap6-p61Quiz" data-cap6-p61 aria-label="Quiz de revisão">
-
-      <div class="cap6-p61Nav" aria-label="Navegação das situações">
-        <button class="cap6-p61NavBtn" type="button" data-p61-action="prev">Anterior</button>
-        <div class="cap6-p61Progress" aria-live="polite"></div>
-        <button class="cap6-p61NavBtn" type="button" data-p61-action="next">Próxima</button>
+      <div class="cap6-p61Status" aria-live="polite" data-p61-status>
+        <span class="cap6-p61Status__label">Leitura aplicada do capítulo</span>
+        <span class="cap6-p61Status__value">0 de 2 situações confirmadas</span>
       </div>
 
-      <!-- QUESTÃO 1 -->
-      <div class="cap6-p61Question active" data-q="1">
+      <article class="cap6-p61Question" data-q="1" data-question-state="pending">
+        <div class="cap6-p61QuestionHeader">
+          <span class="cap6-p61Kicker">Situação clínica 1</span>
+          <h2 class="cap6-p61QuestionTitle">Reavaliação de cobertura ampliada</h2>
+        </div>
+
         <p class="cap6-p61Case">
-          1) Um paciente inicia tratamento empírico com dois antibacterianos para ampliar cobertura microbiológica em um quadro infeccioso grave. Após alguns dias, o agente etiológico é identificado e demonstra suscetibilidade inequívoca a um dos antibacterianos utilizados.
+          Um paciente inicia tratamento empírico com dois antibacterianos para ampliar a cobertura microbiológica em um quadro infeccioso grave. Após alguns dias, o agente etiológico é identificado e demonstra suscetibilidade inequívoca a um dos antibacterianos utilizados.
         </p>
 
         <p class="cap6-p61Prompt">
           Qual princípio da antibioticoterapia orienta a reavaliação do esquema terapêutico nesse momento?
         </p>
 
-        <div class="cap6-p61Options" role="group" aria-label="Alternativas da questão 1">
+        <div class="cap6-p61Options" role="group" aria-label="Alternativas da situação clínica 1">
           <button type="button" data-answer="a">
             <span class="cap6-p61Letter">A</span>
-            <span>A associação deve ser mantida até o término completo do tratamento para garantir erradicação bacteriana.</span>
+            <span>A associação deve ser mantida até o término completo do tratamento para garantir erradicação bacteriana</span>
           </button>
 
           <button type="button" data-answer="b" data-correct="true">
             <span class="cap6-p61Letter">B</span>
-            <span>A ampliação inicial de espectro deve ser revisada quando dados microbiológicos permitem direcionar o tratamento.</span>
+            <span>A ampliação inicial de espectro deve ser revisada quando dados microbiológicos permitem direcionar o tratamento</span>
           </button>
 
           <button type="button" data-answer="c">
             <span class="cap6-p61Letter">C</span>
-            <span>A combinação de antibacterianos reduz automaticamente a probabilidade de resistência durante todo o tratamento.</span>
+            <span>A combinação de antibacterianos reduz automaticamente a probabilidade de resistência durante todo o tratamento</span>
           </button>
 
           <button type="button" data-answer="d">
             <span class="cap6-p61Letter">D</span>
-            <span>A presença de dois antibacterianos sempre aumenta a eficácia terapêutica.</span>
+            <span>A presença de dois antibacterianos sempre aumenta a eficácia terapêutica</span>
           </button>
         </div>
 
         <div class="cap6-p61Actions">
-          <button class="cap6-p61Btn cap6-p61Btn--primary" type="button" data-p61-action="confirm" disabled>Confirmar</button>
-          <button class="cap6-p61Btn cap6-p61Btn--ghost" type="button" data-p61-action="reset" hidden>Refazer</button>
+          <button class="cap6-p61Btn cap6-p61Btn--primary" type="button" data-p61-action="confirm" disabled>
+            Confirmar interpretação
+          </button>
+          <button class="cap6-p61Btn cap6-p61Btn--ghost" type="button" data-p61-action="reset" hidden>
+            Refazer
+          </button>
         </div>
 
         <div class="cap6-p61Feedback" role="region" aria-live="polite"></div>
@@ -84,72 +90,71 @@
 {
   "a": {
     "type": "error",
-    "title": "Conduta inadequada",
-    "text": "A manutenção da associação até o fim do tratamento não se justifica automaticamente. Quando dados microbiológicos demonstram que um único antibacteriano é suficiente, a persistência da combinação tende a ampliar toxicidade e pressão seletiva sem benefício proporcional."
+    "title": "Interpretação inadequada",
+    "text": "A manutenção da associação sem justificativa biológica não aumenta a eficácia e pode ampliar toxicidade e pressão seletiva desnecessária."
   },
   "b": {
     "type": "correct",
-    "title": "Conduta adequada",
-    "text": "A ampliação inicial de espectro é uma estratégia transitória. Quando o agente etiológico e o perfil de suscetibilidade tornam-se conhecidos, o tratamento deve ser reavaliado para reduzir exposição antibacteriana desnecessária e direcionar a terapia de modo mais racional."
+    "title": "Interpretação adequada",
+    "text": "A ampliação empírica de espectro é uma estratégia inicial. Quando o agente causal e o perfil de suscetibilidade são conhecidos, o tratamento deve ser reavaliado com o objetivo de reduzir a exposição antibacteriana desnecessária (descalonamento terapêutico)."
   },
   "c": {
     "type": "error",
     "title": "Generalização incorreta",
-    "text": "A associação pode reduzir a probabilidade de emergência de resistência em cenários específicos, mas esse efeito não é automático nem universal. Ele depende de fatores como exposição farmacodinâmica adequada, carga bacteriana e características biológicas do patógeno."
+    "text": "A associação pode reduzir a probabilidade de emergência de resistência em cenários específicos, mas esse efeito não é automático e depende de fatores microbiológicos e farmacodinâmicos."
   },
   "d": {
     "type": "error",
-    "title": "Raciocínio equivocado",
-    "text": "A presença de dois antibacterianos não garante maior eficácia quando a monoterapia já oferece atividade adequada e exposição suficiente no foco infeccioso. Nesses casos, a associação pode representar apenas aumento desnecessário de exposição."
+    "title": "Raciocínio inadequado",
+    "text": "A presença de múltiplos antibacterianos não garante maior eficácia quando a monoterapia já é adequada do ponto de vista microbiológico e farmacodinâmico."
   }
 }
         </template>
+      </article>
 
-        <template class="cap6-p61Rationale">
-          <p><strong>Resposta correta:</strong></p>
-          <p>B) A ampliação inicial de espectro deve ser revisada quando dados microbiológicos permitem direcionar o tratamento.</p>
+      <article class="cap6-p61Question" data-q="2" data-question-state="pending">
+        <div class="cap6-p61QuestionHeader">
+          <span class="cap6-p61Kicker">Situação clínica 2</span>
+          <h2 class="cap6-p61QuestionTitle">Falha de exposição farmacológica</h2>
+        </div>
 
-          <p>
-            A ampliação empírica de espectro é uma estratégia inicial voltada à redução de risco diante de incerteza etiológica relevante. Quando o agente causal e seu perfil de suscetibilidade são conhecidos, o tratamento deve ser reavaliado para reduzir exposição antibacteriana desnecessária, minimizar pressão seletiva e manter apenas o que permanece biologicamente justificado.
-          </p>
-        </template>
-      </div>
-
-      <!-- QUESTÃO 2 -->
-      <div class="cap6-p61Question" data-q="2">
         <p class="cap6-p61Case">
-          2) Em um quadro infeccioso grave, um médico decide adicionar um segundo antibacteriano porque o paciente não apresenta melhora clínica inicial. Posteriormente, identifica-se que o regime inicial estava sendo administrado em dose abaixo da necessária para atingir exposição farmacodinâmica adequada.
+          Em um quadro infeccioso grave, um médico decide adicionar um segundo antibacteriano porque o paciente não apresenta melhora clínica inicial. Posteriormente, identifica-se que o regime inicial estava sendo administrado em dose abaixo da necessária para atingir exposição farmacodinâmica adequada.
         </p>
 
         <p class="cap6-p61Prompt">
           Qual conceito ajuda a explicar por que a associação não resolveu o problema terapêutico?
         </p>
 
-        <div class="cap6-p61Options" role="group" aria-label="Alternativas da questão 2">
+        <div class="cap6-p61Options" role="group" aria-label="Alternativas da situação clínica 2">
           <button type="button" data-answer="a" data-correct="true">
             <span class="cap6-p61Letter">A</span>
-            <span>A associação antibacteriana não corrige exposição farmacológica inadequada.</span>
+            <span>A associação antibacteriana não corrige exposição farmacológica inadequada</span>
           </button>
 
           <button type="button" data-answer="b">
             <span class="cap6-p61Letter">B</span>
-            <span>A resistência bacteriana sempre surge após o início do tratamento.</span>
+            <span>A resistência bacteriana sempre surge após o início do tratamento</span>
           </button>
 
           <button type="button" data-answer="c">
             <span class="cap6-p61Letter">C</span>
-            <span>A concentração inibitória mínima varia entre diferentes pacientes.</span>
+            <span>A concentração inibitória mínima varia entre diferentes pacientes</span>
           </button>
 
           <button type="button" data-answer="d">
             <span class="cap6-p61Letter">D</span>
-            <span>O mecanismo de ação do antibacteriano modifica-se durante o tratamento.</span>
+            <span>O mecanismo de ação do antibacteriano modifica-se durante o tratamento</span>
           </button>
         </div>
 
         <div class="cap6-p61Actions">
-          <button class="cap6-p61Btn cap6-p61Btn--primary" type="button" data-p61-action="confirm" disabled>Confirmar</button>
-          <button class="cap6-p61Btn cap6-p61Btn--ghost" type="button" data-p61-action="reset" hidden>Refazer</button>
+          <button class="cap6-p61Btn cap6-p61Btn--primary" type="button" data-p61-action="confirm" disabled>
+            Confirmar interpretação
+          </button>
+          <button class="cap6-p61Btn cap6-p61Btn--ghost" type="button" data-p61-action="reset" hidden>
+            Refazer
+          </button>
         </div>
 
         <div class="cap6-p61Feedback" role="region" aria-live="polite"></div>
@@ -159,71 +164,77 @@
   "a": {
     "type": "correct",
     "title": "Interpretação adequada",
-    "text": "Quando a concentração do antibacteriano não atinge níveis adequados no foco infeccioso, adicionar outro agente não compensa automaticamente a falha de exposição. A otimização do regime farmacocinético deve preceder a ampliação farmacológica."
+    "text": "Quando a concentração do antibacteriano não atinge níveis adequados no foco infeccioso, adicionar outro agente não compensa a falha de exposição. A otimização do regime farmacocinético deve preceder a ampliação farmacológica."
   },
   "b": {
     "type": "error",
     "title": "Explicação inadequada",
-    "text": "A emergência de resistência pode ocorrer durante o tratamento, mas isso não explica diretamente a falha descrita no cenário. O problema central foi a exposição farmacológica insuficiente do regime inicial."
+    "text": "A emergência de resistência pode ocorrer durante o tratamento, mas não explica falha terapêutica decorrente de exposição inadequada."
   },
   "c": {
     "type": "error",
     "title": "Conceito incorreto",
-    "text": "A concentração inibitória mínima é determinada em laboratório para um isolado bacteriano específico e não varia entre pacientes. O que varia entre pacientes é a exposição farmacocinética alcançada pelo fármaco."
+    "text": "A concentração inibitória mínima é determinada em condições laboratoriais padronizadas e não varia entre pacientes para um mesmo isolado bacteriano."
   },
   "d": {
     "type": "error",
-    "title": "Mecanismo mal interpretado",
-    "text": "O mecanismo de ação do antibacteriano não se modifica durante o tratamento. O que pode falhar é a exposição adequada no sítio da infecção, seja por dose insuficiente, intervalo inadequado ou penetração tecidual limitada."
+    "title": "Erro conceitual",
+    "text": "O mecanismo de ação do antibacteriano permanece constante durante o tratamento."
   }
 }
         </template>
+      </article>
 
-        <template class="cap6-p61Rationale">
-          <p><strong>Resposta correta:</strong></p>
-          <p>A) A associação antibacteriana não corrige exposição farmacológica inadequada.</p>
-
-          <p>
-            Quando a concentração do antibacteriano não atinge níveis adequados no foco infeccioso, o patógeno permanece apenas parcialmente exposto. Nessa situação, adicionar outro agente não resolve automaticamente a falha central do tratamento. Antes de ampliar o esquema, é necessário reavaliar dose, intervalo, via de administração, penetração no foco infeccioso e necessidade de controle local.
-          </p>
-        </template>
-      </div>
-
-      <div class="cap6-p61Done" hidden>
-        <div class="cap6-p61DoneCard" role="status" aria-live="polite">
-          <span class="cap6-p61Badge cap6-p61Badge--done">Concluído</span>
-          <p class="cap6-p61DoneText">Você concluiu o quiz de revisão deste capítulo.</p>
-          <div class="cap6-p61Closing">
-            <p>
-              A associação antibacteriana não deve ser entendida como intensificação automática do tratamento, mas como estratégia específica, dependente de contexto microbiológico, exposição farmacológica adequada e revisão sistemática do esquema terapêutico. Reconhecer quando associar, quando reduzir e quando não ampliar o tratamento constitui parte essencial da prescrição racional.
-            </p>
-          </div>
+      <section class="cap6-p61Completion" data-p61-completion hidden aria-live="polite">
+        <div class="cap6-p61Completion__header">
+          <span class="cap6-p61Completion__kicker">Fechamento clínico</span>
+          <h2 class="cap6-p61Completion__title">Síntese da decisão sobre associação antibacteriana</h2>
         </div>
+
+        <p class="cap6-p61Completion__text" data-p61-completion-text>
+          Ao final deste capítulo, a associação antibacteriana não pode ser entendida como recurso automático de intensificação terapêutica. Sua indicação depende de objetivo biológico claro, reavaliação crítica do esquema inicial, adequação da exposição farmacológica e distinção entre cobertura necessária e sobreposição desnecessária.
+        </p>
+      </section>
+
+      <div class="cap6-p61ClosingBlock">
+        <p>
+          Ao final deste capítulo, a associação antibacteriana não pode ser entendida como recurso automático de intensificação terapêutica. Sua indicação depende de objetivo biológico claro, reavaliação crítica do esquema inicial, adequação da exposição farmacológica e distinção entre cobertura necessária e sobreposição desnecessária.
+        </p>
       </div>
     </section>
 
     <details class="cap6-refBox">
       <summary>Referências</summary>
       <div class="cap6-refContent">
-        <p>1. Pamer EG. Resurrecting the intestinal microbiota to combat antibiotic-resistant pathogens. Science (1979). 2016 Apr 29;352(6285):535–8. doi:10.1126/science.aad9382</p>
-        <p>2. Bush K, Bradford PA. Epidemiology of β-Lactamase-Producing Pathogens. Clin Microbiol Rev. 2020 Mar 18;33(2). doi:10.1128/CMR.00047-19</p>
-        <p>3. McDonald LC, Gerding DN, Johnson S, Bakken JS, Carroll KC, Coffin SE, et al. Clinical Practice Guidelines for Clostridium difficile Infection in Adults and Children: 2017 Update by the Infectious Diseases Society of America (IDSA) and Society for Healthcare Epidemiology of America (SHEA). Clinical Infectious Diseases. 2018 Mar 19;66(7):987–94. doi:10.1093/cid/ciy149</p>
-        <p>4. Albin OR, Pogue JM, Wunderink RG, Kaye KS. Which trial do we need? Combination antimicrobial therapy for hospital-acquired bacterial pneumonia caused by Pseudomonas aeruginosa. Clinical Microbiology and Infection. 2024 Feb;30(2):162–4. doi:10.1016/j.cmi.2023.07.007</p>
-        <p>5. Tamma PD, Aitken SL, Bonomo RA, Mathers AJ, van Duin D, Clancy CJ. Infectious Diseases Society of America Guidance on the Treatment of Extended-Spectrum β-lactamase Producing Enterobacterales (ESBL-E), Carbapenem-Resistant Enterobacterales (CRE), and Pseudomonas aeruginosa with Difficult-to-Treat Resistance (DTR- P. aeruginosa). Clinical Infectious Diseases. 2021 Apr 8;72(7):e169–83. doi:10.1093/cid/ciaa1478</p>
-        <p>6. Roberts JA, Abdul-Aziz MH, Lipman J, Mouton JW, Vinks AA, Felton TW, et al. Individualised antibiotic dosing for patients who are critically ill: challenges and potential solutions. Lancet Infect Dis. 2014 Jun;14(6):498–509. doi:10.1016/S1473-3099(14)70036-2</p>
+        <p>1. Blaser MJ, Cohen JI, Holland SM, editors. Mandell, Douglas, and Bennett’s Principles and Practice of Infectious Diseases. 10th ed. Philadelphia: Elsevier; 2025.</p>
+        <p>2. Brunton LL, Hilal-Dandan R, Knollmann BC, editors. Goodman & Gilman’s The Pharmacological Basis of Therapeutics. 14th ed. New York: McGraw-Hill Education; 2023. 1419 p.</p>
+        <p>3. Fishbein SRS, Mahmud B, Dantas G. Antibiotic perturbations to the gut microbiome. Nat Rev Microbiol. 2023 Dec 25;21(12):772–88. doi:10.1038/s41579-023-00933-y</p>
+        <p>4. Pamer EG. Resurrecting the intestinal microbiota to combat antibiotic-resistant pathogens. Science (1979). 2016 Apr 29;352(6285):535–8. doi:10.1126/science.aad9382</p>
+        <p>5. McDonald LC, Gerding DN, Johnson S, Bakken JS, Carroll KC, Coffin SE, et al. Clinical Practice Guidelines for Clostridium difficile Infection in Adults and Children: 2017 Update by the Infectious Diseases Society of America (IDSA) and Society for Healthcare Epidemiology of America (SHEA). Clinical Infectious Diseases. 2018 Mar 19;66(7):987–94. doi:10.1093/cid/ciy149</p>
+        <p>6. Peery AF, Kelly CR, Kao D, Vaughn BP, Lebwohl B, Singh S, et al. AGA Clinical Practice Guideline on Fecal Microbiota–Based Therapies for Select Gastrointestinal Diseases. Gastroenterology. 2024 Mar;166(3):409–34. doi:10.1053/j.gastro.2024.01.008</p>
+        <p>7. Sati H, Carrara E, Savoldi A, Hansen P, Garlasco J, Campagnaro E, et al. The WHO Bacterial Priority Pathogens List 2024: a prioritisation study to guide research, development, and public health strategies against antimicrobial resistance. Lancet Infect Dis. 2025 Sep;25(9):1033–43. doi:10.1016/S1473-3099(25)00118-5</p>
+        <p>8. Albin OR, Pogue JM, Wunderink RG, Kaye KS. Which trial do we need? Combination antimicrobial therapy for hospital-acquired bacterial pneumonia caused by Pseudomonas aeruginosa. Clinical Microbiology and Infection. 2024 Feb;30(2):162–4. doi:10.1016/j.cmi.2023.07.007</p>
+        <p>9. CiplaMed. ESCMID 2025: Novel Beta-Lactams and Beta-Lactamase Inhibitors: A Diagnostic and Therapeutic Approach. Viena, Áustria; 2025.</p>
+        <p>10. Roberts JA, Abdul-Aziz MH, Lipman J, Mouton JW, Vinks AA, Felton TW, et al. Individualised antibiotic dosing for patients who are critically ill: challenges and potential solutions. Lancet Infect Dis. 2014 Jun;14(6):498–509. doi:10.1016/S1473-3099(14)70036-2</p>
+        <p>11. Bush K, Bradford PA. Epidemiology of β-Lactamase-Producing Pathogens. Clin Microbiol Rev. 2020 Mar 18;33(2). doi:10.1128/CMR.00047-19</p>
+        <p>12. Roberts J, Heffernan A, Chai M, Harris P, Legg A, Farkas A, et al. Resistance Optimised Antibiotic Dosing (The ROAD Study): Is dosing of meropenem and piperacillin-tazobactam optimised to prevent the emergence of antibiotic resistance safe and feasible in the ICU? A pilot study. CMI Communications. 2025 Mar;2(1):105051. doi:10.1016/j.cmicom.2024.105051</p>
+        <p>13. Murray CJL, Ikuta KS, Sharara F, Swetschinski L, Robles Aguilar G, Gray A, et al. Global burden of bacterial antimicrobial resistance in 2019: a systematic analysis. The Lancet. 2022 Feb;399(10325):629–55. doi:10.1016/S0140-6736(21)02724-0</p>
       </div>
     </details>
 
-   <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p60.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 6 · Página 61 de 89</div>
-      <button class="btn primary" type="button" data-next="../capitulo-07/p62.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+<nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p60.html" aria-label="Ir para a página anterior">← Anterior</a>
+
+  <div class="center">Capítulo 6 · Página 61 de 89</div>
+
+  <a class="btn primary" href="../capitulo-07/p62.html" aria-label="Ir para a próxima página">
+    Próxima →
+  </a>
+</nav>
 
   </main>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-06.js"></script>
-
 </body>
 </html>

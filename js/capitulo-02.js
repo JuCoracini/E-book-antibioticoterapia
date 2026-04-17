@@ -425,222 +425,105 @@
    ========================= */
 
 (function initPage15Protein() {
-  const root = document.querySelector("[data-cap2-protein]");
+  const root = document.querySelector("[data-cap2-p15]");
   if (!root) return;
 
-  const tabs = Array.from(root.querySelectorAll("[data-protein-group]"));
+  const tabs = Array.from(root.querySelectorAll("[data-p15-tab]"));
   const panel = document.getElementById("cap2P15Panel");
   const image = document.getElementById("cap2P15Image");
   const caption = document.getElementById("cap2P15Caption");
-  const zoomButton = root.querySelector(".cap2-p15-zoom");
   const title = document.getElementById("cap2P15Title");
-  const text = document.getElementById("cap2P15Text");
-  const step = document.getElementById("cap2P15Step");
-  const prev = document.getElementById("cap2P15Prev");
-  const next = document.getElementById("cap2P15Next");
+  const body = document.getElementById("cap2P15Body");
+  const zoomButton = root.querySelector(".cap2-p15-zoom");
 
-  if (!tabs.length || !panel || !image || !caption || !zoomButton || !title || !text || !step || !prev || !next) {
-    return;
-  }
+  if (!tabs.length || !panel || !image || !caption || !title || !body || !zoomButton) return;
 
   const states = {
-    processo: {
-      tabId: "cap2P15TabProcesso",
-      steps: [
-        {
-          src: "../../assets/capitulo-02/imagens/ribossomo-iniciacao.png",
-          alt: "Etapa de iniciação da síntese proteica bacteriana",
-          caption: "Etapa de iniciação da síntese proteica bacteriana. Clique para ampliar.",
-          title: "Iniciação",
-          text: `
-            <p>A síntese proteica bacteriana inicia-se quando a subunidade 30S reconhece e se liga ao RNA mensageiro.</p>
-            <p>Em seguida, o RNA transportador iniciador associa-se ao códon inicial, formando o complexo de iniciação.</p>
-            <p>Depois disso, a subunidade 50S se associa ao conjunto, constituindo o ribossomo funcional apto a iniciar a tradução.</p>
-          `
-        },
-        {
-          src: "../../assets/capitulo-02/imagens/ribossomo-elongacao.png",
-          alt: "Etapa de elongação da síntese proteica bacteriana",
-          caption: "Etapa de elongação da síntese proteica bacteriana. Clique para ampliar.",
-          title: "Elongação",
-          text: `
-            <p>Durante a elongação, novos RNAs transportadores entram no sítio A do ribossomo trazendo aminoácidos compatíveis com o códon exposto no RNA mensageiro.</p>
-            <p>A subunidade 50S catalisa a formação da ligação peptídica entre os aminoácidos, permitindo o crescimento progressivo da cadeia polipeptídica.</p>
-            <p>Em seguida, ocorre a translocação do ribossomo ao longo do RNA mensageiro, o que expõe o próximo códon e permite a continuidade da tradução.</p>
-          `
-        },
-        {
-          src: "../../assets/capitulo-02/imagens/ribossomo-terminacao.png",
-          alt: "Etapa de terminação da síntese proteica bacteriana",
-          caption: "Etapa de terminação da síntese proteica bacteriana. Clique para ampliar.",
-          title: "Terminação",
-          text: `
-            <p>Quando o ribossomo alcança um códon de parada, fatores de liberação promovem o encerramento do processo traducional.</p>
-            <p>A cadeia polipeptídica recém-formada é liberada, e o complexo ribossomal se dissocia em suas subunidades.</p>
-            <p>Esse encerramento permite que os componentes do sistema de tradução sejam reutilizados em novos ciclos de síntese proteica.</p>
-          `
-        }
-      ]
+    normal: {
+      tabId: "cap2P15TabNormal",
+      src: "../../assets/capitulo-02/imagens/cap02-p15-normal.png",
+      alt: "Síntese proteica bacteriana em condições normais",
+      caption: "Processo normal da síntese proteica bacteriana. Clique para ampliar.",
+      title: "Processo normal da tradução bacteriana",
+      body: `
+        <p>No processo fisiológico, a subunidade 30S reconhece o RNA mensageiro e posiciona o tRNA iniciador. Em seguida, a subunidade 50S se associa ao complexo, permitindo a entrada sequencial de novos tRNAs, a formação das ligações peptídicas e a elongação ordenada da cadeia polipeptídica.</p>
+        <p>Esse fluxo contínuo explica por que a síntese proteica depende da integridade funcional das duas subunidades ribossomais bacterianas.</p>
+      `
     },
 
     "30s": {
       tabId: "cap2P15Tab30S",
-      steps: [
-        {
-          src: "../../assets/capitulo-02/imagens/tetraciclina-ribossomo-30s.png",
-          alt: "Ação da tetraciclina sobre a subunidade 30S",
-          caption: "Ação da tetraciclina sobre a subunidade 30S. Clique para ampliar.",
-          title: "30S — Tetraciclinas",
-          text: `
-            <p>As tetraciclinas ligam-se à subunidade 30S e dificultam a entrada adequada do RNA transportador carregado com aminoácidos no ribossomo.</p>
-            <p>Com isso, a elongação da cadeia polipeptídica é interrompida, porque novos aminoácidos deixam de ser incorporados de forma eficiente.</p>
-          `
-        },
-        {
-          src: "../../assets/capitulo-02/imagens/aminoglicosideo-ribossomo-30s.png",
-          alt: "Ação dos aminoglicosídeos sobre a subunidade 30S",
-          caption: "Ação dos aminoglicosídeos sobre a subunidade 30S. Clique para ampliar.",
-          title: "30S — Aminoglicosídeos",
-          text: `
-            <p>Os aminoglicosídeos ligam-se ao ribossomo bacteriano e interferem na leitura correta do RNA mensageiro.</p>
-            <p>Essa alteração favorece a incorporação de aminoácidos inadequados e resulta na produção de proteínas defeituosas ou não funcionais, o que ajuda a explicar seu efeito geralmente bactericida.</p>
-          `
-        }
-      ]
+      src: "../../assets/capitulo-02/imagens/cap02-p15-30s.png",
+      alt: "Interferência de antibacterianos na subunidade 30S",
+      caption: "Inibição da iniciação por ação sobre a subunidade 30S. Clique para ampliar.",
+      title: "Interferência sobre a subunidade 30S",
+      body: `
+        <p>Alguns antibacterianos ligam-se à subunidade 30S e perturbam a etapa inicial da tradução bacteriana, comprometendo o reconhecimento adequado do RNAm e o correto posicionamento do tRNA iniciador.</p>
+        <p>Quando a montagem do complexo de iniciação falha, a síntese proteica deixa de progredir de maneira eficiente desde o início do processo traducional.</p>
+      `
     },
 
     "50s": {
       tabId: "cap2P15Tab50S",
-      steps: [
-        {
-          src: "../../assets/capitulo-02/imagens/ribossomo-50s-etapa-1-alvo.png",
-          alt: "Subunidade 50S como alvo molecular de antibacterianos",
-          caption: "Subunidade 50S como alvo molecular de antibacterianos. Clique para ampliar.",
-          title: "50S — Alvo molecular",
-          text: `
-            <p>Macrolídeos, lincosamidas e oxazolidinonas ligam-se seletivamente à subunidade 50S do ribossomo bacteriano.</p>
-            <p>Essa ligação interfere em etapas centrais da tradução, especialmente na formação da ligação peptídica e no deslocamento adequado do ribossomo ao longo do RNA mensageiro.</p>
-          `
-        },
-        {
-          src: "../../assets/capitulo-02/imagens/ribossomo-50s-etapa-2-interrupcao.png",
-          alt: "Mecanismo de interrupção da tradução mediado por fármacos que atuam na 50S",
-          caption: "Mecanismo de interrupção da tradução mediado por fármacos que atuam na 50S. Clique para ampliar.",
-          title: "50S — Interrupção da tradução",
-          text: `
-            <p>A ligação dessas classes à subunidade 50S compromete a progressão normal da tradução.</p>
-            <p>Isso pode ocorrer por bloqueio da translocação do ribossomo ou por interferência na formação adequada da ligação peptídica, interrompendo a continuidade da síntese proteica.</p>
-          `
-        },
-        {
-          src: "../../assets/capitulo-02/imagens/ribossomo-50s-etapa-3-efeitos.png",
-          alt: "Efeitos celulares da redução da síntese proteica bacteriana",
-          caption: "Efeitos celulares da redução da síntese proteica bacteriana. Clique para ampliar.",
-          title: "50S — Efeitos celulares",
-          text: `
-            <p>A interrupção da tradução reduz a produção de proteínas completas e funcionalmente ativas.</p>
-            <p>Como consequência, a célula bacteriana passa a apresentar déficit de enzimas metabólicas, proteínas estruturais e fatores regulatórios necessários à adaptação e à multiplicação.</p>
-          `
-        },
-        {
-          src: "../../assets/capitulo-02/imagens/ribossomo-50s-etapa-4-desfecho.png",
-          alt: "Desfecho biológico da inibição da síntese proteica na subunidade 50S",
-          caption: "Desfecho biológico da inibição da síntese proteica na subunidade 50S. Clique para ampliar.",
-          title: "50S — Desfecho biológico",
-          text: `
-            <p>Embora a integridade estrutural da bactéria possa ser preservada inicialmente, a redução sustentada da síntese proteica compromete progressivamente a capacidade de resposta ao ambiente.</p>
-            <p>Com isso, a célula bacteriana perde a capacidade de adaptação e multiplicação, caracterizando o efeito predominantemente bacteriostático observado para muitas dessas classes.</p>
-          `
-        }
-      ]
+      src: "../../assets/capitulo-02/imagens/cap02-p15-50s.png",
+      alt: "Interferência de antibacterianos na subunidade 50S",
+      caption: "Inibição da elongação por ação sobre a subunidade 50S. Clique para ampliar.",
+      title: "Interferência sobre a subunidade 50S",
+      body: `
+        <p>Outros antibacterianos ligam-se à subunidade 50S e interferem na elongação da cadeia polipeptídica, comprometendo a formação da ligação peptídica, a progressão do ribossomo ao longo do RNAm ou a translocação dos tRNAs.</p>
+        <p>Como consequência, a síntese da proteína é interrompida antes da conclusão do produto funcional, reduzindo progressivamente a capacidade metabólica e adaptativa da bactéria.</p>
+      `
     }
   };
 
-  let currentGroup = "processo";
-  let currentIndex = 0;
-
-  function render() {
-    const sequenceGroup = states[currentGroup];
-    if (!sequenceGroup) return;
-
-    const item = sequenceGroup.steps[currentIndex];
-    if (!item) return;
+  function activate(key) {
+    const state = states[key];
+    if (!state) return;
 
     tabs.forEach((tab) => {
-      const isActive = tab.dataset.proteinGroup === currentGroup;
+      const isActive = tab.dataset.p15Tab === key;
       tab.classList.toggle("is-active", isActive);
       tab.setAttribute("aria-selected", isActive ? "true" : "false");
       tab.setAttribute("tabindex", isActive ? "0" : "-1");
     });
 
-    panel.setAttribute("aria-labelledby", sequenceGroup.tabId);
+    panel.setAttribute("aria-labelledby", state.tabId);
+    image.src = state.src;
+    image.alt = state.alt;
+    caption.textContent = state.caption;
+    title.textContent = state.title;
+    body.innerHTML = state.body;
 
-    image.src = item.src;
-    image.alt = item.alt;
-    caption.textContent = item.caption;
-    title.textContent = item.title;
-    text.innerHTML = item.text;
-
-    zoomButton.setAttribute("data-zoom", item.src);
-    zoomButton.setAttribute("aria-label", `Ampliar imagem: ${item.title}`);
-
-    if (sequenceGroup.steps.length > 1) {
-      step.textContent = `Etapa ${currentIndex + 1} de ${sequenceGroup.steps.length}`;
-      prev.style.display = "inline-flex";
-      next.style.display = "inline-flex";
-      prev.disabled = currentIndex === 0;
-      next.disabled = currentIndex === sequenceGroup.steps.length - 1;
-    } else {
-      step.textContent = "";
-      prev.style.display = "none";
-      next.style.display = "none";
-    }
+    zoomButton.setAttribute("data-zoom", state.src);
+    zoomButton.setAttribute("aria-label", `Ampliar imagem: ${state.title}`);
   }
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
-      currentGroup = tab.dataset.proteinGroup;
-      currentIndex = 0;
-      render();
+      activate(tab.dataset.p15Tab);
     });
 
     tab.addEventListener("keydown", (event) => {
-      const currentTabIndex = tabs.indexOf(tab);
-      let nextTabIndex = null;
+      const currentIndex = tabs.indexOf(tab);
+      let nextIndex = null;
 
       if (event.key === "ArrowRight") {
-        nextTabIndex = (currentTabIndex + 1) % tabs.length;
+        nextIndex = (currentIndex + 1) % tabs.length;
       }
 
       if (event.key === "ArrowLeft") {
-        nextTabIndex = (currentTabIndex - 1 + tabs.length) % tabs.length;
+        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
       }
 
-      if (nextTabIndex === null) return;
+      if (nextIndex === null) return;
 
       event.preventDefault();
-      tabs[nextTabIndex].focus();
-      currentGroup = tabs[nextTabIndex].dataset.proteinGroup;
-      currentIndex = 0;
-      render();
+      tabs[nextIndex].focus();
+      activate(tabs[nextIndex].dataset.p15Tab);
     });
   });
 
-  prev.addEventListener("click", () => {
-    const sequenceGroup = states[currentGroup];
-    if (!sequenceGroup || currentIndex === 0) return;
-    currentIndex -= 1;
-    render();
-  });
-
-  next.addEventListener("click", () => {
-    const sequenceGroup = states[currentGroup];
-    if (!sequenceGroup || currentIndex >= sequenceGroup.steps.length - 1) return;
-    currentIndex += 1;
-    render();
-  });
-
-  render();
+  activate("normal");
 })();
 /* =========================
    PÁGINA 16 — ÁCIDOS NUCLEICOS

@@ -16,116 +16,131 @@
 
 <body class="cap5-page49">
 
-  <main class="container page-shell">
+  <main class="page-shell">
 
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
-        <h1 class="page-title">Observações do laudo que modificam a interpretação</h1>
-      </div>
+      <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
+      <h1 class="page-title">Observações do laudo que modificam a interpretação</h1>
     </header>
 
     <section class="prose" aria-label="Texto principal">
 
       <p>
-        Alguns mecanismos de resistência não envolvem produção de β-lactamases, mas sim alterações estruturais no alvo do antibacteriano. Um exemplo é o <em>Staphylococcus aureus</em> resistente à meticilina (MRSA), no qual ocorre modificação das proteínas ligadoras de penicilina. Essa alteração reduz a afinidade por β-lactâmicos relevantes e modifica a interpretação laboratorial dessa classe conforme as regras aplicáveis ao sistema adotado <sup>3</sup>.
+        Alguns mecanismos de resistência não envolvem produção de β-lactamases, mas sim alterações estruturais no alvo do antibacteriano. Um exemplo é o <em>Staphylococcus aureus</em> resistente à meticilina (MRSA), no qual ocorre modificação das proteínas ligadoras de penicilina. Essa alteração reduz a afinidade pelos β-lactâmicos, fazendo com que esses antibacterianos sejam considerados ineficazes independentemente do resultado isolado do teste para alguns agentes dessa classe <sup>1,10,16</sup>.
       </p>
 
       <p>
-        Outro exemplo envolve os enterococos resistentes à vancomicina (VRE), nos quais ocorre modificação do alvo molecular do glicopeptídeo. A presença desse mecanismo altera a atividade da vancomicina e possui implicações relevantes no ambiente hospitalar <sup>3</sup>.
+        Outro exemplo envolve os enterococos resistentes à vancomicina (VRE), nos quais ocorre modificação do alvo molecular do glicopeptídeo. Esse mecanismo reduz a atividade da vancomicina e possui implicações relevantes no manejo clínico e no controle de infecção hospitalar <sup>1,11,17</sup>.
       </p>
 
-      <section class="cap5-p49-mechanisms" aria-labelledby="cap5-p49-mechanisms-title">
-        <div class="cap5-p49-mechanisms__head">
-          <h2 id="cap5-p49-mechanisms-title">Mecanismos que mudam o significado do painel</h2>
+      <section class="cap5-p49-compare" aria-labelledby="cap5-p49-compare-title">
+        <div class="cap5-p49-compare__head">
+          <h3 id="cap5-p49-compare-title">Como o interno deve ler esses fenótipos no laudo</h3>
           <p>
-            Essas observações laboratoriais não substituem o antibiograma, mas alteram a forma como seus resultados devem ser lidos.
+            O ponto central não é apenas reconhecer o nome do mecanismo. É entender como ele modifica o significado do painel e altera a confiança que se pode depositar no resultado isolado do teste.
           </p>
         </div>
 
-        <div class="cap5-p49-mechanisms__stage">
-          <div class="cap5-p49-mechanisms__tabs" role="tablist" aria-label="Mecanismos de resistência">
-            <button class="cap5-p49-mechanisms__tab is-active" type="button" role="tab" aria-selected="true" data-p49-step="mrsa">
-              MRSA
-            </button>
-            <button class="cap5-p49-mechanisms__tab" type="button" role="tab" aria-selected="false" data-p49-step="vre">
-              VRE
-            </button>
-            <button class="cap5-p49-mechanisms__tab" type="button" role="tab" aria-selected="false" data-p49-step="mlsb">
-              MLSB induzível
-            </button>
-            <button class="cap5-p49-mechanisms__tab" type="button" role="tab" aria-selected="false" data-p49-step="hlar">
-              HLAR
-            </button>
-          </div>
+        <div class="cap5-p49-compare__controls" role="tablist" aria-label="Fenótipos que modificam a leitura do antibiograma">
+          <button
+            class="cap5-p49-compare__tab is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-p49-step="mrsa"
+          >
+            MRSA
+          </button>
 
-          <div class="cap5-p49-mechanisms__viewer">
-            <figure class="cap5-p49-mechanisms__figure">
-              <button
-                class="cap5-zoomTrigger cap5-p49-mechanisms__zoom"
-                type="button"
-                id="cap5-p49-zoom"
-                data-zoom-image="../../assets/capitulo-05/imagens/mrsa-pbp2a.png"
-                data-zoom-alt="Esquema ilustrativo do mecanismo de resistência do MRSA."
-                data-zoom-caption="No MRSA, a modificação das proteínas ligadoras de penicilina reduz a afinidade por β-lactâmicos relevantes e altera a interpretação dessa classe."
-                aria-label="Ampliar imagem do mecanismo selecionado"
-              >
-                <img
-                  id="cap5-p49-image"
-                  src="../../assets/capitulo-05/imagens/mrsa-pbp2a.png"
-                  alt="Esquema ilustrativo do mecanismo de resistência do MRSA."
-                  loading="lazy"
-                />
-              </button>
-              <figcaption id="cap5-p49-caption" class="cap5-p49-mechanisms__caption">
-                No MRSA, a modificação das proteínas ligadoras de penicilina reduz a afinidade por β-lactâmicos relevantes e altera a interpretação dessa classe.
-              </figcaption>
-            </figure>
+          <button
+            class="cap5-p49-compare__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p49-step="vre"
+          >
+            VRE
+          </button>
 
-            <aside class="cap5-p49-mechanisms__panel" aria-live="polite">
-              <div class="cap5-p49-mechanisms__eyebrow" id="cap5-p49-eyebrow">Alteração de alvo</div>
-              <h3 class="cap5-p49-mechanisms__title" id="cap5-p49-title">MRSA</h3>
-              <p class="cap5-p49-mechanisms__text" id="cap5-p49-text">
-                No <em>Staphylococcus aureus</em> resistente à meticilina (MRSA), ocorre modificação das proteínas ligadoras de penicilina. Essa alteração reduz a afinidade por β-lactâmicos relevantes e modifica a interpretação laboratorial dessa classe conforme as regras aplicáveis ao sistema adotado.
-              </p>
-            </aside>
+          <button
+            class="cap5-p49-compare__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p49-step="mlsb"
+          >
+            MLS<sub>B</sub> induzível
+          </button>
+        </div>
+
+        <div class="cap5-p49-compare__stage">
+          <figure class="cap5-p49-card is-active" data-p49-card="mrsa">
+            <button
+              class="cap5-p49-card__zoom"
+              type="button"
+              id="cap5-p49-zoom"
+              data-zoom="../../assets/capitulo-05/imagens/mrsa-orsa-disco.png"
+              aria-label="Ampliar imagem relacionada ao MRSA"
+            >
+              <img
+                id="cap5-p49-image"
+                src="../../assets/capitulo-05/imagens/mrsa-orsa-disco.png"
+                alt="Imagem ilustrativa relacionada ao fenótipo MRSA."
+                loading="lazy"
+              />
+            </button>
+            <figcaption id="cap5-p49-caption" class="cap5-p49-card__caption">
+              MRSA. A alteração do alvo modifica a interpretação dos β-lactâmicos.
+            </figcaption>
+          </figure>
+
+          <div class="cap5-p49-compare__panel" aria-live="polite">
+            <div class="cap5-p49-compare__eyebrow" id="cap5-p49-eyebrow">Alteração do alvo dos β-lactâmicos</div>
+            <h3 class="cap5-p49-compare__title" id="cap5-p49-title">MRSA</h3>
+            <p class="cap5-p49-compare__text" id="cap5-p49-text">
+              No MRSA, a modificação das proteínas ligadoras de penicilina altera o significado do painel de β-lactâmicos. A leitura do laudo não deve se limitar ao resultado isolado desses antibacterianos.
+            </p>
+            <div class="cap5-p49-compare__note" id="cap5-p49-note">
+              A presença desse mecanismo torna inadequada a interpretação isolada de parte dos β-lactâmicos.
+            </div>
           </div>
         </div>
       </section>
 
       <p>
-        Também podem aparecer observações relacionadas a fenótipos específicos de resistência, como o fenótipo MLSB induzível, que pode resultar em falha terapêutica com clindamicina apesar de resultado inicial de sensibilidade. Outro exemplo é a resistência de alto nível a aminoglicosídeos em <em>Enterococcus</em>, que interfere no potencial de sinergismo entre classes antimicrobianas.
+        Também podem aparecer observações relacionadas a fenótipos específicos de resistência, como o fenótipo MLS <sub>B</sub> induzível, no qual pode ocorrer falha terapêutica com clindamicina, mesmo quando o resultado inicial sugere suscetibilidade <sup>1,10,12</sup>.
       </p>
 
-      <p class="cap5-p49-closing">
-        Essas observações representam informações adicionais sobre o comportamento biológico da bactéria isolada. Elas devem ser interpretadas em conjunto com a espécie identificada e com as categorias de suscetibilidade apresentadas no antibiograma.
+      <section class="cap5-p49-hlar" aria-labelledby="cap5-p49-hlar-title">
+        <div class="cap5-p49-hlar__head">
+          <h3 id="cap5-p49-hlar-title">HLAR em <em>Enterococcus</em></h3>
+        </div>
+
+        <p>
+          A resistência de alto nível a aminoglicosídeos em <em>Enterococcus</em> sp. interfere no potencial de sinergismo entre classes antimicrobianas. Nesse contexto, a observação do laudo não descreve apenas resistência isolada, mas limitação de uma estratégia terapêutica combinada.
+        </p>
+
+        <div class="cap5-p49-hlar__note">
+          O ponto central não é apenas a perda de atividade do aminoglicosídeo, mas a perda do efeito de associação entre classes antimicrobianas.
+        </div>
+      </section>
+
+      <p>
+        Essas observações devem ser interpretadas em conjunto com a espécie identificada e com as categorias de suscetibilidade apresentadas no antibiograma.
       </p>
 
     </section>
 
-  <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p48.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 5 · Página 49 de 89</div>
-      <button class="btn primary" type="button" data-next="p50.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+<nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p48.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 5 · Página 49 de 89</div>
+  <a class="btn primary" href="p50.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
 
- </main>
+  </main>
 
-  <div class="cap5-lightbox" id="cap5Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap5-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap5-lightbox__dialog">
-      <button class="cap5-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap5-lightbox__figure">
-        <img id="cap5LightboxImage" src="" alt="" />
-        <figcaption id="cap5LightboxCaption" class="cap5-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
-
- <script src="../../js/app.js"></script>
- <script src="../../js/capitulo-05.js"></script>
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-05.js"></script>
 
 </body>
 </html>

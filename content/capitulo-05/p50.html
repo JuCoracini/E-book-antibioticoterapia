@@ -16,13 +16,11 @@
 
 <body class="cap5-page50">
 
-  <main class="container page-shell">
+  <main class="page-shell">
 
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
-        <h1 class="page-title">Como ler o antibiograma de forma estruturada</h1>
-      </div>
+      <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
+      <h1 class="page-title">Como ler o antibiograma de forma estruturada</h1>
     </header>
 
     <section class="prose" aria-label="Texto principal">
@@ -32,92 +30,109 @@
       </p>
 
       <p>
-        Uma abordagem estruturada pode ser organizada em etapas sucessivas.
+        Uma abordagem estruturada pode ser organizada em etapas sucessivas:
       </p>
 
-      <section class="cap5-p50-steps" aria-labelledby="cap5-p50-steps-title">
-        <div class="cap5-p50-steps__head">
-          <h2 id="cap5-p50-steps-title">Sequência de leitura do laudo microbiológico</h2>
+      <section class="cap5-p50-journey" aria-labelledby="cap5-p50-journey-title">
+        <div class="cap5-p50-journey__head">
+          <h3 id="cap5-p50-journey-title">Sequência de leitura do laudo microbiológico</h3>
           <p>
             A interpretação adequada não começa pelas categorias S, I e R. Ela depende de uma ordem de leitura que integra microbiologia, plausibilidade clínica e contexto terapêutico.
           </p>
         </div>
 
-        <div class="cap5-p50-steps__stage">
-          <div class="cap5-p50-steps__tabs" role="tablist" aria-label="Etapas de leitura estruturada do antibiograma">
-            <button class="cap5-p50-steps__tab is-active" type="button" role="tab" aria-selected="true" data-p50-step="1">
-              <span class="cap5-p50-steps__n">1</span>
-              <span>Identificar o microrganismo</span>
-            </button>
+        <div class="cap5-p50-journey__track" role="tablist" aria-label="Etapas da leitura estruturada do antibiograma">
+          <button
+            class="cap5-p50-journey__step is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-p50-step="1"
+          >
+            <span class="cap5-p50-journey__n">1</span>
+            <span class="cap5-p50-journey__label">Microrganismo</span>
+          </button>
 
-            <button class="cap5-p50-steps__tab" type="button" role="tab" aria-selected="false" data-p50-step="2">
-              <span class="cap5-p50-steps__n">2</span>
-              <span>Considerar a amostra</span>
-            </button>
+          <button
+            class="cap5-p50-journey__step"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p50-step="2"
+          >
+            <span class="cap5-p50-journey__n">2</span>
+            <span class="cap5-p50-journey__label">Origem da amostra</span>
+          </button>
 
-            <button class="cap5-p50-steps__tab" type="button" role="tab" aria-selected="false" data-p50-step="3">
-              <span class="cap5-p50-steps__n">3</span>
-              <span>Verificar observações</span>
-            </button>
+          <button
+            class="cap5-p50-journey__step"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p50-step="3"
+          >
+            <span class="cap5-p50-journey__n">3</span>
+            <span class="cap5-p50-journey__label">Observações</span>
+          </button>
 
-            <button class="cap5-p50-steps__tab" type="button" role="tab" aria-selected="false" data-p50-step="4">
-              <span class="cap5-p50-steps__n">4</span>
-              <span>Analisar S / I / R</span>
-            </button>
+          <button
+            class="cap5-p50-journey__step"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p50-step="4"
+          >
+            <span class="cap5-p50-journey__n">4</span>
+            <span class="cap5-p50-journey__label">S / I / R</span>
+          </button>
 
-            <button class="cap5-p50-steps__tab" type="button" role="tab" aria-selected="false" data-p50-step="5">
-              <span class="cap5-p50-steps__n">5</span>
-              <span>Integrar ao contexto clínico</span>
-            </button>
-          </div>
+          <button
+            class="cap5-p50-journey__step"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-p50-step="5"
+          >
+            <span class="cap5-p50-journey__n">5</span>
+            <span class="cap5-p50-journey__label">Contexto clínico</span>
+          </button>
+        </div>
 
-          <aside class="cap5-p50-steps__panel" aria-live="polite">
-            <div class="cap5-p50-steps__eyebrow" id="cap5-p50-eyebrow">Primeira leitura</div>
-            <h3 class="cap5-p50-steps__title" id="cap5-p50-title">Identificar o microrganismo isolado</h3>
-            <p class="cap5-p50-steps__text" id="cap5-p50-text">
-              A espécie bacteriana fornece o primeiro contexto interpretativo do resultado. Diferentes bactérias apresentam perfis característicos de suscetibilidade e resistência, incluindo mecanismos de fenótipo esperado resistente. A identificação do microrganismo também ajuda a avaliar a plausibilidade clínica do isolamento. Nem todo microrganismo detectado em cultura representa necessariamente o agente responsável pela infecção.
+        <div class="cap5-p50-journey__panel" aria-live="polite">
+          <div class="cap5-p50-journey__eyebrow" id="cap5-p50-eyebrow">Primeiro contexto interpretativo</div>
+          <h3 class="cap5-p50-journey__title" id="cap5-p50-title">1. Identificar o microrganismo isolado</h3>
+          <div class="cap5-p50-journey__text" id="cap5-p50-text">
+            <p>
+              A espécie bacteriana fornece o primeiro contexto interpretativo do resultado. Diferentes bactérias apresentam perfis característicos de suscetibilidade e resistência, incluindo mecanismos de resistência intrínseca <sup>2,10</sup>.
             </p>
-          </aside>
+            <p>
+              A identificação do microrganismo também ajuda a avaliar a plausibilidade clínica do isolamento. Nem todo microrganismo detectado em cultura representa necessariamente o agente responsável pela infecção.
+            </p>
+          </div>
         </div>
       </section>
-
-      <p>
-        Somente após compreender o contexto microbiológico do laudo faz sentido avaliar as categorias interpretativas apresentadas no antibiograma. A classificação como as categorias S, I e R resulta da aplicação de critérios técnicos sobre o valor obtido no teste de suscetibilidade. Essas categorias indicam a probabilidade microbiológica de inibição bacteriana nas condições consideradas pelos parâmetros farmacológicos utilizados para definir os breakpoints <sup>1</sup>.
-      </p>
 
       <p>
         Quando disponível, o valor da concentração inibitória mínima pode fornecer informação adicional, especialmente quando se encontra próximo aos pontos de corte estabelecidos.
       </p>
 
-      <p class="cap5-p50-closing">
-        A interpretação adequada surge da integração entre microbiologia, farmacologia e contexto clínico.
+      <p>
+        O antibiograma informa o comportamento da bactéria no ambiente laboratorial. A decisão terapêutica depende da integração desse dado com fatores clínicos, como o foco infeccioso, a penetração do antibacteriano no tecido afetado, a presença de biofilme e as características farmacocinéticas do paciente <sup>6,7,8</sup>.
       </p>
 
     </section>
 
-  <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p49.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 5 · Página 50 de 89</div>
-      <button class="btn primary" type="button" data-next="p51.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+<nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p49.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 5 · Página 50 de 89</div>
+  <a class="btn primary" href="p51.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
 
- </main>
 
-  <div class="cap5-lightbox" id="cap5Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap5-lightbox__backdrop" data-lightbox-close></div>
+  </main>
 
-    <div class="cap5-lightbox__dialog">
-      <button class="cap5-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap5-lightbox__figure">
-        <img id="cap5LightboxImage" src="" alt="" />
-        <figcaption id="cap5LightboxCaption" class="cap5-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
-
- <script src="../../js/app.js"></script>
- <script src="../../js/capitulo-05.js"></script>
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-05.js"></script>
 
 </body>
 </html>

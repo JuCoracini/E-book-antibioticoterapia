@@ -567,52 +567,126 @@
 
   activate("restrito");
 })();
+
 /* =========================
    PÁGINA 7 — COLONIZAÇÃO, CONTAMINAÇÃO E INFECÇÃO
    ========================= */
 
-(function initPage7CCI(){
-  const root = document.querySelector(".cap1-page7 [data-cap1-cci]");
-  if(!root) return;
+(function initPage7ClinicalInterpretation(){
+  const root = document.querySelector("[data-p07]");
+  if (!root) return;
 
-  const tabs = Array.from(root.querySelectorAll("[data-cci-tab]"));
-  const panes = Array.from(root.querySelectorAll("[data-cci-pane]"));
+  const tabs = Array.from(root.querySelectorAll("[data-p07-tab]"));
 
-  if(!tabs.length || !panes.length) return;
+  const eyebrowEl = document.getElementById("p07Eyebrow");
+  const titleEl = document.getElementById("p07Title");
+  const summaryEl = document.getElementById("p07Summary");
+  const featuresEl = document.getElementById("p07Features");
+  const exampleEl = document.getElementById("p07Example");
+  const readingEl = document.getElementById("p07Reading");
+  const practiceEl = document.getElementById("p07Practice");
 
-  function activate(key){
-    tabs.forEach((tab) => {
-      const active = tab.dataset.cciTab === key;
-      tab.classList.toggle("is-active", active);
-      tab.setAttribute("aria-selected", active ? "true" : "false");
-      tab.setAttribute("tabindex", active ? "0" : "-1");
-    });
-
-    panes.forEach((pane) => {
-      pane.hidden = pane.dataset.cciPane !== key;
-    });
+  if (
+    !tabs.length ||
+    !eyebrowEl ||
+    !titleEl ||
+    !summaryEl ||
+    !featuresEl ||
+    !exampleEl ||
+    !readingEl ||
+    !practiceEl
+  ) {
+    return;
   }
 
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => activate(tab.dataset.cciTab));
+  const data = {
+    colonizacao: {
+      eyebrow: "Situação 1",
+      title: "Colonização",
+      summary:
+        "Corresponde à presença de microrganismos em um sítio anatômico sem invasão tecidual, sem dano estrutural associado e sem resposta inflamatória clinicamente significativa. Trata-se de coexistência entre o hospedeiro e sua microbiota.",
+      features:
+        "Presença de microrganismos, porém sem sinais clínicos compatíveis com infecção ativa e sem evidência de resposta inflamatória relevante no sítio correspondente.",
+      example:
+        "Bacteriúria assintomática, na qual a cultura de urina demonstra crescimento bacteriano, mas o paciente não apresenta sintomas urinários nem sinais de inflamação do trato urinário.",
+      reading:
+        "O crescimento em cultura não representa, por si só, doença infecciosa. Na maioria das situações, indica colonização e não infecção ativa.",
+      practice:
+        "Não tratar rotineiramente. A antibioticoterapia só se justifica em contextos específicos, como gestação ou procedimentos urológicos invasivos."
+    },
+
+    contaminacao: {
+      eyebrow: "Situação 2",
+      title: "Contaminação",
+      summary:
+        "Corresponde à introdução acidental de microrganismos durante a coleta, transporte ou processamento da amostra. Nesses casos, o resultado laboratorial não reflete necessariamente o sítio anatômico investigado.",
+      features:
+        "O microrganismo detectado decorre de interferência pré-analítica ou analítica, e não necessariamente de sua presença real no foco clínico suspeito.",
+      example:
+        "Crescimento isolado de Staphylococcus coagulase-negativo em apenas um frasco de hemocultura, na ausência de sinais clínicos de infecção sistêmica.",
+      reading:
+        "O resultado deve ser interpretado com cautela, pois frequentemente reflete contaminação relacionada à microbiota da pele durante a coleta.",
+      practice:
+        "Evitar antibacteriano automático. Correlacionar com a clínica, reavaliar a qualidade da coleta e considerar necessidade de nova amostra."
+    },
+
+    infeccao: {
+      eyebrow: "Situação 3",
+      title: "Infecção",
+      summary:
+        "Ocorre quando microrganismos invadem tecidos, multiplicam-se ativamente e provocam dano estrutural associado a resposta inflamatória local ou sistêmica.",
+      features:
+        "Integra fatores do microrganismo, como virulência e capacidade de invasão, com fatores do hospedeiro, resposta imune e contexto anatômico da infecção.",
+      example:
+        "Cultura positiva em amostra representativa de um foco plausível, acompanhada de quadro clínico compatível e evidências laboratoriais de inflamação ou infecção.",
+      reading:
+        "O diagnóstico não depende apenas da cultura positiva, mas da integração entre achados microbiológicos, quadro clínico e plausibilidade anatômica.",
+      practice:
+        "Indicar terapêutica antibacteriana quando houver correlação clínico-laboratorial consistente com infecção ativa."
+    }
+  };
+
+  function activate(key){
+    const item = data[key];
+    if (!item) return;
+
+    tabs.forEach((tab) => {
+      const isActive = tab.dataset.p07Tab === key;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-selected", isActive ? "true" : "false");
+      tab.setAttribute("tabindex", isActive ? "0" : "-1");
+    });
+
+    eyebrowEl.textContent = item.eyebrow;
+    titleEl.textContent = item.title;
+    summaryEl.textContent = item.summary;
+    featuresEl.textContent = item.features;
+    exampleEl.textContent = item.example;
+    readingEl.textContent = item.reading;
+    practiceEl.textContent = item.practice;
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => {
+      activate(tab.dataset.p07Tab);
+    });
 
     tab.addEventListener("keydown", (event) => {
-      const currentIndex = tabs.indexOf(tab);
       let nextIndex = null;
 
-      if(event.key === "ArrowRight"){
-        nextIndex = (currentIndex + 1) % tabs.length;
+      if (event.key === "ArrowRight") {
+        nextIndex = (index + 1) % tabs.length;
       }
 
-      if(event.key === "ArrowLeft"){
-        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      if (event.key === "ArrowLeft") {
+        nextIndex = (index - 1 + tabs.length) % tabs.length;
       }
 
-      if(nextIndex === null) return;
+      if (nextIndex === null) return;
 
       event.preventDefault();
       tabs[nextIndex].focus();
-      activate(tabs[nextIndex].dataset.cciTab);
+      activate(tabs[nextIndex].dataset.p07Tab);
     });
   });
 

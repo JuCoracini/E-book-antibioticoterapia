@@ -18,7 +18,8 @@
 }
 
 .cap3-page20 .cap3-p20-figure{
-  max-width: 620px;
+ width: 65%;
+  max-width: 760px;
   margin: 24px auto 28px;
 }
 
@@ -43,7 +44,7 @@
 .cap3-page20 .cap3-p20-figure img{
   display: block;
   width: 100%;
-  max-width: 520px;
+  max-width: 100%;
   margin: 0 auto;
   border: 0;
   border-radius: 12px;
@@ -221,11 +222,12 @@
 }
 
 .cap3-page22 .cap3-p22-figure--table{
-  max-width: 700px;
+ width: 65%;
+  max-width: 760px;
 }
 
 .cap3-page22 .cap3-p22-figure--table img{
-  max-width: 700px;
+   max-width: 100%;
 }
 
 .cap3-page22 .cap3-p22-caption{
@@ -282,7 +284,8 @@
 }
 
 .cap3-page23 .cap3-p23-compareFigure{
-  max-width: 620px;
+  width: 65%;
+  max-width: 760px;
   margin: 24px auto 26px;
 }
 
@@ -404,6 +407,8 @@
 }
 
 .cap3-page24 .cap3-p24-figure{
+  width: 65%;
+  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -451,6 +456,8 @@
 }
 
 .cap3-page25 .cap3-p25-figure{
+  width: 65%;
+  max-width: 760px;
   margin: 24px auto 28px;
 }
 
@@ -751,8 +758,7 @@
   .cap3-page27 .cap3-p27-progress__label{
     font-size: 11px;
   }
-}
-/* =========================
+}/* =========================
    PÁGINA 28 — RESISTÊNCIA CRUZADA, MULTIRRESISTÊNCIA E IMPACTO CLÍNICO
    ========================= */
 
@@ -767,18 +773,32 @@
   position: relative;
 }
 
+/* PARÁGRAFOS */
+
+.cap3-page28 .prose p{
+  text-indent: 1.6em;
+}
+
+.cap3-page28 .prose > p:first-of-type{
+  text-indent: 0;
+}
+
+.cap3-page28 figure + p{
+  text-indent: 0;
+}
+
 /* COMPARAÇÃO PRINCIPAL */
 
 .cap3-page28 .cap3-p28-compare{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  gap: 22px;
   align-items: start;
   max-width: 720px;
   margin: 24px auto 28px;
 }
 
-.cap3-page28 .cap3-p28-compare article{
+.cap3-page28 .cap3-p28-card{
   min-width: 0;
 }
 
@@ -793,24 +813,23 @@
   text-indent: 0;
 }
 
-.cap3-page28 .cap3-p28-text{
-  margin: 0;
-  text-indent: 0;
-  text-align: justify;
-  font-size: 13.5px;
-  line-height: 1.65;
-  color: var(--text-color);
+.cap3-page28 .cap3-p28-figure{
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
 }
 
-/* MATRIZ */
-
-.cap3-page28 .cap3-p28-matrix{
-  max-width: 720px;
-  margin: 24px auto 28px;
+.cap3-page28 .cap3-p28-figure.figure{
+  max-width: 320px;
 }
 
-.cap3-page28 .cap3-p28-matrix .caption{
-  max-width: 720px;
+.cap3-page28 .cap3-p28-figure img{
+  width: 100%;
+  max-width: 100%;
+}
+
+.cap3-page28 .cap3-p28-caption{
+  max-width: 320px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -818,7 +837,8 @@
 /* CICLO INTERATIVO */
 
 .cap3-page28 .cap3-p28-cycle{
-  max-width: 720px;
+  width: 65%;
+  max-width: 520px;
   margin: 24px auto 26px;
 }
 
@@ -826,7 +846,7 @@
   position: relative;
   display: block;
   width: 100%;
-  max-width: 720px;
+  max-width: 520px;
   margin: 0 auto;
   padding: 0;
   border: 0;
@@ -869,7 +889,6 @@
   pointer-events: none;
 }
 
-/* Ajuste fino das áreas de foco — revisar no layout final se necessário */
 .cap3-page28 .cap3-p28-cycle__focus--1{
   top: 9%;
   left: 6%;
@@ -914,7 +933,7 @@
 }
 
 .cap3-page28 .cap3-p28-cycle .caption{
-  max-width: 720px;
+  max-width: 520px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -944,13 +963,21 @@
     font-size: 13.5px;
   }
 
-  .cap3-page28 .cap3-p28-text{
-    font-size: 13.2px;
+  .cap3-page28 .cap3-p28-figure,
+  .cap3-page28 .cap3-p28-figure.figure,
+  .cap3-page28 .cap3-p28-caption{
+    max-width: 100%;
   }
 
-  .cap3-page28 .cap3-p28-matrix,
   .cap3-page28 .cap3-p28-cycle{
+    width: 100%;
+    max-width: 100%;
     margin: 20px auto 22px;
+  }
+
+  .cap3-page28 .cap3-p28-cycle > button,
+  .cap3-page28 .cap3-p28-cycle .caption{
+    max-width: 100%;
   }
 }
 /* =========================

@@ -436,7 +436,8 @@
 }
 
 .cap2-page13 .cap2-p13-figure{
-  max-width: 520px;
+  width: 65%;
+  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -617,7 +618,8 @@
 }
 
 .cap2-page14 .cap2-p14-figure{
-  max-width: 520px;
+   width: 65%;
+  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -750,8 +752,7 @@
     width: 100%;
     order: -1;
   }
-}
-/* =========================
+}/* =========================
    PÁGINA 15 — SÍNTESE PROTEICA
    ========================= */
 
@@ -776,7 +777,7 @@
 
 .cap2-page15 .cap2-p15-intro{
   max-width: 620px;
-  margin: 0 auto 14px;
+  margin: 0 auto 16px;
   text-indent: 0;
   text-align: center;
   font-size: 12.4px;
@@ -798,7 +799,7 @@
   background: #fff;
   color: var(--azul-escuro);
   border-radius: 999px;
-  padding: 7px 12px;
+  padding: 7px 13px;
   font-family: var(--font-ui);
   font-size: 12px;
   font-weight: 600;
@@ -809,7 +810,6 @@
 .cap2-page15 .cap2-p15-tab:hover{
   transform: translateY(-1px);
   border-color: var(--azul-turquesa);
-  box-shadow: 0 6px 14px rgba(15,42,68,.06);
 }
 
 .cap2-page15 .cap2-p15-tab:focus-visible{
@@ -831,8 +831,13 @@
 }
 
 .cap2-page15 .cap2-p15-figure{
-  max-width: 620px;
+  width: 65%;
+  max-width: 760px;
   margin: 0 auto;
+}
+
+.cap2-page15 .cap2-p15-figure--hero{
+  max-width: 720px;
 }
 
 .cap2-page15 .cap2-p15-zoom{
@@ -865,27 +870,10 @@
   text-indent: 0;
 }
 
-.cap2-page15 .cap2-p15-controls{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 2px;
-}
-
-.cap2-page15 .cap2-p15-step{
-  min-width: 130px;
-  text-align: center;
-  font-family: var(--font-ui);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--azul-escuro);
-  text-indent: 0;
-}
-
 .cap2-page15 .cap2-p15-panel{
-  padding: 16px 18px;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 15px 16px 14px;
   border-left: 4px solid var(--azul-turquesa);
   background: linear-gradient(180deg, #f5fbfd 0%, #edf7fb 100%);
   border-radius: 12px;
@@ -901,18 +889,15 @@
   text-indent: 0;
 }
 
-.cap2-page15 .cap2-p15-panel__text{
-  font-size: 14.5px;
-  line-height: 1.65;
+.cap2-page15 .cap2-p15-panel__body p{
+  margin: 0 0 10px;
+  text-indent: 0;
+  font-size: 14.4px;
+  line-height: 1.66;
   color: var(--text-color);
 }
 
-.cap2-page15 .cap2-p15-panel__text p{
-  margin: 0 0 10px;
-  text-indent: 0;
-}
-
-.cap2-page15 .cap2-p15-panel__text p:last-child{
+.cap2-page15 .cap2-p15-panel__body p:last-child{
   margin-bottom: 0;
 }
 
@@ -939,10 +924,6 @@
     font-size: 11.9px;
   }
 
-  .cap2-page15 .cap2-p15-figure{
-    max-width: 100%;
-  }
-
   .cap2-page15 .cap2-p15-panel{
     padding: 14px 14px;
   }
@@ -951,18 +932,8 @@
     font-size: 16.5px;
   }
 
-  .cap2-page15 .cap2-p15-panel__text{
+  .cap2-page15 .cap2-p15-panel__body p{
     font-size: 13.8px;
-  }
-
-  .cap2-page15 .cap2-p15-controls{
-    gap: 8px;
-  }
-
-  .cap2-page15 .cap2-p15-step{
-    min-width: auto;
-    width: 100%;
-    order: -1;
   }
 }
 /* =========================
@@ -1044,7 +1015,8 @@
 }
 
 .cap2-page16 .cap2-p16-figure{
-  max-width: 620px;
+  width: 65%;
+  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -1183,7 +1155,8 @@
 }
 
 .cap2-page17 .cap2-p17-figure{
-  max-width: 620px;
+  width: 65%;
+  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -1397,7 +1370,8 @@
 }
 
 .cap2-page18 .cap2-p18-figure{
-  max-width: 620px;
+  width: 65%;
+  max-width: 760px;
   margin: 0 auto;
 }
 

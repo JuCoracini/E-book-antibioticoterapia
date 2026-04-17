@@ -16,117 +16,120 @@
 
 <body class="cap5-page48">
 
-  <main class="container page-shell">
+  <main class="page-shell">
 
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
-        <h1 class="page-title">Observações do laudo que modificam a interpretação</h1>
-      </div>
+      <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
+      <h1 class="page-title">Observações do laudo que modificam a interpretação</h1>
     </header>
 
     <section class="prose" aria-label="Texto principal">
 
       <p>
-        Outro mecanismo relevante envolve a produção de β-lactamases do tipo AmpC. Essas enzimas podem estar presentes de forma cromossômica em determinadas espécies bacterianas e apresentar expressão induzível durante a exposição a alguns antibacterianos. Algumas espécies dos gêneros <em>Enterobacter</em>, <em>Citrobacter</em>, <em>Serratia</em>, <em>Providencia</em> e <em>Morganella</em> são classicamente associadas à possibilidade de produção de AmpC cromossômica e podem apresentar expressão induzível durante a exposição a determinados β-lactâmicos. A identificação dessas bactérias já indica a possibilidade de produção de AmpC e influencia a leitura do painel de suscetibilidade <sup>6</sup>.
+        Outro mecanismo relevante envolve a produção de β-lactamases do tipo AmpC. Essas enzimas podem estar presentes de forma cromossômica em determinadas espécies bacterianas e apresentar expressão induzível durante a exposição a alguns antibacterianos. Espécies dos gêneros <em>Enterobacter</em>, <em>Citrobacter</em>, <em>Serratia</em>, <em>Providencia</em> e <em>Morganella</em> são classicamente associadas a esse mecanismo. A identificação dessas bactérias já indica a possibilidade de produção de AmpC e influencia a interpretação do painel de suscetibilidade <sup>14,15</sup>.
       </p>
 
       <p>
-        Entre os mecanismos que comprometem a atividade de carbapenêmicos estão as carbapenemases, enzimas capazes de hidrolisar antibacterianos dessa classe. Essas enzimas podem ser classificadas em diferentes grupos, como KPC, metalo-β-lactamases (por exemplo, NDM, VIM ou IMP) e variantes do tipo OXA. A presença dessas enzimas costuma estar associada a perfis de resistência mais amplos e possui relevância epidemiológica importante <sup>6</sup>.
+        Entre os mecanismos que comprometem a atividade de carbapenêmicos estão as carbapenemases, enzimas capazes de hidrolisar antibacterianos dessa classe. Essas enzimas incluem diferentes grupos, como KPC, metalo-β-lactamases, por exemplo NDM, VIM ou IMP, e variantes do tipo OXA. Sua presença costuma estar associada a perfis de resistência mais amplos e possui relevância clínica e epidemiológica importante <sup>14,15</sup>.
       </p>
 
-      <section class="cap5-p48-mechanisms" aria-labelledby="cap5-p48-title-section">
-        <div class="cap5-p48-mechanisms__head">
-          <h2 id="cap5-p48-title-section">Como essas observações mudam a leitura do painel</h2>
+      <section class="cap5-p48-compare" aria-labelledby="cap5-p48-compare-title">
+        <div class="cap5-p48-compare__head">
+          <h3 id="cap5-p48-compare-title">Como o interno deve pensar diante dessas observações</h3>
           <p>
-            A presença do mecanismo detectado modifica a interpretação do antibiograma e deve ser considerada antes da leitura isolada dos resultados do painel.
+            No grupo CESP, o risco interpretativo depende da espécie identificada e da possibilidade de indução de AmpC. Nas carbapenemases, o próprio padrão de resistência já sugere comprometimento relevante da atividade dos carbapenêmicos.
           </p>
         </div>
 
-        <div class="cap5-p48-mechanisms__tabs" role="tablist" aria-label="Mecanismos relevantes">
+        <div class="cap5-p48-compare__controls" role="tablist" aria-label="Leitura interpretativa do laudo">
           <button
-            class="cap5-p48-mechanisms__tab is-active"
+            class="cap5-p48-compare__tab is-active"
             type="button"
             role="tab"
             aria-selected="true"
-            data-p48-step="ampc"
+            data-p48-step="cesp"
           >
-            AmpC
+            Grupo CESP
           </button>
 
           <button
-            class="cap5-p48-mechanisms__tab"
+            class="cap5-p48-compare__tab"
             type="button"
             role="tab"
             aria-selected="false"
-            data-p48-step="carb"
+            data-p48-step="carbapenemase"
           >
-            Carbapenemases
+            Carbapenemase
           </button>
         </div>
 
-        <div class="cap5-p48-mechanisms__viewer">
-          <figure class="cap5-p48-mechanisms__figure">
+        <div class="cap5-p48-compare__grid">
+          <figure class="cap5-p48-card is-active" data-p48-card="cesp">
             <button
-              class="cap5-zoomTrigger cap5-p48-mechanisms__zoom"
+              class="cap5-p48-card__zoom"
               type="button"
-              id="cap5-p48-zoom"
-              data-zoom-image="../../assets/capitulo-05/imagens/ampc-inducao.png"
-              data-zoom-alt="Esquema ilustrativo da AmpC cromossômica com expressão induzível."
-              data-zoom-caption="A identificação de espécies com possibilidade de AmpC cromossômica já sinaliza risco interpretativo, especialmente pela possibilidade de expressão induzível durante a exposição a β-lactâmicos."
-              aria-label="Ampliar imagem do mecanismo selecionado"
+              data-zoom="../../assets/capitulo-05/imagens/cesp-ampc-disco.png"
+              aria-label="Ampliar imagem representativa do grupo CESP"
             >
               <img
-                id="cap5-p48-image"
-                src="../../assets/capitulo-05/imagens/ampc-inducao.png"
-                alt="Esquema ilustrativo da AmpC cromossômica com expressão induzível."
+                src="../../assets/capitulo-05/imagens/cesp-ampc-disco.png"
+                alt="Placa de difusão em disco representativa de situação compatível com risco interpretativo no grupo CESP."
                 loading="lazy"
               />
             </button>
-            <figcaption id="cap5-p48-caption" class="cap5-p48-mechanisms__caption">
-              A identificação de espécies com possibilidade de AmpC cromossômica já sinaliza risco interpretativo, especialmente pela possibilidade de expressão induzível durante a exposição a β-lactâmicos.
+            <figcaption class="cap5-p48-card__caption">
+              Grupo CESP. O ponto decisivo não está apenas no halo observado, mas na espécie identificada e no risco de indução de AmpC.
             </figcaption>
           </figure>
 
-          <aside class="cap5-p48-mechanisms__panel" aria-live="polite">
-            <div class="cap5-p48-mechanisms__eyebrow" id="cap5-p48-eyebrow">Produção enzimática induzível</div>
-            <h3 class="cap5-p48-mechanisms__title" id="cap5-p48-title">AmpC cromossômica</h3>
-            <p class="cap5-p48-mechanisms__text" id="cap5-p48-text">
-              Em determinadas espécies, a simples identificação bacteriana já indica a possibilidade de produção de AmpC cromossômica. Nesses casos, a exposição a alguns β-lactâmicos pode induzir a expressão enzimática, tornando a leitura inicial do painel potencialmente enganosa antes da indução e criando risco de falha terapêutica durante o tratamento.
-            </p>
-          </aside>
+          <figure class="cap5-p48-card" data-p48-card="carbapenemase">
+            <button
+              class="cap5-p48-card__zoom"
+              type="button"
+              data-zoom="../../assets/capitulo-05/imagens/carbapenemase-disco.png"
+              aria-label="Ampliar imagem representativa de carbapenemase"
+            >
+              <img
+                src="../../assets/capitulo-05/imagens/carbapenemase-disco.png"
+                alt="Placa de difusão em disco representativa de perfil sugestivo de carbapenemase."
+                loading="lazy"
+              />
+            </button>
+            <figcaption class="cap5-p48-card__caption">
+              Carbapenemase. O padrão de resistência já sugere perda importante de atividade dos carbapenêmicos.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="cap5-p48-compare__panel" aria-live="polite">
+          <div class="cap5-p48-compare__eyebrow" id="cap5-p48-eyebrow">Risco interpretativo dependente da espécie</div>
+          <h3 class="cap5-p48-compare__title" id="cap5-p48-title">Grupo CESP e possibilidade de AmpC induzível</h3>
+          <p class="cap5-p48-compare__text" id="cap5-p48-text">
+            Em espécies do grupo CESP, a simples identificação bacteriana já informa a possibilidade de produção de AmpC. Nesses casos, um resultado aparentemente favorável no antibiograma não deve ser lido de forma ingênua, porque a exposição a alguns β-lactâmicos pode induzir expressão enzimática durante o tratamento e comprometer a atividade do fármaco.
+          </p>
+          <div class="cap5-p48-compare__note" id="cap5-p48-note">
+            O ponto central não é apenas se o halo parece adequado, mas se a espécie identificada permite confiar nessa leitura sem considerar o risco de indução.
+          </div>
         </div>
       </section>
 
       <p class="cap5-p48-closing">
-        Esses mecanismos não representam apenas um detalhe microbiológico adicional. Eles alteram a forma como o laudo deve ser interpretado e reforçam que a leitura do antibiograma depende da integração entre identificação bacteriana, mecanismos de resistência e categorias de suscetibilidade.
+        Essas observações não representam apenas um detalhe microbiológico adicional. Elas alteram a forma como o laudo deve ser interpretado e reforçam que a leitura do antibiograma depende da integração entre identificação bacteriana, mecanismos de resistência e categorias de suscetibilidade.
       </p>
 
     </section>
 
-   <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p47.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 5 · Página 48 de 89</div>
-      <button class="btn primary" type="button" data-next="p49.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+ <nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p47.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 5 · Página 48 de 89</div>
+  <a class="btn primary" href="p49.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
 
- </main>
 
-  <div class="cap5-lightbox" id="cap5Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap5-lightbox__backdrop" data-lightbox-close></div>
+  </main>
 
-    <div class="cap5-lightbox__dialog">
-      <button class="cap5-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap5-lightbox__figure">
-        <img id="cap5LightboxImage" src="" alt="" />
-        <figcaption id="cap5LightboxCaption" class="cap5-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
-
- <script src="../../js/app.js"></script>
- <script src="../../js/capitulo-05.js"></script>
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-05.js"></script>
 
 </body>
 </html>

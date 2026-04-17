@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Capítulo 7 — Página 65</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -14,108 +14,214 @@
 
 <body class="cap7-page65">
 
-  <main class="page-shell cap7-shell">
+<main class="page-shell">
 
-    <header class="page-header">
-      <div class="chapter">Capítulo 7 — Principais Efeitos Adversos por Classe</div>
-      <h1 class="page-title">Inibidores da síntese de ácidos nucleicos</h1>
-    </header>
+  <header class="page-header">
+    <div class="chapter">Capítulo 7 — Principais Efeitos Adversos por Classe</div>
+    <h1 class="page-title">Inibidores da síntese de ácidos nucleicos</h1>
+  </header>
 
-    <section class="prose">
+  <section class="prose cap7-p65">
 
-      <p>Os antibacterianos que interferem na síntese de ácidos nucleicos atuam sobre enzimas bacterianas essenciais para a replicação e a estabilidade do DNA, como a DNA girase e a topoisomerase IV. A seletividade terapêutica dessa classe decorre das diferenças estruturais entre essas enzimas bacterianas e suas contrapartes humanas.</p>
+    <p>
+      Os antibacterianos que interferem na síntese de ácidos nucleicos atuam sobre enzimas bacterianas essenciais para a replicação e a estabilidade do DNA, como a DNA girase e a topoisomerase IV. A seletividade terapêutica dessa classe decorre das diferenças estruturais entre essas enzimas bacterianas e suas correspondentes humanas <sup>1,2</sup>.
+    </p>
 
-      <figure class="cap7-p65-figure">
+    <p>
+      Entre esses fármacos, as fluoroquinolonas representam o grupo mais amplamente utilizado na prática clínica. Embora não inibam de forma significativa as topoisomerases nucleares humanas nas concentrações terapêuticas usuais, evidências experimentais e observacionais sugerem que esses antibacterianos podem interferir em processos celulares relacionados à função mitocondrial e ao equilíbrio redox <sup>3</sup>.
+    </p>
+
+    <p>
+      A mitocôndria, por sua origem evolutiva bacteriana, permanece um ponto potencial de vulnerabilidade. A interferência em processos mitocondriais e o aumento do estresse oxidativo celular são hipóteses que ajudam a explicar parte do perfil de efeitos adversos descrito para essa classe <sup>3</sup>.
+    </p>
+
+    <p class="cap7-p65-intro">
+      Esse raciocínio torna-se mais claro quando se relaciona o possível ponto de vulnerabilidade biológica com a manifestação clínica observada:
+    </p>
+
+    <section class="cap7-p65-pathway" data-cap7-p65 aria-label="Correlação entre vulnerabilidade biológica e manifestações clínicas das fluoroquinolonas">
+      <div class="cap7-p65-selector" role="tablist" aria-label="Domínios clínicos relacionados à toxicidade das fluoroquinolonas">
         <button
-          class="cap7-zoomTrigger"
+          class="cap7-p65-chip is-active"
           type="button"
-          data-zoom-image="../../assets/capitulo-07/imagens/seletividade-alvo-acidos-nucleicos.png"
-          data-zoom-alt="Seletividade do alvo terapêutico dos inibidores da síntese de ácidos nucleicos"
-          data-zoom-caption="Diferenças estruturais entre alvos bacterianos e contrapartes humanas que fundamentam a seletividade terapêutica. Clique para ampliar."
-          aria-label="Ampliar figura sobre seletividade do alvo terapêutico"
+          role="tab"
+          aria-selected="true"
+          aria-controls="cap7P65Panel1"
+          id="cap7P65Tab1"
+          data-pathway="mitocondria"
         >
-          <img
-            src="../../assets/capitulo-07/imagens/seletividade-alvo-acidos-nucleicos.png"
-            alt="Seletividade do alvo terapêutico dos inibidores da síntese de ácidos nucleicos"
-            loading="lazy"
-          />
+          Mitocôndria
         </button>
-        <figcaption class="cap7-caption">
-          Diferenças estruturais entre enzimas bacterianas e humanas que sustentam a seletividade terapêutica. Clique na imagem para ampliar.
-        </figcaption>
-      </figure>
 
-      <p>Entre esses fármacos, as fluoroquinolonas representam o grupo mais amplamente utilizado na prática clínica. Embora não inibam de forma significativa as topoisomerases nucleares humanas nas concentrações terapêuticas usuais, evidências experimentais e observacionais sugerem que esses antibacterianos podem interferir em processos celulares relacionados à função mitocondrial e ao equilíbrio redox <sup>6</sup>.</p>
+        <button
+          class="cap7-p65-chip"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="cap7P65Panel2"
+          id="cap7P65Tab2"
+          data-pathway="tecido"
+          tabindex="-1"
+        >
+          Tecido conjuntivo
+        </button>
 
-      <p>A mitocôndria, por sua origem evolutiva bacteriana, permanece um ponto potencial de vulnerabilidade. A interferência em processos mitocondriais e o aumento do estresse oxidativo celular são hipóteses que ajudam a explicar parte do perfil de efeitos adversos descrito para essa classe.</p>
+        <button
+          class="cap7-p65-chip"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="cap7P65Panel3"
+          id="cap7P65Tab3"
+          data-pathway="snc"
+          tabindex="-1"
+        >
+          Sistema nervoso
+        </button>
 
-      <div class="cap7-p65-flow" data-cap7-p65>
-        <p class="cap7-p65-intro">Observe como o raciocínio clínico pode ser organizado:</p>
-
-        <div class="cap7-p65-track" role="tablist" aria-label="Sequência de raciocínio clínico">
-          <button class="cap7-p65-step is-active" type="button" data-step="1" aria-selected="true">1. Alvo bacteriano</button>
-          <button class="cap7-p65-step" type="button" data-step="2" aria-selected="false">2. Vulnerabilidade mitocondrial</button>
-          <button class="cap7-p65-step" type="button" data-step="3" aria-selected="false">3. Manifestação clínica</button>
-        </div>
-
-        <div class="cap7-p65-panel">
-          <div class="cap7-p65-pane is-active" data-pane="1">
-            <p><strong>Alvo bacteriano:</strong> a ação primária recai sobre enzimas bacterianas essenciais para a replicação do DNA, o que explica a eficácia antimicrobiana da classe.</p>
-          </div>
-
-          <div class="cap7-p65-pane" data-pane="2" hidden>
-            <p><strong>Vulnerabilidade mitocondrial:</strong> apesar da seletividade, a origem evolutiva bacteriana da mitocôndria cria uma zona de proximidade funcional que pode favorecer efeitos off-target em exposições específicas.</p>
-          </div>
-
-          <div class="cap7-p65-pane" data-pane="3" hidden>
-            <p><strong>Manifestação clínica:</strong> quando esse impacto biológico se torna relevante, podem surgir eventos musculoesqueléticos, neurológicos, cardiovasculares e ecológicos, especialmente em pacientes vulneráveis.</p>
-          </div>
-        </div>
+        <button
+          class="cap7-p65-chip"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="cap7P65Panel4"
+          id="cap7P65Tab4"
+          data-pathway="coracao"
+          tabindex="-1"
+        >
+          Coração
+        </button>
       </div>
 
-      <p>Clinicamente, as fluoroquinolonas foram associadas a manifestações musculoesqueléticas e neurológicas, incluindo tendinite, ruptura de tendão e neuropatia periférica. Alterações neuropsiquiátricas, como agitação, insônia ou confusão mental também podem ocorrer em determinados contextos clínicos <sup>7</sup>.</p>
+      <div class="cap7-p65-display">
+        <section
+          class="cap7-p65-panel"
+          id="cap7P65Panel1"
+          role="tabpanel"
+          aria-labelledby="cap7P65Tab1"
+          data-panel="mitocondria"
+        >
+          <div class="cap7-p65-stage">
+            <p class="cap7-p65-stageLabel">Vulnerabilidade biológica</p>
+            <p class="cap7-p65-stageText">Interferência em processos mitocondriais e no equilíbrio redox celular</p>
+          </div>
 
-      <p>Eventos cardiovasculares relacionados ao prolongamento do intervalo QT foram descritos principalmente em pacientes com fatores predisponentes, como distúrbios eletrolíticos ou uso concomitante de medicamentos que também interferem na repolarização cardíaca.</p>
+          <div class="cap7-p65-arrow" aria-hidden="true">→</div>
 
-      <p>Nos últimos anos, análises observacionais e alertas regulatórios sugeriram possível associação entre o uso de fluoroquinolonas e aumento do risco de aneurisma ou dissecção de aorta em populações predispostas. Embora o mecanismo exato ainda não esteja completamente esclarecido, hipóteses incluem alterações na matriz extracelular vascular e na homeostase do colágeno.</p>
+          <div class="cap7-p65-stage">
+            <p class="cap7-p65-stageLabel">Manifestação clínica relacionada</p>
+            <p class="cap7-p65-stageText">Maior probabilidade de toxicidade sistêmica em tecidos metabolicamente vulneráveis</p>
+          </div>
+        </section>
 
-      <p>Essas observações contribuíram para recomendações regulatórias que restringem o uso dessa classe a situações nas quais o benefício terapêutico supera claramente os riscos potenciais, particularmente quando existem alternativas eficazes com perfil de segurança mais favorável.</p>
+        <section
+          class="cap7-p65-panel"
+          id="cap7P65Panel2"
+          role="tabpanel"
+          aria-labelledby="cap7P65Tab2"
+          data-panel="tecido"
+          hidden
+        >
+          <div class="cap7-p65-stage">
+            <p class="cap7-p65-stageLabel">Vulnerabilidade biológica</p>
+            <p class="cap7-p65-stageText">Hipóteses de alteração na matriz extracelular e na homeostase do colágeno</p>
+          </div>
 
-      <p>Além dos efeitos sistêmicos, a ampla atividade das fluoroquinolonas sobre a microbiota intestinal associa-se a maior risco de disbiose e infecção por <em>Clostridioides difficile</em>. A combinação de espectro amplo e elevada biodisponibilidade oral contribui para impacto ecológico significativo.</p>
+          <div class="cap7-p65-arrow" aria-hidden="true">→</div>
 
-      <p>Do ponto de vista farmacodinâmico, as fluoroquinolonas apresentam atividade bactericida dependente da concentração. Exposições mais elevadas aumentam a eficácia antimicrobiana, mas também podem ampliar o risco de eventos adversos em determinados contextos clínicos.</p>
+          <div class="cap7-p65-stage">
+            <p class="cap7-p65-stageLabel">Manifestação clínica relacionada</p>
+            <p class="cap7-p65-stageText">Tendinite, ruptura de tendão e possível associação com aneurisma ou dissecção de aorta em populações predispostas</p>
+          </div>
+        </section>
 
-      <p>Pacientes idosos, portadores de doença cardiovascular, usuários de corticosteroides ou com histórico de tendinopatia constituem grupos nos quais a avaliação individual de risco torna-se particularmente importante.</p>
+        <section
+          class="cap7-p65-panel"
+          id="cap7P65Panel3"
+          role="tabpanel"
+          aria-labelledby="cap7P65Tab3"
+          data-panel="snc"
+          hidden
+        >
+          <div class="cap7-p65-stage">
+            <p class="cap7-p65-stageLabel">Vulnerabilidade biológica</p>
+            <p class="cap7-p65-stageText">Interferência celular com repercussão neurológica em contextos de suscetibilidade clínica</p>
+          </div>
 
-      <div class="highlight">
-        A inibição da replicação do DNA bacteriano é um mecanismo altamente eficaz, mas sua proximidade funcional com processos celulares humanos impõe limites ao uso indiscriminado dessa classe.
+          <div class="cap7-p65-arrow" aria-hidden="true">→</div>
+
+          <div class="cap7-p65-stage">
+            <p class="cap7-p65-stageLabel">Manifestação clínica relacionada</p>
+            <p class="cap7-p65-stageText">Neuropatia periférica, agitação, insônia ou confusão mental</p>
+          </div>
+        </section>
+
+        <section
+          class="cap7-p65-panel"
+          id="cap7P65Panel4"
+          role="tabpanel"
+          aria-labelledby="cap7P65Tab4"
+          data-panel="coracao"
+          hidden
+        >
+          <div class="cap7-p65-stage">
+            <p class="cap7-p65-stageLabel">Vulnerabilidade biológica</p>
+            <p class="cap7-p65-stageText">Interferência em processos elétricos cardíacos, sobretudo quando há fatores predisponentes</p>
+          </div>
+
+          <div class="cap7-p65-arrow" aria-hidden="true">→</div>
+
+          <div class="cap7-p65-stage">
+            <p class="cap7-p65-stageLabel">Manifestação clínica relacionada</p>
+            <p class="cap7-p65-stageText">Prolongamento do intervalo QT e maior risco cardiovascular em cenários selecionados</p>
+          </div>
+        </section>
       </div>
-
     </section>
 
-   <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p64.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 7 · Página 65 de 89</div>
-      <button class="btn primary" type="button" data-next="p66.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+    <p>
+      Clinicamente, as fluoroquinolonas foram associadas a manifestações musculoesqueléticas e neurológicas, incluindo tendinite, ruptura de tendão e neuropatia periférica. Alterações neuropsiquiátricas, como agitação, insônia ou confusão mental também podem ocorrer em determinados contextos clínicos <sup>6,12</sup>.
+    </p>
 
-  </main>
+    <p>
+      Eventos cardiovasculares relacionados ao prolongamento do intervalo QT foram descritos principalmente em pacientes com fatores predisponentes, como distúrbios eletrolíticos ou uso concomitante de medicamentos que também interferem na repolarização cardíaca <sup>2</sup>.
+    </p>
 
-  <div class="cap7-lightbox" id="cap7Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap7-lightbox__backdrop" data-lightbox-close></div>
+    <p>
+      Nos últimos anos, análises observacionais e alertas regulatórios sugeriram possível associação entre o uso de fluoroquinolonas e aumento do risco de aneurisma ou dissecção de aorta em populações predispostas. Embora o mecanismo exato ainda não esteja completamente esclarecido, hipóteses incluem alterações na matriz extracelular vascular e na homeostase do colágeno <sup>7</sup>.
+    </p>
 
-    <div class="cap7-lightbox__dialog">
-      <button class="cap7-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
+    <p>
+      Essas observações contribuíram para recomendações regulatórias que restringem o uso dessa classe, em situações nas quais o benefício terapêutico supera claramente os riscos potenciais, particularmente quando existem alternativas eficazes com perfil de segurança mais favorável <sup>6,12</sup>.
+    </p>
 
-      <figure class="cap7-lightbox__figure">
-        <img id="cap7LightboxImage" src="" alt="" />
-        <figcaption id="cap7LightboxCaption" class="cap7-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
+    <p>
+      Além dos efeitos sistêmicos, a ampla atividade das fluoroquinolonas sobre a microbiota intestinal associa-se a maior risco de disbiose e infecção por <em>Clostridioides difficile</em>. A combinação de espectro amplo e elevada biodisponibilidade oral contribui para impacto ecológico significativo <sup>4,5</sup>.
+    </p>
 
-  <script src="../../js/app.js"></script>
-  <script src="../../js/capitulo-07.js"></script>
+    <p>
+      Do ponto de vista farmacodinâmico, as fluoroquinolonas apresentam atividade bactericida dependente da concentração. Exposições mais elevadas aumentam a eficácia antimicrobiana, mas também podem ampliar o risco de eventos adversos em determinados contextos clínicos <sup>13,14</sup>.
+    </p>
 
+    <p>
+      Pacientes idosos, portadores de doença cardiovascular, usuários de corticosteroides ou com histórico de tendinopatia constituem grupos nos quais a avaliação individual de risco torna-se particularmente importante. Em populações pediátricas, embora eventos musculoesqueléticos tenham sido descritos, a ocorrência de tendinopatia é menos frequente e não representa o principal determinante de risco <sup>6,12</sup>.
+    </p>
+
+    <p class="cap7-p65-closing">
+      A inibição da replicação do DNA bacteriano é um mecanismo altamente eficaz, mas sua proximidade funcional com processos celulares humanos impõe limites ao uso indiscriminado dessa classe.
+    </p>
+
+  </section>
+
+  <nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p64.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 7 · Página 65 de 89</div>
+  <a class="btn primary" href="p66.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
+
+</main>
+
+<script src="../../js/app.js"></script>
+<script src="../../js/capitulo-07.js"></script>
 </body>
 </html>

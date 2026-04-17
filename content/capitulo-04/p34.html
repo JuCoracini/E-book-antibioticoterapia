@@ -5,157 +5,95 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Capítulo 4 — Página 34</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../../css/base.css" />
-  <link rel="stylesheet" href="../../css/components.css" />
-  <link rel="stylesheet" href="../../css/capitulo-04.css" />
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/capitulo-04.css">
 </head>
 
 <body class="cap4-page34">
 
-  <main class="page-shell">
+<main class="page-shell">
 
-    <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 4 — Farmacocinética e Farmacodinâmica Aplicadas</div>
-        <h1 class="page-title">Índices farmacodinâmicos: tempo, concentração e exposição total</h1>
-      </div>
-    </header>
+<header class="page-header">
+  <div class="chapter">Capítulo 4 — Farmacocinética e Farmacodinâmica Aplicadas</div>
+  <h1 class="page-title">Índices farmacodinâmicos: tempo, concentração e exposição total</h1>
+</header>
 
-    <section class="prose cap4-reading-flow" aria-label="Texto principal">
+<section class="prose">
 
-      <p>
-        A atividade antimicrobiana não depende apenas da dose administrada, mas da forma como a exposição ao antibacteriano se distribui ao longo do tempo em relação à suscetibilidade do microrganismo. A análise da curva concentração-tempo em relação ao valor da concentração inibitória mínima (CIM) permite identificar quais parâmetros farmacodinâmicos estão mais associados ao efeito antimicrobiano para cada classe de antibacterianos <sup>1</sup>.
-      </p>
+<p>
+A atividade antimicrobiana não depende apenas da dose administrada, mas da forma como a exposição ao antibacteriano se distribui ao longo do tempo em relação à suscetibilidade do microrganismo. A análise da curva concentração–tempo em relação ao valor da concentração inibitória mínima (CIM) permite identificar quais parâmetros farmacodinâmicos estão mais associados ao efeito antimicrobiano para cada classe de antibacterianos <sup>6,10</sup>.
+</p>
 
-      <p>
-        Três índices farmacodinâmicos principais são utilizados para descrever essa relação:
-      </p>
+<p>
+Três índices farmacodinâmicos principais são utilizados para descrever essa relação:
+</p>
 
-      <ul class="cap4-p34-list" aria-label="Índices farmacodinâmicos principais">
-        <li><strong>%fT&gt;MIC</strong> — fração do tempo em que a concentração livre do antibacteriano permanece acima da CIM</li>
-        <li><strong>Cmax/MIC</strong> — razão entre a concentração máxima alcançada e a CIM</li>
-        <li><strong>AUC/MIC</strong> — razão entre a área sob a curva de concentração ao longo de 24 horas e a CIM</li>
-      </ul>
+<p>
+%fT&gt;MIC — fração do tempo em que a concentração livre do antibacteriano permanece acima da CIM<br>
+Cmax/MIC — razão entre a concentração máxima alcançada e a CIM<br>
+AUC/MIC — razão entre a área sob a curva de concentração ao longo de 24 horas e a CIM
+</p>
 
-      <p>
-        Esses parâmetros descrevem diferentes padrões de relação entre exposição ao fármaco e resposta microbiológica <sup>1,10</sup>.
-      </p>
+<!-- FIGURA + INTERAÇÃO -->
 
-      <figure class="cap4-p34-figure">
-        <button
-          class="cap4-zoomTrigger"
-          type="button"
-          data-zoom-image="../../assets/capitulo-04/imagens/indices-farmacodinamicos.png"
-          data-zoom-alt="Curva concentração-tempo em relação à CIM, com destaque para os índices farmacodinâmicos %fT maior que MIC, Cmax sobre MIC e AUC sobre MIC."
-          data-zoom-caption="Representação esquemática da curva concentração-tempo em relação à CIM, destacando três formas de leitura farmacodinâmica: duração da permanência acima da CIM, magnitude do pico em relação à CIM e exposição total ao longo do tempo. Clique na imagem para ampliar."
-          aria-label="Ampliar figura dos índices farmacodinâmicos"
-        >
-          <img
-            src="../../assets/capitulo-04/imagens/indices-farmacodinamicos.png"
-            alt="Curva concentração-tempo em relação à CIM, com destaque para os índices farmacodinâmicos %fT maior que MIC, Cmax sobre MIC e AUC sobre MIC."
-            loading="lazy"
-          />
-        </button>
-        <figcaption class="cap4-caption">
-          Representação esquemática da curva concentração-tempo em relação à CIM, destacando três formas de leitura farmacodinâmica: duração da permanência acima da CIM, magnitude do pico em relação à CIM e exposição total ao longo do tempo. Clique na imagem para ampliar.
-        </figcaption>
-      </figure>
+<section class="cap4-p34-block">
 
-      <section class="cap4-p34-stage" data-cap4-p34 aria-label="Exploração dos três índices farmacodinâmicos">
-        <div class="cap4-p34-stage__inner">
+  <figure class="cap4-p34-figure">
+    <button class="cap4-p34-zoom" data-zoom="../../assets/capitulo-04/imagens/pkpd-curva.png">
+      <img src="../../assets/capitulo-04/imagens/pkpd-curva.png" alt="Curva PK/PD com índices farmacodinâmicos">
+    </button>
+  </figure>
 
-          <div class="cap4-p34-controls" role="tablist" aria-label="Seleção do índice farmacodinâmico">
-            <button class="cap4-p34-tab is-active" type="button" role="tab" aria-selected="true" data-p34-tab="time">%fT&gt;MIC</button>
-            <button class="cap4-p34-tab" type="button" role="tab" aria-selected="false" data-p34-tab="peak">Cmax/MIC</button>
-            <button class="cap4-p34-tab" type="button" role="tab" aria-selected="false" data-p34-tab="auc">AUC/MIC</button>
-          </div>
-
-          <div class="cap4-p34-panel">
-            <p class="cap4-p34-panel__eyebrow">Leitura aplicada</p>
-            <h2 class="cap4-p34-panel__title" data-p34-title>%fT&gt;MIC</h2>
-            <p class="cap4-p34-panel__subtitle" data-p34-subtitle>Foco no tempo acima da CIM</p>
-            <p class="cap4-p34-panel__text" data-p34-text>
-              Neste padrão, o determinante principal da eficácia é o período durante o qual a fração livre do antibacteriano permanece acima da CIM ao longo do intervalo entre doses. O foco está na manutenção da exposição eficaz por tempo suficiente.
-            </p>
-          </div>
-
-                    <div class="cap4-p34-meter" aria-label="Ênfase relativa do índice selecionado">
-            <div class="cap4-p34-meter__row">
-              <span class="cap4-p34-meter__label">%fT&gt;MIC</span>
-              <div class="cap4-p34-meter__track" aria-hidden="true">
-                <div class="cap4-p34-meter__fill cap4-p34-meter__fill--time" data-p34-meter="time"></div>
-              </div>
-              <span class="cap4-p34-meter__value" data-p34-meter-value="time">Alto</span>
-            </div>
-
-            <div class="cap4-p34-meter__row">
-              <span class="cap4-p34-meter__label">Cmax/MIC</span>
-              <div class="cap4-p34-meter__track" aria-hidden="true">
-                <div class="cap4-p34-meter__fill cap4-p34-meter__fill--peak" data-p34-meter="peak"></div>
-              </div>
-              <span class="cap4-p34-meter__value" data-p34-meter-value="peak">Baixo</span>
-            </div>
-
-            <div class="cap4-p34-meter__row">
-              <span class="cap4-p34-meter__label">AUC/MIC</span>
-              <div class="cap4-p34-meter__track" aria-hidden="true">
-                <div class="cap4-p34-meter__fill cap4-p34-meter__fill--auc" data-p34-meter="auc"></div>
-              </div>
-              <span class="cap4-p34-meter__value" data-p34-meter-value="auc">Moderado</span>
-            </div>
-          </div>
-
-          <p class="cap4-p34-note">
-            Os três índices derivam da mesma curva concentração-tempo, mas enfatizam dimensões diferentes da exposição antimicrobiana: duração, pico ou exposição total.
-          </p>
-        </div>
-      </section>
-
-      <p>
-        Nos antibacterianos com atividade predominantemente tempo-dependente, o determinante principal da eficácia é o período durante o qual a fração livre do fármaco permanece acima da CIM ao longo do intervalo entre doses (%fT&gt;MIC). O prefixo f indica que apenas a fração não ligada a proteínas plasmáticas está disponível para difusão tecidual e interação com o alvo bacteriano. Nesses fármacos, aumentos excessivos do pico de concentração produzem pouco ganho adicional de efeito se a concentração já estiver acima da CIM. Estratégias como redução do intervalo entre doses ou prolongamento do tempo de infusão podem aumentar o tempo de exposição eficaz <sup>1</sup>.
-      </p>
-
-      <p>
-        Em antibacterianos com atividade predominantemente concentração-dependente, a magnitude do pico em relação à CIM correlaciona-se com maior velocidade e intensidade de redução da carga bacteriana. Nesse caso, o índice farmacodinâmico relevante é a razão Cmax/MIC. Quanto maior o pico alcançado em relação ao valor da CIM, maior tende a ser o efeito bactericida inicial. Intervalos maiores entre doses podem ser aceitáveis desde que o pico de concentração seja suficientemente elevado para atingir o alvo farmacodinâmico <sup>1</sup>.
-      </p>
-
-      <p>
-        Algumas classes apresentam melhor correlação com a exposição total ao longo do tempo, representada pela razão AUC/MIC. Nesse cenário, tanto a intensidade quanto a duração da exposição contribuem para o efeito antimicrobiano. Pequenas reduções sustentadas na área sob a curva podem comprometer o índice global, mesmo quando o pico inicial parece adequado <sup>1</sup>.
-      </p>
-
-      <p>
-        A variabilidade interindividual pode modificar esses parâmetros ao alterar volume de distribuição, depuração renal ou hepática e fração livre circulante. Essas mudanças influenciam a forma como a curva concentração-tempo se posiciona em relação à CIM e, consequentemente, a probabilidade de atingir o índice farmacodinâmico necessário para eficácia terapêutica <sup>11</sup>.
-      </p>
-
-    </section>
-
- <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p33.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 4 · Página 34 de 89</div>
-      <button class="btn primary" type="button" data-next="p35.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
-
-  </main>
-
-  <div class="cap4-lightbox" id="cap4Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap4-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap4-lightbox__dialog">
-      <button class="cap4-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap4-lightbox__figure">
-        <img id="cap4LightboxImage" src="" alt="" />
-        <figcaption id="cap4LightboxCaption" class="cap4-lightbox__caption"></figcaption>
-      </figure>
-    </div>
+  <div class="cap4-p34-controls">
+    <button class="p34-btn active" data-mode="time">%fT&gt;MIC</button>
+    <button class="p34-btn" data-mode="peak">Cmax/MIC</button>
+    <button class="p34-btn" data-mode="auc">AUC/MIC</button>
   </div>
 
-  <script src="../../js/app.js"></script>
-  <script src="../../js/capitulo-04.js"></script>
+  <div class="cap4-p34-panel">
+    <h3 id="p34-title">Como ler a curva para fármacos tempo-dependentes</h3>
+    <p id="p34-text">
+      Observe o intervalo em que a curva permanece acima da CIM. O ponto crítico não é o pico, mas a duração da exposição efetiva ao longo do tempo. Concentrações muito altas, mas por tempo curto, podem ter impacto limitado se a curva cair rapidamente abaixo da CIM.
+    </p>
+  </div>
+
+</section>
+
+<p>
+Esses parâmetros descrevem diferentes padrões de relação entre exposição ao fármaco e resposta microbiológica <sup>5,6</sup>.
+</p>
+
+<p>
+Nos antibacterianos com atividade predominantemente tempo-dependente, o determinante principal da eficácia é o período durante o qual a fração livre do fármaco permanece acima da CIM ao longo do intervalo entre doses (%fT&gt;MIC). O prefixo f indica que apenas a fração não ligada a proteínas plasmáticas está disponível para difusão tecidual e interação com o alvo bacteriano. Nesses fármacos, aumentos expressivos do pico de concentração produzem ganho limitado de efeito quando a concentração já se mantém acima da CIM. Estratégias como redução do intervalo entre doses ou prolongamento do tempo de infusão podem aumentar o tempo de exposição eficaz <sup>15</sup>.
+</p>
+
+<p>
+Em antibacterianos com atividade predominantemente concentração-dependente, a magnitude do pico em relação à CIM correlaciona-se com maior velocidade e intensidade de redução da carga bacteriana. Nesse caso, o índice farmacodinâmico relevante é a razão Cmax/MIC. Quanto maior o pico alcançado em relação ao valor da CIM, maior tende a ser o efeito bactericida inicial. Intervalos maiores entre doses podem ser aceitáveis, desde que o pico de concentração seja suficientemente elevado para atingir o alvo farmacodinâmico <sup>5,16</sup>.
+</p>
+
+<p>
+Algumas classes apresentam melhor correlação com a exposição total ao longo do tempo, representada pela razão AUC/MIC. Nesse cenário, tanto a intensidade quanto a duração da exposição contribuem para o efeito antimicrobiano. Reduções sustentadas na área sob a curva podem comprometer o índice global, mesmo quando o pico inicial parece adequado <sup>5,6</sup>.
+</p>
+
+<p>
+A variabilidade interindividual pode modificar esses parâmetros ao alterar volume de distribuição, depuração renal ou hepática e fração livre circulante. Essas mudanças influenciam a forma como a curva concentração–tempo se posiciona em relação à CIM e, consequentemente, a probabilidade de atingir o índice farmacodinâmico necessário para eficácia terapêutica <sup>7,9</sup>.
+</p>
+
+</section>
+
+<nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p33.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 4 · Página 34 de 89</div>
+  <a class="btn primary" href="p35.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
+
+</main>
+
+<script src="../../js/app.js"></script>
+<script src="../../js/capitulo-04.js"></script>
 
 </body>
 </html>

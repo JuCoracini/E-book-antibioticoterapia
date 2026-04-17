@@ -41,6 +41,12 @@
 
     </section>
 
+    <section class="cap10-p84-context" aria-label="Contexto clínico da decisão">
+      <p class="cap10-p84-context__line">
+        Você iniciou terapia empírica com base na probabilidade clínica e gravidade.
+      </p>
+    </section>
+
     <section class="cap10-p84-sim" data-cap10-p84>
 
       <div class="cap10-p84-step is-active" data-p84-step="1">
@@ -51,15 +57,21 @@
 
         <div class="cap10-p84-options">
           <button class="cap10-p84-option" type="button" data-p84-choice="manter">
-            Manter automaticamente a estratégia inicial
+            <strong>Manter conduta inicial</strong>
+            <span>Preserva a estratégia empírica sem integração dos novos dados microbiológicos.</span>
+            <em class="cap10-p84-optionTag cap10-p84-optionTag--warning">Risco de erro persistente</em>
           </button>
 
-          <button class="cap10-p84-option" type="button" data-p84-choice="ajustar">
-            Ajustar a estratégia conforme os dados microbiológicos
+          <button class="cap10-p84-option cap10-p84-option--recommended" type="button" data-p84-choice="ajustar">
+            <strong>Ajustar conforme microbiologia</strong>
+            <span>Integra a identificação do agente e o perfil de resistência ao raciocínio terapêutico.</span>
+            <em class="cap10-p84-optionTag cap10-p84-optionTag--success">Decisão mais adequada</em>
           </button>
 
           <button class="cap10-p84-option" type="button" data-p84-choice="ampliar">
-            Ampliar ainda mais o espectro sem direcionamento específico
+            <strong>Ampliar espectro</strong>
+            <span>Aumenta a cobertura sem direcionamento microbiológico específico.</span>
+            <em class="cap10-p84-optionTag cap10-p84-optionTag--error">Exposição desnecessária</em>
           </button>
         </div>
 
@@ -67,7 +79,7 @@
 
       <div class="cap10-p84-step" data-p84-step="2" hidden>
 
-        <p class="cap10-p84-feedback" id="cap10P84Feedback"></p>
+        <div class="cap10-p84-feedback" id="cap10P84Feedback"></div>
 
         <button class="cap10-p84-next" type="button" data-p84-next="3">
           Continuar
@@ -91,15 +103,21 @@
 
         <div class="cap10-p84-options">
           <button class="cap10-p84-option" type="button" data-p84-choice="permanecer-amplo">
-            Manter o espectro mais amplo disponível por segurança
+            <strong>Manter o espectro mais amplo disponível</strong>
+            <span>Preserva a máxima cobertura, mesmo sem reavaliar proporcionalidade.</span>
+            <em class="cap10-p84-optionTag cap10-p84-optionTag--warning">Segurança aparente</em>
           </button>
 
-          <button class="cap10-p84-option" type="button" data-p84-choice="reavaliar-espectro">
-            Reavaliar a proporcionalidade do espectro conforme os dados disponíveis
+          <button class="cap10-p84-option cap10-p84-option--recommended" type="button" data-p84-choice="reavaliar-espectro">
+            <strong>Reavaliar a proporcionalidade do espectro</strong>
+            <span>Ajusta a estratégia conforme suscetibilidade, evolução clínica e risco real.</span>
+            <em class="cap10-p84-optionTag cap10-p84-optionTag--success">Princípio racional</em>
           </button>
 
           <button class="cap10-p84-option" type="button" data-p84-choice="associar">
-            Associar novos agentes sem relação definida com o perfil microbiológico
+            <strong>Associar novos agentes</strong>
+            <span>Acrescenta fármacos sem relação definida com o perfil microbiológico identificado.</span>
+            <em class="cap10-p84-optionTag cap10-p84-optionTag--error">Escalada sem critério</em>
           </button>
         </div>
 
@@ -107,7 +125,7 @@
 
       <div class="cap10-p84-step" data-p84-step="4" hidden>
 
-        <p class="cap10-p84-feedback" id="cap10P84FeedbackFinal"></p>
+        <div class="cap10-p84-feedback" id="cap10P84FeedbackFinal"></div>
 
         <button class="cap10-p84-next" type="button" data-p84-next="5">
           Continuar
@@ -129,6 +147,10 @@
           Manter automaticamente decisões iniciais ou ampliar indiscriminadamente o espectro não substitui adequação terapêutica.
         </p>
 
+        <div class="cap10-p84-insight" id="cap10P84Insight">
+          A decisão inicial em antibioticoterapia é sempre provisória. A qualidade da conduta depende da capacidade de reavaliar e ajustar o tratamento conforme novos dados clínicos e microbiológicos se tornam disponíveis.
+        </div>
+
         <p class="cap10-p84-highlight">
           Em antibioticoterapia racional, iniciar, reinterpretar e ajustar são partes da mesma decisão.
         </p>
@@ -137,26 +159,13 @@
 
     </section>
 
-  <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p83.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 10 · Página 84 de 89</div>
-      <button class="btn primary" type="button" data-next="p85.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+<nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p83.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 10 · Página 84 de 89</div>
+  <a class="btn primary" href="p85.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
 
   </main>
-
-  <div class="cap10-lightbox" id="cap7Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap10-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap10-lightbox__dialog">
-      <button class="cap10-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap10-lightbox__figure">
-        <img id="cap10LightboxImage" src="" alt="" />
-        <figcaption id="cap10LightboxCaption" class="cap10-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-10.js"></script>

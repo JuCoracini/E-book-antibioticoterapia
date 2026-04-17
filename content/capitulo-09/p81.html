@@ -8,7 +8,6 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css"/>
@@ -18,64 +17,70 @@
 
 <body class="cap9-page81">
 
-  <main class="page-shell">
+  <main class="page-shell cap9-shell">
 
     <header class="page-header">
       <div>
-        <div class="chapter">Capítulo 9 — Comunicação em Antibioticoterapia</div>
+        <div class="chapter">Capítulo 9 — Comunicação e Orientação ao Paciente em Antibioticoterapia</div>
         <h1 class="page-title">Quiz de revisão</h1>
       </div>
     </header>
 
-    <section class="prose cap9-reading-flow" aria-label="Introdução do quiz">
+    <section class="prose cap9-reading-flow" aria-label="Introdução do Quiz de revisão">
       <p>
-        As situações a seguir exploram princípios centrais da comunicação em antibioticoterapia. Analise cada cenário considerando a indicação racional de antibacterianos, a orientação sobre duração do tratamento e a explicação clínica fornecida ao paciente.
+        As situações a seguir exigem interpretação clínica e comunicação adequada com o paciente. O objetivo não é apenas reconhecer a resposta correta, mas identificar como princípios de antibioticoterapia devem ser traduzidos em orientação clara, segura e coerente com o contexto clínico.
       </p>
     </section>
 
     <section class="cap9-p81Quiz" data-cap9-p81 aria-label="Quiz de revisão">
-
-      <div class="cap9-p81Nav" aria-label="Navegação das situações">
-        <button class="cap9-p81NavBtn" type="button" data-p81-action="prev">Anterior</button>
-        <div class="cap9-p81Progress" aria-live="polite"></div>
-        <button class="cap9-p81NavBtn" type="button" data-p81-action="next">Próxima</button>
+      <div class="cap9-p81Status" aria-live="polite" data-p81-status>
+        <span class="cap9-p81Status__label">Comunicação clínica aplicada</span>
+        <span class="cap9-p81Status__value">0 de 2 situações confirmadas</span>
       </div>
 
-      <!-- QUESTÃO 1 -->
-      <div class="cap9-p81Question active" data-q="1">
+      <article class="cap9-p81Question" data-q="1" data-question-state="pending">
+        <div class="cap9-p81QuestionHeader">
+          <span class="cap9-p81Kicker">Situação clínica 1</span>
+          <h2 class="cap9-p81QuestionTitle">Explicação da não prescrição</h2>
+        </div>
+
         <p class="cap9-p81Case">
-          1) Durante uma consulta por quadro respiratório agudo, o paciente pergunta por que não recebeu antibiótico, apesar de apresentar febre e secreção nasal espessa.
+          Durante uma consulta por quadro respiratório agudo, o paciente pergunta por que não recebeu antibacteriano, apesar de apresentar febre e secreção nasal espessa.
         </p>
 
         <p class="cap9-p81Prompt">
-          Qual princípio da antibioticoterapia deve orientar a explicação ao paciente nesse cenário?
+          Qual é a resposta mais adequada do ponto de vista da comunicação clínica em antibioticoterapia?
         </p>
 
-        <div class="cap9-p81Options" role="group" aria-label="Alternativas da questão 1">
+        <div class="cap9-p81Options" role="group" aria-label="Alternativas da situação clínica 1">
           <button type="button" data-answer="a">
             <span class="cap9-p81Letter">A</span>
-            <span>A intensidade dos sintomas determina a necessidade de antibacteriano.</span>
+            <span>Sintomas intensos indicam maior chance de infecção bacteriana e justificam antibacteriano.</span>
           </button>
 
           <button type="button" data-answer="b">
             <span class="cap9-p81Letter">B</span>
-            <span>Antibacterianos são indicados sempre que há febre associada a sintomas respiratórios.</span>
+            <span>Febre e secreção espessa são suficientes para indicar tratamento antibacteriano.</span>
           </button>
 
           <button type="button" data-answer="c" data-correct="true">
             <span class="cap9-p81Letter">C</span>
-            <span>A decisão de prescrever antibacteriano depende da probabilidade de infecção bacteriana.</span>
+            <span>A prescrição de antibacteriano depende da probabilidade de infecção bacteriana, e nem todo quadro respiratório agudo tem essa característica.</span>
           </button>
 
           <button type="button" data-answer="d">
             <span class="cap9-p81Letter">D</span>
-            <span>Antibacterianos devem ser prescritos para evitar complicações futuras.</span>
+            <span>O antibacteriano poderia ser usado preventivamente para reduzir o risco de piora.</span>
           </button>
         </div>
 
         <div class="cap9-p81Actions">
-          <button class="cap9-p81Btn cap9-p81Btn--primary" type="button" data-p81-action="confirm" disabled>Confirmar</button>
-          <button class="cap9-p81Btn cap9-p81Btn--ghost" type="button" data-p81-action="reset" hidden>Refazer</button>
+          <button class="cap9-p81Btn cap9-p81Btn--primary" type="button" data-p81-action="confirm" disabled>
+            Confirmar interpretação
+          </button>
+          <button class="cap9-p81Btn cap9-p81Btn--ghost" type="button" data-p81-action="reset" hidden>
+            Refazer
+          </button>
         </div>
 
         <div class="cap9-p81Feedback" role="region" aria-live="polite"></div>
@@ -84,72 +89,71 @@
 {
   "a": {
     "type": "error",
-    "title": "Interpretação inadequada",
-    "text": "A intensidade dos sintomas não define necessariamente etiologia bacteriana. Infecções virais podem cursar com febre alta, mal-estar importante e secreção espessa, sem que haja indicação de antibacteriano."
+    "title": "Explicação inadequada",
+    "text": "A intensidade dos sintomas não determina, por si só, etiologia bacteriana. Infecções virais podem cursar com febre alta e manifestações intensas."
   },
   "b": {
     "type": "error",
     "title": "Critério insuficiente",
-    "text": "Febre associada a sintomas respiratórios não constitui indicação automática de antibacteriano. A decisão terapêutica depende da avaliação clínica global e da probabilidade de infecção bacteriana."
+    "text": "Febre associada a secreção espessa não constitui indicação automática de antibacteriano e precisa ser interpretada à luz da probabilidade clínica de infecção bacteriana."
   },
   "c": {
     "type": "correct",
-    "title": "Explicação adequada",
-    "text": "A prescrição racional baseia-se na probabilidade clínica de infecção bacteriana, considerando história clínica, exame físico e, quando necessário, exames complementares. Sintomas intensos isoladamente não justificam o uso de antibacteriano."
+    "title": "Comunicação adequada",
+    "text": "A explicação correta é que a decisão de prescrever antibacteriano depende da probabilidade clínica de infecção bacteriana, considerando história, exame físico e, quando necessário, exames complementares."
   },
   "d": {
     "type": "error",
-    "title": "Conduta inadequada",
-    "text": "O uso de antibacterianos sem indicação não previne complicações futuras. Ao contrário, pode expor o paciente a efeitos adversos desnecessários, além de contribuir para resistência bacteriana."
+    "title": "Raciocínio incorreto",
+    "text": "O uso de antibacterianos sem indicação não previne complicações futuras e pode aumentar eventos adversos e pressão seletiva."
   }
 }
         </template>
+      </article>
 
-        <template class="cap9-p81Rationale">
-          <p><strong>Resposta correta:</strong></p>
-          <p>C) A decisão de prescrever antibacteriano depende da probabilidade de infecção bacteriana.</p>
+      <article class="cap9-p81Question" data-q="2" data-question-state="pending">
+        <div class="cap9-p81QuestionHeader">
+          <span class="cap9-p81Kicker">Situação clínica 2</span>
+          <h2 class="cap9-p81QuestionTitle">Orientação sobre continuidade do tratamento</h2>
+        </div>
 
-          <p>
-            A comunicação adequada com o paciente deve deixar claro que febre, secreção nasal espessa ou mal-estar importante não definem, por si sós, uma etiologia bacteriana. A prescrição racional depende da avaliação clínica global e da probabilidade de infecção bacteriana, e não da intensidade isolada dos sintomas.
-          </p>
-        </template>
-      </div>
-
-      <!-- QUESTÃO 2 -->
-      <div class="cap9-p81Question" data-q="2">
         <p class="cap9-p81Case">
-          2) Um paciente iniciou antibioticoterapia para infecção bacteriana confirmada e relata melhora significativa dos sintomas após três dias de tratamento. Durante o retorno, pergunta se pode interromper o medicamento antes do tempo de tratamento prescrito.
+          Um paciente iniciou antibacteriano para infecção bacteriana confirmada e relata melhora significativa após três dias de uso. No retorno, pergunta se pode interromper o medicamento antes do tempo prescrito.
         </p>
 
         <p class="cap9-p81Prompt">
-          Qual orientação reflete melhor o princípio da comunicação adequada em antibioticoterapia?
+          Qual orientação melhor expressa uma comunicação adequada sobre o tratamento?
         </p>
 
-        <div class="cap9-p81Options" role="group" aria-label="Alternativas da questão 2">
+        <div class="cap9-p81Options" role="group" aria-label="Alternativas da situação clínica 2">
           <button type="button" data-answer="a">
             <span class="cap9-p81Letter">A</span>
-            <span>Interromper o antibacteriano assim que os sintomas desaparecem.</span>
+            <span>A melhora dos sintomas permite interromper o medicamento imediatamente.</span>
           </button>
 
           <button type="button" data-answer="b" data-correct="true">
             <span class="cap9-p81Letter">B</span>
-            <span>Continuar o tratamento exatamente pelo tempo recomendado para aquela infecção.</span>
+            <span>O tratamento deve ser mantido exatamente pelo tempo recomendado para aquela infecção.</span>
           </button>
 
           <button type="button" data-answer="c">
             <span class="cap9-p81Letter">C</span>
-            <span>Prolongar o tratamento por alguns dias adicionais para evitar recidiva.</span>
+            <span>O tratamento deve ser prolongado por segurança, mesmo após o tempo inicialmente orientado.</span>
           </button>
 
           <button type="button" data-answer="d">
             <span class="cap9-p81Letter">D</span>
-            <span>Reduzir a dose do medicamento após melhora clínica.</span>
+            <span>A dose pode ser reduzida após melhora clínica para diminuir efeitos adversos.</span>
           </button>
         </div>
 
         <div class="cap9-p81Actions">
-          <button class="cap9-p81Btn cap9-p81Btn--primary" type="button" data-p81-action="confirm" disabled>Confirmar</button>
-          <button class="cap9-p81Btn cap9-p81Btn--ghost" type="button" data-p81-action="reset" hidden>Refazer</button>
+          <button class="cap9-p81Btn cap9-p81Btn--primary" type="button" data-p81-action="confirm" disabled>
+            Confirmar interpretação
+          </button>
+          <button class="cap9-p81Btn cap9-p81Btn--ghost" type="button" data-p81-action="reset" hidden>
+            Refazer
+          </button>
         </div>
 
         <div class="cap9-p81Feedback" role="region" aria-live="polite"></div>
@@ -159,55 +163,69 @@
   "a": {
     "type": "error",
     "title": "Orientação inadequada",
-    "text": "A melhora clínica pode ocorrer antes da eliminação completa do agente infeccioso. Interromper precocemente o tratamento pode comprometer o controle adequado da infecção."
+    "text": "A melhora clínica pode ocorrer antes da resolução completa da infecção e não autoriza interrupção espontânea do esquema prescrito."
   },
   "b": {
     "type": "correct",
     "title": "Orientação adequada",
-    "text": "A duração do tratamento é definida para aquela infecção específica com base em evidências clínicas. A orientação correta é seguir exatamente o tempo prescrito, mesmo quando a melhora dos sintomas ocorre antes."
+    "text": "A duração do tratamento é definida com base em evidências clínicas para aquela infecção e deve ser seguida conforme prescrito, sem interrupção precoce nem prolongamento arbitrário."
   },
   "c": {
     "type": "error",
-    "title": "Prolongamento indevido",
-    "text": "Prolongar o tratamento além do tempo indicado não oferece benefício adicional e aumenta o risco de eventos adversos, alterações da microbiota e pressão seletiva sobre bactérias."
+    "title": "Conduta excessiva",
+    "text": "Prolongar o tratamento além do tempo indicado aumenta o risco de eventos adversos e pressão seletiva sem benefício adicional demonstrado."
   },
   "d": {
     "type": "error",
-    "title": "Ajuste impróprio",
-    "text": "Reduzir a dose sem orientação médica pode comprometer a eficácia terapêutica. Alterações de dose ou duração não devem ser feitas com base apenas na percepção subjetiva de melhora."
+    "title": "Orientação incorreta",
+    "text": "Reduzir a dose sem orientação médica pode comprometer a eficácia terapêutica e não constitui estratégia correta de comunicação ou manejo."
   }
 }
         </template>
+      </article>
 
-        <template class="cap9-p81Rationale">
-          <p><strong>Resposta correta:</strong></p>
-          <p>B) Continuar o tratamento exatamente pelo tempo recomendado para aquela infecção.</p>
-
-          <p>
-            A orientação correta em antibioticoterapia não é “usar até o fim da cartela” de modo genérico, nem interromper assim que houver melhora. O antibacteriano deve ser utilizado exatamente pelo tempo definido para aquela infecção específica, com base em evidências clínicas e no equilíbrio entre eficácia, segurança e redução de exposição desnecessária.
-          </p>
-        </template>
-      </div>
-
-      <div class="cap9-p81Done" hidden>
-        <div class="cap9-p81DoneCard" role="status" aria-live="polite">
-          <span class="cap9-p81Badge cap9-p81Badge--done">Concluído</span>
-          <p class="cap9-p81DoneText">Você concluiu o quiz de revisão deste capítulo.</p>
-          <div class="cap9-p81Closing">
-            <p>
-              Em antibioticoterapia, comunicar faz parte da própria prescrição. Explicar por que indicar ou não indicar um antibacteriano, orientar corretamente sobre o tempo de uso e esclarecer possíveis efeitos adversos são etapas essenciais para a segurança do paciente e para o uso racional desses medicamentos.
-            </p>
-          </div>
+      <section class="cap9-p81Completion" data-p81-completion hidden aria-live="polite">
+        <div class="cap9-p81Completion__header">
+          <span class="cap9-p81Completion__kicker">Fechamento clínico</span>
+          <h2 class="cap9-p81Completion__title">Síntese da comunicação em antibioticoterapia</h2>
         </div>
+
+        <p class="cap9-p81Completion__text">
+          Ao final deste capítulo, comunicar antibioticoterapia adequadamente deixa de ser apenas transmitir instruções. Passa a significar explicar por que um antibacteriano é ou não indicado, orientar corretamente duração e uso do tratamento e traduzir princípios clínicos em mensagens compreensíveis, seguras e capazes de favorecer adesão racional.
+        </p>
+      </section>
+
+      <div class="cap9-p81ClosingBlock">
+        <p>
+          Ao final deste capítulo, comunicar antibioticoterapia adequadamente deixa de ser apenas transmitir instruções. Passa a significar explicar por que um antibacteriano é ou não indicado, orientar corretamente duração e uso do tratamento e traduzir princípios clínicos em mensagens compreensíveis, seguras e capazes de favorecer adesão racional.
+        </p>
       </div>
     </section>
 
+    <details class="cap9-refBox">
+      <summary>Referências</summary>
+      <div class="cap9-refContent">
+        <p>1. Bergsholm YKR, Feiring M, Charnock C, Holm LB, Krogstad T. Exploring patients’ adherence to antibiotics by understanding their health knowledge and relational communication in encounters with pharmacists and physicians. Exploratory Research in Clinical and Social Pharmacy. 2023 Dec;12:100372. doi:10.1016/j.rcsop.2023.100372</p>
+        <p>2. Balea LB, Gulestø RJA, Xu H, Glasdam S. Physicians’, pharmacists’, and nurses’ education of patients about antibiotic use and antimicrobial resistance in primary care settings: a qualitative systematic literature review. Frontiers in Antibiotics. 2025 Jan 9;3. doi:10.3389/frabi.2024.1507868</p>
+        <p>3. Pires C. A Systematic Review of Controlled Trials: Can Patient Adherence to Antibiotics Be Improved Through Pharmaceutical Communication-Based Interventions? Pharmacy. 2024 Nov 26;12(6):178. doi:10.3390/pharmacy12060178</p>
+        <p>4. Blaser MJ, Cohen JI, Holland SM, organizadores. Mandell, Douglas, and Bennett’s Principles and Practice of Infectious Diseases. 10a ed. Philadelphia: Elsevier; 2025.</p>
+        <p>5. Blair JMA, Webber MA, Baylay AJ, Ogbolu DO, Piddock LJ V. Molecular mechanisms of antibiotic resistance. Nat Rev Microbiol. 2015 Jan 1;13(1):42–51. doi:10.1038/nrmicro3380</p>
+        <p>6. Mareković I, Markanović M, Lešin J, Ćorić M. Vancomycin-Resistant Enterococci: Current Understandings of Resistance in Relation to Transmission and Preventive Strategies. Pathogens. 2024 Nov 5;13(11):966. doi:10.3390/pathogens13110966</p>
+        <p>7. Stul F, Heytens S, Ebo DG, Sabato V, Piessens V. Safe Penicillin Allergy Delabeling in Primary Care: A Systematic Review and Meta-Analysis. J Allergy Clin Immunol Pract. 2024 Sep;12(9):2415-2426.e1. doi:10.1016/j.jaip.2024.06.017</p>
+        <p>8. Bush K, Bradford PA. β-Lactams and β-Lactamase Inhibitors: An Overview. Cold Spring Harb Perspect Med. 2016 Aug;6(8):a025247. doi:10.1101/cshperspect.a025247</p>
+        <p>9. Greenfield A, Deja E, Lee K, Sastry S, Rittmann B. Linezolid and tedizolid adverse effects: a review on serotonin syndrome, myelosuppression, neuropathies, and lactic acidosis. Antimicrobial Stewardship & Healthcare Epidemiology. 2025 Jan 27;5(1):e20. doi:10.1017/ash.2024.487</p>
+      </div>
+    </details>
 
-  <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p80.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 9 · Página 81 de 89</div>
-      <button class="btn primary" type="button" data-next="../capitulo-10/p82.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+<nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p80.html" aria-label="Ir para a página anterior">← Anterior</a>
+
+  <div class="center">Capítulo 9 · Página 81 de 89</div>
+
+  <a class="btn primary" href="../capitulo-10/p82.html" aria-label="Ir para a próxima página">
+    Próxima →
+  </a>
+</nav>
 
   </main>
 

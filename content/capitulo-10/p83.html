@@ -1,163 +1,106 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Capítulo 10 — Página 83</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<title>Capítulo 10 — Simulação Clínica Integrada</title>
 
-  <link rel="stylesheet" href="../../css/base.css" />
-  <link rel="stylesheet" href="../../css/components.css" />
-  <link rel="stylesheet" href="../../css/capitulo-10.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../../css/base.css"/>
+<link rel="stylesheet" href="../../css/components.css"/>
+<link rel="stylesheet" href="../../css/capitulo-10.css"/>
 </head>
 
 <body class="cap10-page83">
 
-  <main class="page-shell">
+<main class="page-shell">
 
-    <header class="page-header">
-      <div class="chapter">Capítulo 10 — Simulação Clínica Integrada</div>
-      <h1 class="page-title">Simulação 1 — Decidir sob incerteza</h1>
-    </header>
+<header class="page-header">
+<div class="chapter">Capítulo 10 — Simulação Clínica Integrada</div>
+<h1 class="page-title">Simulação 1 — Processo decisório contínuo</h1>
+</header>
 
-    <section class="prose" aria-label="Texto principal">
+<section class="prose">
 
-      <p>
-        Homem, 68 anos, diabético, com doença renal crônica. Encontra-se internado há quase duas semanas após complicação abdominal cirúrgica.
-      </p>
+<p>
+Homem, 68 anos, previamente hígido, procura atendimento com quadro de febre, tosse produtiva e dispneia há três dias. Ao exame, apresenta frequência respiratória aumentada, saturação de oxigênio reduzida e crepitações em base pulmonar direita.
+</p>
 
-      <p>
-        Durante a internação, recebeu diferentes antibacterianos.
-      </p>
+<p>
+Não há identificação microbiológica disponível no momento da avaliação inicial. A decisão terapêutica precisa ser tomada antes da confirmação etiológica, com base na probabilidade clínica de infecção bacteriana e na gravidade do quadro<sup>7</sup>.
+</p>
 
-      <p>
-        Nas últimas horas, evolui com febre alta, queda da pressão arterial, aumento da frequência cardíaca e sinais de disfunção orgânica.
-      </p>
+</section>
 
-      <p>
-        Culturas são coletadas. O agente etiológico ainda não foi identificado.
-      </p>
+<!-- PAINEL CLÍNICO -->
 
-      <p>
-        A decisão inicial não pode se basear em certeza microbiológica, mas em estimativa de risco.
-      </p>
+<section class="cap10-clinical-panel">
 
-    </section>
+<div class="chip">Idade: 68 anos</div>
+<div class="chip">Síndrome: Respiratória</div>
+<div class="chip critical">Gravidade: Moderada/Alta</div>
+<div class="chip">Microbiologia: Indisponível</div>
 
-    <section class="cap10-p83-sim" data-cap10-p83>
-      <div class="cap10-p83-step is-active" data-p83-step="1">
+</section>
 
-        <p class="cap10-p83-question">
-          Diante desse cenário, qual estratégia inicial melhor expressa o raciocínio em antibioticoterapia?
-        </p>
+<!-- TRILHO -->
 
-        <div class="cap10-p83-options">
-          <button class="cap10-p83-option" type="button" data-p83-choice="manter">
-            Manter o espectro atual
-          </button>
+<section class="cap10-track">
+<div id="track"></div>
+</section>
 
-          <button class="cap10-p83-option" type="button" data-p83-choice="ampliar">
-            Ampliar empiricamente a cobertura
-          </button>
+<!-- ETAPA -->
 
-          <button class="cap10-p83-option" type="button" data-p83-choice="reavaliar">
-            Reavaliar o risco antes de modificar
-          </button>
-        </div>
+<section class="cap10-game">
 
-      </div>
+<div class="step active" data-step="1">
 
-      <div class="cap10-p83-step" data-p83-step="2" hidden>
+<p class="question">
+Qual estratégia inicial melhor representa o raciocínio esperado?
+</p>
 
-        <p class="cap10-p83-feedback" id="cap10P83Feedback"></p>
+<div class="cards">
 
-        <button class="cap10-p83-next" type="button" data-p83-next="3">
-          Continuar
-        </button>
+<div class="card" data-choice="aguardar">
+<h3>Aguardar confirmação</h3>
+<p>Evita decisão precoce sem dados microbiológicos</p>
+<span class="risk warning">Risco de atraso terapêutico</span>
+</div>
 
-      </div>
+<div class="card" data-choice="amplo">
+<h3>Ampliar espectro</h3>
+<p>Busca cobertura máxima independente do contexto</p>
+<span class="risk error">Exposição desproporcional</span>
+</div>
 
-      <div class="cap10-p83-step" data-p83-step="3" hidden>
+<div class="card correct" data-choice="empirico">
+<h3>Terapia empírica</h3>
+<p>Integra probabilidade etiológica e gravidade</p>
+<span class="risk ok">Estratégia inicial adequada</span>
+</div>
 
-        <p>
-          Nas horas seguintes, o paciente mantém instabilidade clínica.
-        </p>
+</div>
 
-        <p>
-          Posteriormente, há identificação microbiológica do agente infeccioso, acompanhada de informação sobre perfil de resistência.
-        </p>
+</div>
 
-        <p class="cap10-p83-question">
-          Diante dessas novas informações, qual deve ser o próximo movimento do raciocínio?
-        </p>
+<div class="feedback" id="feedback"></div>
 
-        <div class="cap10-p83-options">
-          <button class="cap10-p83-option" type="button" data-p83-choice="manter2">
-            Manter automaticamente a estratégia inicial
-          </button>
+<button class="next" id="nextBtn" hidden>Continuar</button>
 
-          <button class="cap10-p83-option" type="button" data-p83-choice="ajustar">
-            Ajustar a estratégia conforme os dados microbiológicos
-          </button>
+</section>
 
-          <button class="cap10-p83-option" type="button" data-p83-choice="ampliar2">
-            Ampliar o espectro sem direcionamento específico
-          </button>
-        </div>
+<nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p82.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 10 · Página 83 de 89</div>
+  <a class="btn primary" href="p84.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
 
-      </div>
+</main>
 
-      <div class="cap10-p83-step" data-p83-step="4" hidden>
-
-        <p class="cap10-p83-feedback" id="cap10P83FeedbackFinal"></p>
-
-        <button class="cap10-p83-next" type="button" data-p83-next="5">
-          Continuar
-        </button>
-
-      </div>
-
-      <div class="cap10-p83-step" data-p83-step="5" hidden>
-
-        <p class="cap10-p83-final">
-          A decisão em antibioticoterapia não é estática. Ela evolui conforme novos dados se tornam disponíveis.
-        </p>
-
-        <p class="cap10-p83-final-sub">
-          A adequação precoce influencia o desfecho clínico, enquanto a reavaliação contínua permite transformar uma estratégia empírica em uma decisão mais precisa.
-        </p>
-
-        <p class="cap10-p83-highlight">
-          Decidir em antibioticoterapia implica iniciar, observar, reinterpretar e ajustar.
-        </p>
-
-      </div>
-    </section>
-
-  <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p82.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 10 · Página 83 de 89</div>
-      <button class="btn primary" type="button" data-next="p84.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
-
-  </main>
-
-  <div class="cap10-lightbox" id="cap7Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap10-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap10-lightbox__dialog">
-      <button class="cap10-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap10-lightbox__figure">
-        <img id="cap10LightboxImage" src="" alt="" />
-        <figcaption id="cap10LightboxCaption" class="cap10-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <script src="../../js/app.js"></script>
-  <script src="../../js/capitulo-10.js"></script>
+<script src="../../js/app.js"></script>
+<script src="../../js/capitulo-10.js"></script>
 
 </body>
 </html>

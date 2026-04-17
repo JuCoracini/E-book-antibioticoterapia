@@ -5,6 +5,9 @@
 (function initGlobalLightbox() {
   if (!document.body) return;
 
+  // Evita duplicação de lightbox
+  if (document.querySelector(".lightbox")) return;
+
   const lightbox = document.createElement("div");
   lightbox.className = "lightbox";
   lightbox.hidden = true;
@@ -41,7 +44,11 @@
   let isOpen = false;
 
   function openLightbox(src, alt) {
-    if (isOpen) return;
+    // 🔧 CORREÇÃO: sempre reinicia corretamente
+    if (isOpen) {
+      closeLightbox();
+    }
+
     isOpen = true;
 
     lastFocusedElement = document.activeElement;
@@ -59,6 +66,7 @@
 
   function closeLightbox() {
     if (!isOpen) return;
+
     isOpen = false;
 
     lightbox.hidden = true;
@@ -104,6 +112,12 @@
       closeLightbox();
     }
   });
+
+  // 🔧 CORREÇÃO CRÍTICA: garante reset ao sair da página
+  window.addEventListener("beforeunload", function () {
+    closeLightbox();
+  });
+
 })();
 
 /* =========================
@@ -116,11 +130,10 @@ document.addEventListener("click", function (event) {
   if (next && !next.hasAttribute("disabled")) {
     event.preventDefault();
 
-    const url = next.getAttribute("data-next");
+    fecharLightboxSeAberto();
 
-    if (url) {
-      window.location.href = url;
-    }
+    const url = next.getAttribute("data-next");
+    if (url) window.location.href = url;
     return;
   }
 
@@ -128,11 +141,32 @@ document.addEventListener("click", function (event) {
   if (prev && !prev.hasAttribute("disabled")) {
     event.preventDefault();
 
-    const url = prev.getAttribute("data-prev");
+    fecharLightboxSeAberto();
 
-    if (url) {
-      window.location.href = url;
-    }
+    const url = prev.getAttribute("data-prev");
+    if (url) window.location.href = url;
   }
 
 });
+
+/* =========================
+   UTILITÁRIO GLOBAL
+   ========================= */
+
+const AppUtils = {
+  fecharLightboxSeAberto(){
+    const lightbox = document.querySelector(".lightbox");
+    if (!lightbox) return;
+
+    lightbox.hidden = true;
+    lightbox.setAttribute("aria-hidden", "true");
+
+    const img = lightbox.querySelector("img");
+    if (img) {
+      img.src = "";
+      img.alt = "";
+    }
+
+    document.body.style.overflow = "";
+  }
+};

@@ -45,6 +45,12 @@
 
     </section>
 
+    <section class="cap10-p85-context" aria-label="Contexto clínico da decisão">
+      <p class="cap10-p85-context__line">
+        Você iniciou cobertura ampliada em um cenário grave. Agora a decisão depende de reinterpretar risco microbiológico, benefício clínico e custo terapêutico.
+      </p>
+    </section>
+
     <section class="cap10-p85-sim" data-cap10-p85>
 
       <div class="cap10-p85-step is-active" data-p85-step="1">
@@ -55,15 +61,21 @@
 
         <div class="cap10-p85-options">
           <button class="cap10-p85-option" type="button" data-p85-choice="manter-associacao">
-            Manter automaticamente toda a estratégia inicial até o final
+            <strong>Manter automaticamente toda a estratégia inicial</strong>
+            <span>Preserva o esquema ampliado sem reinterpretar o novo cenário microbiológico.</span>
+            <em class="cap10-p85-optionTag cap10-p85-optionTag--warning">Persistência automática</em>
           </button>
 
-          <button class="cap10-p85-option" type="button" data-p85-choice="simplificar">
-            Reavaliar a necessidade de simplificar a estratégia antimicrobiana
+          <button class="cap10-p85-option cap10-p85-option--recommended" type="button" data-p85-choice="simplificar">
+            <strong>Reavaliar a necessidade de simplificar a estratégia</strong>
+            <span>Integra melhora clínica, suscetibilidade conhecida e proporcionalidade do espectro.</span>
+            <em class="cap10-p85-optionTag cap10-p85-optionTag--success">Princípio mais adequado</em>
           </button>
 
           <button class="cap10-p85-option" type="button" data-p85-choice="ampliar-precaucao">
-            Ampliar ainda mais a cobertura por precaução
+            <strong>Ampliar ainda mais a cobertura por precaução</strong>
+            <span>Aumenta exposição antimicrobiana sem novo fundamento microbiológico.</span>
+            <em class="cap10-p85-optionTag cap10-p85-optionTag--error">Escalada desnecessária</em>
           </button>
         </div>
 
@@ -71,7 +83,7 @@
 
       <div class="cap10-p85-step" data-p85-step="2" hidden>
 
-        <p class="cap10-p85-feedback" id="cap10P85Feedback"></p>
+        <div class="cap10-p85-feedback" id="cap10P85Feedback"></div>
 
         <button class="cap10-p85-next" type="button" data-p85-next="3">
           Continuar
@@ -95,15 +107,21 @@
 
         <div class="cap10-p85-options">
           <button class="cap10-p85-option" type="button" data-p85-choice="cobertura-eterna">
-            Uma estratégia inicial mais ampla deve ser mantida sempre que houver gravidade prévia
+            <strong>Estratégia ampla deve ser mantida sempre</strong>
+            <span>Transforma gravidade inicial em justificativa permanente para exposição ampliada.</span>
+            <em class="cap10-p85-optionTag cap10-p85-optionTag--warning">Segurança aparente</em>
           </button>
 
-          <button class="cap10-p85-option" type="button" data-p85-choice="ajuste-proporcional">
-            A estratégia precisa ser ajustada quando o risco microbiológico real diminui e os danos potenciais aumentam
+          <button class="cap10-p85-option cap10-p85-option--recommended" type="button" data-p85-choice="ajuste-proporcional">
+            <strong>Ajustar quando o risco real diminui e os danos aumentam</strong>
+            <span>Reinterpreta a estratégia conforme evolução clínica, toxicidade e risco microbiológico atual.</span>
+            <em class="cap10-p85-optionTag cap10-p85-optionTag--success">Leitura mais coerente</em>
           </button>
 
           <button class="cap10-p85-option" type="button" data-p85-choice="duplicar-seguranca">
-            A associação prolongada oferece segurança adicional mesmo sem novo benefício microbiológico demonstrado
+            <strong>Associação prolongada oferece segurança adicional</strong>
+            <span>Presume benefício contínuo mesmo sem novo ganho microbiológico demonstrado.</span>
+            <em class="cap10-p85-optionTag cap10-p85-optionTag--error">Exposição excessiva</em>
           </button>
         </div>
 
@@ -111,7 +129,7 @@
 
       <div class="cap10-p85-step" data-p85-step="4" hidden>
 
-        <p class="cap10-p85-feedback" id="cap10P85FeedbackFinal"></p>
+        <div class="cap10-p85-feedback" id="cap10P85FeedbackFinal"></div>
 
         <button class="cap10-p85-next" type="button" data-p85-next="5">
           Continuar
@@ -133,6 +151,10 @@
           Quando a suscetibilidade é conhecida e o risco microbiológico diminui, manter exposições desnecessárias amplia toxicidade e impacto ecológico sem benefício proporcional.
         </p>
 
+        <div class="cap10-p85-insight" id="cap10P85Insight">
+          Descalonar não significa enfraquecer o tratamento. Significa alinhar a intensidade terapêutica ao risco real, reduzindo dano desnecessário sem perder eficácia.
+        </div>
+
         <p class="cap10-p85-highlight">
           Em antibioticoterapia racional, descalonar não significa tratar menos: significa tratar com mais precisão.
         </p>
@@ -141,26 +163,14 @@
 
     </section>
 
-    <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p84.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 10 · Página 85 de 89</div>
-      <button class="btn primary" type="button" data-next="p86.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+
+<nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p84.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 10 · Página 85 de 89</div>
+  <a class="btn primary" href="p86.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
 
   </main>
-
-  <div class="cap10-lightbox" id="cap7Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap10-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap10-lightbox__dialog">
-      <button class="cap10-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap10-lightbox__figure">
-        <img id="cap10LightboxImage" src="" alt="" />
-        <figcaption id="cap10LightboxCaption" class="cap10-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-10.js"></script>

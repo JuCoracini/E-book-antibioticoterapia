@@ -16,57 +16,71 @@
 
 <body class="cap5-page44">
 
-  <main class="container page-shell">
+  <main class="page-shell">
 
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
-        <h1 class="page-title">Teste de sensibilidade</h1>
-      </div>
+      <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
+      <h1 class="page-title">Teste de sensibilidade</h1>
     </header>
 
-    <section class="prose">
+    <section class="prose" aria-label="Texto principal">
 
       <p>
-        Após a identificação do microrganismo, o laboratório realiza o teste de sensibilidade antimicrobiana, cujo objetivo é avaliar o comportamento da bactéria frente a concentrações conhecidas de diferentes antibacterianos em condições laboratoriais padronizadas <sup>1</sup>.
+        Após a identificação do microrganismo, o laboratório realiza o teste de sensibilidade antimicrobiana, cujo objetivo é avaliar o comportamento da bactéria frente a concentrações conhecidas de diferentes antibacterianos em condições laboratoriais padronizadas <sup>2,3,10</sup>.
       </p>
 
       <p>
-        Esses testes avaliam, em condições laboratoriais padronizadas, se o crescimento bacteriano é inibido na presença de concentrações definidas de determinado antibacteriano. O resultado obtido corresponde ao comportamento observado <em>in vitro</em>, sob condições metodológicas previamente definidas e controladas <sup>2</sup>.
+        Esses testes determinam se o crescimento bacteriano é inibido na presença de concentrações definidas de determinado antibacteriano. O resultado obtido corresponde ao comportamento observado <em>in vitro</em>, sob condições metodológicas previamente definidas e controladas <sup>2,3</sup>.
       </p>
 
       <p>
-        Na rotina microbiológica clínica, dois princípios metodológicos são utilizados com maior frequência: difusão em disco e microdiluição em caldo <sup>1</sup>.
+        Na rotina microbiológica clínica, dois princípios metodológicos são utilizados com maior frequência: a difusão em disco e a microdiluição em caldo <sup>2,5</sup>.
       </p>
 
-      <h2>Difusão em disco</h2>
+      <p class="eyebrow center-note">Difusão em disco</p>
 
       <p>
         No método de difusão em disco, discos de papel impregnados com quantidades padronizadas de antibacteriano são posicionados sobre a superfície de um meio de cultura previamente inoculado com a bactéria isolada.
       </p>
 
-      <!-- INTERAÇÃO -->
-      <section class="cap5-p44-tempo">
+      <section class="cap5-p44-tempo" aria-labelledby="cap5-p44-tempo-title">
+        <div class="cap5-p44-tempo__head">
+          <h3 id="cap5-p44-tempo-title">A difusão acontece progressivamente no meio</h3>
+          <p>
+            Ao longo da incubação, forma-se um gradiente de concentração ao redor do disco. A leitura do halo só faz sentido depois que essa difusão se estabelece.
+          </p>
+        </div>
 
-        <div class="cap5-p44-controls">
-          <button class="tempo-btn active" data-tempo="0">0h</button>
-          <button class="tempo-btn" data-tempo="6">6h</button>
-          <button class="tempo-btn" data-tempo="12">12h</button>
-          <button class="tempo-btn" data-tempo="18">18h</button>
-          <button class="tempo-btn" data-tempo="24">24h</button>
+        <div class="cap5-p44-controls" role="tablist" aria-label="Evolução temporal da difusão em disco">
+          <button class="tempo-btn active" type="button" role="tab" aria-selected="true" data-tempo="0">0h</button>
+          <button class="tempo-btn" type="button" role="tab" aria-selected="false" data-tempo="6">6h</button>
+          <button class="tempo-btn" type="button" role="tab" aria-selected="false" data-tempo="12">12h</button>
+          <button class="tempo-btn" type="button" role="tab" aria-selected="false" data-tempo="18">18h</button>
+          <button class="tempo-btn" type="button" role="tab" aria-selected="false" data-tempo="24">24h</button>
         </div>
 
         <figure class="cap5-p44-figure">
-          <img id="tempo-img" src="../../assets/capitulo-05/imagens/difusao-disco-0h.png" alt="Placa de cultura tempo 0" />
-          <figcaption id="tempo-caption">
+          <button
+            class="cap5-p44-figure__zoom"
+            type="button"
+            data-zoom="../../assets/capitulo-05/imagens/difusao-disco-0h.png"
+            aria-label="Ampliar imagem da difusão em disco"
+          >
+            <img
+              id="tempo-img"
+              src="../../assets/capitulo-05/imagens/difusao-disco-0h.png"
+              alt="Placa de difusão em disco no tempo inicial."
+              loading="lazy"
+            />
+          </button>
+          <figcaption id="tempo-caption" class="cap5-p44-figure__caption">
             Tempo inicial: o antibacteriano ainda não se difundiu de forma significativa no meio.
           </figcaption>
         </figure>
-
       </section>
 
       <p>
-        Durante a incubação, o antibacteriano difunde-se radialmente no ágar, formando um gradiente de concentração. Próximo ao disco, a concentração é mais elevada; à medida que se afasta, a concentração diminui progressivamente.
+        Durante a incubação, o antibacteriano difunde-se radialmente no ágar, formando um gradiente de concentração. Próximo ao disco, a concentração é mais elevada; à medida que se afasta, diminui progressivamente.
       </p>
 
       <p>
@@ -74,38 +88,26 @@
       </p>
 
       <p>
-        Após o período de incubação, o diâmetro desse halo é medido em milímetros. Esse valor será posteriormente comparado a tabelas interpretativas que relacionam o tamanho do halo à probabilidade de atividade do antibacteriano contra aquele microrganismo.
+        Após o período de incubação, o diâmetro desse halo é medido em milímetros. Esse valor é comparado a tabelas interpretativas que relacionam o tamanho do halo à probabilidade de atividade do antibacteriano contra aquele microrganismo <sup>10,12</sup>.
       </p>
 
-      <p class="cap5-highlight">
+      <p class="cap5-p44-closing">
         Esse método fornece, portanto, uma medida indireta da suscetibilidade bacteriana, baseada no diâmetro da zona de inibição observada no meio sólido.
       </p>
 
     </section>
 
-  <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p43.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 5 · Página 44 de 89</div>
-      <button class="btn primary" type="button" data-next="p45.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+<nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p43.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 5 · Página 44 de 89</div>
+  <a class="btn primary" href="p45.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
 
- </main>
 
-  <div class="cap5-lightbox" id="cap5Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap5-lightbox__backdrop" data-lightbox-close></div>
+  </main>
 
-    <div class="cap5-lightbox__dialog">
-      <button class="cap5-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap5-lightbox__figure">
-        <img id="cap5LightboxImage" src="" alt="" />
-        <figcaption id="cap5LightboxCaption" class="cap5-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
-
- <script src="../../js/app.js"></script>
- <script src="../../js/capitulo-05.js"></script>
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-05.js"></script>
 
 </body>
 </html>

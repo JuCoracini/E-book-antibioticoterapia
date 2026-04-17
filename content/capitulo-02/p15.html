@@ -15,7 +15,6 @@
 </head>
 
 <body class="cap2-shell cap2-page15">
-
   <main class="page-shell">
 
     <header class="page-header">
@@ -29,7 +28,7 @@
       </p>
 
       <p>
-        Durante a tradução, o ribossomo coordena a leitura sequencial do RNA mensageiro e a incorporação ordenada de aminoácidos transportados por RNAs transportadores (tRNA), permitindo a formação de proteínas necessárias à sobrevivência e à multiplicação bacteriana.
+        Durante a tradução, o ribossomo coordena a leitura sequencial do RNA mensageiro e a incorporação ordenada de aminoácidos transportados por RNAs transportadores, permitindo a formação de proteínas necessárias à sobrevivência e à multiplicação bacteriana.
       </p>
 
       <p>
@@ -45,24 +44,23 @@
       </p>
     </section>
 
-    <section class="cap2-p15-stage" data-cap2-protein aria-label="Síntese proteica bacteriana e pontos de interferência farmacológica">
-
+    <section class="cap2-p15-stage" data-cap2-p15 aria-label="Processo normal e alvos ribossomais dos antibacterianos">
       <p class="cap2-p15-intro">
-        Selecione o processo normal de tradução ou os alvos farmacológicos nas subunidades 30S e 50S para visualizar, em sequência, como a síntese proteica bacteriana é comprometida.
+        Selecione uma das abas para comparar o processo traducional normal com a interferência farmacológica sobre as subunidades 30S e 50S.
       </p>
 
-      <div class="cap2-p15-tabs" role="tablist" aria-label="Síntese proteica bacteriana">
+      <div class="cap2-p15-tabs" role="tablist" aria-label="Comparação da síntese proteica bacteriana">
         <button
           class="cap2-p15-tab is-active"
           type="button"
           role="tab"
-          id="cap2P15TabProcesso"
+          id="cap2P15TabNormal"
           aria-selected="true"
           aria-controls="cap2P15Panel"
           tabindex="0"
-          data-protein-group="processo"
+          data-p15-tab="normal"
         >
-          Processo
+          Processo normal
         </button>
 
         <button
@@ -73,9 +71,9 @@
           aria-selected="false"
           aria-controls="cap2P15Panel"
           tabindex="-1"
-          data-protein-group="30s"
+          data-p15-tab="30s"
         >
-          30S
+          Ação na 30S
         </button>
 
         <button
@@ -86,9 +84,9 @@
           aria-selected="false"
           aria-controls="cap2P15Panel"
           tabindex="-1"
-          data-protein-group="50s"
+          data-p15-tab="50s"
         >
-          50S
+          Ação na 50S
         </button>
       </div>
 
@@ -96,53 +94,55 @@
         id="cap2P15Panel"
         class="cap2-p15-board"
         role="tabpanel"
-        aria-labelledby="cap2P15TabProcesso"
+        aria-labelledby="cap2P15TabNormal"
       >
-
-        <figure class="cap2-p15-figure">
+        <figure class="cap2-p15-figure cap2-p15-figure--hero">
           <button
             class="cap2-p15-zoom"
             type="button"
-            data-zoom="../../assets/capitulo-02/imagens/ribossomo-iniciacao.png"
-            aria-label="Ampliar imagem da síntese proteica bacteriana"
+            data-zoom="../../assets/capitulo-02/imagens/cap02-p15-normal.png"
+            aria-label="Ampliar imagem do processo normal da síntese proteica bacteriana"
           >
             <img
               id="cap2P15Image"
-              src="../../assets/capitulo-02/imagens/ribossomo-iniciacao.png"
-              alt="Etapa de iniciação da síntese proteica bacteriana"
+              src="../../assets/capitulo-02/imagens/cap02-p15-normal.png"
+              alt="Síntese proteica bacteriana em condições normais"
               loading="lazy"
             />
           </button>
 
           <figcaption id="cap2P15Caption" class="caption">
-            Etapa de iniciação da síntese proteica bacteriana. Clique para ampliar.
+            Processo normal da síntese proteica bacteriana. Clique para ampliar.
           </figcaption>
         </figure>
 
-        <div class="cap2-p15-controls">
-          <button class="btn ghost" type="button" id="cap2P15Prev" aria-label="Voltar uma etapa">← Etapa</button>
-          <div id="cap2P15Step" class="cap2-p15-step" aria-live="polite"></div>
-          <button class="btn primary" type="button" id="cap2P15Next" aria-label="Avançar uma etapa">Etapa →</button>
-        </div>
-
         <div class="cap2-p15-panel" aria-live="polite">
-          <h2 id="cap2P15Title" class="cap2-p15-panel__title">Iniciação</h2>
-          <div id="cap2P15Text" class="cap2-p15-panel__text"></div>
-        </div>
+          <h2 id="cap2P15Title" class="cap2-p15-panel__title">
+            Processo normal da tradução bacteriana
+          </h2>
 
+          <div id="cap2P15Body" class="cap2-p15-panel__body">
+            <p>
+              No processo fisiológico, a subunidade 30S reconhece o RNA mensageiro e posiciona o tRNA iniciador. Em seguida, a subunidade 50S se associa ao complexo, permitindo a entrada sequencial de novos tRNAs, a formação das ligações peptídicas e a elongação ordenada da cadeia polipeptídica.
+            </p>
+            <p>
+              Esse fluxo contínuo explica por que a síntese proteica depende da integridade funcional das duas subunidades ribossomais bacterianas.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="prose" aria-label="Fechamento do texto">
       <p>
-        A redução da síntese proteica compromete a produção de enzimas metabólicas, proteínas estruturais e fatores regulatórios. Embora a célula bacteriana mantenha inicialmente sua integridade estrutural, ela perde progressivamente a capacidade de adaptação e multiplicação.
+        A interrupção da síntese proteica compromete progressivamente a produção de enzimas, proteínas estruturais e regulatórias necessárias à viabilidade bacteriana. Como consequência, a célula perde capacidade de adaptação metabólica e de multiplicação, o que explica o efeito antimicrobiano associado a essas classes <sup>2,4</sup>.
       </p>
     </section>
 
     <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p14.html" aria-label="Ir para a página anterior">← Anterior</button>
+      <a class="btn" href="p14.html" aria-label="Ir para a página anterior">← Anterior</a>
       <div class="center">Capítulo 2 · Página 15 de 89</div>
-      <button class="btn primary" type="button" data-next="p16.html" aria-label="Ir para a próxima página">Próxima →</button>
+      <a class="btn primary" href="p16.html" aria-label="Ir para a próxima página">Próxima →</a>
     </nav>
 
   </main>

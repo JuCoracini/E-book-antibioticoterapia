@@ -19,110 +19,106 @@
   <main class="page-shell">
 
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 4 — Farmacocinética e Farmacodinâmica Aplicadas</div>
-        <h1 class="page-title">Biofilme e microambiente infeccioso</h1>
-      </div>
+      <div class="chapter">Capítulo 4 — Farmacocinética e Farmacodinâmica Aplicadas</div>
+      <h1 class="page-title">Biofilme e microambiente infeccioso</h1>
     </header>
 
-    <section class="prose cap4-reading-flow" aria-label="Texto principal">
+    <section class="prose" aria-label="Texto principal">
 
       <p>
-        Nem todas as bactérias envolvidas em um processo infeccioso encontram-se livres no meio líquido. Em diversas condições clínicas, elas organizam-se em comunidades estruturadas aderidas a superfícies biológicas ou artificiais, formando biofilmes. Nesse arranjo, as células bacterianas permanecem envolvidas por uma matriz extracelular composta por polissacarídeos, proteínas e DNA extracelular, criando um microambiente com características próprias <sup>11</sup>.
+        Nem todas as bactérias envolvidas em um processo infeccioso encontram-se livres no meio líquido. Em diversas condições clínicas, elas organizam-se em comunidades estruturadas aderidas a superfícies biológicas ou artificiais, formando biofilmes. Nesse arranjo, as células bacterianas permanecem envolvidas por uma matriz extracelular composta por polissacarídeos, proteínas e DNA extracelular, criando um microambiente com características próprias <sup>18,19</sup>.
       </p>
 
-      <p>
-        A organização em biofilme modifica a dinâmica de exposição aos antibacterianos. A matriz extracelular pode retardar ou limitar a difusão do fármaco, resultando em gradientes de concentração entre as camadas superficiais e profundas da estrutura. Mesmo quando as concentrações plasmáticas são adequadas, a exposição efetiva no interior do biofilme pode ser inferior à observada no meio circundante.
-      </p>
+      <section class="cap4-p36-biofilm" aria-labelledby="cap4-p36-biofilm-title">
+        <div class="cap4-p36-biofilm__head">
+          <p class="eyebrow">Leitura estrutural e funcional</p>
+          <h3 id="cap4-p36-biofilm-title" class="cap4-p36-biofilm__title">O biofilme não é apenas uma camada bacteriana: ele reorganiza a exposição ao antibacteriano</h3>
+          <p class="cap4-p36-biofilm__subtitle">
+            A imagem mostra a arquitetura do biofilme. A leitura guiada ajuda a entender por que a resposta terapêutica deixa de depender apenas da concentração plasmática aparentemente adequada.
+          </p>
+        </div>
 
-      <p class="cap4-p36-lead">
-        A figura a seguir ilustra como o biofilme altera progressivamente a exposição ao antibacteriano e a resposta das bactérias em diferentes profundidades.
-      </p>
+        <div class="cap4-p36-biofilm__layout">
 
-      <section class="cap4-p36-stage" data-cap4-p36 aria-label="Exploração guiada do biofilme">
-        <div class="cap4-p36-layout">
-
-          <div class="cap4-p36-figureWrap">
+          <figure class="figure cap4-p36-figure">
             <button
-              class="cap4-p36-zoomTrigger"
               type="button"
-              data-zoom-image="../../assets/capitulo-04/imagens/biofilme-microambiente-limpo.png"
-              data-zoom-alt="Biofilme em corte lateral mostrando gradiente de concentração, matriz extracelular, bactérias superficiais e camadas profundas."
-              data-zoom-caption="Representação esquemática do biofilme com gradiente de concentração do antibacteriano, matriz extracelular e heterogeneidade funcional entre bactérias superficiais e profundas. Clique na imagem para ampliar."
-              aria-label="Ampliar imagem do biofilme"
+              class="cap4-p36-figure__zoom"
+              data-zoom="../../assets/capitulo-04/imagens/biofilme-estrutura.png"
+              aria-label="Ampliar ilustração de biofilme e microambiente infeccioso"
             >
               <img
-                src="../../assets/capitulo-04/imagens/biofilme-microambiente-limpo.png"
-                alt="Biofilme em corte lateral mostrando gradiente de concentração, matriz extracelular, bactérias superficiais e camadas profundas."
+                src="../../assets/capitulo-04/imagens/biofilme-estrutura.png"
+                alt="Estrutura esquemática de biofilme com matriz extracelular, camadas bacterianas e penetração limitada do antimicrobiano."
                 loading="lazy"
               />
             </button>
+            <figcaption class="caption">
+              A organização em biofilme cria barreiras físicas e funcionais entre a concentração alcançada no meio circundante e a exposição efetiva nas camadas mais profundas da infecção.
+            </figcaption>
+          </figure>
 
-            <div class="cap4-p36-hotspots">
-              <button class="cap4-p36-hotspot is-active" type="button" data-p36-key="gradient" aria-label="Explorar gradiente de concentração"></button>
-              <button class="cap4-p36-hotspot" type="button" data-p36-key="matrix" aria-label="Explorar matriz extracelular"></button>
-              <button class="cap4-p36-hotspot" type="button" data-p36-key="surface" aria-label="Explorar bactérias superficiais"></button>
-              <button class="cap4-p36-hotspot" type="button" data-p36-key="deep" aria-label="Explorar camadas profundas"></button>
+          <div class="cap4-p36-guide" aria-label="Leitura guiada do biofilme">
+            <div class="cap4-p36-guide__controls" role="tablist" aria-label="Aspectos críticos do biofilme">
+              <button class="cap4-p36-guide__chip is-active" type="button" role="tab" aria-selected="true" data-p36-step="superficie">
+                Superfície
+              </button>
+              <button class="cap4-p36-guide__chip" type="button" role="tab" aria-selected="false" data-p36-step="intermediaria">
+                Camada intermediária
+              </button>
+              <button class="cap4-p36-guide__chip" type="button" role="tab" aria-selected="false" data-p36-step="profunda">
+                Camada profunda
+              </button>
+              <button class="cap4-p36-guide__chip" type="button" role="tab" aria-selected="false" data-p36-step="microambiente">
+                Microambiente
+              </button>
+            </div>
+
+            <div class="cap4-p36-guide__panel" aria-live="polite">
+              <div class="cap4-p36-guide__eyebrow" id="cap4-p36-eyebrow">Camada de maior contato com o meio externo</div>
+              <h3 class="cap4-p36-guide__title" id="cap4-p36-title">Superfície do biofilme</h3>
+              <div class="cap4-p36-guide__text" id="cap4-p36-text">
+                <p>
+                  As camadas superficiais estão mais expostas ao antibacteriano e aos componentes da resposta imune. Mesmo assim, a simples presença de concentração externa adequada não garante que essa mesma exposição será reproduzida em toda a estrutura organizada do biofilme.
+                </p>
+              </div>
             </div>
           </div>
-
-          <aside class="cap4-p36-aside" aria-live="polite">
-            <p class="cap4-p36-aside__eyebrow">Leitura guiada</p>
-            <h2 class="cap4-p36-aside__title" data-p36-title>Gradiente de concentração</h2>
-            <p class="cap4-p36-aside__text" data-p36-text>
-              A concentração do antibacteriano é maior na região externa do biofilme e diminui progressivamente à medida que o fármaco tenta penetrar sua estrutura. Assim, alta exposição fora do biofilme não garante a mesma intensidade de exposição nas camadas internas.
-            </p>
-
-            <div class="cap4-p36-tags" aria-label="Palavras-chave relacionadas">
-              <span class="cap4-p36-tag" data-p36-tag>Difusão desigual</span>
-              <span class="cap4-p36-tag" data-p36-tag>Exposição decrescente</span>
-            </div>
-          </aside>
 
         </div>
       </section>
 
       <p>
-        Além da barreira física, existe heterogeneidade fisiológica entre as bactérias presentes no biofilme. Células localizadas nas camadas mais profundas frequentemente apresentam metabolismo reduzido e menor taxa de divisão. Como diversos antibacterianos exercem maior atividade contra bactérias em crescimento ativo, essa redução metabólica pode diminuir a eficácia farmacodinâmica, mesmo na ausência de resistência genética estável <sup>12</sup>.
+        A organização em biofilme modifica a dinâmica de exposição aos antibacterianos. A matriz extracelular pode retardar ou limitar a difusão do fármaco, resultando em gradientes de concentração entre as camadas superficiais e profundas da estrutura. Mesmo quando as concentrações plasmáticas são adequadas, a exposição efetiva no interior do biofilme pode ser inferior à observada no meio circundante <sup>20,21</sup>.
       </p>
 
       <p>
-        Dentro do biofilme podem coexistir subpopulações com diferentes estados funcionais, incluindo células metabolicamente ativas, células em fase estacionária e variantes transitórias com maior tolerância à exposição antimicrobiana <sup>11</sup>. Essa tolerância fenotípica não corresponde necessariamente à presença de mutações ou genes de resistência, mas altera a resposta ao tratamento.
+        Além da barreira física, existe heterogeneidade fisiológica entre as bactérias presentes no biofilme. Células localizadas nas camadas mais profundas frequentemente apresentam metabolismo reduzido e menor taxa de divisão. Como diversos antibacterianos exercem maior atividade contra bactérias em crescimento ativo, essa redução metabólica pode diminuir a eficácia farmacodinâmica, mesmo na ausência de resistência genética estável <sup>18,22</sup>.
       </p>
 
       <p>
-        O microambiente infeccioso também pode apresentar variações locais de pH, disponibilidade de oxigênio, perfusão tecidual e acúmulo de detritos celulares. Essas condições influenciam tanto a atividade do antibacteriano quanto a eficácia da resposta imune do hospedeiro <sup>11,12</sup>.
+        Dentro do biofilme podem coexistir subpopulações com diferentes estados funcionais, incluindo células metabolicamente ativas, células em fase estacionária e variantes transitórias com maior tolerância à exposição antimicrobiana <sup>19,22</sup>. Essa tolerância fenotípica não corresponde necessariamente à presença de mutações ou genes de resistência, mas pode resultar em menor resposta clínica ao tratamento.
       </p>
 
       <p>
-        Em infecções associadas a dispositivos médicos, próteses ou tecidos com inflamação crônica, a organização em biofilme modifica a previsibilidade da resposta terapêutica baseada exclusivamente em testes de suscetibilidade <em>in vitro</em>. Nesses contextos, a interação entre estrutura do biofilme, microambiente local e exposição ao antibacteriano pode influenciar significativamente a dinâmica da infecção <sup>11</sup>.
+        O microambiente infeccioso também pode apresentar variações locais de pH, disponibilidade de oxigênio, perfusão tecidual e acúmulo de detritos celulares. Essas condições influenciam tanto a atividade do antibacteriano quanto a eficácia da resposta imune do hospedeiro <sup>8,18,19,22</sup>.
+      </p>
+
+      <p>
+        Em infecções associadas a dispositivos médicos, próteses ou tecidos com inflamação crônica, a organização em biofilme reduz a previsibilidade da resposta terapêutica baseada exclusivamente em testes de suscetibilidade <em>in vitro</em>. Nesses contextos, a interação entre estrutura do biofilme, microambiente local e exposição ao antibacteriano pode influenciar significativamente a dinâmica da infecção <sup>18,19</sup>.
       </p>
 
     </section>
 
- <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p35.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 4 · Página 36 de 89</div>
-      <button class="btn primary" type="button" data-next="p37.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+<nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p35.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 4 · Página 36 de 89</div>
+  <a class="btn primary" href="p37.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
 
   </main>
 
-  <div class="cap4-lightbox" id="cap4Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap4-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap4-lightbox__dialog">
-      <button class="cap4-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap4-lightbox__figure">
-        <img id="cap4LightboxImage" src="" alt="" />
-        <figcaption id="cap4LightboxCaption" class="cap4-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
-
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-04.js"></script>
-
 </body>
 </html>

@@ -1,342 +1,435 @@
-/* =========================
-   PÁGINA 64 — RACIOCÍNIO
-   ========================= */
+(function () {
+  "use strict";
 
-(function initPage64Flow(){
+  function initCap7Page62() {
+    const root = document.querySelector(".cap7-page62 [data-cap7-p62]");
+    if (!root) return;
 
-  const root = document.querySelector("[data-cap7-p64]");
-  if(!root) return;
+    const tabs = Array.from(root.querySelectorAll(".cap7-p62-chip"));
+    const panels = Array.from(root.querySelectorAll(".cap7-p62-panel"));
 
-  const steps = root.querySelectorAll(".cap7-p64-step");
-  const panes = root.querySelectorAll(".cap7-p64-pane");
+    if (!tabs.length || !panels.length) return;
 
-  function activate(step){
+    function activate(key, moveFocus) {
+      tabs.forEach(function (tab) {
+        const isActive = tab.dataset.pathway === key;
+        tab.classList.toggle("is-active", isActive);
+        tab.setAttribute("aria-selected", isActive ? "true" : "false");
+        tab.setAttribute("tabindex", isActive ? "0" : "-1");
 
-    steps.forEach(btn=>{
-      const active = btn.dataset.step === step;
-      btn.classList.toggle("is-active", active);
-    });
-
-    panes.forEach(pane=>{
-      const active = pane.dataset.pane === step;
-      pane.hidden = !active;
-      pane.classList.toggle("is-active", active);
-    });
-  }
-
-  steps.forEach(btn=>{
-    btn.addEventListener("click", ()=> activate(btn.dataset.step));
-  });
-
-})();
-/* =====================================================
-   CAPÍTULO 07 — JS
-   PÁGINA 65
-   ===================================================== */
-
-/* =========================
-   LIGHTBOX CAPÍTULO 7
-   ========================= */
-
-(function initCap7Lightbox(){
-  const lightbox = document.getElementById("cap7Lightbox");
-  const img = document.getElementById("cap7LightboxImage");
-  const caption = document.getElementById("cap7LightboxCaption");
-
-  if(!lightbox || !img || !caption) return;
-
-  function open(src, alt, text){
-    img.src = src || "";
-    img.alt = alt || "";
-    caption.textContent = text || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function close(){
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    img.src = "";
-    img.alt = "";
-    caption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  document.addEventListener("click", function(e){
-    const trigger = e.target.closest(".cap7-zoomTrigger");
-    if(trigger){
-      open(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
-      return;
-    }
-
-    if(e.target.closest("[data-lightbox-close]")){
-      close();
-    }
-  });
-
-  document.addEventListener("keydown", function(e){
-    if(e.key === "Escape" && !lightbox.hidden){
-      close();
-    }
-  });
-})();
-
-/* =========================
-   PÁGINA 65 — FLUXO CLÍNICO
-   ========================= */
-
-(function initPage65Flow(){
-  const root = document.querySelector("[data-cap7-p65]");
-  if(!root) return;
-
-  const steps = Array.from(root.querySelectorAll(".cap7-p65-step"));
-  const panes = Array.from(root.querySelectorAll(".cap7-p65-pane"));
-
-  function activate(step){
-    steps.forEach(btn => {
-      const active = btn.dataset.step === step;
-      btn.classList.toggle("is-active", active);
-      btn.setAttribute("aria-selected", active ? "true" : "false");
-    });
-
-    panes.forEach(pane => {
-      const active = pane.dataset.pane === step;
-      pane.classList.toggle("is-active", active);
-      pane.hidden = !active;
-    });
-  }
-
-  steps.forEach(btn => {
-    btn.addEventListener("click", () => activate(btn.dataset.step));
-  });
-
-  activate("1");
-})();
-/* =====================================================
-   PÁGINA 67 — INIBIDORES DA VIA DO FOLATO
-   ===================================================== */
-
-(function initPage67Folato(){
-  const root = document.querySelector("[data-cap7-p67]");
-  if(!root) return;
-
-  const tabs = Array.from(root.querySelectorAll("[data-p67-tab]"));
-  const title = root.querySelector("[data-p67-title]");
-  const lead = root.querySelector("[data-p67-lead]");
-  const mechanism = root.querySelector("[data-p67-mechanism]");
-  const clinical = root.querySelector("[data-p67-clinical]");
-  const risk = root.querySelector("[data-p67-risk]");
-  const summary = root.querySelector("[data-p67-summary]");
-
-  if(!tabs.length || !title || !lead || !mechanism || !clinical || !risk || !summary) return;
-
-  const map = {
-    hematologico: {
-      title: "Impacto hematológico",
-      lead: "A interferência relevante na via do folato pode comprometer processos celulares dependentes de síntese de DNA, tornando a medula óssea particularmente vulnerável em exposições prolongadas.",
-      mechanism: "Interferência em processos humanos dependentes da via do folato, especialmente em tecidos com alta taxa proliferativa.",
-      clinical: "Anemia megaloblástica, leucopenia ou trombocitopenia.",
-      risk: "Tratamento prolongado, deficiência nutricional prévia e uso concomitante de fármacos que também interferem na hematopoese.",
-      summary: "A coerência fisiopatológica permanece preservada: quanto maior a dependência proliferativa do tecido, maior a vulnerabilidade quando há interferência relevante nessa via metabólica."
-    },
-    renal: {
-      title: "Impacto renal",
-      lead: "O trimetoprim pode produzir um efeito off-target renal ao atuar de modo semelhante à amilorida, interferindo em mecanismos tubulares envolvidos na homeostase eletrolítica.",
-      mechanism: "Bloqueio do canal epitelial de sódio (ENaC) no túbulo distal, com redução da excreção renal de potássio.",
-      clinical: "Hipercalemia, especialmente em exposições prolongadas ou em pacientes com depuração reduzida.",
-      risk: "Idade avançada, insuficiência renal e uso concomitante de IECA, BRA ou espironolactona.",
-      summary: "Aqui o evento adverso não decorre de toxicidade proliferativa, mas de interferência funcional em um mecanismo renal importante para o equilíbrio do potássio sérico."
-    },
-    cutaneo: {
-      title: "Impacto cutâneo",
-      lead: "Sulfonamidas podem associar-se a reações cutâneas de hipersensibilidade, geralmente nas primeiras semanas de uso, em um eixo fisiopatológico diferente do hematológico e do renal.",
-      mechanism: "Resposta de hipersensibilidade relacionada ao fármaco, com potencial para manifestações mucocutâneas relevantes.",
-      clinical: "Exantemas e, em situações incomuns, manifestações mucocutâneas graves.",
-      risk: "Primeiras semanas de tratamento e susceptibilidade individual do hospedeiro.",
-      summary: "Mesmo quando o evento adverso segue outro eixo biológico, a coerência clínica permanece: o padrão de toxicidade continua relacionado à natureza da interação entre fármaco e hospedeiro."
-    }
-  };
-
-  function activate(key){
-    const item = map[key];
-    if(!item) return;
-
-    tabs.forEach(tab => {
-      tab.setAttribute("aria-selected", tab.dataset.p67Tab === key ? "true" : "false");
-    });
-
-    title.textContent = item.title;
-    lead.textContent = item.lead;
-    mechanism.textContent = item.mechanism;
-    clinical.textContent = item.clinical;
-    risk.textContent = item.risk;
-    summary.textContent = item.summary;
-  }
-
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => activate(tab.dataset.p67Tab));
-  });
-
-  activate("hematologico");
-})();
-/* =====================================================
-   CAPÍTULO 07 — PÁGINA 68
-   QUIZ DE REVISÃO
-   ===================================================== */
-
-(function initCap7Page68Quiz(){
-  const root = document.querySelector("[data-cap7-p68]");
-  if(!root) return;
-
-  const questions = Array.from(root.querySelectorAll(".cap7-p68Question"));
-  const done = root.querySelector(".cap7-p68Done");
-  const progress = root.querySelector(".cap7-p68Progress");
-  const navPrev = root.querySelector('[data-p68-action="prev"]');
-  const navNext = root.querySelector('[data-p68-action="next"]');
-
-  let current = 0;
-
-  function parseTemplateJSON(templateEl){
-    try{
-      return JSON.parse(templateEl.innerHTML.trim());
-    }catch(e){
-      return {};
-    }
-  }
-
-  function getQuestionState(question){
-    return {
-      options: Array.from(question.querySelectorAll(".cap7-p68Options button")),
-      confirm: question.querySelector('[data-p68-action="confirm"]'),
-      reset: question.querySelector('[data-p68-action="reset"]'),
-      feedback: question.querySelector(".cap7-p68Feedback"),
-      feedbackMap: parseTemplateJSON(question.querySelector(".cap7-p68FeedbackMap")),
-      rationale: question.querySelector(".cap7-p68Rationale"),
-      selected: null,
-      confirmed: false
-    };
-  }
-
-  const states = questions.map(getQuestionState);
-
-  function updateProgress(){
-    progress.textContent = `Questão ${current + 1} de ${questions.length}`;
-    navPrev.disabled = current === 0;
-    navNext.disabled = current === questions.length - 1;
-  }
-
-  function showQuestion(index){
-    questions.forEach((q, i) => q.classList.toggle("active", i === index));
-    current = index;
-    updateProgress();
-  }
-
-  function buildFeedbackCard(type, title, text, rationaleHTML){
-    const wrap = document.createElement("div");
-    wrap.className = `cap7-p68FeedbackCard cap7-p68FeedbackCard--${type === "correct" ? "correct" : "error"}`;
-
-    const titleEl = document.createElement("p");
-    titleEl.className = "cap7-p68FeedbackTitle";
-    titleEl.textContent = title;
-
-    const textEl = document.createElement("p");
-    textEl.className = "cap7-p68FeedbackText";
-    textEl.textContent = text;
-
-    wrap.appendChild(titleEl);
-    wrap.appendChild(textEl);
-
-    if(rationaleHTML){
-      const rationaleBox = document.createElement("div");
-      rationaleBox.className = "cap7-p68RationaleBox";
-      rationaleBox.innerHTML = rationaleHTML;
-      wrap.appendChild(rationaleBox);
-    }
-
-    return wrap;
-  }
-
-  states.forEach((state, index) => {
-    state.options.forEach(option => {
-      option.addEventListener("click", () => {
-        if(state.confirmed) return;
-
-        state.selected = option.dataset.answer;
-        state.options.forEach(btn => btn.classList.remove("is-selected"));
-        option.classList.add("is-selected");
-        state.confirm.disabled = false;
-      });
-    });
-
-    state.confirm.addEventListener("click", () => {
-      if(!state.selected) return;
-
-      state.confirmed = true;
-      state.confirm.disabled = true;
-      state.reset.hidden = false;
-
-      state.options.forEach(btn => {
-        btn.disabled = true;
-        const isSelected = btn.dataset.answer === state.selected;
-        const isCorrect = btn.dataset.correct === "true";
-
-        if(isCorrect){
-          btn.classList.add("is-correct");
-        }
-        if(isSelected && !isCorrect){
-          btn.classList.add("is-error");
+        if (isActive && moveFocus) {
+          tab.focus();
         }
       });
 
-      const feedbackItem = state.feedbackMap[state.selected];
-      const rationaleHTML = state.rationale ? state.rationale.innerHTML : "";
-      state.feedback.innerHTML = "";
-      state.feedback.appendChild(
-        buildFeedbackCard(
-          feedbackItem?.type || "error",
-          feedbackItem?.title || "Feedback",
-          feedbackItem?.text || "",
-          rationaleHTML
-        )
-      );
+      panels.forEach(function (panel) {
+        panel.hidden = panel.dataset.panel !== key;
+      });
+    }
 
-      const allConfirmed = states.every(s => s.confirmed);
-      if(allConfirmed && done){
-        done.hidden = false;
-      }
-    });
-
-    state.reset.addEventListener("click", () => {
-      state.selected = null;
-      state.confirmed = false;
-
-      state.options.forEach(btn => {
-        btn.disabled = false;
-        btn.classList.remove("is-selected", "is-correct", "is-error");
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        activate(tab.dataset.pathway, false);
       });
 
-      state.confirm.disabled = true;
-      state.reset.hidden = true;
-      state.feedback.innerHTML = "";
+      tab.addEventListener("keydown", function (event) {
+        const currentIndex = tabs.indexOf(tab);
+        let nextIndex = null;
 
-      if(done){
-        done.hidden = true;
-      }
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          nextIndex = (currentIndex + 1) % tabs.length;
+        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+        } else if (event.key === "Home") {
+          nextIndex = 0;
+        } else if (event.key === "End") {
+          nextIndex = tabs.length - 1;
+        }
+
+        if (nextIndex === null) return;
+
+        event.preventDefault();
+        activate(tabs[nextIndex].dataset.pathway, true);
+      });
     });
-  });
 
-  navPrev.addEventListener("click", () => {
-    if(current > 0) showQuestion(current - 1);
-  });
+    const initial = root.querySelector(".cap7-p62-chip.is-active");
+    activate(initial ? initial.dataset.pathway : tabs[0].dataset.pathway, false);
+  }
 
-  navNext.addEventListener("click", () => {
-    if(current < questions.length - 1) showQuestion(current + 1);
-  });
+  function initCap7Page64() {
+    const page = document.querySelector(".cap7-page64");
+    if (!page) return;
+  }
 
-  showQuestion(0);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      initCap7Page62();
+      initCap7Page64();
+    });
+  } else {
+    initCap7Page62();
+    initCap7Page64();
+  }
+})();
+
+(function () {
+  "use strict";
+
+  function initCap7Page65() {
+    const root = document.querySelector(".cap7-page65 [data-cap7-p65]");
+    if (!root) return;
+
+    const tabs = Array.from(root.querySelectorAll(".cap7-p65-chip"));
+    const panels = Array.from(root.querySelectorAll(".cap7-p65-panel"));
+
+    if (!tabs.length || !panels.length) return;
+
+    function activate(key, moveFocus) {
+      tabs.forEach(function (tab) {
+        const isActive = tab.dataset.pathway === key;
+        tab.classList.toggle("is-active", isActive);
+        tab.setAttribute("aria-selected", isActive ? "true" : "false");
+        tab.setAttribute("tabindex", isActive ? "0" : "-1");
+
+        if (isActive && moveFocus) {
+          tab.focus();
+        }
+      });
+
+      panels.forEach(function (panel) {
+        panel.hidden = panel.dataset.panel !== key;
+      });
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        activate(tab.dataset.pathway, false);
+      });
+
+      tab.addEventListener("keydown", function (event) {
+        const currentIndex = tabs.indexOf(tab);
+        let nextIndex = null;
+
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          nextIndex = (currentIndex + 1) % tabs.length;
+        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+        } else if (event.key === "Home") {
+          nextIndex = 0;
+        } else if (event.key === "End") {
+          nextIndex = tabs.length - 1;
+        }
+
+        if (nextIndex === null) return;
+
+        event.preventDefault();
+        activate(tabs[nextIndex].dataset.pathway, true);
+      });
+    });
+
+    const initial = root.querySelector(".cap7-p65-chip.is-active");
+    activate(initial ? initial.dataset.pathway : tabs[0].dataset.pathway, false);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCap7Page65);
+  } else {
+    initCap7Page65();
+  }
+})();
+
+(function () {
+  "use strict";
+
+  function initCap7Page62() {
+    const root = document.querySelector(".cap7-page62 [data-cap7-p62]");
+    if (!root) return;
+
+    const tabs = Array.from(root.querySelectorAll(".cap7-p62-chip"));
+    const panels = Array.from(root.querySelectorAll(".cap7-p62-panel"));
+
+    if (!tabs.length || !panels.length) return;
+
+    function activate(key, moveFocus) {
+      tabs.forEach(function (tab) {
+        const isActive = tab.dataset.pathway === key;
+        tab.classList.toggle("is-active", isActive);
+        tab.setAttribute("aria-selected", isActive ? "true" : "false");
+        tab.setAttribute("tabindex", isActive ? "0" : "-1");
+
+        if (isActive && moveFocus) {
+          tab.focus();
+        }
+      });
+
+      panels.forEach(function (panel) {
+        panel.hidden = panel.dataset.panel !== key;
+      });
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        activate(tab.dataset.pathway, false);
+      });
+
+      tab.addEventListener("keydown", function (event) {
+        const currentIndex = tabs.indexOf(tab);
+        let nextIndex = null;
+
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          nextIndex = (currentIndex + 1) % tabs.length;
+        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+        } else if (event.key === "Home") {
+          nextIndex = 0;
+        } else if (event.key === "End") {
+          nextIndex = tabs.length - 1;
+        }
+
+        if (nextIndex === null) return;
+
+        event.preventDefault();
+        activate(tabs[nextIndex].dataset.pathway, true);
+      });
+    });
+
+    const initial = root.querySelector(".cap7-p62-chip.is-active");
+    activate(initial ? initial.dataset.pathway : tabs[0].dataset.pathway, false);
+  }
+
+  function initCap7Page65() {
+    const root = document.querySelector(".cap7-page65 [data-cap7-p65]");
+    if (!root) return;
+
+    const tabs = Array.from(root.querySelectorAll(".cap7-p65-chip"));
+    const panels = Array.from(root.querySelectorAll(".cap7-p65-panel"));
+
+    if (!tabs.length || !panels.length) return;
+
+    function activate(key, moveFocus) {
+      tabs.forEach(function (tab) {
+        const isActive = tab.dataset.pathway === key;
+        tab.classList.toggle("is-active", isActive);
+        tab.setAttribute("aria-selected", isActive ? "true" : "false");
+        tab.setAttribute("tabindex", isActive ? "0" : "-1");
+
+        if (isActive && moveFocus) {
+          tab.focus();
+        }
+      });
+
+      panels.forEach(function (panel) {
+        panel.hidden = panel.dataset.panel !== key;
+      });
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        activate(tab.dataset.pathway, false);
+      });
+
+      tab.addEventListener("keydown", function (event) {
+        const currentIndex = tabs.indexOf(tab);
+        let nextIndex = null;
+
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          nextIndex = (currentIndex + 1) % tabs.length;
+        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+        } else if (event.key === "Home") {
+          nextIndex = 0;
+        } else if (event.key === "End") {
+          nextIndex = tabs.length - 1;
+        }
+
+        if (nextIndex === null) return;
+
+        event.preventDefault();
+        activate(tabs[nextIndex].dataset.pathway, true);
+      });
+    });
+
+    const initial = root.querySelector(".cap7-p65-chip.is-active");
+    activate(initial ? initial.dataset.pathway : tabs[0].dataset.pathway, false);
+  }
+
+  function initCap7Page66() {
+    const page = document.querySelector(".cap7-page66");
+    if (!page) return;
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      initCap7Page62();
+      initCap7Page65();
+      initCap7Page66();
+    });
+  } else {
+    initCap7Page62();
+    initCap7Page65();
+    initCap7Page66();
+  }
+})();
+
+(function () {
+  "use strict";
+
+  function initCap7Page67() {
+    const page = document.querySelector(".cap7-page67");
+    if (!page) return;
+
+    // Página 67 não possui interação ativa
+    // Apenas garante inicialização segura sem erros
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCap7Page67);
+  } else {
+    initCap7Page67();
+  }
+})();
+
+(function () {
+  "use strict";
+
+  function initCap7Page68() {
+    const root = document.querySelector("[data-cap7-p68]");
+    if (!root) return;
+
+    const statusValue = root.querySelector(".cap7-p68Status__value");
+    const questions = Array.from(root.querySelectorAll(".cap7-p68Question"));
+    const completion = root.querySelector("[data-p68-completion]");
+
+    function parseFeedbackMap(article) {
+      const template = article.querySelector(".cap7-p68FeedbackMap");
+      if (!template) return {};
+      try {
+        return JSON.parse(template.textContent.trim());
+      } catch (error) {
+        console.error("Erro ao ler feedback do quiz da página 68:", error);
+        return {};
+      }
+    }
+
+    function updateStatus() {
+      const confirmedCount = questions.filter(function (question) {
+        return question.getAttribute("data-question-state") === "confirmed";
+      }).length;
+
+      if (statusValue) {
+        statusValue.textContent = confirmedCount + " de " + questions.length + " situações confirmadas";
+      }
+
+      if (completion) {
+        completion.hidden = confirmedCount !== questions.length;
+      }
+    }
+
+    function clearFeedback(feedback) {
+      feedback.className = "cap7-p68Feedback";
+      feedback.innerHTML = "";
+    }
+
+    questions.forEach(function (article) {
+      const options = Array.from(article.querySelectorAll(".cap7-p68Options button"));
+      const confirmButton = article.querySelector('[data-p68-action="confirm"]');
+      const resetButton = article.querySelector('[data-p68-action="reset"]');
+      const feedback = article.querySelector(".cap7-p68Feedback");
+      const feedbackMap = parseFeedbackMap(article);
+
+      let selectedAnswer = null;
+
+      function resetQuestion() {
+        selectedAnswer = null;
+        article.setAttribute("data-question-state", "pending");
+
+        options.forEach(function (button) {
+          button.disabled = false;
+          button.classList.remove("is-selected", "is-correct", "is-error");
+        });
+
+        if (confirmButton) {
+          confirmButton.disabled = true;
+        }
+
+        if (resetButton) {
+          resetButton.hidden = true;
+        }
+
+        if (feedback) {
+          clearFeedback(feedback);
+        }
+
+        updateStatus();
+      }
+
+      options.forEach(function (button) {
+        button.addEventListener("click", function () {
+          if (article.getAttribute("data-question-state") === "confirmed") return;
+
+          selectedAnswer = button.getAttribute("data-answer");
+
+          options.forEach(function (option) {
+            option.classList.remove("is-selected");
+          });
+
+          button.classList.add("is-selected");
+
+          if (confirmButton) {
+            confirmButton.disabled = false;
+          }
+        });
+      });
+
+      if (confirmButton) {
+        confirmButton.addEventListener("click", function () {
+          if (!selectedAnswer) return;
+
+          const selectedButton = options.find(function (button) {
+            return button.getAttribute("data-answer") === selectedAnswer;
+          });
+
+          const entry = feedbackMap[selectedAnswer];
+          if (!selectedButton || !entry || !feedback) return;
+
+          article.setAttribute("data-question-state", "confirmed");
+
+          options.forEach(function (button) {
+            button.disabled = true;
+            button.classList.remove("is-selected");
+          });
+
+          selectedButton.classList.add(entry.type === "correct" ? "is-correct" : "is-error");
+
+          feedback.classList.add("is-visible", entry.type === "correct" ? "is-correct" : "is-error");
+          feedback.innerHTML =
+            '<p class="cap7-p68Feedback__title">' + entry.title + '</p>' +
+            '<p class="cap7-p68Feedback__text">' + entry.text + '</p>';
+
+          confirmButton.disabled = true;
+
+          if (resetButton) {
+            resetButton.hidden = false;
+          }
+
+          updateStatus();
+        });
+      }
+
+      if (resetButton) {
+        resetButton.addEventListener("click", resetQuestion);
+      }
+
+      resetQuestion();
+    });
+
+    updateStatus();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCap7Page68);
+  } else {
+    initCap7Page68();
+  }
 })();

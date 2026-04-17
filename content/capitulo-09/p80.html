@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Capítulo 9 — Página 80</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -21,42 +21,93 @@
       <h1 class="page-title">Orientando sobre efeitos adversos</h1>
     </header>
 
-    <section class="prose" aria-label="Texto principal">
+    <section class="prose cap9-p80-main">
 
       <p>
-        Todo antibacteriano pode provocar efeitos adversos. Informar essa possibilidade não tem como objetivo gerar receio, mas promover o uso seguro e consciente do medicamento <sup>2</sup>.
+        Todo antibacteriano pode provocar efeitos adversos. Informar essa possibilidade não tem como objetivo gerar receio, mas promover o uso seguro e consciente do medicamento <sup>1–3,7</sup>.
       </p>
 
       <p>
         Eventos leves, como náusea, desconforto abdominal ou diarreia leve, são relativamente frequentes e geralmente autolimitados. Quando esses sintomas são leves e toleráveis, não costumam exigir suspensão imediata do tratamento.
       </p>
 
-      <figure class="cap9-p80-figure">
-        <button
-          class="cap9-zoomTrigger"
-          type="button"
-          data-zoom-image="../../assets/capitulo-09/imagens/efeitos-adversos-conduta.png"
-          data-zoom-alt="Esquema diferenciando eventos leves e eventos de alerta durante o uso de antibacterianos, com a conduta correspondente."
-          data-zoom-caption="Eventos leves geralmente não exigem suspensão imediata. Manifestações de alerta exigem interrupção e reavaliação médica."
-          aria-label="Ampliar esquema sobre efeitos adversos e conduta"
-        >
-          <img
-            src="../../assets/capitulo-09/imagens/efeitos-adversos-conduta.png"
-            alt="Esquema diferenciando eventos leves e eventos de alerta durante o uso de antibacterianos, com a conduta correspondente."
-            loading="lazy"
-          />
-        </button>
-
-        <figcaption class="cap9-p80-caption">
-          A orientação ao paciente deve distinguir manifestações leves, geralmente autolimitadas, de sinais que exigem reavaliação médica imediata.
-        </figcaption>
-      </figure>
-
       <p>
-        Entretanto, algumas manifestações requerem reavaliação médica. Reações cutâneas extensas, urticária, dificuldade respiratória, diarreia intensa ou persistente, dor abdominal importante ou sintomas sistêmicos inesperados devem ser prontamente comunicados.
+        Entretanto, algumas manifestações requerem reavaliação médica. Reações cutâneas extensas, urticária, dificuldade respiratória, diarreia intensa ou persistente, dor abdominal importante ou sintomas sistêmicos inesperados devem ser prontamente comunicados <sup>8,9</sup>.
       </p>
 
-      <p>
+      <section class="cap9-p80-decision" data-cap9-p80 aria-labelledby="cap9P80Title">
+        <h2 id="cap9P80Title" class="cap9-p80-decisionTitle">
+          Diante de um sintoma relatado após o início do antibacteriano, a orientação depende da gravidade da manifestação.
+        </h2>
+
+        <p class="cap9-p80-decisionIntro">
+          Selecione o tipo de manifestação para visualizar a lógica de orientação ao paciente.
+        </p>
+
+        <div class="cap9-p80-options" role="tablist" aria-label="Tipos de manifestação durante o uso do antibacteriano">
+          <button
+            class="cap9-p80-option is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="cap9P80PanelLeve"
+            id="cap9P80TabLeve"
+            data-p80-case="leve"
+          >
+            Sintomas leves
+          </button>
+
+          <button
+            class="cap9-p80-option"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="cap9P80PanelAlerta"
+            id="cap9P80TabAlerta"
+            data-p80-case="alerta"
+            tabindex="-1"
+          >
+            Sinais de alerta
+          </button>
+        </div>
+
+        <div class="cap9-p80-panelWrap">
+          <section
+            class="cap9-p80-panel cap9-p80-panel--leve"
+            id="cap9P80PanelLeve"
+            role="tabpanel"
+            aria-labelledby="cap9P80TabLeve"
+            data-p80-panel="leve"
+          >
+            <p class="cap9-p80-kicker">Sintomas leves e toleráveis</p>
+            <p class="cap9-p80-panelText">
+              Náusea, desconforto abdominal ou diarreia leve costumam ser autolimitados e, quando toleráveis, geralmente não exigem suspensão imediata do tratamento.
+            </p>
+            <p class="cap9-p80-conduct">
+              <strong>Orientação:</strong> não interromper o antibacteriano por conta própria e comunicar piora, persistência ou mudança do padrão dos sintomas.
+            </p>
+          </section>
+
+          <section
+            class="cap9-p80-panel cap9-p80-panel--alerta"
+            id="cap9P80PanelAlerta"
+            role="tabpanel"
+            aria-labelledby="cap9P80TabAlerta"
+            data-p80-panel="alerta"
+            hidden
+          >
+            <p class="cap9-p80-kicker">Manifestações que exigem reavaliação</p>
+            <p class="cap9-p80-panelText">
+              Reações cutâneas extensas, urticária, dificuldade respiratória, diarreia intensa ou persistente, dor abdominal importante e sintomas sistêmicos inesperados devem ser prontamente comunicados.
+            </p>
+            <p class="cap9-p80-conduct">
+              <strong>Orientação:</strong> procurar atendimento e reavaliação médica sem demora.
+            </p>
+          </section>
+        </div>
+      </section>
+
+      <p class="cap9-p80-intro">
         Ao orientar o paciente, a explicação pode seguir uma estrutura simples, por exemplo:
       </p>
 
@@ -65,43 +116,26 @@
       </p>
 
       <p>
-        Também é importante esclarecer que o paciente não deve interromper o antibacteriano por conta própria diante de sintomas leves sem orientação médica. A suspensão precoce pode comprometer a eficácia do tratamento <sup>1</sup>.
+        Também é importante esclarecer que o paciente não deve interromper o antibacteriano por conta própria diante de sintomas leves sem orientação médica. A suspensão precoce pode comprometer a eficácia do tratamento <sup>3</sup>.
       </p>
 
       <p>
-        Antes da prescrição, deve-se investigar histórico prévio de alergia medicamentosa e caracterizar a reação descrita.
-      </p>
-
-      <p>
-        A comunicação clara sobre possíveis efeitos adversos reduz abandono indevido do tratamento, facilita a identificação precoce de eventos graves e fortalece a relação terapêutica.
+        Antes da prescrição, deve-se investigar histórico prévio de alergia medicamentosa e caracterizar a reação descrita <sup>7</sup>.
       </p>
 
       <p class="cap9-p80-closing">
-        Assim, a prescrição responsável inclui não apenas a escolha do antibacteriano adequado, mas também a preparação do paciente para reconhecer e comunicar possíveis efeitos adversos de forma apropriada.
+        A comunicação clara sobre possíveis efeitos adversos reduz abandono indevido do tratamento, facilita a identificação precoce de eventos graves e fortalece a relação terapêutica <sup>1–3</sup>.
       </p>
 
     </section>
 
 <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p79.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 9 · Página 80 de 89</div>
-      <button class="btn primary" type="button" data-next="p81.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+  <a class="btn" href="p79.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 9 · Página 80 de 89</div>
+  <a class="btn primary" href="p81.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
 
   </main>
-
-  <div class="cap9-lightbox" id="cap7Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap9-lightbox__backdrop" data-lightbox-close></div>
-
-    <div class="cap9-lightbox__dialog">
-      <button class="cap9-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap9-lightbox__figure">
-        <img id="cap9LightboxImage" src="" alt="" />
-        <figcaption id="cap9LightboxCaption" class="cap9-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-09.js"></script>

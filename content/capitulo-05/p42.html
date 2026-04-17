@@ -6,7 +6,6 @@
   <title>Capítulo 5 — Página 42</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../css/base.css" />
@@ -16,138 +15,109 @@
 
 <body class="cap5-page42">
 
-  <main class="container page-shell">
+  <main class="page-shell">
 
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
-        <h1 class="page-title">Identificação bacteriana</h1>
-      </div>
+      <div class="chapter">Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma</div>
+      <h1 class="page-title">Identificação bacteriana</h1>
     </header>
 
     <section class="prose" aria-label="Texto principal">
 
       <p>
-        Após o crescimento do microrganismo em meio de cultura e a avaliação morfológica inicial, o laboratório realiza a identificação bacteriana. Essa etapa define o agente isolado e estabelece o contexto biológico necessário para interpretar corretamente o teste de suscetibilidade.
+        Após o crescimento do microrganismo em meio de cultura e a avaliação morfológica inicial, o laboratório realiza a identificação bacteriana. Essa etapa define o agente isolado e estabelece o contexto biológico necessário para interpretar corretamente o teste de suscetibilidade <sup>1,2</sup>.
       </p>
 
-      <p>
-        A identificação pode começar por características observadas no próprio crescimento bacteriano. Aspectos como morfologia das colônias, padrão de hemólise em ágar sangue, pigmentação e odor característico podem fornecer indícios iniciais sobre o grupo bacteriano envolvido. Essas informações orientam a escolha dos testes adicionais necessários para confirmar a identificação.
-      </p>
-
-      <figure class="cap5-p42-culture">
+      <figure class="figure cap5-p42-culture">
         <button
-          class="cap5-zoomTrigger"
           type="button"
-          data-zoom-image="../../assets/capitulo-05/imagens/cultura-bacteriana-agar-sangue.png"
-          data-zoom-alt="Placa de ágar sangue com crescimento bacteriano."
-          data-zoom-caption="Aspectos do crescimento bacteriano em meio de cultura podem fornecer indícios iniciais relevantes para a identificação."
-          aria-label="Ampliar imagem de crescimento bacteriano em ágar sangue"
+          class="cap5-p42-culture__zoom"
+          data-zoom="../../assets/capitulo-05/imagens/cultura-agar-sangue.png"
+          aria-label="Ampliar imagem de cultura bacteriana em ágar sangue"
         >
           <img
-            src="../../assets/capitulo-05/imagens/cultura-bacteriana-agar-sangue.png"
+            src="../../assets/capitulo-05/imagens/cultura-agar-sangue.png"
             alt="Placa de ágar sangue com crescimento bacteriano."
             loading="lazy"
           />
         </button>
-        <figcaption class="cap5-p42-caption">
-          Morfologia das colônias, hemólise, pigmentação e outros aspectos do crescimento podem orientar a escolha dos testes seguintes.
+        <figcaption class="caption">
+          O crescimento em meio de cultura torna visíveis características fenotípicas iniciais que orientam a etapa seguinte da identificação.
         </figcaption>
       </figure>
 
       <p>
-        Tradicionalmente, a identificação baseia-se em testes fenotípicos bioquímicos, que avaliam propriedades metabólicas da bactéria. Esses testes investigam, por exemplo, a capacidade de fermentar determinados açúcares, produzir enzimas específicas ou utilizar substratos particulares. A combinação desses resultados gera um perfil metabólico característico que permite classificar o microrganismo em determinada espécie ou grupo bacteriano <sup>3</sup>.
+        A identificação pode começar por características observadas no próprio crescimento bacteriano. Aspectos como morfologia das colônias, padrão de hemólise em ágar sangue, pigmentação e odor característico podem fornecer indícios iniciais sobre o grupo bacteriano envolvido. Essas informações orientam a escolha dos testes adicionais necessários para confirmar a identificação <sup>1,2</sup>.
       </p>
 
-      <figure class="cap5-p42-flow">
-        <button
-          class="cap5-zoomTrigger"
-          type="button"
-          data-zoom-image="../../assets/capitulo-05/imagens/identificacao-fenotipica-fluxo.png"
-          data-zoom-alt="Fluxo de identificação fenotípica a partir de colônias bacterianas."
-          data-zoom-caption="A observação inicial das colônias orienta a escolha dos testes fenotípicos que gerarão o perfil metabólico usado na classificação bacteriana."
-          aria-label="Ampliar fluxo de identificação fenotípica"
-        >
-          <img
-            src="../../assets/capitulo-05/imagens/identificacao-fenotipica-fluxo.png"
-            alt="Fluxo de identificação fenotípica a partir de colônias bacterianas."
-            loading="lazy"
-          />
-        </button>
-        <figcaption class="cap5-p42-caption cap5-p42-caption--wide">
-          A observação inicial das colônias orienta a escolha dos testes fenotípicos, que convergem para um perfil metabólico característico.
-        </figcaption>
-      </figure>
+      <section class="cap5-p42-reading" aria-labelledby="cap5-p42-reading-title">
+        <div class="cap5-p42-reading__head">
+          <p class="eyebrow">Leitura inicial da colônia</p>
+          <h2 id="cap5-p42-reading-title" class="cap5-p42-reading__title">O que o laboratório observa primeiro</h2>
+          <p class="cap5-p42-reading__subtitle">
+            A imagem não entrega a identificação sozinha, mas organiza os indícios fenotípicos que direcionam os próximos testes.
+          </p>
+        </div>
 
-      <p>
-        Atualmente, muitos laboratórios utilizam sistemas automatizados, que integram múltiplos testes bioquímicos em painéis padronizados e comparam os resultados obtidos com bancos de dados microbiológicos validados. O sistema calcula a probabilidade de correspondência entre o perfil observado e as espécies registradas na base de referência <sup>5</sup>.
-      </p>
+        <div class="cap5-p42-reading__layout">
+          <figure class="cap5-p42-reading__figure">
+            <button
+              type="button"
+              class="cap5-p42-reading__zoom"
+              data-zoom="../../assets/capitulo-05/imagens/caracteristicas-colonia.png"
+              aria-label="Ampliar imagem da colônia em ágar sangue"
+            >
+              <img
+                src="../../assets/capitulo-05/imagens/caracteristicas-colonia.png"
+                alt="Colônia bacteriana em ágar sangue."
+                loading="lazy"
+              />
+            </button>
+          </figure>
 
-      <p>
-        Outro método amplamente incorporado à rotina microbiológica é a espectrometria de massa por MALDI-TOF. Nesse método, proteínas bacterianas são ionizadas e analisadas de acordo com seu padrão espectral. O perfil obtido é comparado a bibliotecas de referência, permitindo identificação rápida e precisa de grande parte das bactérias de relevância clínica.
-      </p>
+          <div class="cap5-p42-reading__side">
+            <div class="cap5-p42-reading__controls" role="tablist" aria-label="Aspectos iniciais da colônia">
+              <button class="cap5-p42-chip is-active" type="button" role="tab" aria-selected="true" data-p42-view="morfologia">
+                Morfologia
+              </button>
+              <button class="cap5-p42-chip" type="button" role="tab" aria-selected="false" data-p42-view="hemolise">
+                Hemólise
+              </button>
+              <button class="cap5-p42-chip" type="button" role="tab" aria-selected="false" data-p42-view="pigmentacao">
+                Pigmentação
+              </button>
+              <button class="cap5-p42-chip" type="button" role="tab" aria-selected="false" data-p42-view="odor">
+                Odor
+              </button>
+            </div>
 
-      <section class="cap5-p42-methods" aria-labelledby="cap5-p42-methods-title">
-        <h2 id="cap5-p42-methods-title" class="cap5-p42-methods__title">
-          Como a identificação bacteriana é realizada na prática
-        </h2>
-
-        <div class="cap5-p42-methods__flow">
-          <article class="cap5-p42-method">
-            <span class="cap5-p42-method__n">1</span>
-            <h3>Fenotípica</h3>
-            <p>
-              Testes bioquímicos avaliam propriedades metabólicas da bactéria e geram um perfil característico útil para a classificação do microrganismo.
-            </p>
-          </article>
-
-          <div class="cap5-p42-methods__arrow" aria-hidden="true">→</div>
-
-          <article class="cap5-p42-method">
-            <span class="cap5-p42-method__n">2</span>
-            <h3>Automatizada</h3>
-            <p>
-              Painéis padronizados integram múltiplos testes bioquímicos e comparam os resultados com bancos de dados microbiológicos validados.
-            </p>
-          </article>
-
-          <div class="cap5-p42-methods__arrow" aria-hidden="true">→</div>
-
-          <article class="cap5-p42-method">
-            <span class="cap5-p42-method__n">3</span>
-            <h3>MALDI-TOF</h3>
-            <p>
-              Proteínas bacterianas são analisadas segundo seu padrão espectral, permitindo identificação rápida e precisa de grande parte das bactérias de relevância clínica.
-            </p>
-          </article>
+            <div class="cap5-p42-reading__panel" aria-live="polite">
+              <p id="cap5-p42-panel-eyebrow" class="cap5-p42-reading__eyebrow">Traço estrutural inicial</p>
+              <h3 id="cap5-p42-panel-title" class="cap5-p42-reading__panel-title">Morfologia da colônia</h3>
+              <p id="cap5-p42-panel-text" class="cap5-p42-reading__panel-text">
+                O tamanho, o contorno das bordas, a superfície, a elevação e a consistência da colônia podem sugerir padrões característicos de determinados grupos bacterianos e orientar a continuidade da investigação.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
+      <p>
+        Tradicionalmente, a identificação baseia-se em testes fenotípicos bioquímicos, que avaliam propriedades metabólicas da bactéria. Esses testes investigam, por exemplo, a capacidade de fermentar determinados açúcares, produzir enzimas específicas ou utilizar substratos particulares. A combinação desses resultados gera um perfil metabólico característico que permite classificar o microrganismo em determinada espécie ou grupo bacteriano <sup>1,2</sup>.
+      </p>
+
     </section>
 
-  <nav class="pager" aria-label="Paginação">
-      <button class="btn" type="button" data-prev="p41.html" aria-label="Ir para a página anterior">← Anterior</button>
-      <div class="center">Capítulo 5 · Página 42 de 89</div>
-      <button class="btn primary" type="button" data-next="p43.html" aria-label="Ir para a próxima página">Próxima →</button>
-    </nav>
+<nav class="pager" aria-label="Paginação">
+  <a class="btn" href="p41.html" aria-label="Ir para a página anterior">← Anterior</a>
+  <div class="center">Capítulo 5 · Página 42 de 89</div>
+  <a class="btn primary" href="p43.html" aria-label="Ir para a próxima página">Próxima →</a>
+</nav>
 
- </main>
 
-  <div class="cap5-lightbox" id="cap5Lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-    <div class="cap5-lightbox__backdrop" data-lightbox-close></div>
+  </main>
 
-    <div class="cap5-lightbox__dialog">
-      <button class="cap5-lightbox__close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>✕</button>
-
-      <figure class="cap5-lightbox__figure">
-        <img id="cap5LightboxImage" src="" alt="" />
-        <figcaption id="cap5LightboxCaption" class="cap5-lightbox__caption"></figcaption>
-      </figure>
-    </div>
-  </div>
-
- <script src="../../js/app.js"></script>
- <script src="../../js/capitulo-05.js"></script>
-
+  <script src="../../js/app.js"></script>
+  <script src="../../js/capitulo-05.js"></script>
 </body>
 </html>

@@ -1,58 +1,14 @@
-/* =====================================================
-   CAPÍTULO 06 — JS
-   Páginas 54 e 55
-   ===================================================== */
-
 /* =========================
-   LIGHTBOX — PÁGINA 54
+   PÁGINA 54
    ========================= */
 
-(function initCap6Lightbox(){
-  const lightbox = document.getElementById("cap6Lightbox");
-  const img = document.getElementById("cap6LightboxImage");
-  const caption = document.getElementById("cap6LightboxCaption");
+// Nenhuma interação específica necessária.
+// Utiliza apenas:
+// - Lightbox global (app.js)
+// - Paginação global
 
-  if(!lightbox || !img || !caption) return;
-
-  function open(src, alt, text){
-    img.src = src || "";
-    img.alt = alt || "";
-    caption.textContent = text || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function close(){
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    img.src = "";
-    img.alt = "";
-    caption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  document.addEventListener("click", function(e){
-    const trigger = e.target.closest(".cap6-zoomTrigger");
-    if(trigger){
-      open(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
-      return;
-    }
-
-    if(e.target.closest("[data-lightbox-close]")){
-      close();
-    }
-  });
-
-  document.addEventListener("keydown", function(e){
-    if(e.key === "Escape" && !lightbox.hidden){
-      close();
-    }
-  });
+(function initCap6Page54(){
+  // Página intencionalmente limpa para manter fluidez cognitiva
 })();
 
 /* =========================
@@ -82,20 +38,20 @@
     },
     aditivo: {
       title: "Efeito aditivo",
-      lead: "A combinação produz resultado equivalente à soma das contribuições individuais, sem interação biológica relevante entre os agentes.",
-      summary: "O efeito observado reflete apenas a atividade independente de cada fármaco. Há somação de efeito, mas não potencialização verdadeira.",
+      lead: "A combinação produz resultado equivalente à soma das atividades individuais de cada antibacteriano.",
+      summary: "Não há interação biológica relevante entre os agentes. O efeito observado reflete a contribuição independente de cada fármaco.",
       widths: { a: "42%", b: "38%", combo: "66%" }
     },
     indiferenca: {
       title: "Indiferença",
-      lead: "A associação não altera de forma significativa a resposta que já seria obtida com monoterapia adequada.",
-      summary: "A presença simultânea de dois agentes ativos não modifica substancialmente a dinâmica infecciosa nem acrescenta benefício consistente ao tratamento.",
+      lead: "A associação não altera de forma significativa a resposta obtida com monoterapia adequada.",
+      summary: "A presença de dois agentes ativos não modifica substancialmente a dinâmica infecciosa nem acrescenta benefício consistente.",
       widths: { a: "62%", b: "56%", combo: "62%" }
     },
     antagonismo: {
       title: "Antagonismo",
       lead: "A combinação reduz a eficácia global porque a ação de um agente interfere no mecanismo necessário para a atividade do outro.",
-      summary: "O resultado combinado torna-se inferior ao esperado, ilustrando que associação antibacteriana não corresponde automaticamente a maior atividade clínica ou microbiológica.",
+      summary: "O resultado combinado torna-se inferior ao esperado, ilustrando que associação antibacteriana não corresponde automaticamente a maior eficácia.",
       widths: { a: "64%", b: "54%", combo: "36%" }
     }
   };
@@ -354,90 +310,160 @@
    PÁGINA 59 — CONSEQUÊNCIAS
    ========================= */
 
-(function(){
+(function initCap6Page59(){
+  const root = document.querySelector("[data-cap6-p59]");
+  if(!root) return;
 
-  document.addEventListener("DOMContentLoaded", function(){
+  const tabs = Array.from(root.querySelectorAll("[data-p59-tab]"));
+  const title = root.querySelector("[data-p59-title]");
+  const text = root.querySelector("[data-p59-text]");
+  const summary = root.querySelector("[data-p59-summary]");
 
-    const root = document.querySelector("[data-cap6-p59]");
-    if(!root) return;
+  const label1 = root.querySelector("[data-p59-label-1]");
+  const label2 = root.querySelector("[data-p59-label-2]");
+  const label3 = root.querySelector("[data-p59-label-3]");
 
-    const tabs = root.querySelectorAll("[data-p59-tab]");
-    const title = root.querySelector("[data-p59-title]");
-    const text = root.querySelector("[data-p59-text]");
+  const value1 = root.querySelector("[data-p59-value-1]");
+  const value2 = root.querySelector("[data-p59-value-2]");
+  const value3 = root.querySelector("[data-p59-value-3]");
 
-    const map = {
-      organismo: {
-        title: "Impacto no paciente",
-        text: "A exposição simultânea a múltiplos antibacterianos aumenta o risco de toxicidade sistêmica, eventos adversos e interações medicamentosas, especialmente em pacientes com comorbidades."
-      },
-      microbiota: {
-        title: "Impacto na microbiota",
-        text: "A redução da diversidade bacteriana favorece desequilíbrios ecológicos e permite a expansão de microrganismos oportunistas, incluindo patógenos como Clostridioides difficile."
-      },
-      ecossistema: {
-        title: "Impacto no ambiente hospitalar",
-        text: "A pressão seletiva contínua favorece a emergência e disseminação de microrganismos multirresistentes, reduzindo progressivamente as opções terapêuticas disponíveis."
+  if(!tabs.length || !title || !text || !summary || !label1 || !label2 || !label3 || !value1 || !value2 || !value3) return;
+
+  const map = {
+    organico: {
+      title: "Impacto orgânico",
+      text: "A exposição simultânea a múltiplos antibacterianos pode ampliar toxicidade sistêmica e interações medicamentosas, especialmente quando há sobreposição de vias de eliminação ou de perfis de evento adverso.",
+      summary: "O risco não depende apenas do número de fármacos prescritos, mas da forma como seus perfis farmacológicos e tóxicos se sobrepõem no mesmo paciente.",
+      flow: {
+        l1: "Exposição",
+        v1: "Somar fármacos",
+        l2: "Amplificação",
+        v2: "Sobrepor toxicidade",
+        l3: "Consequência",
+        v3: "Maior risco clínico"
       }
-    };
+    },
+    microbiota: {
+      title: "Impacto na microbiota",
+      text: "A exposição combinada reduz a diversidade da microbiota comensal e favorece a expansão de microrganismos oportunistas, incluindo patógenos como Clostridioides difficile.",
+      summary: "A soma de agentes antibacterianos tende a prolongar e intensificar a disrupção ecológica intestinal, com perda de proteção contra colonização por oportunistas.",
+      flow: {
+        l1: "Exposição",
+        v1: "Ampliar espectro",
+        l2: "Desequilíbrio",
+        v2: "Reduzir diversidade",
+        l3: "Consequência",
+        v3: "Disbiose e oportunistas"
+      }
+    },
+    hospitalar: {
+      title: "Impacto hospitalar",
+      text: "A utilização frequente de múltiplos antibacterianos contribui para a seleção e disseminação de microrganismos multirresistentes em ambientes hospitalares.",
+      summary: "A pressão seletiva repetida sobre a comunidade bacteriana do hospital favorece a persistência de cepas adaptadas e reduz progressivamente as opções terapêuticas disponíveis.",
+      flow: {
+        l1: "Exposição",
+        v1: "Pressão repetida",
+        l2: "Seleção",
+        v2: "Favorecer resistentes",
+        l3: "Consequência",
+        v3: "Disseminação hospitalar"
+      }
+    }
+  };
+
+  function activate(key){
+    const item = map[key];
+    if(!item) return;
 
     tabs.forEach(tab => {
-      tab.addEventListener("click", function(){
-
-        const key = this.dataset.p59Tab;
-
-        tabs.forEach(t => t.setAttribute("aria-selected","false"));
-        this.setAttribute("aria-selected","true");
-
-        if(map[key]){
-          title.textContent = map[key].title;
-          text.textContent = map[key].text;
-        }
-
-      });
+      tab.setAttribute("aria-selected", tab.dataset.p59Tab === key ? "true" : "false");
     });
 
+    title.textContent = item.title;
+    text.textContent = item.text;
+    summary.textContent = item.summary;
+
+    label1.textContent = item.flow.l1;
+    value1.textContent = item.flow.v1;
+
+    label2.textContent = item.flow.l2;
+    value2.textContent = item.flow.v2;
+
+    label3.textContent = item.flow.l3;
+    value3.textContent = item.flow.v3;
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => activate(tab.dataset.p59Tab));
   });
 
+  activate("organico");
 })();
 /* =========================
-   PÁGINA 60 — CHECKLIST
+   PÁGINA 60 — QUANDO NÃO ASSOCIAR
    ========================= */
 
 (function initCap6Page60(){
-
   const root = document.querySelector("[data-cap6-p60]");
   if(!root) return;
 
-  const checks = root.querySelectorAll("input[type='checkbox']");
+  const cards = Array.from(root.querySelectorAll("[data-item]"));
   const result = root.querySelector("[data-result]");
 
-  function evaluate(){
+  if(!cards.length || !result) return;
 
-    const sensivel = root.querySelector("[data-item='sensivel']").checked;
-    const mono = root.querySelector("[data-item='mono']").checked;
-    const poli = root.querySelector("[data-item='poli']").checked;
-    const evolucao = root.querySelector("[data-item='evolucao']").checked;
+  const state = {
+    sensivel: false,
+    mono: false,
+    poli: false,
+    evolucao: false
+  };
 
-    if(sensivel && mono && !poli && evolucao){
-      result.textContent = "A associação NÃO se justifica. A monoterapia é suficiente.";
-      result.style.borderLeftColor = "#1abc9c";
-    }
-    else if(poli){
-      result.textContent = "A associação pode ser necessária devido à possibilidade de infecção polimicrobiana.";
-      result.style.borderLeftColor = "#f39c12";
-    }
-    else{
-      result.textContent = "Reavalie os critérios clínicos e microbiológicos antes de manter associação.";
-      result.style.borderLeftColor = "#3498db";
+  function render(){
+    const { sensivel, mono, poli, evolucao } = state;
+
+    if (sensivel && mono && !poli && evolucao){
+      result.textContent = "A associação perde sustentação biológica. O agente foi identificado, há exposição adequada em monoterapia, não há evidência plausível de infecção polimicrobiana e a evolução é favorável: o cenário aponta para revisão crítica e descalonamento.";
+      return;
     }
 
+    if (sensivel && mono && !poli){
+      result.textContent = "A monoterapia já parece tecnicamente suficiente. Na ausência de infecção polimicrobiana plausível, manter dois antibacterianos tende a ampliar toxicidade e pressão seletiva sem benefício proporcional.";
+      return;
+    }
+
+    if (poli){
+      result.textContent = "Há justificativa potencial para manter cobertura ampliada, mas ela deve ser continuamente reavaliada. A presença de plausibilidade polimicrobiana impede descalonamento automático, porém não dispensa revisão microbiológica e clínica.";
+      return;
+    }
+
+    if (evolucao && !poli){
+      result.textContent = "A melhora clínica favorece reavaliação da combinação inicial. Quando o quadro evolui bem e não há evidência de etiologia polimicrobiana, o risco de exposição prolongada pode superar o benefício de manter a associação.";
+      return;
+    }
+
+    if (sensivel || mono || evolucao){
+      result.textContent = "Há elementos que enfraquecem a necessidade de manter associação, mas a decisão depende da integração entre microbiologia, exposição farmacológica, plausibilidade etiológica e evolução clínica.";
+      return;
+    }
+
+    result.textContent = "Selecione os critérios presentes no caso para avaliar se a associação ainda possui justificativa biológica.";
   }
 
-  checks.forEach(c => c.addEventListener("change", evaluate));
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      const key = card.dataset.item;
+      state[key] = !state[key];
+      card.classList.toggle("is-active", state[key]);
+      card.setAttribute("aria-pressed", state[key] ? "true" : "false");
+      render();
+    });
+  });
 
+  render();
 })();
 /* =========================
-   PÁGINA 61 — QUIZ
+   PÁGINA 61 — QUIZ DE REVISÃO
    ========================= */
 
 (function initCap6Page61Quiz(){
@@ -445,58 +471,43 @@
   if(!root) return;
 
   const questions = Array.from(root.querySelectorAll(".cap6-p61Question"));
-  const done = root.querySelector(".cap6-p61Done");
-  const progress = root.querySelector(".cap6-p61Progress");
-  const prevBtn = root.querySelector('[data-p61-action="prev"]');
-  const nextBtn = root.querySelector('[data-p61-action="next"]');
+  const status = root.querySelector("[data-p61-status]");
+  const statusValue = status ? status.querySelector(".cap6-p61Status__value") : null;
+  const completion = root.querySelector("[data-p61-completion]");
 
-  if(!questions.length || !progress || !prevBtn || !nextBtn) return;
+  if(!questions.length || !statusValue) return;
 
-  let current = 0;
+  function updateStatus(){
+    const confirmed = questions.filter(q => q.dataset.questionState === "done").length;
+    statusValue.textContent = `${confirmed} de ${questions.length} situações confirmadas`;
 
-  function updateNav(){
-    progress.textContent = `Situação ${Math.min(current + 1, questions.length)} de ${questions.length}`;
-    prevBtn.disabled = current === 0;
-    nextBtn.disabled = current === questions.length - 1;
-  }
-
-  function showQuestion(index){
-    questions.forEach((q, i) => {
-      q.classList.toggle("active", i === index);
-    });
-
-    if(done){
-      done.hidden = true;
+    if(completion){
+      completion.hidden = confirmed !== questions.length;
     }
-
-    current = index;
-    updateNav();
   }
 
-  function renderFeedback(container, type, title, text, rationaleHtml){
+  function renderFeedback(container, type, title, text){
     container.innerHTML = `
       <div class="cap6-p61FeedbackCard cap6-p61FeedbackCard--${type}">
         <p class="cap6-p61FeedbackTitle">${title}</p>
         <p class="cap6-p61FeedbackText">${text}</p>
-        ${rationaleHtml ? `<div class="cap6-p61FeedbackText" style="margin-top:10px;">${rationaleHtml}</div>` : ""}
       </div>
     `;
   }
 
-  questions.forEach((question, qIndex) => {
+  questions.forEach(question => {
     const options = Array.from(question.querySelectorAll(".cap6-p61Options button"));
     const confirmBtn = question.querySelector('[data-p61-action="confirm"]');
     const resetBtn = question.querySelector('[data-p61-action="reset"]');
     const feedback = question.querySelector(".cap6-p61Feedback");
     const feedbackMapEl = question.querySelector(".cap6-p61FeedbackMap");
-    const rationaleEl = question.querySelector(".cap6-p61Rationale");
 
-    if(!confirmBtn || !resetBtn || !feedback || !feedbackMapEl || !rationaleEl) return;
+    if(!confirmBtn || !resetBtn || !feedback || !feedbackMapEl) return;
 
     let selected = null;
     let locked = false;
-
     let feedbackMap = {};
+
     try{
       feedbackMap = JSON.parse(feedbackMapEl.innerHTML.trim());
     }catch(e){
@@ -506,6 +517,7 @@
     function clearState(){
       selected = null;
       locked = false;
+      question.dataset.questionState = "pending";
       confirmBtn.disabled = true;
       resetBtn.hidden = true;
       feedback.innerHTML = "";
@@ -514,6 +526,8 @@
         option.classList.remove("is-selected", "is-correct", "is-wrong");
         option.disabled = false;
       });
+
+      updateStatus();
     }
 
     options.forEach(option => {
@@ -532,45 +546,31 @@
       if(!selected || locked) return;
 
       locked = true;
-      confirmBtn.disabled = true;
+      question.dataset.questionState = "done";
       resetBtn.hidden = false;
+      confirmBtn.disabled = true;
 
-      const correctOption = question.querySelector('[data-correct="true"]');
-      const selectedOption = question.querySelector(`[data-answer="${selected}"]`);
-      const isCorrect = selectedOption && selectedOption.dataset.correct === "true";
+      const chosen = options.find(option => option.dataset.answer === selected);
+      const correct = options.find(option => option.hasAttribute("data-correct"));
 
       options.forEach(option => {
         option.disabled = true;
-        if(option.dataset.correct === "true"){
-          option.classList.add("is-correct");
-        }
       });
 
-      if(selectedOption && !isCorrect){
-        selectedOption.classList.add("is-wrong");
+      if(chosen){
+        chosen.classList.add(chosen.hasAttribute("data-correct") ? "is-correct" : "is-wrong");
       }
 
-      const item = feedbackMap[selected] || {
-        type: isCorrect ? "correct" : "error",
-        title: isCorrect ? "Resposta correta" : "Resposta incorreta",
-        text: ""
-      };
-
-      renderFeedback(
-        feedback,
-        item.type,
-        item.title,
-        item.text,
-        rationaleEl.innerHTML.trim()
-      );
-
-      const allAnswered = questions.every(q => {
-        return q.querySelector('[data-p61-action="reset"]:not([hidden])');
-      });
-
-      if(allAnswered && qIndex === questions.length - 1 && done){
-        done.hidden = false;
+      if(correct && correct !== chosen){
+        correct.classList.add("is-correct");
       }
+
+      const entry = feedbackMap[selected];
+      if(entry){
+        renderFeedback(feedback, entry.type, entry.title, entry.text);
+      }
+
+      updateStatus();
     });
 
     resetBtn.addEventListener("click", clearState);
@@ -578,17 +578,5 @@
     clearState();
   });
 
-  prevBtn.addEventListener("click", () => {
-    if(current > 0){
-      showQuestion(current - 1);
-    }
-  });
-
-  nextBtn.addEventListener("click", () => {
-    if(current < questions.length - 1){
-      showQuestion(current + 1);
-    }
-  });
-
-  showQuestion(0);
+  updateStatus();
 })();

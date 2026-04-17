@@ -1,4 +1,50 @@
+document.addEventListener("DOMContentLoaded", function(){
 
+  const triggers = document.querySelectorAll(".cap5-acc-trigger");
+
+  triggers.forEach(trigger => {
+
+    trigger.addEventListener("click", function(){
+
+      const isActive = trigger.classList.contains("active");
+
+      // fecha todos
+      document.querySelectorAll(".cap5-acc-trigger").forEach(t=>t.classList.remove("active"));
+      document.querySelectorAll(".cap5-acc-content").forEach(c=>c.classList.remove("active"));
+
+      // abre atual
+      if(!isActive){
+        trigger.classList.add("active");
+        trigger.nextElementSibling.classList.add("active");
+      }
+
+    });
+
+  });
+
+});
+/* ===== INTERAÇÃO ESTRUTURA DO LAUDO ===== */
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  const steps = document.querySelectorAll(".cap5-step");
+  const panels = document.querySelectorAll(".cap5-panel");
+
+  steps.forEach(step => {
+    step.addEventListener("click", () => {
+
+      const target = step.dataset.step;
+
+      steps.forEach(s => s.classList.remove("active"));
+      panels.forEach(p => p.classList.remove("active"));
+
+      step.classList.add("active");
+      document.querySelector(`.cap5-panel[data-panel="${target}"]`).classList.add("active");
+
+    });
+  });
+
+});
 /* =========================
    Página 40 — Bacterioscopia e coloração de Gram
    ========================= */
@@ -88,17 +134,9 @@
     }, 450);
   });
 })();
-/* =========================
-   Página 41 — Princípio biológico da coloração de Gram
-   ========================= */
 (function initCap5Page41() {
   const root = document.querySelector(".cap5-page41");
   if (!root) return;
-
-  const lightbox = document.getElementById("cap5Lightbox");
-  const lightboxImage = document.getElementById("cap5LightboxImage");
-  const lightboxCaption = document.getElementById("cap5LightboxCaption");
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
 
   const zoomBtn = document.getElementById("gram-stage-zoom");
   const imageEl = document.getElementById("gram-stage-image");
@@ -108,32 +146,12 @@
   const prevBtn = document.getElementById("gram-prev");
   const nextBtn = document.getElementById("gram-next");
   const steps = Array.from(root.querySelectorAll(".gram-step"));
-  const compareZooms = Array.from(root.querySelectorAll(".cap5-zoomTrigger"));
 
   if (
-    !lightbox || !lightboxImage || !lightboxCaption ||
     !zoomBtn || !imageEl || !pillEl || !titleEl || !textEl ||
     !prevBtn || !nextBtn || !steps.length
   ) {
     return;
-  }
-
-  function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
   }
 
   const stepData = [
@@ -202,9 +220,10 @@
       pillEl.textContent = item.pill;
       titleEl.textContent = item.title;
       textEl.textContent = item.text;
-      zoomBtn.dataset.zoomImage = item.image;
-      zoomBtn.dataset.zoomAlt = item.alt;
-      zoomBtn.dataset.zoomCaption = item.text;
+
+      zoomBtn.setAttribute("data-zoom", item.image);
+      zoomBtn.setAttribute("aria-label", `Ampliar imagem da etapa ${item.title}`);
+
       imageEl.classList.remove("is-switching");
     }, 120);
 
@@ -251,34 +270,6 @@
     if (currentIndex < stepData.length - 1) renderStep(currentIndex + 1);
   });
 
-  zoomBtn.addEventListener("click", () => {
-    openLightbox(
-      zoomBtn.dataset.zoomImage,
-      zoomBtn.dataset.zoomAlt,
-      zoomBtn.dataset.zoomCaption
-    );
-  });
-
-  compareZooms.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
-    });
-  });
-
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
-
   renderStep(0);
 })();
 
@@ -289,86 +280,33 @@
   const root = document.querySelector(".cap5-page42");
   if (!root) return;
 
-  const zoomTriggers = Array.from(root.querySelectorAll(".cap5-zoomTrigger"));
-  const lightbox = document.getElementById("cap5Lightbox");
-  const lightboxImage = document.getElementById("cap5LightboxImage");
-  const lightboxCaption = document.getElementById("cap5LightboxCaption");
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
+  const tabs = Array.from(root.querySelectorAll(".cap5-p42-chip"));
+  const eyebrow = root.querySelector("#cap5-p42-panel-eyebrow");
+  const title = root.querySelector("#cap5-p42-panel-title");
+  const text = root.querySelector("#cap5-p42-panel-text");
 
-  if (!zoomTriggers.length || !lightbox || !lightboxImage || !lightboxCaption) return;
-
-  function openLightbox(src, alt, caption) {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  zoomTriggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openLightbox(
-        trigger.dataset.zoomImage,
-        trigger.dataset.zoomAlt,
-        trigger.dataset.zoomCaption
-      );
-    });
-  });
-
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
-})();
-/* =========================
-   Página 43 — Identificação bacteriana
-   ========================= */
-(function initCap5Page43() {
-  const root = document.querySelector(".cap5-page43");
-  if (!root) return;
-
-  const steps = Array.from(root.querySelectorAll(".cap5-p43-step"));
-  const eyebrow = root.querySelector("#cap5-p43-panel-eyebrow");
-  const title = root.querySelector("#cap5-p43-panel-title");
-  const text = root.querySelector("#cap5-p43-panel-text");
-
-  if (!steps.length || !eyebrow || !title || !text) return;
+  if (!tabs.length || !eyebrow || !title || !text) return;
 
   const map = {
-    "1": {
-      eyebrow: "Ponto de partida",
-      title: "Espécie, grupo ou complexo",
-      text: "A identificação define o nível de precisão microbiológica disponível naquele isolamento. Esse dado inicial determina o contexto em que os resultados seguintes serão interpretados."
+    morfologia: {
+      eyebrow: "Traço estrutural inicial",
+      title: "Morfologia da colônia",
+      text: "O tamanho, o contorno das bordas, a superfície, a elevação e a consistência da colônia podem sugerir padrões característicos de determinados grupos bacterianos e orientar a continuidade da investigação."
     },
-    "2": {
-      eyebrow: "Base biológica",
-      title: "Perfil biológico esperado",
-      text: "A partir da identificação, torna-se possível reconhecer padrões microbiológicos próprios daquele organismo, incluindo comportamentos previsíveis de suscetibilidade ou resistência."
+    hemolise: {
+      eyebrow: "Interação com o meio",
+      title: "Padrão de hemólise",
+      text: "Em ágar sangue, a presença ou ausência de hemólise e a forma como ela se distribui ao redor da colônia ajudam a reconhecer comportamentos biológicos iniciais relevantes para a suspeita microbiológica."
     },
-    "3": {
-      eyebrow: "Conseqüência técnica",
-      title: "Limites do painel",
-      text: "Nem toda combinação entre microrganismo e antibacteriano precisa aparecer no teste. Em alguns casos, a própria identidade bacteriana já antecipa limitações metodológicas ou previsibilidade do resultado."
+    pigmentacao: {
+      eyebrow: "Expressão fenotípica visível",
+      title: "Pigmentação",
+      text: "A cor produzida pela colônia ou difundida no meio pode funcionar como pista fenotípica adicional, especialmente quando aparece de forma consistente em determinados grupos bacterianos."
     },
-    "4": {
-      eyebrow: "Integração interpretativa",
-      title: "Leitura crítica do antibiograma",
-      text: "O painel de suscetibilidade passa a ser lido dentro de um contexto microbiológico definido. Assim, o resultado deixa de ser uma lista isolada de antibacterianos e passa a ter significado interpretativo."
+    odor: {
+      eyebrow: "Pista fenotípica complementar",
+      title: "Odor característico",
+      text: "Embora não seja um critério isolado de identificação, o odor pode atuar como indício complementar na rotina laboratorial, somando-se às demais características observadas no crescimento."
     }
   };
 
@@ -376,11 +314,11 @@
     const item = map[key];
     if (!item) return;
 
-    steps.forEach((btn) => {
-      const active = btn.dataset.p43Step === key;
-      btn.classList.toggle("is-active", active);
-      btn.setAttribute("aria-selected", active ? "true" : "false");
-      btn.tabIndex = active ? 0 : -1;
+    tabs.forEach((tab) => {
+      const active = tab.dataset.p42View === key;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
+      tab.tabIndex = active ? 0 : -1;
     });
 
     eyebrow.textContent = item.eyebrow;
@@ -388,93 +326,186 @@
     text.textContent = item.text;
   }
 
-  steps.forEach((btn, index) => {
-    btn.addEventListener("click", () => activate(btn.dataset.p43Step));
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => activate(tab.dataset.p42View));
+
+    tab.addEventListener("keydown", (event) => {
+      let nextIndex = index;
+
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        event.preventDefault();
+        nextIndex = (index + 1) % tabs.length;
+        tabs[nextIndex].focus();
+        activate(tabs[nextIndex].dataset.p42View);
+      }
+
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        event.preventDefault();
+        nextIndex = (index - 1 + tabs.length) % tabs.length;
+        tabs[nextIndex].focus();
+        activate(tabs[nextIndex].dataset.p42View);
+      }
+
+      if (event.key === "Home") {
+        event.preventDefault();
+        tabs[0].focus();
+        activate(tabs[0].dataset.p42View);
+      }
+
+      if (event.key === "End") {
+        event.preventDefault();
+        tabs[tabs.length - 1].focus();
+        activate(tabs[tabs.length - 1].dataset.p42View);
+      }
+    });
+  });
+
+  activate("morfologia");
+})();
+/* =========================
+   Página 43 — Identificação bacteriana
+   ========================= */
+(function initCap5Page43(){
+  const root = document.querySelector(".cap5-page43");
+  if(!root) return;
+
+  const steps = root.querySelectorAll(".cap5-p43-step");
+  const eyebrow = root.querySelector(".cap5-p43-eyebrow");
+  const title = root.querySelector(".cap5-p43-title");
+  const text = root.querySelector(".cap5-p43-text");
+
+  const map = {
+    "1":{
+      eyebrow:"Ponto de partida",
+      title:"Definição do agente",
+      text:"A identificação define o microrganismo isolado e estabelece o nível de precisão microbiológica disponível. Esse dado inicial orienta a interpretação dos resultados subsequentes."
+    },
+    "2":{
+      eyebrow:"Base biológica",
+      title:"Contexto da espécie",
+      text:"A espécie identificada determina padrões esperados de comportamento microbiológico, incluindo perfis característicos de suscetibilidade e resistência."
+    },
+    "3":{
+      eyebrow:"Integração clínica",
+      title:"Leitura do antibiograma",
+      text:"O antibiograma passa a ser interpretado dentro do contexto da espécie. O resultado deixa de ser uma lista isolada e passa a ter significado clínico estruturado."
+    }
+  };
+
+  steps.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      steps.forEach(b=>b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+
+      const data = map[btn.dataset.step];
+      eyebrow.textContent = data.eyebrow;
+      title.textContent = data.title;
+      text.textContent = data.text;
+    });
+  });
+
+})();
+/* =========================
+   Página 44 — Difusão em disco
+   ========================= */
+(function initCap5Page44() {
+  const root = document.querySelector(".cap5-page44");
+  if (!root) return;
+
+  const buttons = Array.from(root.querySelectorAll(".tempo-btn"));
+  const img = root.querySelector("#tempo-img");
+  const caption = root.querySelector("#tempo-caption");
+  const zoomBtn = root.querySelector(".cap5-p44-figure__zoom");
+
+  if (!buttons.length || !img || !caption || !zoomBtn) return;
+
+  const data = {
+    "0": {
+      src: "../../assets/capitulo-05/imagens/difusao-disco-0h.png",
+      alt: "Placa de difusão em disco no tempo inicial.",
+      text: "Tempo inicial: o antibacteriano ainda não se difundiu de forma significativa no meio."
+    },
+    "6": {
+      src: "../../assets/capitulo-05/imagens/difusao-disco-6h.png",
+      alt: "Placa de difusão em disco após 6 horas.",
+      text: "Após algumas horas, o antibacteriano começa a difundir-se no ágar e o gradiente de concentração se inicia."
+    },
+    "12": {
+      src: "../../assets/capitulo-05/imagens/difusao-disco-12h.png",
+      alt: "Placa de difusão em disco após 12 horas.",
+      text: "Com a progressão da incubação, o gradiente se torna mais evidente e a distribuição do antibacteriano no meio se amplia."
+    },
+    "18": {
+      src: "../../assets/capitulo-05/imagens/difusao-disco-18h.png",
+      alt: "Placa de difusão em disco após 18 horas.",
+      text: "A diferença entre áreas de maior e menor concentração se acentua, aproximando a formação da zona de inibição."
+    },
+    "24": {
+      src: "../../assets/capitulo-05/imagens/difusao-disco-24h.png",
+      alt: "Placa de difusão em disco após 24 horas com halo de inibição.",
+      text: "Ao final da incubação, observa-se o halo de inibição ao redor do disco, que poderá ser medido em milímetros."
+    }
+  };
+
+  function activate(time) {
+    const item = data[time];
+    if (!item) return;
+
+    buttons.forEach((btn) => {
+      const active = btn.dataset.tempo === time;
+      btn.classList.toggle("active", active);
+      btn.setAttribute("aria-selected", active ? "true" : "false");
+      btn.tabIndex = active ? 0 : -1;
+    });
+
+    img.src = item.src;
+    img.alt = item.alt;
+    caption.textContent = item.text;
+    zoomBtn.setAttribute("data-zoom", item.src);
+    zoomBtn.setAttribute("aria-label", `Ampliar imagem da difusão em disco em ${time}`);
+  }
+
+  buttons.forEach((btn, index) => {
+    btn.addEventListener("click", () => activate(btn.dataset.tempo));
 
     btn.addEventListener("keydown", (event) => {
       let nextIndex = index;
 
       if (event.key === "ArrowRight" || event.key === "ArrowDown") {
         event.preventDefault();
-        nextIndex = (index + 1) % steps.length;
-        steps[nextIndex].focus();
-        activate(steps[nextIndex].dataset.p43Step);
+        nextIndex = (index + 1) % buttons.length;
+        buttons[nextIndex].focus();
+        activate(buttons[nextIndex].dataset.tempo);
       }
 
       if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
         event.preventDefault();
-        nextIndex = (index - 1 + steps.length) % steps.length;
-        steps[nextIndex].focus();
-        activate(steps[nextIndex].dataset.p43Step);
+        nextIndex = (index - 1 + buttons.length) % buttons.length;
+        buttons[nextIndex].focus();
+        activate(buttons[nextIndex].dataset.tempo);
       }
 
       if (event.key === "Home") {
         event.preventDefault();
-        steps[0].focus();
-        activate(steps[0].dataset.p43Step);
+        buttons[0].focus();
+        activate(buttons[0].dataset.tempo);
       }
 
       if (event.key === "End") {
         event.preventDefault();
-        steps[steps.length - 1].focus();
-        activate(steps[steps.length - 1].dataset.p43Step);
+        buttons[buttons.length - 1].focus();
+        activate(buttons[buttons.length - 1].dataset.tempo);
       }
     });
   });
 
-  activate("1");
-})();
-/* =========================
-   Página 44 — Difusão em disco (tempo)
-   ========================= */
-(function initCap5Page44(){
-  const root = document.querySelector(".cap5-page44");
-  if(!root) return;
-
-  const buttons = root.querySelectorAll(".tempo-btn");
-  const img = root.querySelector("#tempo-img");
-  const caption = root.querySelector("#tempo-caption");
-
-  if(!buttons.length || !img || !caption) return;
-
-  const data = {
-    "0": {
-      src: "../../assets/capitulo-05/imagens/difusao-disco-0h.png",
-      text: "Tempo inicial: o antibacteriano ainda não se difundiu de forma significativa no meio."
-    },
-    "6": {
-      src: "../../assets/capitulo-05/imagens/difusao-disco-6h.png",
-      text: "Início da difusão: pequenas zonas de inibição começam a se formar ao redor dos discos."
-    },
-    "12": {
-      src: "../../assets/capitulo-05/imagens/difusao-disco-12h.png",
-      text: "Difusão progressiva: o gradiente de concentração se estabelece e as zonas de inibição tornam-se mais evidentes."
-    },
-    "18": {
-      src: "../../assets/capitulo-05/imagens/difusao-disco-18h.png",
-      text: "Expansão do halo: a inibição bacteriana ao redor dos discos torna-se mais definida."
-    },
-    "24": {
-      src: "../../assets/capitulo-05/imagens/difusao-disco-24h.png",
-      text: "Leitura final: o halo de inibição está completamente formado e pode ser medido."
-    }
-  };
-
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-
-      buttons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      const tempo = btn.dataset.tempo;
-      img.src = data[tempo].src;
-      caption.textContent = data[tempo].text;
-
-    });
-  });
+  activate("0");
 })();
 /* =========================
    Página 45 — CIM + padronização
+   ========================= */
+/* =========================
+   Página 45 — Microdiluição e CIM
    ========================= */
 (function initCap5Page45() {
   const root = document.querySelector(".cap5-page45");
@@ -487,11 +518,6 @@
   const title = root.querySelector("#cap5-p45-cim-panel-title");
   const text = root.querySelector("#cap5-p45-cim-panel-text");
   const zoomBtn = root.querySelector(".cap5-p45-cim__zoom");
-
-  const lightbox = document.getElementById("cap5Lightbox");
-  const lightboxImage = document.getElementById("cap5LightboxImage");
-  const lightboxCaption = document.getElementById("cap5LightboxCaption");
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll("[data-lightbox-close]")) : [];
 
   if (!tabs.length || !img || !caption || !eyebrow || !title || !text || !zoomBtn) return;
 
@@ -510,11 +536,11 @@
       caption: "A transição para ausência de crescimento visível indica o ponto em que se identifica a menor concentração capaz de impedir esse crescimento nas condições do ensaio.",
       eyebrow: "Ponto interpretativo",
       title: "Inibição do crescimento",
-      text: "A CIM corresponde à menor concentração em que o crescimento visível deixa de ocorrer. O critério é a inibição observável no ensaio, e não necessariamente morte bacteriana completa."
+      text: "A CIM corresponde à menor concentração em que o crescimento visível deixa de ocorrer. O critério do ensaio é a inibição observável nessas condições laboratoriais, e não necessariamente morte bacteriana completa."
     }
   };
 
-  function applyView(key) {
+  function activate(key) {
     const item = views[key];
     if (!item) return;
 
@@ -532,13 +558,12 @@
     title.textContent = item.title;
     text.textContent = item.text;
 
-    zoomBtn.dataset.zoomImage = item.src;
-    zoomBtn.dataset.zoomAlt = item.alt;
-    zoomBtn.dataset.zoomCaption = item.caption;
+    zoomBtn.setAttribute("data-zoom", item.src);
+    zoomBtn.setAttribute("aria-label", `Ampliar imagem de ${item.title.toLowerCase()}`);
   }
 
   tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => applyView(tab.dataset.cimView));
+    tab.addEventListener("click", () => activate(tab.dataset.cimView));
 
     tab.addEventListener("keydown", (event) => {
       let nextIndex = index;
@@ -547,69 +572,31 @@
         event.preventDefault();
         nextIndex = (index + 1) % tabs.length;
         tabs[nextIndex].focus();
-        applyView(tabs[nextIndex].dataset.cimView);
+        activate(tabs[nextIndex].dataset.cimView);
       }
 
       if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
         event.preventDefault();
         nextIndex = (index - 1 + tabs.length) % tabs.length;
         tabs[nextIndex].focus();
-        applyView(tabs[nextIndex].dataset.cimView);
+        activate(tabs[nextIndex].dataset.cimView);
       }
 
       if (event.key === "Home") {
         event.preventDefault();
         tabs[0].focus();
-        applyView(tabs[0].dataset.cimView);
+        activate(tabs[0].dataset.cimView);
       }
 
       if (event.key === "End") {
         event.preventDefault();
         tabs[tabs.length - 1].focus();
-        applyView(tabs[tabs.length - 1].dataset.cimView);
+        activate(tabs[tabs.length - 1].dataset.cimView);
       }
     });
   });
 
-  function openLightbox(src, alt, cap) {
-    if (!lightbox || !lightboxImage || !lightboxCaption) return;
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "";
-    lightboxCaption.textContent = cap || "";
-    lightbox.hidden = false;
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    if (!lightbox || !lightboxImage || !lightboxCaption) return;
-    lightbox.hidden = true;
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxCaption.textContent = "";
-    document.body.style.overflow = "";
-  }
-
-  zoomBtn.addEventListener("click", () => {
-    openLightbox(
-      zoomBtn.dataset.zoomImage,
-      zoomBtn.dataset.zoomAlt,
-      zoomBtn.dataset.zoomCaption
-    );
-  });
-
-  closers.forEach((el) => {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && lightbox && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
-
-  applyView("crescimento");
+  activate("crescimento");
 })();
 /* =========================
    Página 46 — Breakpoints e categorias interpretativas
@@ -630,19 +617,19 @@
       pillText: "Categoria padrão",
       pillClass: "cap5-p46-panel__pill cap5-p46-panel__pill--s",
       title: "Sensível (S)",
-      text: "Indica que o valor obtido no teste está dentro da faixa associada a alta probabilidade de sucesso terapêutico quando a exposição ao antibacteriano é apropriada para o sítio de infecção e o regime posológico recomendado."
+      text: "Indica que o valor obtido no teste está dentro da faixa associada a alta probabilidade de sucesso terapêutico quando o antibacteriano é utilizado em regimes posológicos padrão e quando a exposição no sítio de infecção é adequada."
     },
     i: {
-      pillText: "Ponto que mais gera erro",
+      pillText: "Aumentando exposição",
       pillClass: "cap5-p46-panel__pill cap5-p46-panel__pill--i",
       title: "Sensível, aumentando exposição (I)",
-      text: "Corresponde a uma faixa limítrofe de suscetibilidade. Nessa situação, a probabilidade de sucesso terapêutico depende de maior exposição ao antibacteriano, o que pode ocorrer, por exemplo, em regimes posológicos otimizados ou em locais do organismo onde a concentração do fármaco é naturalmente mais elevada."
+      text: "Indica que a probabilidade de sucesso terapêutico é mantida desde que a exposição ao antibacteriano seja aumentada. Isso pode ser alcançado por otimização do regime posológico, como ajuste de dose, intervalo ou via de administração, ou em situações nas quais o fármaco atinge concentrações mais elevadas no sítio de infecção."
     },
     r: {
       pillText: "Baixa probabilidade",
       pillClass: "cap5-p46-panel__pill cap5-p46-panel__pill--r",
       title: "Resistente (R)",
-      text: "Indica que o valor obtido no teste ultrapassa o limite associado à probabilidade aceitável de inibição bacteriana, mesmo quando se considera aumento de exposição ao antibacteriano."
+      text: "Indica que o valor obtido no teste está associado a baixa probabilidade de sucesso terapêutico, mesmo quando se considera aumento de exposição ao antibacteriano."
     }
   };
 
@@ -697,60 +684,55 @@
     });
   });
 
-  activate("i");
+  activate("s");
 })();
 /* =========================
    Página 47 — ESBL
    ========================= */
-(function initCap5Page47(){
-  const root = document.querySelector('.cap5-page47');
+(function initCap5Page47() {
+  const root = document.querySelector(".cap5-page47");
   if (!root) return;
 
-  const tabs = Array.from(root.querySelectorAll('.cap5-p47-esbl__tab'));
-  const eyebrow = root.querySelector('#cap5-p47-eyebrow');
-  const title = root.querySelector('#cap5-p47-title');
-  const text = root.querySelector('#cap5-p47-text');
-  const note = root.querySelector('#cap5-p47-note');
-  const image = root.querySelector('#cap5-p47-image');
-  const caption = root.querySelector('#cap5-p47-caption');
-  const zoomBtn = root.querySelector('#cap5-p47-zoom');
-
-  const lightbox = root.querySelector('#cap5Lightbox');
-  const lightboxImage = root.querySelector('#cap5LightboxImage');
-  const lightboxCaption = root.querySelector('#cap5LightboxCaption');
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll('[data-lightbox-close]')) : [];
+  const tabs = Array.from(root.querySelectorAll(".cap5-p47-esbl__tab"));
+  const eyebrow = root.querySelector("#cap5-p47-eyebrow");
+  const title = root.querySelector("#cap5-p47-title");
+  const text = root.querySelector("#cap5-p47-text");
+  const note = root.querySelector("#cap5-p47-note");
+  const image = root.querySelector("#cap5-p47-image");
+  const caption = root.querySelector("#cap5-p47-caption");
+  const zoomBtn = root.querySelector("#cap5-p47-zoom");
 
   if (!tabs.length || !eyebrow || !title || !text || !note || !image || !caption || !zoomBtn) return;
 
   const map = {
     mecanismo: {
-      eyebrow: 'Produção enzimática',
-      title: 'Mecanismo biológico da ESBL',
-      text: 'As ESBL são enzimas produzidas por Enterobacterales capazes de degradar penicilinas e cefalosporinas de amplo espectro. O reconhecimento desse mecanismo explica por que o painel de β-lactâmicos não deve ser lido apenas como uma lista de resultados isolados, mas como expressão de um perfil biológico de resistência.',
-      note: 'O ponto central não é apenas “qual antibacteriano apareceu no laudo”, mas qual mecanismo está alterando o significado daquele painel.',
-      img: '../../assets/capitulo-05/imagens/esbl-mecanismo.png',
-      alt: 'Esquema ilustrativo do mecanismo de produção de ESBL.',
-      caption: 'A produção de ESBL leva à hidrólise de penicilinas e cefalosporinas de amplo espectro, interferindo diretamente na atividade desses antibacterianos.'
+      eyebrow: "Mecanismo reconhecido pelo laboratório",
+      title: "ESBL detectada",
+      text: "A identificação de ESBL no laudo indica que o laboratório reconheceu um mecanismo capaz de interferir na atividade de diversos β-lactâmicos. A interpretação do painel não deve ser feita de forma isolada, porque parte dos resultados já está condicionada por esse achado.",
+      note: "Quando o mecanismo é identificado, o laudo deixa de ser apenas descritivo e passa a orientar a interpretação clínica.",
+      image: "../../assets/capitulo-05/imagens/esbl-mecanismo.png",
+      alt: "Esquema ilustrativo do mecanismo de produção de ESBL.",
+      caption: "ESBL. A presença do mecanismo modifica a leitura de parte dos β-lactâmicos no antibiograma."
     },
-    impacto: {
-      eyebrow: 'Leitura do antibiograma',
-      title: 'Impacto no laudo microbiológico',
-      text: 'A detecção da ESBL modifica a interpretação de parte do painel de β-lactâmicos de acordo com as regras interpretativas adotadas pelo sistema normativo do laboratório. Portanto, a leitura adequada do laudo depende da integração entre o mecanismo detectado e a forma como os resultados do painel devem ser compreendidos.',
-      note: 'A observação do mecanismo não substitui o antibiograma, mas altera a forma como seus resultados devem ser interpretados.',
-      img: '../../assets/capitulo-05/imagens/esbl-teste-confirmatorio.png',
-      alt: 'Imagem ilustrativa de teste confirmatório relacionado à produção de ESBL.',
-      caption: 'A confirmação da ESBL altera o significado interpretativo do painel de β-lactâmicos e impede a leitura isolada dos resultados.'
+    laudo: {
+      eyebrow: "Interpretação orientada pelo achado",
+      title: "Leitura do laudo microbiológico",
+      text: "Na presença de ESBL, o resultado deixa de ser apenas uma lista de categorias de suscetibilidade e passa a exigir leitura integrada do mecanismo descrito pelo laboratório. O clínico precisa compreender que esse achado interfere no significado de parte do painel de β-lactâmicos.",
+      note: "Aqui, o laudo já oferece um alerta explícito. O passo seguinte não é apenas ver o S, I ou R, mas entender como o mecanismo modifica a interpretação.",
+      image: "../../assets/capitulo-05/imagens/esbl-teste-confirmatorio.png",
+      alt: "Imagem ilustrativa relacionada à detecção de ESBL.",
+      caption: "O achado de ESBL no laudo orienta a interpretação de parte do painel de β-lactâmicos."
     }
   };
 
-  function activate(step){
-    const item = map[step];
+  function activate(key) {
+    const item = map[key];
     if (!item) return;
 
     tabs.forEach((tab) => {
-      const active = tab.dataset.p47Step === step;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', active ? 'true' : 'false');
+      const active = tab.dataset.p47Step === key;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
       tab.tabIndex = active ? 0 : -1;
     });
 
@@ -758,62 +740,40 @@
     title.textContent = item.title;
     text.textContent = item.text;
     note.textContent = item.note;
-    image.src = item.img;
+    image.src = item.image;
     image.alt = item.alt;
     caption.textContent = item.caption;
-
-    zoomBtn.dataset.zoomImage = item.img;
-    zoomBtn.dataset.zoomAlt = item.alt;
-    zoomBtn.dataset.zoomCaption = item.caption;
-  }
-
-  function openLightbox(src, alt, cap){
-    if (!lightbox || !lightboxImage || !lightboxCaption) return;
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || '';
-    lightboxCaption.textContent = cap || '';
-    lightbox.hidden = false;
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox(){
-    if (!lightbox || !lightboxImage || !lightboxCaption) return;
-    lightbox.hidden = true;
-    lightbox.setAttribute('aria-hidden', 'true');
-    lightboxImage.src = '';
-    lightboxImage.alt = '';
-    lightboxCaption.textContent = '';
-    document.body.style.overflow = '';
+    zoomBtn.setAttribute("data-zoom", item.image);
+    zoomBtn.setAttribute("aria-label", `Ampliar imagem de ${item.title.toLowerCase()}`);
   }
 
   tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activate(tab.dataset.p47Step));
+    tab.addEventListener("click", () => activate(tab.dataset.p47Step));
 
-    tab.addEventListener('keydown', (event) => {
+    tab.addEventListener("keydown", (event) => {
       let nextIndex = index;
 
-      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
         event.preventDefault();
         nextIndex = (index + 1) % tabs.length;
         tabs[nextIndex].focus();
         activate(tabs[nextIndex].dataset.p47Step);
       }
 
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
         event.preventDefault();
         nextIndex = (index - 1 + tabs.length) % tabs.length;
         tabs[nextIndex].focus();
         activate(tabs[nextIndex].dataset.p47Step);
       }
 
-      if (event.key === 'Home') {
+      if (event.key === "Home") {
         event.preventDefault();
         tabs[0].focus();
         activate(tabs[0].dataset.p47Step);
       }
 
-      if (event.key === 'End') {
+      if (event.key === "End") {
         event.preventDefault();
         tabs[tabs.length - 1].focus();
         activate(tabs[tabs.length - 1].dataset.p47Step);
@@ -821,137 +781,87 @@
     });
   });
 
-  zoomBtn.addEventListener('click', () => {
-    openLightbox(
-      zoomBtn.dataset.zoomImage,
-      zoomBtn.dataset.zoomAlt,
-      zoomBtn.dataset.zoomCaption
-    );
-  });
-
-  closers.forEach((el) => {
-    el.addEventListener('click', closeLightbox);
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
-
-  activate('mecanismo');
+  activate("mecanismo");
 })();
 /* =========================
-   Página 48 — AmpC e carbapenemases
+   Página 48 — Grupo CESP e carbapenemases
    ========================= */
-(function initCap5Page48(){
-  const root = document.querySelector('.cap5-page48');
+(function initCap5Page48() {
+  const root = document.querySelector(".cap5-page48");
   if (!root) return;
 
-  const tabs = Array.from(root.querySelectorAll('.cap5-p48-mechanisms__tab'));
-  const eyebrow = root.querySelector('#cap5-p48-eyebrow');
-  const title = root.querySelector('#cap5-p48-title');
-  const text = root.querySelector('#cap5-p48-text');
-  const image = root.querySelector('#cap5-p48-image');
-  const caption = root.querySelector('#cap5-p48-caption');
-  const zoomBtn = root.querySelector('#cap5-p48-zoom');
+  const tabs = Array.from(root.querySelectorAll(".cap5-p48-compare__tab"));
+  const cards = Array.from(root.querySelectorAll(".cap5-p48-card"));
+  const eyebrow = root.querySelector("#cap5-p48-eyebrow");
+  const title = root.querySelector("#cap5-p48-title");
+  const text = root.querySelector("#cap5-p48-text");
+  const note = root.querySelector("#cap5-p48-note");
 
-  const lightbox = root.querySelector('#cap5Lightbox');
-  const lightboxImage = root.querySelector('#cap5LightboxImage');
-  const lightboxCaption = root.querySelector('#cap5LightboxCaption');
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll('[data-lightbox-close]')) : [];
-
-  if (!tabs.length || !eyebrow || !title || !text || !image || !caption || !zoomBtn) return;
+  if (!tabs.length || !cards.length || !eyebrow || !title || !text || !note) return;
 
   const map = {
-    ampc: {
-      eyebrow: 'Produção enzimática induzível',
-      title: 'AmpC cromossômica',
-      text: 'Em determinadas espécies, a simples identificação bacteriana já indica a possibilidade de produção de AmpC cromossômica. Nesses casos, a exposição a alguns β-lactâmicos pode induzir a expressão enzimática, tornando a leitura inicial do painel potencialmente enganosa antes da indução e criando risco de falha terapêutica durante o tratamento.',
-      img: '../../assets/capitulo-05/imagens/ampc-inducao.png',
-      alt: 'Esquema ilustrativo da AmpC cromossômica com expressão induzível.',
-      caption: 'A identificação de espécies com possibilidade de AmpC cromossômica já sinaliza risco interpretativo, especialmente pela possibilidade de expressão induzível durante a exposição a β-lactâmicos.'
+    cesp: {
+      eyebrow: "Risco interpretativo dependente da espécie",
+      title: "Grupo CESP e possibilidade de AmpC induzível",
+      text: "Em espécies do grupo CESP, a simples identificação bacteriana já informa a possibilidade de produção de AmpC. Nesses casos, um resultado aparentemente favorável no antibiograma não deve ser lido de forma ingênua, porque a exposição a alguns β-lactâmicos pode induzir expressão enzimática durante o tratamento e comprometer a atividade do fármaco.",
+      note: "O ponto central não é apenas se o halo parece adequado, mas se a espécie identificada permite confiar nessa leitura sem considerar o risco de indução."
     },
-    carb: {
-      eyebrow: 'Hidrólise de carbapenêmicos',
-      title: 'Carbapenemases',
-      text: 'As carbapenemases são enzimas capazes de hidrolisar antibacterianos dessa classe. Podem ser classificadas em grupos como KPC, metalo-β-lactamases, como NDM, VIM ou IMP, e variantes do tipo OXA. Sua presença costuma estar associada a perfis de resistência mais amplos e possui relevância epidemiológica importante.',
-      img: '../../assets/capitulo-05/imagens/carbapenemases-classificacao.png',
-      alt: 'Esquema ilustrativo da classificação e implicações das carbapenemases.',
-      caption: 'A presença de carbapenemases está associada a multirresistência e possui importante impacto epidemiológico, exigindo leitura crítica do laudo e atenção às medidas de controle.'
+    carbapenemase: {
+      eyebrow: "Resistência de grande impacto",
+      title: "Carbapenemases e perda ampla de atividade",
+      text: "Nas carbapenemases, o laboratório reconhece enzimas capazes de hidrolisar carbapenêmicos. Nesse cenário, o padrão de resistência observado já sinaliza comprometimento mais amplo da atividade desses antibacterianos e exige leitura cuidadosa do painel, com relevância clínica e epidemiológica importante.",
+      note: "Aqui, o problema não é uma falsa impressão inicial de segurança, mas a presença de um mecanismo que já indica perda importante de atividade e limitação terapêutica."
     }
   };
 
-  function activate(step){
-    const item = map[step];
+  function activate(key) {
+    const item = map[key];
     if (!item) return;
 
     tabs.forEach((tab) => {
-      const active = tab.dataset.p48Step === step;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', active ? 'true' : 'false');
+      const active = tab.dataset.p48Step === key;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
       tab.tabIndex = active ? 0 : -1;
+    });
+
+    cards.forEach((card) => {
+      card.classList.toggle("is-active", card.dataset.p48Card === key);
     });
 
     eyebrow.textContent = item.eyebrow;
     title.textContent = item.title;
     text.textContent = item.text;
-    image.src = item.img;
-    image.alt = item.alt;
-    caption.textContent = item.caption;
-
-    zoomBtn.dataset.zoomImage = item.img;
-    zoomBtn.dataset.zoomAlt = item.alt;
-    zoomBtn.dataset.zoomCaption = item.caption;
-  }
-
-  function openLightbox(src, alt, cap){
-    if (!lightbox || !lightboxImage || !lightboxCaption) return;
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || '';
-    lightboxCaption.textContent = cap || '';
-    lightbox.hidden = false;
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox(){
-    if (!lightbox || !lightboxImage || !lightboxCaption) return;
-    lightbox.hidden = true;
-    lightbox.setAttribute('aria-hidden', 'true');
-    lightboxImage.src = '';
-    lightboxImage.alt = '';
-    lightboxCaption.textContent = '';
-    document.body.style.overflow = '';
+    note.textContent = item.note;
   }
 
   tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activate(tab.dataset.p48Step));
+    tab.addEventListener("click", () => activate(tab.dataset.p48Step));
 
-    tab.addEventListener('keydown', (event) => {
+    tab.addEventListener("keydown", (event) => {
       let nextIndex = index;
 
-      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
         event.preventDefault();
         nextIndex = (index + 1) % tabs.length;
         tabs[nextIndex].focus();
         activate(tabs[nextIndex].dataset.p48Step);
       }
 
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
         event.preventDefault();
         nextIndex = (index - 1 + tabs.length) % tabs.length;
         tabs[nextIndex].focus();
         activate(tabs[nextIndex].dataset.p48Step);
       }
 
-      if (event.key === 'Home') {
+      if (event.key === "Home") {
         event.preventDefault();
         tabs[0].focus();
         activate(tabs[0].dataset.p48Step);
       }
 
-      if (event.key === 'End') {
+      if (event.key === "End") {
         event.preventDefault();
         tabs[tabs.length - 1].focus();
         activate(tabs[tabs.length - 1].dataset.p48Step);
@@ -959,153 +869,105 @@
     });
   });
 
-  zoomBtn.addEventListener('click', () => {
-    openLightbox(
-      zoomBtn.dataset.zoomImage,
-      zoomBtn.dataset.zoomAlt,
-      zoomBtn.dataset.zoomCaption
-    );
-  });
-
-  closers.forEach((el) => {
-    el.addEventListener('click', closeLightbox);
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
-
-  activate('ampc');
+  activate("cesp");
 })();
 /* =========================
-   Página 49 — Mecanismos que modificam a interpretação
+   Página 49 — MRSA, VRE, MLSB induzível e HLAR
    ========================= */
-(function initCap5Page49(){
-  const root = document.querySelector('.cap5-page49');
+(function initCap5Page49() {
+  const root = document.querySelector(".cap5-page49");
   if (!root) return;
 
-  const tabs = Array.from(root.querySelectorAll('.cap5-p49-mechanisms__tab'));
-  const eyebrow = root.querySelector('#cap5-p49-eyebrow');
-  const title = root.querySelector('#cap5-p49-title');
-  const text = root.querySelector('#cap5-p49-text');
-  const image = root.querySelector('#cap5-p49-image');
-  const caption = root.querySelector('#cap5-p49-caption');
-  const zoomBtn = root.querySelector('#cap5-p49-zoom');
+  const tabs = Array.from(root.querySelectorAll(".cap5-p49-compare__tab"));
+  const eyebrow = root.querySelector("#cap5-p49-eyebrow");
+  const title = root.querySelector("#cap5-p49-title");
+  const text = root.querySelector("#cap5-p49-text");
+  const note = root.querySelector("#cap5-p49-note");
+  const image = root.querySelector("#cap5-p49-image");
+  const caption = root.querySelector("#cap5-p49-caption");
+  const zoomBtn = root.querySelector("#cap5-p49-zoom");
 
-  const lightbox = root.querySelector('#cap5Lightbox');
-  const lightboxImage = root.querySelector('#cap5LightboxImage');
-  const lightboxCaption = root.querySelector('#cap5LightboxCaption');
-  const closers = lightbox ? Array.from(lightbox.querySelectorAll('[data-lightbox-close]')) : [];
-
-  if (!tabs.length || !eyebrow || !title || !text || !image || !caption || !zoomBtn) return;
+  if (!tabs.length || !eyebrow || !title || !text || !note || !image || !caption || !zoomBtn) return;
 
   const map = {
     mrsa: {
-      eyebrow: 'Alteração de alvo',
-      title: 'MRSA',
-      text: 'No Staphylococcus aureus resistente à meticilina (MRSA), ocorre modificação das proteínas ligadoras de penicilina. Essa alteração reduz a afinidade por β-lactâmicos relevantes e modifica a interpretação laboratorial dessa classe conforme as regras aplicáveis ao sistema adotado.',
-      img: '../../assets/capitulo-05/imagens/mrsa-pbp2a.png',
-      alt: 'Esquema ilustrativo do mecanismo de resistência do MRSA.',
-      caption: 'No MRSA, a modificação das proteínas ligadoras de penicilina reduz a afinidade por β-lactâmicos relevantes e altera a interpretação dessa classe.'
+      eyebrow: "Alteração do alvo dos β-lactâmicos",
+      title: "MRSA",
+      text: "No MRSA, a modificação das proteínas ligadoras de penicilina altera o significado do painel de β-lactâmicos. A leitura do laudo não deve se limitar ao resultado isolado desses antibacterianos.",
+      note: "A presença desse mecanismo torna inadequada a interpretação isolada de parte dos β-lactâmicos.",
+      image: "../../assets/capitulo-05/imagens/mrsa-orsa-disco.png",
+      alt: "Imagem ilustrativa relacionada ao fenótipo MRSA.",
+      caption: "MRSA. A alteração do alvo modifica a interpretação dos β-lactâmicos."
     },
     vre: {
-      eyebrow: 'Alteração de alvo',
-      title: 'VRE',
-      text: 'Nos enterococos resistentes à vancomicina (VRE), ocorre modificação do alvo molecular do glicopeptídeo. A presença desse mecanismo altera a atividade da vancomicina e possui implicações relevantes no ambiente hospitalar.',
-      img: '../../assets/capitulo-05/imagens/vre-alvo-vancomicina.png',
-      alt: 'Esquema ilustrativo do mecanismo de resistência do VRE.',
-      caption: 'No VRE, a modificação do alvo molecular altera a atividade da vancomicina e modifica a leitura do laudo.'
+      eyebrow: "Alteração do alvo dos glicopeptídeos",
+      title: "VRE",
+      text: "Nos enterococos resistentes à vancomicina ocorre modificação do alvo molecular do glicopeptídeo. O resultado deixa de ser apenas um dado isolado de suscetibilidade e passa a indicar redução da atividade da vancomicina, com implicações clínicas e epidemiológicas relevantes.",
+      note: "Aqui, o laudo não informa apenas resistência a um fármaco, mas um fenótipo que interfere no manejo clínico e no controle de infecção.",
+      image: "../../assets/capitulo-05/imagens/vre-disco.png",
+      alt: "Imagem ilustrativa relacionada ao fenótipo VRE.",
+      caption: "VRE. A modificação do alvo reduz a atividade da vancomicina."
     },
     mlsb: {
-      eyebrow: 'Fenótipo específico',
-      title: 'MLSB induzível',
-      text: 'O fenótipo MLSB induzível pode resultar em falha terapêutica com clindamicina apesar de resultado inicial de sensibilidade. Nesse contexto, o laudo não deve ser lido apenas pela categoria isolada, mas pelo significado biológico do fenótipo detectado.',
-      img: '../../assets/capitulo-05/imagens/mlsb-induzivel-clindamicina.png',
-      alt: 'Esquema ilustrativo do fenótipo MLSB induzível.',
-      caption: 'No fenótipo MLSB induzível, a clindamicina pode aparentar sensibilidade inicial, mas a interpretação correta exige reconhecer o risco de falha.'
-    },
-    hlar: {
-      eyebrow: 'Perda de sinergismo',
-      title: 'HLAR',
-      text: 'A resistência de alto nível a aminoglicosídeos em Enterococcus interfere no potencial de sinergismo esperado entre aminoglicosídeos e outras classes antimicrobianas. Essa observação modifica a leitura do painel e não deve ser interpretada isoladamente.',
-      img: '../../assets/capitulo-05/imagens/enterococcus-hlar.png',
-      alt: 'Esquema ilustrativo da resistência de alto nível a aminoglicosídeos em Enterococcus.',
-      caption: 'Na HLAR, a interpretação do laudo deve considerar a perda do sinergismo esperado com aminoglicosídeos.'
+      eyebrow: "Fenótipo induzível de resistência",
+      title: "MLSB induzível",
+      text: "No fenótipo MLSB induzível, a resistência pode não estar plenamente evidente na leitura inicial do teste. Nesses casos, o resultado aparentemente favorável para clindamicina não deve ser interpretado de forma ingênua, porque a resistência pode se manifestar durante o uso clínico do antibacteriano.",
+      note: "O ponto central não é apenas o valor inicial do teste, mas a possibilidade de falha terapêutica mesmo quando a leitura inicial sugere suscetibilidade.",
+      image: "../../assets/capitulo-05/imagens/mlsb-induzivel-disco.png",
+      alt: "Imagem ilustrativa relacionada ao fenótipo MLSB induzível.",
+      caption: "MLSB induzível. A resistência pode emergir durante o tratamento com clindamicina."
     }
   };
 
-  function activate(step){
-    const item = map[step];
+  function activate(key) {
+    const item = map[key];
     if (!item) return;
 
     tabs.forEach((tab) => {
-      const active = tab.dataset.p49Step === step;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', active ? 'true' : 'false');
+      const active = tab.dataset.p49Step === key;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
       tab.tabIndex = active ? 0 : -1;
     });
 
     eyebrow.textContent = item.eyebrow;
     title.textContent = item.title;
     text.textContent = item.text;
-    image.src = item.img;
+    note.textContent = item.note;
+    image.src = item.image;
     image.alt = item.alt;
     caption.textContent = item.caption;
-
-    zoomBtn.dataset.zoomImage = item.img;
-    zoomBtn.dataset.zoomAlt = item.alt;
-    zoomBtn.dataset.zoomCaption = item.caption;
-  }
-
-  function openLightbox(src, alt, cap){
-    if (!lightbox || !lightboxImage || !lightboxCaption) return;
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || '';
-    lightboxCaption.textContent = cap || '';
-    lightbox.hidden = false;
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox(){
-    if (!lightbox || !lightboxImage || !lightboxCaption) return;
-    lightbox.hidden = true;
-    lightbox.setAttribute('aria-hidden', 'true');
-    lightboxImage.src = '';
-    lightboxImage.alt = '';
-    lightboxCaption.textContent = '';
-    document.body.style.overflow = '';
+    zoomBtn.setAttribute("data-zoom", item.image);
+    zoomBtn.setAttribute("aria-label", `Ampliar imagem relacionada a ${item.title}`);
   }
 
   tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activate(tab.dataset.p49Step));
+    tab.addEventListener("click", () => activate(tab.dataset.p49Step));
 
-    tab.addEventListener('keydown', (event) => {
+    tab.addEventListener("keydown", (event) => {
       let nextIndex = index;
 
-      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
         event.preventDefault();
         nextIndex = (index + 1) % tabs.length;
         tabs[nextIndex].focus();
         activate(tabs[nextIndex].dataset.p49Step);
       }
 
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
         event.preventDefault();
         nextIndex = (index - 1 + tabs.length) % tabs.length;
         tabs[nextIndex].focus();
         activate(tabs[nextIndex].dataset.p49Step);
       }
 
-      if (event.key === 'Home') {
+      if (event.key === "Home") {
         event.preventDefault();
         tabs[0].focus();
         activate(tabs[0].dataset.p49Step);
       }
 
-      if (event.key === 'End') {
+      if (event.key === "End") {
         event.preventDefault();
         tabs[tabs.length - 1].focus();
         activate(tabs[tabs.length - 1].dataset.p49Step);
@@ -1113,111 +975,131 @@
     });
   });
 
-  zoomBtn.addEventListener('click', () => {
-    openLightbox(
-      zoomBtn.dataset.zoomImage,
-      zoomBtn.dataset.zoomAlt,
-      zoomBtn.dataset.zoomCaption
-    );
-  });
-
-  closers.forEach((el) => {
-    el.addEventListener('click', closeLightbox);
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox && !lightbox.hidden) {
-      closeLightbox();
-    }
-  });
-
-  activate('mrsa');
+  activate("mrsa");
 })();
 /* =========================
    Página 50 — Como ler o antibiograma de forma estruturada
    ========================= */
-(function initCap5Page50(){
-  const root = document.querySelector('.cap5-page50');
+(function initCap5Page50() {
+  const root = document.querySelector(".cap5-page50");
   if (!root) return;
 
-  const tabs = Array.from(root.querySelectorAll('.cap5-p50-steps__tab'));
-  const eyebrow = root.querySelector('#cap5-p50-eyebrow');
-  const title = root.querySelector('#cap5-p50-title');
-  const text = root.querySelector('#cap5-p50-text');
+  const tabs = Array.from(root.querySelectorAll(".cap5-p50-journey__step"));
+  const eyebrow = root.querySelector("#cap5-p50-eyebrow");
+  const title = root.querySelector("#cap5-p50-title");
+  const text = root.querySelector("#cap5-p50-text");
 
   if (!tabs.length || !eyebrow || !title || !text) return;
 
   const map = {
     "1": {
-      eyebrow: "Primeira leitura",
-      title: "Identificar o microrganismo isolado",
-      text: "A espécie bacteriana fornece o primeiro contexto interpretativo do resultado. Diferentes bactérias apresentam perfis característicos de suscetibilidade e resistência, incluindo mecanismos de fenótipo esperado resistente. A identificação do microrganismo também ajuda a avaliar a plausibilidade clínica do isolamento. Nem todo microrganismo detectado em cultura representa necessariamente o agente responsável pela infecção."
+      eyebrow: "Primeiro contexto interpretativo",
+      title: "1. Identificar o microrganismo isolado",
+      html: `
+        <p>
+          A espécie bacteriana fornece o primeiro contexto interpretativo do resultado. Diferentes bactérias apresentam perfis característicos de suscetibilidade e resistência, incluindo mecanismos de resistência intrínseca <sup>2,10</sup>.
+        </p>
+        <p>
+          A identificação do microrganismo também ajuda a avaliar a plausibilidade clínica do isolamento. Nem todo microrganismo detectado em cultura representa necessariamente o agente responsável pela infecção.
+        </p>
+      `
     },
     "2": {
-      eyebrow: "Contexto da coleta",
-      title: "Considerar a origem da amostra",
-      text: "O significado clínico do isolamento depende do sítio de onde a amostra foi obtida. A presença de uma bactéria em hemocultura possui implicações diferentes da detecção do mesmo microrganismo em secreções respiratórias ou em material de superfície. A interpretação do antibiograma precisa ser contextualizada com a possibilidade de colonização, contaminação da amostra ou infecção verdadeira."
+      eyebrow: "Valor clínico do isolamento",
+      title: "2. Considerar a origem da amostra",
+      html: `
+        <p>
+          O significado clínico do isolamento depende do sítio de onde a amostra foi obtida. A presença de uma bactéria em hemocultura possui implicações diferentes da detecção do mesmo microrganismo em secreções respiratórias ou em material de superfície.
+        </p>
+        <p>
+          Por exemplo, o isolamento de Staphylococcus aureus em hemocultura geralmente tem alto valor clínico e sugere infecção verdadeira, enquanto a detecção de estafilococos coagulase-negativos em uma única amostra pode representar contaminação da coleta, dependendo do contexto clínico.
+        </p>
+        <p>
+          A interpretação do antibiograma deve, portanto, ser contextualizada com a possibilidade de colonização, contaminação da amostra ou infecção verdadeira <sup>1,2</sup>.
+        </p>
+      `
     },
     "3": {
-      eyebrow: "Observações adicionais",
-      title: "Verificar observações laboratoriais",
-      text: "O laudo pode incluir informações adicionais relacionadas a mecanismos de resistência específicos. Observações como produção de ESBL, presença de carbapenemase, identificação de MRSA, VRE ou outros fenótipos de resistência modificam a leitura do painel de antibacterianos. Esses dados representam características biológicas do microrganismo e devem ser considerados antes da análise das categorias interpretativas."
+      eyebrow: "Informações que alteram a leitura do painel",
+      title: "3. Verificar observações laboratoriais",
+      html: `
+        <p>
+          O laudo pode incluir informações adicionais relacionadas a mecanismos específicos de resistência. Observações como produção de β-lactamases de espectro estendido (ESBL), presença de carbapenemases (como KPC, NDM, VIM ou OXA), identificação de Staphylococcus aureus resistente à meticilina (MRSA) ou enterococos resistentes à vancomicina (VRE) modificam a interpretação do painel de antibacterianos <sup>10,12,14,15</sup>.
+        </p>
+        <p>
+          Essas informações representam características biológicas relevantes do microrganismo e devem ser consideradas antes da análise das categorias de suscetibilidade.
+        </p>
+      `
     },
     "4": {
-      eyebrow: "Categorias interpretativas",
-      title: "Analisar as categorias de suscetibilidade",
-      text: "Somente após compreender o contexto microbiológico do laudo faz sentido avaliar as categorias interpretativas apresentadas no antibiograma. A classificação como as categorias S, I e R resulta da aplicação de critérios técnicos sobre o valor obtido no teste de suscetibilidade. Essas categorias indicam a probabilidade microbiológica de inibição bacteriana nas condições consideradas pelos parâmetros farmacológicos utilizados para definir os breakpoints. Quando disponível, o valor da concentração inibitória mínima pode fornecer informação adicional, especialmente quando se encontra próximo aos pontos de corte estabelecidos."
+      eyebrow: "Só depois do contexto microbiológico",
+      title: "4. Analisar as categorias de suscetibilidade",
+      html: `
+        <p>
+          Somente após compreender o contexto microbiológico do laudo faz sentido avaliar as categorias interpretativas apresentadas no antibiograma.
+        </p>
+        <p>
+          A classificação nas categorias Sensível (S), Sensível, aumentando exposição (I) e Resistente (R) resulta da aplicação de critérios técnicos sobre o valor obtido no teste de suscetibilidade. Essas categorias indicam a probabilidade microbiológica de inibição bacteriana nas condições consideradas pelos parâmetros farmacológicos utilizados para definir os breakpoints <sup>10,12,13</sup>.
+        </p>
+        <p>
+          Quando disponível, o valor da concentração inibitória mínima pode fornecer informação adicional, especialmente quando se encontra próximo aos pontos de corte estabelecidos.
+        </p>
+      `
     },
     "5": {
-      eyebrow: "Síntese clínica",
-      title: "Integrar o resultado ao contexto clínico",
-      text: "O antibiograma informa o comportamento da bactéria no ambiente laboratorial. A decisão terapêutica depende da integração desse dado com fatores clínicos, como o foco infeccioso, a penetração do antibacteriano no tecido afetado, a presença de biofilme e as características farmacocinéticas do paciente. A interpretação adequada surge da integração entre microbiologia, farmacologia e contexto clínico."
+      eyebrow: "Decisão terapêutica real",
+      title: "5. Integrar o resultado ao contexto clínico",
+      html: `
+        <p>
+          O antibiograma informa o comportamento da bactéria no ambiente laboratorial. A decisão terapêutica depende da integração desse dado com fatores clínicos, como o foco infeccioso, a penetração do antibacteriano no tecido afetado, a presença de biofilme e as características farmacocinéticas do paciente <sup>6,7,8</sup>.
+        </p>
+      `
     }
   };
 
-  function activate(step){
-    const item = map[step];
+  function activate(key) {
+    const item = map[key];
     if (!item) return;
 
     tabs.forEach((tab) => {
-      const active = tab.dataset.p50Step === step;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', active ? 'true' : 'false');
+      const active = tab.dataset.p50Step === key;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
       tab.tabIndex = active ? 0 : -1;
     });
 
     eyebrow.textContent = item.eyebrow;
     title.textContent = item.title;
-    text.textContent = item.text;
+    text.innerHTML = item.html;
   }
 
   tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activate(tab.dataset.p50Step));
+    tab.addEventListener("click", () => activate(tab.dataset.p50Step));
 
-    tab.addEventListener('keydown', (event) => {
+    tab.addEventListener("keydown", (event) => {
       let nextIndex = index;
 
-      if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
         event.preventDefault();
         nextIndex = (index + 1) % tabs.length;
         tabs[nextIndex].focus();
         activate(tabs[nextIndex].dataset.p50Step);
       }
 
-      if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
         event.preventDefault();
         nextIndex = (index - 1 + tabs.length) % tabs.length;
         tabs[nextIndex].focus();
         activate(tabs[nextIndex].dataset.p50Step);
       }
 
-      if (event.key === 'Home') {
+      if (event.key === "Home") {
         event.preventDefault();
         tabs[0].focus();
         activate(tabs[0].dataset.p50Step);
       }
 
-      if (event.key === 'End') {
+      if (event.key === "End") {
         event.preventDefault();
         tabs[tabs.length - 1].focus();
         activate(tabs[tabs.length - 1].dataset.p50Step);
@@ -1225,100 +1107,135 @@
     });
   });
 
-  activate('1');
+  activate("1");
 })();
 /* =========================
    Página 51 — Erros frequentes e limites da interpretação do antibiograma
    ========================= */
-(function initCap5Page51(){
-  const root = document.querySelector('.cap5-page51');
+(function initCap5Page51() {
+  const root = document.querySelector(".cap5-page51");
   if (!root) return;
 
-  const tabs = Array.from(root.querySelectorAll('.cap5-p51-errors__tab'));
-  const eyebrow = root.querySelector('#cap5-p51-eyebrow');
-  const title = root.querySelector('#cap5-p51-title');
-  const wrong = root.querySelector('#cap5-p51-wrong');
-  const right = root.querySelector('#cap5-p51-right');
+  const tabs = Array.from(root.querySelectorAll(".cap5-p51-map__tab"));
+  const eyebrow = root.querySelector("#cap5-p51-eyebrow");
+  const title = root.querySelector("#cap5-p51-title");
+  const body = root.querySelector("#cap5-p51-body");
+  const note = root.querySelector("#cap5-p51-note");
 
-  if (!tabs.length || !eyebrow || !title || !wrong || !right) return;
+  if (!tabs.length || !eyebrow || !title || !body || !note) return;
 
   const map = {
     "1": {
-      eyebrow: "Erro frequente",
-      title: "Selecionar o antibacteriano com maior número de resultados “sensíveis” como se o antibiograma organizasse as opções terapêuticas em ordem de superioridade",
-      wrong: "O antibiograma seria uma lista hierárquica de opções “melhores” ou “piores”, e o antibacteriano mais frequentemente classificado como sensível seria automaticamente o mais adequado.",
-      right: "As categorias interpretativas indicam probabilidade de inibição bacteriana sob determinadas condições de exposição, e não uma hierarquia entre antibacterianos."
+      eyebrow: "Erro frequente de leitura",
+      title: "Supor que o antibiograma estabelece uma hierarquia entre antibacterianos",
+      html: `
+        <p>
+          Um equívoco frequente é assumir que o antibiograma estabelece uma hierarquia entre antibacterianos ou que determinados agentes seriam “mais eficazes” por apresentarem resultados favoráveis no teste. Na prática, cada antibacteriano é avaliado individualmente, e as categorias interpretativas indicam probabilidade de inibição bacteriana sob condições específicas de exposição, não permitindo comparações diretas de superioridade entre diferentes fármacos <sup>1,8</sup>.
+        </p>
+      `,
+      note: "O laudo informa comportamento microbiológico padronizado, não um ranking terapêutico entre fármacos."
     },
+
     "2": {
-      eyebrow: "Erro frequente",
-      title: "Interpretar a categoria I (“sensível, aumentando exposição”) como sinônimo de ineficácia",
-      wrong: "O resultado “I” significaria ausência de atividade ou falha previsível do antibacteriano.",
-      right: "Essa classificação indica que a probabilidade de sucesso terapêutico depende de maior exposição ao fármaco, a qual pode ser alcançada por ajuste posológico, modificação da forma de administração ou por características do sítio de infecção."
+      eyebrow: "Erro frequente de leitura",
+      title: "Interpretar a categoria I como sinônimo de ineficácia",
+      html: `
+        <p>
+          Outro erro comum é interpretar a categoria I (sensível, aumentando exposição) como sinônimo de ineficácia. Essa classificação indica que a probabilidade de sucesso terapêutico depende de maior exposição ao fármaco, a qual pode ser alcançada por ajuste posológico, modificação da forma de administração ou por características do sítio de infecção <sup>8,10,12</sup>.
+        </p>
+      `,
+      note: "Categoria I não significa falha inevitável; ela exige leitura farmacológica e posológica adequada."
     },
+
     "3": {
-      eyebrow: "Erro frequente",
-      title: "Interpretar a concentração inibitória mínima de forma isolada",
-      wrong: "Diferenças pequenas entre valores de CIM implicariam automaticamente diferenças clínicas relevantes entre os antibacterianos testados.",
-      right: "Diferenças pequenas entre valores próximos ao breakpoint não necessariamente correspondem a diferenças clinicamente relevantes. A CIM deve ser interpretada dentro do contexto dos critérios utilizados para definir as categorias de suscetibilidade (2)."
+      eyebrow: "Erro frequente de leitura",
+      title: "Ler a concentração inibitória mínima de forma isolada",
+      html: `
+        <p>
+          A leitura isolada da concentração inibitória mínima também pode gerar interpretações equivocadas. Diferenças pequenas entre valores próximos ao breakpoint não necessariamente correspondem a diferenças clinicamente relevantes. A CIM deve ser interpretada dentro do contexto dos critérios utilizados para definir as categorias de suscetibilidade <sup>2,13</sup>.
+        </p>
+      `,
+      note: "O valor numérico da CIM só ganha significado real quando lido à luz dos breakpoints e da categoria interpretativa."
     },
+
     "4": {
-      eyebrow: "Erro frequente",
+      eyebrow: "Erro frequente de leitura",
       title: "Ignorar observações laboratoriais relacionadas a mecanismos de resistência",
-      wrong: "Cada antibacteriano do painel poderia ser interpretado isoladamente, sem considerar observações como ESBL, carbapenemase, MRSA ou resistência de alto nível a aminoglicosídeos.",
-      right: "Informações como produção de ESBL, presença de carbapenemase, identificação de MRSA ou resistência de alto nível a aminoglicosídeos modificam o significado do painel de suscetibilidade. Nesses casos, a interpretação não deve considerar cada antibacteriano de forma isolada, mas o conjunto do perfil microbiológico."
+      html: `
+        <p>
+          Também é frequente ignorar observações laboratoriais relacionadas a mecanismos de resistência. Informações como produção de β-lactamases de espectro estendido (ESBL), presença de carbapenemases, identificação de MRSA ou resistência de alto nível a aminoglicosídeos modificam o significado do painel de suscetibilidade. Nesses casos, a interpretação não deve considerar cada antibacteriano de forma isolada, mas o conjunto do perfil microbiológico <sup>10,14,15</sup>.
+        </p>
+      `,
+      note: "Quando há mecanismo de resistência identificado, o significado do painel muda e deixa de poder ser lido antibacteriano por antibacteriano."
     },
+
     "5": {
-      eyebrow: "Erro frequente",
-      title: "Supor que todos os antibacterianos disponíveis devam aparecer no painel do antibiograma",
-      wrong: "A ausência de um antibacteriano no laudo indicaria falha do laboratório ou omissão indevida.",
-      right: "A ausência de determinadas drogas no painel pode refletir fenótipo esperado resistente da espécie, ausência de breakpoint validado para aquela combinação microrganismo–fármaco ou limitações metodológicas do teste utilizado (1)."
+      eyebrow: "Erro frequente de leitura",
+      title: "Pressupor que todos os antibacterianos relevantes deveriam aparecer no painel",
+      html: `
+        <p>
+          Outro ponto importante é compreender que nem todos os antibacterianos disponíveis aparecem no antibiograma. A ausência de determinadas drogas no painel pode refletir diferentes fatores, como resistência intrínseca da espécie, ausência de breakpoints validados para aquela combinação microrganismo–fármaco ou limitações metodológicas do teste utilizado. Por exemplo, cefalosporinas não são testadas para <em>Enterococcus</em> spp., pois essa bactéria apresenta resistência intrínseca a essa classe <sup>10,11</sup>.
+        </p>
+      `,
+      note: "Ausência no painel não significa esquecimento do laboratório; muitas vezes ela já é, por si mesma, uma informação interpretativa."
+    },
+
+    "6": {
+      eyebrow: "Limite fundamental do teste",
+      title: "Confundir estimativa microbiológica in vitro com decisão terapêutica completa",
+      html: `
+        <p>
+          Além disso, o antibiograma avalia o comportamento da bactéria em ambiente laboratorial controlado. O teste não incorpora variáveis clínicas relevantes, como penetração tecidual do antibacteriano, presença de biofilme, carga bacteriana elevada ou alterações farmacocinéticas do hospedeiro <sup>6–8</sup>.
+        </p>
+      `,
+      note: "O antibiograma informa o que ocorre no ensaio microbiológico padronizado; a decisão clínica depende de integrar esse dado ao foco infeccioso e às condições do paciente."
     }
   };
 
-  function activate(step){
-    const item = map[step];
+  function activate(key) {
+    const item = map[key];
     if (!item) return;
 
     tabs.forEach((tab) => {
-      const active = tab.dataset.p51Step === step;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', active ? 'true' : 'false');
+      const active = tab.dataset.p51Step === key;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
       tab.tabIndex = active ? 0 : -1;
     });
 
     eyebrow.textContent = item.eyebrow;
     title.textContent = item.title;
-    wrong.textContent = item.wrong;
-    right.textContent = item.right;
+    body.innerHTML = item.html;
+    note.textContent = item.note;
   }
 
   tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activate(tab.dataset.p51Step));
+    tab.addEventListener("click", () => activate(tab.dataset.p51Step));
 
-    tab.addEventListener('keydown', (event) => {
+    tab.addEventListener("keydown", (event) => {
       let nextIndex = index;
 
-      if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
         event.preventDefault();
         nextIndex = (index + 1) % tabs.length;
         tabs[nextIndex].focus();
         activate(tabs[nextIndex].dataset.p51Step);
       }
 
-      if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
         event.preventDefault();
         nextIndex = (index - 1 + tabs.length) % tabs.length;
         tabs[nextIndex].focus();
         activate(tabs[nextIndex].dataset.p51Step);
       }
 
-      if (event.key === 'Home') {
+      if (event.key === "Home") {
         event.preventDefault();
         tabs[0].focus();
         activate(tabs[0].dataset.p51Step);
       }
 
-      if (event.key === 'End') {
+      if (event.key === "End") {
         event.preventDefault();
         tabs[tabs.length - 1].focus();
         activate(tabs[tabs.length - 1].dataset.p51Step);
@@ -1326,120 +1243,144 @@
     });
   });
 
-  activate('1');
+  activate("1");
 })();
 /* =========================
    Página 52 — Integração das informações do antibiograma
    ========================= */
-(function initCap5Page52(){
-  const root = document.querySelector('.cap5-page52');
+(function initCap5Page52() {
+  const root = document.querySelector(".cap5-page52");
   if (!root) return;
 
-  const tabs = Array.from(root.querySelectorAll('.cap5-p52-guide__tab'));
-  const eyebrow = root.querySelector('#cap5-p52-eyebrow');
-  const title = root.querySelector('#cap5-p52-title');
-  const text = root.querySelector('#cap5-p52-text');
+  const tabs = Array.from(root.querySelectorAll(".cap5-p52-guide__tab"));
+  const eyebrow = root.querySelector("#cap5-p52-eyebrow");
+  const title = root.querySelector("#cap5-p52-title");
+  const text = root.querySelector("#cap5-p52-text");
+  const report = root.querySelector("#cap5-p52-report");
 
-  const sample = root.querySelector('[data-p52-target="sample"]');
-  const organism = root.querySelector('[data-p52-target="organism"]');
-  const obs = root.querySelector('[data-p52-target="obs"]');
-  const table = root.querySelector('[data-p52-target="table"]');
+  if (!tabs.length || !eyebrow || !title || !text || !report) return;
 
-  if (!tabs.length || !eyebrow || !title || !text) return;
+  const focusables = Array.from(root.querySelectorAll("[data-p52-target]"));
 
-  const targets = [sample, organism, obs, table].filter(Boolean);
-
-  const contentMap = {
+  const map = {
     "1": {
       eyebrow: "Ponto de partida",
       title: "Identificação da espécie",
-      text: "A interpretação do resultado começa pela identificação da espécie bacteriana. Escherichia coli é um agente frequentemente associado a infecções do trato urinário, o que torna o isolamento plausível no contexto clínico dessa amostra.",
-      activeTargets: ['organism']
+      html: `
+        <p>
+          A interpretação do resultado começa pela identificação da espécie bacteriana. <em>Escherichia coli</em> é um agente frequentemente associado a infecções do trato urinário, o que torna o isolamento plausível no contexto clínico dessa amostra.
+        </p>
+      `,
+      focus: ["organism"]
     },
     "2": {
       eyebrow: "Contexto da coleta",
       title: "Origem da amostra",
-      text: "A amostra também orienta a plausibilidade clínica do isolamento. Neste exemplo, a urina fornece um contexto compatível com a presença de Escherichia coli, o que reforça a relevância interpretativa do laudo.",
-      activeTargets: ['sample']
+      html: `
+        <p>
+          A amostra informada no laudo é urina. Esse dado precisa ser lido em conjunto com a espécie identificada, porque contribui para avaliar a plausibilidade clínica do isolamento e sua relação com o foco infeccioso.
+        </p>
+      `,
+      focus: ["sample", "organism"]
     },
     "3": {
-      eyebrow: "Observação adicional",
+      eyebrow: "Observação laboratorial",
       title: "Produção de ESBL",
-      text: "Em seguida, a observação de produção de ESBL indica a presença de uma enzima capaz de hidrolisar diversas penicilinas e cefalosporinas. Essa informação fornece contexto para a interpretação do painel de β-lactâmicos e explica a resistência observada a algumas cefalosporinas.",
-      activeTargets: ['obs']
+      html: `
+        <p>
+          Em seguida, a observação de produção de ESBL indica a presença de uma enzima capaz de hidrolisar diversas penicilinas e cefalosporinas <sup>14</sup>. Essa informação fornece contexto para a interpretação do painel de β-lactâmicos e explica a resistência observada a algumas cefalosporinas <sup>15</sup>.
+        </p>
+      `,
+      focus: ["obs", "ceftriaxone"]
     },
     "4": {
-      eyebrow: "Categorias interpretativas",
-      title: "Leitura do painel S / I / R",
-      text: "Somente após considerar essas informações faz sentido analisar as categorias de suscetibilidade apresentadas no antibiograma. A classificação como S, I e R representa a aplicação de critérios interpretativos sobre o comportamento da bactéria no teste laboratorial.",
-      activeTargets: ['table']
+      eyebrow: "Leitura do teste de suscetibilidade",
+      title: "Categorias S, I e R",
+      html: `
+        <p>
+          Somente após considerar essas informações faz sentido analisar as categorias de suscetibilidade apresentadas no antibiograma. A classificação nas categorias Sensível (S), Sensível, aumentando exposição (I) e Resistente (R) representa a aplicação de critérios interpretativos sobre o comportamento da bactéria no teste laboratorial <sup>10,12</sup>.
+        </p>
+        <p>
+          Nesse exemplo, antibacterianos classificados como sensíveis indicam que, nas condições consideradas pelos critérios interpretativos do teste, a bactéria apresenta probabilidade de inibição quando exposta ao fármaco em concentrações adequadas.
+        </p>
+      `,
+      focus: ["table", "ceftriaxone", "ciprofloxacin", "nitrofurantoin", "amoxclav", "meropenem"]
     },
     "5": {
-      eyebrow: "Síntese clínica",
-      title: "Integração do resultado",
-      text: "A leitura do antibiograma não consiste em escolher automaticamente um antibacteriano da lista apresentada. O resultado microbiológico fornece informação sobre o comportamento da bactéria, que deve ser integrada ao foco infeccioso, às características farmacológicas dos antibacterianos disponíveis e ao contexto clínico do paciente.",
-      activeTargets: ['sample', 'organism', 'obs', 'table']
+      eyebrow: "Síntese interpretativa",
+      title: "Integração clínica do resultado",
+      html: `
+        <p>
+          O laudo não deve ser lido como uma lista independente de antibacterianos nem como uma prescrição terapêutica automática. O resultado microbiológico precisa ser integrado em sequência lógica, articulando espécie, amostra, mecanismo de resistência e teste de suscetibilidade antes de qualquer decisão clínica.
+        </p>
+      `,
+      focus: ["sample", "organism", "obs", "table"],
+      integrated: true
     }
   };
 
-  function clearHighlights(){
-    targets.forEach(el => el.classList.remove('is-active'));
+  function clearFocus() {
+    focusables.forEach((el) => el.classList.remove("is-focus"));
+    report.classList.remove("is-integrated");
   }
 
-  function applyHighlights(keys){
-    clearHighlights();
-    if (!keys || !keys.length) return;
+  function applyFocus(keys, integrated) {
+    clearFocus();
 
     keys.forEach((key) => {
       const el = root.querySelector(`[data-p52-target="${key}"]`);
-      if (el) el.classList.add('is-active');
+      if (el) el.classList.add("is-focus");
     });
+
+    if (integrated) {
+      report.classList.add("is-integrated");
+    }
   }
 
-  function activate(step){
-    const item = contentMap[step];
+  function activate(key) {
+    const item = map[key];
     if (!item) return;
 
     tabs.forEach((tab) => {
-      const active = tab.dataset.p52Step === step;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', active ? 'true' : 'false');
+      const active = tab.dataset.p52Step === key;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
       tab.tabIndex = active ? 0 : -1;
     });
 
     eyebrow.textContent = item.eyebrow;
     title.textContent = item.title;
-    text.textContent = item.text;
-    applyHighlights(item.activeTargets);
+    text.innerHTML = item.html;
+    applyFocus(item.focus || [], Boolean(item.integrated));
   }
 
   tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activate(tab.dataset.p52Step));
+    tab.addEventListener("click", () => activate(tab.dataset.p52Step));
 
-    tab.addEventListener('keydown', (event) => {
+    tab.addEventListener("keydown", (event) => {
       let nextIndex = index;
 
-      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
         event.preventDefault();
         nextIndex = (index + 1) % tabs.length;
         tabs[nextIndex].focus();
         activate(tabs[nextIndex].dataset.p52Step);
       }
 
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
         event.preventDefault();
         nextIndex = (index - 1 + tabs.length) % tabs.length;
         tabs[nextIndex].focus();
         activate(tabs[nextIndex].dataset.p52Step);
       }
 
-      if (event.key === 'Home') {
+      if (event.key === "Home") {
         event.preventDefault();
         tabs[0].focus();
         activate(tabs[0].dataset.p52Step);
       }
 
-      if (event.key === 'End') {
+      if (event.key === "End") {
         event.preventDefault();
         tabs[tabs.length - 1].focus();
         activate(tabs[tabs.length - 1].dataset.p52Step);
@@ -1447,164 +1388,122 @@
     });
   });
 
-  activate('1');
+  activate("1");
 })();
 /* =========================
    Página 53 — Quiz de revisão
    ========================= */
-(function initCap5Page53Quiz(){
-  const root = document.querySelector('[data-cap5-p53]');
+(function initCap5Page53() {
+  const root = document.querySelector(".cap5-page53");
   if (!root) return;
 
-  const questions = Array.from(root.querySelectorAll('.cap5-p53Question'));
-  const done = root.querySelector('.cap5-p53Done');
-  const progress = root.querySelector('.cap5-p53Progress');
-  const navPrev = root.querySelector('.cap5-p53NavBtn[data-p53-action="prev"]');
-  const navNext = root.querySelector('.cap5-p53NavBtn[data-p53-action="next"]');
+  const quiz = root.querySelector("[data-cap5-p53]");
+  const questions = Array.from(root.querySelectorAll(".cap5-p53Question"));
+  const statusValue = root.querySelector("[data-p53-status] .cap5-p53Status__value");
+  const completion = root.querySelector("[data-p53-completion]");
 
-  let currentIndex = 0;
+  if (!quiz || !questions.length || !statusValue) return;
 
-  function parseJSONTemplate(question, selector){
-    const tpl = question.querySelector(selector);
-    if (!tpl) return null;
-    try {
-      return JSON.parse(tpl.innerHTML.trim());
-    } catch (e) {
-      return null;
+  function updateStatus() {
+    const done = questions.filter((q) => q.dataset.questionState === "done").length;
+    statusValue.textContent = `${done} de 2 situações confirmadas`;
+
+    if (completion) {
+      completion.hidden = done !== questions.length;
     }
   }
 
-  function updateProgress(){
-    if (!progress) return;
-    if (done && !done.hidden && currentIndex >= questions.length) {
-      progress.textContent = 'Concluído';
-      return;
+  function renderFeedback(container, payload) {
+    container.hidden = false;
+    container.className = "cap5-p53Feedback";
+    if (payload.type === "error") {
+      container.classList.add("cap5-p53Feedback--error");
     }
-    progress.textContent = `Questão ${currentIndex + 1} de ${questions.length}`;
+
+    container.innerHTML = `
+      <p class="cap5-p53Feedback__title">${payload.title}</p>
+      <p class="cap5-p53Feedback__text">${payload.text}</p>
+    `;
   }
 
-  function showQuestion(index){
-    questions.forEach((q, i) => {
-      q.classList.toggle('active', i === index);
-    });
-
-    if (done) done.hidden = true;
-    currentIndex = index;
-
-    if (navPrev) navPrev.disabled = index === 0;
-    if (navNext) navNext.disabled = index === questions.length - 1;
-
-    updateProgress();
-  }
-
-  function showDone(){
-    questions.forEach((q) => q.classList.remove('active'));
-    if (done) done.hidden = false;
-    currentIndex = questions.length;
-
-    if (navPrev) navPrev.disabled = false;
-    if (navNext) navNext.disabled = true;
-
-    updateProgress();
-  }
-
-  questions.forEach((question, qIndex) => {
-    const optionButtons = Array.from(question.querySelectorAll('.cap5-p53Options button'));
+  questions.forEach((question) => {
+    const options = Array.from(question.querySelectorAll(".cap5-p53Options button[data-answer]"));
     const confirmBtn = question.querySelector('[data-p53-action="confirm"]');
     const resetBtn = question.querySelector('[data-p53-action="reset"]');
-    const feedback = question.querySelector('.cap5-p53Feedback');
-    const feedbackMap = parseJSONTemplate(question, '.cap5-p53FeedbackMap');
+    const feedback = question.querySelector(".cap5-p53Feedback");
+    const feedbackMapEl = question.querySelector(".cap5-p53FeedbackMap");
 
-    let selectedAnswer = null;
-    let answered = false;
+    if (!options.length || !confirmBtn || !resetBtn || !feedback || !feedbackMapEl) return;
 
-    optionButtons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        if (answered) return;
+    const feedbackMap = JSON.parse(feedbackMapEl.innerHTML.trim());
+    let selected = null;
 
-        optionButtons.forEach((b) => b.classList.remove('is-selected'));
-        btn.classList.add('is-selected');
+    feedback.hidden = true;
 
-        selectedAnswer = btn.dataset.answer || null;
-        if (confirmBtn) confirmBtn.disabled = !selectedAnswer;
+    function resetQuestion() {
+      selected = null;
+      question.dataset.questionState = "pending";
+
+      options.forEach((btn) => {
+        btn.disabled = false;
+        btn.classList.remove("is-selected", "is-correct", "is-wrong");
+      });
+
+      confirmBtn.disabled = true;
+      confirmBtn.hidden = false;
+      resetBtn.hidden = true;
+
+      feedback.hidden = true;
+      feedback.innerHTML = "";
+      feedback.className = "cap5-p53Feedback";
+
+      updateStatus();
+    }
+
+    options.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (question.dataset.questionState === "done") return;
+
+        options.forEach((b) => b.classList.remove("is-selected"));
+        btn.classList.add("is-selected");
+        selected = btn.dataset.answer;
+        confirmBtn.disabled = false;
       });
     });
 
-    if (confirmBtn) {
-      confirmBtn.addEventListener('click', () => {
-        if (!selectedAnswer || answered) return;
+    confirmBtn.addEventListener("click", () => {
+      if (!selected) return;
 
-        answered = true;
-        const selectedBtn = optionButtons.find((b) => b.dataset.answer === selectedAnswer);
-        const correctBtn = optionButtons.find((b) => b.dataset.correct === 'true');
+      const correctBtn = options.find((btn) => btn.dataset.correct === "true");
+      const selectedBtn = options.find((btn) => btn.dataset.answer === selected);
 
-        optionButtons.forEach((b) => b.disabled = true);
-
-        if (selectedBtn && selectedBtn === correctBtn) {
-          selectedBtn.classList.add('is-correct');
-        } else {
-          if (selectedBtn) selectedBtn.classList.add('is-wrong');
-          if (correctBtn) correctBtn.classList.add('is-correct');
-        }
-
-        if (feedback && feedbackMap && feedbackMap[selectedAnswer]) {
-          const item = feedbackMap[selectedAnswer];
-          feedback.classList.add('is-visible');
-          feedback.innerHTML = `
-            <div class="cap5-p53FeedbackCard cap5-p53FeedbackCard--${item.type}">
-              <h3 class="cap5-p53FeedbackTitle">${item.title}</h3>
-              <p class="cap5-p53FeedbackText">${item.text}</p>
-            </div>
-          `;
-        }
-
-        confirmBtn.disabled = true;
-        if (resetBtn) resetBtn.hidden = false;
+      options.forEach((btn) => {
+        btn.disabled = true;
+        btn.classList.remove("is-selected");
       });
-    }
 
-    if (resetBtn) {
-      resetBtn.addEventListener('click', () => {
-        answered = false;
-        selectedAnswer = null;
+      if (correctBtn) {
+        correctBtn.classList.add("is-correct");
+      }
 
-        optionButtons.forEach((b) => {
-          b.disabled = false;
-          b.classList.remove('is-selected', 'is-correct', 'is-wrong');
-        });
+      if (selectedBtn && selectedBtn !== correctBtn) {
+        selectedBtn.classList.add("is-wrong");
+      }
 
-        if (confirmBtn) confirmBtn.disabled = true;
-        resetBtn.hidden = true;
+      const payload = feedbackMap[selected];
+      if (payload) {
+        renderFeedback(feedback, payload);
+      }
 
-        if (feedback) {
-          feedback.classList.remove('is-visible');
-          feedback.innerHTML = '';
-        }
-      });
-    }
+      question.dataset.questionState = "done";
+      confirmBtn.hidden = true;
+      resetBtn.hidden = false;
+
+      updateStatus();
+    });
+
+    resetBtn.addEventListener("click", resetQuestion);
   });
 
-  if (navPrev) {
-    navPrev.addEventListener('click', () => {
-      if (currentIndex === questions.length && questions.length) {
-        showQuestion(questions.length - 1);
-        return;
-      }
-      if (currentIndex > 0) {
-        showQuestion(currentIndex - 1);
-      }
-    });
-  }
-
-  if (navNext) {
-    navNext.addEventListener('click', () => {
-      if (currentIndex < questions.length - 1) {
-        showQuestion(currentIndex + 1);
-      } else if (currentIndex === questions.length - 1) {
-        showDone();
-      }
-    });
-  }
-
-  showQuestion(0);
+  updateStatus();
 })();
