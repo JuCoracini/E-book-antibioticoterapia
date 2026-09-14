@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Capítulo 5 — Página 45</title>
 
@@ -29,206 +29,217 @@
       </div>
 
       <h1 class="page-title">
-        Teste de suscetibilidade aos antimicrobianos
+        Teste de suscetibilidade aos antibacterianos
       </h1>
     </header>
 
     <section class="prose cap5-p45-reading">
 
       <p>
-        Até este ponto, o laboratório já respondeu a uma pergunta fundamental: qual bactéria foi isolada? O passo seguinte é avaliar como esse microrganismo se comporta diante dos antibacterianos disponíveis.
+        Após a identificação bacteriana, ainda falta responder a uma
+        pergunta essencial: como esse isolado se comporta diante dos
+        antibacterianos? Na rotina convencional, essa avaliação é realizada
+        por métodos padronizados de teste de suscetibilidade, como a difusão
+        em disco <sup>2,3</sup>.
       </p>
 
       <p>
-        Para isso, realiza-se o teste de suscetibilidade aos antimicrobianos, conhecido na prática clínica como antibiograma. O exame avalia a resposta da bactéria a diferentes antibacterianos em condições laboratoriais rigorosamente padronizadas, permitindo estimar a probabilidade de inibição do crescimento bacteriano <sup>1,3</sup>.
-      </p>
-
-      <p>
-        O antibiograma não mede diretamente a eficácia clínica de um tratamento. Seu resultado representa o comportamento do microrganismo em um ambiente experimental controlado e deve ser interpretado em conjunto com a espécie identificada, o foco da infecção e as características do paciente <sup>2,6</sup>.
-      </p>
-
-      
-
-      <h2 class="cap5-p45-sectionTitle">
-        Por que o antibiograma demora?
-      </h2>
-
-      <p>
-        O teste não é realizado diretamente na amostra clínica. Após o isolamento e a identificação, a bactéria precisa ser novamente exposta a concentrações padronizadas de diferentes antibacterianos. Em seguida, é necessário aguardar um novo período de incubação para observar seu crescimento ou sua inibição.
-      </p>
-
-      <p>
-        Esse processo geralmente exige cerca de 18 a 24 horas adicionais, embora o tempo possa variar conforme o microrganismo, o método empregado e a rotina do laboratório <sup>2</sup>. Enquanto o resultado não está disponível, o tratamento permanece, em geral, empírico.
+        Na difusão em disco, prepara-se uma suspensão bacteriana padronizada,
+        que é semeada de maneira uniforme em ágar Mueller-Hinton. Em seguida,
+        discos contendo quantidades definidas de antibacterianos são colocados
+        sobre o meio e a placa é incubada em condições estabelecidas pelo
+        método <sup>2,3</sup>.
       </p>
 
       <section
-        class="cap5-p45-tempo cap5-p45-reveal"
-        data-cap5-p45-tempo
-        aria-labelledby="cap5P45TempoTitle"
+        class="cap5-p45-lab"
+        data-cap5-p45-growth
+        aria-labelledby="cap5P45LabTitle"
       >
 
-        <div class="cap5-p45-tempoHead">
-          <span class="cap5-p45-tempoEyebrow">
-            Exemplo de incubação
+        <div class="cap5-p45-labHead">
+          <span class="cap5-p45-eyebrow">
+            Simulação do ensaio
           </span>
 
+          <h2 id="cap5P45LabTitle">
+            Acompanhe o crescimento em ágar Mueller-Hinton
+          </h2>
 
           <p>
-            Selecione um tempo para acompanhar a resposta bacteriana durante um teste de difusão em disco.
+            Arraste o marcador ou inicie a animação. Observe como o crescimento
+            bacteriano torna visíveis as áreas de inibição ao redor dos discos.
           </p>
         </div>
 
-        <div
-          class="cap5-p45-controls"
-          role="tablist"
-          aria-label="Evolução temporal da difusão em disco"
-        >
-          <button
-            class="cap5-p45-tempoButton is-active"
-            type="button"
-            role="tab"
-            aria-selected="true"
-            tabindex="0"
-            data-p45-tempo="0"
-          >
-            0 h
-          </button>
+        <div class="cap5-p45-simulator">
 
-          <button
-            class="cap5-p45-tempoButton"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            tabindex="-1"
-            data-p45-tempo="6"
-          >
-            6 h
-          </button>
+          <figure class="cap5-p45-figure">
+            <button
+              id="cap5P45Zoom"
+              class="cap5-p45-figureZoom"
+              type="button"
+              data-zoom="../../assets/capitulo-05/imagens/difusao-disco-0h.png"
+              aria-label="Ampliar imagem da placa no tempo de zero hora"
+            >
+              <img
+                id="cap5P45TempoImage"
+                src="../../assets/capitulo-05/imagens/difusao-disco-0h.png"
+                alt="Placa de ágar Mueller-Hinton logo após a colocação dos discos"
+              />
+            </button>
+          </figure>
 
-          <button
-            class="cap5-p45-tempoButton"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            tabindex="-1"
-            data-p45-tempo="12"
-          >
-            12 h
-          </button>
+          <div class="cap5-p45-observation">
 
-          <button
-            class="cap5-p45-tempoButton"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            tabindex="-1"
-            data-p45-tempo="18"
-          >
-            18 h
-          </button>
+            <div class="cap5-p45-clock" aria-live="polite">
+              <span>Tempo simulado</span>
+              <strong id="cap5P45TimeValue">0 h</strong>
+            </div>
 
-          <button
-            class="cap5-p45-tempoButton"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            tabindex="-1"
-            data-p45-tempo="24"
-          >
-            24 h
-          </button>
+            <div
+              id="cap5P45TempoNote"
+              class="cap5-p45-note"
+              aria-live="polite"
+            >
+              <strong>Ensaio iniciado</strong>
+
+              <p>
+                Os discos foram posicionados, mas ainda não há crescimento
+                bacteriano visível para avaliar.
+              </p>
+            </div>
+
+          </div>
         </div>
 
-        <figure class="cap5-p45-figure">
+        <div class="cap5-p45-timeline">
 
-          <button
-            id="cap5P45Zoom"
-            class="cap5-p45-figureZoom"
-            type="button"
-            data-zoom="../../assets/capitulo-05/imagens/difusao-disco-0h.png"
-            aria-label="Ampliar imagem da difusão em disco no tempo inicial"
-          >
-            <img
-              id="cap5P45TempoImage"
-              src="../../assets/capitulo-05/imagens/difusao-disco-0h.png"
-              alt="Placa de difusão em disco no tempo inicial"
-              loading="lazy"
-            />
-          </button>
+          <label class="sr-only" for="cap5P45Range">
+            Tempo de incubação simulado
+          </label>
 
-          <figcaption
-            id="cap5P45TempoCaption"
-            class="cap5-p45-figureCaption"
-            aria-live="polite"
-          >
-            Tempo inicial: os discos foram posicionados, mas ainda não ocorreu crescimento bacteriano suficiente para leitura.
-          </figcaption>
+          <input
+            id="cap5P45Range"
+            type="range"
+            min="0"
+            max="4"
+            step="1"
+            value="0"
+            aria-valuetext="0 hora"
+          />
 
-        </figure>
+          <div class="cap5-p45-marks" aria-hidden="true">
+            <span>0 h</span>
+            <span>6 h</span>
+            <span>12 h</span>
+            <span>18 h</span>
+            <span>24 h</span>
+          </div>
 
-        <div
-          id="cap5P45TempoNote"
-          class="cap5-p45-tempoNote"
-          aria-live="polite"
-        >
-          <strong>O que está acontecendo?</strong>
+          <div class="cap5-p45-actions">
+            <button
+              id="cap5P45Play"
+              class="cap5-p45-play"
+              type="button"
+              aria-pressed="false"
+            >
+              <span aria-hidden="true">▶</span>
+              Iniciar animação
+            </button>
 
-          <p>
-            O antibacteriano começa a difundir-se no meio, mas o resultado ainda não pode ser interpretado.
-          </p>
+            <button
+              id="cap5P45Reset"
+              class="cap5-p45-reset"
+              type="button"
+            >
+              Reiniciar
+            </button>
+          </div>
+
         </div>
+
+        <p
+          id="cap5P45TempoCaption"
+          class="cap5-p45-caption"
+        >
+          No início do ensaio, ainda não é possível realizar a leitura.
+        </p>
 
       </section>
 
-      <aside class="cap5-p45-meaning cap5-p45-reveal">
-        O laboratório precisa aguardar tempo suficiente para que o crescimento bacteriano e a ação do antibacteriano produzam um padrão mensurável. Uma leitura precoce não permite classificar adequadamente o isolado.
+      <aside class="cap5-p45-caution">
+        <strong>Como interpretar esta animação?</strong>
+
+        <p>
+          Os tempos representam a evolução didática do crescimento, e não
+          leituras seriadas realizadas rotineiramente. O momento válido de
+          leitura depende do microrganismo, do método e das condições
+          padronizadas pelo BrCAST/EUCAST <sup>2,3</sup>.
+        </p>
       </aside>
 
       <section
-        class="cap5-p45-practice cap5-p45-reveal"
-        aria-labelledby="cap5P45PracticeTitle"
+        class="cap5-p45-why"
+        aria-labelledby="cap5P45WhyTitle"
       >
 
-        <h2 id="cap5P45PracticeTitle">
-          Na prática
+        <h2 id="cap5P45WhyTitle">
+          Por que o resultado não é imediato?
         </h2>
 
-        <div class="cap5-p45-days">
+        <div class="cap5-p45-steps">
 
           <article>
-            <span>Dia 1</span>
-            <strong>Investigação inicial</strong>
-            <p>
-              Coleta de hemoculturas e início da antibioticoterapia empírica.
-            </p>
+            <span>1</span>
+
+            <div>
+              <strong>Padronização</strong>
+
+              <p>
+                O inóculo, o meio, os discos e a incubação precisam seguir
+                critérios técnicos.
+              </p>
+            </div>
           </article>
 
-          <b aria-hidden="true">→</b>
-
           <article>
-            <span>Dia 2</span>
-            <strong>Resultado preliminar</strong>
-            <p>
-              Hemocultura positiva e identificação de <em>Escherichia coli</em>.
-            </p>
+            <span>2</span>
+
+            <div>
+              <strong>Crescimento adequado</strong>
+
+              <p>
+                A bactéria deve formar um crescimento uniforme que permita
+                visualizar os halos.
+              </p>
+            </div>
           </article>
 
-          <b aria-hidden="true">→</b>
-
           <article>
-            <span>Dia 3</span>
-            <strong>Antibiograma disponível</strong>
-            <p>
-              Reavaliação da terapia e possível manutenção, ajuste ou descalonamento.
-            </p>
+            <span>3</span>
+
+            <div>
+              <strong>Leitura válida</strong>
+
+              <p>
+                Somente então os halos podem ser medidos e interpretados.
+                Essa etapa será apresentada na próxima página.
+              </p>
+            </div>
           </article>
 
         </div>
-
       </section>
 
-      <aside class="cap5-p45-principle cap5-p45-reveal">
-        O resultado do antibiograma é disponibilizado depois da identificação porque depende de uma nova etapa. Até sua liberação, a conduta deve ser reavaliada continuamente com base na evolução clínica e nas informações microbiológicas já disponíveis.
+      <aside class="cap5-p45-principle">
+        <strong>Mensagem principal</strong>
+
+        <p>
+          O antibiograma requer tempo porque depende de um ensaio biológico
+          padronizado e de crescimento adequado. Uma leitura precoce pode
+          produzir um resultado não confiável.
+        </p>
       </aside>
 
     </section>

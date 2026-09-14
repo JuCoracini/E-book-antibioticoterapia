@@ -3911,6 +3911,7 @@
   height:8px;
   border-radius:50%;
   background:#d4dde5;
+  transition:width .18s ease, background .18s ease;
 }
 
 .cap2-page19 .cap2-p19Dots span.is-active{
@@ -3989,8 +3990,11 @@
   line-height:1.45;
   text-align:left;
   cursor:pointer;
-  transition:transform .18s ease, border-color .18s ease,
-    background .18s ease, box-shadow .18s ease;
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    background .18s ease,
+    box-shadow .18s ease;
 }
 
 .cap2-page19 .cap2-p19Options button:hover:not(:disabled){
@@ -4150,7 +4154,7 @@
   cursor:not-allowed;
 }
 
-/* Referências do capítulo */
+/* Referências */
 
 .cap2-page19 .cap2-refBox{
   max-width:720px;

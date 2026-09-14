@@ -1071,263 +1071,489 @@
    PÁGINA 61 — QUIZ DE REVISÃO
    ========================= */
 
-(function initCap6Page61(){
+(function initCap6Page61Quiz() {
+  "use strict";
+
   const root = document.querySelector("[data-cap6-p61]");
 
-  if(!root){
+  if (!root) {
     return;
   }
 
-  const questions = Array.from(
-    root.querySelectorAll(".cap6-p61Question")
-  );
+  const situations = [
+    {
+      kicker: "Situação clínica 1",
 
-  const statusValue = root.querySelector(
-    ".cap6-p61Status__value"
-  );
+      caseText:
+        "Um paciente de 68 anos é internado com sepse de " +
+        "provável origem abdominal. Após a coleta de culturas, " +
+        "inicia tratamento empírico com cefepime e vancomicina. " +
+        "Após 72 horas, a hemocultura identifica Escherichia " +
+        "coli suscetível ao cefepime, sem crescimento de outros " +
+        "microrganismos. O paciente apresenta evolução clínica " +
+        "favorável.",
 
-  const completion = root.querySelector(
-    "[data-p61-completion]"
-  );
+      prompt:
+        "Qual decisão utiliza melhor as novas informações sem " +
+        "comprometer a eficácia do tratamento?",
 
-  function updateStatus(){
-    const confirmedQuestions = questions.filter(function(question){
-      return question.dataset.questionState === "confirmed";
-    }).length;
+      correct: "b",
 
-    if(statusValue){
-      statusValue.textContent =
-        confirmedQuestions +
-        " de " +
-        questions.length +
-        " situações confirmadas";
+      options: [
+        {
+          id: "a",
+          text:
+            "Manter os dois antibacterianos até o final, pois " +
+            "a associação inicialmente adequada deve ser " +
+            "preservada durante todo o tratamento."
+        },
+        {
+          id: "b",
+          text:
+            "Reavaliar a necessidade da vancomicina e direcionar " +
+            "o tratamento ao agente identificado, mantendo um " +
+            "antibacteriano ativo e adequado ao foco."
+        },
+        {
+          id: "c",
+          text:
+            "Acrescentar outro antibacteriano contra " +
+            "Gram-negativos para reduzir a possibilidade de " +
+            "resistência durante o restante do tratamento."
+        }
+      ],
+
+      feedback: {
+        a:
+          "A necessidade da cobertura empírica pode mudar após " +
+          "a identificação do agente e a liberação do perfil de " +
+          "suscetibilidade. Manter componentes sem indicação " +
+          "amplia a exposição sem benefício proporcional.",
+
+        b:
+          "A associação ampliou a cobertura enquanto o agente " +
+          "era desconhecido. Com a identificação de Escherichia " +
+          "coli suscetível e evolução favorável, o esquema deve " +
+          "ser reavaliado e direcionado, retirando a cobertura " +
+          "que perdeu sua justificativa microbiológica.",
+
+        c:
+          "A associação não reduz automaticamente a emergência " +
+          "de resistência. Acrescentar outro agente sem um " +
+          "objetivo definido aumenta a exposição e a pressão " +
+          "seletiva."
+      }
+    },
+
+    {
+      kicker: "Situação clínica 2",
+
+      caseText:
+        "Um paciente com infecção intra-abdominal recebe um " +
+        "antibacteriano ativo contra o microrganismo isolado. " +
+        "Apesar do resultado de suscetibilidade, mantém febre e " +
+        "sinais inflamatórios. A avaliação por imagem mostra " +
+        "uma coleção abdominal ainda não drenada.",
+
+      prompt:
+        "Qual conduta interpreta melhor a ausência de resposta?",
+
+      correct: "c",
+
+      options: [
+        {
+          id: "a",
+          text:
+            "Associar imediatamente um segundo antibacteriano, " +
+            "pois a persistência da febre comprova que a " +
+            "monoterapia é insuficiente."
+        },
+        {
+          id: "b",
+          text:
+            "Trocar o antibacteriano por outro de maior espectro, " +
+            "mesmo sem evidência de resistência ou de novo " +
+            "microrganismo."
+        },
+        {
+          id: "c",
+          text:
+            "Reavaliar o controle do foco e a exposição " +
+            "farmacológica, pois a associação não compensa uma " +
+            "coleção não drenada nem uma exposição inadequada."
+        }
+      ],
+
+      feedback: {
+        a:
+          "A persistência da febre não demonstra, isoladamente, " +
+          "a necessidade de terapia combinada. Mesmo um esquema " +
+          "microbiologicamente ativo pode falhar se o foco " +
+          "infeccioso permanecer sem controle.",
+
+        b:
+          "Ampliar o espectro sem investigar as causas da falha " +
+          "pode aumentar a exposição desnecessária. O caso não " +
+          "apresenta evidência de resistência nem de cobertura " +
+          "microbiológica insuficiente.",
+
+        c:
+          "A suscetibilidade do microrganismo é apenas um dos " +
+          "determinantes do sucesso. A resposta também depende " +
+          "da dose, da exposição no sítio e do controle do foco, " +
+          "que pode exigir drenagem, desbridamento ou remoção de " +
+          "um dispositivo."
+      }
+    },
+
+    {
+      kicker: "Situação clínica 3",
+
+      caseText:
+        "Uma paciente de 68 anos foi internada por pneumonia " +
+        "adquirida na comunidade. Após cinco dias de tratamento, " +
+        "está afebril, hemodinamicamente estável e com melhora " +
+        "clínica. Mesmo sem nova justificativa microbiológica ou " +
+        "clínica, o meropenem é mantido por mais sete dias por " +
+        "segurança.",
+
+      prompt:
+        "Qual análise considera de forma mais completa as " +
+        "consequências dessa decisão?",
+
+      correct: "b",
+
+      options: [
+        {
+          id: "a",
+          text:
+            "A manutenção oferece proteção adicional sem riscos " +
+            "relevantes, porque um antibacteriano só exerce " +
+            "pressão seletiva quando o agente da infecção é " +
+            "resistente."
+        },
+        {
+          id: "b",
+          text:
+            "O benefício adicional pode ser pequeno, enquanto " +
+            "a exposição prolongada aumenta os riscos de " +
+            "toxicidade, disbiose, Clostridioides difficile e " +
+            "seleção de bactérias resistentes."
+        },
+        {
+          id: "c",
+          text:
+            "O principal efeito será impedir definitivamente " +
+            "a recorrência da pneumonia, pois tratamentos mais " +
+            "longos sempre apresentam maior eficácia."
+        }
+      ],
+
+      feedback: {
+        a:
+          "A pressão seletiva ocorre sempre que a microbiota é " +
+          "exposta ao antibacteriano. A eliminação de populações " +
+          "suscetíveis pode favorecer a sobrevivência e expansão " +
+          "de bactérias resistentes.",
+
+        b:
+          "Quando a manutenção não oferece benefício clínico " +
+          "proporcional, a exposição continua produzindo riscos " +
+          "individuais e ecológicos, incluindo toxicidade, " +
+          "alteração da microbiota, Clostridioides difficile e " +
+          "seleção de resistência.",
+
+        c:
+          "A duração deve ser suficiente para tratar a infecção, " +
+          "mas prolongá-la sem indicação não garante maior " +
+          "eficácia nem impede definitivamente a recorrência. " +
+          "A necessidade de manutenção deve ser reavaliada."
+      }
     }
+  ];
 
-    if(completion){
-      completion.hidden =
-        confirmedQuestions !== questions.length;
-    }
+  const progress =
+    root.querySelector("[data-p61-progress]");
+
+  const dots = Array.from(
+    root.querySelectorAll(".cap6-p61Dots span")
+  );
+
+  const kicker =
+    root.querySelector("[data-p61-kicker]");
+
+  const caseText =
+    root.querySelector("[data-p61-case]");
+
+  const prompt =
+    root.querySelector("[data-p61-prompt]");
+
+  const options =
+    root.querySelector("[data-p61-options]");
+
+  const confirmButton =
+    root.querySelector("[data-p61-confirm]");
+
+  const resetButton =
+    root.querySelector("[data-p61-reset]");
+
+  const feedback =
+    root.querySelector("[data-p61-feedback]");
+
+  const previousButton =
+    root.querySelector("[data-p61-prev]");
+
+  const nextButton =
+    root.querySelector("[data-p61-next]");
+
+  const responses = situations.map(function () {
+    return {
+      selected: null,
+      confirmed: false
+    };
+  });
+
+  let currentIndex = 0;
+
+  function renderOptions() {
+    const situation = situations[currentIndex];
+    const response = responses[currentIndex];
+
+    options.innerHTML = "";
+
+    situation.options.forEach(function (
+      option,
+      optionIndex
+    ) {
+      const button = document.createElement("button");
+      const letter = document.createElement("span");
+      const text = document.createElement("span");
+
+      button.type = "button";
+      button.dataset.option = option.id;
+      button.setAttribute("aria-pressed", "false");
+
+      letter.className = "cap6-p61Letter";
+      letter.textContent =
+        String.fromCharCode(65 + optionIndex);
+
+      text.textContent = option.text;
+
+      if (response.selected === option.id) {
+        button.classList.add("is-selected");
+        button.setAttribute("aria-pressed", "true");
+      }
+
+      button.appendChild(letter);
+      button.appendChild(text);
+
+      button.addEventListener("click", function () {
+        selectOption(option.id);
+      });
+
+      options.appendChild(button);
+    });
   }
 
-  function parseFeedbackMap(question){
-    const template = question.querySelector(
-      ".cap6-p61FeedbackMap"
-    );
+  function selectOption(optionId) {
+    const response = responses[currentIndex];
 
-    if(!template){
-      return {};
+    if (response.confirmed) {
+      return;
     }
 
-    try{
-      return JSON.parse(
-        template.content.textContent.trim()
-      );
-    }catch(error){
-      console.warn(
-        "Não foi possível interpretar o conteúdo de feedback da página 61.",
-        error
-      );
+    response.selected = optionId;
 
-      return {};
-    }
-  }
+    const buttons =
+      options.querySelectorAll("button");
 
-  function updateSelectedOption(options, selectedOption){
-    options.forEach(function(option){
-      const isSelected = option === selectedOption;
+    buttons.forEach(function (button) {
+      const isSelected =
+        button.dataset.option === optionId;
 
-      option.classList.toggle(
+      button.classList.toggle(
         "is-selected",
         isSelected
       );
 
-      option.setAttribute(
+      button.setAttribute(
         "aria-pressed",
         isSelected ? "true" : "false"
       );
     });
+
+    confirmButton.disabled = false;
   }
 
-  function clearOptionStates(options){
-    options.forEach(function(option){
-      option.disabled = false;
+  function updateStatus() {
+    progress.textContent =
+      "Situação " +
+      (currentIndex + 1) +
+      " de " +
+      situations.length;
 
-      option.classList.remove(
-        "is-selected",
-        "is-correct",
-        "is-error"
+    dots.forEach(function (dot, index) {
+      dot.classList.toggle(
+        "is-active",
+        index === currentIndex
       );
 
-      option.setAttribute(
-        "aria-pressed",
-        "false"
+      dot.classList.toggle(
+        "is-complete",
+        responses[index].confirmed
       );
     });
   }
 
-  questions.forEach(function(question){
-    const options = Array.from(
-      question.querySelectorAll(
-        ".cap6-p61Options button"
-      )
-    );
+  function updateNavigation() {
+    const response = responses[currentIndex];
+    const isLast =
+      currentIndex === situations.length - 1;
 
-    const confirmButton = question.querySelector(
-      '[data-p61-action="confirm"]'
-    );
+    previousButton.disabled =
+      currentIndex === 0;
 
-    const resetButton = question.querySelector(
-      '[data-p61-action="reset"]'
-    );
+    if (isLast) {
+      nextButton.disabled = true;
+      nextButton.textContent = "Última situação";
+    } else {
+      nextButton.disabled = !response.confirmed;
+      nextButton.textContent = "Próxima situação →";
+    }
+  }
 
-    const feedback = question.querySelector(
-      ".cap6-p61Feedback"
-    );
+  function showConfirmedState() {
+    const situation = situations[currentIndex];
+    const response = responses[currentIndex];
+    const buttons =
+      options.querySelectorAll("button");
 
-    const feedbackMap = parseFeedbackMap(question);
+    const isCorrect =
+      response.selected === situation.correct;
 
-    let selectedAnswer = null;
+    buttons.forEach(function (button) {
+      button.disabled = true;
 
-    options.forEach(function(option){
-      option.addEventListener("click", function(){
-        if(
-          question.dataset.questionState === "confirmed"
-        ){
-          return;
-        }
+      if (
+        button.dataset.option === situation.correct
+      ) {
+        button.classList.add("is-correct");
+      }
 
-        selectedAnswer = option.dataset.answer;
-
-        updateSelectedOption(
-          options,
-          option
-        );
-
-        if(confirmButton){
-          confirmButton.disabled = false;
-        }
-      });
+      if (
+        button.dataset.option === response.selected &&
+        button.dataset.option !== situation.correct
+      ) {
+        button.classList.add("is-error");
+      }
     });
 
-    if(confirmButton){
-      confirmButton.addEventListener("click", function(){
-        if(!selectedAnswer){
-          return;
-        }
+    feedback.className =
+      "cap6-p61Feedback is-visible " +
+      (isCorrect ? "is-correct" : "is-error");
 
-        const selectedOption = question.querySelector(
-          '[data-answer="' +
-          selectedAnswer +
-          '"]'
-        );
+    feedback.innerHTML = "";
 
-        if(!selectedOption){
-          return;
-        }
+    const title = document.createElement("strong");
+    const explanation = document.createElement("p");
 
-        const isCorrect =
-          selectedOption.dataset.correct === "true";
+    title.textContent = isCorrect
+      ? "Análise adequada"
+      : "Reavalie o raciocínio";
 
-        const selectedFeedback =
-          feedbackMap[selectedAnswer];
+    explanation.textContent =
+      situation.feedback[response.selected];
 
-        options.forEach(function(option){
-          option.disabled = true;
+    feedback.appendChild(title);
+    feedback.appendChild(explanation);
 
-          option.classList.remove(
-            "is-selected"
-          );
+    confirmButton.hidden = true;
+    resetButton.hidden = false;
+  }
 
-          option.setAttribute(
-            "aria-pressed",
-            "false"
-          );
+  function render() {
+    const situation = situations[currentIndex];
+    const response = responses[currentIndex];
 
-          if(
-            option.dataset.correct === "true"
-          ){
-            option.classList.add(
-              "is-correct"
-            );
-          }
+    kicker.textContent = situation.kicker;
+    caseText.textContent = situation.caseText;
+    prompt.textContent = situation.prompt;
 
-          if(
-            option.dataset.answer === selectedAnswer &&
-            !isCorrect
-          ){
-            option.classList.add(
-              "is-error"
-            );
-          }
-        });
+    feedback.className = "cap6-p61Feedback";
+    feedback.innerHTML = "";
 
-        if(
-          feedback &&
-          selectedFeedback
-        ){
-          const feedbackClass =
-            selectedFeedback.type === "correct"
-              ? "is-correct"
-              : "is-error";
+    confirmButton.hidden = false;
+    confirmButton.disabled = !response.selected;
+    resetButton.hidden = true;
 
-          feedback.className =
-            "cap6-p61Feedback is-visible " +
-            feedbackClass;
+    renderOptions();
+    updateStatus();
+    updateNavigation();
 
-          feedback.innerHTML =
-            "<strong>" +
-            selectedFeedback.title +
-            "</strong>" +
-            "<p>" +
-            selectedFeedback.text +
-            "</p>";
-        }
-
-        question.dataset.questionState =
-          "confirmed";
-
-        confirmButton.hidden = true;
-
-        if(resetButton){
-          resetButton.hidden = false;
-          resetButton.focus();
-        }
-
-        updateStatus();
-      });
+    if (response.confirmed) {
+      showConfirmedState();
+      updateNavigation();
     }
+  }
 
-    if(resetButton){
-      resetButton.addEventListener("click", function(){
-        selectedAnswer = null;
+  confirmButton.addEventListener(
+    "click",
+    function () {
+      const response = responses[currentIndex];
 
-        question.dataset.questionState =
-          "pending";
+      if (
+        !response.selected ||
+        response.confirmed
+      ) {
+        return;
+      }
 
-        clearOptionStates(options);
+      response.confirmed = true;
 
-        if(feedback){
-          feedback.className =
-            "cap6-p61Feedback";
-
-          feedback.innerHTML = "";
-        }
-
-        if(confirmButton){
-          confirmButton.hidden = false;
-          confirmButton.disabled = true;
-        }
-
-        resetButton.hidden = true;
-
-        updateStatus();
-
-        if(options[0]){
-          options[0].focus();
-        }
-      });
+      showConfirmedState();
+      updateStatus();
+      updateNavigation();
     }
-  });
+  );
 
-  updateStatus();
+  resetButton.addEventListener(
+    "click",
+    function () {
+      responses[currentIndex] = {
+        selected: null,
+        confirmed: false
+      };
+
+      render();
+    }
+  );
+
+  previousButton.addEventListener(
+    "click",
+    function () {
+      if (currentIndex === 0) {
+        return;
+      }
+
+      currentIndex -= 1;
+      render();
+    }
+  );
+
+  nextButton.addEventListener(
+    "click",
+    function () {
+      if (
+        !responses[currentIndex].confirmed ||
+        currentIndex === situations.length - 1
+      ) {
+        return;
+      }
+
+      currentIndex += 1;
+      render();
+    }
+  );
+
+  render();
 })();

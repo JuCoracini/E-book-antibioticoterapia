@@ -1737,9 +1737,9 @@
     line-height:1.68;
   }
 }
-/* =========================
+/* =====================================================
    PÁGINA 38 — QUIZ DE REVISÃO
-   ========================= */
+   ===================================================== */
 
 .cap4-page38 .page-header{
   max-width:720px;
@@ -1753,168 +1753,150 @@
   margin:0 auto;
 }
 
-/* =========================
-   STATUS DO QUIZ
-   ========================= */
-
 .cap4-page38 .cap4-p38Status{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:12px;
-  max-width:720px;
-  margin:0 auto 24px;
-  padding:10px 14px;
-  border:1px solid rgba(15,42,68,.08);
-  border-radius:12px;
-  background:#f6f9fc;
-  font-family:var(--font-ui);
-}
-
-.cap4-page38 .cap4-p38Status__label{
-  font-size:12px;
-  line-height:1.35;
-  font-weight:800;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:#31546a;
+  gap:16px;
+  margin-bottom:14px;
 }
 
 .cap4-page38 .cap4-p38Status__value{
-  font-size:12px;
-  line-height:1.35;
-  font-weight:700;
   color:#667085;
-  white-space:nowrap;
+  font-family:var(--font-ui);
+  font-size:11.5px;
+  font-weight:800;
+  letter-spacing:.035em;
+  text-transform:uppercase;
 }
 
-/* =========================
-   ESTRUTURA DAS QUESTÕES
-   ========================= */
+.cap4-page38 .cap4-p38Dots{
+  display:flex;
+  gap:7px;
+}
+
+.cap4-page38 .cap4-p38Dots span{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#d4dde5;
+  transition:width .18s ease, background .18s ease;
+}
+
+.cap4-page38 .cap4-p38Dots span.is-active{
+  width:22px;
+  border-radius:999px;
+  background:#31546a;
+}
+
+.cap4-page38 .cap4-p38Dots span.is-answered:not(.is-active){
+  background:#8eabbc;
+}
 
 .cap4-page38 .cap4-p38Question{
-  margin:32px auto;
-  padding-top:24px;
-  border-top:2px solid #e6e9ef;
-}
-
-.cap4-page38 .cap4-p38Question:first-of-type{
-  margin-top:0;
-  padding-top:0;
-  border-top:0;
-}
-
-.cap4-page38 .cap4-p38QuestionHeader{
-  margin-bottom:14px;
+  padding:22px;
+  border:1px solid rgba(148,163,184,.25);
+  border-top:5px solid #31546a;
+  border-radius:16px;
+  background:#fff;
+  box-shadow:0 12px 30px rgba(15,42,68,.08);
 }
 
 .cap4-page38 .cap4-p38Kicker{
   display:inline-block;
-  margin-bottom:7px;
-  font-family:var(--font-ui);
-  font-size:11px;
-  line-height:1.35;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+  margin-bottom:10px;
   color:#9a5c1d;
-}
-
-.cap4-page38 .cap4-p38QuestionHeader h2{
-  margin:0;
   font-family:var(--font-ui);
-  font-size:18px;
-  line-height:1.35;
+  font-size:10.8px;
   font-weight:800;
-  color:#26384a;
-  text-indent:0;
+  letter-spacing:.07em;
+  text-transform:uppercase;
 }
 
 .cap4-page38 .cap4-p38Case{
-  margin:0 0 16px;
-  font-size:14.6px;
-  line-height:1.75;
-  color:#2f2f2f;
-  text-align:justify;
-  text-indent:2em;
-}
-
-.cap4-page38 .cap4-p38Prompt{
-  margin:0 0 14px;
-  font-family:var(--font-ui);
+  margin:0 0 17px;
+  padding:15px 17px;
+  border-left:5px solid #6faec7;
+  border-radius:0 13px 13px 0;
+  background:#f3f8fa;
+  color:#3f5162;
   font-size:14px;
-  line-height:1.55;
-  font-weight:800;
-  color:#26384a;
+  line-height:1.68;
+  text-align:justify;
   text-indent:0;
 }
 
-/* =========================
-   ALTERNATIVAS
-   ========================= */
-
-.cap4-page38 .cap4-p38Options{
-  display:grid;
-  gap:10px;
-  margin:16px 0 18px;
-}
-
-.cap4-page38 .cap4-p38Options button{
-  appearance:none;
-  display:grid;
-  grid-template-columns:34px 1fr;
-  gap:12px;
-  align-items:center;
-  width:100%;
-  min-height:50px;
-  padding:10px 13px;
-  border:1px solid rgba(148,163,184,.34);
-  border-radius:14px;
-  background:#fff;
+.cap4-page38 .cap4-p38Prompt{
+  margin:0 0 12px;
   color:#26384a;
   font-family:var(--font-ui);
   font-size:13.5px;
+  font-weight:800;
+  line-height:1.5;
+  text-indent:0;
+}
+
+.cap4-page38 .cap4-p38Options{
+  display:grid;
+  gap:9px;
+}
+
+.cap4-page38 .cap4-p38Options button{
+  display:grid;
+  grid-template-columns:30px 1fr;
+  gap:12px;
+  align-items:center;
+  width:100%;
+  min-height:48px;
+  padding:11px 13px;
+  border:1px solid rgba(148,163,184,.32);
+  border-radius:13px;
+  background:#fff;
+  color:#26384a;
+  font-family:var(--font-ui);
+  font-size:12.8px;
+  font-weight:700;
   line-height:1.45;
   text-align:left;
   cursor:pointer;
   transition:
-    background .2s ease,
-    border-color .2s ease,
-    box-shadow .2s ease,
-    transform .2s ease;
+    transform .18s ease,
+    border-color .18s ease,
+    background .18s ease,
+    box-shadow .18s ease;
 }
 
 .cap4-page38 .cap4-p38Options button:hover:not(:disabled){
   transform:translateY(-1px);
-  border-color:rgba(111,174,199,.72);
-  background:#fbfdff;
+  border-color:#6faec7;
 }
 
 .cap4-page38 .cap4-p38Options button:focus-visible,
-.cap4-page38 .cap4-p38Btn:focus-visible{
+.cap4-page38 .cap4-p38Btn:focus-visible,
+.cap4-page38 .cap4-p38Controls button:focus-visible{
   outline:none;
-  box-shadow:0 0 0 3px rgba(111,174,199,.22);
+  box-shadow:0 0 0 3px rgba(111,174,199,.18);
 }
 
 .cap4-page38 .cap4-p38Options button.is-selected{
   border-color:#6faec7;
   background:#eef7fb;
-  box-shadow:0 5px 14px rgba(49,84,106,.08);
 }
 
 .cap4-page38 .cap4-p38Options button.is-correct{
   border-color:#78b99d;
   background:#edf8f3;
+  color:#315646;
 }
 
 .cap4-page38 .cap4-p38Options button.is-error{
-  border-color:#d99a3d;
-  background:#fff7e8;
+  border-color:#d6a154;
+  background:#fff6e8;
+  color:#704c1f;
 }
 
 .cap4-page38 .cap4-p38Options button:disabled{
   cursor:default;
-  opacity:1;
 }
 
 .cap4-page38 .cap4-p38Letter{
@@ -1926,12 +1908,8 @@
   border-radius:50%;
   background:#f1f5f9;
   color:#31546a;
-  font-size:13px;
-  line-height:1;
+  font-size:12px;
   font-weight:800;
-  transition:
-    background .2s ease,
-    color .2s ease;
 }
 
 .cap4-page38 .cap4-p38Options button.is-selected .cap4-p38Letter{
@@ -1949,33 +1927,20 @@
   color:#fff;
 }
 
-/* =========================
-   BOTÕES DE AÇÃO
-   ========================= */
-
 .cap4-page38 .cap4-p38Actions{
   display:flex;
-  align-items:center;
-  gap:10px;
-  margin:6px 0 14px;
+  gap:9px;
+  margin-top:14px;
 }
 
 .cap4-page38 .cap4-p38Btn{
-  appearance:none;
   min-height:38px;
-  padding:9px 16px;
+  padding:8px 15px;
   border-radius:999px;
   font-family:var(--font-ui);
-  font-size:13px;
-  line-height:1.3;
+  font-size:12px;
   font-weight:800;
   cursor:pointer;
-  transition:
-    background .2s ease,
-    border-color .2s ease,
-    color .2s ease,
-    transform .2s ease,
-    opacity .2s ease;
 }
 
 .cap4-page38 .cap4-p38Btn--primary{
@@ -1984,321 +1949,211 @@
   color:#fff;
 }
 
-.cap4-page38 .cap4-p38Btn--primary:hover:not(:disabled){
-  background:#263f52;
-  border-color:#263f52;
-}
-
 .cap4-page38 .cap4-p38Btn--ghost{
   border:1px solid rgba(49,84,106,.28);
   background:#fff;
   color:#31546a;
 }
 
-.cap4-page38 .cap4-p38Btn--ghost:hover:not(:disabled){
-  border-color:#6faec7;
-  background:#eef7fb;
-}
-
-.cap4-page38 .cap4-p38Btn:hover:not(:disabled){
-  transform:translateY(-1px);
-}
-
 .cap4-page38 .cap4-p38Btn:disabled{
-  opacity:.45;
+  opacity:.42;
   cursor:not-allowed;
 }
-
-/* =========================
-   FEEDBACK
-   ========================= */
 
 .cap4-page38 .cap4-p38Feedback{
   display:none;
   margin-top:14px;
-  padding:15px 17px;
-  border-radius:0 14px 14px 0;
-  font-size:13.7px;
-  line-height:1.65;
-  text-indent:0;
+  padding:14px 16px;
+  border-radius:0 12px 12px 0;
 }
 
 .cap4-page38 .cap4-p38Feedback.is-visible{
   display:block;
-  animation:cap4P38FeedbackIn .28s ease;
 }
 
 .cap4-page38 .cap4-p38Feedback.is-correct{
   border-left:5px solid #78b99d;
   background:#edf8f3;
-  color:#253f35;
+  color:#315646;
 }
 
 .cap4-page38 .cap4-p38Feedback.is-error{
   border-left:5px solid #d99a3d;
-  background:#fff7e8;
-  color:#4f3518;
+  background:#fff6e8;
+  color:#704c1f;
 }
 
 .cap4-page38 .cap4-p38Feedback strong{
   display:block;
-  margin-bottom:6px;
+  margin-bottom:5px;
+  color:inherit;
   font-family:var(--font-ui);
-  font-size:14px;
-  line-height:1.4;
+  font-size:12.8px;
   font-weight:800;
 }
 
 .cap4-page38 .cap4-p38Feedback p{
   margin:0;
-  font-size:13.7px;
-  line-height:1.65;
+  font-size:12.5px;
+  line-height:1.58;
   text-align:justify;
   text-indent:0;
 }
 
-/* =========================
-   FECHAMENTO DO QUIZ
-   ========================= */
-
-.cap4-page38 .cap4-p38Completion{
-  margin:30px auto 8px;
-  padding:18px 20px;
-  border-left:6px solid #8a78bf;
-  border-radius:0 16px 16px 0;
-  background:#f2f0fb;
-  color:#35304f;
-  animation:cap4P38FeedbackIn .35s ease;
+.cap4-page38 .cap4-p38Controls{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:14px;
 }
 
-.cap4-page38 .cap4-p38Completion__header{
-  margin-bottom:8px;
-}
-
-.cap4-page38 .cap4-p38Completion__kicker{
-  display:block;
-  margin-bottom:6px;
+.cap4-page38 .cap4-p38Controls button{
+  appearance:none;
+  padding:8px 11px;
+  border:0;
+  background:transparent;
+  color:#31546a;
   font-family:var(--font-ui);
-  font-size:11px;
-  line-height:1.35;
+  font-size:11.5px;
   font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:#6a5c98;
+  cursor:pointer;
 }
 
-.cap4-page38 .cap4-p38Completion__title{
-  margin:0 0 10px;
-  font-family:var(--font-ui);
-  font-size:17px;
-  line-height:1.35;
-  font-weight:800;
-  color:#35304f;
-  text-indent:0;
+.cap4-page38 .cap4-p38Controls button:disabled{
+  color:#a2adb8;
+  cursor:not-allowed;
 }
 
-.cap4-page38 .cap4-p38Completion__text{
-  margin:0;
-  font-size:14.2px;
-  line-height:1.7;
-  text-align:justify;
-  text-indent:0;
-}
-
-/* =========================
-   REFERÊNCIAS
-   ========================= */
+/* Referências */
 
 .cap4-page38 .cap4-refBox{
   max-width:720px;
-  margin:36px auto 0;
-  border-top:1px solid rgba(15,42,68,.10);
-  border-bottom:1px solid rgba(15,42,68,.10);
+  margin:34px auto 0;
+  border:0;
 }
 
 .cap4-page38 .cap4-refBox summary{
-  position:relative;
-  padding:14px 34px 14px 0;
   list-style:none;
   cursor:pointer;
-  font-family:var(--font-ui);
-  font-size:14px;
-  line-height:1.4;
-  font-weight:800;
-  color:#31546a;
 }
 
 .cap4-page38 .cap4-refBox summary::-webkit-details-marker{
   display:none;
 }
 
-.cap4-page38 .cap4-refBox summary::after{
-  content:"+";
+.cap4-page38 .cap4-refHeader{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:15px 17px;
+  border:1px solid rgba(111,174,199,.25);
+  border-radius:14px;
+  background:#f4f9fb;
+}
+
+.cap4-page38 .cap4-refText{
+  flex:1;
+  color:#31546a;
+  font-family:var(--font-ui);
+}
+
+.cap4-page38 .cap4-refText strong{
+  font-size:13px;
+  font-weight:800;
+}
+
+.cap4-page38 .cap4-refAction{
+  position:relative;
+  flex:0 0 22px;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:#31546a;
+}
+
+.cap4-page38 .cap4-refAction::before,
+.cap4-page38 .cap4-refAction::after{
+  content:"";
   position:absolute;
   top:50%;
-  right:4px;
-  transform:translateY(-50%);
-  font-size:20px;
-  line-height:1;
-  font-weight:500;
-  color:#6faec7;
+  left:50%;
+  border-radius:999px;
+  background:#fff;
+  transform:translate(-50%,-50%);
 }
 
-.cap4-page38 .cap4-refBox[open] summary::after{
-  content:"−";
+.cap4-page38 .cap4-refAction::before{
+  width:9px;
+  height:2px;
 }
 
-.cap4-page38 .cap4-refBox summary:focus-visible{
-  outline:2px solid rgba(111,174,199,.45);
-  outline-offset:4px;
-  border-radius:4px;
+.cap4-page38 .cap4-refAction::after{
+  width:2px;
+  height:9px;
+}
+
+.cap4-page38 .cap4-refBox[open] .cap4-refAction::after{
+  opacity:0;
 }
 
 .cap4-page38 .cap4-refContent{
-  padding:2px 0 16px;
+  padding:16px 18px 4px;
+  color:#475569;
+  font-size:11.8px;
+  line-height:1.55;
 }
 
 .cap4-page38 .cap4-refContent p{
-  margin:0 0 10px;
-  font-size:12.2px;
-  line-height:1.58;
-  color:#4b5563;
+  margin:0 0 9px;
   text-align:left;
   text-indent:0;
 }
-
-.cap4-page38 .cap4-refContent p:last-child{
-  margin-bottom:0;
-}
-
-/* =========================
-   PAGINAÇÃO
-   ========================= */
 
 .cap4-page38 .pager{
   margin-top:28px;
 }
 
-/* =========================
-   ANIMAÇÕES
-   ========================= */
-
-@keyframes cap4P38FeedbackIn{
-  from{
-    opacity:0;
-    transform:translateY(5px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* =========================
-   RESPONSIVIDADE
-   ========================= */
-
 @media (max-width:760px){
-
-  .cap4-page38 .page-header{
-    margin-bottom:18px;
-    padding-bottom:12px;
-  }
-
   .cap4-page38 .page-title{
     font-size:24px;
   }
 
-  .cap4-page38 .cap4-p38Status{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:5px;
-    margin-bottom:24px;
-  }
-
-  .cap4-page38 .cap4-p38Status__value{
-    white-space:normal;
-  }
-
   .cap4-page38 .cap4-p38Question{
-    margin:28px auto;
-    padding-top:22px;
-  }
-
-  .cap4-page38 .cap4-p38QuestionHeader h2{
-    font-size:16.5px;
+    padding:16px;
   }
 
   .cap4-page38 .cap4-p38Case{
-    font-size:13.5px;
-    line-height:1.68;
-  }
-
-  .cap4-page38 .cap4-p38Prompt{
-    font-size:13.5px;
+    font-size:13.3px;
+    line-height:1.62;
   }
 
   .cap4-page38 .cap4-p38Options button{
-    grid-template-columns:30px 1fr;
-    gap:10px;
-    min-height:48px;
+    grid-template-columns:28px 1fr;
     padding:10px 11px;
-    font-size:13.1px;
+    font-size:12.3px;
   }
 
   .cap4-page38 .cap4-p38Letter{
     width:28px;
     height:28px;
-    font-size:12px;
   }
 
   .cap4-page38 .cap4-p38Actions{
     flex-direction:column;
-    align-items:stretch;
   }
 
   .cap4-page38 .cap4-p38Btn{
     width:100%;
   }
 
-  .cap4-page38 .cap4-p38Feedback{
-    padding:14px 15px;
-  }
-
-  .cap4-page38 .cap4-p38Feedback p{
-    font-size:13.2px;
-    line-height:1.62;
-  }
-
-  .cap4-page38 .cap4-p38Completion{
-    padding:16px;
-  }
-
-  .cap4-page38 .cap4-p38Completion__title{
-    font-size:16px;
-  }
-
-  .cap4-page38 .cap4-p38Completion__text{
-    font-size:13.5px;
-    line-height:1.68;
-  }
-
-  .cap4-page38 .cap4-refContent p{
-    font-size:11.8px;
-    line-height:1.55;
+  .cap4-page38 .cap4-refContent{
+    padding:14px 4px 4px;
   }
 }
 
 @media (prefers-reduced-motion:reduce){
-
   .cap4-page38 .cap4-p38Options button,
-  .cap4-page38 .cap4-p38Btn{
+  .cap4-page38 .cap4-p38Dots span{
     transition:none;
-  }
-
-  .cap4-page38 .cap4-p38Feedback.is-visible,
-  .cap4-page38 .cap4-p38Completion{
-    animation:none;
   }
 }

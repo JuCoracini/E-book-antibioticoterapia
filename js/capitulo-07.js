@@ -395,263 +395,488 @@
    PÁGINA 68 — QUIZ DE REVISÃO
    ========================= */
 
-(function initCap7Page68(){
+(function initCap7Page68Quiz() {
+  "use strict";
+
   const root = document.querySelector("[data-cap7-p68]");
 
-  if(!root){
+  if (!root) {
     return;
   }
 
-  const questions = Array.from(
-    root.querySelectorAll(".cap7-p68Question")
-  );
+  const situations = [
+    {
+      kicker: "Situação clínica 1",
 
-  const statusValue = root.querySelector(
-    ".cap7-p68Status__value"
-  );
+      caseText:
+        "Uma paciente com infecção bacteriana apresenta no " +
+        "prontuário o registro “alergia à penicilina”. Ao ser " +
+        "questionada, relata apenas manchas na pele durante a " +
+        "infância, sem falta de ar, edema, queda da pressão ou " +
+        "necessidade de atendimento emergencial. Como consequência " +
+        "do registro, considera-se utilizar um antibacteriano " +
+        "alternativo de espectro mais amplo.",
 
-  const completion = root.querySelector(
-    "[data-p68-completion]"
-  );
+      prompt:
+        "Qual análise é mais adequada antes de excluir todos os " +
+        "betalactâmicos?",
 
-  function updateStatus(){
-    const confirmedQuestions = questions.filter(function(question){
-      return question.dataset.questionState === "confirmed";
-    }).length;
+      correct: "b",
 
-    if(statusValue){
-      statusValue.textContent =
-        confirmedQuestions +
-        " de " +
-        questions.length +
-        " situações confirmadas";
+      options: [
+        {
+          id: "a",
+          text:
+            "O registro deve ser considerado confirmação de " +
+            "anafilaxia, pois qualquer manifestação cutânea prévia " +
+            "indica hipersensibilidade imediata grave."
+        },
+        {
+          id: "b",
+          text:
+            "A história deve ser caracterizada e o risco avaliado, " +
+            "pois um relato remoto e pouco definido não confirma " +
+            "alergia verdadeira e pode justificar investigação " +
+            "apropriada antes da substituição."
+        },
+        {
+          id: "c",
+          text:
+            "O registro deve ser ignorado e o betalactâmico " +
+            "administrado diretamente, porque reações ocorridas na " +
+            "infância nunca permanecem clinicamente relevantes."
+        }
+      ],
+
+      feedback: {
+        a:
+          "Uma manifestação cutânea remota não permite concluir " +
+          "que houve anafilaxia. É necessário caracterizar o tipo " +
+          "de reação, o tempo entre a administração e os sintomas, " +
+          "a gravidade e exposições posteriores.",
+
+        b:
+          "Muitos registros de alergia à penicilina não correspondem " +
+          "a hipersensibilidade confirmada. A avaliação estruturada " +
+          "do histórico e, quando apropriado, a investigação do " +
+          "rótulo podem evitar a exclusão desnecessária de agentes " +
+          "de primeira linha e o uso de alternativas mais amplas.",
+
+        c:
+          "Um registro impreciso não deve ser aceito sem análise, " +
+          "mas também não deve ser simplesmente ignorado. A conduta " +
+          "depende da avaliação de risco e, quando indicada, de " +
+          "investigação conduzida de forma segura."
+      }
+    },
+
+    {
+      kicker: "Situação clínica 2",
+
+      caseText:
+        "Um homem de 63 anos recebe linezolida para tratamento " +
+        "prolongado de osteomielite causada por Staphylococcus " +
+        "aureus resistente à meticilina. Após três semanas, " +
+        "apresenta fadiga, parestesias nos membros inferiores e " +
+        "redução progressiva da hemoglobina e das plaquetas.",
+
+      prompt:
+        "Qual interpretação relaciona melhor a duração da exposição, " +
+        "o mecanismo de toxicidade e as manifestações observadas?",
+
+      correct: "c",
+
+      options: [
+        {
+          id: "a",
+          text:
+            "O quadro sugere destruição imunológica imediata das " +
+            "células sanguíneas, sem relação relevante com a duração " +
+            "do tratamento."
+        },
+        {
+          id: "b",
+          text:
+            "Os achados indicam perda da atividade antibacteriana, " +
+            "pois a resistência do microrganismo produz anemia, " +
+            "trombocitopenia e neuropatia."
+        },
+        {
+          id: "c",
+          text:
+            "A exposição cumulativa pode interferir na síntese " +
+            "proteica mitocondrial, comprometendo tecidos com alta " +
+            "renovação ou demanda energética, como medula óssea e " +
+            "sistema nervoso."
+        }
+      ],
+
+      feedback: {
+        a:
+          "O aparecimento após exposição prolongada, associado a " +
+          "alterações hematológicas e neurológicas, não favorece " +
+          "uma reação imunológica imediata como principal explicação.",
+
+        b:
+          "Anemia, trombocitopenia e parestesias não demonstram " +
+          "resistência bacteriana. A eficácia microbiológica e a " +
+          "toxicidade para o hospedeiro são dimensões diferentes " +
+          "do tratamento.",
+
+        c:
+          "A linezolida pode interferir na tradução de proteínas " +
+          "mitocondriais. Com o aumento da exposição cumulativa, " +
+          "medula óssea e sistema nervoso tornam-se vulneráveis, " +
+          "explicando a associação entre mielossupressão e " +
+          "manifestações neuropáticas."
+      }
+    },
+
+    {
+      kicker: "Situação clínica 3",
+
+      caseText:
+        "Uma paciente de 74 anos, com doença renal crônica, utiliza " +
+        "losartana e espironolactona. Durante o tratamento com " +
+        "sulfametoxazol–trimetoprim, apresenta elevação progressiva " +
+        "do potássio sérico, sem evidência de hemólise ou lesão " +
+        "muscular.",
+
+      prompt:
+        "Qual raciocínio explica melhor por que essa paciente apresenta " +
+        "maior risco de hipercalemia?",
+
+      correct: "b",
+
+      options: [
+        {
+          id: "a",
+          text:
+            "O sulfametoxazol causa destruição muscular, e os demais " +
+            "medicamentos aumentam a transferência do potássio para " +
+            "fora das células."
+        },
+        {
+          id: "b",
+          text:
+            "O trimetoprim reduz a excreção renal de potássio por " +
+            "efeito semelhante ao da amilorida, e esse efeito se soma " +
+            "à disfunção renal e aos medicamentos que também favorecem " +
+            "a retenção de potássio."
+        },
+        {
+          id: "c",
+          text:
+            "A hipercalemia decorre exclusivamente da inibição da " +
+            "síntese de folato bacteriano e não possui relação com a " +
+            "função renal ou com os medicamentos concomitantes."
+        }
+      ],
+
+      feedback: {
+        a:
+          "O caso não apresenta evidência de lesão muscular. A " +
+          "hipercalemia associada ao trimetoprim decorre principalmente " +
+          "da redução da eliminação renal de potássio.",
+
+        b:
+          "O trimetoprim pode bloquear canais epiteliais de sódio no " +
+          "néfron distal, reduzindo a secreção de potássio. Doença renal " +
+          "crônica, losartana e espironolactona diminuem ainda mais a " +
+          "capacidade de eliminar esse eletrólito, elevando o risco.",
+
+        c:
+          "O efeito sobre o potássio não é explicado diretamente pela " +
+          "inibição da via bacteriana do folato. Ele resulta de uma " +
+          "ação renal do trimetoprim e é influenciado pela função renal " +
+          "e pelos medicamentos utilizados simultaneamente."
+      }
     }
+  ];
 
-    if(completion){
-      completion.hidden =
-        confirmedQuestions !== questions.length;
-    }
+  const progress =
+    root.querySelector("[data-p68-progress]");
+
+  const dots = Array.from(
+    root.querySelectorAll(".cap7-p68Dots span")
+  );
+
+  const kicker =
+    root.querySelector("[data-p68-kicker]");
+
+  const caseText =
+    root.querySelector("[data-p68-case]");
+
+  const prompt =
+    root.querySelector("[data-p68-prompt]");
+
+  const options =
+    root.querySelector("[data-p68-options]");
+
+  const confirmButton =
+    root.querySelector("[data-p68-confirm]");
+
+  const resetButton =
+    root.querySelector("[data-p68-reset]");
+
+  const feedback =
+    root.querySelector("[data-p68-feedback]");
+
+  const previousButton =
+    root.querySelector("[data-p68-prev]");
+
+  const nextButton =
+    root.querySelector("[data-p68-next]");
+
+  const responses = situations.map(function () {
+    return {
+      selected: null,
+      confirmed: false
+    };
+  });
+
+  let currentIndex = 0;
+
+  function renderOptions() {
+    const situation = situations[currentIndex];
+    const response = responses[currentIndex];
+
+    options.innerHTML = "";
+
+    situation.options.forEach(function (
+      option,
+      optionIndex
+    ) {
+      const button = document.createElement("button");
+      const letter = document.createElement("span");
+      const text = document.createElement("span");
+
+      button.type = "button";
+      button.dataset.option = option.id;
+      button.setAttribute("aria-pressed", "false");
+
+      letter.className = "cap7-p68Letter";
+      letter.textContent =
+        String.fromCharCode(65 + optionIndex);
+
+      text.textContent = option.text;
+
+      if (response.selected === option.id) {
+        button.classList.add("is-selected");
+        button.setAttribute("aria-pressed", "true");
+      }
+
+      button.appendChild(letter);
+      button.appendChild(text);
+
+      button.addEventListener("click", function () {
+        selectOption(option.id);
+      });
+
+      options.appendChild(button);
+    });
   }
 
-  function parseFeedbackMap(question){
-    const template = question.querySelector(
-      ".cap7-p68FeedbackMap"
-    );
+  function selectOption(optionId) {
+    const response = responses[currentIndex];
 
-    if(!template){
-      return {};
+    if (response.confirmed) {
+      return;
     }
 
-    try{
-      return JSON.parse(
-        template.content.textContent.trim()
-      );
-    }catch(error){
-      console.warn(
-        "Não foi possível interpretar o conteúdo de feedback da página 68.",
-        error
-      );
+    response.selected = optionId;
 
-      return {};
-    }
-  }
+    const buttons =
+      options.querySelectorAll("button");
 
-  function updateSelectedOption(options, selectedOption){
-    options.forEach(function(option){
-      const isSelected = option === selectedOption;
+    buttons.forEach(function (button) {
+      const isSelected =
+        button.dataset.option === optionId;
 
-      option.classList.toggle(
+      button.classList.toggle(
         "is-selected",
         isSelected
       );
 
-      option.setAttribute(
+      button.setAttribute(
         "aria-pressed",
         isSelected ? "true" : "false"
       );
     });
+
+    confirmButton.disabled = false;
   }
 
-  function clearOptionStates(options){
-    options.forEach(function(option){
-      option.disabled = false;
+  function updateStatus() {
+    progress.textContent =
+      "Situação " +
+      (currentIndex + 1) +
+      " de " +
+      situations.length;
 
-      option.classList.remove(
-        "is-selected",
-        "is-correct",
-        "is-error"
+    dots.forEach(function (dot, index) {
+      dot.classList.toggle(
+        "is-active",
+        index === currentIndex
       );
 
-      option.setAttribute(
-        "aria-pressed",
-        "false"
+      dot.classList.toggle(
+        "is-complete",
+        responses[index].confirmed
       );
     });
   }
 
-  questions.forEach(function(question){
-    const options = Array.from(
-      question.querySelectorAll(
-        ".cap7-p68Options button"
-      )
-    );
+  function updateNavigation() {
+    const response = responses[currentIndex];
+    const isLast =
+      currentIndex === situations.length - 1;
 
-    const confirmButton = question.querySelector(
-      '[data-p68-action="confirm"]'
-    );
+    previousButton.disabled =
+      currentIndex === 0;
 
-    const resetButton = question.querySelector(
-      '[data-p68-action="reset"]'
-    );
+    if (isLast) {
+      nextButton.disabled = true;
+      nextButton.textContent = "Última situação";
+    } else {
+      nextButton.disabled = !response.confirmed;
+      nextButton.textContent = "Próxima situação →";
+    }
+  }
 
-    const feedback = question.querySelector(
-      ".cap7-p68Feedback"
-    );
+  function showConfirmedState() {
+    const situation = situations[currentIndex];
+    const response = responses[currentIndex];
 
-    const feedbackMap = parseFeedbackMap(question);
+    const buttons =
+      options.querySelectorAll("button");
 
-    let selectedAnswer = null;
+    const isCorrect =
+      response.selected === situation.correct;
 
-    options.forEach(function(option){
-      option.addEventListener("click", function(){
-        if(
-          question.dataset.questionState === "confirmed"
-        ){
-          return;
-        }
+    buttons.forEach(function (button) {
+      button.disabled = true;
 
-        selectedAnswer = option.dataset.answer;
+      if (
+        button.dataset.option === situation.correct
+      ) {
+        button.classList.add("is-correct");
+      }
 
-        updateSelectedOption(
-          options,
-          option
-        );
-
-        if(confirmButton){
-          confirmButton.disabled = false;
-        }
-      });
+      if (
+        button.dataset.option === response.selected &&
+        button.dataset.option !== situation.correct
+      ) {
+        button.classList.add("is-error");
+      }
     });
 
-    if(confirmButton){
-      confirmButton.addEventListener("click", function(){
-        if(!selectedAnswer){
-          return;
-        }
+    feedback.className =
+      "cap7-p68Feedback is-visible " +
+      (isCorrect ? "is-correct" : "is-error");
 
-        const selectedOption = question.querySelector(
-          '[data-answer="' +
-          selectedAnswer +
-          '"]'
-        );
+    feedback.innerHTML = "";
 
-        if(!selectedOption){
-          return;
-        }
+    const title = document.createElement("strong");
+    const explanation = document.createElement("p");
 
-        const isCorrect =
-          selectedOption.dataset.correct === "true";
+    title.textContent = isCorrect
+      ? "Análise adequada"
+      : "Reavalie o raciocínio";
 
-        const selectedFeedback =
-          feedbackMap[selectedAnswer];
+    explanation.textContent =
+      situation.feedback[response.selected];
 
-        options.forEach(function(option){
-          option.disabled = true;
+    feedback.appendChild(title);
+    feedback.appendChild(explanation);
 
-          option.classList.remove(
-            "is-selected"
-          );
+    confirmButton.hidden = true;
+    resetButton.hidden = false;
+  }
 
-          option.setAttribute(
-            "aria-pressed",
-            "false"
-          );
+  function render() {
+    const situation = situations[currentIndex];
+    const response = responses[currentIndex];
 
-          if(
-            option.dataset.correct === "true"
-          ){
-            option.classList.add(
-              "is-correct"
-            );
-          }
+    kicker.textContent = situation.kicker;
+    caseText.textContent = situation.caseText;
+    prompt.textContent = situation.prompt;
 
-          if(
-            option.dataset.answer === selectedAnswer &&
-            !isCorrect
-          ){
-            option.classList.add(
-              "is-error"
-            );
-          }
-        });
+    feedback.className = "cap7-p68Feedback";
+    feedback.innerHTML = "";
 
-        if(
-          feedback &&
-          selectedFeedback
-        ){
-          const feedbackClass =
-            selectedFeedback.type === "correct"
-              ? "is-correct"
-              : "is-error";
+    confirmButton.hidden = false;
+    confirmButton.disabled = !response.selected;
+    resetButton.hidden = true;
 
-          feedback.className =
-            "cap7-p68Feedback is-visible " +
-            feedbackClass;
+    renderOptions();
+    updateStatus();
+    updateNavigation();
 
-          feedback.innerHTML =
-            "<strong>" +
-            selectedFeedback.title +
-            "</strong>" +
-            "<p>" +
-            selectedFeedback.text +
-            "</p>";
-        }
-
-        question.dataset.questionState =
-          "confirmed";
-
-        confirmButton.hidden = true;
-
-        if(resetButton){
-          resetButton.hidden = false;
-          resetButton.focus();
-        }
-
-        updateStatus();
-      });
+    if (response.confirmed) {
+      showConfirmedState();
+      updateNavigation();
     }
+  }
 
-    if(resetButton){
-      resetButton.addEventListener("click", function(){
-        selectedAnswer = null;
+  confirmButton.addEventListener(
+    "click",
+    function () {
+      const response = responses[currentIndex];
 
-        question.dataset.questionState =
-          "pending";
+      if (
+        !response.selected ||
+        response.confirmed
+      ) {
+        return;
+      }
 
-        clearOptionStates(options);
+      response.confirmed = true;
 
-        if(feedback){
-          feedback.className =
-            "cap7-p68Feedback";
-
-          feedback.innerHTML = "";
-        }
-
-        if(confirmButton){
-          confirmButton.hidden = false;
-          confirmButton.disabled = true;
-        }
-
-        resetButton.hidden = true;
-
-        updateStatus();
-
-        if(options[0]){
-          options[0].focus();
-        }
-      });
+      showConfirmedState();
+      updateStatus();
+      updateNavigation();
     }
-  });
+  );
 
-  updateStatus();
+  resetButton.addEventListener(
+    "click",
+    function () {
+      responses[currentIndex] = {
+        selected: null,
+        confirmed: false
+      };
+
+      render();
+    }
+  );
+
+  previousButton.addEventListener(
+    "click",
+    function () {
+      if (currentIndex === 0) {
+        return;
+      }
+
+      currentIndex -= 1;
+      render();
+    }
+  );
+
+  nextButton.addEventListener(
+    "click",
+    function () {
+      if (
+        !responses[currentIndex].confirmed ||
+        currentIndex === situations.length - 1
+      ) {
+        return;
+      }
+
+      currentIndex += 1;
+      render();
+    }
+  );
+
+  render();
 })();

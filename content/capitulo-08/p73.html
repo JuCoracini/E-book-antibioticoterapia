@@ -1,32 +1,29 @@
 <!doctype html>
 <html lang="pt-br">
-
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
 
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1"
-  >
+  />
 
   <title>Capítulo 8 — Página 73</title>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@600;700&display=swap"
     rel="stylesheet"
-  >
+  />
 
-  <link rel="stylesheet" href="../../css/base.css">
-  <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/capitulo-08.css">
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/capitulo-08.css" />
 </head>
 
 <body class="cap8-page73">
-
   <main class="page-shell">
 
     <header class="page-header">
-
       <div class="chapter">
         Capítulo 8 — Antibioticoterapia nas Principais Infecções
       </div>
@@ -34,275 +31,307 @@
       <h1 class="page-title">
         Bacteremia e sepse
       </h1>
-
     </header>
 
     <section
       class="prose"
-      aria-label="Bacteremia, sepse e evolução da terapia antimicrobiana"
+      aria-label="Bacteremia, sepse e reavaliação do tratamento"
     >
-
       <p>
-        A bacteremia e a sepse representam situações em que a decisão
-        sobre antibioticoterapia é guiada simultaneamente pela urgência
-        clínica e pela incerteza etiológica. A presença de disfunção
-        orgânica associada à suspeita de infecção caracteriza um cenário
-        no qual o tempo até o início de terapia antimicrobiana eficaz
-        influencia diretamente o prognóstico<sup>5</sup>.
+        Bacteremia e sepse não são sinônimos. Bacteremia corresponde
+        à presença de bactérias viáveis na corrente sanguínea,
+        demonstrada por hemocultura. Sepse é uma condição associada
+        à disfunção orgânica potencialmente fatal decorrente de uma
+        resposta desregulada do organismo à infecção
+        <sup>2,5</sup>.
       </p>
 
       <p>
-        Nessas condições, o raciocínio clínico deve ser aplicado com
-        maior sensibilidade ao risco. A identificação do foco provável
-        da infecção orienta a escolha inicial do espectro
-        antimicrobiano<sup>2,5</sup>.
+        Uma bacteremia pode ocorrer sem sepse, enquanto um quadro de
+        sepse pode estar presente mesmo quando as hemoculturas não
+        identificam o agente. Por isso, a interpretação deve integrar
+        manifestações clínicas, disfunção orgânica, provável foco
+        infeccioso e resultados microbiológicos <sup>5,8</sup>.
+      </p>
+
+      <p>
+        Na presença de choque séptico ou alta probabilidade de sepse,
+        a cobertura antibacteriana adequada deve ser iniciada
+        imediatamente. As culturas devem ser coletadas antes do
+        tratamento quando isso puder ser feito sem atraso relevante.
+        Quando há possibilidade de infecção, mas não há choque, uma
+        avaliação rápida ajuda a definir a necessidade e a urgência
+        do tratamento <sup>5</sup>.
       </p>
 
       <figure class="cap8-p73-figure figure">
-
         <div class="cap8-p73-figure__wrap">
-
           <img
             src="../../assets/capitulo-08/imagens/de-escalonamento-sepse.png"
-            alt="Representação temporal do de-escalonamento antimicrobiano entre hora zero, 24 a 48 horas e 72 horas ou mais."
+            alt="Representação temporal da reavaliação do tratamento entre a abordagem inicial, os resultados parciais e a terapia direcionada."
             data-zoom
-          >
-
+          />
         </div>
 
         <figcaption class="caption">
-          A ampliação empírica inicial deve ser reavaliada
-          progressivamente à medida que novas informações clínicas e
-          microbiológicas se tornam disponíveis.
+          A estratégia empírica inicial deve ser reavaliada à medida
+          que surgem informações clínicas e microbiológicas.
         </figcaption>
-
       </figure>
 
       <section
-        class="cap8-p73-timeline"
-        aria-labelledby="p73-timeline-title"
-        data-p73-timeline
+        class="cap8-p73-sim"
+        aria-labelledby="p73-title"
+        data-p73-sim
       >
-
-        <header class="cap8-p73-timeline-head">
-
-         
-
-          <p>
-            Explore como a conduta deve mudar conforme o tempo clínico
-            e a qualidade das informações disponíveis.
+        <header class="cap8-p73-sim-head">
+          <p class="cap8-p73-kicker">
+            Caso clínico progressivo
           </p>
 
+          <h2 id="p73-title">
+            A conduta muda quando a informação muda
+          </h2>
+
+          <p>
+            Analise o dado disponível em cada momento e escolha a
+            decisão mais coerente antes de acompanhar a evolução.
+          </p>
         </header>
 
         <div
-          class="cap8-p73-tabs"
-          role="tablist"
-          aria-label="Fases do raciocínio clínico"
+          class="cap8-p73-timeline"
+          aria-label="Evolução temporal do caso"
         >
-
-          <button
-            id="p73-tab-hora-zero"
-            class="cap8-p73-tab cap8-p73-tab--zero is-active"
-            type="button"
-            role="tab"
-            aria-selected="true"
-            aria-controls="p73-phase-panel"
-            tabindex="0"
-            data-phase="hora-zero"
+          <div
+            class="cap8-p73-timepoint is-active"
+            data-p73-timepoint="0"
           >
-            Hora Zero
-          </button>
-
-          <button
-            id="p73-tab-24-48h"
-            class="cap8-p73-tab cap8-p73-tab--review"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            aria-controls="p73-phase-panel"
-            tabindex="-1"
-            data-phase="24-48h"
-          >
-            24–48h
-          </button>
-
-          <button
-            id="p73-tab-72h"
-            class="cap8-p73-tab cap8-p73-tab--directed"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            aria-controls="p73-phase-panel"
-            tabindex="-1"
-            data-phase="72h"
-          >
-            72h+
-          </button>
-
-        </div>
-
-        <div
-          class="cap8-p73-stage"
-          aria-hidden="true"
-        >
-
-          <div class="cap8-p73-stage__track">
-
-            <span
-              class="cap8-p73-stage__segment is-active"
-              data-segment="hora-zero"
-            ></span>
-
-            <span
-              class="cap8-p73-stage__segment"
-              data-segment="24-48h"
-            ></span>
-
-            <span
-              class="cap8-p73-stage__segment"
-              data-segment="72h"
-            ></span>
-
+            <span>1</span>
+            <strong>Hora zero</strong>
           </div>
 
+          <div
+            class="cap8-p73-timepoint"
+            data-p73-timepoint="1"
+          >
+            <span>2</span>
+            <strong>14 horas</strong>
+          </div>
+
+          <div
+            class="cap8-p73-timepoint"
+            data-p73-timepoint="2"
+          >
+            <span>3</span>
+            <strong>48–72 horas</strong>
+          </div>
         </div>
 
-        <div
-          id="p73-phase-panel"
-          class="cap8-p73-panel"
-          role="tabpanel"
-          aria-labelledby="p73-tab-hora-zero"
+        <article
+          class="cap8-p73-case"
           aria-live="polite"
-          data-p73-panel
+          aria-atomic="true"
         >
+          <div class="cap8-p73-case-head">
+            <span data-p73-stage>Hora zero</span>
+            <strong data-p73-clinical-status>
+              Instabilidade hemodinâmica
+            </strong>
+          </div>
 
-          <p
-            class="cap8-p73-kicker"
-            data-p73-kicker
-          >
-            Hora Zero
+          <p data-p73-case-text>
+            Pessoa internada apresenta febre, calafrios, hipotensão,
+            alteração do estado mental e sinais de hipoperfusão.
+            Existe suspeita de infecção relacionada a cateter venoso
+            central.
           </p>
 
-          <h2
-            class="cap8-p73-subtitle"
-            data-p73-title
-          >
-            Prioridade é não atrasar cobertura adequada
-          </h2>
-
-          <div class="cap8-p73-body">
-
-            <p
-              class="cap8-p73-text"
-              data-p73-text
-            >
-              Em pacientes com suspeita de sepse e disfunção orgânica,
-              a prioridade é iniciar prontamente terapia antimicrobiana
-              empírica adequada. Nessa fase, a urgência clínica
-              predomina sobre a precisão etiológica, e o risco de
-              inadequação terapêutica precoce pesa diretamente no
-              prognóstico.
-            </p>
-
-            <div class="cap8-p73-meta">
-
-              <div
-                class="cap8-p73-meta-item cap8-p73-meta-item--focus"
-              >
-
-                <strong>
-                  Foco da decisão
-                </strong>
-
-                <p data-p73-focus>
-                  Reduzir rapidamente o risco de tratamento inicial
-                  inadequado.
-                </p>
-
-              </div>
-
-              <div
-                class="cap8-p73-meta-item cap8-p73-meta-item--risk"
-              >
-
-                <strong>
-                  Erro comum
-                </strong>
-
-                <p data-p73-risk>
-                  Subestimar a gravidade do quadro e atrasar a
-                  cobertura empírica nas primeiras horas.
-                </p>
-
-              </div>
-
+          <div class="cap8-p73-data-grid">
+            <div>
+              <span>Informação disponível</span>
+              <strong data-p73-information>
+                Suspeita de infecção associada à disfunção orgânica
+              </strong>
             </div>
 
+            <div>
+              <span>Grau de certeza etiológica</span>
+              <strong data-p73-certainty>
+                Foco provável, agente desconhecido
+              </strong>
+            </div>
           </div>
+        </article>
 
+        <fieldset class="cap8-p73-question">
+          <legend data-p73-question>
+            Qual decisão melhor equilibra urgência e investigação?
+          </legend>
+
+          <div
+            class="cap8-p73-options"
+            data-p73-options
+          ></div>
+        </fieldset>
+
+        <div
+          class="cap8-p73-feedback"
+          role="status"
+          aria-live="polite"
+          data-p73-feedback
+          hidden
+        ></div>
+
+        <div class="cap8-p73-actions">
+          <button
+            class="btn primary"
+            type="button"
+            data-p73-next
+            hidden
+          >
+            Liberar o próximo resultado →
+          </button>
         </div>
 
+        <section
+          class="cap8-p73-summary"
+          aria-labelledby="p73-summary-title"
+          data-p73-summary
+          hidden
+        >
+          <p class="cap8-p73-summary-kicker">
+            Evolução concluída
+          </p>
+
+          <h3 id="p73-summary-title">
+            A terapia empírica é uma decisão inicial, não definitiva
+          </h3>
+
+          <div class="cap8-p73-summary-flow">
+            <article>
+              <span>Hora zero</span>
+              <strong>Agir diante do risco</strong>
+              <p>
+                Estabilizar, coletar culturas sem atraso relevante,
+                iniciar cobertura adequada e investigar o foco.
+              </p>
+            </article>
+
+            <span class="cap8-p73-arrow" aria-hidden="true">→</span>
+
+            <article>
+              <span>Resultado preliminar</span>
+              <strong>Revisar a coerência</strong>
+              <p>
+                Interpretar a bacterioscopia, a provável fonte e a
+                evolução sem antecipar uma suscetibilidade desconhecida.
+              </p>
+            </article>
+
+            <span class="cap8-p73-arrow" aria-hidden="true">→</span>
+
+            <article>
+              <span>Resultado final</span>
+              <strong>Direcionar o tratamento</strong>
+              <p>
+                Ajustar o esquema ao agente, à suscetibilidade, ao foco
+                e à resposta clínica.
+              </p>
+            </article>
+          </div>
+        </section>
       </section>
 
       <h2 class="cap8-p73-section-divider">
-
         <span aria-hidden="true"></span>
-
-        Do risco inicial à terapia direcionada
-
+        Como interpretar a hemocultura
         <span aria-hidden="true"></span>
-
       </h2>
 
-      <p>
-        A probabilidade etiológica é modulada por fatores relacionados
-        ao paciente e ao contexto assistencial, como internação recente,
-        uso prévio de antibacterianos, presença de cateteres vasculares
-        ou urinários e o perfil epidemiológico local de resistência
-        bacteriana<sup>3,4</sup>.
-      </p>
+      <div class="cap8-p73-principles">
+        <article>
+          <span>Positividade</span>
 
-      <p>
-        Em pacientes com instabilidade clínica ou disfunção orgânica
-        significativa, a cobertura antimicrobiana inicial deve ser mais
-        abrangente, com o objetivo de reduzir o risco de inadequação
-        terapêutica precoce. Em quadros como choque séptico, a falha em
-        instituir terapia antimicrobiana adequada nas primeiras horas
-        de evolução associa-se a piores desfechos
-        clínicos<sup>5</sup>.
-      </p>
+          <strong>
+            O resultado deve ser interpretado no contexto
+          </strong>
 
-      <p>
-        Entretanto, a ampliação inicial do espectro não deve ser
-        mantida indefinidamente. A terapia antimicrobiana deve ser
-        reavaliada à medida que novas informações clínicas e
-        microbiológicas se tornam disponíveis, permitindo o
-        estreitamento do espectro conforme apropriado<sup>3,6</sup>.
-      </p>
+          <p>
+            O microrganismo identificado, o número de amostras
+            positivas, o tempo até a positividade, a origem da coleta
+            e a compatibilidade clínica ajudam a diferenciar
+            bacteremia verdadeira de possível contaminação
+            <sup>3,8</sup>.
+          </p>
+        </article>
 
-      <p>
-        Nesse contexto, as hemoculturas assumem papel central na
-        identificação do agente etiológico. Quando um microrganismo é
-        isolado e seu perfil de suscetibilidade é conhecido, o ajuste
-        terapêutico permite direcionar o tratamento ao patógeno
-        identificado e reduzir a exposição desnecessária a
-        antibacterianos de amplo espectro<sup>3,8</sup>.
-      </p>
+        <article>
+          <span>Resultado negativo</span>
 
-      <p>
-        Também é importante reconhecer que nem todo quadro com febre,
-        taquicardia e alterações laboratoriais corresponde
-        necessariamente a sepse bacteriana. Processos inflamatórios não
-        infecciosos, eventos tromboembólicos e outras condições
-        sistêmicas podem mimetizar apresentações clínicas
-        semelhantes<sup>5</sup>.
-      </p>
+          <strong>
+            Hemocultura negativa não exclui sepse
+          </strong>
 
+          <p>
+            Tratamento prévio, baixo número de microrganismos
+            circulantes, volume insuficiente de sangue e agentes
+            de difícil crescimento podem reduzir a detecção
+            microbiológica <sup>5,8</sup>.
+          </p>
+        </article>
+
+        <article>
+          <span>Foco infeccioso</span>
+
+          <strong>
+            O antibacteriano pode não ser suficiente
+          </strong>
+
+          <p>
+            Cateter infectado, coleção, obstrução ou tecido
+            desvitalizado podem exigir medidas específicas de
+            controle do foco, além do tratamento sistêmico
+            <sup>3,5</sup>.
+          </p>
+        </article>
+
+        <article>
+          <span>Reavaliação</span>
+
+          <strong>
+            Amplo espectro não deve ser mantido automaticamente
+          </strong>
+
+          <p>
+            Evolução clínica, culturas e suscetibilidade devem orientar
+            a manutenção, o direcionamento, a ampliação ou a suspensão
+            do tratamento, conforme a probabilidade de infecção
+            <sup>3,5,6</sup>.
+          </p>
+        </article>
+      </div>
+
+      <aside class="cap8-p73-alert">
+        <strong>Ausência de melhora não significa apenas resistência</strong>
+
+        <p>
+          Diante de deterioração ou resposta inadequada, devem ser
+          reavaliados o foco, o controle da fonte, a adequação da
+          exposição ao antibacteriano, possíveis complicações,
+          novos focos e diagnósticos não infecciosos.
+        </p>
+      </aside>
+
+      <p class="cap8-p73-takehome">
+        A gravidade determina a urgência inicial, mas os resultados
+        subsequentes devem modificar a conduta. Identificação do agente,
+        suscetibilidade, controle do foco e evolução clínica orientam
+        o tratamento definitivo.
+      </p>
     </section>
 
     <nav class="pager" aria-label="Paginação">
-
       <a
         class="btn"
         href="p72.html"
@@ -322,13 +351,10 @@
       >
         Próxima →
       </a>
-
     </nav>
-
   </main>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-08.js"></script>
-
 </body>
 </html>

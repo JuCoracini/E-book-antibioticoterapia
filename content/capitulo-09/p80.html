@@ -1,15 +1,45 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+
   <title>Capítulo 9 — Página 80</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
 
-  <link rel="stylesheet" href="../../css/base.css" />
-  <link rel="stylesheet" href="../../css/components.css" />
-  <link rel="stylesheet" href="../../css/capitulo-09.css" />
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../../css/base.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../../css/components.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../../css/capitulo-09.css"
+  />
 </head>
 
 <body class="cap9-page80">
@@ -17,128 +47,404 @@
   <main class="page-shell">
 
     <header class="page-header">
-      <div class="chapter">Capítulo 9 — Comunicação em Antibioticoterapia</div>
-      <h1 class="page-title">Orientando sobre efeitos adversos</h1>
+      <div class="chapter">
+        Capítulo 9 — Comunicação em Antibioticoterapia
+      </div>
+
+      <h1 class="page-title">
+        Orientando sobre efeitos adversos
+      </h1>
     </header>
 
-    <section class="prose cap9-p80-main">
+    <section class="prose cap9-p80">
 
       <p>
-        Todo antibacteriano pode provocar efeitos adversos. Informar essa possibilidade não tem como objetivo gerar receio, mas promover o uso seguro e consciente do medicamento <sup>1–3,7</sup>.
+        Os antibacterianos podem causar efeitos adversos de diferentes tipos e
+        intensidades. Informar essa possibilidade não tem como objetivo gerar
+        receio, mas permitir que manifestações relevantes sejam reconhecidas e
+        comunicadas no momento adequado <sup>1–3,7</sup>.
       </p>
 
       <p>
-        Eventos leves, como náusea, desconforto abdominal ou diarreia leve, são relativamente frequentes e geralmente autolimitados. Quando esses sintomas são leves e toleráveis, não costumam exigir suspensão imediata do tratamento.
+        A orientação deve diferenciar desconfortos leves e toleráveis de
+        manifestações que exigem reavaliação ou atendimento imediato. Não
+        existe uma regra única para manter ou suspender o medicamento: a decisão
+        depende do sintoma, da intensidade, da evolução, do antibacteriano
+        utilizado e das condições individuais <sup>7–9</sup>.
       </p>
 
-      <p>
-        Entretanto, algumas manifestações requerem reavaliação médica. Reações cutâneas extensas, urticária, dificuldade respiratória, diarreia intensa ou persistente, dor abdominal importante ou sintomas sistêmicos inesperados devem ser prontamente comunicados <sup>8,9</sup>.
-      </p>
+      <section
+        class="cap9-p80-triage"
+        data-cap9-p80
+        aria-labelledby="cap9P80ActivityTitle"
+      >
+        <header class="cap9-p80-activityHeader">
+          <span class="cap9-p80-eyebrow">
+            Triagem de segurança
+          </span>
 
-      <section class="cap9-p80-decision" data-cap9-p80 aria-labelledby="cap9P80Title">
-        <h2 id="cap9P80Title" class="cap9-p80-decisionTitle">
-          Diante de um sintoma relatado após o início do antibacteriano, a orientação depende da gravidade da manifestação.
-        </h2>
+          <h2 id="cap9P80ActivityTitle">
+            Qual é a prioridade diante de cada manifestação?
+          </h2>
 
-        <p class="cap9-p80-decisionIntro">
-          Selecione o tipo de manifestação para visualizar a lógica de orientação ao paciente.
-        </p>
+          <p>
+            Selecione uma manifestação e, depois, indique o nível de resposta
+            mais adequado.
+          </p>
+        </header>
 
-        <div class="cap9-p80-options" role="tablist" aria-label="Tipos de manifestação durante o uso do antibacteriano">
-          <button
-            class="cap9-p80-option is-active"
-            type="button"
-            role="tab"
-            aria-selected="true"
-            aria-controls="cap9P80PanelLeve"
-            id="cap9P80TabLeve"
-            data-p80-case="leve"
+        <div
+          class="cap9-p80-progress"
+          aria-live="polite"
+        >
+          <div>
+            <span>Manifestações analisadas</span>
+
+            <strong id="cap9P80ProgressText">
+              0 de 6
+            </strong>
+          </div>
+
+          <div
+            class="cap9-p80-progressTrack"
+            role="progressbar"
+            aria-label="Manifestações analisadas"
+            aria-valuemin="0"
+            aria-valuemax="6"
+            aria-valuenow="0"
           >
-            Sintomas leves
-          </button>
-
-          <button
-            class="cap9-p80-option"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            aria-controls="cap9P80PanelAlerta"
-            id="cap9P80TabAlerta"
-            data-p80-case="alerta"
-            tabindex="-1"
-          >
-            Sinais de alerta
-          </button>
+            <span id="cap9P80ProgressBar"></span>
+          </div>
         </div>
 
-        <div class="cap9-p80-panelWrap">
-          <section
-            class="cap9-p80-panel cap9-p80-panel--leve"
-            id="cap9P80PanelLeve"
-            role="tabpanel"
-            aria-labelledby="cap9P80TabLeve"
-            data-p80-panel="leve"
-          >
-            <p class="cap9-p80-kicker">Sintomas leves e toleráveis</p>
-            <p class="cap9-p80-panelText">
-              Náusea, desconforto abdominal ou diarreia leve costumam ser autolimitados e, quando toleráveis, geralmente não exigem suspensão imediata do tratamento.
-            </p>
-            <p class="cap9-p80-conduct">
-              <strong>Orientação:</strong> não interromper o antibacteriano por conta própria e comunicar piora, persistência ou mudança do padrão dos sintomas.
-            </p>
-          </section>
+        <section
+          class="cap9-p80-manifestations"
+          aria-labelledby="cap9P80ManifestationsTitle"
+        >
+          <h3 id="cap9P80ManifestationsTitle">
+            1. Selecione uma manifestação
+          </h3>
 
-          <section
-            class="cap9-p80-panel cap9-p80-panel--alerta"
-            id="cap9P80PanelAlerta"
-            role="tabpanel"
-            aria-labelledby="cap9P80TabAlerta"
-            data-p80-panel="alerta"
-            hidden
+          <div
+            class="cap9-p80-cardGrid"
+            role="group"
+            aria-label="Manifestações durante o uso de antibacterianos"
           >
-            <p class="cap9-p80-kicker">Manifestações que exigem reavaliação</p>
-            <p class="cap9-p80-panelText">
-              Reações cutâneas extensas, urticária, dificuldade respiratória, diarreia intensa ou persistente, dor abdominal importante e sintomas sistêmicos inesperados devem ser prontamente comunicados.
+            <button
+              class="cap9-p80-card"
+              type="button"
+              data-p80-symptom="nausea"
+              aria-pressed="false"
+            >
+              <span class="cap9-p80-cardNumber">1</span>
+
+              <span>
+                <strong>Náusea leve e tolerável</strong>
+
+                <small>
+                  Sem vômitos persistentes ou dificuldade para se hidratar.
+                </small>
+              </span>
+            </button>
+
+            <button
+              class="cap9-p80-card"
+              type="button"
+              data-p80-symptom="discomfort"
+              aria-pressed="false"
+            >
+              <span class="cap9-p80-cardNumber">2</span>
+
+              <span>
+                <strong>Desconforto abdominal leve</strong>
+
+                <small>
+                  Sem piora progressiva ou outros sinais de alerta.
+                </small>
+              </span>
+            </button>
+
+            <button
+              class="cap9-p80-card"
+              type="button"
+              data-p80-symptom="vomiting"
+              aria-pressed="false"
+            >
+              <span class="cap9-p80-cardNumber">3</span>
+
+              <span>
+                <strong>Vômitos persistentes</strong>
+
+                <small>
+                  Dificultam o uso do medicamento e a manutenção da hidratação.
+                </small>
+              </span>
+            </button>
+
+            <button
+              class="cap9-p80-card"
+              type="button"
+              data-p80-symptom="diarrhea"
+              aria-pressed="false"
+            >
+              <span class="cap9-p80-cardNumber">4</span>
+
+              <span>
+                <strong>Diarreia intensa ou persistente</strong>
+
+                <small>
+                  Principalmente com febre, dor importante, sangue ou sinais
+                  de desidratação.
+                </small>
+              </span>
+            </button>
+
+            <button
+              class="cap9-p80-card"
+              type="button"
+              data-p80-symptom="anaphylaxis"
+              aria-pressed="false"
+            >
+              <span class="cap9-p80-cardNumber">5</span>
+
+              <span>
+                <strong>Dificuldade para respirar</strong>
+
+                <small>
+                  Com chiado, aperto na garganta ou edema de face, lábios ou
+                  língua.
+                </small>
+              </span>
+            </button>
+
+            <button
+              class="cap9-p80-card"
+              type="button"
+              data-p80-symptom="severeSkin"
+              aria-pressed="false"
+            >
+              <span class="cap9-p80-cardNumber">6</span>
+
+              <span>
+                <strong>Lesões cutâneas extensas</strong>
+
+                <small>
+                  Com bolhas, descamação, dor na pele ou acometimento de
+                  mucosas.
+                </small>
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <section
+          class="cap9-p80-levels"
+          aria-labelledby="cap9P80LevelsTitle"
+        >
+          <h3 id="cap9P80LevelsTitle">
+            2. Indique a prioridade
+          </h3>
+
+          <div
+            class="cap9-p80-levelGrid"
+            role="group"
+            aria-label="Níveis de prioridade"
+          >
+            <button
+              class="cap9-p80-level cap9-p80-level--observe"
+              type="button"
+              data-p80-level="observe"
+            >
+              <span class="cap9-p80-levelIcon" aria-hidden="true">
+                1
+              </span>
+
+              <span>
+                <strong>Acompanhar e orientar</strong>
+
+                <small>
+                  Seguir as instruções recebidas e comunicar persistência,
+                  piora ou mudança do padrão.
+                </small>
+              </span>
+            </button>
+
+            <button
+              class="cap9-p80-level cap9-p80-level--reassess"
+              type="button"
+              data-p80-level="reassess"
+            >
+              <span class="cap9-p80-levelIcon" aria-hidden="true">
+                2
+              </span>
+
+              <span>
+                <strong>Reavaliar sem demora</strong>
+
+                <small>
+                  Verificar a manifestação e decidir se o tratamento precisa
+                  ser modificado.
+                </small>
+              </span>
+            </button>
+
+            <button
+              class="cap9-p80-level cap9-p80-level--emergency"
+              type="button"
+              data-p80-level="emergency"
+            >
+              <span class="cap9-p80-levelIcon" aria-hidden="true">
+                3
+              </span>
+
+              <span>
+                <strong>Atendimento imediato</strong>
+
+                <small>
+                  Possibilidade de reação grave ou potencialmente fatal.
+                </small>
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <div
+          id="cap9P80Instruction"
+          class="cap9-p80-instruction"
+          aria-live="polite"
+        >
+          Selecione uma manifestação para começar.
+        </div>
+
+        <div
+          id="cap9P80Feedback"
+          class="cap9-p80-feedback"
+          hidden
+          aria-live="polite"
+        ></div>
+
+        <aside
+          id="cap9P80Completion"
+          class="cap9-p80-completion"
+          hidden
+        >
+          <div class="cap9-p80-completionHeader">
+            <span aria-hidden="true">✓</span>
+
+            <strong>Triagem concluída</strong>
+          </div>
+
+          <div class="cap9-p80-summary">
+            <article class="cap9-p80-summary--observe">
+              <span>Acompanhar</span>
+
+              <strong>
+                Manifestações leves, toleráveis e sem progressão
+              </strong>
+            </article>
+
+            <article class="cap9-p80-summary--reassess">
+              <span>Reavaliar</span>
+
+              <strong>
+                Sintomas persistentes, intensos ou que dificultam o tratamento
+              </strong>
+            </article>
+
+            <article class="cap9-p80-summary--emergency">
+              <span>Imediato</span>
+
+              <strong>
+                Comprometimento respiratório ou sinais de reação cutânea grave
+              </strong>
+            </article>
+          </div>
+
+          <p>
+            A classificação não substitui a avaliação individual. Algumas
+            reações são específicas de determinados antibacterianos e podem
+            exigir orientações diferentes.
+          </p>
+
+          <button
+            id="cap9P80Restart"
+            class="cap9-p80-restart"
+            type="button"
+          >
+            Refazer a triagem
+          </button>
+        </aside>
+      </section>
+
+      <section class="cap9-p80-before">
+        <span class="cap9-p80-beforeLabel">
+          Antes da prescrição
+        </span>
+
+        <div class="cap9-p80-beforeGrid">
+          <article>
+            <strong>Não registre apenas “alergia”.</strong>
+
+            <p>
+              Pergunte qual medicamento foi utilizado, o que aconteceu, quanto
+              tempo depois a reação começou e se houve necessidade de
+              atendimento.
             </p>
-            <p class="cap9-p80-conduct">
-              <strong>Orientação:</strong> procurar atendimento e reavaliação médica sem demora.
+          </article>
+
+          <article>
+            <strong>Diferencie alergia de efeito adverso.</strong>
+
+            <p>
+              Náusea ou desconforto gastrointestinal isolados não confirmam
+              alergia. Por outro lado, urticária, edema e comprometimento
+              respiratório exigem atenção específica.
             </p>
-          </section>
+          </article>
         </div>
       </section>
 
-      <p class="cap9-p80-intro">
-        Ao orientar o paciente, a explicação pode seguir uma estrutura simples, por exemplo:
-      </p>
+      <aside class="cap9-p80-communication">
+        <strong>Uma orientação possível:</strong>
 
-      <p class="cap9-p80-quote">
-        “Alguns antibióticos podem causar desconforto leve no estômago. Se for algo leve, geralmente é possível continuar o tratamento. Mas se aparecer alergia, falta de ar ou diarreia intensa, é importante procurar atendimento.”
-      </p>
-
-      <p>
-        Também é importante esclarecer que o paciente não deve interromper o antibacteriano por conta própria diante de sintomas leves sem orientação médica. A suspensão precoce pode comprometer a eficácia do tratamento <sup>3</sup>.
-      </p>
-
-      <p>
-        Antes da prescrição, deve-se investigar histórico prévio de alergia medicamentosa e caracterizar a reação descrita <sup>7</sup>.
-      </p>
-
-      <p class="cap9-p80-closing">
-        A comunicação clara sobre possíveis efeitos adversos reduz abandono indevido do tratamento, facilita a identificação precoce de eventos graves e fortalece a relação terapêutica <sup>1–3</sup>.
-      </p>
+        <blockquote>
+          “Alguns efeitos podem ser leves, mas outros exigem avaliação rápida.
+          Não modifique o tratamento por conta própria. Se houver dificuldade
+          para respirar, inchaço na face ou língua, desmaio, bolhas ou
+          descamação da pele, procure atendimento imediatamente.”
+        </blockquote>
+      </aside>
 
     </section>
 
-<nav class="pager" aria-label="Paginação">
-  <a class="btn" href="p79.html" aria-label="Ir para a página anterior">← Anterior</a>
-  <div class="center">Capítulo 9 · Página 80 de 89</div>
-  <a class="btn primary" href="p81.html" aria-label="Ir para a próxima página">Próxima →</a>
-</nav>
+    <nav
+      class="pager"
+      aria-label="Paginação"
+    >
+      <a
+        class="btn"
+        href="p79.html"
+        aria-label="Ir para a página anterior"
+      >
+        ← Anterior
+      </a>
+
+      <div class="center">
+        Capítulo 9 · Página 80 de 89
+      </div>
+
+      <a
+        class="btn primary"
+        href="p81.html"
+        aria-label="Ir para o quiz do capítulo"
+      >
+        Próxima →
+      </a>
+    </nav>
 
   </main>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-09.js"></script>
-
 </body>
 </html>

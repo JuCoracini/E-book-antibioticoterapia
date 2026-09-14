@@ -1,22 +1,31 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
 
   <title>Capítulo 6 — Página 61</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap"
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="../../css/base.css"/>
-  <link rel="stylesheet" href="../../css/components.css"/>
-  <link rel="stylesheet" href="../../css/capitulo-06.css"/>
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/capitulo-06.css">
 </head>
 
 <body class="cap6-page61">
@@ -26,7 +35,8 @@
     <header class="page-header">
 
       <div class="chapter">
-        Capítulo 6 — Associação Terapêutica e Consequências do Uso Indiscriminado
+        Capítulo 6 — Associação Terapêutica e Consequências
+        do Uso Indiscriminado
       </div>
 
       <h1 class="page-title">
@@ -41,420 +51,194 @@
       aria-label="Quiz de revisão do capítulo 6"
     >
 
-      <!-- STATUS DO QUIZ -->
-
       <div
         class="cap6-p61Status"
         aria-live="polite"
-        data-p61-status
       >
 
-        <span class="cap6-p61Status__label">
-          Leitura aplicada do capítulo
+        <span
+          class="cap6-p61Status__value"
+          data-p61-progress
+        >
+          Situação 1 de 3
         </span>
 
-        <span class="cap6-p61Status__value">
-          0 de 2 situações confirmadas
-        </span>
+        <div
+          class="cap6-p61Dots"
+          aria-hidden="true"
+        >
+          <span class="is-active"></span>
+          <span></span>
+          <span></span>
+        </div>
 
       </div>
 
-      <!-- =========================================
-           SITUAÇÃO CLÍNICA 1
-           ========================================= -->
-
       <article
         class="cap6-p61Question"
-        data-q="1"
-        data-question-state="pending"
+        data-p61-question
       >
 
-        <div class="cap6-p61QuestionHeader">
-
-          <span class="cap6-p61Kicker">
-            Situação clínica 1
-          </span>
-
-
-        </div>
-
-        <p class="cap6-p61Case">
-          Um paciente de 68 anos é internado com sepse de provável origem
-          abdominal. Após a coleta de culturas, inicia tratamento empírico
-          com cefepime e vancomicina. Após 72 horas, a hemocultura identifica
-          <em>Escherichia coli</em> suscetível ao cefepime, sem crescimento
-          de outros microrganismos.
-        </p>
-
-        <p class="cap6-p61Prompt">
-          Qual princípio da antibioticoterapia é ilustrado por essa situação?
-        </p>
-
-        <div
-          class="cap6-p61Options"
-          role="group"
-          aria-label="Alternativas da situação clínica 1"
+        <span
+          class="cap6-p61Kicker"
+          data-p61-kicker
         >
-
-          <button
-            type="button"
-            data-answer="a"
-            aria-pressed="false"
-          >
-
-            <span class="cap6-p61Letter">A</span>
-
-            <span>
-              A terapia combinada deve ser mantida até o término do
-              tratamento para reduzir a emergência de resistência.
-            </span>
-
-          </button>
-
-          <button
-            type="button"
-            data-answer="b"
-            data-correct="true"
-            aria-pressed="false"
-          >
-
-            <span class="cap6-p61Letter">B</span>
-
-            <span>
-              A ampliação inicial do espectro deve ser reavaliada quando
-              os resultados microbiológicos permitem direcionar o tratamento.
-            </span>
-
-          </button>
-
-          <button
-            type="button"
-            data-answer="c"
-            aria-pressed="false"
-          >
-
-            <span class="cap6-p61Letter">C</span>
-
-            <span>
-              A associação de antibacterianos reduz automaticamente a
-              probabilidade de resistência durante todo o tratamento.
-            </span>
-
-          </button>
-
-          <button
-            type="button"
-            data-answer="d"
-            aria-pressed="false"
-          >
-
-            <span class="cap6-p61Letter">D</span>
-
-            <span>
-              A utilização de dois antibacterianos é sempre mais eficaz
-              do que a monoterapia.
-            </span>
-
-          </button>
-
-        </div>
-
-        <div class="cap6-p61Actions">
-
-          <button
-            class="cap6-p61Btn cap6-p61Btn--primary"
-            type="button"
-            data-p61-action="confirm"
-            disabled
-          >
-            Confirmar interpretação
-          </button>
-
-          <button
-            class="cap6-p61Btn cap6-p61Btn--ghost"
-            type="button"
-            data-p61-action="reset"
-            hidden
-          >
-            Refazer
-          </button>
-
-        </div>
-
-        <div
-          class="cap6-p61Feedback"
-          role="region"
-          aria-live="polite"
-        ></div>
-
-        <template class="cap6-p61FeedbackMap">
-{
-  "a": {
-    "type": "error",
-    "title": "Manutenção desnecessária da associação",
-    "text": "A terapia empírica de amplo espectro deve ser reavaliada quando a cultura e o teste de suscetibilidade identificam o agente etiológico. A manutenção de antibacterianos sem justificativa microbiológica amplia a exposição aos antimicrobianos sem benefício demonstrado <sup>1–3</sup>."
-  },
-  "b": {
-    "type": "correct",
-    "title": "Interpretação adequada",
-    "text": "A terapia empírica amplia a cobertura inicial enquanto o agente etiológico permanece desconhecido. Após sua identificação e a disponibilização do perfil de suscetibilidade, o esquema pode ser direcionado ao microrganismo responsável, retirando componentes que perderam sua justificativa microbiológica <sup>1–3</sup>."
-  },
-  "c": {
-    "type": "error",
-    "title": "Generalização incorreta",
-    "text": "A associação pode reduzir a emergência de resistência em situações específicas, como no tratamento da tuberculose. Esse benefício não ocorre automaticamente em todas as infecções bacterianas <sup>4,6</sup>."
-  },
-  "d": {
-    "type": "error",
-    "title": "Maior número de fármacos não significa maior eficácia",
-    "text": "A presença de dois antibacterianos não garante maior eficácia. Quando existe um agente ativo adequado e não há outra justificativa para a combinação, a monoterapia pode ser suficiente."
-  }
-}
-        </template>
-
-      </article>
-
-      <!-- =========================================
-           SITUAÇÃO CLÍNICA 2
-           ========================================= -->
-
-      <article
-        class="cap6-p61Question"
-        data-q="2"
-        data-question-state="pending"
-      >
-
-        <div class="cap6-p61QuestionHeader">
-
-          <span class="cap6-p61Kicker">
-            Situação clínica 2
-          </span>
-
-          
-        </div>
-
-        <p class="cap6-p61Case">
-          Um paciente com pneumonia hospitalar recebe terapia empírica
-          combinada. Após 48 horas, permanece febril. A revisão da prescrição
-          mostra que o β-lactâmico está sendo administrado em dose inferior
-          à necessária para atingir exposição farmacocinética e
-          farmacodinâmica adequada.
-        </p>
-
-        <p class="cap6-p61Prompt">
-          Qual conceito explica melhor essa situação?
-        </p>
-
-        <div
-          class="cap6-p61Options"
-          role="group"
-          aria-label="Alternativas da situação clínica 2"
-        >
-
-          <button
-            type="button"
-            data-answer="a"
-            data-correct="true"
-            aria-pressed="false"
-          >
-
-            <span class="cap6-p61Letter">A</span>
-
-            <span>
-              A associação de antibacterianos não corrige exposição
-              farmacológica inadequada.
-            </span>
-
-          </button>
-
-          <button
-            type="button"
-            data-answer="b"
-            aria-pressed="false"
-          >
-
-            <span class="cap6-p61Letter">B</span>
-
-            <span>
-              A resistência bacteriana sempre surge após o início
-              do tratamento.
-            </span>
-
-          </button>
-
-          <button
-            type="button"
-            data-answer="c"
-            aria-pressed="false"
-          >
-
-            <span class="cap6-p61Letter">C</span>
-
-            <span>
-              A concentração inibitória mínima varia de acordo com
-              cada paciente.
-            </span>
-
-          </button>
-
-          <button
-            type="button"
-            data-answer="d"
-            aria-pressed="false"
-          >
-
-            <span class="cap6-p61Letter">D</span>
-
-            <span>
-              O mecanismo de ação do antibacteriano modifica-se durante
-              o tratamento.
-            </span>
-
-          </button>
-
-        </div>
-
-        <div class="cap6-p61Actions">
-
-          <button
-            class="cap6-p61Btn cap6-p61Btn--primary"
-            type="button"
-            data-p61-action="confirm"
-            disabled
-          >
-            Confirmar interpretação
-          </button>
-
-          <button
-            class="cap6-p61Btn cap6-p61Btn--ghost"
-            type="button"
-            data-p61-action="reset"
-            hidden
-          >
-            Refazer
-          </button>
-
-        </div>
-
-        <div
-          class="cap6-p61Feedback"
-          role="region"
-          aria-live="polite"
-        ></div>
-
-        <template class="cap6-p61FeedbackMap">
-{
-  "a": {
-    "type": "correct",
-    "title": "Interpretação adequada",
-    "text": "O sucesso da antibioticoterapia depende da escolha do antibacteriano, da dose, da exposição farmacocinética e farmacodinâmica, da penetração no sítio da infecção e do controle do foco infeccioso. A associação de antibacterianos não compensa uma exposição insuficiente ao fármaco <sup>1–3</sup>."
-  },
-  "b": {
-    "type": "error",
-    "title": "Explicação não sustentada pelo caso",
-    "text": "A resistência pode emergir durante o tratamento em algumas situações, mas isso não explica uma resposta inadequada relacionada a uma dose insuficiente."
-  },
-  "c": {
-    "type": "error",
-    "title": "Conceito incorreto sobre a CIM",
-    "text": "A concentração inibitória mínima é determinada para a interação entre o isolado bacteriano e o antibacteriano em condições laboratoriais padronizadas. Ela não varia de acordo com cada paciente."
-  },
-  "d": {
-    "type": "error",
-    "title": "Mecanismo de ação inalterado",
-    "text": "O mecanismo de ação é uma propriedade do antibacteriano e não se modifica durante o tratamento. O problema descrito está relacionado à exposição farmacológica insuficiente."
-  }
-}
-        </template>
-
-      </article>
-
-      <!-- =========================================
-           CONCLUSÃO
-           ========================================= -->
-
-      <section
-        class="cap6-p61Completion"
-        data-p61-completion
-        hidden
-        aria-live="polite"
-      >
-
-        <span class="cap6-p61Completion__kicker">
-          Fechamento do capítulo
+          Situação clínica 1
         </span>
 
-        <h2 class="cap6-p61Completion__title">
-          Síntese da associação antibacteriana
-        </h2>
-
-        <p class="cap6-p61Completion__text">
-          A associação de antibacterianos deve possuir uma justificativa
-          microbiológica ou farmacológica definida. Ela não substitui a
-          reavaliação da terapia empírica nem corrige falhas relacionadas
-          à dose, à exposição farmacocinética e farmacodinâmica ou à
-          penetração no foco infeccioso.
+        <p
+          class="cap6-p61Case"
+          data-p61-case
+        >
+          Um paciente de 68 anos é internado com sepse de
+          provável origem abdominal. Após a coleta de culturas,
+          inicia tratamento empírico com cefepime e vancomicina.
+          Após 72 horas, a hemocultura identifica Escherichia
+          coli suscetível ao cefepime, sem crescimento de outros
+          microrganismos. O paciente apresenta evolução clínica
+          favorável.
         </p>
 
-      </section>
+        <p
+          class="cap6-p61Prompt"
+          data-p61-prompt
+        >
+          Qual decisão utiliza melhor as novas informações sem
+          comprometer a eficácia do tratamento?
+        </p>
+
+        <div
+          class="cap6-p61Options"
+          role="group"
+          aria-label="Alternativas da situação clínica"
+          data-p61-options
+        ></div>
+
+        <div class="cap6-p61Actions">
+
+          <button
+            class="cap6-p61Btn cap6-p61Btn--primary"
+            type="button"
+            data-p61-confirm
+            disabled
+          >
+            Confirmar análise
+          </button>
+
+          <button
+            class="cap6-p61Btn cap6-p61Btn--ghost"
+            type="button"
+            data-p61-reset
+            hidden
+          >
+            Rever decisão
+          </button>
+
+        </div>
+
+        <div
+          class="cap6-p61Feedback"
+          role="region"
+          aria-live="polite"
+          data-p61-feedback
+        ></div>
+
+      </article>
+
+      <div class="cap6-p61Controls">
+
+        <button
+          type="button"
+          data-p61-prev
+          disabled
+        >
+          ← Situação anterior
+        </button>
+
+        <button
+          type="button"
+          data-p61-next
+          disabled
+        >
+          Próxima situação →
+        </button>
+
+      </div>
 
     </section>
-
-    <!-- =========================================
-         REFERÊNCIAS
-         ========================================= -->
 
     <details class="cap6-refBox">
 
       <summary>
-        Referências
+
+        <div class="cap6-refHeader">
+
+          <div class="cap6-refText">
+            <strong>Referências</strong>
+          </div>
+
+          <div
+            class="cap6-refAction"
+            aria-hidden="true"
+          ></div>
+
+        </div>
+
       </summary>
 
       <div class="cap6-refContent">
 
         <p>
-          1. Blaser MJ, Cohen JI, Holland SM, editors. Mandell, Douglas,
-          and Bennett’s Principles and Practice of Infectious Diseases.
-          10th ed. Philadelphia: Elsevier; 2025.
+          1. Blaser MJ, Cohen JI, Holland SM, editors.
+          Mandell, Douglas, and Bennett’s Principles and
+          Practice of Infectious Diseases. 10th ed.
+          Philadelphia: Elsevier; 2025.
         </p>
 
         <p>
           2. Brunton LL, Hilal-Dandan R, Knollmann BC, editors.
-          Goodman &amp; Gilman’s The Pharmacological Basis of Therapeutics.
-          14th ed. New York: McGraw-Hill Education; 2023. 1419 p.
+          Goodman &amp; Gilman’s The Pharmacological Basis of
+          Therapeutics. 14th ed. New York:
+          McGraw-Hill Education; 2023. 1419 p.
         </p>
 
         <p>
-          3. Tamma PD, Heil EL, Justo JA, Mathers AJ, Satlin MJ,
-          Bonomo RA. Infectious Diseases Society of America 2024 Guidance
-          on the Treatment of Antimicrobial-Resistant Gram-Negative
-          Infections. Clin Infect Dis. 2024 Aug 7.
-          doi:10.1093/cid/ciae403
+          3. Tamma PD, Heil EL, Justo JA, Mathers AJ,
+          Satlin MJ, Bonomo RA. Infectious Diseases Society
+          of America 2024 Guidance on the Treatment of
+          Antimicrobial-Resistant Gram-Negative Infections.
+          Clin Infect Dis. 2024 Aug 7.
+          doi:10.1093/cid/ciae403.
         </p>
 
         <p>
-          4. Bognár B, Spohn R, Lázár V. Drug combinations targeting
-          antibiotic resistance. npj Antimicrob Resist.
-          2024;2(1):29. doi:10.1038/s44259-024-00047-2
+          4. Bognár B, Spohn R, Lázár V. Drug combinations
+          targeting antibiotic resistance.
+          npj Antimicrob Resist. 2024;2(1):29.
+          doi:10.1038/s44259-024-00047-2.
         </p>
 
         <p>
-          5. World Health Organization. World Antimicrobial Awareness
-          Week 2023. Geneva: World Health Organization; 2023.
+          5. World Health Organization.
+          World Antimicrobial Awareness Week 2023.
+          Geneva: World Health Organization; 2023.
         </p>
 
         <p>
-          6. World Health Organization. Global Tuberculosis Report 2024.
+          6. World Health Organization.
+          Global Tuberculosis Report 2024.
           Geneva: World Health Organization; 2024.
         </p>
 
         <p>
-          7. Sati H, Carrara E, Savoldi A, Hansen P, Garlasco J,
-          Campagnaro E, et al. The WHO Bacterial Priority Pathogens List
-          2024: a prioritisation study to guide research, development,
-          and public health strategies against antimicrobial resistance.
+          7. Sati H, Carrara E, Savoldi A, Hansen P,
+          Garlasco J, Campagnaro E, et al.
+          The WHO Bacterial Priority Pathogens List 2024:
+          a prioritisation study to guide research,
+          development, and public health strategies against
+          antimicrobial resistance.
           Lancet Infect Dis. 2025;25(9):1033–1043.
-          doi:10.1016/S1473-3099(25)00118-5
+          doi:10.1016/S1473-3099(25)00118-5.
         </p>
 
         <p>
@@ -467,14 +251,12 @@
           9. Fishbein SRS, Mahmud B, Dantas G.
           Antibiotic perturbations to the gut microbiome.
           Nat Rev Microbiol. 2023;21(12):772–788.
-          doi:10.1038/s41579-023-00933-y
+          doi:10.1038/s41579-023-00933-y.
         </p>
 
       </div>
 
     </details>
-
-    <!-- PAGINAÇÃO -->
 
     <nav class="pager" aria-label="Paginação">
 

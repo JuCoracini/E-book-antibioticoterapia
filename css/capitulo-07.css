@@ -1265,560 +1265,472 @@
    PÁGINA 68 — QUIZ DE REVISÃO
    ========================= */
 
-.cap7-page68 .page-header{
-  max-width:720px;
-  margin:0 auto 22px;
-  padding-bottom:14px;
-  border-bottom:1px solid rgba(15,42,68,.08);
+.cap7-page68 .page-header {
+  max-width: 720px;
+  margin: 0 auto 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(15, 42, 68, 0.08);
 }
 
-.cap7-page68 .cap7-p68Quiz{
-  max-width:720px;
-  margin:0 auto;
+.cap7-page68 .cap7-p68Quiz {
+  max-width: 720px;
+  margin: 0 auto;
 }
 
-/* =========================
-   STATUS DO QUIZ
-   ========================= */
+/* STATUS */
 
-.cap7-page68 .cap7-p68Status{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  max-width:720px;
-  margin:0 auto 24px;
-  padding:10px 14px;
-  border:1px solid rgba(15,42,68,.08);
-  border-radius:12px;
-  background:#f6f9fc;
-  font-family:var(--font-ui);
+.cap7-page68 .cap7-p68Status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 720px;
+  margin: 0 auto 24px;
+  padding: 10px 14px;
+  border: 1px solid rgba(15, 42, 68, 0.08);
+  border-radius: 12px;
+  background: #f6f9fc;
+  font-family: var(--font-ui);
 }
 
-.cap7-page68 .cap7-p68Status__label{
-  font-size:12px;
-  line-height:1.35;
-  font-weight:800;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:#31546a;
+.cap7-page68 .cap7-p68Status__value {
+  color: #667085;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.35;
+  white-space: nowrap;
 }
 
-.cap7-page68 .cap7-p68Status__value{
-  font-size:12px;
-  line-height:1.35;
-  font-weight:700;
-  color:#667085;
-  white-space:nowrap;
+/* PROGRESSO */
+
+.cap7-page68 .cap7-p68Dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 
-/* =========================
-   ESTRUTURA DAS QUESTÕES
-   ========================= */
-
-.cap7-page68 .cap7-p68Question{
-  margin:32px auto;
-  padding-top:24px;
-  border-top:2px solid #e6e9ef;
-}
-
-.cap7-page68 .cap7-p68Question:first-of-type{
-  margin-top:0;
-  padding-top:0;
-  border-top:0;
-}
-
-.cap7-page68 .cap7-p68QuestionHeader{
-  margin-bottom:14px;
-}
-
-.cap7-page68 .cap7-p68Kicker{
-  display:inline-block;
-  margin-bottom:7px;
-  font-family:var(--font-ui);
-  font-size:11px;
-  line-height:1.35;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:#9a5c1d;
-}
-
-.cap7-page68 .cap7-p68QuestionTitle{
-  margin:0;
-  font-family:var(--font-ui);
-  font-size:18px;
-  line-height:1.35;
-  font-weight:800;
-  color:#26384a;
-  text-indent:0;
-}
-
-.cap7-page68 .cap7-p68Case{
-  margin:0 0 16px;
-  font-size:14.6px;
-  line-height:1.75;
-  color:#2f2f2f;
-  text-align:justify;
-  text-indent:2em;
-}
-
-.cap7-page68 .cap7-p68Prompt{
-  margin:0 0 14px;
-  font-family:var(--font-ui);
-  font-size:14px;
-  line-height:1.55;
-  font-weight:800;
-  color:#26384a;
-  text-indent:0;
-}
-
-/* =========================
-   ALTERNATIVAS
-   ========================= */
-
-.cap7-page68 .cap7-p68Options{
-  display:grid;
-  gap:10px;
-  margin:16px 0 18px;
-}
-
-.cap7-page68 .cap7-p68Options button{
-  appearance:none;
-  display:grid;
-  grid-template-columns:34px 1fr;
-  gap:12px;
-  align-items:center;
-  width:100%;
-  min-height:50px;
-  padding:10px 13px;
-  border:1px solid rgba(148,163,184,.34);
-  border-radius:14px;
-  background:#fff;
-  color:#26384a;
-  font-family:var(--font-ui);
-  font-size:13.5px;
-  line-height:1.45;
-  text-align:left;
-  cursor:pointer;
+.cap7-page68 .cap7-p68Dots span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d5dce3;
   transition:
-    background .2s ease,
-    border-color .2s ease,
-    box-shadow .2s ease,
-    transform .2s ease;
+    width 0.2s ease,
+    border-radius 0.2s ease,
+    background 0.2s ease;
 }
 
-.cap7-page68 .cap7-p68Options button:hover:not(:disabled){
-  transform:translateY(-1px);
-  border-color:rgba(111,174,199,.72);
-  background:#fbfdff;
+.cap7-page68 .cap7-p68Dots span.is-active {
+  width: 22px;
+  border-radius: 999px;
+  background: #6faec7;
+}
+
+.cap7-page68 .cap7-p68Dots span.is-complete {
+  background: #78b99d;
+}
+
+/* QUESTÃO */
+
+.cap7-page68 .cap7-p68Question {
+  margin: 0 auto;
+}
+
+.cap7-page68 .cap7-p68Kicker {
+  display: inline-block;
+  margin-bottom: 7px;
+  color: #9a5c1d;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cap7-page68 .cap7-p68Case {
+  margin: 0 0 16px;
+  color: #2f2f2f;
+  font-size: 14.6px;
+  line-height: 1.75;
+  text-align: justify;
+  text-indent: 2em;
+}
+
+.cap7-page68 .cap7-p68Prompt {
+  margin: 0 0 14px;
+  color: #26384a;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.55;
+  text-indent: 0;
+}
+
+/* ALTERNATIVAS */
+
+.cap7-page68 .cap7-p68Options {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 18px;
+}
+
+.cap7-page68 .cap7-p68Options button {
+  appearance: none;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 50px;
+  padding: 10px 13px;
+  border: 1px solid rgba(148, 163, 184, 0.34);
+  border-radius: 14px;
+  background: #ffffff;
+  color: #26384a;
+  font-family: var(--font-ui);
+  font-size: 13.5px;
+  line-height: 1.45;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cap7-page68
+  .cap7-p68Options
+  button:hover:not(:disabled) {
+  border-color: rgba(111, 174, 199, 0.72);
+  background: #fbfdff;
+  transform: translateY(-1px);
 }
 
 .cap7-page68 .cap7-p68Options button:focus-visible,
-.cap7-page68 .cap7-p68Btn:focus-visible{
-  outline:none;
-  box-shadow:0 0 0 3px rgba(111,174,199,.22);
+.cap7-page68 .cap7-p68Btn:focus-visible,
+.cap7-page68 .cap7-p68Controls button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(111, 174, 199, 0.22);
 }
 
-.cap7-page68 .cap7-p68Options button.is-selected{
-  border-color:#6faec7;
-  background:#eef7fb;
-  box-shadow:0 5px 14px rgba(49,84,106,.08);
+.cap7-page68
+  .cap7-p68Options
+  button.is-selected {
+  border-color: #6faec7;
+  background: #eef7fb;
+  box-shadow: 0 5px 14px rgba(49, 84, 106, 0.08);
 }
 
-.cap7-page68 .cap7-p68Options button.is-correct{
-  border-color:#78b99d;
-  background:#edf8f3;
+.cap7-page68
+  .cap7-p68Options
+  button.is-correct {
+  border-color: #78b99d;
+  background: #edf8f3;
 }
 
-.cap7-page68 .cap7-p68Options button.is-error{
-  border-color:#d99a3d;
-  background:#fff7e8;
+.cap7-page68
+  .cap7-p68Options
+  button.is-error {
+  border-color: #d99a3d;
+  background: #fff7e8;
 }
 
-.cap7-page68 .cap7-p68Options button:disabled{
-  cursor:default;
-  opacity:1;
+.cap7-page68 .cap7-p68Options button:disabled {
+  cursor: default;
+  opacity: 1;
 }
 
-.cap7-page68 .cap7-p68Letter{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:30px;
-  height:30px;
-  border-radius:50%;
-  background:#f1f5f9;
-  color:#31546a;
-  font-size:13px;
-  line-height:1;
-  font-weight:800;
+.cap7-page68 .cap7-p68Letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #31546a;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.cap7-page68
+  .cap7-p68Options
+  button.is-selected
+  .cap7-p68Letter {
+  background: #6faec7;
+  color: #ffffff;
+}
+
+.cap7-page68
+  .cap7-p68Options
+  button.is-correct
+  .cap7-p68Letter {
+  background: #78b99d;
+  color: #ffffff;
+}
+
+.cap7-page68
+  .cap7-p68Options
+  button.is-error
+  .cap7-p68Letter {
+  background: #d99a3d;
+  color: #ffffff;
+}
+
+/* BOTÕES DE AÇÃO */
+
+.cap7-page68 .cap7-p68Actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 14px;
+}
+
+.cap7-page68 .cap7-p68Btn {
+  appearance: none;
+  min-height: 38px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.3;
+  cursor: pointer;
   transition:
-    background .2s ease,
-    color .2s ease;
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
-.cap7-page68 .cap7-p68Options button.is-selected .cap7-p68Letter{
-  background:#6faec7;
-  color:#fff;
+.cap7-page68 .cap7-p68Btn--primary {
+  border: 1px solid #31546a;
+  background: #31546a;
+  color: #ffffff;
 }
 
-.cap7-page68 .cap7-p68Options button.is-correct .cap7-p68Letter{
-  background:#78b99d;
-  color:#fff;
+.cap7-page68
+  .cap7-p68Btn--primary:hover:not(:disabled) {
+  border-color: #263f52;
+  background: #263f52;
 }
 
-.cap7-page68 .cap7-p68Options button.is-error .cap7-p68Letter{
-  background:#d99a3d;
-  color:#fff;
+.cap7-page68 .cap7-p68Btn--ghost {
+  border: 1px solid rgba(49, 84, 106, 0.28);
+  background: #ffffff;
+  color: #31546a;
 }
 
-/* =========================
-   BOTÕES DE AÇÃO
-   ========================= */
-
-.cap7-page68 .cap7-p68Actions{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin:6px 0 14px;
+.cap7-page68
+  .cap7-p68Btn--ghost:hover:not(:disabled) {
+  border-color: #6faec7;
+  background: #eef7fb;
 }
 
-.cap7-page68 .cap7-p68Btn{
-  appearance:none;
-  min-height:38px;
-  padding:9px 16px;
-  border-radius:999px;
-  font-family:var(--font-ui);
-  font-size:13px;
-  line-height:1.3;
-  font-weight:800;
-  cursor:pointer;
+.cap7-page68 .cap7-p68Btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.cap7-page68 .cap7-p68Btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+/* FEEDBACK */
+
+.cap7-page68 .cap7-p68Feedback {
+  display: none;
+  margin-top: 14px;
+  padding: 15px 17px;
+  border-radius: 0 14px 14px 0;
+  font-size: 13.7px;
+  line-height: 1.65;
+  text-indent: 0;
+}
+
+.cap7-page68 .cap7-p68Feedback.is-visible {
+  display: block;
+  animation: cap7P68FeedbackIn 0.28s ease;
+}
+
+.cap7-page68 .cap7-p68Feedback.is-correct {
+  border-left: 5px solid #78b99d;
+  background: #edf8f3;
+  color: #253f35;
+}
+
+.cap7-page68 .cap7-p68Feedback.is-error {
+  border-left: 5px solid #d99a3d;
+  background: #fff7e8;
+  color: #4f3518;
+}
+
+.cap7-page68 .cap7-p68Feedback strong {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.cap7-page68 .cap7-p68Feedback p {
+  margin: 0;
+  font-size: 13.7px;
+  line-height: 1.65;
+  text-align: justify;
+  text-indent: 0;
+}
+
+/* NAVEGAÇÃO ENTRE SITUAÇÕES */
+
+.cap7-page68 .cap7-p68Controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 22px 0 0;
+}
+
+.cap7-page68 .cap7-p68Controls button {
+  appearance: none;
+  min-height: 38px;
+  padding: 9px 15px;
+  border: 1px solid rgba(49, 84, 106, 0.22);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #31546a;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  font-weight: 800;
+  cursor: pointer;
   transition:
-    background .2s ease,
-    border-color .2s ease,
-    color .2s ease,
-    transform .2s ease,
-    opacity .2s ease;
+    background 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
 }
 
-.cap7-page68 .cap7-p68Btn--primary{
-  border:1px solid #31546a;
-  background:#31546a;
-  color:#fff;
+.cap7-page68
+  .cap7-p68Controls
+  button:hover:not(:disabled) {
+  border-color: #6faec7;
+  background: #eef7fb;
 }
 
-.cap7-page68 .cap7-p68Btn--primary:hover:not(:disabled){
-  border-color:#263f52;
-  background:#263f52;
+.cap7-page68 .cap7-p68Controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
 }
 
-.cap7-page68 .cap7-p68Btn--ghost{
-  border:1px solid rgba(49,84,106,.28);
-  background:#fff;
-  color:#31546a;
+/* REFERÊNCIAS */
+
+.cap7-page68 .cap7-refBox {
+  max-width: 720px;
+  margin: 36px auto 0;
+  border-top: 1px solid rgba(15, 42, 68, 0.1);
+  border-bottom: 1px solid rgba(15, 42, 68, 0.1);
 }
 
-.cap7-page68 .cap7-p68Btn--ghost:hover:not(:disabled){
-  border-color:#6faec7;
-  background:#eef7fb;
+.cap7-page68 .cap7-refBox summary {
+  position: relative;
+  padding: 14px 34px 14px 0;
+  color: #31546a;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.4;
+  list-style: none;
+  cursor: pointer;
 }
 
-.cap7-page68 .cap7-p68Btn:hover:not(:disabled){
-  transform:translateY(-1px);
+.cap7-page68
+  .cap7-refBox
+  summary::-webkit-details-marker {
+  display: none;
 }
 
-.cap7-page68 .cap7-p68Btn:disabled{
-  opacity:.45;
-  cursor:not-allowed;
+.cap7-page68 .cap7-refBox summary::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  color: #6faec7;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  transform: translateY(-50%);
 }
 
-/* =========================
-   FEEDBACK
-   ========================= */
-
-.cap7-page68 .cap7-p68Feedback{
-  display:none;
-  margin-top:14px;
-  padding:15px 17px;
-  border-radius:0 14px 14px 0;
-  font-size:13.7px;
-  line-height:1.65;
-  text-indent:0;
+.cap7-page68 .cap7-refBox[open] summary::after {
+  content: "−";
 }
 
-.cap7-page68 .cap7-p68Feedback.is-visible{
-  display:block;
-  animation:cap7P68FeedbackIn .28s ease;
+.cap7-page68 .cap7-refContent {
+  padding: 2px 0 16px;
 }
 
-.cap7-page68 .cap7-p68Feedback.is-correct{
-  border-left:5px solid #78b99d;
-  background:#edf8f3;
-  color:#253f35;
+.cap7-page68 .cap7-refContent p {
+  margin: 0 0 10px;
+  color: #4b5563;
+  font-size: 12.5px;
+  line-height: 1.6;
+  text-align: left;
+  text-indent: 0;
 }
 
-.cap7-page68 .cap7-p68Feedback.is-error{
-  border-left:5px solid #d99a3d;
-  background:#fff7e8;
-  color:#4f3518;
-}
-
-.cap7-page68 .cap7-p68Feedback strong{
-  display:block;
-  margin-bottom:6px;
-  font-family:var(--font-ui);
-  font-size:14px;
-  line-height:1.4;
-  font-weight:800;
-}
-
-.cap7-page68 .cap7-p68Feedback p{
-  margin:0;
-  font-size:13.7px;
-  line-height:1.65;
-  text-align:justify;
-  text-indent:0;
-}
-
-/* =========================
-   FECHAMENTO DO QUIZ
-   ========================= */
-
-.cap7-page68 .cap7-p68Completion{
-  margin:30px auto 8px;
-  padding:18px 20px;
-  border-left:6px solid #8a78bf;
-  border-radius:0 16px 16px 0;
-  background:#f2f0fb;
-  color:#35304f;
-  animation:cap7P68FeedbackIn .35s ease;
-}
-
-.cap7-page68 .cap7-p68Completion__kicker{
-  display:block;
-  margin-bottom:6px;
-  font-family:var(--font-ui);
-  font-size:11px;
-  line-height:1.35;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:#6a5c98;
-}
-
-.cap7-page68 .cap7-p68Completion__title{
-  margin:0 0 10px;
-  font-family:var(--font-ui);
-  font-size:17px;
-  line-height:1.35;
-  font-weight:800;
-  color:#35304f;
-  text-indent:0;
-}
-
-.cap7-page68 .cap7-p68Completion__text{
-  margin:0;
-  font-size:14.2px;
-  line-height:1.7;
-  text-align:justify;
-  text-indent:0;
-}
-
-/* =========================
-   REFERÊNCIAS
-   ========================= */
-
-.cap7-page68 .cap7-refBox{
-  max-width:720px;
-  margin:36px auto 0;
-  border-top:1px solid rgba(15,42,68,.10);
-  border-bottom:1px solid rgba(15,42,68,.10);
-}
-
-.cap7-page68 .cap7-refBox summary{
-  position:relative;
-  padding:14px 34px 14px 0;
-  list-style:none;
-  cursor:pointer;
-  font-family:var(--font-ui);
-  font-size:14px;
-  line-height:1.4;
-  font-weight:800;
-  color:#31546a;
-}
-
-.cap7-page68 .cap7-refBox summary::-webkit-details-marker{
-  display:none;
-}
-
-.cap7-page68 .cap7-refBox summary::after{
-  content:"+";
-  position:absolute;
-  top:50%;
-  right:4px;
-  transform:translateY(-50%);
-  font-size:20px;
-  line-height:1;
-  font-weight:500;
-  color:#6faec7;
-}
-
-.cap7-page68 .cap7-refBox[open] summary::after{
-  content:"−";
-}
-
-.cap7-page68 .cap7-refBox summary:focus-visible{
-  outline:2px solid rgba(111,174,199,.45);
-  outline-offset:4px;
-  border-radius:4px;
-}
-
-.cap7-page68 .cap7-refContent{
-  padding:2px 0 16px;
-}
-
-.cap7-page68 .cap7-refContent p{
-  margin:0 0 10px;
-  font-size:12.2px;
-  line-height:1.58;
-  color:#4b5563;
-  text-align:left;
-  text-indent:0;
-}
-
-.cap7-page68 .cap7-refContent p:last-child{
-  margin-bottom:0;
-}
-
-/* =========================
-   PAGINAÇÃO
-   ========================= */
-
-.cap7-page68 .pager{
-  margin-top:28px;
-}
-
-/* =========================
-   ANIMAÇÕES
-   ========================= */
-
-@keyframes cap7P68FeedbackIn{
-  from{
-    opacity:0;
-    transform:translateY(5px);
+@keyframes cap7P68FeedbackIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
   }
 
-  to{
-    opacity:1;
-    transform:translateY(0);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* =========================
-   RESPONSIVIDADE
-   ========================= */
+/* RESPONSIVIDADE */
 
-@media (max-width:760px){
-
-  .cap7-page68 .page-header{
-    margin-bottom:18px;
-    padding-bottom:12px;
+@media (max-width: 760px) {
+  .cap7-page68 .page-title {
+    font-size: 24px;
   }
 
-  .cap7-page68 .page-title{
-    font-size:24px;
+  .cap7-page68 .cap7-p68Status {
+    align-items: flex-start;
   }
 
-  .cap7-page68 .cap7-p68Status{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:5px;
-    margin-bottom:24px;
+  .cap7-page68 .cap7-p68Case {
+    font-size: 14px;
+    text-align: left;
+    text-indent: 0;
   }
 
-  .cap7-page68 .cap7-p68Status__value{
-    white-space:normal;
+  .cap7-page68 .cap7-p68Options button {
+    grid-template-columns: 32px 1fr;
+    gap: 9px;
+    padding: 10px;
   }
 
-  .cap7-page68 .cap7-p68Question{
-    margin:28px auto;
-    padding-top:22px;
+  .cap7-page68 .cap7-p68Actions {
+    align-items: stretch;
+    flex-direction: column;
   }
 
-  .cap7-page68 .cap7-p68QuestionTitle{
-    font-size:16.5px;
+  .cap7-page68 .cap7-p68Btn {
+    width: 100%;
   }
 
-  .cap7-page68 .cap7-p68Case{
-    font-size:13.5px;
-    line-height:1.68;
+  .cap7-page68 .cap7-p68Controls {
+    align-items: stretch;
+    flex-direction: column;
   }
 
-  .cap7-page68 .cap7-p68Prompt{
-    font-size:13.5px;
-  }
-
-  .cap7-page68 .cap7-p68Options button{
-    grid-template-columns:30px 1fr;
-    gap:10px;
-    min-height:48px;
-    padding:10px 11px;
-    font-size:13.1px;
-  }
-
-  .cap7-page68 .cap7-p68Letter{
-    width:28px;
-    height:28px;
-    font-size:12px;
-  }
-
-  .cap7-page68 .cap7-p68Actions{
-    flex-direction:column;
-    align-items:stretch;
-  }
-
-  .cap7-page68 .cap7-p68Btn{
-    width:100%;
-  }
-
-  .cap7-page68 .cap7-p68Feedback{
-    padding:14px 15px;
-  }
-
-  .cap7-page68 .cap7-p68Feedback p{
-    font-size:13.2px;
-    line-height:1.62;
-  }
-
-  .cap7-page68 .cap7-p68Completion{
-    padding:16px;
-  }
-
-  .cap7-page68 .cap7-p68Completion__title{
-    font-size:16px;
-  }
-
-  .cap7-page68 .cap7-p68Completion__text{
-    font-size:13.5px;
-    line-height:1.68;
-  }
-
-  .cap7-page68 .cap7-refContent p{
-    font-size:11.8px;
-    line-height:1.55;
-  }
-}
-
-@media (prefers-reduced-motion:reduce){
-
-  .cap7-page68 .cap7-p68Options button,
-  .cap7-page68 .cap7-p68Btn{
-    transition:none;
-  }
-
-  .cap7-page68 .cap7-p68Feedback.is-visible,
-  .cap7-page68 .cap7-p68Completion{
-    animation:none;
+  .cap7-page68 .cap7-p68Controls button {
+    width: 100%;
   }
 }

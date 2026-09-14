@@ -1,18 +1,31 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
 
   <title>Capítulo 8 — Página 75</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../../css/base.css"/>
-  <link rel="stylesheet" href="../../css/components.css"/>
-  <link rel="stylesheet" href="../../css/capitulo-08.css"/>
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/capitulo-08.css">
 </head>
 
 <body class="cap8-page75">
@@ -20,218 +33,281 @@
   <main class="page-shell cap8-shell">
 
     <header class="page-header">
-      <div>
-        <div class="chapter">Capítulo 8 — Antibioticoterapia nas Principais Infecções</div>
-        <h1 class="page-title">Quiz de revisão</h1>
+
+      <div class="chapter">
+        Capítulo 8 — Antibioticoterapia nas Principais Infecções
       </div>
+
+      <h1 class="page-title">
+        Quiz de revisão
+      </h1>
+
     </header>
 
-    <section class="prose cap8-reading-flow" aria-label="Introdução do Quiz de revisão">
-      <p>
-        As situações a seguir exigem integração entre probabilidade clínica, contexto epidemiológico e princípios de decisão em antibioticoterapia. O objetivo não é reconhecer respostas diretas, mas identificar erros de raciocínio e prioridades clínicas.
-      </p>
-    </section>
+    <section
+      class="cap8-p75Quiz"
+      data-cap8-p75
+      aria-label="Quiz de revisão do capítulo 8"
+    >
 
-    <section class="cap8-p75Quiz" data-cap8-p75 aria-label="Quiz de revisão">
-      <div class="cap8-p75Status" aria-live="polite" data-p75-status>
-        <span class="cap8-p75Status__label">Raciocínio clínico aplicado</span>
-        <span class="cap8-p75Status__value">0 de 2 situações confirmadas</span>
+      <div
+        class="cap8-p75Status"
+        aria-live="polite"
+      >
+
+        <span
+          class="cap8-p75Status__value"
+          data-p75-progress
+        >
+          Situação 1 de 3
+        </span>
+
+        <div
+          class="cap8-p75Dots"
+          aria-hidden="true"
+        >
+          <span class="is-active"></span>
+          <span></span>
+          <span></span>
+        </div>
+
       </div>
 
-      <article class="cap8-p75Question" data-q="1" data-question-state="pending">
-        <div class="cap8-p75QuestionHeader">
-          <span class="cap8-p75Kicker">Situação clínica 1</span>
-          <h2 class="cap8-p75QuestionTitle">Erro de interpretação diagnóstica</h2>
-        </div>
+      <article
+        class="cap8-p75Question"
+        data-p75-question
+      >
 
-        <p class="cap8-p75Case">
-          Um paciente apresenta quadro respiratório com tosse, febre e mal-estar há três dias. A radiografia de tórax não evidencia infiltrado, mas o paciente apresenta leucocitose discreta.
+        <span
+          class="cap8-p75Kicker"
+          data-p75-kicker
+        >
+          Situação clínica 1
+        </span>
+
+        <p
+          class="cap8-p75Case"
+          data-p75-case
+        >
+          Uma paciente de 79 anos, institucionalizada, realiza
+          urocultura durante uma avaliação de rotina. O exame
+          identifica Escherichia coli, mas ela não apresenta
+          disúria, urgência miccional, dor suprapúbica, dor
+          lombar, febre ou instabilidade clínica.
         </p>
 
-        <p class="cap8-p75Prompt">
-          Qual é o principal erro de raciocínio clínico que pode ocorrer nesse cenário?
+        <p
+          class="cap8-p75Prompt"
+          data-p75-prompt
+        >
+          Qual interpretação integra melhor o resultado
+          microbiológico ao quadro clínico?
         </p>
 
-        <div class="cap8-p75Options" role="group" aria-label="Alternativas da situação clínica 1">
-          <button type="button" data-answer="a">
-            <span class="cap8-p75Letter">A</span>
-            <span>Subestimar a importância da leucocitose como marcador de infecção bacteriana.</span>
-          </button>
-
-          <button type="button" data-answer="b" data-correct="true">
-            <span class="cap8-p75Letter">B</span>
-            <span>Considerar achados laboratoriais isolados como suficientes para definir etiologia bacteriana.</span>
-          </button>
-
-          <button type="button" data-answer="c">
-            <span class="cap8-p75Letter">C</span>
-            <span>Atrasar antibioticoterapia em todos os casos de sintomas respiratórios.</span>
-          </button>
-
-          <button type="button" data-answer="d">
-            <span class="cap8-p75Letter">D</span>
-            <span>Desconsiderar completamente o risco de infecção bacteriana na ausência de infiltrado.</span>
-          </button>
-        </div>
+        <div
+          class="cap8-p75Options"
+          role="group"
+          aria-label="Alternativas da situação clínica"
+          data-p75-options
+        ></div>
 
         <div class="cap8-p75Actions">
-          <button class="cap8-p75Btn cap8-p75Btn--primary" type="button" data-p75-action="confirm" disabled>
-            Confirmar interpretação
+
+          <button
+            class="cap8-p75Btn cap8-p75Btn--primary"
+            type="button"
+            data-p75-confirm
+            disabled
+          >
+            Confirmar análise
           </button>
-          <button class="cap8-p75Btn cap8-p75Btn--ghost" type="button" data-p75-action="reset" hidden>
-            Refazer
+
+          <button
+            class="cap8-p75Btn cap8-p75Btn--ghost"
+            type="button"
+            data-p75-reset
+            hidden
+          >
+            Rever decisão
           </button>
+
         </div>
 
-        <div class="cap8-p75Feedback" role="region" aria-live="polite"></div>
+        <div
+          class="cap8-p75Feedback"
+          role="region"
+          aria-live="polite"
+          data-p75-feedback
+        ></div>
 
-        <template class="cap8-p75FeedbackMap">
-{
-  "a": {
-    "type": "error",
-    "title": "Interpretação inadequada",
-    "text": "A leucocitose pode estar presente em diversas condições e não define, isoladamente, infecção bacteriana."
-  },
-  "b": {
-    "type": "correct",
-    "title": "Raciocínio adequado",
-    "text": "O erro central é supervalorizar achados laboratoriais isolados sem integração com o quadro clínico global."
-  },
-  "c": {
-    "type": "error",
-    "title": "Generalização incorreta",
-    "text": "A decisão não é baseada em atrasar antibioticoterapia em todos os quadros respiratórios, mas em estimar a probabilidade clínica de infecção bacteriana."
-  },
-  "d": {
-    "type": "error",
-    "title": "Raciocínio incompleto",
-    "text": "A ausência de infiltrado reduz a probabilidade de etiologia bacteriana, mas não a exclui de modo absoluto."
-  }
-}
-        </template>
       </article>
 
-      <article class="cap8-p75Question" data-q="2" data-question-state="pending">
-        <div class="cap8-p75QuestionHeader">
-          <span class="cap8-p75Kicker">Situação clínica 2</span>
-          <h2 class="cap8-p75QuestionTitle">Prioridade na estratégia terapêutica</h2>
-        </div>
+      <div class="cap8-p75Controls">
 
-        <p class="cap8-p75Case">
-          Em um paciente com infecção intra-abdominal suspeita, observa-se dor abdominal difusa, febre e elevação de marcadores inflamatórios. A tomografia evidencia coleção líquida compatível com abscesso.
-        </p>
+        <button
+          type="button"
+          data-p75-prev
+          disabled
+        >
+          ← Situação anterior
+        </button>
 
-        <p class="cap8-p75Prompt">
-          Qual aspecto do raciocínio clínico é mais determinante para a definição da estratégia terapêutica nesse cenário?
-        </p>
+        <button
+          type="button"
+          data-p75-next
+          disabled
+        >
+          Próxima situação →
+        </button>
 
-        <div class="cap8-p75Options" role="group" aria-label="Alternativas da situação clínica 2">
-          <button type="button" data-answer="a">
-            <span class="cap8-p75Letter">A</span>
-            <span>A magnitude da resposta inflamatória sistêmica.</span>
-          </button>
-
-          <button type="button" data-answer="b">
-            <span class="cap8-p75Letter">B</span>
-            <span>A identificação do microrganismo antes de qualquer intervenção.</span>
-          </button>
-
-          <button type="button" data-answer="c" data-correct="true">
-            <span class="cap8-p75Letter">C</span>
-            <span>A presença de um foco anatômico passível de intervenção.</span>
-          </button>
-
-          <button type="button" data-answer="d">
-            <span class="cap8-p75Letter">D</span>
-            <span>O uso imediato de antibacterianos de amplo espectro.</span>
-          </button>
-        </div>
-
-        <div class="cap8-p75Actions">
-          <button class="cap8-p75Btn cap8-p75Btn--primary" type="button" data-p75-action="confirm" disabled>
-            Confirmar interpretação
-          </button>
-          <button class="cap8-p75Btn cap8-p75Btn--ghost" type="button" data-p75-action="reset" hidden>
-            Refazer
-          </button>
-        </div>
-
-        <div class="cap8-p75Feedback" role="region" aria-live="polite"></div>
-
-        <template class="cap8-p75FeedbackMap">
-{
-  "a": {
-    "type": "error",
-    "title": "Interpretação incompleta",
-    "text": "A resposta inflamatória sistêmica contribui para o diagnóstico, mas não define a estratégia principal."
-  },
-  "b": {
-    "type": "error",
-    "title": "Erro de prioridade",
-    "text": "A identificação microbiológica pode ser posterior e não deve atrasar decisões essenciais diante de foco infeccioso definido."
-  },
-  "c": {
-    "type": "correct",
-    "title": "Raciocínio adequado",
-    "text": "A presença de foco drenável é determinante no raciocínio clínico e frequentemente define o sucesso terapêutico."
-  },
-  "d": {
-    "type": "error",
-    "title": "Erro conceitual",
-    "text": "A antibioticoterapia é importante, mas não substitui o controle do foco infeccioso."
-  }
-}
-        </template>
-      </article>
-
-      <section class="cap8-p75Completion" data-p75-completion hidden aria-live="polite">
-        <div class="cap8-p75Completion__header">
-          <span class="cap8-p75Completion__kicker">Fechamento clínico</span>
-          <h2 class="cap8-p75Completion__title">Síntese do raciocínio do capítulo</h2>
-        </div>
-
-        <p class="cap8-p75Completion__text" data-p75-completion-text>
-          Ao final deste capítulo, a decisão inicial em antibioticoterapia deixa de ser resposta automática a sinais inespecíficos, alterações laboratoriais ou gravidade aparente isolada. Ela passa a depender da integração entre probabilidade clínica de infecção bacteriana, foco provável, risco individual de resistência e necessidade de intervenção sobre o foco infeccioso.
-        </p>
-      </section>
-
-      <div class="cap8-p75ClosingBlock">
-        <p>
-          Ao final deste capítulo, a decisão inicial em antibioticoterapia deixa de ser resposta automática a sinais inespecíficos, alterações laboratoriais ou gravidade aparente isolada. Ela passa a depender da integração entre probabilidade clínica de infecção bacteriana, foco provável, risco individual de resistência e necessidade de intervenção sobre o foco infeccioso.
-        </p>
       </div>
+
     </section>
 
     <details class="cap8-refBox">
-      <summary>Referências</summary>
+
+      <summary>
+
+        <div class="cap8-refHeader">
+
+          <div class="cap8-refText">
+            <strong>Referências</strong>
+          </div>
+
+          <div
+            class="cap8-refAction"
+            aria-hidden="true"
+          ></div>
+
+        </div>
+
+      </summary>
+
       <div class="cap8-refContent">
-        <p>1. Murray PR, Rosenthal KS, Pfaller MA. Medical Microbiology. 10th ed. Philadelphia: Elsevier; 2025.</p>
-        <p>2. Blaser MJ, Cohen JI, Holland SM, editors. Mandell, Douglas, and Bennett’s Principles and Practice of Infectious Diseases. 10th ed. Philadelphia: Elsevier; 2025.</p>
-        <p>3. Barlam TF, Cosgrove SE, Abbo LM, MacDougall C, Schuetz AN, Septimus EJ, et al. Implementing an Antibiotic Stewardship Program: Guidelines by the Infectious Diseases Society of America and the Society for Healthcare Epidemiology of America. Clinical Infectious Diseases. 2016 May 15;62(10):e51–77. doi:10.1093/cid/ciw118</p>
-        <p>4. Tamma PD, Aitken SL, Bonomo RA, Mathers AJ, van Duin D, Clancy CJ. Infectious Diseases Society of America Guidance on the Treatment of Extended-Spectrum β-lactamase Producing Enterobacterales (ESBL-E), Carbapenem-Resistant Enterobacterales (CRE), and Pseudomonas aeruginosa with Difficult-to-Treat Resistance (DTR- P. aeruginosa). Clinical Infectious Diseases. 2021 Apr 8;72(7):e169–83. doi:10.1093/cid/ciaa1478</p>
-        <p>5. Evans L, Rhodes A, Alhazzani W, Antonelli M, Coopersmith CM, French C, et al. Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2021. Crit Care Med. 2021 Nov 14;49(11):e1063–143. doi:10.1097/CCM.0000000000005337</p>
-        <p>6. De Waele JJ, Schouten J, Beovic B, Tabah A, Leone M. Antimicrobial de-escalation as part of antimicrobial stewardship in intensive care: no simple answers to simple questions—a viewpoint of experts. Intensive Care Med. 2020 Feb 5;46(2):236–44. doi:10.1007/s00134-019-05871-z</p>
-        <p>7. Nicolle LE, Gupta K, Bradley SF, Colgan R, DeMuri GP, Drekonja D, et al. Clinical Practice Guideline for the Management of Asymptomatic Bacteriuria: 2019 Update by the Infectious Diseases Society of America. Clinical Infectious Diseases. 2019 May 2;68(10):e83–110. doi:10.1093/cid/ciy1121</p>
-        <p>8. Agência Nacional de Vigilância Sanitária. Manual de microbiologia clínica para o controle de infecção relacionada à assistência à saúde. Brasília; 2023.</p>
-        <p>9. Fishbein SRS, Mahmud B, Dantas G. Antibiotic perturbations to the gut microbiome. Nat Rev Microbiol. 2023 Dec 25;21(12):772–88. doi:10.1038/s41579-023-00933-y</p>
-        <p>10. Colégio Brasileiro de Cirurgiões. Condutas em infecção intra-abdominal. 2020.</p>
-        <p>11. Bratzler DW, Dellinger EP, Olsen KM, Perl TM, Auwaerter PG, Bolon MK, et al. Clinical practice guidelines for antimicrobial prophylaxis in surgery. American Journal of Health-System Pharmacy. 2013 Feb 1;70(3):195–283. doi:10.2146/ajhp120568</p>
+
+        <p>
+          1. Murray PR, Rosenthal KS, Pfaller MA.
+          Medical Microbiology. 10th ed.
+          Philadelphia: Elsevier; 2025.
+        </p>
+
+        <p>
+          2. Blaser MJ, Cohen JI, Holland SM, editors.
+          Mandell, Douglas, and Bennett’s Principles and
+          Practice of Infectious Diseases. 10th ed.
+          Philadelphia: Elsevier; 2025.
+        </p>
+
+        <p>
+          3. Barlam TF, Cosgrove SE, Abbo LM, MacDougall C,
+          Schuetz AN, Septimus EJ, et al. Implementing an
+          Antibiotic Stewardship Program: Guidelines by the
+          Infectious Diseases Society of America and the
+          Society for Healthcare Epidemiology of America.
+          Clin Infect Dis. 2016;62(10):e51–77.
+          doi:10.1093/cid/ciw118.
+        </p>
+
+        <p>
+          4. Tamma PD, Aitken SL, Bonomo RA, Mathers AJ,
+          van Duin D, Clancy CJ. Infectious Diseases Society
+          of America Guidance on the Treatment of
+          Extended-Spectrum β-lactamase Producing
+          Enterobacterales, Carbapenem-Resistant
+          Enterobacterales, and Pseudomonas aeruginosa with
+          Difficult-to-Treat Resistance.
+          Clin Infect Dis. 2021;72(7):e169–83.
+          doi:10.1093/cid/ciaa1478.
+        </p>
+
+        <p>
+          5. Evans L, Rhodes A, Alhazzani W, Antonelli M,
+          Coopersmith CM, French C, et al. Surviving Sepsis
+          Campaign: International Guidelines for Management
+          of Sepsis and Septic Shock 2021.
+          Crit Care Med. 2021;49(11):e1063–143.
+          doi:10.1097/CCM.0000000000005337.
+        </p>
+
+        <p>
+          6. De Waele JJ, Schouten J, Beovic B, Tabah A,
+          Leone M. Antimicrobial de-escalation as part of
+          antimicrobial stewardship in intensive care:
+          no simple answers to simple questions.
+          Intensive Care Med. 2020;46(2):236–44.
+          doi:10.1007/s00134-019-05871-z.
+        </p>
+
+        <p>
+          7. Nicolle LE, Gupta K, Bradley SF, Colgan R,
+          DeMuri GP, Drekonja D, et al. Clinical Practice
+          Guideline for the Management of Asymptomatic
+          Bacteriuria: 2019 Update by the Infectious Diseases
+          Society of America.
+          Clin Infect Dis. 2019;68(10):e83–110.
+          doi:10.1093/cid/ciy1121.
+        </p>
+
+        <p>
+          8. Agência Nacional de Vigilância Sanitária.
+          Manual de microbiologia clínica para o controle de
+          infecção relacionada à assistência à saúde.
+          Brasília: Anvisa; 2023.
+        </p>
+
+        <p>
+          9. Fishbein SRS, Mahmud B, Dantas G.
+          Antibiotic perturbations to the gut microbiome.
+          Nat Rev Microbiol. 2023;21(12):772–88.
+          doi:10.1038/s41579-023-00933-y.
+        </p>
+
+        <p>
+          10. Colégio Brasileiro de Cirurgiões.
+          Condutas em infecção intra-abdominal. 2020.
+        </p>
+
+        <p>
+          11. Bratzler DW, Dellinger EP, Olsen KM,
+          Perl TM, Auwaerter PG, Bolon MK, et al.
+          Clinical practice guidelines for antimicrobial
+          prophylaxis in surgery.
+          Am J Health Syst Pharm. 2013;70(3):195–283.
+          doi:10.2146/ajhp120568.
+        </p>
+
       </div>
+
     </details>
 
-<nav class="pager" aria-label="Paginação">
-  <a class="btn" href="p74.html" aria-label="Ir para a página anterior">← Anterior</a>
+    <nav class="pager" aria-label="Paginação">
 
-  <div class="center">Capítulo 8 · Página 75 de 89</div>
+      <a
+        class="btn"
+        href="p74.html"
+        aria-label="Ir para a página anterior"
+      >
+        ← Anterior
+      </a>
 
-  <a class="btn primary" href="../capitulo-09/p76.html" aria-label="Ir para a próxima página">
-    Próxima →
-  </a>
-</nav>
+      <div class="center">
+        Capítulo 8 · Página 75 de 89
+      </div>
+
+      <a
+        class="btn primary"
+        href="../capitulo-09/p76.html"
+        aria-label="Ir para a próxima página"
+      >
+        Próxima →
+      </a>
+
+    </nav>
 
   </main>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-08.js"></script>
+
 </body>
 </html>

@@ -24,6 +24,7 @@
   <main class="page-shell">
 
     <header class="page-header">
+
       <div class="chapter">
         Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma
       </div>
@@ -31,22 +32,32 @@
       <h1 class="page-title">
         Carbapenemases
       </h1>
+
     </header>
 
     <section class="prose cap5-p51-reading">
 
       <p>
-        Os carbapenêmicos, como meropenem, imipenem e ertapenem, estão entre os β-lactâmicos de maior espectro utilizados no tratamento de infecções graves causadas por bacilos Gram-negativos. Algumas bactérias, entretanto, adquiriram enzimas capazes de comprometer a atividade desses antimicrobianos, denominadas carbapenemases <sup>1,3,6</sup>.
+        Carbapenemases são β-lactamases capazes de hidrolisar carbapenêmicos
+        e, em diferentes graus, outros β-lactâmicos. A extensão da hidrólise
+        e a resposta aos inibidores variam conforme o tipo de enzima. Por
+        isso, a identificação do mecanismo acrescenta informações que não
+        são obtidas apenas pela leitura isolada das categorias S, I e R
+        <sup>1,3,4,6,8</sup>.
       </p>
 
       <p>
-        Na rotina laboratorial, mecanismos como KPC, NDM e OXA-48-like podem ser informados explicitamente no laudo microbiológico. Essa observação acrescenta uma informação que modifica a interpretação do antibiograma e deve ser considerada antes da definição terapêutica <sup>3,4,8</sup>.
+        KPC, NDM e OXA-48-like estão entre as carbapenemases de maior
+        relevância clínica e epidemiológica. Elas pertencem a classes
+        diferentes e não devem ser interpretadas como mecanismos
+        equivalentes <sup>4,8,9</sup>.
       </p>
 
       <section
-        class="cap5-p51-report cap5-p51-reveal"
-        aria-label="Exemplo de laudo com carbapenemase"
+        class="cap5-p51-report"
+        aria-label="Exemplo de laudo microbiológico com KPC"
       >
+
         <span class="cap5-p51-reportLabel">
           Hemocultura
         </span>
@@ -56,353 +67,371 @@
         </strong>
 
         <p>
-          KPC positiva
+          KPC detectada
         </p>
 
         <div class="cap5-p51-reportQuestion">
-          O que essa observação acrescenta ao resultado microbiológico?
+          O que o tipo de carbapenemase acrescenta à interpretação do
+          antibiograma?
         </div>
+
       </section>
 
-      <p>
-        Antes mesmo de analisar detalhadamente todos os antimicrobianos testados, o clínico já reconhece que o isolado apresenta um mecanismo de resistência com potencial para reduzir a atividade dos carbapenêmicos e de outros β-lactâmicos.
-      </p>
-
-      <figure class="cap5-p51-mainFigure cap5-p51-reveal">
+      <figure class="cap5-p51-mainFigure">
 
         <button
           class="cap5-p51-mainZoom"
           type="button"
           data-zoom="../../assets/capitulo-05/imagens/carbapenemases_kpc_ndm_oxa48.png"
-          aria-label="Ampliar comparação entre KPC, NDM e OXA-48-like"
+          aria-label="Ampliar comparação entre as carbapenemases KPC, NDM e OXA-48-like"
         >
           <img
             src="../../assets/capitulo-05/imagens/carbapenemases_kpc_ndm_oxa48.png"
             alt="Comparação entre as carbapenemases KPC, NDM e OXA-48-like"
-            loading="lazy"
           />
         </button>
 
         <figcaption>
-          Principais classes de carbapenemases e suas características microbiológicas.
+          KPC, NDM e OXA-48-like pertencem a classes diferentes e apresentam
+          perfis distintos de hidrólise e resposta aos inibidores.
         </figcaption>
 
       </figure>
 
       <section
-        class="cap5-p51-interpretation cap5-p51-reveal"
-        data-cap5-p51-flow
-        aria-labelledby="cap5P51FlowTitle"
+        class="cap5-p51-explorer"
+        data-cap5-p51
+        aria-labelledby="cap5P51ExplorerTitle"
       >
 
-        <div class="cap5-p51-flowHeader">
+        <div class="cap5-p51-explorerHead">
 
-          <span class="cap5-p51-flowEyebrow">
-            Leitura orientada do laudo
+          <span class="cap5-p51-eyebrow">
+            Explore o mecanismo
           </span>
 
-          <h2 id="cap5P51FlowTitle">
-            Como interpretar a informação “KPC positiva”?
+          <h2 id="cap5P51ExplorerTitle">
+            A carbapenemase foi identificada. O que verificar?
           </h2>
 
           <p>
-            Percorra as etapas para observar como a identificação do mecanismo modifica o raciocínio clínico.
+            Selecione a enzima informada no laudo para compreender seu
+            alcance e organizar a interpretação do resultado.
           </p>
 
         </div>
 
         <div
-          class="cap5-p51-flow"
+          class="cap5-p51-enzymeTabs"
           role="tablist"
-          aria-label="Etapas da interpretação de uma carbapenemase"
+          aria-label="Tipos de carbapenemase"
         >
 
           <button
-            class="cap5-p51-flowStep is-active"
+            id="cap5P51TabKpc"
+            class="cap5-p51-enzymeTab is-active"
             type="button"
             role="tab"
             aria-selected="true"
+            aria-controls="cap5P51EnzymePanel"
             tabindex="0"
-            data-p51-step="identification"
+            data-p51-enzyme="kpc"
           >
-            <span>1</span>
-
-            <strong>
-              Identificação
-            </strong>
-
-            <small>
-              Qual bactéria foi isolada?
-            </small>
+            <span>KPC</span>
+            <small>Classe A</small>
           </button>
 
-          <b aria-hidden="true">→</b>
-
           <button
-            class="cap5-p51-flowStep"
+            id="cap5P51TabNdm"
+            class="cap5-p51-enzymeTab"
             type="button"
             role="tab"
             aria-selected="false"
+            aria-controls="cap5P51EnzymePanel"
             tabindex="-1"
-            data-p51-step="mechanism"
+            data-p51-enzyme="ndm"
           >
-            <span>2</span>
-
-            <strong>
-              Mecanismo informado
-            </strong>
-
-            <small>
-              Qual carbapenemase foi detectada?
-            </small>
+            <span>NDM</span>
+            <small>Classe B</small>
           </button>
 
-          <b aria-hidden="true">→</b>
-
           <button
-            class="cap5-p51-flowStep"
+            id="cap5P51TabOxa"
+            class="cap5-p51-enzymeTab"
             type="button"
             role="tab"
             aria-selected="false"
+            aria-controls="cap5P51EnzymePanel"
             tabindex="-1"
-            data-p51-step="panel"
+            data-p51-enzyme="oxa"
           >
-            <span>3</span>
-
-            <strong>
-              Leitura do painel
-            </strong>
-
-            <small>
-              Quais agentes permanecem ativos?
-            </small>
-          </button>
-
-          <b aria-hidden="true">→</b>
-
-          <button
-            class="cap5-p51-flowStep"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            tabindex="-1"
-            data-p51-step="context"
-          >
-            <span>4</span>
-
-            <strong>
-              Contexto clínico
-            </strong>
-
-            <small>
-              Qual é o foco e a gravidade?
-            </small>
-          </button>
-
-          <b aria-hidden="true">→</b>
-
-          <button
-            class="cap5-p51-flowStep"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            tabindex="-1"
-            data-p51-step="therapy"
-          >
-            <span>5</span>
-
-            <strong>
-              Terapia dirigida
-            </strong>
-
-            <small>
-              Qual opção possui atividade prevista?
-            </small>
+            <span>OXA-48-like</span>
+            <small>Classe D</small>
           </button>
 
         </div>
 
         <article
-          class="cap5-p51-flowPanel"
-          id="cap5P51FlowPanel"
+          id="cap5P51EnzymePanel"
+          class="cap5-p51-enzymePanel enzyme-kpc"
+          role="tabpanel"
+          aria-labelledby="cap5P51TabKpc"
           aria-live="polite"
         >
 
-          <span
-            id="cap5P51FlowKicker"
-            class="cap5-p51-flowKicker"
-          >
-            Etapa 1
-          </span>
+          <header class="cap5-p51-enzymeHeader">
 
-          <h3
-            id="cap5P51FlowPanelTitle"
-            class="cap5-p51-flowPanelTitle"
-          >
-            A espécie fornece o contexto inicial
-          </h3>
+            <div
+              id="cap5P51EnzymeBadge"
+              class="cap5-p51-enzymeBadge"
+            >
+              KPC
+            </div>
 
-          <p
-            id="cap5P51FlowText"
-            class="cap5-p51-flowText"
+            <div>
+              <span id="cap5P51EnzymeClass">
+                Serino-β-lactamase de classe A
+              </span>
+
+              <h3 id="cap5P51EnzymeTitle">
+                Carbapenemase do tipo KPC
+              </h3>
+            </div>
+
+          </header>
+
+          <div class="cap5-p51-enzymeGrid">
+
+            <article>
+
+              <span>O que pode hidrolisar</span>
+
+              <p id="cap5P51Hydrolysis">
+                Pode hidrolisar penicilinas, cefalosporinas, aztreonam e
+                carbapenêmicos.
+              </p>
+
+            </article>
+
+            <article>
+
+              <span>Resposta aos inibidores</span>
+
+              <p id="cap5P51Inhibitors">
+                Alguns inibidores de serino-β-lactamases apresentam atividade
+                contra KPC. A atividade da combinação deve ser confirmada no
+                teste de suscetibilidade.
+              </p>
+
+            </article>
+
+            <article class="cap5-p51-enzymeAction">
+
+              <span>Como agir</span>
+
+              <p id="cap5P51Action">
+                Verifique o perfil completo e se a opção avaliada apresenta
+                atividade contra o isolado e contra o mecanismo identificado.
+                Considere o sítio da infecção, a exposição e as condições
+                clínicas.
+              </p>
+
+            </article>
+
+            <article class="cap5-p51-enzymeAvoid">
+
+              <span>O que evitar</span>
+
+              <p id="cap5P51Avoid">
+                Não conclua que qualquer combinação contendo um inibidor
+                apresenta atividade contra KPC.
+              </p>
+
+            </article>
+
+          </div>
+
+          <aside
+            id="cap5P51KeyPoint"
+            class="cap5-p51-keyPoint"
           >
-            A identificação de <em>Klebsiella pneumoniae</em> direciona o raciocínio para uma Enterobacterales com relevância clínica e epidemiológica na disseminação de mecanismos de resistência.
-          </p>
+            <strong>Ponto-chave:</strong>
+            a identificação de KPC ajuda a diferenciar esse mecanismo das
+            metalo-β-lactamases e orienta a análise das combinações com
+            inibidores.
+          </aside>
 
         </article>
 
       </section>
 
       <section
-        class="cap5-p51-clinical cap5-p51-reveal"
-        aria-labelledby="cap5P51ClinicalTitle"
+        class="cap5-p51-readingFlow"
+        aria-labelledby="cap5P51ReadingFlowTitle"
       >
 
-        <h2 id="cap5P51ClinicalTitle">
-          O que deve orientar a decisão?
-        </h2>
+        <div class="cap5-p51-readingFlowHead">
 
-        <div class="cap5-p51-clinicalGrid">
-
-          <article>
-            <span>Espécie bacteriana</span>
-
-            <p>
-              O significado do mecanismo deve ser interpretado dentro do comportamento microbiológico da espécie isolada.
-            </p>
-          </article>
-
-          <article>
-            <span>Perfil completo de suscetibilidade</span>
-
-            <p>
-              A presença da carbapenemase não substitui a leitura das categorias S, I e R dos agentes testados.
-            </p>
-          </article>
-
-          <article>
-            <span>Sítio e gravidade da infecção</span>
-
-            <p>
-              Bacteremia, pneumonia, infecção urinária ou foco abdominal podem exigir estratégias terapêuticas diferentes.
-            </p>
-          </article>
-
-          <article>
-            <span>Atividade contra o mecanismo</span>
-
-            <p>
-              A escolha deve considerar se o antibacteriano ou a combinação possui atividade prevista contra a enzima identificada.
-            </p>
-          </article>
-
-        </div>
-
-      </section>
-
-      <section
-        class="cap5-p51-case cap5-p51-reveal"
-        data-cap5-p51-case
-        aria-labelledby="cap5P51CaseTitle"
-      >
-
-        <div class="cap5-p51-caseHeader">
-
-          <span class="cap5-p51-caseEyebrow">
-            Aplicação clínica
+          <span class="cap5-p51-eyebrow">
+            Aplicação do resultado
           </span>
 
-          <h2 id="cap5P51CaseTitle">
-            Qual princípio deve orientar a interpretação?
+          <h2 id="cap5P51ReadingFlowTitle">
+            Como agir diante de uma carbapenemase detectada?
           </h2>
 
         </div>
 
-        <div class="cap5-p51-caseReport">
+        <div class="cap5-p51-flowGrid">
 
-          <span>Paciente com sepse de origem urinária</span>
+          <article>
 
-          <strong>
-            <em>Klebsiella pneumoniae</em>
-          </strong>
+            <span>1</span>
+
+            <div>
+              <strong>Identifique a enzima</strong>
+
+              <p>
+                Verifique se o laudo informa KPC, NDM, OXA-48-like ou
+                outro mecanismo.
+              </p>
+            </div>
+
+          </article>
+
+          <article>
+
+            <span>2</span>
+
+            <div>
+              <strong>Leia todo o antibiograma</strong>
+
+              <p>
+                A presença de carbapenemase não significa resistência a
+                todos os antibacterianos. Analise as categorias liberadas
+                e as notas vinculadas.
+              </p>
+            </div>
+
+          </article>
+
+          <article>
+
+            <span>3</span>
+
+            <div>
+              <strong>Avalie a atividade contra o mecanismo</strong>
+
+              <p>
+                Não extrapole a atividade prevista contra uma classe de
+                carbapenemase para outra classe.
+              </p>
+            </div>
+
+          </article>
+
+          <article>
+
+            <span>4</span>
+
+            <div>
+              <strong>Integre ao contexto</strong>
+
+              <p>
+                Considere relevância do isolamento, sítio da infecção,
+                gravidade, exposição, segurança e possibilidade de controle
+                do foco.
+              </p>
+            </div>
+
+          </article>
+
+          <article>
+
+            <span>5</span>
+
+            <div>
+              <strong>Aplique as medidas de controle</strong>
+
+              <p>
+                Siga os fluxos institucionais de comunicação, prevenção da
+                transmissão e controle de infecções.
+              </p>
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+      <aside class="cap5-p51-distinction">
+
+        <strong>
+          Resistência aos carbapenêmicos e produção de carbapenemase não
+          são sinônimos
+        </strong>
+
+        <div class="cap5-p51-distinctionGrid">
 
           <p>
-            KPC positiva
+            <span>Resistência aos carbapenêmicos</span>
+            Pode resultar de carbapenemase ou de outros mecanismos, como
+            combinação entre produção de outras β-lactamases, alteração de
+            porinas e efluxo.
+          </p>
+
+          <p>
+            <span>Carbapenemase detectada</span>
+            Confirma um mecanismo enzimático transmissível com importância
+            clínica e epidemiológica, mesmo que o perfil fenotípico não
+            demonstre resistência uniforme a todos os carbapenêmicos.
           </p>
 
         </div>
 
-        <div
-          class="cap5-p51-caseOptions"
-          role="group"
-          aria-label="Alternativas para interpretação do laudo"
-        >
-
-          <button
-            class="cap5-p51-caseOption"
-            type="button"
-            data-p51-answer="all"
-          >
-            <span>A</span>
-
-            <p>
-              A presença de KPC significa que todos os antibacterianos são ineficazes.
-            </p>
-          </button>
-
-          <button
-            class="cap5-p51-caseOption"
-            type="button"
-            data-p51-answer="ignore"
-          >
-            <span>B</span>
-
-            <p>
-              A informação de KPC pode ser ignorada quando algum agente aparece como sensível.
-            </p>
-          </button>
-
-          <button
-            class="cap5-p51-caseOption"
-            type="button"
-            data-p51-answer="integrate"
-          >
-            <span>C</span>
-
-            <p>
-              O mecanismo identificado deve ser integrado ao perfil de suscetibilidade, ao foco infeccioso e à atividade prevista do tratamento contra essa enzima.
-            </p>
-          </button>
-
-          <button
-            class="cap5-p51-caseOption"
-            type="button"
-            data-p51-answer="same"
-          >
-            <span>D</span>
-
-            <p>
-              KPC, NDM e OXA-48-like devem ser interpretadas como mecanismos equivalentes.
-            </p>
-          </button>
-
-        </div>
-
-        <div
-          id="cap5P51CaseFeedback"
-          class="cap5-p51-caseFeedback"
-          hidden
-          aria-live="polite"
-        ></div>
-
-      </section>
-
-      <aside class="cap5-p51-epidemiology cap5-p51-reveal">
-        A identificação de carbapenemases também possui relevância epidemiológica. Esses mecanismos podem estar associados à disseminação hospitalar e exigir comunicação às equipes responsáveis pela prevenção e pelo controle de infecções.
       </aside>
 
-      <aside class="cap5-p51-principle cap5-p51-reveal">
-        A presença de uma carbapenemase não significa que todos os antibacterianos sejam ineficazes. Ela indica que o mecanismo deve ser integrado à espécie, ao antibiograma, ao sítio da infecção e à atividade prevista das opções terapêuticas disponíveis.
+      <aside class="cap5-p51-avoid">
+
+        <strong>Evite interpretações automáticas</strong>
+
+        <div>
+          <p>
+            <span>✕</span>
+            “KPC, NDM e OXA-48-like são equivalentes.”
+          </p>
+
+          <p>
+            <span>✕</span>
+            “Carbapenemase detectada significa resistência a todos os
+            antibacterianos.”
+          </p>
+
+          <p>
+            <span>✕</span>
+            “Todo isolado resistente a carbapenêmicos produz carbapenemase.”
+          </p>
+
+          <p>
+            <span>✕</span>
+            “Uma categoria S isolada permite ignorar o mecanismo informado.”
+          </p>
+        </div>
+
+      </aside>
+
+      <aside class="cap5-p51-principle">
+
+        <strong>Mensagem principal</strong>
+
+        <p>
+          A identificação da carbapenemase ajuda a compreender o perfil de
+          resistência e a atividade prevista das opções disponíveis. O tipo
+          de enzima, o antibiograma completo, o sítio da infecção e as medidas
+          de controle devem ser considerados em conjunto.
+        </p>
+
       </aside>
 
     </section>

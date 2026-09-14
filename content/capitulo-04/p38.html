@@ -37,478 +37,168 @@
       aria-label="Quiz de revisão do capítulo 4"
     >
 
-      <div
-  class="cap4-p38Status"
-  aria-live="polite"
-  data-p38-status
->
-  <span class="cap4-p38Status__label">
-    Leitura aplicada do capítulo
-  </span>
+      <div class="cap4-p38Status" aria-live="polite">
+        <span
+          class="cap4-p38Status__value"
+          data-p38-progress
+        >
+          Situação 1 de 3
+        </span>
 
-  <span class="cap4-p38Status__value">
-    0 de 2 situações confirmadas
-  </span>
-</div>
-
-      <!-- SITUAÇÃO 1 -->
+        <div
+          class="cap4-p38Dots"
+          aria-hidden="true"
+        >
+          <span class="is-active"></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
 
       <article
         class="cap4-p38Question"
-        data-q="1"
-        data-question-state="pending"
+        data-p38-question
       >
 
-        <div class="cap4-p38QuestionHeader">
-          <span class="cap4-p38Kicker">
-            Situação clínica 1
-          </span>
+        <span
+          class="cap4-p38Kicker"
+          data-p38-kicker
+        >
+          Situação clínica 1
+        </span>
 
-         
-        </div>
-
-        <p class="cap4-p38Case">
-          Dois pacientes apresentam infecção causada pelo mesmo
-          microrganismo, com a mesma CIM para determinado antibacteriano,
-          e recebem o mesmo esquema posológico. Não há evidência de
-          alteração da suscetibilidade bacteriana durante o acompanhamento.
-          Ainda assim, a resposta clínica difere entre eles.
+        <p
+          class="cap4-p38Case"
+          data-p38-case
+        >
+          Um paciente jovem com sepse recebe um β-lactâmico contra um
+          microrganismo suscetível. Apesar da dose habitual, apresenta
+          depuração renal aumentada e as concentrações do fármaco
+          permanecem abaixo da CIM durante parte considerável do
+          intervalo entre as administrações.
         </p>
 
-        <p class="cap4-p38Prompt">
-          Qual fator farmacológico pode explicar essa diferença?
+        <p
+          class="cap4-p38Prompt"
+          data-p38-prompt
+        >
+          Qual ajuste está mais diretamente relacionado ao índice PK/PD
+          predominante dessa classe?
         </p>
 
         <div
           class="cap4-p38Options"
           role="group"
-          aria-label="Alternativas da situação clínica 1"
-        >
-
-          <button
-            type="button"
-            data-answer="a"
-            aria-pressed="false"
-          >
-            <span class="cap4-p38Letter">A</span>
-
-            <span>
-              Diferenças no mecanismo de ação do antibacteriano entre
-              os pacientes.
-            </span>
-          </button>
-
-          <button
-            type="button"
-            data-answer="b"
-            aria-pressed="false"
-          >
-            <span class="cap4-p38Letter">B</span>
-
-            <span>
-              Modificação espontânea do valor da CIM após o início
-              da terapia.
-            </span>
-          </button>
-
-          <button
-            type="button"
-            data-answer="c"
-            data-correct="true"
-            aria-pressed="false"
-          >
-            <span class="cap4-p38Letter">C</span>
-
-            <span>
-              Diferenças na penetração do antibacteriano no sítio
-              da infecção.
-            </span>
-          </button>
-
-          <button
-            type="button"
-            data-answer="d"
-            aria-pressed="false"
-          >
-            <span class="cap4-p38Letter">D</span>
-
-            <span>
-              Alteração da suscetibilidade bacteriana durante
-              o tratamento.
-            </span>
-          </button>
-
-        </div>
+          aria-label="Alternativas da situação clínica"
+          data-p38-options
+        ></div>
 
         <div class="cap4-p38Actions">
-
           <button
             class="cap4-p38Btn cap4-p38Btn--primary"
             type="button"
-            data-p38-action="confirm"
+            data-p38-confirm
             disabled
           >
-            Confirmar interpretação
+            Confirmar análise
           </button>
 
           <button
             class="cap4-p38Btn cap4-p38Btn--ghost"
             type="button"
-            data-p38-action="reset"
+            data-p38-reset
             hidden
           >
-            Refazer
+            Rever decisão
           </button>
-
         </div>
 
         <div
           class="cap4-p38Feedback"
           role="region"
           aria-live="polite"
+          data-p38-feedback
         ></div>
-
-        <template class="cap4-p38FeedbackMap">
-{
-  "a": {
-    "type": "error",
-    "title": "Mecanismo inadequado",
-    "text": "O mecanismo de ação é uma propriedade do fármaco e não se modifica de um paciente para outro. Portanto, não explica respostas distintas quando o mesmo antibacteriano é utilizado."
-  },
-  "b": {
-    "type": "error",
-    "title": "Interpretação incompleta",
-    "text": "A CIM é determinada em condições laboratoriais padronizadas e o enunciado informa o mesmo valor para os dois isolados. A diferença de resposta deve ser relacionada à exposição efetiva no foco infeccioso."
-  },
-  "c": {
-    "type": "correct",
-    "title": "Interpretação adequada",
-    "text": "Mesmo com a mesma CIM e o mesmo esquema posológico, a exposição no foco infeccioso pode variar. Perfusão tecidual, barreiras anatômicas, ligação a proteínas, distribuição, necrose e características locais do tecido podem modificar a concentração efetivamente alcançada."
-  },
-  "d": {
-    "type": "error",
-    "title": "Hipótese não sustentada pelo caso",
-    "text": "O enunciado afasta alteração da suscetibilidade durante o acompanhamento. Assim, a explicação farmacológica mais direta é a diferença na penetração e na exposição alcançada no sítio da infecção."
-  }
-}
-        </template>
-
       </article>
 
-      <!-- SITUAÇÃO 2 -->
-
-      <article
-        class="cap4-p38Question"
-        data-q="2"
-        data-question-state="pending"
-      >
-
-        <div class="cap4-p38QuestionHeader">
-          <span class="cap4-p38Kicker">
-            Situação clínica 2
-          </span>
-
-        
-        </div>
-
-        <p class="cap4-p38Case">
-          Em algumas infecções associadas a próteses ou dispositivos
-          médicos, bactérias podem se organizar em biofilmes aderidos
-          à superfície do material.
-        </p>
-
-        <p class="cap4-p38Prompt">
-          Qual característica dessa organização bacteriana pode
-          influenciar a resposta aos antibacterianos?
-        </p>
-
-        <div
-          class="cap4-p38Options"
-          role="group"
-          aria-label="Alternativas da situação clínica 2"
+      <div class="cap4-p38Controls">
+        <button
+          type="button"
+          data-p38-prev
+          disabled
         >
+          ← Situação anterior
+        </button>
 
-          <button
-            type="button"
-            data-answer="a"
-            aria-pressed="false"
-          >
-            <span class="cap4-p38Letter">A</span>
-
-            <span>
-              Alteração da ligação do antibacteriano às proteínas
-              plasmáticas.
-            </span>
-          </button>
-
-          <button
-            type="button"
-            data-answer="b"
-            data-correct="true"
-            aria-pressed="false"
-          >
-            <span class="cap4-p38Letter">B</span>
-
-            <span>
-              Formação de uma matriz extracelular que pode limitar
-              a difusão do fármaco.
-            </span>
-          </button>
-
-          <button
-            type="button"
-            data-answer="c"
-            aria-pressed="false"
-          >
-            <span class="cap4-p38Letter">C</span>
-
-            <span>
-              Ausência de atividade metabólica nas bactérias
-              do biofilme.
-            </span>
-          </button>
-
-          <button
-            type="button"
-            data-answer="d"
-            aria-pressed="false"
-          >
-            <span class="cap4-p38Letter">D</span>
-
-            <span>
-              Neutralização direta do antibacteriano pelas células
-              do hospedeiro.
-            </span>
-          </button>
-
-        </div>
-
-        <div class="cap4-p38Actions">
-
-          <button
-            class="cap4-p38Btn cap4-p38Btn--primary"
-            type="button"
-            data-p38-action="confirm"
-            disabled
-          >
-            Confirmar interpretação
-          </button>
-
-          <button
-            class="cap4-p38Btn cap4-p38Btn--ghost"
-            type="button"
-            data-p38-action="reset"
-            hidden
-          >
-            Refazer
-          </button>
-
-        </div>
-
-        <div
-          class="cap4-p38Feedback"
-          role="region"
-          aria-live="polite"
-        ></div>
-
-        <template class="cap4-p38FeedbackMap">
-{
-  "a": {
-    "type": "error",
-    "title": "Fator sistêmico, não estrutural do biofilme",
-    "text": "A ligação a proteínas plasmáticas pode influenciar a fração livre do fármaco, mas não é uma característica da organização bacteriana em biofilme aderido a próteses ou dispositivos."
-  },
-  "b": {
-    "type": "correct",
-    "title": "Interpretação adequada",
-    "text": "A matriz extracelular pode retardar ou limitar a penetração de alguns antibacterianos e contribuir para gradientes de concentração. O biofilme também apresenta heterogeneidade metabólica e microambientes que favorecem tolerância fenotípica."
-  },
-  "c": {
-    "type": "error",
-    "title": "Generalização incorreta",
-    "text": "No biofilme, parte da população pode apresentar metabolismo reduzido, especialmente em regiões mais profundas. Entretanto, não ocorre ausência total de atividade metabólica em toda a comunidade."
-  },
-  "d": {
-    "type": "error",
-    "title": "Mecanismo não compatível",
-    "text": "A resposta imune pode ter acesso limitado ao biofilme, mas o enunciado pergunta sobre uma característica da organização bacteriana que influencia a resposta aos antibacterianos. A matriz extracelular e a limitação da difusão são os pontos centrais."
-  }
-}
-        </template>
-
-      </article>
-
-      <!-- CONCLUSÃO -->
-
-      <section
-        class="cap4-p38Completion"
-        data-p38-completion
-        hidden
-        aria-live="polite"
-      >
-
-        <div class="cap4-p38Completion__header">
-
-          <span class="cap4-p38Completion__kicker">
-            Fechamento do capítulo
-          </span>
-
-     
-
-      </section>
+        <button
+          type="button"
+          data-p38-next
+          disabled
+        >
+          Próxima situação →
+        </button>
+      </div>
 
     </section>
 
-    <!-- REFERÊNCIAS -->
+    <details class="cap4-refBox">
+      <summary>
+        <div class="cap4-refHeader">
+          <div class="cap4-refText">
+            <strong>Referências</strong>
+          </div>
 
- <details class="cap4-refBox">
-  <summary>Referências</summary>
+          <div
+            class="cap4-refAction"
+            aria-hidden="true"
+          ></div>
+        </div>
+      </summary>
 
       <div class="cap4-refContent">
+        <p>1. Witzany C, Rolff J, Regoes RR, Igler C. The pharmacokinetic–pharmacodynamic modelling framework as a tool to predict drug resistance evolution. Microbiology (N Y). 2023;169(7). doi:10.1099/mic.0.001368</p>
 
-        <p>
-          1. Witzany C, Rolff J, Regoes RR, Igler C. The
-          pharmacokinetic–pharmacodynamic modelling framework as a tool
-          to predict drug resistance evolution. Microbiology (N Y).
-          2023;169(7). doi:10.1099/mic.0.001368
-        </p>
+        <p>2. Davies J, Davies D. Origins and Evolution of Antibiotic Resistance. Microbiol Mol Biol Rev. 2010;74(3):417–433. doi:10.1128/MMBR.00016-10</p>
 
-        <p>
-          2. Davies J, Davies D. Origins and Evolution of Antibiotic
-          Resistance. Microbiol Mol Biol Rev. 2010;74(3):417–433.
-          doi:10.1128/MMBR.00016-10
-        </p>
+        <p>3. Munita JM, Arias CA. Mechanisms of Antibiotic Resistance. Microbiol Spectr. 2016;4(2). doi:10.1128/microbiolspec.VMBF-0016-2015</p>
 
-        <p>
-          3. Munita JM, Arias CA. Mechanisms of Antibiotic Resistance.
-          Microbiol Spectr. 2016;4(2).
-          doi:10.1128/microbiolspec.VMBF-0016-2015
-        </p>
+        <p>4. Darby EM, Trampari E, Siasat P, et al. Molecular mechanisms of antibiotic resistance revisited. Nat Rev Microbiol. 2023;21(5):280–295. doi:10.1038/s41579-022-00820-y</p>
 
-        <p>
-          4. Darby EM, Trampari E, Siasat P, et al. Molecular mechanisms
-          of antibiotic resistance revisited. Nat Rev Microbiol.
-          2023;21(5):280–295.
-          doi:10.1038/s41579-022-00820-y
-        </p>
+        <p>5. Drlica K. The mutant selection window and antimicrobial resistance. J Antimicrob Chemother. 2003;52(1):11–17. doi:10.1093/jac/dkg269</p>
 
-        <p>
-          5. Drlica K. The mutant selection window and antimicrobial
-          resistance. J Antimicrob Chemother. 2003;52(1):11–17.
-          doi:10.1093/jac/dkg269
-        </p>
+        <p>6. Onita T, Ishihara N, Yano T. PK/PD-Guided Strategies for Appropriate Antibiotic Use in the Era of Antimicrobial Resistance. Antibiotics. 2025;14(1):92. doi:10.3390/antibiotics14010092</p>
 
-        <p>
-          6. Onita T, Ishihara N, Yano T. PK/PD-Guided Strategies for
-          Appropriate Antibiotic Use in the Era of Antimicrobial
-          Resistance. Antibiotics. 2025;14(1):92.
-          doi:10.3390/antibiotics14010092
-        </p>
+        <p>7. Craig WA. Pharmacokinetic/Pharmacodynamic Parameters: Rationale for Antibacterial Dosing of Mice and Men. Clin Infect Dis. 1998;26(1):1–10. doi:10.1086/516284</p>
 
-        <p>
-          7. Craig WA. Pharmacokinetic/Pharmacodynamic Parameters:
-          Rationale for Antibacterial Dosing of Mice and Men.
-          Clin Infect Dis. 1998;26(1):1–10.
-          doi:10.1086/516284
-        </p>
+        <p>8. Palmer ME, Andrews LJ, Abbey TC, Dahlquist AE, Wenzler E. The importance of pharmacokinetics and pharmacodynamics in antimicrobial drug development. Front Pharmacol. 2022;13. doi:10.3389/fphar.2022.888079</p>
 
-        <p>
-          8. Palmer ME, Andrews LJ, Abbey TC, Dahlquist AE, Wenzler E.
-          The importance of pharmacokinetics and pharmacodynamics in
-          antimicrobial drug development. Front Pharmacol. 2022;13.
-          doi:10.3389/fphar.2022.888079
-        </p>
+        <p>9. Roberts JA, Abdul-Aziz MH, Lipman J, et al. Individualised antibiotic dosing for patients who are critically ill: challenges and potential solutions. Lancet Infect Dis. 2014;14(6):498–509. doi:10.1016/S1473-3099(14)70036-2</p>
 
-        <p>
-          9. Roberts JA, Abdul-Aziz MH, Lipman J, et al. Individualised
-          antibiotic dosing for patients who are critically ill:
-          challenges and potential solutions. Lancet Infect Dis.
-          2014;14(6):498–509.
-          doi:10.1016/S1473-3099(14)70036-2
-        </p>
+        <p>10. Roger C. Understanding antimicrobial pharmacokinetics in critically ill patients to optimize antimicrobial therapy: a narrative review. J Intensive Med. 2024;4(3):287–298. doi:10.1016/j.jointm.2023.12.007</p>
 
-        <p>
-          10. Roger C. Understanding antimicrobial pharmacokinetics in
-          critically ill patients to optimize antimicrobial therapy:
-          a narrative review. J Intensive Med. 2024;4(3):287–298.
-          doi:10.1016/j.jointm.2023.12.007
-        </p>
+        <p>11. Viaggi B, Cangialosi A, Langer M, et al. Tissue Penetration of Antimicrobials in Intensive Care Unit Patients: A Systematic Review—Part II. Antibiotics. 2022;11(9):1193. doi:10.3390/antibiotics11091193</p>
 
-        <p>
-          11. Viaggi B, Cangialosi A, Langer M, et al. Tissue Penetration
-          of Antimicrobials in Intensive Care Unit Patients:
-          A Systematic Review—Part II. Antibiotics. 2022;11(9):1193.
-          doi:10.3390/antibiotics11091193
-        </p>
+        <p>12. Brunton LL, Hilal-Dandan R, Knollmann BC, editors. Goodman &amp; Gilman’s The Pharmacological Basis of Therapeutics. 14th ed. New York: McGraw-Hill Education; 2023.</p>
 
-        <p>
-          12. Brunton LL, Hilal-Dandan R, Knollmann BC, editors.
-          Goodman &amp; Gilman’s The Pharmacological Basis of
-          Therapeutics. 14th ed. New York: McGraw-Hill Education; 2023.
-        </p>
+        <p>13. Abdul-Aziz MH, Hammond NE, Brett SJ, et al. Prolonged vs Intermittent Infusions of β-Lactam Antibiotics in Adults With Sepsis or Septic Shock. JAMA. 2024;332(8):638. doi:10.1001/jama.2024.9803</p>
 
-        <p>
-          13. Abdul-Aziz MH, Hammond NE, Brett SJ, et al. Prolonged vs
-          Intermittent Infusions of β-Lactam Antibiotics in Adults With
-          Sepsis or Septic Shock. JAMA. 2024;332(8):638.
-          doi:10.1001/jama.2024.9803
-        </p>
+        <p>14. Heffernan AJ, Sime FB, Taccone FS, Roberts JA. How to optimize antibiotic pharmacokinetic/pharmacodynamics for Gram-negative infections in critically ill patients. Curr Opin Infect Dis. 2018;31(6):555–565. doi:10.1097/QCO.0000000000000494</p>
 
-        <p>
-          14. Heffernan AJ, Sime FB, Taccone FS, Roberts JA.
-          How to optimize antibiotic pharmacokinetic/pharmacodynamics
-          for Gram-negative infections in critically ill patients.
-          Curr Opin Infect Dis. 2018;31(6):555–565.
-          doi:10.1097/QCO.0000000000000494
-        </p>
+        <p>15. Katzung BG, Trevor AJ. Basic &amp; Clinical Pharmacology. 14th ed. New York: McGraw-Hill; 2018.</p>
 
-        <p>
-          15. Katzung BG, Trevor AJ. Basic &amp; Clinical Pharmacology.
-          14th ed. New York: McGraw-Hill; 2018.
-        </p>
+        <p>16. Rang HP, Ritter JM, Flower RJ, Henderson G. Rang &amp; Dale’s Pharmacology. 9th ed. London: Elsevier; 2019.</p>
 
-        <p>
-          16. Rang HP, Ritter JM, Flower RJ, Henderson G.
-          Rang &amp; Dale’s Pharmacology. 9th ed.
-          London: Elsevier; 2019.
-        </p>
+        <p>17. Almeida SG, Gomes JGF, Silva MA, et al. Uso indiscriminado de antibióticos durante a pandemia da COVID-19: impacto na resistência microbiana. In: Freitas GBL, Campos SMR, editors. COVID-19: a doença que movimentou a ciência. 2nd ed. Irati: Editora Pasteur; 2021. p. 184–195. doi:10.29327/544492.2-23</p>
 
-        <p>
-          17. Almeida SG, Gomes JGF, Silva MA, et al. Uso indiscriminado
-          de antibióticos durante a pandemia da COVID-19: impacto na
-          resistência microbiana. In: Freitas GBL, Campos SMR, editors.
-          COVID-19: a doença que movimentou a ciência. 2nd ed.
-          Irati: Editora Pasteur; 2021. p. 184–195.
-          doi:10.29327/544492.2-23
-        </p>
+        <p>18. Finazzi S, Luci G, Olivieri C, et al. Tissue Penetration of Antimicrobials in Intensive Care Unit Patients: A Systematic Review—Part I. Antibiotics. 2022;11(9):1164. doi:10.3390/antibiotics11091164</p>
 
-        <p>
-          18. Finazzi S, Luci G, Olivieri C, et al. Tissue Penetration
-          of Antimicrobials in Intensive Care Unit Patients:
-          A Systematic Review—Part I. Antibiotics. 2022;11(9):1164.
-          doi:10.3390/antibiotics11091164
-        </p>
+        <p>19. Ciofu O, Moser C, Jensen PØ, Høiby N. Tolerance and resistance of microbial biofilms. Nat Rev Microbiol. 2022;20(10):621–635. doi:10.1038/s41579-022-00682-4</p>
 
-        <p>
-          19. Ciofu O, Moser C, Jensen PØ, Høiby N.
-          Tolerance and resistance of microbial biofilms.
-          Nat Rev Microbiol. 2022;20(10):621–635.
-          doi:10.1038/s41579-022-00682-4
-        </p>
-
-        <p>
-          20. Liu HY, Prentice EL, Webber MA.
-          Mechanisms of antimicrobial resistance in biofilms.
-          npj Antimicrob Resist. 2024;2:27.
-          doi:10.1038/s44259-024-00046-3
-        </p>
-
+        <p>20. Liu HY, Prentice EL, Webber MA. Mechanisms of antimicrobial resistance in biofilms. npj Antimicrob Resist. 2024;2:27. doi:10.1038/s44259-024-00046-3</p>
       </div>
-
     </details>
 
     <nav class="pager" aria-label="Paginação">
-
       <a
         class="btn"
         href="p37.html"
@@ -528,13 +218,11 @@
       >
         Próxima →
       </a>
-
     </nav>
 
   </main>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-04.js"></script>
-
 </body>
 </html>

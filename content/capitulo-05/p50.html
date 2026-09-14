@@ -24,205 +24,170 @@
   <main class="page-shell">
 
     <header class="page-header">
+
       <div class="chapter">
         Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma
       </div>
 
       <h1 class="page-title">
-        AmpC e o grupo CESP
+        β-lactamases AmpC e resistência emergente
       </h1>
+
     </header>
 
     <section class="prose cap5-p50-reading">
 
       <p>
-        Algumas Enterobacterales possuem genes cromossômicos que codificam β-lactamases AmpC induzíveis. A exposição a determinados β-lactâmicos pode aumentar a expressão da enzima ou selecionar subpopulações com produção estável e elevada, fenômeno denominado desrepressão.
+        Algumas Enterobacterales possuem genes cromossômicos que codificam
+        β-lactamases AmpC induzíveis. A exposição a determinados β-lactâmicos
+        pode aumentar temporariamente a expressão da enzima ou selecionar
+        subpopulações com produção elevada e estável, fenômeno conhecido
+        como desrepressão <sup>1,6,8,13</sup>.
       </p>
 
       <p>
-        Como consequência, um isolado inicialmente classificado como suscetível pode apresentar resistência durante o tratamento, especialmente em infecções invasivas, com elevada carga bacteriana ou controle inadequado do foco <sup>8</sup>.
-      </p>
-
-      <p>
-        O mnemônico CESP ajuda a lembrar espécies tradicionalmente associadas à AmpC cromossômica. Entretanto, ele não significa que todas apresentem o mesmo risco de expressão clinicamente significativa.
+        Por isso, um isolado inicialmente classificado como suscetível pode
+        desenvolver resistência durante o tratamento. O risco depende da
+        espécie, do antibacteriano, do tipo de infecção, da carga bacteriana
+        e do controle do foco <sup>8,13</sup>.
       </p>
 
       <section
-        class="cap5-p50-interaction cap5-p50-reveal"
-        data-cap5-p50
-        aria-label="Classificação das espécies segundo o risco de AmpC clinicamente significativa"
+        class="cap5-p50-report"
+        aria-label="Exemplo de laudo com observação sobre AmpC"
       >
 
-        <div class="cap5-p50-interactionTop">
+        <span class="cap5-p50-reportLabel">
+          Hemocultura
+        </span>
 
-          <p class="cap5-p50-instruction">
-            Selecione uma espécie para observar como seu risco de desrepressão modifica a interpretação do antibiograma.
+        <strong>
+          <em>Enterobacter cloacae</em> complex
+        </strong>
+
+        <p>
+          Antibacteriano A — S
+        </p>
+
+        <div class="cap5-p50-reportObservation">
+          <strong>Observação:</strong>
+          espécie com potencial para produção de AmpC cromossômica induzível.
+        </div>
+
+        <div class="cap5-p50-reportQuestion">
+          Se o resultado está S, por que o laudo apresenta esse alerta?
+        </div>
+
+      </section>
+
+      <section
+        class="cap5-p50-wording"
+        data-cap5-p50-wording
+        aria-labelledby="cap5P50WordingTitle"
+      >
+
+        <div class="cap5-p50-sectionHead">
+
+          <span class="cap5-p50-eyebrow">
+            Primeiro passo
+          </span>
+
+          <h2 id="cap5P50WordingTitle">
+            Observe como a informação foi redigida
+          </h2>
+
+          <p>
+            Selecione uma formulação para compreender o grau de certeza
+            que ela expressa.
           </p>
-
-          <button
-            class="cap5-p50-mnemonicButton"
-            type="button"
-            data-p50-open-mnemonic
-            aria-label="Abrir explicação do mnemônico CESP"
-            title="Consultar mnemônico CESP"
-          >
-            CESP
-          </button>
 
         </div>
 
         <div
-          class="cap5-p50-species"
+          class="cap5-p50-wordingOptions"
           role="tablist"
-          aria-label="Espécies com AmpC cromossômica induzível"
+          aria-label="Formulações relacionadas à AmpC"
         >
 
           <button
-            class="cap5-p50-speciesButton is-active"
+            id="cap5P50TabPotential"
+            class="cap5-p50-wordingButton is-active"
             type="button"
             role="tab"
-            id="cap5P50SpeciesEnterobacter"
             aria-selected="true"
-            aria-controls="cap5P50SpeciesView"
+            aria-controls="cap5P50WordingResult"
             tabindex="0"
-            data-p50-species="enterobacter"
+            data-p50-wording="potential"
           >
-            <em>Enterobacter cloacae</em> complex
+            <span>1</span>
+
+            <strong>
+              Potencial para produção de AmpC
+            </strong>
           </button>
 
           <button
-            class="cap5-p50-speciesButton"
+            id="cap5P50TabSuggestive"
+            class="cap5-p50-wordingButton"
             type="button"
             role="tab"
-            id="cap5P50SpeciesKlebsiella"
             aria-selected="false"
-            aria-controls="cap5P50SpeciesView"
+            aria-controls="cap5P50WordingResult"
             tabindex="-1"
-            data-p50-species="klebsiella"
+            data-p50-wording="suggestive"
           >
-            <em>Klebsiella aerogenes</em>
+            <span>2</span>
+
+            <strong>
+              Perfil sugestivo de AmpC
+            </strong>
           </button>
 
           <button
-            class="cap5-p50-speciesButton"
+            id="cap5P50TabDetected"
+            class="cap5-p50-wordingButton"
             type="button"
             role="tab"
-            id="cap5P50SpeciesCitrobacter"
             aria-selected="false"
-            aria-controls="cap5P50SpeciesView"
+            aria-controls="cap5P50WordingResult"
             tabindex="-1"
-            data-p50-species="citrobacter"
+            data-p50-wording="detected"
           >
-            <em>Citrobacter freundii</em>
-          </button>
+            <span>3</span>
 
-          <button
-            class="cap5-p50-speciesButton"
-            type="button"
-            role="tab"
-            id="cap5P50SpeciesSerratia"
-            aria-selected="false"
-            aria-controls="cap5P50SpeciesView"
-            tabindex="-1"
-            data-p50-species="serratia"
-          >
-            <em>Serratia marcescens</em>
-          </button>
-
-          <button
-            class="cap5-p50-speciesButton"
-            type="button"
-            role="tab"
-            id="cap5P50SpeciesMorganella"
-            aria-selected="false"
-            aria-controls="cap5P50SpeciesView"
-            tabindex="-1"
-            data-p50-species="morganella"
-          >
-            <em>Morganella morganii</em>
-          </button>
-
-          <button
-            class="cap5-p50-speciesButton"
-            type="button"
-            role="tab"
-            id="cap5P50SpeciesProvidencia"
-            aria-selected="false"
-            aria-controls="cap5P50SpeciesView"
-            tabindex="-1"
-            data-p50-species="providencia"
-          >
-            <em>Providencia</em> spp.
+            <strong>
+              AmpC detectada
+            </strong>
           </button>
 
         </div>
 
         <article
-          id="cap5P50SpeciesView"
-          class="cap5-p50-speciesView cap5-p50-speciesView--moderate"
+          id="cap5P50WordingResult"
+          class="cap5-p50-wordingResult"
           role="tabpanel"
-          aria-labelledby="cap5P50SpeciesEnterobacter"
+          aria-labelledby="cap5P50TabPotential"
           aria-live="polite"
         >
 
-          <div class="cap5-p50-riskHeader">
+          <span id="cap5P50WordingLabel">
+            Informação relacionada à espécie
+          </span>
 
-            <span
-              id="cap5P50RiskBadge"
-              class="cap5-p50-riskBadge"
-            >
-              Risco moderado
-            </span>
+          <h3 id="cap5P50WordingHeading">
+            Indica possibilidade biológica
+          </h3>
 
-            <h2
-              id="cap5P50SpeciesTitle"
-              class="cap5-p50-speciesTitle"
-            >
-              <em>Enterobacter cloacae</em> complex
-            </h2>
+          <p id="cap5P50WordingText">
+            A espécie possui um gene cromossômico induzível associado à
+            produção de AmpC. A frase não significa que a produção elevada
+            da enzima tenha sido demonstrada naquele isolado.
+          </p>
 
-            <p
-              id="cap5P50SpeciesIntro"
-              class="cap5-p50-speciesIntro"
-            >
-              Espécie associada a risco moderado de produção clinicamente significativa de AmpC induzível.
-            </p>
-
-          </div>
-
-          <div
-            id="cap5P50SpeciesBody"
-            class="cap5-p50-infoGrid"
-          >
-
-            <article class="cap5-p50-info">
-              <span>O que a identificação informa</span>
-              <p>
-                A espécie possui potencial biológico para aumentar a expressão de AmpC durante a exposição a determinados β-lactâmicos.
-              </p>
-            </article>
-
-            <article class="cap5-p50-info">
-              <span>Risco microbiológico</span>
-              <p>
-                Subpopulações com produção elevada da enzima podem ser selecionadas e passar a predominar durante o tratamento.
-              </p>
-            </article>
-
-            <article class="cap5-p50-info">
-              <span>Quando exige maior cautela</span>
-              <p>
-                Em bacteremias, infecções profundas, elevada carga bacteriana ou controle inadequado do foco.
-              </p>
-            </article>
-
-            <article class="cap5-p50-info cap5-p50-info--key">
-              <span>Como interpretar</span>
-              <p>
-                O resultado inicial S, I ou R deve ser integrado à espécie, ao antibacteriano utilizado e ao contexto clínico.
-              </p>
-            </article>
-
+          <div id="cap5P50WordingAction">
+            <strong>Como utilizar:</strong>
+            considerar o risco conhecido para a espécie, o antibacteriano
+            avaliado e o contexto da infecção.
           </div>
 
         </article>
@@ -230,316 +195,359 @@
       </section>
 
       <section
-        class="cap5-p50-process cap5-p50-reveal"
-        data-cap5-p50-process
-        aria-labelledby="cap5P50ProcessTitle"
+        class="cap5-p50-selection"
+        data-cap5-p50-selection
+        aria-labelledby="cap5P50SelectionTitle"
       >
 
-        <div class="cap5-p50-processHeader">
+        <div class="cap5-p50-sectionHead">
 
-          <span class="cap5-p50-processEyebrow">
-            Possível evolução durante a terapia
+          <span class="cap5-p50-eyebrow">
+            Simulação do mecanismo
           </span>
 
-          <h2 id="cap5P50ProcessTitle">
+          <h2 id="cap5P50SelectionTitle">
             Como pode surgir resistência durante o tratamento?
           </h2>
 
           <p>
-            Selecione uma etapa para acompanhar a progressão microbiológica.
+            Avance pelas etapas ou inicie a animação para acompanhar a
+            seleção de subpopulações com produção aumentada de AmpC.
           </p>
 
         </div>
 
         <div
-          class="cap5-p50-processFlow"
+          class="cap5-p50-stageControls"
           role="tablist"
-          aria-label="Etapas da seleção de resistência relacionada à AmpC"
+          aria-label="Etapas da seleção relacionada à AmpC"
         >
 
           <button
-            class="cap5-p50-processStep is-active"
+            class="cap5-p50-stageButton is-active"
             type="button"
             role="tab"
             aria-selected="true"
             tabindex="0"
-            data-p50-process="initial"
+            data-p50-stage="0"
           >
             <span>1</span>
-            <strong>Suscetibilidade inicial</strong>
+            Antes da exposição
           </button>
 
-          <b aria-hidden="true">→</b>
-
           <button
-            class="cap5-p50-processStep"
+            class="cap5-p50-stageButton"
             type="button"
             role="tab"
             aria-selected="false"
             tabindex="-1"
-            data-p50-process="exposure"
+            data-p50-stage="1"
           >
             <span>2</span>
-            <strong>Exposição ao β-lactâmico</strong>
+            Durante a exposição
           </button>
 
-          <b aria-hidden="true">→</b>
-
           <button
-            class="cap5-p50-processStep"
+            class="cap5-p50-stageButton"
             type="button"
             role="tab"
             aria-selected="false"
             tabindex="-1"
-            data-p50-process="selection"
+            data-p50-stage="2"
           >
             <span>3</span>
-            <strong>Seleção da subpopulação</strong>
-          </button>
-
-          <b aria-hidden="true">→</b>
-
-          <button
-            class="cap5-p50-processStep"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            tabindex="-1"
-            data-p50-process="derepression"
-          >
-            <span>4</span>
-            <strong>Desrepressão</strong>
-          </button>
-
-          <b aria-hidden="true">→</b>
-
-          <button
-            class="cap5-p50-processStep"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            tabindex="-1"
-            data-p50-process="resistance"
-          >
-            <span>5</span>
-            <strong>Resistência emergente</strong>
+            Após a seleção
           </button>
 
         </div>
 
-        <article
-          id="cap5P50ProcessPanel"
-          class="cap5-p50-processPanel"
-          aria-live="polite"
-        >
+        <div class="cap5-p50-simulation">
 
-          <span
-            id="cap5P50ProcessKicker"
-            class="cap5-p50-processKicker"
+          <div
+            id="cap5P50Population"
+            class="cap5-p50-population stage-0"
+            role="img"
+            aria-label="População bacteriana antes da exposição, com predomínio de bactérias com expressão basal e pequena subpopulação com produção aumentada de AmpC"
           >
-            Etapa inicial
-          </span>
 
-          <h3
-            id="cap5P50ProcessPanelTitle"
-            class="cap5-p50-processPanelTitle"
+            <div class="cap5-p50-dish">
+
+              <span class="bacterium basal b1"></span>
+              <span class="bacterium basal b2"></span>
+              <span class="bacterium basal b3"></span>
+              <span class="bacterium basal b4"></span>
+              <span class="bacterium basal b5"></span>
+              <span class="bacterium basal b6"></span>
+              <span class="bacterium basal b7"></span>
+              <span class="bacterium basal b8"></span>
+              <span class="bacterium basal b9"></span>
+              <span class="bacterium basal b10"></span>
+              <span class="bacterium basal b11"></span>
+              <span class="bacterium basal b12"></span>
+
+              <span class="bacterium increased i1"></span>
+              <span class="bacterium increased i2"></span>
+              <span class="bacterium increased i3"></span>
+              <span class="bacterium increased i4"></span>
+              <span class="bacterium increased i5"></span>
+              <span class="bacterium increased i6"></span>
+
+              <div class="cap5-p50-exposure" aria-hidden="true">
+                Exposição a determinado β-lactâmico
+              </div>
+
+            </div>
+
+            <div class="cap5-p50-legend">
+              <span>
+                <i class="basal"></i>
+                Expressão basal
+              </span>
+
+              <span>
+                <i class="increased"></i>
+                Produção aumentada de AmpC
+              </span>
+            </div>
+
+          </div>
+
+          <article
+            id="cap5P50StageExplanation"
+            class="cap5-p50-stageExplanation"
+            aria-live="polite"
           >
-            Expressão basal de AmpC
-          </h3>
 
-          <p
-            id="cap5P50ProcessText"
-            class="cap5-p50-processText"
+            <span>Etapa 1 de 3</span>
+
+            <h3>População inicial</h3>
+
+            <p>
+              Predominam bactérias com expressão basal de AmpC. Subpopulações
+              com produção aumentada podem estar presentes em menor proporção.
+            </p>
+
+            <div>
+              <strong>Relação com o laudo:</strong>
+              o isolado pode apresentar resultado inicialmente suscetível.
+            </div>
+
+          </article>
+
+        </div>
+
+        <div class="cap5-p50-simulationActions">
+
+          <button
+            id="cap5P50Play"
+            class="cap5-p50-play"
+            type="button"
+            aria-pressed="false"
           >
-            A população bacteriana pode apresentar expressão basal da enzima e ser inicialmente classificada como suscetível a determinado agente.
-          </p>
+            <span aria-hidden="true">▶</span>
+            Iniciar animação
+          </button>
 
-        </article>
+          <button
+            id="cap5P50Reset"
+            class="cap5-p50-reset"
+            type="button"
+          >
+            Reiniciar
+          </button>
+
+        </div>
 
       </section>
 
-      <section
-        class="cap5-p50-case cap5-p50-reveal"
-        data-cap5-p50-case
-        aria-labelledby="cap5P50CaseTitle"
-      >
+      <aside class="cap5-p50-selectionNote">
 
-        <div class="cap5-p50-caseHeader">
+        <strong>Pressão seletiva não cria resistência intencionalmente</strong>
 
-          <span class="cap5-p50-caseEyebrow">
-            Aplicação clínica
-          </span>
-
-        </div>
-
-        <div class="cap5-p50-report">
-
-          <span>Hemocultura</span>
-
-          <strong>
-            <em>Enterobacter cloacae</em> complex
-          </strong>
-
-          <p>
-            Ceftriaxona — S
-          </p>
-
-        </div>
-
-        <p class="cap5-p50-caseQuestion">
-          Em uma infecção invasiva, qual interpretação é mais adequada?
+        <p>
+          O antibacteriano não faz a a bactéria “decidir” tornar-se resistente.
+          A exposição favorece a sobrevivência e a multiplicação das
+          subpopulações capazes de resistir à ação do fármaco.
         </p>
 
-        <div
-          class="cap5-p50-caseOptions"
-          role="group"
-          aria-label="Alternativas para interpretação do resultado"
-        >
+      </aside>
 
-          <button
-            class="cap5-p50-caseOption"
-            type="button"
-            data-p50-answer="isolated"
-          >
-            <span>A</span>
+      <section
+        class="cap5-p50-species"
+        aria-labelledby="cap5P50SpeciesTitle"
+      >
+
+        <h2 id="cap5P50SpeciesTitle">
+          O risco não é igual para todas as espécies
+        </h2>
+
+        <div class="cap5-p50-speciesGrid">
+
+          <article class="cap5-p50-speciesImportant">
+
+            <span>Maior atenção</span>
+
+            <strong>
+              Risco clinicamente relevante de AmpC induzível
+            </strong>
+
+            <ul>
+              <li><em>Enterobacter cloacae</em> complex</li>
+              <li><em>Klebsiella aerogenes</em></li>
+              <li><em>Citrobacter freundii</em></li>
+              <li><em>Hafnia alvei</em></li>
+            </ul>
+
+          </article>
+
+          <article>
+
+            <span>Interpretação individual</span>
+
+            <strong>
+              Outras espécies associadas à AmpC
+            </strong>
 
             <p>
-              O resultado S elimina o risco de resistência durante o tratamento.
+              Espécies como <em>Serratia marcescens</em>,
+              <em>Morganella morganii</em> e <em>Providencia</em> spp.
+              também podem possuir AmpC cromossômica, mas não apresentam
+              necessariamente o mesmo risco de desrepressão clinicamente
+              significativa <sup>8,13</sup>.
             </p>
-          </button>
 
-          <button
-            class="cap5-p50-caseOption"
-            type="button"
-            data-p50-answer="integrated"
-          >
-            <span>B</span>
-
-            <p>
-              A espécie possui risco moderado de AmpC induzível, e o resultado deve ser integrado ao foco, à gravidade e ao risco de resistência emergente.
-            </p>
-          </button>
-
-          <button
-            class="cap5-p50-caseOption"
-            type="button"
-            data-p50-answer="all"
-          >
-            <span>C</span>
-
-            <p>
-              Todos os β-lactâmicos devem ser considerados automaticamente inativos.
-            </p>
-          </button>
+          </article>
 
         </div>
 
-        <div
-          id="cap5P50CaseFeedback"
-          class="cap5-p50-caseFeedback"
-          hidden
-          aria-live="polite"
-        ></div>
+        <aside class="cap5-p50-mnemonic">
+
+          <strong>Limitação dos mnemônicos</strong>
+
+          <p>
+            Siglas como CESP ou ESCPM podem ajudar a recordar algumas
+            espécies, mas agrupam microrganismos com riscos diferentes.
+            A interpretação deve utilizar a identificação atual da espécie
+            e não apenas sua inclusão em um mnemônico.
+          </p>
+
+        </aside>
 
       </section>
 
       <section
-        class="cap5-p50-mnemonicMeaning cap5-p50-reveal"
-        aria-label="Limites do mnemônico CESP"
+        class="cap5-p50-action"
+        aria-labelledby="cap5P50ActionTitle"
       >
 
-        <article>
-          <span>O mnemônico informa</span>
+        <div class="cap5-p50-sectionHead">
 
-          <p>
-            Quais espécies são tradicionalmente associadas à presença de AmpC cromossômica.
-          </p>
-        </article>
+          <span class="cap5-p50-eyebrow">
+            Aplicação do laudo
+          </span>
 
-        <article>
-          <span>O mnemônico não informa</span>
+          <h2 id="cap5P50ActionTitle">
+            Como agir diante de resultado S com alerta para AmpC?
+          </h2>
 
-          <p>
-            Qual é o risco individual de desrepressão clinicamente significativa de cada espécie.
-          </p>
-        </article>
+        </div>
+
+        <div class="cap5-p50-actionGrid">
+
+          <article>
+            <span>1</span>
+
+            <div>
+              <strong>Não invalide o resultado</strong>
+
+              <p>
+                A categoria S descreve o comportamento observado no teste
+                realizado. O alerta não significa que o resultado esteja errado.
+              </p>
+            </div>
+          </article>
+
+          <article>
+            <span>2</span>
+
+            <div>
+              <strong>Reconheça o risco</strong>
+
+              <p>
+                O resultado inicial S não elimina a possibilidade de resistência
+                emergente em determinadas combinações entre espécie e
+                antibacteriano.
+              </p>
+            </div>
+          </article>
+
+          <article>
+            <span>3</span>
+
+            <div>
+              <strong>Avalie o contexto</strong>
+
+              <p>
+                Considere o antibacteriano, o sítio, a gravidade, a carga
+                bacteriana, o controle do foco e a possibilidade de acompanhar
+                a resposta.
+              </p>
+            </div>
+          </article>
+
+          <article>
+            <span>4</span>
+
+            <div>
+              <strong>Reavalie diante de falha</strong>
+
+              <p>
+                Persistência, piora ou recorrência exigem nova avaliação
+                clínica e microbiológica, incluindo a possibilidade de mudança
+                do perfil de suscetibilidade.
+              </p>
+            </div>
+          </article>
+
+        </div>
 
       </section>
 
-      <aside class="cap5-p50-principle cap5-p50-reveal">
-        Diante de uma espécie com AmpC cromossômica, não basta reconhecer sua inclusão no grupo CESP. É necessário considerar o risco específico da espécie, o antibacteriano testado, o sítio da infecção, a carga bacteriana, o controle do foco e a possibilidade de resistência emergente.
+      <aside class="cap5-p50-avoid">
+
+        <strong>Evite dois extremos</strong>
+
+        <div>
+          <p>
+            <span>✕</span>
+            “O resultado está S; portanto, não existe risco de resistência
+            durante o tratamento.”
+          </p>
+
+          <p>
+            <span>✕</span>
+            “Existe um alerta para AmpC; portanto, todos os β-lactâmicos
+            devem ser considerados resistentes.”
+          </p>
+        </div>
+
+      </aside>
+
+      <aside class="cap5-p50-principle">
+
+        <strong>Mensagem principal</strong>
+
+        <p>
+          Uma observação sobre AmpC não invalida automaticamente um resultado
+          S. Ela alerta que, em determinadas combinações entre espécie,
+          antibacteriano e contexto da infecção, pode ocorrer seleção de
+          subpopulações com produção aumentada da enzima e surgimento de
+          resistência durante o tratamento.
+        </p>
+
       </aside>
 
     </section>
-
-    <div
-      class="cap5-p50-mnemonicModal"
-      data-p50-mnemonic-modal
-      hidden
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="cap5P50MnemonicTitle"
-    >
-
-      <div
-        class="cap5-p50-modalBackdrop"
-        data-p50-close-mnemonic
-      ></div>
-
-      <div class="cap5-p50-modalDialog">
-
-        <div class="cap5-p50-modalHeader">
-
-          <h2 id="cap5P50MnemonicTitle">
-            Mnemônico CESP
-          </h2>
-
-          <button
-            class="cap5-p50-modalClose"
-            type="button"
-            data-p50-close-mnemonic
-            aria-label="Fechar explicação do mnemônico CESP"
-          >
-            ×
-          </button>
-
-        </div>
-
-        <div class="cap5-p50-mnemonicList">
-
-          <article>
-            <span>C</span>
-            <p><em>Citrobacter freundii</em></p>
-          </article>
-
-          <article>
-            <span>E</span>
-            <p><em>Enterobacter cloacae</em> complex</p>
-          </article>
-
-          <article>
-            <span>S</span>
-            <p><em>Serratia marcescens</em></p>
-          </article>
-
-          <article>
-            <span>P</span>
-            <p><em>Providencia</em> spp.</p>
-          </article>
-
-        </div>
-
-        <p class="cap5-p50-modalNote">
-          <em>Klebsiella aerogenes</em> e <em>Morganella morganii</em> também possuem AmpC cromossômica induzível e podem aparecer em mnemônicos ampliados, como ESCPM.
-        </p>
-
-        <p class="cap5-p50-modalWarning">
-          O mnemônico é um recurso de memória e não representa uma classificação uniforme de risco clínico.
-        </p>
-
-      </div>
-
-    </div>
 
     <nav class="pager" aria-label="Paginação">
 

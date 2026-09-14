@@ -1,686 +1,410 @@
 /* =====================================================
-   PÁGINA 1 — EXPOSIÇÃO AO ANTIBACTERIANO
+   CAPÍTULO 1 — PÁGINA 1
    ===================================================== */
 
-(function initPage1AMR() {
-  const root = document.querySelector("[data-amr-figure]");
-
-  if (!root) return;
-
-  const petri = document.getElementById("petri");
-
-  const tabs = Array.from(
-    root.querySelectorAll("[data-amr-scenario]")
-  );
-
-  const panel = root.querySelector("[data-amr-panel]");
-
-  const scenarioTitle =
-    document.getElementById("amrScenarioTitle");
-
-  const feedback =
-    document.getElementById("amrFeedback");
-
-  const controlFill =
-    document.getElementById("amrControlFill");
-
-  const resistanceFill =
-    document.getElementById("amrResistanceFill");
-
-  const controlLabel =
-    document.getElementById("amrControlLabel");
-
-  const resistanceLabel =
-    document.getElementById("amrResistanceLabel");
-
-  const observeButton = root.querySelector(
-    "[data-amr-observe-button]"
-  );
-
-  const observeContent = root.querySelector(
-    "[data-amr-observe-content]"
-  );
-
-  if (
-    !petri ||
-    !tabs.length ||
-    !panel ||
-    !scenarioTitle ||
-    !feedback ||
-    !controlFill ||
-    !resistanceFill ||
-    !controlLabel ||
-    !resistanceLabel
-  ) {
-    return;
-  }
-
-  /* População inicial representada na simulação */
-
-  const INITIAL_COUNTS = {
-    sensitive: 45,
-    resistant: 5
-  };
-
-  /*
-   * Os valores abaixo são exclusivamente esquemáticos.
-   * Não representam taxas clínicas, probabilidades,
-   * concentrações ou durações terapêuticas.
-   */
-
-  const scenarioMap = {
-    adequado: {
-      tabId: "amrTabAdequado",
-
-      title: "Exposição terapêutica adequada",
-
-      text:
-        "A exposição adequada ao contexto clínico reduz expressivamente a carga bacteriana e favorece o controle do foco infeccioso. A composição relativa da população remanescente pode se modificar durante esse processo.",
-
-      controlWidth: "90%",
-      resistanceWidth: "24%",
-
-      controlLabel: "Elevado",
-      resistanceLabel: "Baixa",
-
-      phases: [
-        {
-          sensitive: 45,
-          resistant: 5
-        },
-        {
-          sensitive: 24,
-          resistant: 4
-        },
-        {
-          sensitive: 9,
-          resistant: 3
-        }
-      ]
-    },
-
-    subdose: {
-      tabId: "amrTabSubdose",
-
-      title: "Exposição subterapêutica",
-
-      text:
-        "A exposição abaixo da necessária pode produzir redução incompleta da carga bacteriana. O controle parcial do foco permite a persistência de microrganismos e modifica a participação relativa das variantes menos suscetíveis.",
-
-      controlWidth: "48%",
-      resistanceWidth: "62%",
-
-      controlLabel: "Parcial",
-      resistanceLabel: "Moderada",
-
-      phases: [
-        {
-          sensitive: 45,
-          resistant: 5
-        },
-        {
-          sensitive: 34,
-          resistant: 6
-        },
-        {
-          sensitive: 26,
-          resistant: 8
-        }
-      ]
-    },
-
-    interrupcao: {
-      tabId: "amrTabInterrupcao",
-
-      title:
-        "Interrupção antes do controle da infecção",
-
-      text:
-        "Quando a exposição é interrompida antes do controle da infecção, a população bacteriana remanescente pode voltar a se expandir. O resultado depende do foco infeccioso, do fármaco, do hospedeiro e da resposta clínica.",
-
-      controlWidth: "22%",
-      resistanceWidth: "82%",
-
-      controlLabel: "Baixo",
-      resistanceLabel: "Elevada",
-
-      phases: [
-        {
-          sensitive: 45,
-          resistant: 5
-        },
-        {
-          sensitive: 24,
-          resistant: 8
-        },
-        {
-          sensitive: 28,
-          resistant: 20
-        }
-      ]
-    }
-  };
-
-  let population = [];
-  let activeTimers = [];
-  let resizeFrame = null;
-  let bugId = 0;
-
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  function clearTimers() {
-    activeTimers.forEach(function (timer) {
-      window.clearTimeout(timer);
-    });
-
-    activeTimers = [];
-  }
-
-  function schedule(callback, delay) {
-    const timer = window.setTimeout(
-      callback,
-      delay
+(function () {
+  function initPage1Interaction() {
+    const root = document.querySelector(
+      ".cap1-page1 [data-amr-interaction]"
     );
 
-    activeTimers.push(timer);
-
-    return timer;
-  }
-
-  function clamp(min, value, max) {
-    return Math.max(
-      min,
-      Math.min(value, max)
-    );
-  }
-
-  function randomInRange(min, max) {
-    return Math.random() * (max - min) + min;
-  }
-
-  function shuffle(items) {
-    return items
-      .map(function (item) {
-        return {
-          value: item,
-          sort: Math.random()
-        };
-      })
-      .sort(function (a, b) {
-        return a.sort - b.sort;
-      })
-      .map(function (item) {
-        return item.value;
-      });
-  }
-
-  function getPlateSize() {
-    const rect = petri.getBoundingClientRect();
-
-    return {
-      width: rect.width || 640,
-      height: rect.height || 236
-    };
-  }
-
-  function pointInEllipse() {
-    const size = getPlateSize();
-    const padding = 18;
-
-    const angle = Math.random() * Math.PI * 2;
-    const radius = Math.sqrt(Math.random());
-
-    const horizontalRadius =
-      size.width / 2 - padding;
-
-    const verticalRadius =
-      size.height / 2 - padding;
-
-    const x =
-      size.width / 2 +
-      radius *
-        horizontalRadius *
-        Math.cos(angle);
-
-    const y =
-      size.height / 2 +
-      radius *
-        verticalRadius *
-        Math.sin(angle);
-
-    return {
-      x: clamp(
-        padding,
-        x,
-        size.width - padding
-      ),
-
-      y: clamp(
-        padding,
-        y,
-        size.height - padding
-      )
-    };
-  }
-
-  function nearbyPoint(parent) {
-    const size = getPlateSize();
-    const padding = 18;
-
-    const angle = Math.random() * Math.PI * 2;
-
-    const distance = randomInRange(12, 34);
-
-    return {
-      x: clamp(
-        padding,
-        parent.x +
-          Math.cos(angle) * distance,
-        size.width - padding
-      ),
-
-      y: clamp(
-        padding,
-        parent.y +
-          Math.sin(angle) * distance,
-        size.height - padding
-      )
-    };
-  }
-
-  function createBugElement(item, isBorn) {
-    const dot = document.createElement("span");
-
-    dot.className = "bug " + item.type;
-    dot.dataset.bugId = item.id;
-
-    dot.style.left = item.x + "px";
-    dot.style.top = item.y + "px";
-
-    if (isBorn) {
-      dot.classList.add("is-born");
-    }
-
-    return dot;
-  }
-
-  function buildInitialPopulation() {
-    population = [];
-    bugId = 0;
-
-    for (
-      let index = 0;
-      index < INITIAL_COUNTS.sensitive;
-      index += 1
-    ) {
-      const point = pointInEllipse();
-
-      population.push({
-        id: "b" + bugId,
-        type: "sensitive",
-        x: point.x,
-        y: point.y,
-        alive: true
-      });
-
-      bugId += 1;
-    }
-
-    for (
-      let index = 0;
-      index < INITIAL_COUNTS.resistant;
-      index += 1
-    ) {
-      const point = pointInEllipse();
-
-      population.push({
-        id: "b" + bugId,
-        type: "resistant",
-        x: point.x,
-        y: point.y,
-        alive: true
-      });
-
-      bugId += 1;
-    }
-  }
-
-  function drawPopulation(isBorn) {
-    petri.innerHTML = "";
-
-    shuffle(population)
-      .filter(function (item) {
-        return item.alive;
-      })
-      .forEach(function (item) {
-        petri.appendChild(
-          createBugElement(item, isBorn)
-        );
-      });
-  }
-
-  function highlightInitialResistantBugs() {
-    if (prefersReducedMotion) return;
-
-    const resistantElements = Array.from(
-      petri.querySelectorAll(".bug.resistant")
-    );
-
-    resistantElements.forEach(function (element) {
-      element.classList.add("is-highlighted");
-    });
-
-    schedule(function () {
-      resistantElements.forEach(function (element) {
-        element.classList.remove(
-          "is-highlighted"
-        );
-      });
-    }, 1850);
-  }
-
-  function getAliveByType(type) {
-    return population.filter(function (item) {
-      return item.alive && item.type === type;
-    });
-  }
-
-  function removeExcess(type, targetCount) {
-    const alive = shuffle(
-      getAliveByType(type)
-    );
-
-    const excess = alive.length - targetCount;
-
-    if (excess <= 0) return;
-
-    alive
-      .slice(0, excess)
-      .forEach(function (item, index) {
-        const element = petri.querySelector(
-          '[data-bug-id="' + item.id + '"]'
-        );
-
-        if (element) {
-          window.setTimeout(function () {
-            element.classList.add("is-removed");
-          }, index * 18);
-        }
-
-        item.alive = false;
-      });
-
-    schedule(function () {
-      drawPopulation(false);
-    }, 520);
-  }
-
-  function addNewBugs(type, amount) {
-    if (amount <= 0) return;
-
-    const parents = getAliveByType(type);
-
-    for (
-      let index = 0;
-      index < amount;
-      index += 1
-    ) {
-      const parent = parents.length
-        ? parents[index % parents.length]
-        : null;
-
-      const point = parent
-        ? nearbyPoint(parent)
-        : pointInEllipse();
-
-      population.push({
-        id: "b" + bugId,
-        type: type,
-        x: point.x,
-        y: point.y,
-        alive: true
-      });
-
-      bugId += 1;
-    }
-
-    schedule(function () {
-      drawPopulation(true);
-    }, 520);
-  }
-
-  function applyPhase(phase) {
-    const currentSensitive =
-      getAliveByType("sensitive").length;
-
-    const currentResistant =
-      getAliveByType("resistant").length;
-
-    if (phase.sensitive < currentSensitive) {
-      removeExcess(
-        "sensitive",
-        phase.sensitive
-      );
-    }
-
-    if (phase.resistant < currentResistant) {
-      removeExcess(
-        "resistant",
-        phase.resistant
-      );
-    }
-
-    if (phase.sensitive > currentSensitive) {
-      addNewBugs(
-        "sensitive",
-        phase.sensitive - currentSensitive
-      );
-    }
-
-    if (phase.resistant > currentResistant) {
-      addNewBugs(
-        "resistant",
-        phase.resistant - currentResistant
-      );
-    }
-  }
-
-  function updateMetrics(key) {
-    const scenario = scenarioMap[key];
-
-    if (!scenario) return;
-
-    controlFill.style.width =
-      scenario.controlWidth;
-
-    resistanceFill.style.width =
-      scenario.resistanceWidth;
-
-    controlLabel.textContent =
-      scenario.controlLabel;
-
-    resistanceLabel.textContent =
-      scenario.resistanceLabel;
-
-    scenarioTitle.textContent =
-      scenario.title;
-
-    feedback.textContent =
-      scenario.text;
-  }
-
-  function animateScenario(key) {
-    const scenario = scenarioMap[key];
-
-    if (!scenario) return;
-
-    clearTimers();
-    buildInitialPopulation();
-    drawPopulation(true);
-
-    if (prefersReducedMotion) {
-      scenario.phases
-        .slice(1)
-        .forEach(function (phase) {
-          applyPhase(phase);
-        });
-
+    if (!root || root.dataset.initialized === "true") {
       return;
     }
 
-    schedule(function () {
-      highlightInitialResistantBugs();
-    }, 300);
+    root.dataset.initialized = "true";
 
-    scenario.phases
-      .slice(1)
-      .forEach(function (phase, index) {
-        schedule(function () {
-          applyPhase(phase);
-        }, 2350 + index * 1100);
-      });
-  }
+    const beforePlate =
+      root.querySelector("[data-amr-before]");
 
-  function activate(key) {
-    const scenario = scenarioMap[key];
+    const afterPlate =
+      root.querySelector("[data-amr-after]");
 
-    if (!scenario) return;
-
-    tabs.forEach(function (tab) {
-      const active =
-        tab.dataset.amrScenario === key;
-
-      tab.classList.toggle(
-        "is-active",
-        active
-      );
-
-      tab.setAttribute(
-        "aria-selected",
-        active ? "true" : "false"
-      );
-
-      tab.setAttribute(
-        "tabindex",
-        active ? "0" : "-1"
-      );
-    });
-
-    panel.setAttribute(
-      "aria-labelledby",
-      scenario.tabId
+    const tabs = Array.from(
+      root.querySelectorAll("[data-amr-scenario]")
     );
 
-    updateMetrics(key);
-    animateScenario(key);
-  }
+    const afterLabel =
+      root.querySelector("[data-amr-after-label]");
 
-  function getActiveKey() {
-    const activeTab = root.querySelector(
-      "[data-amr-scenario][aria-selected='true']"
-    );
+    const explanation =
+      root.querySelector("[data-amr-explanation]");
 
-    return activeTab
-      ? activeTab.dataset.amrScenario
-      : "adequado";
-  }
+    const explanationText =
+      explanation?.querySelector("p");
 
-  tabs.forEach(function (tab) {
-    tab.addEventListener("click", function () {
-      activate(
-        tab.dataset.amrScenario
+    const explanationIcon =
+      explanation?.querySelector(
+        ".amr-explanation__icon"
       );
-    });
 
-    tab.addEventListener(
-      "keydown",
-      function (event) {
-        const currentIndex = tabs.indexOf(tab);
-        let nextIndex = null;
+    const controlLevel =
+      root.querySelector("[data-amr-control-level]");
 
-        if (
-          event.key === "ArrowRight" ||
-          event.key === "ArrowDown"
-        ) {
-          nextIndex =
-            (currentIndex + 1) % tabs.length;
-        }
+    const resistanceLevel =
+      root.querySelector("[data-amr-resistance-level]");
 
-        if (
-          event.key === "ArrowLeft" ||
-          event.key === "ArrowUp"
-        ) {
-          nextIndex =
-            (
-              currentIndex -
-              1 +
-              tabs.length
-            ) % tabs.length;
-        }
+    const controlLabel =
+      root.querySelector("[data-amr-control-label]");
 
-        if (event.key === "Home") {
-          nextIndex = 0;
-        }
+    const resistanceLabel =
+      root.querySelector("[data-amr-resistance-label]");
 
-        if (event.key === "End") {
-          nextIndex = tabs.length - 1;
-        }
+    const observeButton =
+      root.querySelector("[data-amr-observe-button]");
 
-        if (nextIndex === null) return;
+    const observeContent =
+      root.querySelector("[data-amr-observe]");
 
-        event.preventDefault();
-
-        tabs[nextIndex].focus();
-
-        activate(
-          tabs[nextIndex].dataset.amrScenario
-        );
-      }
-    );
-  });
-
-  if (observeButton && observeContent) {
-    observeButton.addEventListener(
-      "click",
-      function () {
-        const isExpanded =
-          observeButton.getAttribute(
-            "aria-expanded"
-          ) === "true";
-
-        observeButton.setAttribute(
-          "aria-expanded",
-          isExpanded ? "false" : "true"
-        );
-
-        observeContent.hidden = isExpanded;
-      }
-    );
-  }
-
-  window.addEventListener(
-    "resize",
-    function () {
-      if (resizeFrame) {
-        window.cancelAnimationFrame(
-          resizeFrame
-        );
-      }
-
-      resizeFrame =
-        window.requestAnimationFrame(
-          function () {
-            activate(
-              getActiveKey()
-            );
-          }
-        );
+    if (
+      !beforePlate ||
+      !afterPlate ||
+      !tabs.length ||
+      !afterLabel ||
+      !explanation ||
+      !explanationText ||
+      !controlLevel ||
+      !resistanceLevel ||
+      !controlLabel ||
+      !resistanceLabel
+    ) {
+      return;
     }
-  );
 
-  activate("adequado");
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const scenarios = {
+      adequado: {
+        tabId: "amrTabAdequado",
+        shortLabel: "Exposição adequada",
+        sensitive: 9,
+        resistant: 3,
+        control: 3,
+        resistance: 1,
+        controlText: "Elevado",
+        resistanceText: "Baixa",
+        icon: "✓",
+        warning: false,
+        text:
+          "Quando a exposição ao antibacteriano é suficiente, ocorre uma redução expressiva da população bacteriana, o que favorece o controle da infecção. Ainda assim, algumas bactérias podem permanecer, dependendo do foco infeccioso, do antibacteriano utilizado e das condições do paciente."
+      },
+
+      insuficiente: {
+        tabId: "amrTabInsuficiente",
+        shortLabel: "Exposição insuficiente",
+        sensitive: 25,
+        resistant: 8,
+        control: 2,
+        resistance: 2,
+        controlText: "Parcial",
+        resistanceText: "Moderada",
+        icon: "!",
+        warning: true,
+        text:
+          "Quando a exposição ao antibacteriano é insuficiente para aquele contexto clínico, a redução da população bacteriana pode ser incompleta. Os microrganismos remanescentes podem continuar se multiplicando e as variantes menos suscetíveis podem passar a representar uma parcela proporcionalmente maior da população."
+      },
+
+      interrupcao: {
+        tabId: "amrTabInterrupcao",
+        shortLabel: "Interrupção antecipada",
+        sensitive: 27,
+        resistant: 16,
+        control: 1,
+        resistance: 3,
+        controlText: "Baixo",
+        resistanceText: "Elevada",
+        icon: "↻",
+        warning: true,
+        text:
+          "Se o tratamento for interrompido antes que a infecção esteja adequadamente controlada, as bactérias remanescentes podem voltar a se multiplicar. Esse resultado não depende apenas do número de dias de tratamento, mas também do foco infeccioso, do antibacteriano utilizado, da resposta clínica, do controle da fonte e das características do paciente."
+      }
+    };
+
+    function seededPosition(index, type, plateNumber) {
+      const typeOffset =
+        type === "resistant" ? 19 : 0;
+
+      const x =
+        8 +
+        (
+          index * 37 +
+          typeOffset +
+          plateNumber * 11
+        ) % 84;
+
+      const y =
+        10 +
+        (
+          index * 53 +
+          typeOffset * 2 +
+          plateNumber * 7
+        ) % 80;
+
+      return {
+        x: x,
+        y: y
+      };
+    }
+
+    function createBacterium(
+      type,
+      index,
+      plateNumber,
+      animate
+    ) {
+      const element =
+        document.createElement("span");
+
+      const position = seededPosition(
+        index,
+        type,
+        plateNumber
+      );
+
+      element.className =
+        "amr-bacterium amr-bacterium--" + type;
+
+      element.style.left = position.x + "%";
+      element.style.top = position.y + "%";
+
+      if (animate && !reducedMotion) {
+        element.classList.add("is-appearing");
+
+        element.style.setProperty(
+          "--delay",
+          Math.min(index * 18, 360) + "ms"
+        );
+      }
+
+      return element;
+    }
+
+    function renderPopulation(
+      plate,
+      sensitiveAmount,
+      resistantAmount,
+      plateNumber,
+      animate
+    ) {
+      const fragment =
+        document.createDocumentFragment();
+
+      for (
+        let index = 0;
+        index < sensitiveAmount;
+        index += 1
+      ) {
+        fragment.appendChild(
+          createBacterium(
+            "sensitive",
+            index,
+            plateNumber,
+            animate
+          )
+        );
+      }
+
+      for (
+        let index = 0;
+        index < resistantAmount;
+        index += 1
+      ) {
+        fragment.appendChild(
+          createBacterium(
+            "resistant",
+            index,
+            plateNumber + 2,
+            animate
+          )
+        );
+      }
+
+      plate.replaceChildren(fragment);
+    }
+
+    function updateLevel(element, amount) {
+      const segments = Array.from(
+        element.querySelectorAll("i")
+      );
+
+      segments.forEach(function (segment, index) {
+        segment.classList.toggle(
+          "is-active",
+          index < amount
+        );
+      });
+    }
+
+    function updateTabs(activeKey) {
+      tabs.forEach(function (tab) {
+        const selected =
+          tab.dataset.amrScenario === activeKey;
+
+        tab.classList.toggle(
+          "is-active",
+          selected
+        );
+
+        tab.setAttribute(
+          "aria-selected",
+          selected ? "true" : "false"
+        );
+
+        tab.setAttribute(
+          "tabindex",
+          selected ? "0" : "-1"
+        );
+      });
+    }
+
+    function activateScenario(key) {
+      const scenario = scenarios[key];
+
+      if (!scenario) return;
+
+      updateTabs(key);
+
+      root
+        .querySelector("#amrComparison")
+        ?.setAttribute(
+          "aria-labelledby",
+          scenario.tabId
+        );
+
+      afterLabel.textContent =
+        scenario.shortLabel;
+
+      explanationText.textContent =
+        scenario.text;
+
+      controlLabel.textContent =
+        scenario.controlText;
+
+      resistanceLabel.textContent =
+        scenario.resistanceText;
+
+      updateLevel(
+        controlLevel,
+        scenario.control
+      );
+
+      updateLevel(
+        resistanceLevel,
+        scenario.resistance
+      );
+
+      explanation.classList.toggle(
+        "is-warning",
+        scenario.warning
+      );
+
+      if (explanationIcon) {
+        explanationIcon.textContent =
+          scenario.icon;
+      }
+
+      renderPopulation(
+        afterPlate,
+        scenario.sensitive,
+        scenario.resistant,
+        2,
+        true
+      );
+    }
+
+    tabs.forEach(function (tab, index) {
+      tab.addEventListener("click", function () {
+        activateScenario(
+          tab.dataset.amrScenario
+        );
+      });
+
+      tab.addEventListener(
+        "keydown",
+        function (event) {
+          let nextIndex = null;
+
+          if (
+            event.key === "ArrowRight" ||
+            event.key === "ArrowDown"
+          ) {
+            nextIndex =
+              (index + 1) % tabs.length;
+          }
+
+          if (
+            event.key === "ArrowLeft" ||
+            event.key === "ArrowUp"
+          ) {
+            nextIndex =
+              (index - 1 + tabs.length) %
+              tabs.length;
+          }
+
+          if (event.key === "Home") {
+            nextIndex = 0;
+          }
+
+          if (event.key === "End") {
+            nextIndex =
+              tabs.length - 1;
+          }
+
+          if (nextIndex === null) {
+            return;
+          }
+
+          event.preventDefault();
+
+          tabs[nextIndex].focus();
+
+          activateScenario(
+            tabs[nextIndex].dataset.amrScenario
+          );
+        }
+      );
+    });
+
+    if (observeButton && observeContent) {
+      observeButton.addEventListener(
+        "click",
+        function () {
+          const expanded =
+            observeButton.getAttribute(
+              "aria-expanded"
+            ) === "true";
+
+          observeButton.setAttribute(
+            "aria-expanded",
+            expanded ? "false" : "true"
+          );
+
+          observeContent.hidden = expanded;
+        }
+      );
+    }
+
+    renderPopulation(
+      beforePlate,
+      38,
+      5,
+      1,
+      false
+    );
+
+    activateScenario("adequado");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initPage1Interaction
+    );
+  } else {
+    initPage1Interaction();
+  }
 })();
 /* =====================================================
    PÁGINA 2 — MARCOS HISTÓRICOS DA ANTIBIOTICOTERAPIA
@@ -740,7 +464,7 @@
         "O Prontosil foi um dos primeiros compostos utilizados com eficácia clínica contra infecções bacterianas sistêmicas.",
 
       text:
-        "A introdução das sulfonamidas, em 1935, marcou o início da quimioterapia antibacteriana sistêmica com eficácia clínica comprovada. Esses fármacos demonstraram que processos metabólicos essenciais às bactérias poderiam ser utilizados como alvos terapêuticos relativamente seletivos <sup>4,7</sup>.",
+        "A introdução das sulfonamidas, em 1935, marcou o início da quimioterapia antibacteriana sistêmica com eficácia clínica comprovada. Esses fármacos demonstraram que processos metabólicos essenciais às bactérias poderiam ser utilizados como alvos terapêuticos relativamente seletivos <sup>4,8</sup>.",
 
       meaning:
         "A atividade antibacteriana passou da observação experimental para o tratamento sistêmico de infecções."
@@ -830,7 +554,7 @@
         "A determinação da concentração inibitória mínima auxilia na identificação da redução de suscetibilidade à vancomicina.",
 
       text:
-        "Em 1988, foram descritos isolados clínicos de <em>Enterococcus</em> resistentes à vancomicina. O evento demonstrou que mesmo antibacterianos utilizados contra microrganismos multirresistentes poderiam perder eficácia diante da aquisição e disseminação de mecanismos de resistência <sup>8,9</sup>.",
+        "Em 1988, foram descritos isolados clínicos de <em>Enterococcus</em> resistentes à vancomicina. O evento demonstrou que mesmo antibacterianos utilizados contra microrganismos multirresistentes poderiam perder eficácia diante da aquisição e disseminação de mecanismos de resistência <sup>9,10</sup>.",
 
       meaning:
         "A resistência passou a comprometer também medicamentos considerados recursos terapêuticos de última linha."
@@ -852,7 +576,7 @@
         "A adoção nacional dos critérios BrCAST/EUCAST contribuiu para uniformizar a interpretação dos testes de suscetibilidade no Brasil.",
 
       text:
-        "Em 2018, avançou no Brasil o processo de implementação dos critérios interpretativos baseados no EUCAST e adaptados pelo BrCAST para os testes de suscetibilidade aos antimicrobianos. Essa padronização contribuiu para uniformizar os laudos microbiológicos e apoiar a interpretação clínica dos resultados <sup>10–14</sup>.",
+        "Em 2018, avançou no Brasil o processo de implementação dos critérios interpretativos baseados no EUCAST e adaptados pelo BrCAST para os testes de suscetibilidade aos antimicrobianos. Essa padronização contribuiu para uniformizar os laudos microbiológicos e apoiar a interpretação clínica dos resultados <sup>11,12</sup>.",
       meaning:
   	"A qualidade da antibioticoterapia passou a depender também de critérios laboratoriais padronizados e continuamente atualizados."
     }

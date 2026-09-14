@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Capítulo 5 — Página 48</title>
 
@@ -24,176 +24,246 @@
   <main class="page-shell">
 
     <header class="page-header">
+
       <div class="chapter">
         Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma
       </div>
 
       <h1 class="page-title">
-        Observações do laudo microbiológico
+        Como interpretar as observações do laudo
       </h1>
+
     </header>
 
     <section class="prose cap5-p48-reading">
 
       <p>
-        Após identificar a bactéria e interpretar o teste de suscetibilidade, o laboratório pode acrescentar observações complementares ao laudo microbiológico. Essas informações indicam mecanismos de resistência, fenótipos específicos ou características microbiológicas capazes de modificar a leitura do antibiograma e a escolha do tratamento <sup>1,3,4,6</sup>.
+        Além da identificação bacteriana e das categorias S, I e R, o laudo
+        microbiológico pode apresentar observações sobre mecanismos de
+        resistência, fenótipos específicos, limitações do teste ou resultados
+        com relevância epidemiológica. Essas informações complementam o
+        antibiograma e podem indicar cuidados adicionais na interpretação
+        <sup>1,3,4,6</sup>.
       </p>
 
       <p>
-        Duas bactérias podem apresentar categorias aparentemente semelhantes para determinados antibacterianos, mas a presença de um mecanismo de resistência pode alterar a probabilidade de sucesso terapêutico. Por isso, o antibiograma não deve ser interpretado apenas pela coluna S, I e R <sup>3,4</sup>.
-      </p>
-
-      <p>
-        Entre as observações mais relevantes estão ESBL, AmpC, carbapenemases, resistência à meticilina em <em>Staphylococcus aureus</em> e resistência à vancomicina em <em>Enterococcus </em> spp. Essas informações devem ser analisadas em conjunto com a espécie, o sítio da infecção, o perfil de suscetibilidade e as características clínicas do paciente <sup>4,8,9</sup>.
+        As observações não possuem todas a mesma finalidade. Algumas ajudam
+        a compreender quais antibacterianos podem ter sua atividade
+        comprometida; outras indicam necessidade de confirmação, comunicação
+        com o laboratório ou adoção de medidas de prevenção e controle de
+        infecções. O significado depende da informação apresentada e dos
+        critérios vigentes <sup>3,4,8,9</sup>.
       </p>
 
       <section
-        class="cap5-p48-interaction cap5-p48-reveal"
+        class="cap5-p48-guide"
         data-cap5-p48
-        aria-label="Interpretação das observações de resistência no laudo microbiológico"
+        aria-labelledby="cap5P48GuideTitle"
       >
 
-        <p class="cap5-p48-instruction">
-          Selecione uma observação do laudo para compreender o que ela representa e como modifica a interpretação do antibiograma.
-        </p>
+        <div class="cap5-p48-guideHead">
+
+          <span class="cap5-p48-eyebrow">
+            Guia de interpretação
+          </span>
+
+          <h2 id="cap5P48GuideTitle">
+            Qual observação aparece no laudo?
+          </h2>
+
+          <p>
+            Selecione a formulação mais próxima daquela apresentada no
+            resultado para identificar seu alcance e a ação necessária.
+          </p>
+
+        </div>
 
         <div
-          class="cap5-p48-tabs"
+          class="cap5-p48-observations"
           role="tablist"
-          aria-label="Observações de resistência"
+          aria-label="Tipos de observação do laudo"
         >
 
           <button
-            class="cap5-p48-tab is-active"
+            id="cap5P48TabConfirmed"
+            class="cap5-p48-observation is-active"
             type="button"
             role="tab"
-            id="cap5P48TabEsbl"
             aria-selected="true"
-            aria-controls="cap5P48View"
+            aria-controls="cap5P48Result"
             tabindex="0"
-            data-p48-target="esbl"
+            data-p48-type="confirmed"
           >
-            ESBL
+            <span class="cap5-p48-observationIcon" aria-hidden="true">
+              ✓
+            </span>
+
+            <span>
+              <strong>Mecanismo detectado</strong>
+              <small>Resultado confirmado ou identificado</small>
+            </span>
           </button>
 
           <button
-            class="cap5-p48-tab"
+            id="cap5P48TabSuggestive"
+            class="cap5-p48-observation"
             type="button"
             role="tab"
-            id="cap5P48TabAmpc"
             aria-selected="false"
-            aria-controls="cap5P48View"
+            aria-controls="cap5P48Result"
             tabindex="-1"
-            data-p48-target="ampc"
+            data-p48-type="suggestive"
           >
-            AmpC
+            <span class="cap5-p48-observationIcon" aria-hidden="true">
+              ?
+            </span>
+
+            <span>
+              <strong>Perfil sugestivo</strong>
+              <small>Suspeita baseada no padrão laboratorial</small>
+            </span>
           </button>
 
           <button
-            class="cap5-p48-tab"
+            id="cap5P48TabLimitation"
+            class="cap5-p48-observation"
             type="button"
             role="tab"
-            id="cap5P48TabCarbapenemases"
             aria-selected="false"
-            aria-controls="cap5P48View"
+            aria-controls="cap5P48Result"
             tabindex="-1"
-            data-p48-target="carbapenemases"
+            data-p48-type="limitation"
           >
-            Carbapenemases
+            <span class="cap5-p48-observationIcon" aria-hidden="true">
+              !
+            </span>
+
+            <span>
+              <strong>Limitação ou confirmação</strong>
+              <small>Resultado que exige cautela adicional</small>
+            </span>
           </button>
 
           <button
-            class="cap5-p48-tab"
+            id="cap5P48TabEpidemiology"
+            class="cap5-p48-observation"
             type="button"
             role="tab"
-            id="cap5P48TabMrsa"
             aria-selected="false"
-            aria-controls="cap5P48View"
+            aria-controls="cap5P48Result"
             tabindex="-1"
-            data-p48-target="mrsa"
+            data-p48-type="epidemiology"
           >
-            MRSA
-          </button>
+            <span class="cap5-p48-observationIcon" aria-hidden="true">
+              ↗
+            </span>
 
-          <button
-            class="cap5-p48-tab"
-            type="button"
-            role="tab"
-            id="cap5P48TabVre"
-            aria-selected="false"
-            aria-controls="cap5P48View"
-            tabindex="-1"
-            data-p48-target="vre"
-          >
-            VRE
+            <span>
+              <strong>Relevância epidemiológica</strong>
+              <small>Possível impacto no controle de infecções</small>
+            </span>
           </button>
 
         </div>
 
         <article
-          id="cap5P48View"
-          class="cap5-p48-view"
+          id="cap5P48Result"
+          class="cap5-p48-result"
           role="tabpanel"
-          aria-labelledby="cap5P48TabEsbl"
+          aria-labelledby="cap5P48TabConfirmed"
           aria-live="polite"
         >
 
-          <div class="cap5-p48-header">
+          <header class="cap5-p48-resultHeader">
 
             <span
-              id="cap5P48Kicker"
-              class="cap5-p48-kicker"
+              id="cap5P48ResultLabel"
+              class="cap5-p48-resultLabel"
             >
-              β-lactamase de espectro estendido
+              Mecanismo confirmado
             </span>
 
-            <h2
-              id="cap5P48Title"
-              class="cap5-p48-title"
-            >
-              ESBL
-            </h2>
+            <h3 id="cap5P48ResultTitle">
+              A informação pode modificar o alcance da interpretação
+            </h3>
 
-            <p
-              id="cap5P48Intro"
-              class="cap5-p48-intro"
-            >
-              Indica produção de enzimas capazes de hidrolisar diferentes β-lactâmicos, especialmente penicilinas, cefalosporinas de amplo espectro e aztreonam.
+            <p id="cap5P48ResultIntro">
+              O laboratório informa que um mecanismo ou uma resistência
+              específica foi detectado pelos critérios adotados.
             </p>
 
-          </div>
+          </header>
 
-          <div
-            id="cap5P48Body"
-            class="cap5-p48-infoGrid"
-          >
+          <div class="cap5-p48-actionsGrid">
 
-            <article class="cap5-p48-info">
-              <span>Onde é mais relevante</span>
-              <p>
-                Principalmente em Enterobacterales, como <em>Escherichia coli</em> e <em>Klebsiella pneumoniae</em>.
-              </p>
+            <article class="cap5-p48-actionCard">
+
+              <span class="cap5-p48-actionNumber">
+                1
+              </span>
+
+              <div>
+                <strong>Compreenda o alcance</strong>
+
+                <p id="cap5P48Meaning">
+                  Verifique quais antibacterianos, classes ou estratégias
+                  terapêuticas podem ser afetados pelo mecanismo informado.
+                </p>
+              </div>
+
             </article>
 
-            <article class="cap5-p48-info">
-              <span>O que modifica no painel</span>
-              <p>
-                A leitura dos β-lactâmicos deve considerar o mecanismo informado e os pontos de corte vigentes para a espécie.
-              </p>
+            <article class="cap5-p48-actionCard">
+
+              <span class="cap5-p48-actionNumber">
+                2
+              </span>
+
+              <div>
+                <strong>Leia o painel completo</strong>
+
+                <p id="cap5P48Check">
+                  Analise as categorias S, I e R, as notas vinculadas aos
+                  resultados e eventuais antibacterianos não liberados.
+                </p>
+              </div>
+
             </article>
 
-            <article class="cap5-p48-info">
-              <span>Impacto clínico</span>
-              <p>
-                Pode modificar significativamente a escolha terapêutica, especialmente em infecções invasivas.
-              </p>
+            <article class="cap5-p48-actionCard cap5-p48-actionCard--action">
+
+              <span class="cap5-p48-actionNumber">
+                3
+              </span>
+
+              <div>
+                <strong>Ação necessária</strong>
+
+                <p id="cap5P48Action">
+                  Integre o mecanismo ao microrganismo, ao perfil de
+                  suscetibilidade, ao sítio da infecção e à relevância
+                  clínica do isolamento.
+                </p>
+              </div>
+
             </article>
 
-            <article class="cap5-p48-info cap5-p48-info--key">
-              <span>Cuidado de interpretação</span>
-              <p>
-                A presença de ESBL não deve ser analisada isoladamente: é necessário integrar foco infeccioso, gravidade e perfil completo de suscetibilidade.
-              </p>
+            <article class="cap5-p48-actionCard cap5-p48-actionCard--avoid">
+
+              <span class="cap5-p48-actionNumber">
+                4
+              </span>
+
+              <div>
+                <strong>Evite esta interpretação</strong>
+
+                <p id="cap5P48Avoid">
+                  Não transforme a presença do mecanismo em uma regra
+                  terapêutica universal nem altere por conta própria as
+                  categorias liberadas pelo laboratório.
+                </p>
+              </div>
+
             </article>
 
           </div>
@@ -202,121 +272,89 @@
 
       </section>
 
-     
-
       <section
-        class="cap5-p48-case cap5-p48-reveal"
-        data-cap5-p48-case
-        aria-labelledby="cap5P48CaseTitle"
+        class="cap5-p48-readingPath"
+        aria-labelledby="cap5P48ReadingPathTitle"
       >
 
-        <div class="cap5-p48-caseHeader">
+        <h2 id="cap5P48ReadingPathTitle">
+          Leia a observação em quatro movimentos
+        </h2>
 
-          <span class="cap5-p48-caseEyebrow">
-            Aplicação clínica
-          </span>
+        <div class="cap5-p48-path">
 
-          <h2 id="cap5P48CaseTitle">
-            Como interpretar o laudo?
-          </h2>
+          <article>
+            <span>1</span>
+            <strong>Reconhecer</strong>
+            <p>
+              Identifique exatamente o que foi informado.
+            </p>
+          </article>
+
+          <b aria-hidden="true">→</b>
+
+          <article>
+            <span>2</span>
+            <strong>Delimitar</strong>
+            <p>
+              Verifique qual resultado ou grupo pode ser afetado.
+            </p>
+          </article>
+
+          <b aria-hidden="true">→</b>
+
+          <article>
+            <span>3</span>
+            <strong>Integrar</strong>
+            <p>
+              Relacione a observação ao antibiograma completo.
+            </p>
+          </article>
+
+          <b aria-hidden="true">→</b>
+
+          <article>
+            <span>4</span>
+            <strong>Agir</strong>
+            <p>
+              Siga a orientação correspondente e esclareça dúvidas relevantes.
+            </p>
+          </article>
 
         </div>
-
-        <div class="cap5-p48-report">
-
-          <span>Laudo microbiológico</span>
-
-          <strong>
-            <em>Escherichia coli</em>
-          </strong>
-
-          <p>
-            ESBL positiva
-          </p>
-
-          <ul>
-            <li>Ceftriaxona — R</li>
-            <li>Meropenem — S</li>
-            <li>Ciprofloxacino — R</li>
-          </ul>
-
-        </div>
-
-        <h3 class="cap5-p48-question">
-          Qual é a forma mais adequada de iniciar a interpretação desse resultado?
-        </h3>
-
-        <div
-          class="cap5-p48-options"
-          role="group"
-          aria-label="Alternativas de interpretação do laudo"
-        >
-
-          <button
-            class="cap5-p48-option"
-            type="button"
-            data-p48-answer="mic"
-          >
-            <span>A</span>
-
-            <p>
-              Escolher automaticamente o antibacteriano que apresentar a menor MIC.
-            </p>
-          </button>
-
-          <button
-            class="cap5-p48-option"
-            type="button"
-            data-p48-answer="ignore"
-          >
-            <span>B</span>
-
-            <p>
-              Ignorar a informação de ESBL e considerar apenas as letras S e R.
-            </p>
-          </button>
-
-          <button
-            class="cap5-p48-option"
-            type="button"
-            data-p48-answer="integrate"
-          >
-            <span>C</span>
-
-            <p>
-              Integrar espécie, mecanismo de resistência, foco infeccioso, gravidade e perfil completo de suscetibilidade.
-            </p>
-          </button>
-
-          <button
-            class="cap5-p48-option"
-            type="button"
-            data-p48-answer="automatic"
-          >
-            <span>D</span>
-
-            <p>
-              Considerar que toda bactéria ESBL positiva exige obrigatoriamente o mesmo tratamento.
-            </p>
-          </button>
-
-        </div>
-
-        <div
-          id="cap5P48Feedback"
-          class="cap5-p48-feedback"
-          hidden
-          aria-live="polite"
-        ></div>
 
       </section>
 
-      <aside class="cap5-p48-alert cap5-p48-reveal">
-        A presença de um mecanismo de resistência não deve ser ignorada, mas também não substitui a análise do antibiograma. A observação fornece contexto para compreender o painel e reconhecer resultados que exigem maior cautela.
+      <aside class="cap5-p48-whenContact">
+
+        <div class="cap5-p48-contactIcon" aria-hidden="true">
+          ?
+        </div>
+
+        <div>
+          <strong>Quando entrar em contato com o laboratório?</strong>
+
+          <p>
+            Quando a redação não estiver clara, houver discordância entre a
+            observação e o painel, o resultado puder modificar uma decisão
+            imediata ou for necessário saber se a confirmação ainda está em
+            andamento.
+          </p>
+        </div>
+
       </aside>
 
-      <aside class="cap5-p48-principle cap5-p48-reveal">
-        Uma observação de resistência modifica o contexto do antibiograma. A decisão terapêutica deve integrar espécie identificada, mecanismo informado, categorias S/I/R, foco infeccioso, exposição possível e características clínicas do paciente.
+      <aside class="cap5-p48-principle">
+
+        <strong>Mensagem principal</strong>
+
+        <p>
+          A observação adicional possui um alcance específico. Ela pode
+          orientar a leitura do painel, indicar uma limitação, exigir
+          confirmação ou desencadear medidas de controle, mas não deve ser
+          transformada automaticamente em uma regra terapêutica universal.
+        </p>
+
       </aside>
 
     </section>

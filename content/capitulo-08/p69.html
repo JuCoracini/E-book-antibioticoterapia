@@ -1,84 +1,347 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+
   <title>Capítulo 8 — Página 69</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
 
-  <link rel="stylesheet" href="../../css/base.css" />
-  <link rel="stylesheet" href="../../css/components.css" />
-  <link rel="stylesheet" href="../../css/capitulo-08.css" />
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../../css/base.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../../css/components.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../../css/capitulo-08.css"
+  />
 </head>
 
 <body class="cap8-page69">
+
   <main class="page-shell">
+
     <header class="page-header">
-      <div class="chapter">Capítulo 8 — Antibioticoterapia nas Principais Infecções</div>
-      <h1 class="page-title">Antibioticoterapia nas principais infecções</h1>
+      <div class="chapter">
+        Capítulo 8 — Antibioticoterapia nas Principais Infecções
+      </div>
+
+      <h1 class="page-title">
+        Antibioticoterapia nas principais infecções
+      </h1>
     </header>
 
-    <section class="prose" aria-label="Introdução à terapia empírica">
-      <p>Na prática clínica, a decisão inicial sobre antibioticoterapia geralmente ocorre antes da identificação definitiva do microrganismo. Nessa fase, denominada terapia empírica, o tratamento baseia-se na estimativa probabilística do foco infeccioso, construída a partir da apresentação clínica, do sítio anatômico envolvido e do contexto epidemiológico, permitindo inferir o perfil microbiológico mais provável naquele cenário clínico<sup>1,2</sup>.</p>
+    <section
+      class="prose cap8-p69"
+      aria-label="Introdução à terapia empírica"
+    >
+      <p>
+        A decisão inicial sobre a antibioticoterapia frequentemente ocorre
+        antes da identificação definitiva do microrganismo. A terapia empírica
+        é construída com base na probabilidade de infecção bacteriana, no foco
+        provável, na gravidade, no contexto epidemiológico e nos fatores de
+        risco individuais <sup>1–4</sup>.
+      </p>
 
-      <p>A partir dessa estimativa inicial, o raciocínio clínico orienta-se pelo sítio provável da infecção e pelas características do paciente. Quadros respiratórios, urinários, intra-abdominais, cutâneos ou sistêmicos apresentam padrões microbiológicos distintos, o que direciona a escolha do espectro antibacteriano inicial. O objetivo não é identificar precisamente o microrganismo, mas selecionar uma cobertura adequada ao risco clínico e ao perfil etiológico mais provável.</p>
+      <p>
+        O objetivo é oferecer cobertura
+        adequada aos agentes mais prováveis sem ampliar o espectro
+        desnecessariamente. A gravidade aumenta a urgência da decisão, mas não
+        define sozinha a amplitude da cobertura <sup>3–5</sup>.
+      </p>
 
-      <section class="cap8-p69-interaction" aria-labelledby="p69-interaction-title">
-        <div class="cap8-p69-interaction-head">
-          <p class="cap8-p69-interaction-kicker"
-          <p>Selecione um foco infeccioso para comparar os principais elementos da avaliação empírica.</p>
-        </div>
+      <section
+        class="cap8-p69-simulator"
+        data-cap8-p69
+        aria-labelledby="cap8P69Title"
+      >
+        <header class="cap8-p69-simulatorHeader">
+          <span class="cap8-p69-eyebrow">
+            Caso clínico progressivo
+          </span>
 
-        <div class="cap8-p69-tabs" role="tablist" aria-label="Focos prováveis de infecção">
-          <button id="p69-tab-respiratorio" class="cap8-p69-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="p69-focus-panel" tabindex="0" data-focus="respiratorio">Respiratório</button>
-          <button id="p69-tab-cutaneo" class="cap8-p69-tab" type="button" role="tab" aria-selected="false" aria-controls="p69-focus-panel" tabindex="-1" data-focus="cutaneo">Cutâneo</button>
-          <button id="p69-tab-intraabdominal" class="cap8-p69-tab" type="button" role="tab" aria-selected="false" aria-controls="p69-focus-panel" tabindex="-1" data-focus="intraabdominal">Intra-abdominal</button>
-          <button id="p69-tab-sistemico" class="cap8-p69-tab" type="button" role="tab" aria-selected="false" aria-controls="p69-focus-panel" tabindex="-1" data-focus="sistemico">Sistêmico</button>
-          <button id="p69-tab-urinario" class="cap8-p69-tab" type="button" role="tab" aria-selected="false" aria-controls="p69-focus-panel" tabindex="-1" data-focus="urinario">Urinário</button>
-        </div>
+          <h2 id="cap8P69Title">
+            Antes de iniciar a terapia empírica
+          </h2>
 
-        <div id="p69-focus-panel" class="cap8-p69-panel" role="tabpanel" aria-labelledby="p69-tab-respiratorio" aria-live="polite" data-p69-panel>
-          <p class="cap8-p69-kicker" data-p69-kicker>Foco respiratório</p>
-          <h2 class="cap8-p69-subtitle" data-p69-title>O foco provável organiza a primeira cobertura</h2>
+          <p>
+            Novas informações serão liberadas progressivamente. Identifique o
+            que cada dado modifica no raciocínio.
+          </p>
+        </header>
 
-          <div class="cap8-p69-body">
-            <p class="cap8-p69-text" data-p69-text>Em infecções respiratórias, a decisão inicial depende da coerência entre quadro clínico, exame físico e, quando disponível, achados de imagem. O foco anatômico ajuda a estimar quais patógenos são mais prováveis e qual amplitude de cobertura faz sentido naquele contexto.</p>
+        <div
+          class="cap8-p69-progress"
+          aria-label="Progresso do caso"
+        >
+          <div
+            class="cap8-p69-progressSteps"
+            aria-hidden="true"
+          >
+            <span class="is-active">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+          </div>
 
-            <div class="cap8-p69-meta">
-              <div class="cap8-p69-meta-item cap8-p69-meta-item--decision">
-                <strong>Peso decisório</strong>
-                <p data-p69-weight>Compatibilidade clínica do quadro e gravidade da apresentação.</p>
-              </div>
-              <div class="cap8-p69-meta-item cap8-p69-meta-item--risk">
-                <strong>Erro a evitar</strong>
-                <p data-p69-risk>Presumir infecção bacteriana apenas com base em sintomas respiratórios inespecíficos.</p>
-              </div>
-            </div>
+          <div class="cap8-p69-progressInfo">
+            <span>Decisões analisadas</span>
+
+            <strong id="cap8P69ProgressText">
+              0 de 6
+            </strong>
+          </div>
+
+          <div
+            class="cap8-p69-progressTrack"
+            role="progressbar"
+            aria-label="Decisões analisadas"
+            aria-valuemin="0"
+            aria-valuemax="6"
+            aria-valuenow="0"
+          >
+            <span id="cap8P69ProgressBar"></span>
           </div>
         </div>
+
+        <article
+          id="cap8P69Stage"
+          class="cap8-p69-stage"
+          aria-live="polite"
+        >
+          <div class="cap8-p69-clinicalData">
+            <span id="cap8P69StageLabel">
+              Informação 1
+            </span>
+
+            <p id="cap8P69ClinicalText">
+              Pessoa hospitalizada apresenta febre, taquicardia e mal-estar.
+            </p>
+          </div>
+
+          
+
+            <h3 id="cap8P69Question">
+              Essas manifestações confirmam uma infecção bacteriana?
+            </h3>
+          </div>
+
+          <div
+            id="cap8P69Options"
+            class="cap8-p69-options"
+            role="group"
+            aria-label="Possíveis interpretações"
+          ></div>
+
+          <div
+            id="cap8P69Feedback"
+            class="cap8-p69-feedback"
+            hidden
+            aria-live="polite"
+          ></div>
+
+          <div class="cap8-p69-actions">
+            <button
+              id="cap8P69Revise"
+              class="cap8-p69-action cap8-p69-action--secondary"
+              type="button"
+              hidden
+            >
+              Rever escolha
+            </button>
+
+            <button
+              id="cap8P69Next"
+              class="cap8-p69-action cap8-p69-action--primary"
+              type="button"
+              disabled
+            >
+              Liberar próxima informação →
+            </button>
+          </div>
+        </article>
+
+        <section
+          id="cap8P69Final"
+          class="cap8-p69-final"
+          hidden
+          aria-live="polite"
+        >
+          <div class="cap8-p69-finalHeader">
+            <span aria-hidden="true">✓</span>
+
+            <div>
+              <small>Raciocínio concluído</small>
+
+              <h3>
+                A terapia empírica resulta da integração de diferentes dados
+              </h3>
+            </div>
+          </div>
+
+          <div class="cap8-p69-reasoningMap">
+
+            <article>
+              <span>1</span>
+
+              <div>
+                <strong>Suspeita de infecção</strong>
+                <small>
+                  Verifique se o conjunto de achados sustenta uma causa
+                  infecciosa.
+                </small>
+              </div>
+            </article>
+
+            <article>
+              <span>2</span>
+
+              <div>
+                <strong>Foco provável</strong>
+                <small>
+                  O sítio anatômico orienta os microrganismos esperados.
+                </small>
+              </div>
+            </article>
+
+            <article>
+              <span>3</span>
+
+              <div>
+                <strong>Gravidade e urgência</strong>
+                <small>
+                  Instabilidade e disfunção orgânica exigem resposta rápida.
+                </small>
+              </div>
+            </article>
+
+            <article>
+              <span>4</span>
+
+              <div>
+                <strong>Risco microbiológico</strong>
+                <small>
+                  Exposições e resultados anteriores modificam a cobertura
+                  necessária.
+                </small>
+              </div>
+            </article>
+
+            <article>
+              <span>5</span>
+
+              <div>
+                <strong>Amostras adequadas</strong>
+                <small>
+                  Quando indicadas, devem ser obtidas sem atraso prejudicial ao
+                  tratamento.
+                </small>
+              </div>
+            </article>
+
+            <article>
+              <span>6</span>
+
+              <div>
+                <strong>Controle do foco</strong>
+                <small>
+                  Drenagem, remoção de dispositivo ou outra intervenção pode
+                  ser necessária.
+                </small>
+              </div>
+            </article>
+          </div>
+
+          <div class="cap8-p69-finalDecision">
+            <span>Decisão inicial</span>
+
+            <p>
+              Selecionar cobertura suficiente para os microrganismos prováveis
+              e para o risco identificado, considerando a urgência clínica e
+              evitando ampliação sem justificativa.
+            </p>
+          </div>
+
+          <div class="cap8-p69-reassessment">
+            <strong>O raciocínio não termina na prescrição.</strong>
+
+            <p>
+              A terapia deve ser reavaliada sempre que surgirem novas
+              informações clínicas ou microbiológicas, permitindo manter,
+              ajustar, estreitar ou interromper o tratamento quando indicado.
+            </p>
+          </div>
+
+          <button
+            id="cap8P69Restart"
+            class="cap8-p69-restart"
+            type="button"
+          >
+            Refazer o caso
+          </button>
+        </section>
       </section>
 
-      <h2 class="cap8-p69-section-divider">
-        <span aria-hidden="true"></span>
-        Da escolha empírica à reavaliação
-        <span aria-hidden="true"></span>
-      </h2>
+      <aside class="cap8-p69-principle">
+        A terapia empírica não significa terapia sem critérios. É uma decisão
+        inicial baseada nas melhores informações disponíveis e acompanhada de
+        um plano de reavaliação.
+      </aside>
 
-      <p>Esse processo exige avaliação clínica individualizada, pois um mesmo tipo de infecção pode demandar abordagens distintas conforme características do paciente, como idade, comorbidades, hospitalizações recentes, exposição prévia a antibacterianos e presença de dispositivos invasivos. Esses fatores modificam o perfil microbiológico esperado e impactam diretamente na definição da terapia empírica<sup>3,4</sup>.</p>
-
-      <p>A amplitude do espectro antibacteriano deve ser proporcional à gravidade da apresentação clínica. Em pacientes instáveis ou com suspeita de infecção grave, recomenda-se uma cobertura inicial mais ampla, visando reduzir o risco de inadequação terapêutica precoce<sup>5</sup>. Em apresentações menos graves, estratégias com espectro mais estreito são geralmente adequadas, desde que compatíveis com o perfil clínico e epidemiológico.</p>
-
-      <p>À medida que novas informações, especialmente microbiológicas e clínicas, se tornam disponíveis, a terapia empírica deve ser reavaliada e ajustada, com estreitamento do espectro conforme a identificação do agente etiológico<sup>3,6</sup>.</p>
-
-      <p>Nem toda manifestação clínica sugestiva de infecção corresponde a doença infecciosa ativa, sendo fundamental integrar dados da história clínica, exame físico e exames complementares para distinguir infecção verdadeira, colonização microbiológica e processos inflamatórios não infecciosos<sup>7,8</sup>.</p>
     </section>
 
-    <nav class="pager" aria-label="Paginação">
-      <a class="btn" href="../capitulo-07/p68.html" aria-label="Ir para a página anterior">← Anterior</a>
-      <div class="center">Capítulo 8 · Página 69 de 89</div>
-      <a class="btn primary" href="p70.html" aria-label="Ir para a próxima página">Próxima →</a>
+    <nav
+      class="pager"
+      aria-label="Paginação"
+    >
+      <a
+        class="btn"
+        href="../capitulo-07/p68.html"
+        aria-label="Ir para a página anterior"
+      >
+        ← Anterior
+      </a>
+
+      <div class="center">
+        Capítulo 8 · Página 69 de 89
+      </div>
+
+      <a
+        class="btn primary"
+        href="p70.html"
+        aria-label="Ir para a próxima página"
+      >
+        Próxima →
+      </a>
     </nav>
+
   </main>
 
   <script src="../../js/app.js"></script>

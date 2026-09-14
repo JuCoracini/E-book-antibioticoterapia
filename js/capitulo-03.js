@@ -910,75 +910,112 @@
   updateProfile();
   showDefinition("mdr");
 })();
-/* =========================
+/* =====================================================
    PÁGINA 29 — QUIZ DE REVISÃO
-   ========================= */
+   ===================================================== */
 
-(function initPage29Quiz() {
+(function initPage29Quiz(){
   const root = document.querySelector("[data-cap3-p29]");
-  if (!root) return;
+
+  if(!root) return;
 
   const situations = [
     {
       caseText:
-        "Um paciente hospitalizado apresenta infecção por <em>Klebsiella pneumoniae</em>. O antibiograma demonstra resistência a diferentes cefalosporinas de terceira geração, e um teste fenotípico complementar evidencia restauração da atividade do β-lactâmico na presença de um inibidor de β-lactamase.",
+        "Um paciente hospitalizado apresenta infecção por <em>Klebsiella pneumoniae</em>. O antibiograma demonstra resistência a diferentes cefalosporinas de terceira geração. Em um teste fenotípico complementar, a associação com ácido clavulânico restaura a atividade do β-lactâmico.",
+
       prompt:
         "Qual mecanismo de resistência é mais compatível com esse padrão microbiológico?",
-      correct: "b",
-      options: [
+
+      correct:"b",
+
+      options:[
         {
-          key: "a",
-          label: "Redução da permeabilidade da membrana bacteriana."
+          key:"a",
+          label:"Perda de porinas associada à menor entrada das cefalosporinas no espaço periplasmático."
         },
         {
-          key: "b",
-          label: "Produção de β-lactamase com atividade contra cefalosporinas."
+          key:"b",
+          label:"Produção de ESBL capaz de hidrolisar cefalosporinas de espectro estendido."
         },
         {
-          key: "c",
-          label: "Alteração da DNA girase."
-        },
-        {
-          key: "d",
-          label: "Modificação do alvo ribossomal."
+          key:"c",
+          label:"Alteração das PBPs, reduzindo a afinidade das cefalosporinas por seus alvos bacterianos."
         }
       ],
-      feedback: {
-        a: "A redução da permeabilidade pode contribuir para a resistência aos β-lactâmicos, mas não explica a restauração da atividade observada na presença do inibidor.",
-        b: "A atividade restaurada na presença do inibidor é compatível com inativação enzimática do β-lactâmico por uma β-lactamase com atividade contra cefalosporinas.",
-        c: "Alterações da DNA girase estão relacionadas principalmente à resistência às fluoroquinolonas e não explicam o padrão descrito com cefalosporinas.",
-        d: "Modificações do alvo ribossomal afetam antibacterianos que atuam na síntese proteica e não explicam a resistência às cefalosporinas."
+
+      feedback:{
+        a:"A redução da permeabilidade pode contribuir para a resistência aos β-lactâmicos, mas não explica a restauração da atividade observada na presença do inibidor.",
+
+        b:"A resistência às cefalosporinas associada à restauração da atividade na presença de ácido clavulânico é compatível com produção de ESBL. O inibidor interfere na ação da enzima e permite reconhecer a inativação do β-lactâmico.",
+
+        c:"A alteração das PBPs pode reduzir a atividade dos β-lactâmicos, mas um inibidor de β-lactamase não restaura a afinidade do fármaco por uma PBP modificada."
       }
     },
+
     {
       caseText:
-        "Um isolado bacteriano apresenta resistência simultânea a diferentes fluoroquinolonas, embora pertença a uma espécie habitualmente suscetível a essa classe. Estudos laboratoriais demonstram mutação na enzima DNA girase.",
+        "Um isolado de <em>Staphylococcus aureus</em> apresenta resistência à eritromicina e à clindamicina. A investigação identifica metilação do RNA ribossômico 23S, reduzindo a ligação de antibacterianos que compartilham esse sítio, embora pertençam a classes diferentes.",
+
       prompt:
-        "Qual conceito descreve melhor esse fenômeno?",
-      correct: "c",
-      options: [
+        "Como esse padrão de resistência deve ser interpretado?",
+
+      correct:"c",
+
+      options:[
         {
-          key: "a",
-          label: "Resistência causada por transferência horizontal de plasmídeo."
+          key:"a",
+          label:"Multirresistência, porque qualquer resistência simultânea a dois antibacterianos define um perfil MDR."
         },
         {
-          key: "b",
-          label: "Resistência intrínseca."
+          key:"b",
+          label:"Dois mecanismos independentes, porque eritromicina e clindamicina pertencem a classes farmacológicas diferentes."
         },
         {
-          key: "c",
-          label: "Resistência cruzada entre antibacterianos relacionados."
-        },
-        {
-          key: "d",
-          label: "Multirresistência associada a múltiplos mecanismos independentes."
+          key:"c",
+          label:"Resistência cruzada, pois um único mecanismo compromete fármacos que compartilham o sítio de ligação ribossomal."
         }
       ],
-      feedback: {
-        a: "O caso demonstra uma mutação na DNA girase e não apresenta evidência de aquisição de genes por transferência horizontal.",
-        b: "A resistência intrínseca é uma característica natural e previsível da espécie. O caso descreve uma alteração adquirida em uma espécie habitualmente suscetível.",
-        c: "Uma alteração em um alvo compartilhado pode reduzir simultaneamente a atividade de diferentes fluoroquinolonas, caracterizando resistência cruzada entre fármacos relacionados.",
-        d: "A multirresistência descreve não suscetibilidade a múltiplas categorias de antibacterianos. O caso apresenta um mecanismo que afeta diferentes fármacos relacionados."
+
+      feedback:{
+        a:"A classificação MDR exige não suscetibilidade a pelo menos um agente em três ou mais categorias. A resistência a dois fármacos, isoladamente, não permite essa conclusão.",
+
+        b:"Classes diferentes podem ser afetadas pelo mesmo mecanismo quando compartilham um alvo ou sítio de ligação. A metilação do RNA 23S explica os dois resultados sem exigir mecanismos independentes.",
+
+        c:"A metilação do RNA ribossômico 23S modifica um sítio compartilhado por macrolídeos e lincosamidas. Assim, um único mecanismo pode reduzir a atividade de fármacos de classes diferentes, caracterizando resistência cruzada."
+      }
+    },
+
+    {
+      caseText:
+        "Em uma unidade hospitalar, <em>Klebsiella pneumoniae</em> e <em>Escherichia coli</em> isoladas de pacientes diferentes passam a apresentar resistência aos carbapenêmicos. A análise molecular identifica o mesmo gene de carbapenemase em plasmídeos semelhantes nas duas espécies.",
+
+      prompt:
+        "Qual interpretação explica melhor a disseminação desse determinante de resistência?",
+
+      correct:"b",
+
+      options:[
+        {
+          key:"a",
+          label:"Expansão de um único clone bacteriano, já que o mesmo mecanismo foi encontrado em todos os isolados."
+        },
+        {
+          key:"b",
+          label:"Transferência horizontal de um elemento genético móvel entre bactérias, inclusive de espécies diferentes."
+        },
+        {
+          key:"c",
+          label:"Seleção independente de mutações cromossômicas idênticas provocadas diretamente pelo uso de carbapenêmicos."
+        }
+      ],
+
+      feedback:{
+        a:"A disseminação clonal ocorre entre bactérias geneticamente relacionadas. A presença do mesmo gene plasmidial em espécies diferentes favorece a circulação de um elemento genético móvel.",
+
+        b:"Plasmídeos podem transportar genes de resistência e ser transferidos horizontalmente entre bactérias. Esse mecanismo permite que o mesmo determinante alcance espécies distintas.",
+
+        c:"O uso de antibacterianos exerce pressão seletiva, mas não produz de forma dirigida mutações cromossômicas idênticas. O achado de plasmídeos semelhantes sustenta transferência horizontal."
       }
     }
   ];
@@ -993,11 +1030,12 @@
   const feedback = root.querySelector("[data-p29-feedback]");
   const prevButton = root.querySelector("[data-p29-prev]");
   const nextButton = root.querySelector("[data-p29-next]");
+
   const dots = Array.from(
     root.querySelectorAll(".cap3-p29Dots span")
   );
 
-  if (
+  if(
     !progress ||
     !kicker ||
     !caseBox ||
@@ -1009,20 +1047,20 @@
     !prevButton ||
     !nextButton ||
     !dots.length
-  ) {
+  ){
     return;
   }
 
   let current = 0;
 
-  const responses = situations.map(function () {
+  const responses = situations.map(function(){
     return {
-      selected: null,
-      confirmed: false
+      selected:null,
+      confirmed:false
     };
   });
 
-  function updateNavigation() {
+  function updateNavigation(){
     const response = responses[current];
 
     prevButton.disabled = current === 0;
@@ -1036,7 +1074,7 @@
         ? "Última situação"
         : "Próxima situação →";
 
-    dots.forEach(function (dot, index) {
+    dots.forEach(function(dot, index){
       dot.classList.toggle(
         "is-active",
         index === current
@@ -1049,7 +1087,7 @@
     });
   }
 
-  function showConfirmedState(item, response) {
+  function showConfirmedState(item, response){
     const buttons = Array.from(
       optionsBox.querySelectorAll("[data-answer]")
     );
@@ -1057,7 +1095,7 @@
     const isCorrect =
       response.selected === item.correct;
 
-    buttons.forEach(function (button) {
+    buttons.forEach(function(button){
       button.disabled = true;
 
       button.classList.remove(
@@ -1066,14 +1104,14 @@
         "is-error"
       );
 
-      if (button.dataset.answer === item.correct) {
+      if(button.dataset.answer === item.correct){
         button.classList.add("is-correct");
       }
 
-      if (
+      if(
         button.dataset.answer === response.selected &&
         !isCorrect
-      ) {
+      ){
         button.classList.add("is-error");
       }
     });
@@ -1082,26 +1120,26 @@
       "cap3-p29Feedback is-visible " +
       (isCorrect ? "is-correct" : "is-error");
 
-    feedback.innerHTML =
-      "<strong>" +
-      (
-        isCorrect
-          ? "Interpretação mais adequada."
-          : "Considere novamente os dados."
-      ) +
-      "</strong>" +
-      "<p>" +
-      item.feedback[response.selected] +
-      "</p>";
+    feedback.innerHTML = `
+      <strong>
+        ${
+          isCorrect
+            ? "Interpretação mais adequada."
+            : "Considere novamente os dados."
+        }
+      </strong>
+
+      <p>${item.feedback[response.selected]}</p>
+    `;
 
     confirmButton.hidden = true;
     resetButton.hidden = false;
   }
 
-  function render() {
+  function render(){
     const item = situations[current];
     const response = responses[current];
-    const letters = ["A", "B", "C", "D"];
+    const letters = ["A", "B", "C"];
 
     progress.textContent =
       "Situação " +
@@ -1116,19 +1154,19 @@
     prompt.textContent = item.prompt;
 
     optionsBox.innerHTML = item.options
-      .map(function (option, index) {
-        return (
-          '<button type="button" data-answer="' +
-          option.key +
-          '">' +
-          '<span class="cap3-p29Letter">' +
-          letters[index] +
-          "</span>" +
-          "<span>" +
-          option.label +
-          "</span>" +
-          "</button>"
-        );
+      .map(function(option, index){
+        return `
+          <button
+            type="button"
+            data-answer="${option.key}"
+          >
+            <span class="cap3-p29Letter">
+              ${letters[index]}
+            </span>
+
+            <span>${option.label}</span>
+          </button>
+        `;
       })
       .join("");
 
@@ -1143,20 +1181,21 @@
       optionsBox.querySelectorAll("[data-answer]")
     );
 
-    buttons.forEach(function (button) {
-      if (
+    buttons.forEach(function(button){
+      if(
         !response.confirmed &&
         button.dataset.answer === response.selected
-      ) {
+      ){
         button.classList.add("is-selected");
       }
 
-      button.addEventListener("click", function () {
-        if (response.confirmed) return;
+      button.addEventListener("click", function(){
+        if(response.confirmed) return;
 
-        response.selected = button.dataset.answer;
+        response.selected =
+          button.dataset.answer;
 
-        buttons.forEach(function (itemButton) {
+        buttons.forEach(function(itemButton){
           itemButton.classList.toggle(
             "is-selected",
             itemButton === button
@@ -1167,17 +1206,17 @@
       });
     });
 
-    if (response.confirmed) {
+    if(response.confirmed){
       showConfirmedState(item, response);
     }
 
     updateNavigation();
   }
 
-  confirmButton.addEventListener("click", function () {
+  confirmButton.addEventListener("click", function(){
     const response = responses[current];
 
-    if (!response.selected) return;
+    if(!response.selected) return;
 
     response.confirmed = true;
 
@@ -1189,27 +1228,27 @@
     updateNavigation();
   });
 
-  resetButton.addEventListener("click", function () {
+  resetButton.addEventListener("click", function(){
     responses[current] = {
-      selected: null,
-      confirmed: false
+      selected:null,
+      confirmed:false
     };
 
     render();
   });
 
-  prevButton.addEventListener("click", function () {
-    if (current > 0) {
+  prevButton.addEventListener("click", function(){
+    if(current > 0){
       current -= 1;
       render();
     }
   });
 
-  nextButton.addEventListener("click", function () {
-    if (
+  nextButton.addEventListener("click", function(){
+    if(
       current < situations.length - 1 &&
       responses[current].confirmed
-    ) {
+    ){
       current += 1;
       render();
     }

@@ -24,6 +24,7 @@
   <main class="page-shell">
 
     <header class="page-header">
+
       <div class="chapter">
         Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma
       </div>
@@ -31,16 +32,18 @@
       <h1 class="page-title">
         β-lactamases de espectro estendido
       </h1>
+
     </header>
 
     <section class="prose cap5-p49-reading">
 
       <section
-        class="cap5-p49-report cap5-p49-reveal"
-        aria-label="Exemplo de laudo microbiológico com ESBL"
+        class="cap5-p49-report"
+        aria-label="Exemplo de observação sobre ESBL"
       >
+
         <span class="cap5-p49-reportLabel">
-          Laudo microbiológico
+          Observação do laudo
         </span>
 
         <strong>
@@ -48,72 +51,96 @@
         </strong>
 
         <p>
-          ESBL positiva
+          β-lactamase de espectro estendido detectada
         </p>
 
         <div class="cap5-p49-reportQuestion">
-          O que essa observação acrescenta à interpretação do antibiograma?
+          O que essa informação acrescenta ao antibiograma?
         </div>
+
       </section>
 
       <p>
-        As β-lactamases de espectro estendido, denominadas ESBL, são enzimas produzidas principalmente por espécies da ordem Enterobacterales, com destaque para <em>Escherichia coli</em>, <em>Klebsiella pneumoniae</em> e <em>Proteus mirabilis</em>. Essas enzimas hidrolisam diferentes penicilinas, cefalosporinas de amplo espectro e aztreonam, reduzindo ou abolindo a atividade desses antibacterianos <sup>1,3,4,6,11</sup>.
+        As β-lactamases de espectro estendido, denominadas ESBL, são enzimas
+        produzidas principalmente por Enterobacterales, com destaque para
+        <em>Escherichia coli</em> e <em>Klebsiella pneumoniae</em>. Elas
+        hidrolisam diferentes penicilinas, cefalosporinas de amplo espectro
+        e aztreonam, reduzindo ou eliminando a atividade desses
+        antibacterianos <sup>1,3,4,6,11</sup>.
       </p>
 
       <p>
-        Ao informar “ESBL positiva”, o laboratório não apresenta apenas uma sigla. Ele indica que o microrganismo possui um mecanismo de resistência capaz de modificar a interpretação dos β-lactâmicos e de influenciar a escolha terapêutica.
+        A presença de ESBL ajuda a explicar um perfil de resistência aos
+        β-lactâmicos, mas não deve ser interpretada isoladamente. As categorias
+        S, I e R devem ser consideradas conforme os pontos de corte e as regras
+        vigentes, juntamente com a espécie identificada, o sítio da infecção,
+        a gravidade e o perfil completo de suscetibilidade <sup>3,4,8</sup>.
       </p>
 
       <section
-        class="cap5-p49-interaction cap5-p49-reveal"
+        class="cap5-p49-comparison"
         data-cap5-p49
-        aria-label="Reconhecimento laboratorial da produção de ESBL"
+        aria-labelledby="cap5P49ComparisonTitle"
       >
 
-        <p class="cap5-p49-instruction">
-          Selecione uma etapa para observar como o laboratório reconhece o perfil sugestivo e demonstra a ação do ácido clavulânico.
-        </p>
+        <div class="cap5-p49-comparisonHead">
+
+          <span class="cap5-p49-eyebrow">
+            Investigação laboratorial
+          </span>
+
+          <h2 id="cap5P49ComparisonTitle">
+            Compare os achados
+          </h2>
+
+          <p>
+            Alterne entre as imagens para diferenciar um perfil que levanta
+            suspeita de uma demonstração fenotípica da ação da enzima.
+          </p>
+
+        </div>
 
         <div
-          class="cap5-p49-tabs"
+          class="cap5-p49-controls"
           role="tablist"
-          aria-label="Etapas da investigação fenotípica da ESBL"
+          aria-label="Comparação dos achados relacionados à ESBL"
         >
 
           <button
-            class="cap5-p49-tab is-active"
+            id="cap5P49TabScreening"
+            class="cap5-p49-control is-active"
             type="button"
             role="tab"
-            id="cap5P49TabScreening"
             aria-selected="true"
-            aria-controls="cap5P49View"
+            aria-controls="cap5P49Panel"
             tabindex="0"
-            data-p49-target="screening"
+            data-p49-view="screening"
           >
+            <span>1</span>
             Perfil sugestivo
           </button>
 
           <button
-            class="cap5-p49-tab"
+            id="cap5P49TabConfirmation"
+            class="cap5-p49-control"
             type="button"
             role="tab"
-            id="cap5P49TabConfirmation"
             aria-selected="false"
-            aria-controls="cap5P49View"
+            aria-controls="cap5P49Panel"
             tabindex="-1"
-            data-p49-target="confirmation"
+            data-p49-view="confirmation"
           >
-            Confirmação fenotípica
+            <span>2</span>
+            Demonstração fenotípica
           </button>
 
         </div>
 
         <article
-          id="cap5P49View"
-          class="cap5-p49-view"
+          id="cap5P49Panel"
+          class="cap5-p49-panel"
           role="tabpanel"
           aria-labelledby="cap5P49TabScreening"
-          aria-live="polite"
         >
 
           <figure class="cap5-p49-figure">
@@ -123,21 +150,18 @@
               class="cap5-p49-zoom"
               type="button"
               data-zoom="../../assets/capitulo-05/imagens/esbl-perfil-sugestivo.png"
-              aria-label="Ampliar imagem do perfil fenotípico sugestivo de ESBL"
+              aria-label="Ampliar imagem do perfil sugestivo de ESBL"
             >
               <img
                 id="cap5P49Image"
                 src="../../assets/capitulo-05/imagens/esbl-perfil-sugestivo.png"
-                alt="Teste de suscetibilidade com perfil sugestivo de produção de ESBL"
-                loading="lazy"
+                alt="Teste de suscetibilidade apresentando perfil sugestivo de produção de ESBL"
               />
             </button>
 
-            <figcaption
-              id="cap5P49Caption"
-              class="cap5-p49-caption"
-            >
-              Perfil fenotípico que pode levantar a suspeita de produção de ESBL.
+            <figcaption id="cap5P49Caption">
+              A redução da suscetibilidade a determinados β-lactâmicos pode
+              levantar a suspeita de produção de ESBL.
             </figcaption>
 
           </figure>
@@ -151,47 +175,37 @@
               Etapa de triagem
             </span>
 
-            <h2
-              id="cap5P49Title"
-              class="cap5-p49-title"
-            >
-              Redução da suscetibilidade a cefalosporinas de amplo espectro
-            </h2>
+            <h3 id="cap5P49Title">
+              O perfil pode levantar uma suspeita
+            </h3>
 
-            <div
-              id="cap5P49Body"
-              class="cap5-p49-infoGrid"
-            >
+            <div class="cap5-p49-analysisCards">
 
-              <article class="cap5-p49-info">
-                <span>O que o laboratório observa</span>
+              <article>
+                <strong>O que é observado</strong>
 
-                <p>
-                  Um padrão de redução dos halos de inibição frente a determinados β-lactâmicos utilizados na investigação.
+                <p id="cap5P49Observed">
+                  Redução da suscetibilidade a determinados β-lactâmicos
+                  utilizados na triagem.
                 </p>
               </article>
 
-              <article class="cap5-p49-info">
-                <span>O que esse padrão indica</span>
+              <article>
+                <strong>O que permite concluir</strong>
 
-                <p>
-                  O comportamento pode levantar a suspeita de produção de uma β-lactamase de espectro estendido.
+                <p id="cap5P49Conclusion">
+                  O padrão pode indicar a necessidade de investigar a
+                  produção de ESBL.
                 </p>
               </article>
 
-              <article class="cap5-p49-info">
-                <span>O que ainda não conclui</span>
+              <article class="cap5-p49-analysisCardsImportant">
+                <strong>Cuidado</strong>
 
-                <p>
-                  O padrão sugestivo, isoladamente, não deve ser confundido com confirmação definitiva do mecanismo.
-                </p>
-              </article>
-
-              <article class="cap5-p49-info cap5-p49-info--key">
-                <span>Ponto principal</span>
-
-                <p>
-                  A triagem seleciona isolados que exigem avaliação complementar pelo método adotado pelo laboratório.
+                <p id="cap5P49Caution">
+                  Um perfil sugestivo não deve ser apresentado como mecanismo
+                  confirmado sem que os critérios adotados tenham sido
+                  atendidos.
                 </p>
               </article>
 
@@ -204,57 +218,121 @@
       </section>
 
       <section
-        class="cap5-p49-clinical cap5-p49-reveal"
-        aria-labelledby="cap5P49ClinicalTitle"
+        class="cap5-p49-action"
+        aria-labelledby="cap5P49ActionTitle"
       >
 
-        <h2 id="cap5P49ClinicalTitle">
-          O que muda na antibioticoterapia
+        <div class="cap5-p49-actionHead">
 
-        <div class="cap5-p49-clinicalGrid">
+          <span class="cap5-p49-actionEyebrow">
+            Aplicação do resultado
+          </span>
+
+          <h2 id="cap5P49ActionTitle">
+            Como agir diante da observação “ESBL detectada”?
+          </h2>
+
+        </div>
+
+        <div class="cap5-p49-actionFlow">
 
           <article>
-            <span>Mecanismo reconhecido</span>
 
-            <p>
-              O isolado produz uma enzima capaz de comprometer diferentes β-lactâmicos.
-            </p>
+            <span>1</span>
+
+            <div>
+              <strong>Confirme a relevância do isolamento</strong>
+
+              <p>
+                Relacione o microrganismo ao tipo de amostra, ao sítio da
+                infecção e ao quadro clínico. A detecção de ESBL não diferencia,
+                isoladamente, colonização de infecção.
+              </p>
+            </div>
+
           </article>
 
           <article>
-            <span>Leitura do painel</span>
 
-            <p>
-              Os resultados devem ser interpretados de forma integrada, considerando a espécie e os critérios vigentes.
-            </p>
+            <span>2</span>
+
+            <div>
+              <strong>Leia o antibiograma completo</strong>
+
+              <p>
+                Verifique as categorias S, I e R e as observações vinculadas
+                aos β-lactâmicos e às demais opções testadas.
+              </p>
+            </div>
+
           </article>
 
           <article>
-            <span>Contexto da infecção</span>
 
-            <p>
-              Sítio infeccioso, gravidade, carga bacteriana e possibilidade de controle do foco influenciam a decisão.
-            </p>
+            <span>3</span>
+
+            <div>
+              <strong>Avalie o contexto da infecção</strong>
+
+              <p>
+                Considere gravidade, sítio infeccioso, carga bacteriana,
+                controle do foco, exposição possível e características
+                clínicas.
+              </p>
+            </div>
+
           </article>
 
           <article>
-            <span>Escolha terapêutica</span>
 
-            <p>
-              A sigla ESBL não determina sozinha um tratamento único; é necessário avaliar o perfil completo de suscetibilidade.
-            </p>
+            <span>4</span>
+
+            <div>
+              <strong>Defina a conduta de forma integrada</strong>
+
+              <p>
+                Utilize recomendações clínicas atualizadas e o perfil de
+                suscetibilidade. Em infecções graves ou com opções limitadas,
+                considere avaliação especializada.
+              </p>
+            </div>
+
           </article>
 
         </div>
 
       </section>
 
-      <aside class="cap5-p49-caution cap5-p49-reveal">
-        Em infecções graves ou invasivas, a presença de ESBL exige análise cuidadosa das cefalosporinas de amplo espectro e das demais opções disponíveis. A decisão não deve se basear apenas na sigla nem em um resultado isolado.
+      <aside class="cap5-p49-avoid">
+
+        <span class="cap5-p49-avoidIcon" aria-hidden="true">
+          !
+        </span>
+
+        <div>
+          <strong>Evite conclusões automáticas</strong>
+
+          <p>
+            A identificação de ESBL não significa que todos os β-lactâmicos
+            sejam inativos nem determina, sozinha, a utilização obrigatória
+            de um único tratamento. Também não autoriza modificar por conta
+            própria as categorias liberadas pelo laboratório.
+          </p>
+        </div>
+
       </aside>
 
-      <aside class="cap5-p49-principle cap5-p49-reveal">
-        <strong>ESBL não é apenas uma sigla no laudo.</strong> Ela informa que a bactéria produz uma enzima capaz de comprometer diferentes β-lactâmicos e que esse mecanismo deve ser incorporado à interpretação do antibiograma antes da definição terapêutica.
+      <aside class="cap5-p49-principle">
+
+        <strong>Mensagem principal</strong>
+
+        <p>
+          A observação sobre ESBL identifica um mecanismo capaz de comprometer
+          diferentes β-lactâmicos. Sua utilização exige a leitura conjunta da
+          espécie, das categorias do antibiograma, do sítio da infecção e das
+          condições clínicas.
+        </p>
+
       </aside>
 
     </section>

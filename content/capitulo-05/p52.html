@@ -1,26 +1,37 @@
-<!doctype html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
   <title>Capítulo 5 — Página 52</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap"
     rel="stylesheet"
-  >
+  />
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
   <link rel="stylesheet" href="../../css/capitulo-05.css" />
 </head>
 
-<body class="cap5-page52">
-
+<body>
   <main class="page-shell">
 
     <header class="page-header">
@@ -36,40 +47,61 @@
     <section class="prose cap5-p52-reading">
 
       <p>
-        Além dos mecanismos observados em bacilos Gram-negativos, o laudo microbiológico pode apresentar fenótipos de resistência relacionados aos cocos Gram-positivos. Essas observações complementam as categorias S, I e R e podem modificar diretamente a interpretação do antibiograma e a escolha terapêutica <sup>1,3,4,6</sup>.
+        Além dos mecanismos observados em bacilos Gram-negativos, o laudo
+        microbiológico pode apresentar fenótipos de resistência relacionados
+        aos cocos Gram-positivos. Essas observações complementam as categorias
+        S, I e R e podem modificar a interpretação do antibiograma
+        <sup>1,3,4,6</sup>.
       </p>
 
       <p>
-        MRSA ou ORSA, VRE, resistência MLSB induzível e HLAR não representam apenas siglas laboratoriais. Cada resultado informa que uma opção antimicrobiana ou uma estratégia terapêutica específica pode ter perdido atividade.
+        MRSA ou ORSA, VRE, resistência MLSB induzível e HLAR não representam
+        resistência a todos os antibacterianos. Cada resultado afeta uma classe,
+        um antibacteriano ou uma estratégia terapêutica específica. Por isso, é
+        necessário reconhecer exatamente o alcance de cada observação.
       </p>
 
       <section
-        class="cap5-p52-gallery cap5-p52-reveal"
+        class="cap5-p52-map"
         data-cap5-p52
-        aria-label="Fenótipos de resistência em cocos Gram-positivos"
+        aria-labelledby="cap5P52MapTitle"
       >
+        <div class="cap5-p52-mapHeader">
+          <span class="cap5-p52-eyebrow">
+            Interprete a observação
+          </span>
 
-        <p class="cap5-p52-instruction">
-          Selecione uma observação do laudo para reconhecer o fenótipo laboratorial e sua principal consequência terapêutica.
-        </p>
+          <h2 id="cap5P52MapTitle">
+            O que este resultado modifica?
+          </h2>
+
+          <p>
+            Explore os quatro resultados e acompanhe o caminho entre o achado
+            laboratorial e sua consequência prática.
+          </p>
+        </div>
 
         <div
-          class="cap5-p52-tabs"
+          class="cap5-p52-selector"
           role="tablist"
-          aria-label="Observações microbiológicas"
+          aria-label="Fenótipos de resistência em cocos Gram-positivos"
         >
-
           <button
-            class="cap5-p52-tab is-active"
+            class="cap5-p52-tab is-active is-visited"
             type="button"
             role="tab"
             id="cap5P52TabMrsa"
             aria-selected="true"
-            aria-controls="cap5P52View"
+            aria-controls="cap5P52Panel"
             tabindex="0"
-            data-p52-target="mrsa"
+            data-p52-key="mrsa"
           >
-            MRSA / ORSA
+            <span class="cap5-p52-tabNumber">1</span>
+
+            <span>
+              <strong>MRSA / ORSA</strong>
+              <small>β-lactâmicos</small>
+            </span>
           </button>
 
           <button
@@ -78,11 +110,16 @@
             role="tab"
             id="cap5P52TabVre"
             aria-selected="false"
-            aria-controls="cap5P52View"
+            aria-controls="cap5P52Panel"
             tabindex="-1"
-            data-p52-target="vre"
+            data-p52-key="vre"
           >
-            VRE
+            <span class="cap5-p52-tabNumber">2</span>
+
+            <span>
+              <strong>VRE</strong>
+              <small>Vancomicina</small>
+            </span>
           </button>
 
           <button
@@ -91,11 +128,16 @@
             role="tab"
             id="cap5P52TabMlsb"
             aria-selected="false"
-            aria-controls="cap5P52View"
+            aria-controls="cap5P52Panel"
             tabindex="-1"
-            data-p52-target="mlsb"
+            data-p52-key="mlsb"
           >
-            D-test positivo
+            <span class="cap5-p52-tabNumber">3</span>
+
+            <span>
+              <strong>D-test positivo</strong>
+              <small>Clindamicina</small>
+            </span>
           </button>
 
           <button
@@ -104,201 +146,218 @@
             role="tab"
             id="cap5P52TabHlar"
             aria-selected="false"
-            aria-controls="cap5P52View"
+            aria-controls="cap5P52Panel"
             tabindex="-1"
-            data-p52-target="hlar"
+            data-p52-key="hlar"
           >
-            HLAR
-          </button>
+            <span class="cap5-p52-tabNumber">4</span>
 
+            <span>
+              <strong>HLAR</strong>
+              <small>Sinergia</small>
+            </span>
+          </button>
         </div>
 
         <article
-          id="cap5P52View"
-          class="cap5-p52-view cap5-p52-view--mrsa"
+          id="cap5P52Panel"
+          class="cap5-p52-panel cap5-p52-panel--mrsa"
           role="tabpanel"
           aria-labelledby="cap5P52TabMrsa"
           aria-live="polite"
         >
+          <div class="cap5-p52-evidence">
 
-          <figure class="cap5-p52-figure">
+            <figure class="cap5-p52-figure">
+              <button
+                id="cap5P52Zoom"
+                class="cap5-p52-zoom"
+                type="button"
+                aria-label="Ampliar imagem"
+              >
+                <img
+                  id="cap5P52Image"
+                  src="../../assets/capitulo-05/imagens/mrsa-orsa-disco.png"
+                  alt="Teste fenotípico com cefoxitina para detecção de resistência à meticilina"
+                  loading="lazy"
+                />
 
-            <button
-              id="cap5P52Zoom"
-              class="cap5-p52-zoom"
-              type="button"
-              data-zoom="../../assets/capitulo-05/imagens/mrsa-orsa-disco.png"
-              aria-label="Ampliar imagem do teste fenotípico para MRSA"
-            >
-              <img
-                id="cap5P52Image"
-                src="../../assets/capitulo-05/imagens/mrsa-orsa-disco.png"
-                alt="Teste fenotípico com cefoxitina para detecção de MRSA"
-                loading="lazy"
-              />
-            </button>
+                <span class="cap5-p52-zoomHint">
+                  ⤢ Ampliar
+                </span>
+              </button>
 
-            <figcaption
-              id="cap5P52Caption"
-              class="cap5-p52-caption"
-            >
-              Detecção fenotípica da resistência à meticilina em <em>Staphylococcus aureus</em>.
-            </figcaption>
+              <figcaption id="cap5P52Caption">
+                Detecção fenotípica da resistência à meticilina em
+                <em>Staphylococcus aureus</em>.
+              </figcaption>
+            </figure>
 
-          </figure>
+            <div class="cap5-p52-report">
+              <span>Exemplo de observação</span>
 
-          <section class="cap5-p52-clinicalMeaning">
+              <strong id="cap5P52Report">
+                MRSA/ORSA detectado
+              </strong>
+            </div>
+          </div>
 
-            <span
-              id="cap5P52Kicker"
-              class="cap5-p52-kicker"
-            >
-              Consequência para o painel
-            </span>
+          <div class="cap5-p52-reasoning">
 
-            <h2
-              id="cap5P52Title"
-              class="cap5-p52-title"
-            >
-              A resistência modifica a interpretação dos β-lactâmicos
-            </h2>
+            <div class="cap5-p52-step">
+              <span class="cap5-p52-stepNumber">1</span>
 
-            <p
-              id="cap5P52Text"
-              class="cap5-p52-text"
-            >
-              A identificação de MRSA ou ORSA modifica a interpretação do grupo dos β-lactâmicos. A maioria desses agentes deve ser considerada inativa contra o isolado, exceto os antibacterianos especificamente validados para atividade contra MRSA.
-            </p>
+              <div>
+                <small>O que foi encontrado?</small>
 
-            <div
-              id="cap5P52Key"
-              class="cap5-p52-key"
-            >
-              <strong>Pergunta prática:</strong>
-              o resultado indica apenas resistência à oxacilina ou modifica a interpretação de toda a classe?
+                <h3 id="cap5P52FindingTitle">
+                  Resistência à meticilina
+                </h3>
+
+                <p id="cap5P52Finding">
+                  O fenótipo indica resistência mediada, em geral, por uma
+                  proteína ligadora de penicilina com baixa afinidade pelos
+                  β-lactâmicos.
+                </p>
+              </div>
             </div>
 
-          </section>
+            <div class="cap5-p52-arrow" aria-hidden="true">
+              ↓
+            </div>
 
+            <div class="cap5-p52-step">
+              <span class="cap5-p52-stepNumber">2</span>
+
+              <div>
+                <small>O que o resultado modifica?</small>
+
+                <h3 id="cap5P52EffectTitle">
+                  Interpretação dos β-lactâmicos
+                </h3>
+
+                <p id="cap5P52Effect">
+                  A maioria dos β-lactâmicos deve ser considerada sem atividade
+                  contra o isolado, mesmo que alguns resultados individuais
+                  pareçam favoráveis.
+                </p>
+              </div>
+            </div>
+
+            <div class="cap5-p52-arrow" aria-hidden="true">
+              ↓
+            </div>
+
+            <div class="cap5-p52-step">
+              <span class="cap5-p52-stepNumber">3</span>
+
+              <div>
+                <small>Como interpretar?</small>
+
+                <h3 id="cap5P52ActionTitle">
+                  Consulte as opções especificamente validadas
+                </h3>
+
+                <p id="cap5P52Action">
+                  A exceção envolve apenas antibacterianos com atividade
+                  anti-MRSA validada e resultado interpretável para o isolado.
+                  A escolha ainda depende do sítio da infecção e do perfil
+                  completo de suscetibilidade.
+                </p>
+              </div>
+            </div>
+
+            <div
+              id="cap5P52Avoid"
+              class="cap5-p52-avoid"
+            >
+              <strong>Evite concluir:</strong>
+
+              <span>
+                “A resistência refere-se somente à oxacilina.”
+              </span>
+            </div>
+          </div>
         </article>
 
-      </section>
+        <div class="cap5-p52-progress">
+          <div class="cap5-p52-progressText">
+            <span>Resultados explorados</span>
 
-      <aside class="cap5-p52-readingRule cap5-p52-reveal">
-        <strong>Como ler essas observações:</strong> identifique primeiro qual opção terapêutica ou estratégia é afetada. MRSA modifica a leitura dos β-lactâmicos; VRE compromete a vancomicina; o D-test altera a interpretação da clindamicina; e HLAR compromete a sinergia com aminoglicosídeos.
-      </aside>
+            <strong id="cap5P52ProgressText">
+              1 de 4
+            </strong>
+          </div>
 
-      <section
-        class="cap5-p52-case cap5-p52-reveal"
-        data-cap5-p52-case
-        aria-labelledby="cap5P52CaseTitle"
-      >
-
-        <div class="cap5-p52-caseHeader">
-
-          <span class="cap5-p52-caseEyebrow">
-            Aplicação clínica
-          </span>
-
-          <h2 id="cap5P52CaseTitle">
-            O que o resultado HLAR acrescenta?
-          </h2>
-
+          <div
+            class="cap5-p52-progressTrack"
+            role="progressbar"
+            aria-label="Resultados explorados"
+            aria-valuemin="0"
+            aria-valuemax="4"
+            aria-valuenow="1"
+          >
+            <span id="cap5P52ProgressBar"></span>
+          </div>
         </div>
 
-        <div class="cap5-p52-report">
-
-          <span>Hemocultura</span>
-
-          <strong>
-            <em>Enterococcus faecalis</em>
-          </strong>
-
-          <ul>
-            <li>Ampicilina — S</li>
-            <li>Vancomicina — S</li>
-            <li>HLAR para gentamicina — positivo</li>
-          </ul>
-
-        </div>
-
-        <p class="cap5-p52-question">
-          Qual é a interpretação mais adequada?
-        </p>
-
-        <div
-          class="cap5-p52-options"
-          role="group"
-          aria-label="Alternativas para interpretação do HLAR"
-        >
-
-          <button
-            class="cap5-p52-option"
-            type="button"
-            data-p52-answer="ampicillin"
-          >
-            <span>A</span>
-
-            <p>
-              A ampicilina deve ser considerada resistente.
-            </p>
-          </button>
-
-          <button
-            class="cap5-p52-option"
-            type="button"
-            data-p52-answer="vancomycin"
-          >
-            <span>B</span>
-
-            <p>
-              O isolado deve ser classificado como VRE.
-            </p>
-          </button>
-
-          <button
-            class="cap5-p52-option"
-            type="button"
-            data-p52-answer="synergy"
-          >
-            <span>C</span>
-
-            <p>
-              A sinergia esperada entre gentamicina e um agente ativo sobre a parede celular está comprometida.
-            </p>
-          </button>
-
-          <button
-            class="cap5-p52-option"
-            type="button"
-            data-p52-answer="allaminoglycosides"
-          >
-            <span>D</span>
-
-            <p>
-              O resultado significa que todos os aminoglicosídeos são sempre ineficazes em qualquer contexto.
-            </p>
-          </button>
-
-        </div>
-
-        <div
-          id="cap5P52Feedback"
-          class="cap5-p52-feedback"
+        <aside
+          id="cap5P52Completion"
+          class="cap5-p52-completion"
           hidden
-          aria-live="polite"
-        ></div>
+        >
+          <span aria-hidden="true">✓</span>
 
+          <div>
+            <strong>Mapa concluído</strong>
+
+            <p>
+              As quatro observações não significam resistência global.
+              Cada uma modifica uma parte específica da interpretação.
+            </p>
+          </div>
+        </aside>
       </section>
 
-      <aside class="cap5-p52-principle cap5-p52-reveal">
-        As observações complementares modificam partes específicas do raciocínio terapêutico. Elas devem ser analisadas em conjunto com a espécie bacteriana, o perfil completo de suscetibilidade, o sítio da infecção e as condições clínicas do paciente.
+      <section class="cap5-p52-summary">
+        <h2>Leitura rápida do laudo</h2>
+
+        <div class="cap5-p52-summaryGrid">
+          <article>
+            <strong>MRSA/ORSA</strong>
+            <span>Modifica a leitura dos β-lactâmicos.</span>
+          </article>
+
+          <article>
+            <strong>VRE</strong>
+            <span>Indica resistência à vancomicina.</span>
+          </article>
+
+          <article>
+            <strong>D-test positivo</strong>
+            <span>Revela resistência induzível à clindamicina.</span>
+          </article>
+
+          <article>
+            <strong>HLAR</strong>
+            <span>
+              Compromete a sinergia com o aminoglicosídeo testado.
+            </span>
+          </article>
+        </div>
+      </section>
+
+      <aside class="cap5-p52-principle">
+        <strong>Princípio para a interpretação:</strong>
+        identifique qual antibacteriano, classe ou estratégia é afetada pela
+        observação. Depois, integre essa informação à espécie bacteriana, ao
+        perfil completo de suscetibilidade, ao sítio da infecção e às
+        características clínicas.
       </aside>
 
     </section>
 
     <nav class="pager" aria-label="Paginação">
-
       <a
         class="btn"
         href="p51.html"
@@ -314,14 +373,56 @@
       <a
         class="btn primary"
         href="p53.html"
-        aria-label="Ir para a próxima página"
+        aria-label="Ir para o quiz do capítulo"
       >
         Próxima →
       </a>
-
     </nav>
 
   </main>
+
+  <!-- Modal de ampliação das imagens -->
+  <div
+    id="cap5P52ImageModal"
+    class="cap5-p52-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cap5P52ModalTitle"
+    hidden
+  >
+    <div
+      class="cap5-p52-modalBackdrop"
+      data-p52-close-modal
+    ></div>
+
+    <div
+      class="cap5-p52-modalContent"
+      role="document"
+    >
+      <div class="cap5-p52-modalHeader">
+        <h2 id="cap5P52ModalTitle">
+          Imagem ampliada
+        </h2>
+
+        <button
+          id="cap5P52ModalClose"
+          class="cap5-p52-modalClose"
+          type="button"
+          aria-label="Fechar imagem ampliada"
+        >
+          ×
+        </button>
+      </div>
+
+      <img
+        id="cap5P52ModalImage"
+        src=""
+        alt=""
+      />
+
+      <p id="cap5P52ModalCaption"></p>
+    </div>
+  </div>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-05.js"></script>

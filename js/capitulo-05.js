@@ -1634,739 +1634,386 @@
 })();
 /* =========================
    CAPÍTULO 5 — PÁGINA 42
-   GRAM-POSITIVAS E GRAM-NEGATIVAS
+   PERCURSO PELO ENVELOPE
    ========================= */
 
-(function initCap5Page42(){
-  const envelopeRoot =
-    document.querySelector("[data-cap5-p42-envelope]");
-
-  if(envelopeRoot){
-    initEnvelope(envelopeRoot);
-  }
-
-  const quizRoot =
-    document.querySelector("[data-cap5-p42-quiz]");
-
-  if(quizRoot){
-    initQuiz(quizRoot);
-  }
-
-  initTableModal();
-  initReveal();
-
-
-  /* =========================
-     ABAS DO ENVELOPE
-     ========================= */
-
-  function initEnvelope(root){
-    const tabs = Array.from(
-      root.querySelectorAll("[data-p42-envelope-target]")
-    );
-
-    const view =
-      root.querySelector("#cap5P42EnvelopeView");
-
-    const image =
-      root.querySelector("#cap5P42EnvelopeImage");
-
-    const caption =
-      root.querySelector("#cap5P42EnvelopeCaption");
-
-    const kicker =
-      root.querySelector("#cap5P42EnvelopeKicker");
-
-    const title =
-      root.querySelector("#cap5P42EnvelopeTitle");
-
-    const body =
-      root.querySelector("#cap5P42EnvelopeBody");
-
-    const zoomButton =
-      root.querySelector("#cap5P42EnvelopeZoom");
-
-    if(
-      !tabs.length ||
-      !view ||
-      !image ||
-      !caption ||
-      !kicker ||
-      !title ||
-      !body ||
-      !zoomButton
-    ){
-      return;
-    }
-
-    const states = {
-      positive:{
-        tabId:"cap5P42TabPositive",
-        image:"../../assets/capitulo-05/imagens/gram-positivo1.png",
-        alt:"Representação do envelope celular de bactéria Gram-positiva",
-        caption:"Organização do envelope celular de uma bactéria Gram-positiva.",
-        kicker:"Implicação estrutural",
-        title:"Parede celular como alvo terapêutico",
-        body:`
-          <div class="cap5-p42-infoGrid">
-
-            <article class="cap5-p42-info">
-              <span>Entrada dos antibacterianos</span>
-              <p>A ausência de membrana externa elimina uma importante barreira adicional à penetração de diversas moléculas.</p>
-            </article>
-
-            <article class="cap5-p42-info">
-              <span>Alvo farmacológico</span>
-              <p>A síntese do peptidoglicano constitui um alvo relevante para β-lactâmicos e glicopeptídeos.</p>
-            </article>
-
-            <article class="cap5-p42-info">
-              <span>Interpretação do Gram</span>
-              <p>O resultado orienta inicialmente para grupos bacterianos com organização estrutural distinta das Gram-negativas.</p>
-            </article>
-
-            <article class="cap5-p42-info cap5-p42-info--key">
-              <span>Limite clínico</span>
-              <p>A reação Gram-positiva não permite prever isoladamente a suscetibilidade do microrganismo.</p>
-            </article>
-
-          </div>
-        `
-      },
-
-      negative:{
-        tabId:"cap5P42TabNegative",
-        image:"../../assets/capitulo-05/imagens/gram-negativo1.png",
-        alt:"Representação do envelope celular de bactéria Gram-negativa",
-        caption:"Organização do envelope celular de uma bactéria Gram-negativa.",
-        kicker:"Barreira estrutural",
-        title:"Permeabilidade e mecanismos de resistência",
-        body:`
-          <div class="cap5-p42-infoGrid">
-
-            <article class="cap5-p42-info">
-              <span>Entrada dos antibacterianos</span>
-              <p>A membrana externa restringe a passagem de diversas moléculas, e a entrada de compostos hidrofílicos pode depender de porinas.</p>
-            </article>
-
-            <article class="cap5-p42-info">
-              <span>Inativação enzimática</span>
-              <p>Enzimas presentes no espaço periplasmático podem inativar alguns antibacterianos antes que alcancem seus alvos.</p>
-            </article>
-
-            <article class="cap5-p42-info">
-              <span>Resistência combinada</span>
-              <p>Alterações de porinas, bombas de efluxo e enzimas inativadoras podem atuar de forma associada.</p>
-            </article>
-
-            <article class="cap5-p42-info cap5-p42-info--key">
-              <span>Implicação clínica</span>
-              <p>A maior complexidade estrutural ajuda a explicar a dificuldade terapêutica observada em muitos bacilos Gram-negativos.</p>
-            </article>
-
-          </div>
-        `
-      }
-    };
-
-    let transitionTimer = null;
-
-    function render(target){
-      const state = states[target];
-
-      if(!state) return;
-
-      tabs.forEach(function(tab){
-        const active =
-          tab.dataset.p42EnvelopeTarget === target;
-
-        tab.classList.toggle(
-          "is-active",
-          active
-        );
-
-        tab.setAttribute(
-          "aria-selected",
-          active ? "true" : "false"
-        );
-
-        tab.setAttribute(
-          "tabindex",
-          active ? "0" : "-1"
-        );
-      });
-
-      view.setAttribute(
-        "aria-labelledby",
-        state.tabId
-      );
-
-      window.clearTimeout(transitionTimer);
-      image.classList.add("is-changing");
-
-      transitionTimer =
-        window.setTimeout(function(){
-
-          image.src = state.image;
-          image.alt = state.alt;
-
-          caption.textContent = state.caption;
-          kicker.textContent = state.kicker;
-          title.textContent = state.title;
-          body.innerHTML = state.body;
-
-          zoomButton.dataset.zoom = state.image;
-
-          zoomButton.setAttribute(
-            "aria-label",
-            "Ampliar imagem: " + state.title
-          );
-
-          image.classList.remove("is-changing");
-
-        }, 140);
-    }
-
-    tabs.forEach(function(tab, index){
-
-      tab.addEventListener("click", function(){
-        render(tab.dataset.p42EnvelopeTarget);
-      });
-
-      tab.addEventListener("keydown", function(event){
-        let nextIndex = null;
-
-        if(
-          event.key === "ArrowRight" ||
-          event.key === "ArrowDown"
-        ){
-          nextIndex =
-            (index + 1) % tabs.length;
-        }
-
-        if(
-          event.key === "ArrowLeft" ||
-          event.key === "ArrowUp"
-        ){
-          nextIndex =
-            (index - 1 + tabs.length) %
-            tabs.length;
-        }
-
-        if(event.key === "Home"){
-          nextIndex = 0;
-        }
-
-        if(event.key === "End"){
-          nextIndex = tabs.length - 1;
-        }
-
-        if(nextIndex === null) return;
-
-        event.preventDefault();
-
-        tabs[nextIndex].focus();
-
-        render(
-          tabs[nextIndex]
-            .dataset.p42EnvelopeTarget
-        );
-      });
-
-    });
-
-    render("positive");
-  }
-
-
-  /* =========================
-     SITUAÇÕES CLÍNICAS
-     ========================= */
-
-  function initQuiz(root){
-    const context =
-      root.querySelector("#cap5P42QuizContext");
-
-    const question =
-      root.querySelector("#cap5P42QuizQuestion");
-
-    const options =
-      root.querySelector("#cap5P42QuizOptions");
-
-    const feedback =
-      root.querySelector("#cap5P42QuizFeedback");
-
-    const counter =
-      root.querySelector("#cap5P42QuizCounter");
-
-    const prev =
-      root.querySelector("#cap5P42QuizPrev");
-
-    const next =
-      root.querySelector("#cap5P42QuizNext");
-
-    const dots =
-      root.querySelector("#cap5P42QuizDots");
-
-    if(
-      !context ||
-      !question ||
-      !options ||
-      !feedback ||
-      !counter ||
-      !prev ||
-      !next ||
-      !dots
-    ){
-      return;
-    }
-
-    const cases = [
-      {
-        context:`
-          <p>Um homem é internado com sepse de provável origem urinária. Após 12 horas de incubação, a hemocultura torna-se positiva.</p>
-          <span class="cap5-p42-labResult">Bacilos Gram-negativos</span>
-        `,
-        question:
-          "Qual conclusão microbiológica pode ser feita neste momento?",
-        options:[
-          {
-            text:"A bactéria já foi identificada como Escherichia coli.",
-            feedback:"A coloração de Gram não identifica a espécie. Diversos bacilos Gram-negativos apresentam aparência microscópica semelhante."
-          },
-          {
-            text:"O antibiograma pode ser previsto.",
-            feedback:"O perfil de suscetibilidade somente será conhecido após o isolamento e a realização do teste de suscetibilidade."
-          },
-          {
-            text:"O microrganismo pertence a um grupo que possui membrana externa, característica que pode dificultar a entrada de alguns antimicrobianos e favorecer mecanismos de resistência.",
-            feedback:"A membrana externa é típica das Gram-negativas e pode coexistir com mecanismos como β-lactamases, alterações de porinas e bombas de efluxo."
-          },
-          {
-            text:"O tratamento definitivo já pode ser definido.",
-            feedback:"O Gram orienta a cobertura empírica, mas o tratamento definitivo depende da identificação e do antibiograma."
-          }
-        ],
-        correct:2
-      },
-
-      {
-        context:`
-          <p>Durante a discussão do caso anterior, um estudante pergunta por que muitas infecções causadas por bacilos Gram-negativos podem apresentar maior dificuldade terapêutica.</p>
-        `,
-        question:
-          "Qual característica explica melhor essa diferença?",
-        options:[
-          {
-            text:"Todas as bactérias Gram-negativas produzem carbapenemases.",
-            feedback:"A produção de carbapenemases não ocorre em todas as Gram-negativas e varia conforme a espécie e a cepa."
-          },
-          {
-            text:"A presença de membrana externa, associada a mecanismos como β-lactamases, alterações de porinas e bombas de efluxo, dificulta a ação de diversos antimicrobianos.",
-            feedback:"A combinação entre barreiras estruturais e mecanismos de resistência pode limitar a entrada e a atividade dos antimicrobianos."
-          },
-          {
-            text:"As Gram-negativas possuem parede celular mais espessa.",
-            feedback:"A camada de peptidoglicano das Gram-negativas é mais delgada que a das Gram-positivas."
-          },
-          {
-            text:"As Gram-negativas não possuem parede celular.",
-            feedback:"As Gram-negativas possuem parede celular delgada, localizada entre a membrana citoplasmática e a membrana externa."
-          }
-        ],
-        correct:1
-      },
-
-      {
-        context:`
-          <p>Uma hemocultura apresenta o seguinte resultado preliminar:</p>
-          <span class="cap5-p42-labResult">Cocos Gram-positivos em cachos</span>
-        `,
-        question:
-          "Qual grupo bacteriano passa a ser o principal suspeito?",
-        options:[
-          {
-            text:"Staphylococcus.",
-            feedback:"O arranjo de cocos Gram-positivos em cachos é característico do gênero Staphylococcus. A espécie ainda dependerá da identificação."
-          },
-          {
-            text:"Streptococcus.",
-            feedback:"Streptococcus costuma apresentar cocos organizados em cadeias ou pares."
-          },
-          {
-            text:"Neisseria.",
-            feedback:"Neisseria é formada por diplococos Gram-negativos."
-          },
-          {
-            text:"Enterobacterales.",
-            feedback:"Os membros da ordem Enterobacterales são bacilos Gram-negativos."
-          }
-        ],
-        correct:0
-      },
-
-      {
-        context:`
-          <p>Dois pacientes apresentam hemoculturas positivas.</p>
-          <span class="cap5-p42-labResult">Paciente A: cocos Gram-positivos em cachos</span>
-          <span class="cap5-p42-labResult">Paciente B: bacilos Gram-negativos</span>
-        `,
-        question:
-          "Qual é a principal contribuição da coloração de Gram para a antibioticoterapia empírica?",
-        options:[
-          {
-            text:"Identificar a espécie bacteriana.",
-            feedback:"A identificação da espécie exige cultura e métodos microbiológicos adicionais."
-          },
-          {
-            text:"Definir o antibiograma.",
-            feedback:"O antibiograma depende do isolamento do microrganismo e da realização do teste de suscetibilidade."
-          },
-          {
-            text:"Reconhecer grupos bacterianos com características estruturais e perfis microbiológicos distintos, orientando o espectro de cobertura enquanto novos resultados são aguardados.",
-            feedback:"O Gram organiza precocemente o raciocínio microbiológico e auxilia na escolha da cobertura empírica."
-          },
-          {
-            text:"Confirmar isoladamente o diagnóstico etiológico.",
-            feedback:"O resultado do Gram deve ser integrado aos demais achados microbiológicos e clínicos."
-          }
-        ],
-        correct:2
-      }
-    ];
-
-    const letters = ["A", "B", "C", "D"];
-
-    let currentIndex = 0;
-    const answers = new Array(cases.length).fill(null);
-
-    function renderDots(){
-      dots.innerHTML = "";
-
-      cases.forEach(function(_, index){
-        const dot = document.createElement("span");
-
-        dot.className = "cap5-p42-quizDot";
-
-        if(index === currentIndex){
-          dot.classList.add("is-active");
-        }
-
-        dots.appendChild(dot);
-      });
-    }
-
-    function renderCase(){
-      const current = cases[currentIndex];
-
-      context.innerHTML = current.context;
-      question.textContent = current.question;
-      counter.textContent =
-        "Situação " +
-        (currentIndex + 1) +
-        " de " +
-        cases.length;
-
-      options.innerHTML = "";
-      feedback.hidden = true;
-      feedback.className = "cap5-p42-quizFeedback";
-      feedback.innerHTML = "";
-
-      current.options.forEach(function(option, index){
-        const button = document.createElement("button");
-
-        button.type = "button";
-        button.className = "cap5-p42-option";
-
-        button.innerHTML = `
-          <span class="cap5-p42-optionLetter">
-            ${letters[index]}
-          </span>
-
-          <span class="cap5-p42-optionText">
-            ${option.text}
-          </span>
-        `;
-
-        button.addEventListener("click", function(){
-          selectOption(index);
-        });
-
-        options.appendChild(button);
-      });
-
-      const savedAnswer = answers[currentIndex];
-
-      if(savedAnswer !== null){
-        showAnswer(savedAnswer);
-      }
-
-      prev.disabled = currentIndex === 0;
-      next.disabled = currentIndex === cases.length - 1;
-
-      renderDots();
-    }
-
-    function selectOption(selectedIndex){
-      answers[currentIndex] = selectedIndex;
-      showAnswer(selectedIndex);
-    }
-
-    function showAnswer(selectedIndex){
-      const current = cases[currentIndex];
-      const buttons = Array.from(
-        options.querySelectorAll(".cap5-p42-option")
-      );
-
-      const correct =
-        selectedIndex === current.correct;
-
-      buttons.forEach(function(button, index){
-        button.disabled = true;
-
-        if(index === current.correct){
-          button.classList.add("is-correct");
-        }else if(index === selectedIndex){
-          button.classList.add("is-incorrect");
-        }else{
-          button.classList.add("is-dimmed");
-        }
-      });
-
-      feedback.hidden = false;
-
-      feedback.classList.add(
-        correct ? "is-correct" : "is-incorrect"
-      );
-
-      feedback.innerHTML = `
-        <strong>
-          ${correct ? "Correto." : "Incorreto."}
-        </strong>
-
-        <p>
-          ${current.options[selectedIndex].feedback}
-        </p>
-      `;
-    }
-
-    prev.addEventListener("click", function(){
-      if(currentIndex === 0) return;
-
-      currentIndex -= 1;
-      renderCase();
-    });
-
-    next.addEventListener("click", function(){
-      if(currentIndex >= cases.length - 1) return;
-
-      currentIndex += 1;
-      renderCase();
-    });
-
-    renderCase();
-  }
-
-
-  /* =========================
-     TABELA COMPARATIVA
-     ========================= */
-
-  function initTableModal(){
-    const openButton =
-      document.querySelector("[data-p42-open-table]");
-
-    const modal =
-      document.querySelector("[data-p42-table-modal]");
-
-    if(!openButton || !modal) return;
-
-    const closeButtons = Array.from(
-      modal.querySelectorAll("[data-p42-close-table]")
-    );
-
-    const closeButton =
-      modal.querySelector(".cap5-p42-tableClose");
-
-    let previousFocus = null;
-
-    function openModal(){
-      previousFocus = document.activeElement;
-
-      modal.hidden = false;
-      document.body.style.overflow = "hidden";
-
-      window.setTimeout(function(){
-        if(closeButton){
-          closeButton.focus();
-        }
-      }, 20);
-    }
-
-    function closeModal(){
-      modal.hidden = true;
-      document.body.style.overflow = "";
-
-      if(previousFocus){
-        previousFocus.focus();
-      }
-    }
-
-    openButton.addEventListener("click", openModal);
-
-    closeButtons.forEach(function(button){
-      button.addEventListener("click", closeModal);
-    });
-
-    document.addEventListener("keydown", function(event){
-      if(event.key === "Escape" && !modal.hidden){
-        closeModal();
-      }
-    });
-  }
-
-
-  /* =========================
-     ENTRADA SUAVE
-     ========================= */
-
-  function initReveal(){
-    const items = document.querySelectorAll(
-      ".cap5-page42 .cap5-p42-reveal"
-    );
-
-    if(!("IntersectionObserver" in window)){
-      items.forEach(function(item){
-        item.classList.add("is-visible");
-      });
-
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      function(entries){
-        entries.forEach(function(entry){
-          if(!entry.isIntersecting) return;
-
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold:.13,
-        rootMargin:"0px 0px -35px 0px"
-      }
-    );
-
-    items.forEach(function(item){
-      observer.observe(item);
-    });
-  }
-
-})();
-
-
-/* =========================
-   CAPÍTULO 5 — PÁGINA 43
-   IDENTIFICAÇÃO BACTERIANA
-   ========================= */
-
-(function initCap5Page43(){
-  const root = document.querySelector("[data-cap5-p43]");
-  if(!root) return;
-
-  const tabs = Array.from(
-    root.querySelectorAll("[data-p43-target]")
+(function initCap5Page42V4() {
+  const root = document.querySelector(
+    "[data-cap5-p42v4]"
   );
 
-  const view = root.querySelector("#cap5P43View");
-  const initial = root.querySelector("#cap5P43Initial");
-  const species = root.querySelector("#cap5P43Species");
-  const kicker = root.querySelector("#cap5P43Kicker");
-  const title = root.querySelector("#cap5P43Title");
-  const body = root.querySelector("#cap5P43Body");
-
-  if(
-    !tabs.length ||
-    !view ||
-    !initial ||
-    !species ||
-    !kicker ||
-    !title ||
-    !body
-  ){
+  if (!root) {
     return;
   }
 
-  const states = {
-    negative:{
-      tabId:"cap5P43TabNegative",
-      viewClass:"cap5-p43-view--negative",
-      initial:"Bacilos Gram-negativos",
-      species:"<em>Escherichia coli</em>",
-      kicker:"O que a identificação acrescenta",
-      title:"Redução das incertezas microbiológicas",
-      body:`
-        <article class="cap5-p43-info">
-          <span>Relevância clínica</span>
-          <p>É uma das principais espécies associadas a infecções do trato urinário e bacteremias de origem urinária.</p>
-        </article>
+  const groupTabs = Array.from(
+    root.querySelectorAll("[data-p42v4-group]")
+  );
 
-        <article class="cap5-p43-info">
-          <span>Resistência a considerar</span>
-          <p>Pode apresentar produção de β-lactamases de espectro estendido e outros mecanismos adquiridos.</p>
-        </article>
+  const groupView = root.querySelector(
+    "#cap5P42V4GroupView"
+  );
 
-        <article class="cap5-p43-info">
-          <span>Diferença entre espécies</span>
-          <p>Seu perfil microbiológico não pode ser extrapolado para <em>Pseudomonas aeruginosa</em> ou <em>Acinetobacter baumannii</em>.</p>
-        </article>
+  const image = root.querySelector(
+    "#cap5P42V4Image"
+  );
 
-        <article class="cap5-p43-info cap5-p43-info--key">
-          <span>Implicação para o antibiograma</span>
-          <p>A espécie fornece o contexto necessário para reconhecer resistências intrínsecas e interpretar corretamente os resultados S, I e R.</p>
-        </article>
-      `
+  const caption = root.querySelector(
+    "#cap5P42V4Caption"
+  );
+
+  const zoom = root.querySelector(
+    "#cap5P42V4Zoom"
+  );
+
+  const groupLabel = root.querySelector(
+    "#cap5P42V4GroupLabel"
+  );
+
+  const routeTitle = root.querySelector(
+    "#cap5P42V4RouteTitle"
+  );
+
+  const counter = root.querySelector(
+    "#cap5P42V4Counter"
+  );
+
+  const track = root.querySelector(
+    "#cap5P42V4Track"
+  );
+
+  const stepLabel = root.querySelector(
+    "#cap5P42V4StepLabel"
+  );
+
+  const stepText = root.querySelector(
+    "#cap5P42V4StepText"
+  );
+
+  const stepMeaning = root.querySelector(
+    "#cap5P42V4StepMeaning"
+  );
+
+  const previousButton = root.querySelector(
+    "#cap5P42V4Prev"
+  );
+
+  const nextButton = root.querySelector(
+    "#cap5P42V4Next"
+  );
+
+  const conclusion = root.querySelector(
+    "#cap5P42V4Conclusion"
+  );
+
+  const conclusionTitle = root.querySelector(
+    "#cap5P42V4ConclusionTitle"
+  );
+
+  const conclusionText = root.querySelector(
+    "#cap5P42V4ConclusionText"
+  );
+
+  if (
+    !groupTabs.length ||
+    !groupView ||
+    !image ||
+    !caption ||
+    !zoom ||
+    !groupLabel ||
+    !routeTitle ||
+    !counter ||
+    !track ||
+    !stepLabel ||
+    !stepText ||
+    !stepMeaning ||
+    !previousButton ||
+    !nextButton ||
+    !conclusion ||
+    !conclusionTitle ||
+    !conclusionText
+  ) {
+    return;
+  }
+
+  const groups = {
+    positive: {
+      tabId: "cap5P42V4TabPositive",
+
+      label: "Gram-positiva",
+
+      image:
+        "../../assets/capitulo-05/imagens/gram-positivo1.png",
+
+      alt:
+        "Representação do envelope celular de uma bactéria Gram-positiva",
+
+      caption:
+        "Organização do envelope celular de uma bactéria Gram-positiva.",
+
+      conclusionTitle:
+        "Menos uma barreira não significa suscetibilidade garantida",
+
+      conclusion:
+        "A ausência de membrana externa elimina uma barreira adicional à entrada de algumas moléculas. Entretanto, bactérias Gram-positivas também podem apresentar resistência. A reação ao Gram, isoladamente, não permite prever seu perfil de suscetibilidade.",
+
+      steps: [
+        {
+          label: "Estrutura encontrada",
+
+          title:
+            "Camada espessa de peptidoglicano",
+
+          text:
+            "A camada espessa de peptidoglicano forma uma rede localizada externamente à membrana citoplasmática.",
+
+          meaning:
+            "Apesar de espessa, essa camada não funciona como uma membrana externa."
+        },
+
+        {
+          label: "Passagem pelo envelope",
+
+          title:
+            "Ausência de membrana externa",
+
+          text:
+            "As bactérias Gram-positivas não apresentam a membrana externa característica das Gram-negativas.",
+
+          meaning:
+            "Alguns antibacterianos não encontram essa barreira adicional durante o percurso até o alvo."
+        },
+
+        {
+          label: "Chegada ao local de ação",
+
+          title:
+            "Acesso ao alvo bacteriano",
+
+          text:
+            "Para exercer atividade, o antibacteriano precisa chegar ao seu alvo em quantidade suficiente e permanecer ativo.",
+
+          meaning:
+            "A ausência de membrana externa não garante que toda molécula alcance o alvo ou apresente atividade."
+        },
+
+        {
+          label: "Limite da interpretação",
+
+          title:
+            "O Gram não prevê suscetibilidade",
+
+          text:
+            "Bactérias Gram-positivas também podem apresentar mecanismos que reduzem ou impedem a atividade de diferentes antibacterianos.",
+
+          meaning:
+            "A suscetibilidade somente pode ser interpretada com base na identificação, no teste de suscetibilidade e no contexto clínico."
+        }
+      ]
     },
 
-    positive:{
-      tabId:"cap5P43TabPositive",
-      viewClass:"cap5-p43-view--positive",
-      initial:"Cocos Gram-positivos em cachos",
-      species:"<em>Staphylococcus aureus</em>",
-      kicker:"O que a identificação acrescenta",
-      title:"Reconhecimento da relevância clínica da espécie",
-      body:`
-        <article class="cap5-p43-info">
-          <span>Relevância clínica</span>
-          <p>O isolamento em hemoculturas possui elevada importância e deve ser cuidadosamente correlacionado ao quadro clínico.</p>
-        </article>
+    negative: {
+      tabId: "cap5P42V4TabNegative",
 
-        <article class="cap5-p43-info">
-          <span>Resistência a considerar</span>
-          <p>A identificação exige avaliação da suscetibilidade à meticilina e da possibilidade de MRSA.</p>
-        </article>
+      label: "Gram-negativa",
 
-        <article class="cap5-p43-info">
-          <span>Diferença entre espécies</span>
-          <p>Não deve ser interpretado da mesma forma que estafilococos coagulase-negativos, que podem representar colonização ou contaminação.</p>
-        </article>
+      image:
+        "../../assets/capitulo-05/imagens/gram-negativo1.png",
 
-        <article class="cap5-p43-info cap5-p43-info--key">
-          <span>Implicação para o antibiograma</span>
-          <p>A espécie determina quais marcadores de resistência e quais resultados do teste de suscetibilidade possuem maior relevância clínica.</p>
-        </article>
-      `
+      alt:
+        "Representação do envelope celular de uma bactéria Gram-negativa",
+
+      caption:
+        "Organização do envelope celular de uma bactéria Gram-negativa.",
+
+      conclusionTitle:
+        "Por que podem existir mais obstáculos?",
+
+      conclusion:
+        "A membrana externa acrescenta uma barreira à entrada de alguns antibacterianos. A passagem por porinas, a permanência da molécula ativa no espaço periplasmático e outros mecanismos podem reduzir a quantidade que alcança o alvo. Isso ajuda a explicar a dificuldade terapêutica de algumas Gram-negativas, mas não significa que todas sejam resistentes.",
+
+      steps: [
+        {
+          label: "Primeira barreira",
+
+          title:
+            "Membrana externa",
+
+          text:
+            "A membrana externa contém lipopolissacarídeo e funciona como uma barreira adicional à passagem de algumas moléculas.",
+
+          meaning:
+            "O tamanho, a carga e outras características do antibacteriano influenciam sua capacidade de atravessar essa barreira."
+        },
+
+        {
+          label: "Via de entrada",
+
+          title:
+            "Passagem por porinas",
+
+          text:
+            "Algumas moléculas hidrofílicas atravessam a membrana externa por canais proteicos denominados porinas.",
+
+          meaning:
+            "Nem todas as moléculas utilizam esses canais, e mudanças na quantidade ou na estrutura das porinas podem reduzir sua entrada."
+        },
+
+        {
+          label: "Após a membrana externa",
+
+          title:
+            "Espaço periplasmático",
+
+          text:
+            "Depois de atravessar a membrana externa, a molécula alcança o espaço periplasmático, onde se encontra a camada delgada de peptidoglicano.",
+
+          meaning:
+            "Nesse espaço, alguns antibacterianos podem encontrar enzimas capazes de inativá-los antes que alcancem o alvo."
+        },
+
+        {
+          label: "Redução da concentração",
+
+          title:
+            "Sistemas de efluxo",
+
+          text:
+            "Alguns sistemas presentes no envelope bacteriano podem transportar moléculas para fora da célula.",
+
+          meaning:
+            "O efluxo pode reduzir a concentração do antibacteriano disponível para atuar no alvo."
+        },
+
+        {
+          label: "Integração das barreiras",
+
+          title:
+            "Chegada ao alvo",
+
+          text:
+            "Para exercer atividade, uma quantidade suficiente do antibacteriano precisa atravessar as barreiras e alcançar o alvo ainda ativa.",
+
+          meaning:
+            "A ação conjunta de barreiras estruturais e mecanismos de resistência pode limitar as opções terapêuticas."
+        }
+      ]
     }
   };
 
-  function render(target){
-    const state = states[target];
-    if(!state) return;
+  let currentGroup = "positive";
+  let currentStep = 0;
+  let imageTimer = null;
 
-    tabs.forEach(function(tab){
+  function renderTrack() {
+    const steps =
+      groups[currentGroup].steps;
+
+    track.innerHTML = "";
+
+    track.classList.toggle(
+      "is-positive",
+      currentGroup === "positive"
+    );
+
+    track.classList.toggle(
+      "is-negative",
+      currentGroup === "negative"
+    );
+
+    steps.forEach(function (_, index) {
+      const progressStep =
+        document.createElement("span");
+
+      progressStep.className =
+        "cap5-p42v4-trackStep";
+
+      if (index < currentStep) {
+        progressStep.classList.add(
+          "is-complete"
+        );
+      }
+
+      if (index === currentStep) {
+        progressStep.classList.add(
+          "is-active"
+        );
+      }
+
+      progressStep.setAttribute(
+        "aria-label",
+        "Etapa " +
+          (index + 1) +
+          (index === currentStep
+            ? ", etapa atual"
+            : "")
+      );
+
+      track.appendChild(progressStep);
+    });
+  }
+
+  function renderStep() {
+    const group = groups[currentGroup];
+    const step = group.steps[currentStep];
+    const finalStep =
+      currentStep === group.steps.length - 1;
+
+    groupLabel.textContent =
+      group.label;
+
+    routeTitle.textContent =
+      step.title;
+
+    stepLabel.textContent =
+      step.label;
+
+    stepText.textContent =
+      step.text;
+
+    stepMeaning.textContent =
+      step.meaning;
+
+    counter.textContent =
+      "Etapa " +
+      (currentStep + 1) +
+      " de " +
+      group.steps.length;
+
+    previousButton.disabled =
+      currentStep === 0;
+
+    nextButton.textContent = finalStep
+      ? "Reiniciar percurso ↺"
+      : "Próxima barreira →";
+
+    conclusion.hidden = !finalStep;
+
+    if (finalStep) {
+      conclusionTitle.textContent =
+        group.conclusionTitle;
+
+      conclusionText.textContent =
+        group.conclusion;
+    }
+
+    renderTrack();
+  }
+
+  function renderGroup(groupName) {
+    const group = groups[groupName];
+
+    if (!group) {
+      return;
+    }
+
+    currentGroup = groupName;
+    currentStep = 0;
+
+    groupTabs.forEach(function (tab) {
       const active =
-        tab.dataset.p43Target === target;
+        tab.dataset.p42v4Group ===
+        groupName;
 
       tab.classList.toggle(
         "is-active",
@@ -2384,3352 +2031,4093 @@
       );
     });
 
-    view.classList.remove(
-      "cap5-p43-view--negative",
-      "cap5-p43-view--positive"
-    );
-
-    view.classList.add(state.viewClass);
-
-    view.setAttribute(
+    groupView.setAttribute(
       "aria-labelledby",
-      state.tabId
+      group.tabId
     );
 
-    initial.textContent = state.initial;
-    species.innerHTML = state.species;
-    kicker.textContent = state.kicker;
-    title.textContent = state.title;
-    body.innerHTML = state.body;
-  }
+    window.clearTimeout(imageTimer);
+    image.classList.add("is-changing");
 
-  tabs.forEach(function(tab, index){
+    imageTimer = window.setTimeout(
+      function () {
+        image.src = group.image;
+        image.alt = group.alt;
 
-    tab.addEventListener("click", function(){
-      render(tab.dataset.p43Target);
-    });
+        caption.textContent =
+          group.caption;
 
-    tab.addEventListener("keydown", function(event){
-      let nextIndex = null;
+        zoom.dataset.zoom =
+          group.image;
 
-      if(
-        event.key === "ArrowRight" ||
-        event.key === "ArrowDown"
-      ){
-        nextIndex =
-          (index + 1) % tabs.length;
-      }
-
-      if(
-        event.key === "ArrowLeft" ||
-        event.key === "ArrowUp"
-      ){
-        nextIndex =
-          (index - 1 + tabs.length) %
-          tabs.length;
-      }
-
-      if(event.key === "Home"){
-        nextIndex = 0;
-      }
-
-      if(event.key === "End"){
-        nextIndex = tabs.length - 1;
-      }
-
-      if(nextIndex === null) return;
-
-      event.preventDefault();
-
-      tabs[nextIndex].focus();
-
-      render(
-        tabs[nextIndex].dataset.p43Target
-      );
-    });
-
-  });
-
-  render("negative");
-
-  const revealItems = document.querySelectorAll(
-    ".cap5-page43 .cap5-p43-reveal"
-  );
-
-  if(!("IntersectionObserver" in window)){
-    revealItems.forEach(function(item){
-      item.classList.add("is-visible");
-    });
-
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    function(entries){
-
-      entries.forEach(function(entry){
-        if(!entry.isIntersecting) return;
-
-        entry.target.classList.add(
-          "is-visible"
-        );
-
-        observer.unobserve(entry.target);
-      });
-
-    },
-    {
-      threshold:.14,
-      rootMargin:"0px 0px -35px 0px"
-    }
-  );
-
-  revealItems.forEach(function(item){
-    observer.observe(item);
-  });
-
-})();
-/* =========================
-   CAPÍTULO 5 — PÁGINA 44
-   ESPÉCIE E INTERPRETAÇÃO
-   ========================= */
-
-(function initCap5Page44(){
-  const root = document.querySelector("[data-cap5-p44]");
-  if(!root) return;
-
-  const speciesButtons = Array.from(
-    root.querySelectorAll("[data-p44-species]")
-  );
-
-  const flowButtons = Array.from(
-    root.querySelectorAll("[data-p44-step]")
-  );
-
-  const kicker = root.querySelector("#cap5P44PanelKicker");
-  const title = root.querySelector("#cap5P44PanelTitle");
-  const body = root.querySelector("#cap5P44PanelBody");
-  const selectedSpecies = root.querySelector(
-    "#cap5P44SelectedSpecies"
-  );
-
-  if(
-    !speciesButtons.length ||
-    !flowButtons.length ||
-    !kicker ||
-    !title ||
-    !body ||
-    !selectedSpecies
-  ){
-    return;
-  }
-
-  const speciesData = {
-    ecoli:{
-      name:"<em>Escherichia coli</em>",
-      species:{
-        title:"Espécie identificada",
-        body:`
-          <p>
-            O laboratório identificou <em>Escherichia coli</em>. O resultado deixa de representar apenas um grupo amplo de bacilos Gram-negativos e passa a fornecer um contexto microbiológico específico.
-          </p>
-        `
-      },
-      known:{
-        title:"O que já sei sobre a espécie?",
-        body:`
-          <ul>
-            <li>É uma das principais causas de infecção do trato urinário.</li>
-            <li>Pode causar bacteremia, especialmente a partir de focos urinários ou abdominais.</li>
-            <li>Pertence à ordem Enterobacterales.</li>
-          </ul>
-        `
-      },
-      intrinsic:{
-        title:"Características esperadas da espécie",
-        body:`
-          <p>
-            A interpretação deve respeitar as características próprias de Enterobacterales e não deve ser extrapolada para bacilos não fermentadores, como <em>Pseudomonas aeruginosa</em>.
-          </p>
-        `
-      },
-      acquired:{
-        title:"Mecanismos adquiridos a investigar",
-        body:`
-          <ul>
-            <li>Produção de β-lactamases de espectro estendido.</li>
-            <li>Produção de carbapenemases.</li>
-            <li>Resistência a fluoroquinolonas e aminoglicosídeos.</li>
-          </ul>
-        `
-      },
-      panel:{
-        title:"Como interpretar o antibiograma",
-        body:`
-          <p>
-            O painel deve ser analisado considerando a possibilidade de ESBL ou carbapenemase e a coerência entre os resultados dos diferentes β-lactâmicos testados.
-          </p>
-        `
-      }
-    },
-
-    klebsiella:{
-      name:"<em>Klebsiella pneumoniae</em>",
-      species:{
-        title:"Espécie identificada",
-        body:`
-          <p>
-            A identificação de <em>Klebsiella pneumoniae</em> direciona o raciocínio para uma Enterobacterales associada a infecções urinárias, respiratórias, abdominais e bacteremias.
-          </p>
-        `
-      },
-      known:{
-        title:"O que já sei sobre a espécie?",
-        body:`
-          <ul>
-            <li>Pode estar associada a infecções comunitárias e hospitalares.</li>
-            <li>Possui importância epidemiológica na disseminação de resistência.</li>
-            <li>Pode colonizar o trato gastrointestinal.</li>
-          </ul>
-        `
-      },
-      intrinsic:{
-        title:"Características esperadas da espécie",
-        body:`
-          <p>
-            A espécie apresenta resistência intrínseca à ampicilina por produção constitutiva de β-lactamase cromossômica.
-          </p>
-        `
-      },
-      acquired:{
-        title:"Mecanismos adquiridos a investigar",
-        body:`
-          <ul>
-            <li>Produção de ESBL.</li>
-            <li>Produção de carbapenemases, incluindo KPC.</li>
-            <li>Alterações de porinas e associação entre mecanismos.</li>
-          </ul>
-        `
-      },
-      panel:{
-        title:"Como interpretar o antibiograma",
-        body:`
-          <p>
-            A suscetibilidade aos β-lactâmicos deve ser analisada de forma integrada, especialmente diante de resistência a cefalosporinas de amplo espectro ou carbapenêmicos.
-          </p>
-        `
-      }
-    },
-
-    pseudomonas:{
-      name:"<em>Pseudomonas aeruginosa</em>",
-      species:{
-        title:"Espécie identificada",
-        body:`
-          <p>
-            A identificação de <em>Pseudomonas aeruginosa</em> define um bacilo Gram-negativo não fermentador com comportamento microbiológico distinto das Enterobacterales.
-          </p>
-        `
-      },
-      known:{
-        title:"O que já sei sobre a espécie?",
-        body:`
-          <ul>
-            <li>Está associada a infecções oportunistas e hospitalares.</li>
-            <li>Pode acometer pacientes críticos, queimados ou com dispositivos invasivos.</li>
-            <li>Possui capacidade de formar biofilme.</li>
-          </ul>
-        `
-      },
-      intrinsic:{
-        title:"Características esperadas da espécie",
-        body:`
-          <p>
-            Baixa permeabilidade da membrana externa, bombas de efluxo e β-lactamase AmpC cromossômica contribuem para menor suscetibilidade intrínseca a diversos antimicrobianos.
-          </p>
-        `
-      },
-      acquired:{
-        title:"Mecanismos adquiridos a investigar",
-        body:`
-          <ul>
-            <li>Hiperprodução de AmpC.</li>
-            <li>Perda ou modificação de porinas.</li>
-            <li>Carbapenemases e aumento da atividade de bombas de efluxo.</li>
-          </ul>
-        `
-      },
-      panel:{
-        title:"Como interpretar o antibiograma",
-        body:`
-          <p>
-            Devem ser considerados apenas antimicrobianos com atividade antipseudomonas. O comportamento de Enterobacterales não pode ser usado como referência para essa espécie.
-          </p>
-        `
-      }
-    },
-
-    enterococcus:{
-      name:"<em>Enterococcus faecalis</em>",
-      species:{
-        title:"Espécie identificada",
-        body:`
-          <p>
-            A identificação de <em>Enterococcus faecalis</em> direciona o raciocínio para um coco Gram-positivo com características próprias de suscetibilidade.
-          </p>
-        `
-      },
-      known:{
-        title:"O que já sei sobre a espécie?",
-        body:`
-          <ul>
-            <li>Pode causar infecção urinária, bacteremia e endocardite.</li>
-            <li>Integra a microbiota gastrointestinal.</li>
-            <li>O significado clínico depende do tipo de amostra e do contexto.</li>
-          </ul>
-        `
-      },
-      intrinsic:{
-        title:"Características esperadas da espécie",
-        body:`
-          <p>
-            Enterococos apresentam resistência intrínseca às cefalosporinas. Por isso, esses antimicrobianos não devem ser considerados opções terapêuticas, mesmo que não apareçam no painel.
-          </p>
-        `
-      },
-      acquired:{
-        title:"Mecanismos adquiridos a investigar",
-        body:`
-          <ul>
-            <li>Resistência à vancomicina.</li>
-            <li>Resistência de alto nível aos aminoglicosídeos.</li>
-            <li>Alterações que reduzem a suscetibilidade a outros agentes.</li>
-          </ul>
-        `
-      },
-      panel:{
-        title:"Como interpretar o antibiograma",
-        body:`
-          <p>
-            A ausência de cefalosporinas não indica falha do laboratório. A leitura deve priorizar agentes relevantes para a espécie e para o sítio da infecção.
-          </p>
-        `
-      }
-    },
-
-    saureus:{
-      name:"<em>Staphylococcus aureus</em>",
-      species:{
-        title:"Espécie identificada",
-        body:`
-          <p>
-            A identificação de <em>Staphylococcus aureus</em> estabelece um contexto clínico distinto dos estafilococos coagulase-negativos.
-          </p>
-        `
-      },
-      known:{
-        title:"O que já sei sobre a espécie?",
-        body:`
-          <ul>
-            <li>Pode causar infecções cutâneas, bacteremia, endocardite e infecções osteoarticulares.</li>
-            <li>Seu isolamento em hemocultura possui elevada relevância clínica.</li>
-            <li>Pode produzir diferentes fatores de virulência.</li>
-          </ul>
-        `
-      },
-      intrinsic:{
-        title:"Características esperadas da espécie",
-        body:`
-          <p>
-            O comportamento dos β-lactâmicos depende principalmente da suscetibilidade à meticilina, avaliada por marcadores laboratoriais apropriados.
-          </p>
-        `
-      },
-      acquired:{
-        title:"Mecanismos adquiridos a investigar",
-        body:`
-          <ul>
-            <li>Resistência à meticilina mediada por alteração da proteína-alvo.</li>
-            <li>Resistência a macrolídeos e lincosamidas.</li>
-            <li>Outros mecanismos conforme o painel testado.</li>
-          </ul>
-        `
-      },
-      panel:{
-        title:"Como interpretar o antibiograma",
-        body:`
-          <p>
-            A identificação de MRSA modifica a interpretação de praticamente todo o grupo dos β-lactâmicos. O resultado não deve ser lido fármaco por fármaco de forma isolada.
-          </p>
-        `
-      }
-    }
-  };
-
-  const stepTitles = {
-    species:"Etapa 1",
-    known:"Etapa 2",
-    intrinsic:"Etapa 3",
-    acquired:"Etapa 4",
-    panel:"Etapa 5"
-  };
-
-  let currentSpecies = "ecoli";
-  let currentStep = "species";
-
-  function render(){
-    const species = speciesData[currentSpecies];
-    const step = species[currentStep];
-
-    if(!species || !step) return;
-
-    speciesButtons.forEach(function(button){
-      const active =
-        button.dataset.p44Species === currentSpecies;
-
-      button.classList.toggle("is-active", active);
-      button.setAttribute(
-        "aria-selected",
-        active ? "true" : "false"
-      );
-      button.setAttribute(
-        "tabindex",
-        active ? "0" : "-1"
-      );
-    });
-
-    flowButtons.forEach(function(button){
-      const active =
-        button.dataset.p44Step === currentStep;
-
-      button.classList.toggle("is-active", active);
-    });
-
-    kicker.textContent = stepTitles[currentStep];
-    title.textContent = step.title;
-    body.innerHTML = step.body;
-    selectedSpecies.innerHTML = species.name;
-  }
-
-  speciesButtons.forEach(function(button, index){
-
-    button.addEventListener("click", function(){
-      currentSpecies = button.dataset.p44Species;
-      currentStep = "species";
-      render();
-    });
-
-    button.addEventListener("keydown", function(event){
-      let nextIndex = null;
-
-      if(
-        event.key === "ArrowRight" ||
-        event.key === "ArrowDown"
-      ){
-        nextIndex =
-          (index + 1) % speciesButtons.length;
-      }
-
-      if(
-        event.key === "ArrowLeft" ||
-        event.key === "ArrowUp"
-      ){
-        nextIndex =
-          (index - 1 + speciesButtons.length) %
-          speciesButtons.length;
-      }
-
-      if(event.key === "Home"){
-        nextIndex = 0;
-      }
-
-      if(event.key === "End"){
-        nextIndex = speciesButtons.length - 1;
-      }
-
-      if(nextIndex === null) return;
-
-      event.preventDefault();
-
-      speciesButtons[nextIndex].focus();
-      currentSpecies =
-        speciesButtons[nextIndex].dataset.p44Species;
-      currentStep = "species";
-      render();
-    });
-
-  });
-
-  flowButtons.forEach(function(button){
-    button.addEventListener("click", function(){
-      currentStep = button.dataset.p44Step;
-      render();
-    });
-  });
-
-  render();
-
-  const revealItems = document.querySelectorAll(
-    ".cap5-page44 .cap5-p44-reveal"
-  );
-
-  if(!("IntersectionObserver" in window)){
-    revealItems.forEach(function(item){
-      item.classList.add("is-visible");
-    });
-
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    function(entries){
-      entries.forEach(function(entry){
-        if(!entry.isIntersecting) return;
-
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      });
-    },
-    {
-      threshold:.14,
-      rootMargin:"0px 0px -35px 0px"
-    }
-  );
-
-  revealItems.forEach(function(item){
-    observer.observe(item);
-  });
-
-})();
-/* =========================
-   CAPÍTULO 5 — PÁGINA 45
-   TESTE DE SUSCETIBILIDADE
-   ========================= */
-
-(function initCap5Page45(){
-  const root = document.querySelector("[data-cap5-p45-tempo]");
-
-  if(root){
-    initTemporalInteraction(root);
-  }
-
-  initReveal();
-
-
-  /* =========================
-     EVOLUÇÃO TEMPORAL
-     ========================= */
-
-  function initTemporalInteraction(root){
-    const buttons = Array.from(
-      root.querySelectorAll("[data-p45-tempo]")
-    );
-
-    const image = root.querySelector(
-      "#cap5P45TempoImage"
-    );
-
-    const caption = root.querySelector(
-      "#cap5P45TempoCaption"
-    );
-
-    const note = root.querySelector(
-      "#cap5P45TempoNote"
-    );
-
-    const zoomButton = root.querySelector(
-      "#cap5P45Zoom"
-    );
-
-    if(
-      !buttons.length ||
-      !image ||
-      !caption ||
-      !note ||
-      !zoomButton
-    ){
-      return;
-    }
-
-    const states = {
-      "0":{
-        image:"../../assets/capitulo-05/imagens/difusao-disco-0h.png",
-        alt:"Placa de difusão em disco no tempo inicial",
-        caption:"Tempo inicial: os discos foram posicionados, mas ainda não ocorreu crescimento bacteriano suficiente para leitura.",
-        note:`
-          <strong>O que está acontecendo?</strong>
-          <p>O antibacteriano começa a difundir-se no meio, mas o resultado ainda não pode ser interpretado.</p>
-        `
-      },
-
-      "6":{
-        image:"../../assets/capitulo-05/imagens/difusao-disco-6h.png",
-        alt:"Placa de difusão em disco após seis horas de incubação",
-        caption:"Após 6 horas, a difusão e o crescimento bacteriano ainda estão em desenvolvimento.",
-        note:`
-          <strong>Leitura ainda prematura</strong>
-          <p>Podem surgir diferenças iniciais ao redor dos discos, mas o padrão ainda não está suficientemente estabelecido para medição confiável.</p>
-        `
-      },
-
-      "12":{
-        image:"../../assets/capitulo-05/imagens/difusao-disco-12h.png",
-        alt:"Placa de difusão em disco após doze horas de incubação",
-        caption:"Após 12 horas, as zonas de inibição tornam-se mais perceptíveis, mas a incubação ainda não foi concluída.",
-        note:`
-          <strong>Formação progressiva dos halos</strong>
-          <p>O crescimento bacteriano e o gradiente de concentração começam a produzir zonas mais definidas ao redor de alguns discos.</p>
-        `
-      },
-
-      "18":{
-        image:"../../assets/capitulo-05/imagens/difusao-disco-18h.png",
-        alt:"Placa de difusão em disco após dezoito horas de incubação",
-        caption:"Após 18 horas, o crescimento e as zonas de inibição apresentam definição adequada para muitos testes padronizados.",
-        note:`
-          <strong>Padrão próximo à leitura</strong>
-          <p>Os halos podem ser medidos quando o tempo e as condições recomendadas para o microrganismo e o método foram atingidos.</p>
-        `
-      },
-
-      "24":{
-        image:"../../assets/capitulo-05/imagens/difusao-disco-24h.png",
-        alt:"Placa de difusão em disco após vinte e quatro horas de incubação",
-        caption:"Ao final da incubação, os halos são medidos e interpretados conforme pontos de corte padronizados.",
-        note:`
-          <strong>Leitura do teste</strong>
-          <p>O diâmetro das zonas de inibição pode ser comparado aos critérios interpretativos aplicáveis à espécie e ao antibacteriano.</p>
-        `
-      }
-    };
-
-    let transitionTimer = null;
-
-    function render(time){
-      const state = states[time];
-
-      if(!state) return;
-
-      buttons.forEach(function(button){
-        const active =
-          button.dataset.p45Tempo === time;
-
-        button.classList.toggle(
-          "is-active",
-          active
-        );
-
-        button.setAttribute(
-          "aria-selected",
-          active ? "true" : "false"
-        );
-
-        button.setAttribute(
-          "tabindex",
-          active ? "0" : "-1"
-        );
-      });
-
-      window.clearTimeout(transitionTimer);
-      image.classList.add("is-changing");
-
-      transitionTimer = window.setTimeout(function(){
-        image.src = state.image;
-        image.alt = state.alt;
-        caption.textContent = state.caption;
-        note.innerHTML = state.note;
-
-        zoomButton.dataset.zoom = state.image;
-
-        zoomButton.setAttribute(
+        zoom.setAttribute(
           "aria-label",
-          "Ampliar imagem da difusão em disco após " +
-          time +
-          " horas"
+          "Ampliar imagem: " +
+            group.caption
         );
 
-        image.classList.remove("is-changing");
-      }, 130);
-    }
+        image.classList.remove(
+          "is-changing"
+        );
+      },
+      120
+    );
 
-    buttons.forEach(function(button, index){
+    renderStep();
+  }
 
-      button.addEventListener("click", function(){
-        render(button.dataset.p45Tempo);
-      });
+  groupTabs.forEach(function (tab, index) {
+    tab.addEventListener("click", function () {
+      renderGroup(
+        tab.dataset.p42v4Group
+      );
+    });
 
-      button.addEventListener("keydown", function(event){
+    tab.addEventListener(
+      "keydown",
+      function (event) {
         let nextIndex = null;
 
-        if(
+        if (
           event.key === "ArrowRight" ||
           event.key === "ArrowDown"
-        ){
+        ) {
           nextIndex =
-            (index + 1) % buttons.length;
+            (index + 1) %
+            groupTabs.length;
         }
 
-        if(
+        if (
           event.key === "ArrowLeft" ||
           event.key === "ArrowUp"
-        ){
+        ) {
           nextIndex =
-            (index - 1 + buttons.length) %
-            buttons.length;
+            (index - 1 + groupTabs.length) %
+            groupTabs.length;
         }
 
-        if(event.key === "Home"){
+        if (event.key === "Home") {
           nextIndex = 0;
         }
 
-        if(event.key === "End"){
-          nextIndex = buttons.length - 1;
+        if (event.key === "End") {
+          nextIndex =
+            groupTabs.length - 1;
         }
 
-        if(nextIndex === null) return;
+        if (nextIndex === null) {
+          return;
+        }
 
         event.preventDefault();
 
-        buttons[nextIndex].focus();
+        groupTabs[nextIndex].focus();
 
-        render(
-          buttons[nextIndex].dataset.p45Tempo
+        renderGroup(
+          groupTabs[nextIndex].dataset
+            .p42v4Group
         );
-      });
-
-    });
-
-    render("0");
-  }
-
-
-  /* =========================
-     ENTRADA SUAVE
-     ========================= */
-
-  function initReveal(){
-    const items = document.querySelectorAll(
-      ".cap5-page45 .cap5-p45-reveal"
-    );
-
-    if(!("IntersectionObserver" in window)){
-      items.forEach(function(item){
-        item.classList.add("is-visible");
-      });
-
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      function(entries){
-        entries.forEach(function(entry){
-          if(!entry.isIntersecting) return;
-
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold:.13,
-        rootMargin:"0px 0px -35px 0px"
       }
     );
+  });
 
-    items.forEach(function(item){
-      observer.observe(item);
-    });
-  }
-
-})();
-
-
-
-/* =========================
-   CAPÍTULO 5 — PÁGINA 46
-   INTERPRETAÇÃO DO ANTIBIOGRAMA
-   ========================= */
-
-(function initCap5Page46(){
-  const root = document.querySelector("[data-cap5-p46]");
-
-  if(root){
-    initMethodComparison(root);
-  }
-
-  initReveal();
-
-
-  function initMethodComparison(root){
-    const tabs = Array.from(
-      root.querySelectorAll("[data-p46-target]")
-    );
-
-    const view = root.querySelector("#cap5P46View");
-    const kicker = root.querySelector("#cap5P46Kicker");
-    const title = root.querySelector("#cap5P46Title");
-    const intro = root.querySelector("#cap5P46Intro");
-    const flow = root.querySelector("#cap5P46Flow");
-    const body = root.querySelector("#cap5P46Body");
-
-    if(
-      !tabs.length ||
-      !view ||
-      !kicker ||
-      !title ||
-      !intro ||
-      !flow ||
-      !body
-    ){
-      return;
-    }
-
-    const states = {
-      disco:{
-        tabId:"cap5P46TabDisco",
-        kicker:"Medida em milímetros",
-        title:"Diâmetro do halo de inibição",
-        intro:"O laboratório mede a zona sem crescimento bacteriano formada ao redor do disco impregnado com antibacteriano.",
-        flow:`
-          <article>
-            <span>1</span>
-            <strong>Valor medido</strong>
-            <p>Halo de 28 mm.</p>
-          </article>
-
-          <b aria-hidden="true">→</b>
-
-          <article>
-            <span>2</span>
-            <strong>Breakpoint aplicável</strong>
-            <p>Exemplo didático: S ≥ 25 mm.</p>
-          </article>
-
-          <b aria-hidden="true">→</b>
-
-          <article class="cap5-p46-resultFlowFinal">
-            <span>3</span>
-            <strong>Categoria liberada</strong>
-            <p>Sensível.</p>
-          </article>
-        `,
-        body:`
-          <article class="cap5-p46-info">
-            <span>O que o método fornece</span>
-            <p>Uma medida quantitativa indireta da atividade antimicrobiana, expressa pelo diâmetro do halo.</p>
-          </article>
-
-          <article class="cap5-p46-info">
-            <span>Como interpretar</span>
-            <p>O diâmetro deve ser comparado ao breakpoint específico da combinação entre bactéria e antibacteriano.</p>
-          </article>
-
-          <article class="cap5-p46-info">
-            <span>Vantagem prática</span>
-            <p>É um método padronizado, acessível e amplamente utilizado na rotina microbiológica.</p>
-          </article>
-
-          <article class="cap5-p46-info cap5-p46-info--key">
-            <span>Limite interpretativo</span>
-            <p>Um halo grande ou pequeno não possui significado isolado sem o critério interpretativo correspondente.</p>
-          </article>
-        `
-      },
-
-      mic:{
-        tabId:"cap5P46TabMic",
-        kicker:"Medida em mg/L",
-        title:"Concentração inibitória mínima",
-        intro:"A MIC corresponde à menor concentração do antibacteriano capaz de impedir o crescimento visível da bactéria em condições laboratoriais padronizadas.",
-        flow:`
-          <article>
-            <span>1</span>
-            <strong>Valor medido</strong>
-            <p>MIC de 0,25 mg/L.</p>
-          </article>
-
-          <b aria-hidden="true">→</b>
-
-          <article>
-            <span>2</span>
-            <strong>Breakpoint aplicável</strong>
-            <p>Exemplo didático: S ≤ 1 mg/L.</p>
-          </article>
-
-          <b aria-hidden="true">→</b>
-
-          <article class="cap5-p46-resultFlowFinal">
-            <span>3</span>
-            <strong>Categoria liberada</strong>
-            <p>Sensível.</p>
-          </article>
-        `,
-        body:`
-          <article class="cap5-p46-info">
-            <span>O que o método fornece</span>
-            <p>Uma medida quantitativa direta da menor concentração que inibe o crescimento visível.</p>
-          </article>
-
-          <article class="cap5-p46-info">
-            <span>Como interpretar</span>
-            <p>A MIC precisa ser comparada ao breakpoint específico para aquela bactéria e aquele antibacteriano.</p>
-          </article>
-
-          <article class="cap5-p46-info">
-            <span>Quando acrescenta valor</span>
-            <p>Pode ser útil em resultados próximos do breakpoint, situações que exigem análise quantitativa ou quando o disco-difusão não é apropriado.</p>
-          </article>
-
-          <article class="cap5-p46-info cap5-p46-info--key">
-            <span>Limite interpretativo</span>
-            <p>Uma MIC numericamente menor não significa, por si só, maior eficácia clínica ou maior potência entre fármacos diferentes.</p>
-          </article>
-        `
+  previousButton.addEventListener(
+    "click",
+    function () {
+      if (currentStep === 0) {
+        return;
       }
-    };
 
-    function render(target){
-      const state = states[target];
-
-      if(!state) return;
-
-      tabs.forEach(function(tab){
-        const active =
-          tab.dataset.p46Target === target;
-
-        tab.classList.toggle("is-active", active);
-
-        tab.setAttribute(
-          "aria-selected",
-          active ? "true" : "false"
-        );
-
-        tab.setAttribute(
-          "tabindex",
-          active ? "0" : "-1"
-        );
-      });
-
-      view.setAttribute(
-        "aria-labelledby",
-        state.tabId
-      );
-
-      kicker.textContent = state.kicker;
-      title.textContent = state.title;
-      intro.textContent = state.intro;
-      flow.innerHTML = state.flow;
-      body.innerHTML = state.body;
+      currentStep -= 1;
+      renderStep();
     }
-
-    tabs.forEach(function(tab, index){
-
-      tab.addEventListener("click", function(){
-        render(tab.dataset.p46Target);
-      });
-
-      tab.addEventListener("keydown", function(event){
-        let nextIndex = null;
-
-        if(
-          event.key === "ArrowRight" ||
-          event.key === "ArrowDown"
-        ){
-          nextIndex =
-            (index + 1) % tabs.length;
-        }
-
-        if(
-          event.key === "ArrowLeft" ||
-          event.key === "ArrowUp"
-        ){
-          nextIndex =
-            (index - 1 + tabs.length) %
-            tabs.length;
-        }
-
-        if(event.key === "Home"){
-          nextIndex = 0;
-        }
-
-        if(event.key === "End"){
-          nextIndex = tabs.length - 1;
-        }
-
-        if(nextIndex === null) return;
-
-        event.preventDefault();
-
-        tabs[nextIndex].focus();
-
-        render(
-          tabs[nextIndex].dataset.p46Target
-        );
-      });
-
-    });
-
-    render("disco");
-  }
-
-
-  function initReveal(){
-    const items = document.querySelectorAll(
-      ".cap5-page46 .cap5-p46-reveal"
-    );
-
-    if(!("IntersectionObserver" in window)){
-      items.forEach(function(item){
-        item.classList.add("is-visible");
-      });
-
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      function(entries){
-        entries.forEach(function(entry){
-          if(!entry.isIntersecting) return;
-
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold:.13,
-        rootMargin:"0px 0px -35px 0px"
-      }
-    );
-
-    items.forEach(function(item){
-      observer.observe(item);
-    });
-  }
-
-})();
-/* =========================
-   CAPÍTULO 5 — PÁGINA 47
-   BREAKPOINTS E CATEGORIAS S/I/R
-   ========================= */
-
-(function initCap5Page47(){
-  const root = document.querySelector("[data-cap5-p47]");
-
-  if(root){
-    initInterpretationQuestion(root);
-  }
-
-  initReveal();
-
-
-  /* =========================
-     QUESTÃO SOBRE A CATEGORIA I
-     ========================= */
-
-  function initInterpretationQuestion(root){
-    const options = Array.from(
-      root.querySelectorAll("[data-p47-option]")
-    );
-
-    const feedback = root.querySelector(
-      "#cap5P47Feedback"
-    );
-
-    if(!options.length || !feedback){
-      return;
-    }
-
-    const explanations = {
-      discard:{
-        correct:false,
-        title:"Incorreto.",
-        text:"A categoria I não equivale à resistência. Ela indica suscetibilidade quando a exposição ao antibacteriano é aumentada de acordo com regimes validados."
-      },
-
-      uncertain:{
-        correct:false,
-        title:"Incorreto.",
-        text:"O resultado I possui significado interpretativo definido. Ele não representa uma categoria indeterminada, mas uma condição de suscetibilidade dependente de maior exposição."
-      },
-
-      exposure:{
-        correct:true,
-        title:"Correto.",
-        text:"A categoria I indica elevada probabilidade de sucesso terapêutico quando a exposição necessária pode ser alcançada por dose, intervalo, modo de infusão ou concentração elevada no sítio da infecção."
-      }
-    };
-
-    function selectOption(selectedButton){
-      const key = selectedButton.dataset.p47Option;
-      const result = explanations[key];
-
-      if(!result) return;
-
-      options.forEach(function(button){
-        const buttonKey = button.dataset.p47Option;
-
-        button.disabled = true;
-
-        button.classList.remove(
-          "is-correct",
-          "is-incorrect",
-          "is-dimmed"
-        );
-
-        if(buttonKey === "exposure"){
-          button.classList.add("is-correct");
-        }else if(button === selectedButton){
-          button.classList.add("is-incorrect");
-        }else{
-          button.classList.add("is-dimmed");
-        }
-      });
-
-      feedback.hidden = false;
-
-      feedback.className = "cap5-p47-feedback";
-
-      feedback.classList.add(
-        result.correct
-          ? "is-correct"
-          : "is-incorrect"
-      );
-
-      feedback.innerHTML = `
-        <strong>${result.title}</strong>
-        <p>${result.text}</p>
-      `;
-    }
-
-    options.forEach(function(button){
-      button.addEventListener("click", function(){
-        selectOption(button);
-      });
-    });
-  }
-
-
-  /* =========================
-     ENTRADA SUAVE
-     ========================= */
-
-  function initReveal(){
-    const items = document.querySelectorAll(
-      ".cap5-page47 .cap5-p47-reveal"
-    );
-
-    if(!("IntersectionObserver" in window)){
-      items.forEach(function(item){
-        item.classList.add("is-visible");
-      });
-
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      function(entries){
-        entries.forEach(function(entry){
-          if(!entry.isIntersecting) return;
-
-          entry.target.classList.add(
-            "is-visible"
-          );
-
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold:.13,
-        rootMargin:"0px 0px -35px 0px"
-      }
-    );
-
-    items.forEach(function(item){
-      observer.observe(item);
-    });
-  }
-
-})();
-/* =========================
-   CAPÍTULO 5 — PÁGINA 48
-   OBSERVAÇÕES DO LAUDO
-   ========================= */
-
-(function initCap5Page48(){
-  const interactionRoot = document.querySelector(
-    "[data-cap5-p48]"
   );
 
-  if(interactionRoot){
-    initResistanceInteraction(interactionRoot);
-  }
+  nextButton.addEventListener(
+    "click",
+    function () {
+      const steps =
+        groups[currentGroup].steps;
 
-  const caseRoot = document.querySelector(
-    "[data-cap5-p48-case]"
+      if (
+        currentStep ===
+        steps.length - 1
+      ) {
+        currentStep = 0;
+      } else {
+        currentStep += 1;
+      }
+
+      renderStep();
+    }
   );
 
-  if(caseRoot){
-    initClinicalCase(caseRoot);
-  }
-
-  initReveal();
-
-
-  /* =========================
-     MECANISMOS DE RESISTÊNCIA
-     ========================= */
-
-  function initResistanceInteraction(root){
-    const tabs = Array.from(
-      root.querySelectorAll("[data-p48-target]")
-    );
-
-    const view = root.querySelector("#cap5P48View");
-    const kicker = root.querySelector("#cap5P48Kicker");
-    const title = root.querySelector("#cap5P48Title");
-    const intro = root.querySelector("#cap5P48Intro");
-    const body = root.querySelector("#cap5P48Body");
-
-    if(
-      !tabs.length ||
-      !view ||
-      !kicker ||
-      !title ||
-      !intro ||
-      !body
-    ){
-      return;
-    }
-
-    const states = {
-      esbl:{
-        tabId:"cap5P48TabEsbl",
-        kicker:"β-lactamase de espectro estendido",
-        title:"ESBL",
-        intro:"Indica produção de enzimas capazes de hidrolisar diferentes β-lactâmicos, especialmente penicilinas, cefalosporinas de amplo espectro e aztreonam.",
-        body:`
-          <article class="cap5-p48-info">
-            <span>Onde é mais relevante</span>
-            <p>Principalmente em Enterobacterales, como <em>Escherichia coli</em> e <em>Klebsiella pneumoniae</em>.</p>
-          </article>
-
-          <article class="cap5-p48-info">
-            <span>O que modifica no painel</span>
-            <p>A leitura dos β-lactâmicos deve considerar o mecanismo informado e os pontos de corte vigentes para a espécie.</p>
-          </article>
-
-          <article class="cap5-p48-info">
-            <span>Impacto clínico</span>
-            <p>Pode modificar significativamente a escolha terapêutica, especialmente em infecções invasivas.</p>
-          </article>
-
-          <article class="cap5-p48-info cap5-p48-info--key">
-            <span>Cuidado de interpretação</span>
-            <p>A presença de ESBL não deve ser analisada isoladamente: é necessário integrar foco infeccioso, gravidade e perfil completo de suscetibilidade.</p>
-          </article>
-        `
-      },
-
-      ampc:{
-        tabId:"cap5P48TabAmpc",
-        kicker:"Cefalosporinase",
-        title:"AmpC",
-        intro:"AmpC corresponde a uma β-lactamase capaz de comprometer a atividade de diferentes β-lactâmicos. Pode ser cromossômica, induzível, hiperproduzida ou adquirida.",
-        body:`
-          <article class="cap5-p48-info">
-            <span>Onde é mais relevante</span>
-            <p>Em determinadas Enterobacterales, especialmente espécies com potencial de expressão induzível ou desreprimida.</p>
-          </article>
-
-          <article class="cap5-p48-info">
-            <span>O que modifica no painel</span>
-            <p>Um resultado inicial favorável para algumas cefalosporinas pode exigir cautela devido ao risco de seleção de resistência durante o tratamento.</p>
-          </article>
-
-          <article class="cap5-p48-info">
-            <span>Impacto clínico</span>
-            <p>A interpretação deve considerar a espécie, o sítio da infecção, a carga bacteriana e o risco de expressão aumentada do mecanismo.</p>
-          </article>
-
-          <article class="cap5-p48-info cap5-p48-info--key">
-            <span>Cuidado de interpretação</span>
-            <p>AmpC não significa automaticamente falha com todos os β-lactâmicos, mas exige leitura crítica e conhecimento do comportamento da espécie.</p>
-          </article>
-        `
-      },
-
-      carbapenemases:{
-        tabId:"cap5P48TabCarbapenemases",
-        kicker:"KPC · NDM · OXA-48-like",
-        title:"Carbapenemases",
-        intro:"São enzimas capazes de hidrolisar carbapenêmicos e outros β-lactâmicos, com extensão variável conforme a classe enzimática.",
-        body:`
-          <article class="cap5-p48-info">
-            <span>Principais grupos</span>
-            <p>KPC pertence às serino-carbapenemases; NDM é uma metalo-β-lactamase; OXA-48-like pertence ao grupo das oxacilinases.</p>
-          </article>
-
-          <article class="cap5-p48-info">
-            <span>O que modifica no painel</span>
-            <p>A suscetibilidade aos carbapenêmicos e a outros β-lactâmicos deve ser interpretada considerando o tipo de enzima e os agentes disponíveis.</p>
-          </article>
-
-          <article class="cap5-p48-info">
-            <span>Impacto clínico</span>
-            <p>Esses mecanismos podem limitar fortemente as opções terapêuticas e possuem relevância epidemiológica para controle de disseminação.</p>
-          </article>
-
-          <article class="cap5-p48-info cap5-p48-info--key">
-            <span>Cuidado de interpretação</span>
-            <p>Diferentes carbapenemases apresentam perfis enzimáticos distintos; a sigla informada pode influenciar a escolha entre alternativas específicas.</p>
-          </article>
-        `
-      },
-
-      mrsa:{
-        tabId:"cap5P48TabMrsa",
-        kicker:"Resistência à meticilina",
-        title:"MRSA",
-        intro:"MRSA indica resistência à meticilina ou oxacilina em <em>Staphylococcus aureus</em>, geralmente associada à produção de uma proteína ligadora de penicilina de baixa afinidade.",
-        body:`
-          <article class="cap5-p48-info">
-            <span>Onde é relevante</span>
-            <p>Exclusivamente no contexto de <em>Staphylococcus aureus</em> resistente à meticilina.</p>
-          </article>
-
-          <article class="cap5-p48-info">
-            <span>O que modifica no painel</span>
-            <p>Prediz resistência à maioria dos β-lactâmicos, com exceção de agentes especificamente desenvolvidos e validados para atividade contra MRSA.</p>
-          </article>
-
-          <article class="cap5-p48-info">
-            <span>Impacto clínico</span>
-            <p>Modifica de forma ampla a seleção de antibacterianos em infecções causadas por <em>S. aureus</em>.</p>
-          </article>
-
-          <article class="cap5-p48-info cap5-p48-info--key">
-            <span>Cuidado de interpretação</span>
-            <p>O resultado não deve ser lido β-lactâmico por β-lactâmico de forma isolada; o fenótipo modifica a interpretação do grupo.</p>
-          </article>
-        `
-      },
-
-      vre:{
-        tabId:"cap5P48TabVre",
-        kicker:"Enterococo resistente à vancomicina",
-        title:"VRE",
-        intro:"VRE indica resistência à vancomicina em enterococos, decorrente de alterações no alvo do glicopeptídeo.",
-        body:`
-          <article class="cap5-p48-info">
-            <span>Onde é relevante</span>
-            <p>Principalmente em espécies de <em>Enterococcus</em>, com importância variável conforme a espécie e o contexto clínico.</p>
-          </article>
-
-          <article class="cap5-p48-info">
-            <span>O que modifica no painel</span>
-            <p>A vancomicina deixa de ser considerada uma opção ativa, e o restante do painel deve ser analisado para identificar alternativas.</p>
-          </article>
-
-          <article class="cap5-p48-info">
-            <span>Impacto clínico</span>
-            <p>Pode restringir as opções terapêuticas, especialmente em bacteremias, endocardites e infecções invasivas.</p>
-          </article>
-
-          <article class="cap5-p48-info cap5-p48-info--key">
-            <span>Cuidado de interpretação</span>
-            <p>A escolha do tratamento depende da espécie, do sítio da infecção e da suscetibilidade aos agentes alternativos.</p>
-          </article>
-        `
-      }
-    };
-
-    function render(target){
-      const state = states[target];
-
-      if(!state) return;
-
-      tabs.forEach(function(tab){
-        const active =
-          tab.dataset.p48Target === target;
-
-        tab.classList.toggle("is-active", active);
-
-        tab.setAttribute(
-          "aria-selected",
-          active ? "true" : "false"
-        );
-
-        tab.setAttribute(
-          "tabindex",
-          active ? "0" : "-1"
-        );
-      });
-
-      view.setAttribute(
-        "aria-labelledby",
-        state.tabId
-      );
-
-      kicker.textContent = state.kicker;
-      title.textContent = state.title;
-      intro.innerHTML = state.intro;
-      body.innerHTML = state.body;
-    }
-
-    tabs.forEach(function(tab, index){
-
-      tab.addEventListener("click", function(){
-        render(tab.dataset.p48Target);
-      });
-
-      tab.addEventListener("keydown", function(event){
-        let nextIndex = null;
-
-        if(
-          event.key === "ArrowRight" ||
-          event.key === "ArrowDown"
-        ){
-          nextIndex =
-            (index + 1) % tabs.length;
-        }
-
-        if(
-          event.key === "ArrowLeft" ||
-          event.key === "ArrowUp"
-        ){
-          nextIndex =
-            (index - 1 + tabs.length) %
-            tabs.length;
-        }
-
-        if(event.key === "Home"){
-          nextIndex = 0;
-        }
-
-        if(event.key === "End"){
-          nextIndex = tabs.length - 1;
-        }
-
-        if(nextIndex === null) return;
-
-        event.preventDefault();
-
-        tabs[nextIndex].focus();
-
-        render(
-          tabs[nextIndex].dataset.p48Target
-        );
-      });
-
-    });
-
-    render("esbl");
-  }
-
-
-  /* =========================
-     CASO CLÍNICO
-     ========================= */
-
-  function initClinicalCase(root){
-    const options = Array.from(
-      root.querySelectorAll("[data-p48-answer]")
-    );
-
-    const feedback = root.querySelector(
-      "#cap5P48Feedback"
-    );
-
-    if(!options.length || !feedback){
-      return;
-    }
-
-    const answers = {
-      mic:{
-        correct:false,
-        title:"Incorreto.",
-        text:"A MIC não deve ser usada isoladamente para comparar antibacterianos diferentes. A interpretação exige breakpoint, mecanismo informado e contexto clínico."
-      },
-
-      ignore:{
-        correct:false,
-        title:"Incorreto.",
-        text:"A observação de ESBL acrescenta informação relevante e modifica o contexto de leitura dos β-lactâmicos."
-      },
-
-      integrate:{
-        correct:true,
-        title:"Correto.",
-        text:"O laudo deve ser interpretado integrando espécie, mecanismo de resistência, perfil S/I/R, foco infeccioso, gravidade e exposição possível ao antibacteriano."
-      },
-
-      automatic:{
-        correct:false,
-        title:"Incorreto.",
-        text:"A presença de ESBL não determina, isoladamente, uma única escolha terapêutica para todas as infecções e todos os pacientes."
-      }
-    };
-
-    function selectAnswer(selectedButton){
-      const key = selectedButton.dataset.p48Answer;
-      const result = answers[key];
-
-      if(!result) return;
-
-      options.forEach(function(button){
-        const buttonKey = button.dataset.p48Answer;
-
-        button.disabled = true;
-
-        button.classList.remove(
-          "is-correct",
-          "is-incorrect",
-          "is-dimmed"
-        );
-
-        if(buttonKey === "integrate"){
-          button.classList.add("is-correct");
-        }else if(button === selectedButton){
-          button.classList.add("is-incorrect");
-        }else{
-          button.classList.add("is-dimmed");
-        }
-      });
-
-      feedback.hidden = false;
-      feedback.className = "cap5-p48-feedback";
-
-      feedback.classList.add(
-        result.correct
-          ? "is-correct"
-          : "is-incorrect"
-      );
-
-      feedback.innerHTML = `
-        <strong>${result.title}</strong>
-        <p>${result.text}</p>
-      `;
-    }
-
-    options.forEach(function(button){
-      button.addEventListener("click", function(){
-        selectAnswer(button);
-      });
-    });
-  }
-
-
-  /* =========================
-     ENTRADA SUAVE
-     ========================= */
-
-  function initReveal(){
-    const items = document.querySelectorAll(
-      ".cap5-page48 .cap5-p48-reveal"
-    );
-
-    if(!("IntersectionObserver" in window)){
-      items.forEach(function(item){
-        item.classList.add("is-visible");
-      });
-
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      function(entries){
-        entries.forEach(function(entry){
-          if(!entry.isIntersecting) return;
-
-          entry.target.classList.add(
-            "is-visible"
-          );
-
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold:.13,
-        rootMargin:"0px 0px -35px 0px"
-      }
-    );
-
-    items.forEach(function(item){
-      observer.observe(item);
-    });
-  }
-
+  renderGroup("positive");
 })();
 
 /* =========================
-   CAPÍTULO 5 — PÁGINA 49
-   ESBL
+   MODAL DA TABELA
    ========================= */
 
-(function initCap5Page49(){
-  const root = document.querySelector("[data-cap5-p49]");
-
-  if(root){
-    initEsblInteraction(root);
-  }
-
-  initReveal();
-
-
-  /* =========================
-     INTERAÇÃO ESBL
-     ========================= */
-
-  function initEsblInteraction(root){
-    const tabs = Array.from(
-      root.querySelectorAll("[data-p49-target]")
-    );
-
-    const view = root.querySelector("#cap5P49View");
-    const image = root.querySelector("#cap5P49Image");
-    const caption = root.querySelector("#cap5P49Caption");
-    const kicker = root.querySelector("#cap5P49Kicker");
-    const title = root.querySelector("#cap5P49Title");
-    const body = root.querySelector("#cap5P49Body");
-    const zoomButton = root.querySelector("#cap5P49Zoom");
-
-    if(
-      !tabs.length ||
-      !view ||
-      !image ||
-      !caption ||
-      !kicker ||
-      !title ||
-      !body ||
-      !zoomButton
-    ){
-      return;
-    }
-
-    const states = {
-      screening:{
-        tabId:"cap5P49TabScreening",
-        image:"../../assets/capitulo-05/imagens/esbl-perfil-sugestivo.png",
-        alt:"Teste de suscetibilidade com perfil sugestivo de produção de ESBL",
-        caption:"Perfil fenotípico que pode levantar a suspeita de produção de ESBL.",
-        kicker:"Etapa de triagem",
-        title:"Redução da suscetibilidade a cefalosporinas de amplo espectro",
-        body:`
-          <article class="cap5-p49-info">
-            <span>O que o laboratório observa</span>
-            <p>Um padrão de redução dos halos de inibição frente a determinados β-lactâmicos utilizados na investigação.</p>
-          </article>
-
-          <article class="cap5-p49-info">
-            <span>O que esse padrão indica</span>
-            <p>O comportamento pode levantar a suspeita de produção de uma β-lactamase de espectro estendido.</p>
-          </article>
-
-          <article class="cap5-p49-info">
-            <span>O que ainda não conclui</span>
-            <p>O padrão sugestivo, isoladamente, não deve ser confundido com confirmação definitiva do mecanismo.</p>
-          </article>
-
-          <article class="cap5-p49-info cap5-p49-info--key">
-            <span>Ponto principal</span>
-            <p>A triagem seleciona isolados que exigem avaliação complementar pelo método adotado pelo laboratório.</p>
-          </article>
-        `
-      },
-
-      confirmation:{
-        tabId:"cap5P49TabConfirmation",
-        image:"../../assets/capitulo-05/imagens/esbl-confirmacao-clavulanato.png",
-        alt:"Teste fenotípico confirmatório de ESBL com ácido clavulânico",
-        caption:"Aumento do halo na presença do ácido clavulânico, demonstrando inibição da enzima.",
-        kicker:"Demonstração fenotípica",
-        title:"Aumento do halo na presença do ácido clavulânico",
-        body:`
-          <article class="cap5-p49-info">
-            <span>Princípio do teste</span>
-            <p>Compara-se o comportamento do β-lactâmico isolado com aquele observado quando associado ao ácido clavulânico.</p>
-          </article>
-
-          <article class="cap5-p49-info">
-            <span>Ação do clavulanato</span>
-            <p>O inibidor bloqueia a atividade da β-lactamase e permite recuperação da ação do antibacteriano no teste.</p>
-          </article>
-
-          <article class="cap5-p49-info">
-            <span>Resultado observado</span>
-            <p>O aumento do halo demonstra sinergia entre o β-lactâmico e o inibidor, compatível com produção de ESBL.</p>
-          </article>
-
-          <article class="cap5-p49-info cap5-p49-info--key">
-            <span>Ponto principal</span>
-            <p>O teste evidencia que a redução da atividade do β-lactâmico estava relacionada a uma enzima inibida pelo clavulanato.</p>
-          </article>
-        `
-      }
-    };
-
-    let transitionTimer = null;
-
-    function render(target){
-      const state = states[target];
-
-      if(!state) return;
-
-      tabs.forEach(function(tab){
-        const active =
-          tab.dataset.p49Target === target;
-
-        tab.classList.toggle("is-active", active);
-
-        tab.setAttribute(
-          "aria-selected",
-          active ? "true" : "false"
-        );
-
-        tab.setAttribute(
-          "tabindex",
-          active ? "0" : "-1"
-        );
-      });
-
-      view.setAttribute(
-        "aria-labelledby",
-        state.tabId
-      );
-
-      window.clearTimeout(transitionTimer);
-      image.classList.add("is-changing");
-
-      transitionTimer = window.setTimeout(function(){
-        image.src = state.image;
-        image.alt = state.alt;
-
-        caption.textContent = state.caption;
-        kicker.textContent = state.kicker;
-        title.textContent = state.title;
-        body.innerHTML = state.body;
-
-        zoomButton.dataset.zoom = state.image;
-
-        zoomButton.setAttribute(
-          "aria-label",
-          "Ampliar imagem: " + state.title
-        );
-
-        image.classList.remove("is-changing");
-      }, 130);
-    }
-
-    tabs.forEach(function(tab, index){
-
-      tab.addEventListener("click", function(){
-        render(tab.dataset.p49Target);
-      });
-
-      tab.addEventListener("keydown", function(event){
-        let nextIndex = null;
-
-        if(
-          event.key === "ArrowRight" ||
-          event.key === "ArrowDown"
-        ){
-          nextIndex =
-            (index + 1) % tabs.length;
-        }
-
-        if(
-          event.key === "ArrowLeft" ||
-          event.key === "ArrowUp"
-        ){
-          nextIndex =
-            (index - 1 + tabs.length) %
-            tabs.length;
-        }
-
-        if(event.key === "Home"){
-          nextIndex = 0;
-        }
-
-        if(event.key === "End"){
-          nextIndex = tabs.length - 1;
-        }
-
-        if(nextIndex === null) return;
-
-        event.preventDefault();
-
-        tabs[nextIndex].focus();
-
-        render(
-          tabs[nextIndex].dataset.p49Target
-        );
-      });
-
-    });
-
-    render("screening");
-  }
-
-
-  /* =========================
-     ENTRADA SUAVE
-     ========================= */
-
-  function initReveal(){
-    const items = document.querySelectorAll(
-      ".cap5-page49 .cap5-p49-reveal"
-    );
-
-    if(!("IntersectionObserver" in window)){
-      items.forEach(function(item){
-        item.classList.add("is-visible");
-      });
-
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      function(entries){
-        entries.forEach(function(entry){
-          if(!entry.isIntersecting) return;
-
-          entry.target.classList.add(
-            "is-visible"
-          );
-
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold:.13,
-        rootMargin:"0px 0px -35px 0px"
-      }
-    );
-
-    items.forEach(function(item){
-      observer.observe(item);
-    });
-  }
-
-})();
-/* =========================
-   CAPÍTULO 5 — PÁGINA 50
-   AmpC E GRUPO CESP
-   ========================= */
-
-(function initCap5Page50(){
-  const speciesRoot = document.querySelector(
-    "[data-cap5-p50]"
+(function initCap5Page42TableModal() {
+  const openButton = document.querySelector(
+    "[data-p42v4-open-table]"
   );
 
-  if(speciesRoot){
-    initSpeciesInteraction(speciesRoot);
-  }
-
-  const processRoot = document.querySelector(
-    "[data-cap5-p50-process]"
+  const modal = document.querySelector(
+    "[data-p42v4-table-modal]"
   );
 
-  if(processRoot){
-    initProcessInteraction(processRoot);
+  if (!openButton || !modal) {
+    return;
   }
 
-  const caseRoot = document.querySelector(
-    "[data-cap5-p50-case]"
+  const closeButtons = Array.from(
+    modal.querySelectorAll(
+      "[data-p42v4-close-table]"
+    )
   );
 
-  if(caseRoot){
-    initClinicalCase(caseRoot);
+  const dialog = modal.querySelector(
+    ".cap5-p42v4-modalDialog"
+  );
+
+  const closeButton = modal.querySelector(
+    ".cap5-p42v4-modalClose"
+  );
+
+  let previousFocus = null;
+
+  function openModal() {
+    previousFocus =
+      document.activeElement;
+
+    modal.hidden = false;
+
+    document.body.style.overflow =
+      "hidden";
+
+    window.requestAnimationFrame(
+      function () {
+        if (closeButton) {
+          closeButton.focus();
+        }
+      }
+    );
   }
 
-  initMnemonicModal();
-  initReveal();
+  function closeModal() {
+    modal.hidden = true;
 
+    document.body.style.overflow = "";
 
-  /* =========================
-     CLASSIFICAÇÃO DAS ESPÉCIES
-     ========================= */
+    if (
+      previousFocus &&
+      typeof previousFocus.focus ===
+        "function"
+    ) {
+      previousFocus.focus();
+    }
+  }
 
-  function initSpeciesInteraction(root){
-    const buttons = Array.from(
-      root.querySelectorAll("[data-p50-species]")
-    );
-
-    const view = root.querySelector(
-      "#cap5P50SpeciesView"
-    );
-
-    const badge = root.querySelector(
-      "#cap5P50RiskBadge"
-    );
-
-    const title = root.querySelector(
-      "#cap5P50SpeciesTitle"
-    );
-
-    const intro = root.querySelector(
-      "#cap5P50SpeciesIntro"
-    );
-
-    const body = root.querySelector(
-      "#cap5P50SpeciesBody"
-    );
-
-    if(
-      !buttons.length ||
-      !view ||
-      !badge ||
-      !title ||
-      !intro ||
-      !body
-    ){
+  function trapFocus(event) {
+    if (
+      event.key !== "Tab" ||
+      modal.hidden
+    ) {
       return;
     }
 
-    const states = {
-      enterobacter:{
-        tabId:"cap5P50SpeciesEnterobacter",
-        riskClass:"cap5-p50-speciesView--moderate",
-        badge:"Risco moderado",
-        title:"<em>Enterobacter cloacae</em> complex",
-        intro:"Espécie associada a risco moderado de produção clinicamente significativa de AmpC induzível.",
-        body:moderateRiskBody()
-      },
-
-      klebsiella:{
-        tabId:"cap5P50SpeciesKlebsiella",
-        riskClass:"cap5-p50-speciesView--moderate",
-        badge:"Risco moderado",
-        title:"<em>Klebsiella aerogenes</em>",
-        intro:"Espécie anteriormente denominada <em>Enterobacter aerogenes</em>, associada a risco moderado de desrepressão clinicamente significativa.",
-        body:moderateRiskBody()
-      },
-
-      citrobacter:{
-        tabId:"cap5P50SpeciesCitrobacter",
-        riskClass:"cap5-p50-speciesView--moderate",
-        badge:"Risco moderado",
-        title:"<em>Citrobacter freundii</em>",
-        intro:"Espécie associada a risco moderado de produção clinicamente significativa de AmpC induzível.",
-        body:moderateRiskBody()
-      },
-
-      serratia:{
-        tabId:"cap5P50SpeciesSerratia",
-        riskClass:"cap5-p50-speciesView--lower",
-        badge:"Menor risco",
-        title:"<em>Serratia marcescens</em>",
-        intro:"Possui AmpC cromossômica, mas apresenta menor risco de desrepressão clinicamente significativa.",
-        body:lowerRiskBody()
-      },
-
-      morganella:{
-        tabId:"cap5P50SpeciesMorganella",
-        riskClass:"cap5-p50-speciesView--lower",
-        badge:"Menor risco",
-        title:"<em>Morganella morganii</em>",
-        intro:"Possui AmpC cromossômica induzível, mas apresenta menor frequência de desrepressão clinicamente significativa.",
-        body:lowerRiskBody()
-      },
-
-      providencia:{
-        tabId:"cap5P50SpeciesProvidencia",
-        riskClass:"cap5-p50-speciesView--lower",
-        badge:"Menor risco",
-        title:"<em>Providencia</em> spp.",
-        intro:"O grupo possui AmpC cromossômica, porém apresenta menor risco de expressão clinicamente significativa.",
-        body:lowerRiskBody()
-      }
-    };
-
-    function moderateRiskBody(){
-      return `
-        <article class="cap5-p50-info">
-          <span>O que a identificação informa</span>
-          <p>A espécie possui potencial biológico para aumentar a expressão de AmpC durante a exposição a determinados β-lactâmicos.</p>
-        </article>
-
-        <article class="cap5-p50-info">
-          <span>Risco microbiológico</span>
-          <p>Subpopulações com produção elevada da enzima podem ser selecionadas e passar a predominar durante o tratamento.</p>
-        </article>
-
-        <article class="cap5-p50-info">
-          <span>Quando exige maior cautela</span>
-          <p>Em bacteremias, infecções profundas, elevada carga bacteriana ou controle inadequado do foco.</p>
-        </article>
-
-        <article class="cap5-p50-info cap5-p50-info--key">
-          <span>Como interpretar</span>
-          <p>O resultado inicial S, I ou R deve ser integrado à espécie, ao antibacteriano utilizado e ao contexto clínico.</p>
-        </article>
-      `;
-    }
-
-    function lowerRiskBody(){
-      return `
-        <article class="cap5-p50-info">
-          <span>O que a identificação informa</span>
-          <p>A espécie possui AmpC cromossômica, mas o comportamento clínico não deve ser automaticamente equiparado ao das espécies de risco moderado.</p>
-        </article>
-
-        <article class="cap5-p50-info">
-          <span>Risco microbiológico</span>
-          <p>A desrepressão clinicamente significativa ocorre com menor frequência.</p>
-        </article>
-
-        <article class="cap5-p50-info">
-          <span>Conduta interpretativa</span>
-          <p>O antibiograma e o contexto clínico permanecem centrais para a escolha terapêutica.</p>
-        </article>
-
-        <article class="cap5-p50-info cap5-p50-info--key">
-          <span>Como interpretar</span>
-          <p>A presença da espécie no mnemônico CESP não justifica presumir automaticamente o mesmo risco das espécies de risco moderado.</p>
-        </article>
-      `;
-    }
-
-    function render(target){
-      const state = states[target];
-
-      if(!state) return;
-
-      buttons.forEach(function(button){
-        const active =
-          button.dataset.p50Species === target;
-
-        button.classList.toggle("is-active", active);
-
-        button.setAttribute(
-          "aria-selected",
-          active ? "true" : "false"
-        );
-
-        button.setAttribute(
-          "tabindex",
-          active ? "0" : "-1"
-        );
-      });
-
-      view.classList.remove(
-        "cap5-p50-speciesView--moderate",
-        "cap5-p50-speciesView--lower"
-      );
-
-      view.classList.add(state.riskClass);
-
-      view.setAttribute(
-        "aria-labelledby",
-        state.tabId
-      );
-
-      badge.textContent = state.badge;
-      title.innerHTML = state.title;
-      intro.innerHTML = state.intro;
-      body.innerHTML = state.body;
-    }
-
-    buttons.forEach(function(button, index){
-
-      button.addEventListener("click", function(){
-        render(button.dataset.p50Species);
-      });
-
-      button.addEventListener("keydown", function(event){
-        let nextIndex = null;
-
-        if(
-          event.key === "ArrowRight" ||
-          event.key === "ArrowDown"
-        ){
-          nextIndex =
-            (index + 1) % buttons.length;
-        }
-
-        if(
-          event.key === "ArrowLeft" ||
-          event.key === "ArrowUp"
-        ){
-          nextIndex =
-            (index - 1 + buttons.length) %
-            buttons.length;
-        }
-
-        if(event.key === "Home"){
-          nextIndex = 0;
-        }
-
-        if(event.key === "End"){
-          nextIndex = buttons.length - 1;
-        }
-
-        if(nextIndex === null) return;
-
-        event.preventDefault();
-
-        buttons[nextIndex].focus();
-
-        render(
-          buttons[nextIndex].dataset.p50Species
-        );
-      });
-
-    });
-
-    render("enterobacter");
-  }
-
-
-  /* =========================
-     PROCESSO DE DESREPRESSÃO
-     ========================= */
-
-  function initProcessInteraction(root){
-    const buttons = Array.from(
-      root.querySelectorAll("[data-p50-process]")
-    );
-
-    const kicker = root.querySelector(
-      "#cap5P50ProcessKicker"
-    );
-
-    const title = root.querySelector(
-      "#cap5P50ProcessPanelTitle"
-    );
-
-    const text = root.querySelector(
-      "#cap5P50ProcessText"
-    );
-
-    if(
-      !buttons.length ||
-      !kicker ||
-      !title ||
-      !text
-    ){
-      return;
-    }
-
-    const states = {
-      initial:{
-        kicker:"Etapa inicial",
-        title:"Expressão basal de AmpC",
-        text:"A população bacteriana pode apresentar expressão basal da enzima e ser inicialmente classificada como suscetível a determinado agente."
-      },
-
-      exposure:{
-        kicker:"Pressão seletiva",
-        title:"Exposição ao β-lactâmico",
-        text:"O antibacteriano exerce pressão seletiva sobre a população e elimina preferencialmente as bactérias mais suscetíveis."
-      },
-
-      selection:{
-        kicker:"Mudança populacional",
-        title:"Seleção de subpopulações",
-        text:"Subpopulações com alterações regulatórias e expressão aumentada de AmpC podem sobreviver e passar a predominar."
-      },
-
-      derepression:{
-        kicker:"Produção aumentada",
-        title:"Desrepressão da AmpC",
-        text:"A bactéria passa a produzir quantidade elevada e estável da enzima, aumentando a hidrólise de determinados β-lactâmicos."
-      },
-
-      resistance:{
-        kicker:"Consequência microbiológica",
-        title:"Possível resistência durante a terapia",
-        text:"O perfil de suscetibilidade pode se modificar, com aparecimento de resistência microbiológica e risco de falha terapêutica."
-      }
-    };
-
-    function render(target){
-      const state = states[target];
-
-      if(!state) return;
-
-      buttons.forEach(function(button){
-        const active =
-          button.dataset.p50Process === target;
-
-        button.classList.toggle("is-active", active);
-
-        button.setAttribute(
-          "aria-selected",
-          active ? "true" : "false"
-        );
-
-        button.setAttribute(
-          "tabindex",
-          active ? "0" : "-1"
-        );
-      });
-
-      kicker.textContent = state.kicker;
-      title.textContent = state.title;
-      text.textContent = state.text;
-    }
-
-    buttons.forEach(function(button, index){
-
-      button.addEventListener("click", function(){
-        render(button.dataset.p50Process);
-      });
-
-      button.addEventListener("keydown", function(event){
-        let nextIndex = null;
-
-        if(
-          event.key === "ArrowRight" ||
-          event.key === "ArrowDown"
-        ){
-          nextIndex =
-            (index + 1) % buttons.length;
-        }
-
-        if(
-          event.key === "ArrowLeft" ||
-          event.key === "ArrowUp"
-        ){
-          nextIndex =
-            (index - 1 + buttons.length) %
-            buttons.length;
-        }
-
-        if(event.key === "Home"){
-          nextIndex = 0;
-        }
-
-        if(event.key === "End"){
-          nextIndex = buttons.length - 1;
-        }
-
-        if(nextIndex === null) return;
-
-        event.preventDefault();
-
-        buttons[nextIndex].focus();
-
-        render(
-          buttons[nextIndex].dataset.p50Process
-        );
-      });
-
-    });
-
-    render("initial");
-  }
-
-
-  /* =========================
-     CASO CLÍNICO
-     ========================= */
-
-  function initClinicalCase(root){
-    const options = Array.from(
-      root.querySelectorAll("[data-p50-answer]")
-    );
-
-    const feedback = root.querySelector(
-      "#cap5P50CaseFeedback"
-    );
-
-    if(!options.length || !feedback){
-      return;
-    }
-
-    const answers = {
-      isolated:{
-        correct:false,
-        title:"Incorreto.",
-        text:"A categoria S representa o resultado obtido nas condições do teste, mas não elimina a possibilidade de seleção de resistência durante a exposição a determinados β-lactâmicos."
-      },
-
-      integrated:{
-        correct:true,
-        title:"Correto.",
-        text:"O problema não é considerar o resultado S como tecnicamente inválido. É reconhecer que a espécie possui capacidade biológica de modificar o perfil durante o tratamento, exigindo interpretação integrada."
-      },
-
-      all:{
-        correct:false,
-        title:"Incorreto.",
-        text:"A presença de AmpC não significa que todos os β-lactâmicos sejam automaticamente inativos. A interpretação depende da espécie, do agente testado e do contexto clínico."
-      }
-    };
-
-    function selectAnswer(selectedButton){
-      const key = selectedButton.dataset.p50Answer;
-      const result = answers[key];
-
-      if(!result) return;
-
-      options.forEach(function(button){
-        const buttonKey = button.dataset.p50Answer;
-
-        button.disabled = true;
-
-        button.classList.remove(
-          "is-correct",
-          "is-incorrect",
-          "is-dimmed"
-        );
-
-        if(buttonKey === "integrated"){
-          button.classList.add("is-correct");
-        }else if(button === selectedButton){
-          button.classList.add("is-incorrect");
-        }else{
-          button.classList.add("is-dimmed");
-        }
-      });
-
-      feedback.hidden = false;
-      feedback.className = "cap5-p50-caseFeedback";
-
-      feedback.classList.add(
-        result.correct
-          ? "is-correct"
-          : "is-incorrect"
-      );
-
-      feedback.innerHTML = `
-        <strong>${result.title}</strong>
-        <p>${result.text}</p>
-      `;
-    }
-
-    options.forEach(function(button){
-      button.addEventListener("click", function(){
-        selectAnswer(button);
-      });
-    });
-  }
-
-
-  /* =========================
-     MODAL DO MNEMÔNICO
-     ========================= */
-
-  function initMnemonicModal(){
-    const openButton = document.querySelector(
-      "[data-p50-open-mnemonic]"
-    );
-
-    const modal = document.querySelector(
-      "[data-p50-mnemonic-modal]"
-    );
-
-    if(!openButton || !modal) return;
-
-    const closeButtons = Array.from(
+    const focusable = Array.from(
       modal.querySelectorAll(
-        "[data-p50-close-mnemonic]"
+        'button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])'
       )
     );
 
-    const closeButton = modal.querySelector(
-      ".cap5-p50-modalClose"
+    if (!focusable.length) {
+      return;
+    }
+
+    const first = focusable[0];
+    const last =
+      focusable[focusable.length - 1];
+
+    if (
+      event.shiftKey &&
+      document.activeElement === first
+    ) {
+      event.preventDefault();
+      last.focus();
+    }
+
+    if (
+      !event.shiftKey &&
+      document.activeElement === last
+    ) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  openButton.addEventListener(
+    "click",
+    openModal
+  );
+
+  closeButtons.forEach(function (button) {
+    button.addEventListener(
+      "click",
+      closeModal
     );
+  });
 
-    let previousFocus = null;
-
-    function openModal(){
-      previousFocus = document.activeElement;
-
-      modal.hidden = false;
-      document.body.style.overflow = "hidden";
-
-      window.setTimeout(function(){
-        if(closeButton){
-          closeButton.focus();
-        }
-      }, 20);
-    }
-
-    function closeModal(){
-      modal.hidden = true;
-      document.body.style.overflow = "";
-
-      if(previousFocus){
-        previousFocus.focus();
+  modal.addEventListener(
+    "keydown",
+    function (event) {
+      if (event.key === "Escape") {
+        closeModal();
+        return;
       }
+
+      trapFocus(event);
     }
+  );
 
-    openButton.addEventListener("click", openModal);
+  if (dialog) {
+    dialog.addEventListener(
+      "click",
+      function (event) {
+        event.stopPropagation();
+      }
+    );
+  }
+})();
 
-    closeButtons.forEach(function(button){
-      button.addEventListener("click", closeModal);
+/* =========================
+   ANIMAÇÃO DE ENTRADA
+   ========================= */
+
+(function revealCap5Page42V4() {
+  const items = document.querySelectorAll(
+    ".cap5-page42 .cap5-p42v4-reveal"
+  );
+
+  if (!items.length) {
+    return;
+  }
+
+  if (
+    !("IntersectionObserver" in window)
+  ) {
+    items.forEach(function (item) {
+      item.classList.add("is-visible");
     });
 
-    document.addEventListener("keydown", function(event){
-      if(event.key === "Escape" && !modal.hidden){
-        closeModal();
+    return;
+  }
+
+  const observer =
+    new IntersectionObserver(
+      function (entries) {
+        entries.forEach(
+          function (entry) {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            entry.target.classList.add(
+              "is-visible"
+            );
+
+            observer.unobserve(
+              entry.target
+            );
+          }
+        );
+      },
+      {
+        threshold: 0.12,
+        rootMargin:
+          "0px 0px -30px 0px"
       }
+    );
+
+  items.forEach(function (item) {
+    observer.observe(item);
+  });
+})();
+/* =========================================================
+   CAPÍTULO 5 — PÁGINA 43
+   IDENTIFICAÇÃO BACTERIANA
+   ========================================================= */
+
+(function initCap5Page43() {
+  "use strict";
+
+  const activity = document.querySelector("[data-cap5-p43]");
+
+  /*
+   * Se a página aberta não for a página 43,
+   * o código será encerrado sem interferir nas outras páginas.
+   */
+  if (!activity) {
+    return;
+  }
+
+  /* ---------------------------------------------------------
+     ELEMENTOS
+     --------------------------------------------------------- */
+
+  const bank = activity.querySelector(
+    '[data-p43-zone="bank"]'
+  );
+
+  const cards = Array.from(
+    activity.querySelectorAll("[data-p43-card]")
+  );
+
+  const zones = Array.from(
+    activity.querySelectorAll(".cap5-p43-zone")
+  );
+
+  const checkButton = activity.querySelector(
+    "[data-p43-check]"
+  );
+
+  const resetButton = activity.querySelector(
+    "[data-p43-reset]"
+  );
+
+  const progress = activity.querySelector(
+    "[data-p43-progress]"
+  );
+
+  const feedback = activity.querySelector(
+    "[data-p43-feedback]"
+  );
+
+  const liveRegion = activity.querySelector(
+    ".cap5-p43-live"
+  );
+
+  const synthesis = document.querySelector(
+    "[data-p43-synthesis]"
+  );
+
+  let selectedCard = null;
+  let draggedCard = null;
+
+  /* ---------------------------------------------------------
+     FUNÇÕES AUXILIARES
+     --------------------------------------------------------- */
+
+  function getDestinationBody(destinationName) {
+    if (destinationName === "bank") {
+      return bank;
+    }
+
+    return activity.querySelector(
+      `[data-p43-drop="${destinationName}"]`
+    );
+  }
+
+  function getDestinationLabel(destinationName) {
+    if (destinationName === "allows") {
+      return "A identificação permite";
+    }
+
+    if (destinationName === "notyet") {
+      return "Ainda não permite concluir";
+    }
+
+    return "Afirmações para analisar";
+  }
+
+  function announce(message) {
+    if (liveRegion) {
+      liveRegion.textContent = message;
+    }
+  }
+
+  function clearSelection() {
+    cards.forEach(function (card) {
+      card.classList.remove("is-selected");
+      card.setAttribute("aria-pressed", "false");
+    });
+
+    selectedCard = null;
+  }
+
+  function clearAnswerStatus() {
+    cards.forEach(function (card) {
+      card.classList.remove(
+        "is-correct",
+        "is-incorrect"
+      );
     });
   }
 
+  function hideResults() {
+    clearAnswerStatus();
 
-  /* =========================
-     ENTRADA SUAVE
-     ========================= */
+    if (feedback) {
+      feedback.hidden = true;
+      feedback.className = "cap5-p43-feedback";
+      feedback.innerHTML = "";
+    }
 
-  function initReveal(){
-    const items = document.querySelectorAll(
-      ".cap5-page50 .cap5-p50-reveal"
+    if (synthesis) {
+      synthesis.hidden = true;
+    }
+  }
+
+  /* ---------------------------------------------------------
+     SELEÇÃO DO CARTÃO
+     --------------------------------------------------------- */
+
+  function selectCard(card) {
+    if (!card) {
+      return;
+    }
+
+    /*
+     * Clicar novamente no cartão selecionado
+     * cancela a seleção.
+     */
+    if (selectedCard === card) {
+      clearSelection();
+      announce("Seleção cancelada.");
+      return;
+    }
+
+    clearSelection();
+
+    selectedCard = card;
+
+    card.classList.add("is-selected");
+    card.setAttribute("aria-pressed", "true");
+
+    announce(
+      "Afirmação selecionada. Agora escolha um dos campos de destino."
+    );
+  }
+
+  /* ---------------------------------------------------------
+     MOVIMENTAÇÃO DO CARTÃO
+     --------------------------------------------------------- */
+
+  function moveCard(card, destinationName) {
+    const destinationBody =
+      getDestinationBody(destinationName);
+
+    if (!card || !destinationBody) {
+      return;
+    }
+
+    destinationBody.appendChild(card);
+
+    card.dataset.currentZone = destinationName;
+
+    card.classList.remove(
+      "is-selected",
+      "is-correct",
+      "is-incorrect",
+      "is-dragging"
     );
 
-    if(!("IntersectionObserver" in window)){
-      items.forEach(function(item){
-        item.classList.add("is-visible");
+    card.setAttribute("aria-pressed", "false");
+
+    selectedCard = null;
+
+    hideResults();
+    updateProgress();
+
+    announce(
+      `Afirmação movida para: ${getDestinationLabel(
+        destinationName
+      )}.`
+    );
+  }
+
+  /* ---------------------------------------------------------
+     PROGRESSO
+     --------------------------------------------------------- */
+
+  function updateProgress() {
+    const classifiedCards = cards.filter(
+      function (card) {
+        return card.dataset.currentZone !== "bank";
+      }
+    );
+
+    const classifiedAmount = classifiedCards.length;
+    const totalAmount = cards.length;
+
+    if (progress) {
+      progress.textContent =
+        `${classifiedAmount} de ${totalAmount} classificadas`;
+    }
+
+    if (checkButton) {
+      checkButton.disabled =
+        classifiedAmount !== totalAmount;
+    }
+  }
+
+  /* ---------------------------------------------------------
+     CONFERÊNCIA
+     --------------------------------------------------------- */
+
+  function checkAnswers() {
+    let correctAnswers = 0;
+
+    cards.forEach(function (card) {
+      const currentZone = card.dataset.currentZone;
+      const correctZone = card.dataset.answer;
+
+      const isCorrect =
+        currentZone === correctZone;
+
+      card.classList.toggle(
+        "is-correct",
+        isCorrect
+      );
+
+      card.classList.toggle(
+        "is-incorrect",
+        !isCorrect
+      );
+
+      if (isCorrect) {
+        correctAnswers += 1;
+      }
+    });
+
+    const totalAnswers = cards.length;
+    const incorrectAnswers =
+      totalAnswers - correctAnswers;
+
+    if (!feedback) {
+      return;
+    }
+
+    feedback.hidden = false;
+
+    /*
+     * Todas as afirmações estão corretas.
+     */
+    if (correctAnswers === totalAnswers) {
+      feedback.className =
+        "cap5-p43-feedback is-success";
+
+      feedback.innerHTML = `
+        <strong>
+          Interpretação construída corretamente.
+        </strong>
+
+        A identificação tornou o resultado mais específico,
+        mas não responde, isoladamente, às perguntas clínicas
+        e terapêuticas.
+      `;
+
+      if (synthesis) {
+        synthesis.hidden = false;
+
+        synthesis.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest"
+        });
+      }
+
+      announce(
+        "Todas as afirmações foram classificadas corretamente."
+      );
+
+      return;
+    }
+
+    /*
+     * Existem afirmações incorretas.
+     */
+    const statementText =
+      incorrectAnswers === 1
+        ? "afirmação destacada"
+        : "afirmações destacadas";
+
+    feedback.className =
+      "cap5-p43-feedback is-review";
+
+    feedback.innerHTML = `
+      <strong>
+        Revise ${incorrectAnswers} ${statementText}.
+      </strong>
+
+      Pergunte se a informação foi realmente fornecida pela
+      identificação ou se depende do contexto clínico, da
+      investigação da fonte ou do teste de suscetibilidade.
+    `;
+
+    if (synthesis) {
+      synthesis.hidden = true;
+    }
+
+    announce(
+      `${incorrectAnswers} ${
+        incorrectAnswers === 1
+          ? "afirmação precisa"
+          : "afirmações precisam"
+      } ser revisada${
+        incorrectAnswers === 1 ? "" : "s"
+      }.`
+    );
+  }
+
+  /* ---------------------------------------------------------
+     REINICIAR
+     --------------------------------------------------------- */
+
+  function resetActivity() {
+    cards.forEach(function (card) {
+      bank.appendChild(card);
+
+      card.dataset.currentZone = "bank";
+
+      card.classList.remove(
+        "is-selected",
+        "is-correct",
+        "is-incorrect",
+        "is-dragging"
+      );
+
+      card.setAttribute("aria-pressed", "false");
+    });
+
+    selectedCard = null;
+    draggedCard = null;
+
+    zones.forEach(function (zone) {
+      zone.classList.remove("is-over");
+    });
+
+    if (feedback) {
+      feedback.hidden = true;
+      feedback.className = "cap5-p43-feedback";
+      feedback.innerHTML = "";
+    }
+
+    if (synthesis) {
+      synthesis.hidden = true;
+    }
+
+    updateProgress();
+
+    announce("Atividade reiniciada.");
+  }
+
+  /* ---------------------------------------------------------
+     SELEÇÃO POR CLIQUE
+     --------------------------------------------------------- */
+
+  cards.forEach(function (card) {
+    card.dataset.currentZone = "bank";
+    card.setAttribute("aria-pressed", "false");
+
+    card.addEventListener("click", function () {
+      selectCard(card);
+    });
+  });
+
+  /*
+   * Depois de selecionar um cartão, o estudante pode clicar
+   * em um dos campos de destino.
+   */
+  zones.forEach(function (zone) {
+    const destinationName =
+      zone.dataset.p43Zone;
+
+    zone.addEventListener("click", function (event) {
+      /*
+       * Impede que o clique em um cartão posicionado
+       * também ative o campo onde ele está.
+       */
+      if (event.target.closest("[data-p43-card]")) {
+        return;
+      }
+
+      if (selectedCard) {
+        moveCard(
+          selectedCard,
+          destinationName
+        );
+      }
+    });
+
+    /*
+     * Permite movimentar pelo teclado usando
+     * Enter ou barra de espaço.
+     */
+    zone.addEventListener("keydown", function (event) {
+      const isActivationKey =
+        event.key === "Enter" ||
+        event.key === " ";
+
+      if (isActivationKey && selectedCard) {
+        event.preventDefault();
+
+        moveCard(
+          selectedCard,
+          destinationName
+        );
+      }
+    });
+  });
+
+  /* ---------------------------------------------------------
+     ARRASTAR E SOLTAR
+     --------------------------------------------------------- */
+
+  cards.forEach(function (card) {
+    card.addEventListener(
+      "dragstart",
+      function (event) {
+        draggedCard = card;
+
+        card.classList.add("is-dragging");
+
+        event.dataTransfer.effectAllowed =
+          "move";
+
+        event.dataTransfer.setData(
+          "text/plain",
+          card.dataset.p43Card
+        );
+      }
+    );
+
+    card.addEventListener(
+      "dragend",
+      function () {
+        card.classList.remove("is-dragging");
+
+        zones.forEach(function (zone) {
+          zone.classList.remove("is-over");
+        });
+
+        draggedCard = null;
+      }
+    );
+  });
+
+  zones.forEach(function (zone) {
+    const destinationName =
+      zone.dataset.p43Zone;
+
+    zone.addEventListener(
+      "dragover",
+      function (event) {
+        event.preventDefault();
+
+        zone.classList.add("is-over");
+
+        event.dataTransfer.dropEffect =
+          "move";
+      }
+    );
+
+    zone.addEventListener(
+      "dragleave",
+      function (event) {
+        /*
+         * Evita retirar o destaque quando o cursor
+         * passa sobre um elemento interno do campo.
+         */
+        if (
+          event.relatedTarget &&
+          zone.contains(event.relatedTarget)
+        ) {
+          return;
+        }
+
+        zone.classList.remove("is-over");
+      }
+    );
+
+    zone.addEventListener(
+      "drop",
+      function (event) {
+        event.preventDefault();
+
+        zone.classList.remove("is-over");
+
+        if (draggedCard) {
+          moveCard(
+            draggedCard,
+            destinationName
+          );
+        }
+      }
+    );
+  });
+
+  /* ---------------------------------------------------------
+     BOTÕES
+     --------------------------------------------------------- */
+
+  if (checkButton) {
+    checkButton.addEventListener(
+      "click",
+      checkAnswers
+    );
+  }
+
+  if (resetButton) {
+    resetButton.addEventListener(
+      "click",
+      resetActivity
+    );
+  }
+
+  /* ---------------------------------------------------------
+     INICIALIZAÇÃO
+     --------------------------------------------------------- */
+
+  resetActivity();
+})();
+/* =========================================================
+   CAPÍTULO 5 — PÁGINA 44
+   IDENTIFICAÇÃO DE BACTÉRIAS NA PRÁTICA
+   ========================================================= */
+
+(function initCap5Page44() {
+  "use strict";
+
+  const simulator = document.querySelector(
+    "[data-cap5-p44]"
+  );
+
+  if (!simulator) {
+    return;
+  }
+
+  const groups = Array.from(
+    simulator.querySelectorAll("[data-p44-group]")
+  );
+
+  const analyzeButton = simulator.querySelector(
+    "[data-p44-analyze]"
+  );
+
+  const resetButton = simulator.querySelector(
+    "[data-p44-reset]"
+  );
+
+  const progressBar = simulator.querySelector(
+    "[data-p44-progress-bar]"
+  );
+
+  const progressText = simulator.querySelector(
+    "[data-p44-progress-text]"
+  );
+
+  const decision = simulator.querySelector(
+    "[data-p44-decision]"
+  );
+
+  const decisionLabel = simulator.querySelector(
+    "[data-p44-decision-label]"
+  );
+
+  const decisionTitle = simulator.querySelector(
+    "[data-p44-decision-title]"
+  );
+
+  const decisionText = simulator.querySelector(
+    "[data-p44-decision-text]"
+  );
+
+  const decisionList = simulator.querySelector(
+    "[data-p44-decision-list]"
+  );
+
+  const selections = {
+    significance: null,
+    course: null,
+    risk: null,
+    coverage: null
+  };
+
+  function selectedCount() {
+    return Object.values(selections)
+      .filter(Boolean)
+      .length;
+  }
+
+  function updateProgress() {
+    const completed = selectedCount();
+    const total = groups.length;
+    const percentage = (completed / total) * 100;
+
+    progressBar.style.width =
+      `${percentage}%`;
+
+    progressText.textContent =
+      `${completed} de ${total} dimensões analisadas`;
+
+    analyzeButton.disabled =
+      completed !== total;
+  }
+
+  function hideDecision() {
+    decision.hidden = true;
+
+    analyzeButton.textContent =
+      "Analisar cenário";
+  }
+
+  function selectOption(group, button) {
+    const groupName =
+      group.dataset.p44Group;
+
+    group
+      .querySelectorAll("[data-p44-option]")
+      .forEach(function (option) {
+        const selected = option === button;
+
+        option.classList.toggle(
+          "is-selected",
+          selected
+        );
+
+        option.setAttribute(
+          "aria-pressed",
+          String(selected)
+        );
+      });
+
+    selections[groupName] =
+      button.dataset.p44Option;
+
+    hideDecision();
+    updateProgress();
+  }
+
+  function setDecision(config) {
+    decision.dataset.tone = config.tone;
+
+    decisionLabel.textContent =
+      config.label;
+
+    decisionTitle.textContent =
+      config.title;
+
+    decisionText.textContent =
+      config.text;
+
+    decisionList.innerHTML =
+      config.items
+        .map(function (item) {
+          return `<li>${item}</li>`;
+        })
+        .join("");
+
+    decision.hidden = false;
+
+    analyzeButton.textContent =
+      "Atualizar análise";
+
+    decision.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest"
+    });
+  }
+
+  function buildDecision() {
+    const significance =
+      selections.significance;
+
+    const course =
+      selections.course;
+
+    const risk =
+      selections.risk;
+
+    const coverage =
+      selections.coverage;
+
+    /*
+     * CENÁRIO 1
+     * Significado do isolamento ainda incerto.
+     */
+    if (significance === "uncertain") {
+      const urgent =
+        course === "worsening";
+
+      setDecision({
+        tone: urgent
+          ? "urgent"
+          : "attention",
+
+        label: urgent
+          ? "Reavaliação imediata"
+          : "Antes de modificar o tratamento",
+
+        title: urgent
+          ? "A piora exige ação, mas o crescimento não confirma sozinho a causa"
+          : "Primeiro, avalie se o isolamento representa infecção",
+
+        text: urgent
+          ? "A deterioração clínica não deve ser ignorada. Ao mesmo tempo, a identificação de Klebsiella pneumoniae em secreção traqueal pode refletir colonização e não deve ser considerada, isoladamente, a causa da piora."
+          : "Em secreção traqueal, Klebsiella pneumoniae pode representar colonização. Ampliar a cobertura somente por causa da identificação pode expor o paciente a tratamento desnecessário.",
+
+        items: [
+          "Reavaliar os achados clínicos, radiológicos e laboratoriais que sustentam pneumonia.",
+
+          urgent
+            ? "Investigar outras causas de deterioração e revisar imediatamente a adequação da terapia empírica."
+            : "Acompanhar a evolução e evitar mudança baseada somente no resultado da cultura.",
+
+          risk === "high"
+            ? "Considerar o histórico de resistência caso a hipótese de infecção permaneça provável."
+            : "Revisar culturas anteriores e a epidemiologia local antes de estimar o risco de resistência.",
+
+          coverage === "doubtful"
+            ? "Esclarecer por que a cobertura é considerada incerta e discutir a necessidade de ajuste conforme o protocolo institucional."
+            : "Manter reavaliação clínica mesmo quando a cobertura parece plausível."
+        ]
       });
 
       return;
     }
 
-    const observer = new IntersectionObserver(
-      function(entries){
-        entries.forEach(function(entry){
-          if(!entry.isIntersecting) return;
+    /*
+     * CENÁRIO 2
+     * Infecção provável com piora ou cobertura incerta.
+     */
+    if (
+      course === "worsening" ||
+      coverage === "doubtful"
+    ) {
+      setDecision({
+        tone: "urgent",
 
-          entry.target.classList.add(
-            "is-visible"
-          );
+        label: "Não aguarde passivamente",
 
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold:.13,
-        rootMargin:"0px 0px -35px 0px"
-      }
-    );
+        title:
+          "A cobertura empírica precisa ser reavaliada agora",
 
-    items.forEach(function(item){
-      observer.observe(item);
+        text:
+          "Com infecção provável e deterioração clínica ou dúvida relevante sobre a cobertura, esperar apenas pelo antibiograma pode ser inadequado. A identificação orienta a revisão, mas ainda não comprova suscetibilidade.",
+
+        items: [
+          "Revisar se o esquema iniciado possui atividade plausível para o microrganismo e o foco provável.",
+
+          risk === "high"
+            ? "Utilizar exposições recentes, isolamentos anteriores e epidemiologia local para estimar o risco de resistência."
+            : "Confirmar se realmente não existem fatores adicionais de risco para resistência.",
+
+          "Reavaliar o foco e a necessidade de medidas para seu controle.",
+
+          "Considerar ajuste conforme gravidade, protocolos institucionais e apoio especializado, sem ampliar automaticamente apenas pelo nome da espécie."
+        ]
+      });
+
+      return;
+    }
+
+    /*
+     * CENÁRIO 3
+     * Paciente estável e cobertura plausível,
+     * porém com risco de resistência.
+     */
+    if (risk === "high") {
+      setDecision({
+        tone: "attention",
+
+        label:
+          "Cobertura provisória sob maior incerteza",
+
+        title:
+          "O paciente está estável, mas o risco de resistência reduz a confiança",
+
+        text:
+          "A estabilidade e a cobertura plausível permitem uma avaliação cuidadosa, porém o risco de resistência adquirida impede assumir que o isolado será suscetível.",
+
+        items: [
+          "Revisar culturas anteriores, exposição recente a antibacterianos e epidemiologia institucional.",
+
+          "Confirmar se o esquema empírico continua plausível para o risco individual.",
+
+          "Acompanhar estreitamente a evolução clínica e a liberação do antibiograma.",
+
+          "Não ampliar nem reduzir o espectro automaticamente apenas pela identificação."
+        ]
+      });
+
+      return;
+    }
+
+    /*
+     * CENÁRIO 4
+     * Infecção provável, estabilidade,
+     * baixo risco e cobertura plausível.
+     */
+    setDecision({
+      tone: "standard",
+
+      label:
+        "Manutenção provisória com monitoramento",
+
+      title:
+        "É possível aguardar o antibiograma sem ampliar automaticamente",
+
+      text:
+        "Com infecção provável, estabilidade clínica, ausência de risco relevante identificado e cobertura empírica plausível, o esquema pode ser mantido provisoriamente enquanto o teste é concluído.",
+
+      items: [
+        "Monitorar a evolução clínica e reavaliar se surgirem novos dados.",
+
+        "Acompanhar a previsão de liberação do teste de suscetibilidade.",
+
+        "Não interpretar cobertura plausível como suscetibilidade comprovada.",
+
+        "Revisar e direcionar o tratamento quando o antibiograma estiver disponível."
+      ]
     });
   }
 
+  function resetSimulator() {
+    Object
+      .keys(selections)
+      .forEach(function (key) {
+        selections[key] = null;
+      });
+
+    simulator
+      .querySelectorAll("[data-p44-option]")
+      .forEach(function (button) {
+        button.classList.remove(
+          "is-selected"
+        );
+
+        button.setAttribute(
+          "aria-pressed",
+          "false"
+        );
+      });
+
+    decision.hidden = true;
+    decision.removeAttribute("data-tone");
+
+    analyzeButton.textContent =
+      "Analisar cenário";
+
+    updateProgress();
+  }
+
+  groups.forEach(function (group) {
+    group
+      .querySelectorAll("[data-p44-option]")
+      .forEach(function (button) {
+        button.setAttribute(
+          "aria-pressed",
+          "false"
+        );
+
+        button.addEventListener(
+          "click",
+          function () {
+            selectOption(group, button);
+          }
+        );
+      });
+  });
+
+  analyzeButton.addEventListener(
+    "click",
+    buildDecision
+  );
+
+  resetButton.addEventListener(
+    "click",
+    resetSimulator
+  );
+
+  resetSimulator();
+})();
+/* =========================================================
+   CAPÍTULO 5 — PÁGINA 45
+   ========================================================= */
+
+(function initCap5Page45() {
+  "use strict";
+
+  const root = document.querySelector("[data-cap5-p45-growth]");
+
+  if (!root) {
+    return;
+  }
+
+  const range = root.querySelector("#cap5P45Range");
+  const image = root.querySelector("#cap5P45TempoImage");
+  const zoom = root.querySelector("#cap5P45Zoom");
+  const timeValue = root.querySelector("#cap5P45TimeValue");
+  const note = root.querySelector("#cap5P45TempoNote");
+  const caption = root.querySelector("#cap5P45TempoCaption");
+  const play = root.querySelector("#cap5P45Play");
+  const reset = root.querySelector("#cap5P45Reset");
+
+  if (
+    !range ||
+    !image ||
+    !zoom ||
+    !timeValue ||
+    !note ||
+    !caption ||
+    !play ||
+    !reset
+  ) {
+    return;
+  }
+
+  const stages = [
+    {
+      time: "0 h",
+      valueText: "0 hora",
+      src: "../../assets/capitulo-05/imagens/difusao-disco-0h.png",
+      alt: "Placa de ágar Mueller-Hinton logo após a colocação dos discos",
+      title: "Ensaio iniciado",
+      text:
+        "Os discos foram posicionados, mas ainda não há crescimento bacteriano visível para avaliar.",
+      caption:
+        "No início do ensaio, ainda não é possível realizar a leitura."
+    },
+    {
+      time: "6 h",
+      valueText: "6 horas",
+      src: "../../assets/capitulo-05/imagens/difusao-disco-6h.png",
+      alt: "Simulação da placa após seis horas de incubação",
+      title: "Crescimento inicial",
+      text:
+        "O crescimento começa a se tornar perceptível, enquanto os antibacterianos se difundem pelo ágar. Os halos ainda não estão adequadamente definidos.",
+      caption:
+        "A ausência de um halo bem definido neste momento não permite classificar o isolado."
+    },
+    {
+      time: "12 h",
+      valueText: "12 horas",
+      src: "../../assets/capitulo-05/imagens/difusao-disco-12h.png",
+      alt: "Simulação da placa após doze horas de incubação",
+      title: "Halos em formação",
+      text:
+        "O crescimento bacteriano aumenta e as áreas de inibição se tornam mais visíveis, mas a leitura deve respeitar o tempo estabelecido para o método.",
+      caption:
+        "Uma aparência intermediária não deve ser interpretada como resultado final."
+    },
+    {
+      time: "18 h",
+      valueText: "18 horas",
+      src: "../../assets/capitulo-05/imagens/difusao-disco-18h.png",
+      alt:
+        "Simulação da placa após dezoito horas de incubação, com halos definidos",
+      title: "Padrão mensurável",
+      text:
+        "Com crescimento uniforme e halos definidos, a placa pode estar em condição de leitura, desde que todos os critérios técnicos do método tenham sido atendidos.",
+      caption:
+        "Os diâmetros dos halos serão medidos e comparados com pontos de corte; esse processo será apresentado na próxima página."
+    },
+    {
+      time: "24 h",
+      valueText: "24 horas",
+      src: "../../assets/capitulo-05/imagens/difusao-disco-24h.png",
+      alt:
+        "Simulação didática da placa após vinte e quatro horas de incubação",
+      title: "Tempo adicional",
+      text:
+        "Alguns ensaios podem exigir condições ou tempos diferentes. Incubar por mais tempo não torna automaticamente o resultado mais confiável.",
+      caption:
+        "O laboratório segue o tempo indicado para a combinação entre microrganismo, método e condições do ensaio."
+    }
+  ];
+
+  let timer = null;
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  function render(index) {
+    const stage = stages[index];
+
+    if (!stage) {
+      return;
+    }
+
+    range.value = String(index);
+    range.setAttribute("aria-valuetext", stage.valueText);
+
+    image.classList.add("is-changing");
+
+    window.setTimeout(
+      function () {
+        image.src = stage.src;
+        image.alt = stage.alt;
+
+        zoom.dataset.zoom = stage.src;
+        zoom.setAttribute(
+          "aria-label",
+          `Ampliar imagem da placa no tempo de ${stage.valueText}`
+        );
+
+        image.classList.remove("is-changing");
+      },
+      reducedMotion ? 0 : 120
+    );
+
+    timeValue.textContent = stage.time;
+
+    note.innerHTML = `
+      <strong>${stage.title}</strong>
+      <p>${stage.text}</p>
+    `;
+
+    caption.textContent = stage.caption;
+  }
+
+  function stopAnimation() {
+    if (timer !== null) {
+      window.clearInterval(timer);
+      timer = null;
+    }
+
+    play.setAttribute("aria-pressed", "false");
+
+    play.innerHTML = `
+      <span aria-hidden="true">▶</span>
+      Iniciar animação
+    `;
+  }
+
+  function startAnimation() {
+    if (reducedMotion) {
+      return;
+    }
+
+    if (Number(range.value) >= stages.length - 1) {
+      render(0);
+    }
+
+    play.setAttribute("aria-pressed", "true");
+
+    play.innerHTML = `
+      <span aria-hidden="true">Ⅱ</span>
+      Pausar
+    `;
+
+    timer = window.setInterval(function () {
+      const nextStage = Number(range.value) + 1;
+
+      if (nextStage >= stages.length) {
+        stopAnimation();
+        return;
+      }
+
+      render(nextStage);
+    }, 1700);
+  }
+
+  range.addEventListener("input", function () {
+    stopAnimation();
+    render(Number(range.value));
+  });
+
+  play.addEventListener("click", function () {
+    if (timer !== null) {
+      stopAnimation();
+    } else {
+      startAnimation();
+    }
+  });
+
+  reset.addEventListener("click", function () {
+    stopAnimation();
+    render(0);
+    range.focus();
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+      stopAnimation();
+    }
+  });
+
+  if (reducedMotion) {
+    play.hidden = true;
+  }
+
+  render(0);
+})();
+/* =========================================================
+   CAPÍTULO 5 — PÁGINA 46
+   ========================================================= */
+
+(function initCap5Page46() {
+  "use strict";
+
+  const root = document.querySelector("[data-cap5-p46]");
+
+  if (!root) {
+    return;
+  }
+
+  const methodButtons = Array.from(
+    root.querySelectorAll("[data-p46-method]")
+  );
+
+  const panel = root.querySelector("#cap5P46Panel");
+  const image = root.querySelector("#cap5P46Image");
+  const zoom = root.querySelector("#cap5P46Zoom");
+  const imageCaption = root.querySelector("#cap5P46ImageCaption");
+  const stepBox = root.querySelector("#cap5P46Step");
+  const previousButton = root.querySelector("#cap5P46Previous");
+  const nextButton = root.querySelector("#cap5P46Next");
+
+  const indicators = Array.from(
+    root.querySelectorAll("[data-p46-indicator]")
+  );
+
+  if (
+    methodButtons.length === 0 ||
+    !panel ||
+    !image ||
+    !zoom ||
+    !imageCaption ||
+    !stepBox ||
+    !previousButton ||
+    !nextButton
+  ) {
+    return;
+  }
+
+  const content = {
+    disco: {
+      tabId: "cap5P46TabDisco",
+
+      image:
+        "../../assets/capitulo-05/imagens/medicao-diametro-halo.png",
+
+      alt:
+        "Medição do diâmetro completo da zona de inibição, atravessando o centro do disco",
+
+      zoomLabel:
+        "Ampliar imagem da medição do diâmetro do halo",
+
+      caption:
+        "O diâmetro completo da zona de inibição é medido em milímetros, atravessando o centro do disco.",
+
+      steps: [
+        {
+          title: "Obter a medida",
+          text:
+            "Na disco-difusão, o laboratório mede o diâmetro completo da zona de inibição, em milímetros."
+        },
+        {
+          title: "Consultar o ponto de corte",
+          text:
+            "O diâmetro é comparado ao ponto de corte aplicável à combinação entre o microrganismo e o antibacteriano avaliados."
+        },
+        {
+          title: "Liberar a categoria",
+          text:
+            "A comparação permite converter o diâmetro medido em uma categoria interpretativa. O significado clínico de S, I e R será apresentado na próxima página."
+        }
+      ]
+    },
+
+    cim: {
+      tabId: "cap5P46TabCim",
+
+      image:
+        "../../assets/capitulo-05/imagens/leitura-cim-gradiente.png",
+
+      alt:
+        "Leitura da concentração inibitória mínima no ponto em que a elipse de inibição cruza a escala da fita de gradiente",
+
+      zoomLabel:
+        "Ampliar imagem da leitura da concentração inibitória mínima",
+
+      caption:
+        "No método de gradiente em fita, a CIM é lida no ponto em que a borda da elipse de inibição cruza a escala.",
+
+      steps: [
+        {
+          title: "Obter a medida",
+          text:
+            "A CIM corresponde à menor concentração que inibe o crescimento visível do microrganismo nas condições padronizadas do teste. O resultado é expresso em mg/L."
+        },
+        {
+          title: "Consultar o ponto de corte",
+          text:
+            "O valor da CIM é comparado ao ponto de corte aplicável à combinação entre o microrganismo e o antibacteriano avaliados."
+        },
+        {
+          title: "Liberar a categoria",
+          text:
+            "A comparação permite converter a CIM em uma categoria interpretativa. O valor absoluto não deve ser comparado diretamente entre antibacterianos diferentes."
+        }
+      ]
+    }
+  };
+
+  let currentMethod = "disco";
+  let currentStep = 0;
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  function updateIndicators() {
+    indicators.forEach(function (indicator, index) {
+      indicator.classList.toggle(
+        "is-active",
+        index === currentStep
+      );
+
+      indicator.classList.toggle(
+        "is-complete",
+        index < currentStep
+      );
+    });
+  }
+
+  function updateStep() {
+    const selectedContent = content[currentMethod];
+    const selectedStep = selectedContent.steps[currentStep];
+
+    stepBox.innerHTML = `
+      <span class="cap5-p46-stepNumber">
+        Etapa ${currentStep + 1} de 3
+      </span>
+
+      <h3>${selectedStep.title}</h3>
+
+      <p>${selectedStep.text}</p>
+    `;
+
+    previousButton.disabled = currentStep === 0;
+
+    if (currentStep === selectedContent.steps.length - 1) {
+      nextButton.textContent = "Rever etapas";
+    } else {
+      nextButton.textContent = "Próxima etapa →";
+    }
+
+    updateIndicators();
+  }
+
+  function updateMethod(method) {
+    if (!content[method]) {
+      return;
+    }
+
+    currentMethod = method;
+    currentStep = 0;
+
+    const selectedContent = content[method];
+
+    methodButtons.forEach(function (button) {
+      const isSelected = button.dataset.p46Method === method;
+
+      button.classList.toggle("is-active", isSelected);
+      button.setAttribute(
+        "aria-selected",
+        String(isSelected)
+      );
+
+      button.tabIndex = isSelected ? 0 : -1;
+    });
+
+    panel.setAttribute(
+      "aria-labelledby",
+      selectedContent.tabId
+    );
+
+    image.classList.add("is-changing");
+
+    window.setTimeout(
+      function () {
+        image.src = selectedContent.image;
+        image.alt = selectedContent.alt;
+
+        zoom.dataset.zoom = selectedContent.image;
+        zoom.setAttribute(
+          "aria-label",
+          selectedContent.zoomLabel
+        );
+
+        imageCaption.textContent =
+          selectedContent.caption;
+
+        image.classList.remove("is-changing");
+      },
+      reducedMotion ? 0 : 120
+    );
+
+    updateStep();
+  }
+
+  methodButtons.forEach(function (button, buttonIndex) {
+    button.addEventListener("click", function () {
+      updateMethod(button.dataset.p46Method);
+    });
+
+    button.addEventListener("keydown", function (event) {
+      let nextIndex = buttonIndex;
+
+      if (
+        event.key === "ArrowRight" ||
+        event.key === "ArrowDown"
+      ) {
+        nextIndex =
+          (buttonIndex + 1) % methodButtons.length;
+      } else if (
+        event.key === "ArrowLeft" ||
+        event.key === "ArrowUp"
+      ) {
+        nextIndex =
+          (buttonIndex - 1 + methodButtons.length) %
+          methodButtons.length;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+
+      const nextButton = methodButtons[nextIndex];
+
+      nextButton.focus();
+      updateMethod(nextButton.dataset.p46Method);
+    });
+  });
+
+  previousButton.addEventListener("click", function () {
+    if (currentStep > 0) {
+      currentStep -= 1;
+      updateStep();
+    }
+  });
+
+  nextButton.addEventListener("click", function () {
+    const lastStep =
+      content[currentMethod].steps.length - 1;
+
+    if (currentStep < lastStep) {
+      currentStep += 1;
+    } else {
+      currentStep = 0;
+    }
+
+    updateStep();
+  });
+
+  updateMethod("disco");
+})();
+/* =========================================================
+   CAPÍTULO 5 — PÁGINA 47
+   ========================================================= */
+
+(function initCap5Page47() {
+  "use strict";
+
+  const root = document.querySelector("[data-cap5-p47]");
+
+  if (!root) {
+    return;
+  }
+
+  const factorGroups = Array.from(
+    root.querySelectorAll("[data-p47-factor]")
+  );
+
+  const inputs = Array.from(
+    root.querySelectorAll('input[type="radio"]')
+  );
+
+  const result = root.querySelector(
+    "#cap5P47DecisionResult"
+  );
+
+  const resetButton = root.querySelector(
+    "#cap5P47Reset"
+  );
+
+  const micSection = document.querySelector(
+    "[data-cap5-p47-mic]"
+  );
+
+  const micToggle = micSection
+    ? micSection.querySelector("#cap5P47MicToggle")
+    : null;
+
+  const micContent = micSection
+    ? micSection.querySelector("#cap5P47MicContent")
+    : null;
+
+  if (!result || !resetButton) {
+    return;
+  }
+
+  function getSelectedValue(groupName) {
+    const selected = root.querySelector(
+      `input[name="${groupName}"]:checked`
+    );
+
+    return selected ? selected.value : null;
+  }
+
+  function updateCompletedGroups() {
+    factorGroups.forEach(function (group) {
+      const selected = group.querySelector(
+        'input[type="radio"]:checked'
+      );
+
+      group.classList.toggle(
+        "is-complete",
+        Boolean(selected)
+      );
+    });
+  }
+
+  function showInitialResult() {
+    result.className = "cap5-p47-decisionResult";
+
+    result.innerHTML = `
+      <span class="cap5-p47-resultStatus">
+        Análise em andamento
+      </span>
+
+      <strong>
+        Avalie os três fatores.
+      </strong>
+
+      <p>
+        A categoria I só pode ser utilizada adequadamente quando se
+        compreende como alcançar a exposição necessária e se esse regime
+        é apropriado para o foco e para o paciente.
+      </p>
+    `;
+  }
+
+  function updateDecision() {
+    updateCompletedGroups();
+
+    const regimen = getSelectedValue(
+      "cap5P47Regimen"
+    );
+
+    const site = getSelectedValue(
+      "cap5P47Site"
+    );
+
+    const patient = getSelectedValue(
+      "cap5P47Patient"
+    );
+
+    if (!regimen || !site || !patient) {
+      showInitialResult();
+      return;
+    }
+
+    const values = [regimen, site, patient];
+
+    if (values.includes("no")) {
+      result.className =
+        "cap5-p47-decisionResult is-limit";
+
+      result.innerHTML = `
+        <span class="cap5-p47-resultStatus">
+          Limitação identificada
+        </span>
+
+        <strong>
+          O resultado I não deve ser utilizado automaticamente.
+        </strong>
+
+        <p>
+          Pelo menos uma condição necessária não parece atendida.
+          Reavalie o regime disponível, a exposição no sítio da
+          infecção, a segurança para o paciente e as demais opções
+          apresentadas no antibiograma.
+        </p>
+      `;
+
+      return;
+    }
+
+    if (values.includes("unknown")) {
+      result.className =
+        "cap5-p47-decisionResult is-review";
+
+      result.innerHTML = `
+        <span class="cap5-p47-resultStatus">
+          Informação insuficiente
+        </span>
+
+        <strong>
+          Não descarte nem escolha o resultado I sem completar a análise.
+        </strong>
+
+        <p>
+          Verifique o regime de exposição recomendado, sua adequação
+          ao sítio da infecção e as condições clínicas do paciente.
+          Se necessário, consulte protocolos institucionais, a equipe
+          especializada ou o laboratório.
+        </p>
+      `;
+
+      return;
+    }
+
+    result.className =
+      "cap5-p47-decisionResult is-consider";
+
+    result.innerHTML = `
+      <span class="cap5-p47-resultStatus">
+        Opção potencialmente utilizável
+      </span>
+
+      <strong>
+        O antibacteriano classificado como I pode ser considerado.
+      </strong>
+
+      <p>
+        As condições avaliadas indicam que a exposição aumentada pode
+        ser alcançada por um regime validado, com adequação ao foco e
+        segurança para o paciente. A decisão final ainda deve integrar
+        o quadro clínico e as demais opções disponíveis.
+      </p>
+    `;
+  }
+
+  inputs.forEach(function (input) {
+    input.addEventListener(
+      "change",
+      updateDecision
+    );
+  });
+
+  resetButton.addEventListener("click", function () {
+    inputs.forEach(function (input) {
+      input.checked = false;
+    });
+
+    factorGroups.forEach(function (group) {
+      group.classList.remove("is-complete");
+    });
+
+    showInitialResult();
+
+    const firstInput = inputs[0];
+
+    if (firstInput) {
+      firstInput.focus();
+    }
+  });
+
+  if (micToggle && micContent) {
+    micToggle.addEventListener("click", function () {
+      const isExpanded =
+        micToggle.getAttribute("aria-expanded") === "true";
+
+      micToggle.setAttribute(
+        "aria-expanded",
+        String(!isExpanded)
+      );
+
+      micContent.hidden = isExpanded;
+
+      micToggle.innerHTML = isExpanded
+        ? 'Entender <span aria-hidden="true">+</span>'
+        : 'Fechar <span aria-hidden="true">−</span>';
+    });
+  }
+
+  showInitialResult();
+})();
+/* =========================================================
+   CAPÍTULO 5 — PÁGINA 48
+   ========================================================= */
+
+(function initCap5Page48() {
+  "use strict";
+
+  const root = document.querySelector("[data-cap5-p48]");
+
+  if (!root) {
+    return;
+  }
+
+  const buttons = Array.from(
+    root.querySelectorAll("[data-p48-type]")
+  );
+
+  const panel = root.querySelector("#cap5P48Result");
+  const label = root.querySelector("#cap5P48ResultLabel");
+  const title = root.querySelector("#cap5P48ResultTitle");
+  const intro = root.querySelector("#cap5P48ResultIntro");
+  const meaning = root.querySelector("#cap5P48Meaning");
+  const check = root.querySelector("#cap5P48Check");
+  const action = root.querySelector("#cap5P48Action");
+  const avoid = root.querySelector("#cap5P48Avoid");
+
+  if (
+    buttons.length === 0 ||
+    !panel ||
+    !label ||
+    !title ||
+    !intro ||
+    !meaning ||
+    !check ||
+    !action ||
+    !avoid
+  ) {
+    return;
+  }
+
+  const content = {
+    confirmed: {
+      tabId: "cap5P48TabConfirmed",
+
+      label: "Mecanismo confirmado",
+
+      title:
+        "A informação pode modificar o alcance da interpretação",
+
+      intro:
+        "O laboratório informa que um mecanismo ou uma resistência específica foi detectado pelos critérios adotados.",
+
+      meaning:
+        "Verifique quais antibacterianos, classes ou estratégias terapêuticas podem ser afetados pelo mecanismo informado.",
+
+      check:
+        "Analise as categorias S, I e R, as notas vinculadas aos resultados e eventuais antibacterianos não liberados.",
+
+      action:
+        "Integre o mecanismo ao microrganismo, ao perfil de suscetibilidade, ao sítio da infecção e à relevância clínica do isolamento.",
+
+      avoid:
+        "Não transforme a presença do mecanismo em uma regra terapêutica universal nem altere por conta própria as categorias liberadas pelo laboratório."
+    },
+
+    suggestive: {
+      tabId: "cap5P48TabSuggestive",
+
+      label: "Perfil sugestivo",
+
+      title:
+        "Suspeita laboratorial não é sinônimo de confirmação",
+
+      intro:
+        "O padrão observado pode ser compatível com determinado mecanismo, mas a redação indica que a conclusão ainda não é definitiva.",
+
+      meaning:
+        "Identifique qual padrão levantou a suspeita e se o resultado corresponde a uma triagem ou a uma investigação complementar.",
+
+      check:
+        "Verifique se existe confirmação em andamento, se há uma nota vinculada e quais categorias já podem ser utilizadas.",
+
+      action:
+        "Considere apenas as informações já liberadas como definitivas. Esclareça com o laboratório se a confirmação puder modificar uma decisão imediata.",
+
+      avoid:
+        "Não registre nem interprete um perfil sugestivo como mecanismo confirmado e não presuma resultados que ainda não foram liberados."
+    },
+
+    limitation: {
+      tabId: "cap5P48TabLimitation",
+
+      label: "Limitação ou necessidade de confirmação",
+
+      title:
+        "O resultado não deve ser forçado em uma categoria",
+
+      intro:
+        "O método pode apresentar uma limitação, resultado incerto, área de incerteza técnica ou necessidade de teste complementar.",
+
+      meaning:
+        "Verifique qual antibacteriano ou resultado está sujeito à limitação e se ela impede a liberação de uma categoria confiável.",
+
+      check:
+        "Leia as notas do laudo e observe se foi recomendado repetir o teste, utilizar outro método ou aguardar confirmação.",
+
+      action:
+        "Evite utilizar o resultado questionado como fundamento isolado. Quando houver impacto imediato, esclareça o estado da investigação com o laboratório.",
+
+      avoid:
+        "Não converter um resultado não categorizado, incerto ou pendente em S, I ou R por estimativa própria."
+    },
+
+    epidemiology: {
+      tabId: "cap5P48TabEpidemiology",
+
+      label: "Relevância epidemiológica",
+
+      title:
+        "A observação pode exigir uma ação além da escolha terapêutica",
+
+      intro:
+        "Alguns mecanismos possuem importância para vigilância, prevenção da transmissão e controle de infecções.",
+
+      meaning:
+        "Verifique se o mecanismo informado possui relevância epidemiológica ou está associado à possibilidade de disseminação no serviço.",
+
+      check:
+        "Considere o tipo de amostra, a diferença entre colonização e infecção e as orientações institucionais aplicáveis.",
+
+      action:
+        "Comunique a equipe responsável pela prevenção e pelo controle de infecções conforme os fluxos e protocolos institucionais.",
+
+      avoid:
+        "Não confunda relevância epidemiológica com confirmação de infecção e não deixe de adotar medidas de controle apenas porque o isolamento representa colonização."
+    }
+  };
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  function updatePanel(type) {
+    const selectedContent = content[type];
+
+    if (!selectedContent) {
+      return;
+    }
+
+    buttons.forEach(function (button) {
+      const isSelected =
+        button.dataset.p48Type === type;
+
+      button.classList.toggle(
+        "is-active",
+        isSelected
+      );
+
+      button.setAttribute(
+        "aria-selected",
+        String(isSelected)
+      );
+
+      button.tabIndex = isSelected ? 0 : -1;
+    });
+
+    panel.setAttribute(
+      "aria-labelledby",
+      selectedContent.tabId
+    );
+
+    panel.classList.add("is-changing");
+
+    window.setTimeout(
+      function () {
+        label.textContent =
+          selectedContent.label;
+
+        title.textContent =
+          selectedContent.title;
+
+        intro.textContent =
+          selectedContent.intro;
+
+        meaning.textContent =
+          selectedContent.meaning;
+
+        check.textContent =
+          selectedContent.check;
+
+        action.textContent =
+          selectedContent.action;
+
+        avoid.textContent =
+          selectedContent.avoid;
+
+        panel.classList.remove("is-changing");
+      },
+      reducedMotion ? 0 : 100
+    );
+  }
+
+  buttons.forEach(function (button, index) {
+    button.addEventListener("click", function () {
+      updatePanel(button.dataset.p48Type);
+    });
+
+    button.addEventListener("keydown", function (event) {
+      let nextIndex = index;
+
+      if (
+        event.key === "ArrowRight" ||
+        event.key === "ArrowDown"
+      ) {
+        nextIndex =
+          (index + 1) % buttons.length;
+      } else if (
+        event.key === "ArrowLeft" ||
+        event.key === "ArrowUp"
+      ) {
+        nextIndex =
+          (index - 1 + buttons.length) %
+          buttons.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = buttons.length - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+
+      const nextButton = buttons[nextIndex];
+
+      nextButton.focus();
+      updatePanel(nextButton.dataset.p48Type);
+    });
+  });
+
+  updatePanel("confirmed");
 })();
 
-/* =========================
-   CAPÍTULO 5 — PÁGINA 51
-   CARBAPENEMASES
-   ========================= */
+/* =========================================================
+   CAPÍTULO 5 — PÁGINA 49
+   ESBL
+   ========================================================= */
 
-(function initCap5Page51(){
-  const flowRoot = document.querySelector(
-    "[data-cap5-p51-flow]"
-  );
+(function initCap5Page49() {
+  "use strict";
 
-  if(flowRoot){
-    initInterpretationFlow(flowRoot);
+  const root = document.querySelector("[data-cap5-p49]");
+
+  if (!root) {
+    return;
   }
 
-  const caseRoot = document.querySelector(
-    "[data-cap5-p51-case]"
+  const controls = Array.from(
+    root.querySelectorAll("[data-p49-view]")
   );
 
-  if(caseRoot){
-    initClinicalCase(caseRoot);
+  const panel = root.querySelector("#cap5P49Panel");
+  const image = root.querySelector("#cap5P49Image");
+  const zoom = root.querySelector("#cap5P49Zoom");
+  const caption = root.querySelector("#cap5P49Caption");
+  const kicker = root.querySelector("#cap5P49Kicker");
+  const title = root.querySelector("#cap5P49Title");
+  const observed = root.querySelector("#cap5P49Observed");
+  const conclusion = root.querySelector("#cap5P49Conclusion");
+  const caution = root.querySelector("#cap5P49Caution");
+
+  if (
+    controls.length === 0 ||
+    !panel ||
+    !image ||
+    !zoom ||
+    !caption ||
+    !kicker ||
+    !title ||
+    !observed ||
+    !conclusion ||
+    !caution
+  ) {
+    return;
   }
 
-  initReveal();
+  const views = {
+    screening: {
+      tabId: "cap5P49TabScreening",
 
+      image:
+        "../../assets/capitulo-05/imagens/esbl-perfil-sugestivo.png",
 
-  /* =========================
-     FLUXO DE INTERPRETAÇÃO
-     ========================= */
+      alt:
+        "Teste de suscetibilidade apresentando perfil sugestivo de produção de ESBL",
 
-  function initInterpretationFlow(root){
+      zoomLabel:
+        "Ampliar imagem do perfil sugestivo de ESBL",
+
+      caption:
+        "A redução da suscetibilidade a determinados β-lactâmicos pode levantar a suspeita de produção de ESBL.",
+
+      kicker:
+        "Etapa de triagem",
+
+      title:
+        "O perfil pode levantar uma suspeita",
+
+      observed:
+        "Redução da suscetibilidade a determinados β-lactâmicos utilizados na triagem.",
+
+      conclusion:
+        "O padrão pode indicar a necessidade de investigar a produção de ESBL.",
+
+      caution:
+        "Um perfil sugestivo não deve ser apresentado como mecanismo confirmado sem que os critérios adotados tenham sido atendidos."
+    },
+
+    confirmation: {
+      tabId: "cap5P49TabConfirmation",
+
+      image:
+        "../../assets/capitulo-05/imagens/esbl-confirmacao-clavulanato.png",
+
+      alt:
+        "Teste fenotípico demonstrando aumento da zona de inibição na presença de ácido clavulânico",
+
+      zoomLabel:
+        "Ampliar imagem da demonstração fenotípica de ESBL",
+
+      caption:
+        "O aumento da zona de inibição na presença do ácido clavulânico pode demonstrar a ação inibitória sobre a enzima.",
+
+      kicker:
+        "Demonstração fenotípica",
+
+      title:
+        "O inibidor modifica o padrão de crescimento",
+
+      observed:
+        "Aumento da zona de inibição quando o β-lactâmico é associado ao ácido clavulânico.",
+
+      conclusion:
+        "Quando os critérios do método são atendidos, a diferença observada é compatível com a produção de ESBL.",
+
+      caution:
+        "A demonstração do mecanismo não substitui as categorias S, I e R nem determina isoladamente a escolha terapêutica."
+    }
+  };
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  function updateView(viewName) {
+    const selectedView = views[viewName];
+
+    if (!selectedView) {
+      return;
+    }
+
+    controls.forEach(function (control) {
+      const isSelected =
+        control.dataset.p49View === viewName;
+
+      control.classList.toggle(
+        "is-active",
+        isSelected
+      );
+
+      control.setAttribute(
+        "aria-selected",
+        String(isSelected)
+      );
+
+      control.tabIndex = isSelected ? 0 : -1;
+    });
+
+    panel.setAttribute(
+      "aria-labelledby",
+      selectedView.tabId
+    );
+
+    panel.classList.add("is-changing");
+
+    window.setTimeout(
+      function () {
+        image.src = selectedView.image;
+        image.alt = selectedView.alt;
+
+        zoom.dataset.zoom = selectedView.image;
+
+        zoom.setAttribute(
+          "aria-label",
+          selectedView.zoomLabel
+        );
+
+        caption.textContent =
+          selectedView.caption;
+
+        kicker.textContent =
+          selectedView.kicker;
+
+        title.textContent =
+          selectedView.title;
+
+        observed.textContent =
+          selectedView.observed;
+
+        conclusion.textContent =
+          selectedView.conclusion;
+
+        caution.textContent =
+          selectedView.caution;
+
+        panel.classList.remove("is-changing");
+      },
+      reducedMotion ? 0 : 100
+    );
+  }
+
+  controls.forEach(function (control, index) {
+    control.addEventListener("click", function () {
+      updateView(control.dataset.p49View);
+    });
+
+    control.addEventListener("keydown", function (event) {
+      let nextIndex = index;
+
+      if (
+        event.key === "ArrowRight" ||
+        event.key === "ArrowDown"
+      ) {
+        nextIndex =
+          (index + 1) % controls.length;
+      } else if (
+        event.key === "ArrowLeft" ||
+        event.key === "ArrowUp"
+      ) {
+        nextIndex =
+          (index - 1 + controls.length) %
+          controls.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = controls.length - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+
+      const nextControl = controls[nextIndex];
+
+      nextControl.focus();
+      updateView(nextControl.dataset.p49View);
+    });
+  });
+
+  updateView("screening");
+})();
+/* =========================================================
+   CAPÍTULO 5 — PÁGINA 50
+   AmpC
+   ========================================================= */
+
+(function initCap5Page50() {
+  "use strict";
+
+  initWordingInteraction();
+  initSelectionSimulation();
+
+  function initWordingInteraction() {
+    const root = document.querySelector(
+      "[data-cap5-p50-wording]"
+    );
+
+    if (!root) {
+      return;
+    }
+
     const buttons = Array.from(
-      root.querySelectorAll("[data-p51-step]")
+      root.querySelectorAll("[data-p50-wording]")
     );
 
-    const kicker = root.querySelector(
-      "#cap5P51FlowKicker"
+    const panel = root.querySelector(
+      "#cap5P50WordingResult"
     );
 
-    const title = root.querySelector(
-      "#cap5P51FlowPanelTitle"
+    const label = root.querySelector(
+      "#cap5P50WordingLabel"
+    );
+
+    const heading = root.querySelector(
+      "#cap5P50WordingHeading"
     );
 
     const text = root.querySelector(
-      "#cap5P51FlowText"
+      "#cap5P50WordingText"
     );
 
-    if(
-      !buttons.length ||
-      !kicker ||
-      !title ||
-      !text
-    ){
+    const action = root.querySelector(
+      "#cap5P50WordingAction"
+    );
+
+    if (
+      buttons.length === 0 ||
+      !panel ||
+      !label ||
+      !heading ||
+      !text ||
+      !action
+    ) {
       return;
     }
 
-    const states = {
-      identification:{
-        kicker:"Etapa 1",
-        title:"A espécie fornece o contexto inicial",
-        text:"A identificação de <em>Klebsiella pneumoniae</em> direciona o raciocínio para uma Enterobacterales com relevância clínica e epidemiológica na disseminação de mecanismos de resistência."
+    const wordingContent = {
+      potential: {
+        tabId: "cap5P50TabPotential",
+
+        label:
+          "Informação relacionada à espécie",
+
+        heading:
+          "Indica possibilidade biológica",
+
+        text:
+          "A espécie possui um gene cromossômico induzível associado à produção de AmpC. A frase não significa que a produção elevada da enzima tenha sido demonstrada naquele isolado.",
+
+        action:
+          "<strong>Como utilizar:</strong> considerar o risco conhecido para a espécie, o antibacteriano avaliado e o contexto da infecção."
       },
 
-      mechanism:{
-        kicker:"Etapa 2",
-        title:"A sigla indica o mecanismo detectado",
-        text:"A observação “KPC positiva” informa que o isolado produz uma carbapenemase específica. Esse dado acrescenta informação que não pode ser obtida apenas pela leitura isolada das categorias S, I e R."
+      suggestive: {
+        tabId: "cap5P50TabSuggestive",
+
+        label:
+          "Suspeita baseada no perfil laboratorial",
+
+        heading:
+          "O padrão é compatível, mas não definitivo",
+
+        text:
+          "O comportamento observado no teste pode ser compatível com produção de AmpC. A expressão “perfil sugestivo” não equivale à confirmação do mecanismo.",
+
+        action:
+          "<strong>Como utilizar:</strong> verificar se existe confirmação em andamento, quais resultados já foram liberados e se a suspeita interfere em uma decisão imediata."
       },
 
-      panel:{
-        kicker:"Etapa 3",
-        title:"O antibiograma precisa ser lido de forma integrada",
-        text:"A presença da carbapenemase modifica o contexto do painel. É necessário verificar quais agentes apresentam atividade laboratorial e se essa atividade é coerente com o mecanismo informado."
-      },
+      detected: {
+        tabId: "cap5P50TabDetected",
 
-      context:{
-        kicker:"Etapa 4",
-        title:"O foco e a gravidade influenciam a decisão",
-        text:"O significado clínico do resultado depende do sítio da infecção, da gravidade do paciente, da carga bacteriana, do controle do foco e da exposição alcançável pelo tratamento."
-      },
+        label:
+          "Mecanismo demonstrado",
 
-      therapy:{
-        kicker:"Etapa 5",
-        title:"A terapia deve possuir atividade prevista contra o mecanismo",
-        text:"A escolha final deve integrar o perfil de suscetibilidade e a atividade conhecida do agente ou da combinação diante da carbapenemase identificada."
+        heading:
+          "A produção de AmpC foi detectada",
+
+        text:
+          "O laboratório informa que o mecanismo foi demonstrado de acordo com o método e os critérios adotados.",
+
+        action:
+          "<strong>Como utilizar:</strong> integrar o mecanismo confirmado ao perfil de suscetibilidade, à espécie, ao sítio da infecção e às condições clínicas."
       }
     };
 
-    function render(target){
-      const state = states[target];
+    function updateWording(type) {
+      const selected = wordingContent[type];
 
-      if(!state) return;
+      if (!selected) {
+        return;
+      }
 
-      buttons.forEach(function(button){
-        const active =
-          button.dataset.p51Step === target;
+      buttons.forEach(function (button) {
+        const isSelected =
+          button.dataset.p50Wording === type;
 
         button.classList.toggle(
           "is-active",
-          active
+          isSelected
         );
 
         button.setAttribute(
           "aria-selected",
-          active ? "true" : "false"
+          String(isSelected)
         );
 
-        button.setAttribute(
-          "tabindex",
-          active ? "0" : "-1"
-        );
+        button.tabIndex = isSelected ? 0 : -1;
       });
 
-      kicker.textContent = state.kicker;
-      title.textContent = state.title;
-      text.innerHTML = state.text;
+      panel.setAttribute(
+        "aria-labelledby",
+        selected.tabId
+      );
+
+      label.textContent = selected.label;
+      heading.textContent = selected.heading;
+      text.textContent = selected.text;
+      action.innerHTML = selected.action;
     }
 
-    buttons.forEach(function(button, index){
-
-      button.addEventListener("click", function(){
-        render(button.dataset.p51Step);
+    buttons.forEach(function (button, index) {
+      button.addEventListener("click", function () {
+        updateWording(button.dataset.p50Wording);
       });
 
-      button.addEventListener("keydown", function(event){
-        let nextIndex = null;
+      button.addEventListener("keydown", function (event) {
+        let nextIndex = index;
 
-        if(
+        if (
           event.key === "ArrowRight" ||
           event.key === "ArrowDown"
-        ){
+        ) {
           nextIndex =
             (index + 1) % buttons.length;
-        }
-
-        if(
+        } else if (
           event.key === "ArrowLeft" ||
           event.key === "ArrowUp"
-        ){
+        ) {
           nextIndex =
             (index - 1 + buttons.length) %
             buttons.length;
-        }
-
-        if(event.key === "Home"){
+        } else if (event.key === "Home") {
           nextIndex = 0;
-        }
-
-        if(event.key === "End"){
+        } else if (event.key === "End") {
           nextIndex = buttons.length - 1;
+        } else {
+          return;
         }
-
-        if(nextIndex === null) return;
 
         event.preventDefault();
 
-        buttons[nextIndex].focus();
+        const nextButton = buttons[nextIndex];
 
-        render(
-          buttons[nextIndex].dataset.p51Step
+        nextButton.focus();
+
+        updateWording(
+          nextButton.dataset.p50Wording
         );
       });
-
     });
 
-    render("identification");
+    updateWording("potential");
   }
 
-
-  /* =========================
-     CASO CLÍNICO
-     ========================= */
-
-  function initClinicalCase(root){
-    const options = Array.from(
-      root.querySelectorAll("[data-p51-answer]")
+  function initSelectionSimulation() {
+    const root = document.querySelector(
+      "[data-cap5-p50-selection]"
     );
 
-    const feedback = root.querySelector(
-      "#cap5P51CaseFeedback"
-    );
-
-    if(!options.length || !feedback){
+    if (!root) {
       return;
     }
 
-    const answers = {
-      all:{
-        correct:false,
-        title:"Incorreto.",
-        text:"A presença de KPC não significa que todos os antibacterianos sejam ineficazes. O perfil completo de suscetibilidade ainda precisa ser analisado."
+    const stageButtons = Array.from(
+      root.querySelectorAll("[data-p50-stage]")
+    );
+
+    const population = root.querySelector(
+      "#cap5P50Population"
+    );
+
+    const explanation = root.querySelector(
+      "#cap5P50StageExplanation"
+    );
+
+    const playButton = root.querySelector(
+      "#cap5P50Play"
+    );
+
+    const resetButton = root.querySelector(
+      "#cap5P50Reset"
+    );
+
+    if (
+      stageButtons.length === 0 ||
+      !population ||
+      !explanation ||
+      !playButton ||
+      !resetButton
+    ) {
+      return;
+    }
+
+    const stages = [
+      {
+        title: "População inicial",
+
+        text:
+          "Predominam bactérias com expressão basal de AmpC. Subpopulações com produção aumentada podem estar presentes em menor proporção.",
+
+        relation:
+          "o isolado pode apresentar resultado inicialmente suscetível.",
+
+        aria:
+          "População bacteriana antes da exposição, com predomínio de bactérias com expressão basal e pequena subpopulação com produção aumentada de AmpC"
       },
 
-      ignore:{
-        correct:false,
-        title:"Incorreto.",
-        text:"A observação de KPC não deve ser ignorada. Ela informa um mecanismo que modifica o contexto de interpretação do painel."
+      {
+        title: "Pressão seletiva",
+
+        text:
+          "Durante a exposição, as bactérias mais suscetíveis são inibidas. Subpopulações com maior produção de AmpC apresentam vantagem de sobrevivência.",
+
+        relation:
+          "o resultado inicial S não elimina a possibilidade de seleção durante o tratamento.",
+
+        aria:
+          "Exposição ao antibacteriano inibindo bactérias com expressão basal e selecionando subpopulações com produção aumentada de AmpC"
       },
 
-      integrate:{
-        correct:true,
-        title:"Correto.",
-        text:"A escolha terapêutica deve integrar o mecanismo identificado, o perfil de suscetibilidade, o sítio da infecção, a gravidade clínica e a atividade prevista da opção contra a enzima."
-      },
+      {
+        title: "Predomínio da subpopulação selecionada",
 
-      same:{
-        correct:false,
-        title:"Incorreto.",
-        text:"KPC, NDM e OXA-48-like pertencem a classes enzimáticas diferentes e apresentam perfis microbiológicos distintos."
+        text:
+          "As bactérias sobreviventes multiplicam-se e passam a predominar. O perfil de suscetibilidade pode se modificar.",
+
+        relation:
+          "pode surgir resistência durante o tratamento, especialmente em contextos de maior risco.",
+
+        aria:
+          "Predomínio de bactérias com produção aumentada de AmpC após a seleção pela exposição ao antibacteriano"
       }
-    };
+    ];
 
-    function selectAnswer(selectedButton){
-      const key = selectedButton.dataset.p51Answer;
-      const result = answers[key];
+    let currentStage = 0;
+    let timer = null;
 
-      if(!result) return;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-      options.forEach(function(button){
-        const buttonKey = button.dataset.p51Answer;
+    function renderStage(index) {
+      const stage = stages[index];
 
-        button.disabled = true;
+      if (!stage) {
+        return;
+      }
 
-        button.classList.remove(
-          "is-correct",
-          "is-incorrect",
-          "is-dimmed"
-        );
+      currentStage = index;
 
-        if(buttonKey === "integrate"){
-          button.classList.add("is-correct");
-        }else if(button === selectedButton){
-          button.classList.add("is-incorrect");
-        }else{
-          button.classList.add("is-dimmed");
-        }
-      });
-
-      feedback.hidden = false;
-      feedback.className = "cap5-p51-caseFeedback";
-
-      feedback.classList.add(
-        result.correct
-          ? "is-correct"
-          : "is-incorrect"
+      population.classList.remove(
+        "stage-0",
+        "stage-1",
+        "stage-2"
       );
 
-      feedback.innerHTML = `
-        <strong>${result.title}</strong>
-        <p>${result.text}</p>
+      population.classList.add(
+        `stage-${index}`
+      );
+
+      population.setAttribute(
+        "aria-label",
+        stage.aria
+      );
+
+      stageButtons.forEach(function (
+        button,
+        buttonIndex
+      ) {
+        const isSelected =
+          buttonIndex === index;
+
+        button.classList.toggle(
+          "is-active",
+          isSelected
+        );
+
+        button.setAttribute(
+          "aria-selected",
+          String(isSelected)
+        );
+
+        button.tabIndex = isSelected ? 0 : -1;
+      });
+
+      explanation.innerHTML = `
+        <span>Etapa ${index + 1} de 3</span>
+
+        <h3>${stage.title}</h3>
+
+        <p>${stage.text}</p>
+
+        <div>
+          <strong>Relação com o laudo:</strong>
+          ${stage.relation}
+        </div>
       `;
     }
 
-    options.forEach(function(button){
-      button.addEventListener("click", function(){
-        selectAnswer(button);
-      });
-    });
-  }
-
-
-  /* =========================
-     ENTRADA SUAVE
-     ========================= */
-
-  function initReveal(){
-    const items = document.querySelectorAll(
-      ".cap5-page51 .cap5-p51-reveal"
-    );
-
-    if(!("IntersectionObserver" in window)){
-      items.forEach(function(item){
-        item.classList.add("is-visible");
-      });
-
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      function(entries){
-        entries.forEach(function(entry){
-          if(!entry.isIntersecting) return;
-
-          entry.target.classList.add(
-            "is-visible"
-          );
-
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold:.13,
-        rootMargin:"0px 0px -35px 0px"
+    function stopAnimation() {
+      if (timer !== null) {
+        window.clearInterval(timer);
+        timer = null;
       }
-    );
 
-    items.forEach(function(item){
-      observer.observe(item);
-    });
-  }
-
-})();
-
-/* =========================
-   CAPÍTULO 5 — PÁGINA 52
-   MRSA, VRE, MLSB E HLAR
-   ========================= */
-
-(function initCap5Page52(){
-  const galleryRoot = document.querySelector(
-    "[data-cap5-p52]"
-  );
-
-  if(galleryRoot){
-    initGallery(galleryRoot);
-  }
-
-  const caseRoot = document.querySelector(
-    "[data-cap5-p52-case]"
-  );
-
-  if(caseRoot){
-    initClinicalCase(caseRoot);
-  }
-
-  initReveal();
-
-
-  /* =========================
-     GALERIA INTERATIVA
-     ========================= */
-
-  function initGallery(root){
-    const tabs = Array.from(
-      root.querySelectorAll("[data-p52-target]")
-    );
-
-    const view = root.querySelector("#cap5P52View");
-    const image = root.querySelector("#cap5P52Image");
-    const caption = root.querySelector("#cap5P52Caption");
-    const kicker = root.querySelector("#cap5P52Kicker");
-    const title = root.querySelector("#cap5P52Title");
-    const text = root.querySelector("#cap5P52Text");
-    const key = root.querySelector("#cap5P52Key");
-    const zoomButton = root.querySelector("#cap5P52Zoom");
-
-    if(
-      !tabs.length ||
-      !view ||
-      !image ||
-      !caption ||
-      !kicker ||
-      !title ||
-      !text ||
-      !key ||
-      !zoomButton
-    ){
-      return;
-    }
-
-    const states = {
-      mrsa:{
-        tabId:"cap5P52TabMrsa",
-        viewClass:"cap5-p52-view--mrsa",
-        image:"../../assets/capitulo-05/imagens/mrsa-orsa-disco.png",
-        alt:"Teste fenotípico com cefoxitina para detecção de MRSA",
-        caption:"Detecção fenotípica da resistência à meticilina em Staphylococcus aureus.",
-        kicker:"Consequência para o painel",
-        title:"A resistência modifica a interpretação dos β-lactâmicos",
-        text:"A identificação de MRSA ou ORSA modifica a interpretação do grupo dos β-lactâmicos. A maioria desses agentes deve ser considerada inativa contra o isolado, exceto os antibacterianos especificamente validados para atividade contra MRSA.",
-        key:"<strong>Pergunta prática:</strong> o resultado indica apenas resistência à oxacilina ou modifica a interpretação de toda a classe?"
-      },
-
-      vre:{
-        tabId:"cap5P52TabVre",
-        viewClass:"cap5-p52-view--vre",
-        image:"../../assets/capitulo-05/imagens/vre-disco.png",
-        alt:"Teste com gradiente de vancomicina mostrando resistência em Enterococcus",
-        caption:"Determinação fenotípica da resistência à vancomicina em enterococos.",
-        kicker:"Consequência para o painel",
-        title:"A vancomicina deixa de ser uma opção ativa",
-        text:"O resultado VRE indica que a vancomicina não apresenta atividade prevista contra o isolado. As alternativas devem ser selecionadas conforme a espécie de enterococo, o foco infeccioso e o perfil completo de suscetibilidade.",
-        key:"<strong>Pergunta prática:</strong> quais opções permanecem ativas e são adequadas para o sítio da infecção?"
-      },
-
-      mlsb:{
-        tabId:"cap5P52TabMlsb",
-        viewClass:"cap5-p52-view--mlsb",
-        image:"../../assets/capitulo-05/imagens/mlsb-induzivel-disco.png",
-        alt:"D-test positivo demonstrando resistência induzível à clindamicina",
-        caption:"Fenótipo de resistência MLSB induzível demonstrado pelo D-test.",
-        kicker:"Consequência para o painel",
-        title:"A clindamicina não deve ser interpretada como opção ativa",
-        text:"O fenótipo induzível sobrepõe um resultado aparente de suscetibilidade à clindamicina. O laudo deve refletir essa resistência para evitar o uso de uma opção associada a risco de falha terapêutica.",
-        key:"<strong>Pergunta prática:</strong> o resultado isolado da clindamicina continua válido após um D-test positivo?"
-      },
-
-      hlar:{
-        tabId:"cap5P52TabHlar",
-        viewClass:"cap5-p52-view--hlar",
-        image:"../../assets/capitulo-05/imagens/hlar-positivo.png",
-        alt:"Teste com gentamicina em alta concentração demonstrando HLAR em Enterococcus",
-        caption:"Detecção de resistência de alto nível aos aminoglicosídeos em enterococos.",
-        kicker:"Consequência para o esquema terapêutico",
-        title:"A sinergia bactericida está comprometida",
-        text:"HLAR informa que não se deve esperar o efeito sinérgico entre o aminoglicosídeo testado e um agente ativo sobre a parede celular. O resultado possui importância especial em estratégias utilizadas para infecções enterocócicas graves.",
-        key:"<strong>Pergunta prática:</strong> o resultado altera apenas um fármaco ou compromete uma estratégia de associação?"
-      }
-    };
-
-    let transitionTimer = null;
-
-    function render(target){
-      const state = states[target];
-
-      if(!state) return;
-
-      tabs.forEach(function(tab){
-        const active =
-          tab.dataset.p52Target === target;
-
-        tab.classList.toggle(
-          "is-active",
-          active
-        );
-
-        tab.setAttribute(
-          "aria-selected",
-          active ? "true" : "false"
-        );
-
-        tab.setAttribute(
-          "tabindex",
-          active ? "0" : "-1"
-        );
-      });
-
-      view.classList.remove(
-        "cap5-p52-view--mrsa",
-        "cap5-p52-view--vre",
-        "cap5-p52-view--mlsb",
-        "cap5-p52-view--hlar"
+      playButton.setAttribute(
+        "aria-pressed",
+        "false"
       );
 
-      view.classList.add(state.viewClass);
+      playButton.innerHTML = `
+        <span aria-hidden="true">▶</span>
+        Iniciar animação
+      `;
+    }
 
-      view.setAttribute(
+    function startAnimation() {
+      if (reducedMotion) {
+        return;
+      }
+
+      if (currentStage >= stages.length - 1) {
+        renderStage(0);
+      }
+
+      playButton.setAttribute(
+        "aria-pressed",
+        "true"
+      );
+
+      playButton.innerHTML = `
+        <span aria-hidden="true">Ⅱ</span>
+        Pausar
+      `;
+
+      timer = window.setInterval(function () {
+        const nextStage = currentStage + 1;
+
+        if (nextStage >= stages.length) {
+          stopAnimation();
+          return;
+        }
+
+        renderStage(nextStage);
+      }, 1900);
+    }
+
+    stageButtons.forEach(function (button, index) {
+      button.addEventListener("click", function () {
+        stopAnimation();
+
+        renderStage(
+          Number(button.dataset.p50Stage)
+        );
+      });
+
+      button.addEventListener("keydown", function (event) {
+        let nextIndex = index;
+
+        if (
+          event.key === "ArrowRight" ||
+          event.key === "ArrowDown"
+        ) {
+          nextIndex =
+            (index + 1) % stageButtons.length;
+        } else if (
+          event.key === "ArrowLeft" ||
+          event.key === "ArrowUp"
+        ) {
+          nextIndex =
+            (index - 1 + stageButtons.length) %
+            stageButtons.length;
+        } else {
+          return;
+        }
+
+        event.preventDefault();
+        stopAnimation();
+
+        const nextButton =
+          stageButtons[nextIndex];
+
+        nextButton.focus();
+        renderStage(nextIndex);
+      });
+    });
+
+    playButton.addEventListener("click", function () {
+      if (timer !== null) {
+        stopAnimation();
+      } else {
+        startAnimation();
+      }
+    });
+
+    resetButton.addEventListener("click", function () {
+      stopAnimation();
+      renderStage(0);
+      stageButtons[0].focus();
+    });
+
+    document.addEventListener(
+      "visibilitychange",
+      function () {
+        if (document.hidden) {
+          stopAnimation();
+        }
+      }
+    );
+
+    if (reducedMotion) {
+      playButton.hidden = true;
+    }
+
+    renderStage(0);
+  }
+})();
+
+/* =========================================================
+   CAPÍTULO 5 — PÁGINA 51
+   Carbapenemases
+   ========================================================= */
+
+(function initCap5Page51() {
+  "use strict";
+
+  const root = document.querySelector("[data-cap5-p51]");
+
+  if (!root) {
+    return;
+  }
+
+  const tabs = Array.from(
+    root.querySelectorAll("[data-p51-enzyme]")
+  );
+
+  const panel = root.querySelector(
+    "#cap5P51EnzymePanel"
+  );
+
+  const badge = root.querySelector(
+    "#cap5P51EnzymeBadge"
+  );
+
+  const enzymeClass = root.querySelector(
+    "#cap5P51EnzymeClass"
+  );
+
+  const title = root.querySelector(
+    "#cap5P51EnzymeTitle"
+  );
+
+  const hydrolysis = root.querySelector(
+    "#cap5P51Hydrolysis"
+  );
+
+  const inhibitors = root.querySelector(
+    "#cap5P51Inhibitors"
+  );
+
+  const action = root.querySelector(
+    "#cap5P51Action"
+  );
+
+  const avoid = root.querySelector(
+    "#cap5P51Avoid"
+  );
+
+  const keyPoint = root.querySelector(
+    "#cap5P51KeyPoint"
+  );
+
+  if (
+    tabs.length === 0 ||
+    !panel ||
+    !badge ||
+    !enzymeClass ||
+    !title ||
+    !hydrolysis ||
+    !inhibitors ||
+    !action ||
+    !avoid ||
+    !keyPoint
+  ) {
+    return;
+  }
+
+  const enzymeContent = {
+    kpc: {
+      tabId: "cap5P51TabKpc",
+
+      panelClass: "enzyme-kpc",
+
+      badge: "KPC",
+
+      enzymeClass:
+        "Serino-β-lactamase de classe A",
+
+      title:
+        "Carbapenemase do tipo KPC",
+
+      hydrolysis:
+        "Pode hidrolisar penicilinas, cefalosporinas, aztreonam e carbapenêmicos.",
+
+      inhibitors:
+        "Alguns inibidores de serino-β-lactamases apresentam atividade contra KPC. A atividade da combinação deve ser confirmada no teste de suscetibilidade.",
+
+      action:
+        "Verifique o perfil completo e se a opção avaliada apresenta atividade contra o isolado e contra o mecanismo identificado. Considere o sítio da infecção, a exposição e as condições clínicas.",
+
+      avoid:
+        "Não conclua que qualquer combinação contendo um inibidor apresenta atividade contra KPC.",
+
+      keyPoint:
+        "<strong>Ponto-chave:</strong> a identificação de KPC ajuda a diferenciar esse mecanismo das metalo-β-lactamases e orienta a análise das combinações com inibidores."
+    },
+
+    ndm: {
+      tabId: "cap5P51TabNdm",
+
+      panelClass: "enzyme-ndm",
+
+      badge: "NDM",
+
+      enzymeClass:
+        "Metalo-β-lactamase de classe B",
+
+      title:
+        "Carbapenemase do tipo NDM",
+
+      hydrolysis:
+        "Pode hidrolisar penicilinas, cefalosporinas e carbapenêmicos. A enzima depende de zinco para sua atividade.",
+
+      inhibitors:
+        "Os inibidores com atividade contra serino-β-lactamases, isoladamente, não inibem NDM. O aztreonam não é hidrolisado pela metalo-β-lactamase, mas outras enzimas produzidas pela mesma bactéria podem comprometer sua atividade.",
+
+      action:
+        "Verifique se existem outros mecanismos associados e analise o resultado da combinação efetivamente testada. Não extrapole resultados obtidos para KPC.",
+
+      avoid:
+        "Não interprete a atividade de um inibidor contra KPC como evidência de atividade contra NDM.",
+
+      keyPoint:
+        "<strong>Ponto-chave:</strong> NDM é uma metalo-β-lactamase. A presença de outros mecanismos associados pode modificar o perfil observado e a atividade prevista das combinações."
+    },
+
+    oxa: {
+      tabId: "cap5P51TabOxa",
+
+      panelClass: "enzyme-oxa",
+
+      badge: "OXA",
+
+      enzymeClass:
+        "Oxacilinase de classe D",
+
+      title:
+        "Carbapenemase OXA-48-like",
+
+      hydrolysis:
+        "Apresenta atividade contra penicilinas e carbapenêmicos. Isoladamente, pode apresentar hidrólise limitada de cefalosporinas de amplo espectro.",
+
+      inhibitors:
+        "A resposta aos inibidores difere daquela observada para KPC e NDM. Outros mecanismos associados podem ampliar o perfil de resistência.",
+
+      action:
+        "Valorize a identificação do mecanismo mesmo diante de um perfil fenotípico pouco evidente. Revise as categorias e as observações completas do laudo.",
+
+      avoid:
+        "Não descarte a relevância da observação apenas porque algum carbapenêmico ou cefalosporina não aparece como resistente.",
+
+      keyPoint:
+        "<strong>Ponto-chave:</strong> OXA-48-like pode produzir um perfil fenotípico discreto. A identificação do mecanismo pode acrescentar uma informação que não é evidente pela leitura isolada do painel."
+    }
+  };
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  function updateEnzyme(enzymeName) {
+    const selected = enzymeContent[enzymeName];
+
+    if (!selected) {
+      return;
+    }
+
+    tabs.forEach(function (tab) {
+      const isSelected =
+        tab.dataset.p51Enzyme === enzymeName;
+
+      tab.classList.toggle(
+        "is-active",
+        isSelected
+      );
+
+      tab.setAttribute(
+        "aria-selected",
+        String(isSelected)
+      );
+
+      tab.tabIndex = isSelected ? 0 : -1;
+    });
+
+    panel.setAttribute(
+      "aria-labelledby",
+      selected.tabId
+    );
+
+    panel.classList.add("is-changing");
+
+    window.setTimeout(
+      function () {
+        panel.classList.remove(
+          "enzyme-kpc",
+          "enzyme-ndm",
+          "enzyme-oxa"
+        );
+
+        panel.classList.add(
+          selected.panelClass
+        );
+
+        badge.textContent =
+          selected.badge;
+
+        enzymeClass.textContent =
+          selected.enzymeClass;
+
+        title.textContent =
+          selected.title;
+
+        hydrolysis.textContent =
+          selected.hydrolysis;
+
+        inhibitors.textContent =
+          selected.inhibitors;
+
+        action.textContent =
+          selected.action;
+
+        avoid.textContent =
+          selected.avoid;
+
+        keyPoint.innerHTML =
+          selected.keyPoint;
+
+        panel.classList.remove("is-changing");
+      },
+      reducedMotion ? 0 : 100
+    );
+  }
+
+  tabs.forEach(function (tab, index) {
+    tab.addEventListener("click", function () {
+      updateEnzyme(tab.dataset.p51Enzyme);
+    });
+
+    tab.addEventListener("keydown", function (event) {
+      let nextIndex = index;
+
+      if (
+        event.key === "ArrowRight" ||
+        event.key === "ArrowDown"
+      ) {
+        nextIndex =
+          (index + 1) % tabs.length;
+      } else if (
+        event.key === "ArrowLeft" ||
+        event.key === "ArrowUp"
+      ) {
+        nextIndex =
+          (index - 1 + tabs.length) %
+          tabs.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = tabs.length - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+
+      const nextTab = tabs[nextIndex];
+
+      nextTab.focus();
+
+      updateEnzyme(
+        nextTab.dataset.p51Enzyme
+      );
+    });
+  });
+
+  updateEnzyme("kpc");
+})();
+
+/* =========================================================
+   CAPÍTULO 5 — PÁGINA 52
+   MRSA, VRE, MLSB induzível e HLAR
+   ========================================================= */
+
+(function initCap5Page52() {
+  "use strict";
+
+  const root = document.querySelector("[data-cap5-p52]");
+
+  if (!root) {
+    return;
+  }
+
+  const tabs = Array.from(
+    root.querySelectorAll("[data-p52-key]")
+  );
+
+  const panel = document.getElementById("cap5P52Panel");
+  const image = document.getElementById("cap5P52Image");
+  const zoomButton = document.getElementById("cap5P52Zoom");
+  const caption = document.getElementById("cap5P52Caption");
+  const report = document.getElementById("cap5P52Report");
+
+  const findingTitle = document.getElementById(
+    "cap5P52FindingTitle"
+  );
+
+  const finding = document.getElementById(
+    "cap5P52Finding"
+  );
+
+  const effectTitle = document.getElementById(
+    "cap5P52EffectTitle"
+  );
+
+  const effect = document.getElementById(
+    "cap5P52Effect"
+  );
+
+  const actionTitle = document.getElementById(
+    "cap5P52ActionTitle"
+  );
+
+  const action = document.getElementById(
+    "cap5P52Action"
+  );
+
+  const avoid = document.getElementById(
+    "cap5P52Avoid"
+  );
+
+  const progressText = document.getElementById(
+    "cap5P52ProgressText"
+  );
+
+  const progressBar = document.getElementById(
+    "cap5P52ProgressBar"
+  );
+
+  const progressTrack = root.querySelector(
+    ".cap5-p52-progressTrack"
+  );
+
+  const completion = document.getElementById(
+    "cap5P52Completion"
+  );
+
+  /* Elementos do modal */
+
+  const imageModal = document.getElementById(
+    "cap5P52ImageModal"
+  );
+
+  const modalImage = document.getElementById(
+    "cap5P52ModalImage"
+  );
+
+  const modalCaption = document.getElementById(
+    "cap5P52ModalCaption"
+  );
+
+  const modalCloseButton = document.getElementById(
+    "cap5P52ModalClose"
+  );
+
+  const modalBackdrop = imageModal
+    ? imageModal.querySelector("[data-p52-close-modal]")
+    : null;
+
+  const states = {
+    mrsa: {
+      tabId: "cap5P52TabMrsa",
+      modifierClass: "cap5-p52-panel--mrsa",
+
+      image:
+        "../../assets/capitulo-05/imagens/mrsa-orsa-disco.png",
+
+      imageAlt:
+        "Teste fenotípico com cefoxitina para detecção de resistência à meticilina",
+
+      caption:
+        "Detecção fenotípica da resistência à meticilina em <em>Staphylococcus aureus</em>.",
+
+      report:
+        "MRSA/ORSA detectado",
+
+      findingTitle:
+        "Resistência à meticilina",
+
+      finding:
+        "O fenótipo indica resistência mediada, em geral, por uma proteína ligadora de penicilina com baixa afinidade pelos β-lactâmicos.",
+
+      effectTitle:
+        "Interpretação dos β-lactâmicos",
+
+      effect:
+        "A maioria dos β-lactâmicos deve ser considerada sem atividade contra o isolado, mesmo que alguns resultados individuais pareçam favoráveis.",
+
+      actionTitle:
+        "Consulte as opções especificamente validadas",
+
+      action:
+        "A exceção envolve apenas antibacterianos com atividade anti-MRSA validada e resultado interpretável para o isolado. A escolha ainda depende do sítio da infecção e do perfil completo de suscetibilidade.",
+
+      avoid:
+        "A resistência refere-se somente à oxacilina."
+    },
+
+    vre: {
+      tabId: "cap5P52TabVre",
+      modifierClass: "cap5-p52-panel--vre",
+
+      image:
+        "../../assets/capitulo-05/imagens/vre-resistencia-vancomicina.png",
+
+      imageAlt:
+        "Representação laboratorial de resistência à vancomicina em Enterococcus",
+
+      caption:
+        "Detecção de resistência à vancomicina em <em>Enterococcus</em> spp.",
+
+      report:
+        "Enterococcus spp. resistente à vancomicina — VRE",
+
+      findingTitle:
+        "Resistência à vancomicina",
+
+      finding:
+        "O resultado indica que a vancomicina não apresenta atividade adequada contra o isolado nas condições definidas pelos pontos de corte.",
+
+      effectTitle:
+        "A vancomicina deixa de ser uma opção ativa",
+
+      effect:
+        "A observação não significa resistência automática a todos os antibacterianos. A espécie identificada e cada resultado do painel continuam relevantes.",
+
+      actionTitle:
+        "Leia o restante do antibiograma",
+
+      action:
+        "Verifique as opções classificadas como S ou I e avalie sua adequação ao sítio da infecção, à exposição necessária e às características clínicas. A identificação de VRE também pode ter relevância para as medidas de prevenção e controle.",
+
+      avoid:
+        "VRE significa resistência a todos os antibacterianos."
+    },
+
+    mlsb: {
+      tabId: "cap5P52TabMlsb",
+      modifierClass: "cap5-p52-panel--mlsb",
+
+      image:
+        "../../assets/capitulo-05/imagens/mlsb-d-test.png",
+
+      imageAlt:
+        "D-test positivo com achatamento do halo de clindamicina próximo ao disco de eritromicina",
+
+      caption:
+        "D-test positivo, com achatamento do halo de clindamicina em direção ao disco de eritromicina.",
+
+      report:
+        "Resistência à eritromicina, aparente suscetibilidade à clindamicina e D-test positivo",
+
+      findingTitle:
+        "Resistência MLSB induzível",
+
+      finding:
+        "A proximidade da eritromicina induz a expressão do mecanismo de resistência e produz o achatamento característico do halo da clindamicina.",
+
+      effectTitle:
+        "A interpretação da clindamicina é modificada",
+
+      effect:
+        "Embora a clindamicina possa apresentar um halo aparentemente suscetível, o D-test positivo demonstra potencial de expressão da resistência durante a exposição.",
+
+      actionTitle:
+        "Considere a interpretação corrigida pelo laboratório",
+
+      action:
+        "O resultado final da clindamicina deve seguir a interpretação informada após o teste de indução, evitando considerar apenas o diâmetro inicial do halo.",
+
+      avoid:
+        "O halo inicial de clindamicina garante atividade, mesmo com D-test positivo."
+    },
+
+    hlar: {
+      tabId: "cap5P52TabHlar",
+      modifierClass: "cap5-p52-panel--hlar",
+
+      image:
+        "../../assets/capitulo-05/imagens/hlar-enterococcus.png",
+
+      imageAlt:
+        "Teste laboratorial para resistência de alto nível a aminoglicosídeo em Enterococcus",
+
+      caption:
+        "Pesquisa de resistência de alto nível a aminoglicosídeo em <em>Enterococcus</em> spp.",
+
+      report:
+        "HLAR para gentamicina — positivo",
+
+      findingTitle:
+        "Resistência de alto nível ao aminoglicosídeo testado",
+
+      finding:
+        "O isolado apresenta resistência em nível suficiente para impedir o efeito sinérgico esperado com a associação do aminoglicosídeo testado a um agente ativo sobre a parede celular.",
+
+      effectTitle:
+        "A estratégia de sinergia fica comprometida",
+
+      effect:
+        "O resultado não modifica automaticamente a categoria da ampicilina ou da vancomicina e não caracteriza VRE. Ele informa uma limitação específica da estratégia de associação.",
+
+      actionTitle:
+        "Não conte com a sinergia demonstradamente perdida",
+
+      action:
+        "Interprete o HLAR de acordo com o aminoglicosídeo testado, a espécie e a finalidade da associação. As demais opções devem ser avaliadas separadamente no antibiograma.",
+
+      avoid:
+        "HLAR transforma todos os outros antibacterianos do painel em resistentes."
+    }
+  };
+
+  const visited = new Set(["mrsa"]);
+  let currentKey = "mrsa";
+  let elementBeforeModal = null;
+
+  function updateProgress() {
+    const count = visited.size;
+    const percentage = (count / tabs.length) * 100;
+
+    progressText.textContent =
+      `${count} de ${tabs.length}`;
+
+    progressBar.style.width =
+      `${percentage}%`;
+
+    progressTrack.setAttribute(
+      "aria-valuenow",
+      String(count)
+    );
+
+    tabs.forEach((tab) => {
+      const key = tab.dataset.p52Key;
+
+      tab.classList.toggle(
+        "is-visited",
+        visited.has(key)
+      );
+    });
+
+    completion.hidden =
+      count !== tabs.length;
+  }
+
+  function replaceContent(key) {
+    const state = states[key];
+
+    if (!state) {
+      return;
+    }
+
+    currentKey = key;
+    panel.classList.add("is-changing");
+
+    window.setTimeout(() => {
+      panel.className =
+        `cap5-p52-panel ${state.modifierClass}`;
+
+      panel.setAttribute(
         "aria-labelledby",
         state.tabId
       );
 
-      window.clearTimeout(transitionTimer);
-      image.classList.add("is-changing");
+      image.hidden = false;
+      image.src = state.image;
+      image.alt = state.imageAlt;
 
-      transitionTimer = window.setTimeout(function(){
-        image.src = state.image;
-        image.alt = state.alt;
-        caption.textContent = state.caption;
-        kicker.textContent = state.kicker;
-        title.textContent = state.title;
-        text.textContent = state.text;
-        key.innerHTML = state.key;
+      caption.innerHTML = state.caption;
+      report.textContent = state.report;
 
-        zoomButton.dataset.zoom = state.image;
+      findingTitle.textContent =
+        state.findingTitle;
 
-        zoomButton.setAttribute(
-          "aria-label",
-          "Ampliar imagem: " + state.title
-        );
+      finding.textContent =
+        state.finding;
 
-        image.classList.remove("is-changing");
-      }, 130);
-    }
+      effectTitle.textContent =
+        state.effectTitle;
 
-    tabs.forEach(function(tab, index){
+      effect.textContent =
+        state.effect;
 
-      tab.addEventListener("click", function(){
-        render(tab.dataset.p52Target);
+      actionTitle.textContent =
+        state.actionTitle;
+
+      action.textContent =
+        state.action;
+
+      avoid.innerHTML =
+        `<strong>Evite concluir:</strong> ` +
+        `<span>“${state.avoid}”</span>`;
+
+      requestAnimationFrame(() => {
+        panel.classList.remove("is-changing");
       });
-
-      tab.addEventListener("keydown", function(event){
-        let nextIndex = null;
-
-        if(
-          event.key === "ArrowRight" ||
-          event.key === "ArrowDown"
-        ){
-          nextIndex =
-            (index + 1) % tabs.length;
-        }
-
-        if(
-          event.key === "ArrowLeft" ||
-          event.key === "ArrowUp"
-        ){
-          nextIndex =
-            (index - 1 + tabs.length) %
-            tabs.length;
-        }
-
-        if(event.key === "Home"){
-          nextIndex = 0;
-        }
-
-        if(event.key === "End"){
-          nextIndex = tabs.length - 1;
-        }
-
-        if(nextIndex === null) return;
-
-        event.preventDefault();
-
-        tabs[nextIndex].focus();
-
-        render(
-          tabs[nextIndex].dataset.p52Target
-        );
-      });
-
-    });
-
-    render("mrsa");
+    }, 140);
   }
 
+  function activateTab(selectedTab, moveFocus) {
+    const key = selectedTab.dataset.p52Key;
 
-  /* =========================
-     CASO CLÍNICO
-     ========================= */
+    tabs.forEach((tab) => {
+      const isSelected =
+        tab === selectedTab;
 
-  function initClinicalCase(root){
-    const options = Array.from(
-      root.querySelectorAll("[data-p52-answer]")
-    );
-
-    const feedback = root.querySelector(
-      "#cap5P52Feedback"
-    );
-
-    if(!options.length || !feedback){
-      return;
-    }
-
-    const answers = {
-      ampicillin:{
-        correct:false,
-        title:"Incorreto.",
-        text:"HLAR não modifica automaticamente a categoria da ampicilina. O resultado se refere à perda da sinergia esperada com o aminoglicosídeo."
-      },
-
-      vancomycin:{
-        correct:false,
-        title:"Incorreto.",
-        text:"O isolado permanece classificado como sensível à vancomicina. HLAR não corresponde ao fenótipo VRE."
-      },
-
-      synergy:{
-        correct:true,
-        title:"Correto.",
-        text:"A resistência de alto nível impede a sinergia esperada entre gentamicina e um agente ativo sobre a parede celular. Essa informação pode modificar esquemas utilizados em infecções enterocócicas graves."
-      },
-
-      allaminoglycosides:{
-        correct:false,
-        title:"Incorreto.",
-        text:"O significado principal do teste é a perda da sinergia com o aminoglicosídeo avaliado. A interpretação não deve ser transformada em uma afirmação universal sobre todos os aminoglicosídeos e todos os contextos."
-      }
-    };
-
-    function selectAnswer(selectedButton){
-      const key = selectedButton.dataset.p52Answer;
-      const result = answers[key];
-
-      if(!result) return;
-
-      options.forEach(function(button){
-        const buttonKey = button.dataset.p52Answer;
-
-        button.disabled = true;
-
-        button.classList.remove(
-          "is-correct",
-          "is-incorrect",
-          "is-dimmed"
-        );
-
-        if(buttonKey === "synergy"){
-          button.classList.add("is-correct");
-        }else if(button === selectedButton){
-          button.classList.add("is-incorrect");
-        }else{
-          button.classList.add("is-dimmed");
-        }
-      });
-
-      feedback.hidden = false;
-      feedback.className = "cap5-p52-feedback";
-
-      feedback.classList.add(
-        result.correct
-          ? "is-correct"
-          : "is-incorrect"
+      tab.classList.toggle(
+        "is-active",
+        isSelected
       );
 
-      feedback.innerHTML = `
-        <strong>${result.title}</strong>
-        <p>${result.text}</p>
-      `;
-    }
+      tab.setAttribute(
+        "aria-selected",
+        String(isSelected)
+      );
 
-    options.forEach(function(button){
-      button.addEventListener("click", function(){
-        selectAnswer(button);
-      });
+      tab.tabIndex =
+        isSelected ? 0 : -1;
     });
+
+    visited.add(key);
+    replaceContent(key);
+    updateProgress();
+
+    if (moveFocus) {
+      selectedTab.focus();
+    }
   }
 
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => {
+      activateTab(tab, false);
+    });
 
-  /* =========================
-     ENTRADA SUAVE
-     ========================= */
+    tab.addEventListener("keydown", (event) => {
+      let nextIndex = index;
 
-  function initReveal(){
-    const items = document.querySelectorAll(
-      ".cap5-page52 .cap5-p52-reveal"
-    );
+      if (
+        event.key === "ArrowRight" ||
+        event.key === "ArrowDown"
+      ) {
+        nextIndex =
+          (index + 1) % tabs.length;
+      } else if (
+        event.key === "ArrowLeft" ||
+        event.key === "ArrowUp"
+      ) {
+        nextIndex =
+          (index - 1 + tabs.length) %
+          tabs.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = tabs.length - 1;
+      } else {
+        return;
+      }
 
-    if(!("IntersectionObserver" in window)){
-      items.forEach(function(item){
-        item.classList.add("is-visible");
-      });
+      event.preventDefault();
 
+      activateTab(
+        tabs[nextIndex],
+        true
+      );
+    });
+  });
+
+  /* =======================================================
+     ABERTURA E FECHAMENTO DO MODAL
+     ======================================================= */
+
+  function openImageModal() {
+    const state = states[currentKey];
+
+    if (
+      !imageModal ||
+      !modalImage ||
+      !modalCaption ||
+      !modalCloseButton ||
+      !state
+    ) {
       return;
     }
 
-    const observer = new IntersectionObserver(
-      function(entries){
-        entries.forEach(function(entry){
-          if(!entry.isIntersecting) return;
+    elementBeforeModal =
+      document.activeElement;
 
-          entry.target.classList.add(
-            "is-visible"
-          );
+    modalImage.src = state.image;
+    modalImage.alt = state.imageAlt;
+    modalCaption.innerHTML = state.caption;
 
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold:.13,
-        rootMargin:"0px 0px -35px 0px"
-      }
+    imageModal.hidden = false;
+
+    document.body.classList.add(
+      "cap5-p52-modalOpen"
     );
 
-    items.forEach(function(item){
-      observer.observe(item);
+    window.requestAnimationFrame(() => {
+      modalCloseButton.focus();
     });
   }
 
-})();
+  function closeImageModal() {
+    if (
+      !imageModal ||
+      imageModal.hidden
+    ) {
+      return;
+    }
 
+    imageModal.hidden = true;
+
+    modalImage.src = "";
+    modalImage.alt = "";
+    modalCaption.textContent = "";
+
+    document.body.classList.remove(
+      "cap5-p52-modalOpen"
+    );
+
+    if (
+      elementBeforeModal &&
+      typeof elementBeforeModal.focus ===
+        "function"
+    ) {
+      elementBeforeModal.focus();
+    }
+  }
+
+  function keepFocusInsideModal(event) {
+    if (
+      event.key !== "Tab" ||
+      !imageModal ||
+      imageModal.hidden
+    ) {
+      return;
+    }
+
+    const focusableElements = Array.from(
+      imageModal.querySelectorAll(
+        'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    );
+
+    if (!focusableElements.length) {
+      return;
+    }
+
+    const firstElement =
+      focusableElements[0];
+
+    const lastElement =
+      focusableElements[
+        focusableElements.length - 1
+      ];
+
+    if (
+      event.shiftKey &&
+      document.activeElement === firstElement
+    ) {
+      event.preventDefault();
+      lastElement.focus();
+    } else if (
+      !event.shiftKey &&
+      document.activeElement === lastElement
+    ) {
+      event.preventDefault();
+      firstElement.focus();
+    }
+  }
+
+  zoomButton.addEventListener(
+    "click",
+    openImageModal
+  );
+
+  if (modalCloseButton) {
+    modalCloseButton.addEventListener(
+      "click",
+      closeImageModal
+    );
+  }
+
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener(
+      "click",
+      closeImageModal
+    );
+  }
+
+  document.addEventListener(
+    "keydown",
+    (event) => {
+      if (
+        event.key === "Escape" &&
+        imageModal &&
+        !imageModal.hidden
+      ) {
+        closeImageModal();
+        return;
+      }
+
+      keepFocusInsideModal(event);
+    }
+  );
+
+  /*
+   * Impede o aparecimento do ícone de imagem
+   * quebrada caso algum arquivo ainda não tenha
+   * sido colocado na pasta.
+   */
+
+  image.addEventListener("error", () => {
+    image.hidden = true;
+    zoomButton.disabled = true;
+  });
+
+  image.addEventListener("load", () => {
+    image.hidden = false;
+    zoomButton.disabled = false;
+  });
+
+  modalImage.addEventListener("error", () => {
+    closeImageModal();
+  });
+
+  updateProgress();
+})();
 /* =========================
    PÁGINA 53 — QUIZ DE REVISÃO
    ========================= */
 
-(function initCap5Page53(){
+(function initCap5Page53Quiz() {
+  "use strict";
+
   const root = document.querySelector("[data-cap5-p53]");
 
-  if(!root){
+  if (!root) {
     return;
   }
 
-  const questions = Array.from(
-    root.querySelectorAll(".cap5-p53Question")
+  const situations = [
+    {
+      kicker: "Situação clínica 1",
+
+      caseText:
+        "Um paciente internado apresenta tosse e secreção " +
+        "respiratória. A bacterioscopia de uma amostra de escarro " +
+        "mostra numerosas células epiteliais, poucos leucócitos e " +
+        "microbiota mista. Posteriormente, a cultura identifica uma " +
+        "bactéria potencialmente patogênica.",
+
+      prompt:
+        "Qual interpretação integra melhor os resultados antes de " +
+        "atribuir relevância clínica ao isolamento?",
+
+      correct: "b",
+
+      options: [
+        {
+          id: "a",
+          text:
+            "A identificação de uma espécie potencialmente " +
+            "patogênica confirma que ela é a causa da infecção, " +
+            "independentemente da qualidade da amostra."
+        },
+        {
+          id: "b",
+          text:
+            "Os achados sugerem possível contaminação por " +
+            "secreções orais; a qualidade da amostra e a " +
+            "correlação clínica devem ser consideradas antes " +
+            "de interpretar o isolamento como infecção."
+        },
+        {
+          id: "c",
+          text:
+            "A presença de microbiota mista invalida " +
+            "obrigatoriamente toda a cultura e dispensa a " +
+            "análise dos demais dados."
+        }
+      ],
+
+      feedback: {
+        a:
+          "A identificação bacteriana, isoladamente, não " +
+          "diferencia infecção, colonização ou contaminação. " +
+          "A representatividade do material e o contexto " +
+          "clínico continuam essenciais.",
+
+        b:
+          "Numerosas células epiteliais, poucos leucócitos e " +
+          "microbiota mista sugerem uma amostra respiratória " +
+          "pouco representativa, possivelmente contaminada por " +
+          "secreções orais. A interpretação deve integrar coleta, " +
+          "bacterioscopia, cultura e dados clínicos.",
+
+        c:
+          "A baixa qualidade reduz a confiabilidade da amostra, " +
+          "mas a interpretação não deve ser automática. O modo " +
+          "de coleta, os critérios laboratoriais e o contexto " +
+          "clínico ainda precisam ser considerados."
+      }
+    },
+
+    {
+      kicker: "Situação clínica 2",
+
+      caseText:
+        "Uma paciente com pielonefrite apresenta um isolado " +
+        "classificado como I para determinado antibacteriano. " +
+        "Há um regime validado capaz de aumentar a exposição, " +
+        "a função renal permite sua utilização e o fármaco alcança " +
+        "concentrações adequadas no trato urinário.",
+
+      prompt:
+        "Como a categoria I deve ser interpretada nesse contexto?",
+
+      correct: "c",
+
+      options: [
+        {
+          id: "a",
+          text:
+            "Como resistência intermediária, indicando que o " +
+            "antibacteriano deve ser descartado mesmo quando a " +
+            "exposição pode ser aumentada."
+        },
+        {
+          id: "b",
+          text:
+            "Como equivalente à categoria S em qualquer dose, " +
+            "sem necessidade de verificar o regime, o sítio da " +
+            "infecção ou a segurança."
+        },
+        {
+          id: "c",
+          text:
+            "Como sensível, aumentando a exposição; pode ser uma " +
+            "opção quando um regime validado atinge a exposição " +
+            "necessária com segurança no sítio da infecção."
+        }
+      ],
+
+      feedback: {
+        a:
+          "Na classificação atual, a categoria I não significa " +
+          "que o microrganismo deva ser interpretado como " +
+          "resistente. A probabilidade de sucesso depende do " +
+          "aumento da exposição ao antibacteriano.",
+
+        b:
+          "A categoria I não equivale à categoria S em qualquer " +
+          "posologia. É necessário verificar o regime, o sítio " +
+          "da infecção, a função renal e a segurança.",
+
+        c:
+          "A categoria I significa “sensível, aumentando a " +
+          "exposição”. O antibacteriano pode ser considerado " +
+          "quando um regime validado proporciona exposição " +
+          "adequada e segura no sítio da infecção."
+      }
+    },
+
+    {
+      kicker: "Situação clínica 3",
+
+      caseText:
+        "Uma hemocultura identifica Enterobacter cloacae complex. " +
+        "O antibiograma inicial mostra categoria S para uma " +
+        "cefalosporina, e o laudo acrescenta uma observação sobre " +
+        "o potencial de produção de AmpC cromossômica induzível. " +
+        "Durante o tratamento, o paciente deixa de melhorar como " +
+        "esperado.",
+
+      prompt:
+        "Qual interpretação dos novos dados é mais adequada?",
+
+      correct: "b",
+
+      options: [
+        {
+          id: "a",
+          text:
+            "A observação invalida automaticamente todos os " +
+            "resultados S e comprova que o teste inicial estava " +
+            "errado."
+        },
+        {
+          id: "b",
+          text:
+            "O resultado S descreve o teste inicial, mas a " +
+            "espécie, o antibacteriano e a evolução clínica " +
+            "exigem considerar resistência emergente e " +
+            "reavaliar clínica e microbiologicamente."
+        },
+        {
+          id: "c",
+          text:
+            "Como o isolado foi inicialmente classificado como S, " +
+            "a piora não pode estar relacionada a uma mudança do " +
+            "perfil de suscetibilidade."
+        }
+      ],
+
+      feedback: {
+        a:
+          "A observação sobre AmpC não invalida automaticamente " +
+          "o resultado inicial. Ela alerta para uma limitação " +
+          "que deve ser interpretada conforme a espécie, o " +
+          "antibacteriano e a evolução clínica.",
+
+        b:
+          "A expressão de AmpC pode aumentar durante a exposição " +
+          "a determinados betalactâmicos, favorecendo a seleção " +
+          "de subpopulações com maior resistência. A falta de " +
+          "resposta exige reavaliação clínica, microbiológica e " +
+          "do controle do foco infeccioso.",
+
+        c:
+          "Um resultado inicial S representa o comportamento do " +
+          "isolado no momento do teste. Ele não garante que o " +
+          "perfil de suscetibilidade permanecerá inalterado " +
+          "durante toda a exposição ao antibacteriano."
+      }
+    }
+  ];
+
+  const progress = root.querySelector("[data-p53-progress]");
+  const dots = Array.from(
+    root.querySelectorAll(".cap5-p53Dots span")
   );
 
-  const statusValue = root.querySelector(
-    ".cap5-p53Status__value"
-  );
+  const kicker = root.querySelector("[data-p53-kicker]");
+  const caseText = root.querySelector("[data-p53-case]");
+  const prompt = root.querySelector("[data-p53-prompt]");
+  const options = root.querySelector("[data-p53-options]");
+  const confirmButton = root.querySelector("[data-p53-confirm]");
+  const resetButton = root.querySelector("[data-p53-reset]");
+  const feedback = root.querySelector("[data-p53-feedback]");
+  const previousButton = root.querySelector("[data-p53-prev]");
+  const nextButton = root.querySelector("[data-p53-next]");
 
-  const completion = root.querySelector(
-    "[data-p53-completion]"
-  );
-
-  function updateStatus(){
-    const confirmedQuestions = questions.filter(function(question){
-      return question.dataset.questionState === "confirmed";
-    }).length;
-
-    if(statusValue){
-      statusValue.textContent =
-        confirmedQuestions +
-        " de " +
-        questions.length +
-        " situações confirmadas";
-    }
-
-    if(completion){
-      completion.hidden =
-        confirmedQuestions !== questions.length;
-    }
-  }
-
-  function parseFeedbackMap(question){
-    const template = question.querySelector(
-      ".cap5-p53FeedbackMap"
-    );
-
-    if(!template){
-      return {};
-    }
-
-    try{
-      return JSON.parse(
-        template.content.textContent.trim()
-      );
-    }catch(error){
-      console.warn(
-        "Não foi possível interpretar o conteúdo de feedback da página 53.",
-        error
-      );
-
-      return {};
-    }
-  }
-
-  function updateSelectedOption(options, selectedOption){
-    options.forEach(function(option){
-      const isSelected = option === selectedOption;
-
-      option.classList.toggle(
-        "is-selected",
-        isSelected
-      );
-
-      option.setAttribute(
-        "aria-pressed",
-        isSelected ? "true" : "false"
-      );
-    });
-  }
-
-  function clearOptionStates(options){
-    options.forEach(function(option){
-      option.disabled = false;
-
-      option.classList.remove(
-        "is-selected",
-        "is-correct",
-        "is-error"
-      );
-
-      option.setAttribute(
-        "aria-pressed",
-        "false"
-      );
-    });
-  }
-
-  questions.forEach(function(question){
-    const options = Array.from(
-      question.querySelectorAll(
-        ".cap5-p53Options button"
-      )
-    );
-
-    const confirmButton = question.querySelector(
-      '[data-p53-action="confirm"]'
-    );
-
-    const resetButton = question.querySelector(
-      '[data-p53-action="reset"]'
-    );
-
-    const feedback = question.querySelector(
-      ".cap5-p53Feedback"
-    );
-
-    const feedbackMap = parseFeedbackMap(question);
-
-    let selectedAnswer = null;
-
-    options.forEach(function(option){
-      option.addEventListener("click", function(){
-        if(
-          question.dataset.questionState === "confirmed"
-        ){
-          return;
-        }
-
-        selectedAnswer = option.dataset.answer;
-
-        updateSelectedOption(
-          options,
-          option
-        );
-
-        if(confirmButton){
-          confirmButton.disabled = false;
-        }
-      });
-    });
-
-    if(confirmButton){
-      confirmButton.addEventListener("click", function(){
-        if(!selectedAnswer){
-          return;
-        }
-
-        const selectedOption = question.querySelector(
-          '[data-answer="' +
-          selectedAnswer +
-          '"]'
-        );
-
-        if(!selectedOption){
-          return;
-        }
-
-        const isCorrect =
-          selectedOption.dataset.correct === "true";
-
-        const selectedFeedback =
-          feedbackMap[selectedAnswer];
-
-        options.forEach(function(option){
-          option.disabled = true;
-
-          option.classList.remove(
-            "is-selected"
-          );
-
-          option.setAttribute(
-            "aria-pressed",
-            "false"
-          );
-
-          if(
-            option.dataset.correct === "true"
-          ){
-            option.classList.add(
-              "is-correct"
-            );
-          }
-
-          if(
-            option.dataset.answer === selectedAnswer &&
-            !isCorrect
-          ){
-            option.classList.add(
-              "is-error"
-            );
-          }
-        });
-
-        if(
-          feedback &&
-          selectedFeedback
-        ){
-          const feedbackClass =
-            selectedFeedback.type === "correct"
-              ? "is-correct"
-              : "is-error";
-
-          feedback.className =
-            "cap5-p53Feedback is-visible " +
-            feedbackClass;
-
-          feedback.innerHTML =
-            "<strong>" +
-            selectedFeedback.title +
-            "</strong>" +
-            "<p>" +
-            selectedFeedback.text +
-            "</p>";
-        }
-
-        question.dataset.questionState =
-          "confirmed";
-
-        confirmButton.hidden = true;
-
-        if(resetButton){
-          resetButton.hidden = false;
-          resetButton.focus();
-        }
-
-        updateStatus();
-      });
-    }
-
-    if(resetButton){
-      resetButton.addEventListener("click", function(){
-        selectedAnswer = null;
-
-        question.dataset.questionState =
-          "pending";
-
-        clearOptionStates(options);
-
-        if(feedback){
-          feedback.className =
-            "cap5-p53Feedback";
-
-          feedback.innerHTML = "";
-        }
-
-        if(confirmButton){
-          confirmButton.hidden = false;
-          confirmButton.disabled = true;
-        }
-
-        resetButton.hidden = true;
-
-        updateStatus();
-
-        if(options[0]){
-          options[0].focus();
-        }
-      });
-    }
+  const responses = situations.map(function () {
+    return {
+      selected: null,
+      confirmed: false
+    };
   });
 
-  updateStatus();
+  let currentIndex = 0;
+
+  function renderOptions() {
+    const situation = situations[currentIndex];
+    const response = responses[currentIndex];
+
+    options.innerHTML = "";
+
+    situation.options.forEach(function (option, optionIndex) {
+      const button = document.createElement("button");
+      const letter = document.createElement("span");
+      const text = document.createElement("span");
+
+      button.type = "button";
+      button.dataset.option = option.id;
+
+      letter.className = "cap5-p53Letter";
+      letter.textContent = String.fromCharCode(65 + optionIndex);
+
+      text.textContent = option.text;
+
+      if (response.selected === option.id) {
+        button.classList.add("is-selected");
+      }
+
+      button.appendChild(letter);
+      button.appendChild(text);
+
+      button.addEventListener("click", function () {
+        selectOption(option.id);
+      });
+
+      options.appendChild(button);
+    });
+  }
+
+  function selectOption(optionId) {
+    const response = responses[currentIndex];
+
+    if (response.confirmed) {
+      return;
+    }
+
+    response.selected = optionId;
+
+    const buttons = options.querySelectorAll("button");
+
+    buttons.forEach(function (button) {
+      button.classList.toggle(
+        "is-selected",
+        button.dataset.option === optionId
+      );
+    });
+
+    confirmButton.disabled = false;
+  }
+
+  function updateStatus() {
+    progress.textContent =
+      "Situação " +
+      (currentIndex + 1) +
+      " de " +
+      situations.length;
+
+    dots.forEach(function (dot, index) {
+      dot.classList.toggle(
+        "is-active",
+        index === currentIndex
+      );
+
+      dot.classList.toggle(
+        "is-complete",
+        responses[index].confirmed
+      );
+    });
+  }
+
+  function updateNavigation() {
+    const response = responses[currentIndex];
+    const isLast =
+      currentIndex === situations.length - 1;
+
+    previousButton.disabled = currentIndex === 0;
+
+    if (isLast) {
+      nextButton.disabled = true;
+      nextButton.textContent = "Última situação";
+    } else {
+      nextButton.disabled = !response.confirmed;
+      nextButton.textContent = "Próxima situação →";
+    }
+  }
+
+  function showConfirmedState() {
+    const situation = situations[currentIndex];
+    const response = responses[currentIndex];
+    const buttons = options.querySelectorAll("button");
+    const isCorrect =
+      response.selected === situation.correct;
+
+    buttons.forEach(function (button) {
+      button.disabled = true;
+
+      if (button.dataset.option === situation.correct) {
+        button.classList.add("is-correct");
+      }
+
+      if (
+        button.dataset.option === response.selected &&
+        button.dataset.option !== situation.correct
+      ) {
+        button.classList.add("is-error");
+      }
+    });
+
+    feedback.className =
+      "cap5-p53Feedback is-visible " +
+      (isCorrect ? "is-correct" : "is-error");
+
+    feedback.innerHTML = "";
+
+    const title = document.createElement("strong");
+    const explanation = document.createElement("p");
+
+    title.textContent = isCorrect
+      ? "Análise adequada"
+      : "Reavalie o raciocínio";
+
+    explanation.textContent =
+      situation.feedback[response.selected];
+
+    feedback.appendChild(title);
+    feedback.appendChild(explanation);
+
+    confirmButton.hidden = true;
+    resetButton.hidden = false;
+  }
+
+  function render() {
+    const situation = situations[currentIndex];
+    const response = responses[currentIndex];
+
+    kicker.textContent = situation.kicker;
+    caseText.textContent = situation.caseText;
+    prompt.textContent = situation.prompt;
+
+    feedback.className = "cap5-p53Feedback";
+    feedback.innerHTML = "";
+
+    confirmButton.hidden = false;
+    confirmButton.disabled = !response.selected;
+    resetButton.hidden = true;
+
+    renderOptions();
+    updateStatus();
+    updateNavigation();
+
+    if (response.confirmed) {
+      showConfirmedState();
+      updateNavigation();
+    }
+  }
+
+  confirmButton.addEventListener("click", function () {
+    const response = responses[currentIndex];
+
+    if (!response.selected || response.confirmed) {
+      return;
+    }
+
+    response.confirmed = true;
+
+    showConfirmedState();
+    updateStatus();
+    updateNavigation();
+  });
+
+  resetButton.addEventListener("click", function () {
+    responses[currentIndex] = {
+      selected: null,
+      confirmed: false
+    };
+
+    render();
+  });
+
+  previousButton.addEventListener("click", function () {
+    if (currentIndex === 0) {
+      return;
+    }
+
+    currentIndex -= 1;
+    render();
+  });
+
+  nextButton.addEventListener("click", function () {
+    if (
+      !responses[currentIndex].confirmed ||
+      currentIndex === situations.length - 1
+    ) {
+      return;
+    }
+
+    currentIndex += 1;
+    render();
+  });
+
+  render();
 })();

@@ -1,11 +1,30 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+
   <title>Capítulo 8 — Página 70</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
 
   <link rel="stylesheet" href="../../css/base.css" />
   <link rel="stylesheet" href="../../css/components.css" />
@@ -13,81 +32,335 @@
 </head>
 
 <body class="cap8-page70">
+
   <main class="page-shell">
 
     <header class="page-header">
-      <div class="chapter">Capítulo 8 — Antibioticoterapia nas Principais Infecções</div>
-      <h1 class="page-title">Infecções respiratórias</h1>
+      <div class="chapter">
+        Capítulo 8 — Antibioticoterapia nas Principais Infecções
+      </div>
+
+      <h1 class="page-title">
+        Infecções respiratórias
+      </h1>
     </header>
 
-    <section class="prose" aria-label="Infecções respiratórias e decisão terapêutica">
+    <section
+      class="prose cap8-p70"
+      aria-label="Infecções respiratórias e decisão terapêutica"
+    >
+      <p>
+        Tosse, febre, expectoração e mal-estar podem ocorrer em diferentes
+        infecções respiratórias e não distinguem, isoladamente, uma causa viral
+        de uma causa bacteriana. O primeiro passo é avaliar se o conjunto da
+        história, do exame físico e dos exames disponíveis sustenta pneumonia
+        ou outro processo bacteriano que possa se beneficiar de
+        antibioticoterapia <sup>1–3,8</sup>.
+      </p>
 
-      <p>As infecções respiratórias constituem uma das causas mais frequentes de prescrição de antibacterianos na prática clínica. Entretanto, uma parcela significativa dos quadros respiratórios agudos é causada por vírus respiratórios ou por processos inflamatórios não infecciosos, situações nas quais o uso de antibacterianos não traz benefício clínico<sup>3,8</sup>.</p>
+      <p>
+        Um novo infiltrado pulmonar associado a manifestações clínicas
+        compatíveis sustenta o diagnóstico de pneumonia, mas não identifica
+        sozinho o agente etiológico. A definição da terapia empírica ainda
+        depende da gravidade, do local de aquisição, das comorbidades, das
+        exposições recentes e dos fatores de risco para resistência
+        <sup>1–4</sup>.
+      </p>
 
-      <p>O primeiro passo do raciocínio clínico é avaliar a probabilidade de infecção bacteriana. Sintomas como tosse, febre e mal-estar são comuns em diversas infecções respiratórias, mas isoladamente não permitem distinguir etiologia viral de bacteriana. A presença de infiltrado pulmonar em exames de imagem, associada a sinais clínicos compatíveis com processo infeccioso sistêmico, aumenta significativamente a probabilidade de pneumonia bacteriana<sup>1,2</sup>.</p>
+      <section
+        class="cap8-p70-simulator"
+        data-cap8-p70
+        aria-labelledby="cap8P70Title"
+      >
+        <header class="cap8-p70-simulatorHeader">
+          <span class="cap8-p70-eyebrow">
+            Compare os cenários
+          </span>
 
-      <section class="cap8-p70-sim" aria-labelledby="p70-sim-title" data-p70-sim>
-        <header class="cap8-p70-sim-head">
-          <p class="cap8-p70-kicker">Decisão clínica em duas etapas</p>
-          
-          <p>Diante de um quadro respiratório inicial, analise os dados disponíveis antes de definir a conduta.</p>
+          <h2 id="cap8P70Title">
+            O que muda o raciocínio nas infecções respiratórias?
+          </h2>
+
+          <p>
+            Analise três apresentações. Em cada uma, identifique a interpretação
+            mais consistente antes de pensar no espectro antibacteriano.
+          </p>
         </header>
 
-        <div class="cap8-p70-case">
-          <span class="cap8-p70-case-label">Apresentação inicial</span>
-          <p>Paciente com tosse, febre e mal-estar há 2 dias, sem sinais de gravidade e sem exame de imagem disponível.</p>
+        <div
+          class="cap8-p70-navigation"
+          role="tablist"
+          aria-label="Cenários respiratórios"
+        >
+          <button
+            class="cap8-p70-navButton is-active"
+            id="cap8P70Tab1"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="cap8P70Stage"
+            tabindex="0"
+            data-p70-stage="0"
+          >
+            <span>1</span>
+
+            <strong>Quadro inicial</strong>
+          </button>
+
+          <button
+            class="cap8-p70-navButton"
+            id="cap8P70Tab2"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="cap8P70Stage"
+            tabindex="-1"
+            data-p70-stage="1"
+            disabled
+          >
+            <span>2</span>
+
+            <strong>Novo infiltrado</strong>
+          </button>
+
+          <button
+            class="cap8-p70-navButton"
+            id="cap8P70Tab3"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="cap8P70Stage"
+            tabindex="-1"
+            data-p70-stage="2"
+            disabled
+          >
+            <span>3</span>
+
+            <strong>Maior risco</strong>
+          </button>
         </div>
 
-        <fieldset class="cap8-p70-question">
-          <legend>Qual é a interpretação mais consistente neste momento?</legend>
-          <div class="cap8-p70-options">
-            <button class="cap8-p70-option" type="button" aria-pressed="false" data-choice="alta">Alta probabilidade de infecção bacteriana</button>
-            <button class="cap8-p70-option" type="button" aria-pressed="false" data-choice="moderada">Probabilidade intermediária — necessita melhor avaliação</button>
-            <button class="cap8-p70-option" type="button" aria-pressed="false" data-choice="baixa">Baixa probabilidade — possível etiologia viral</button>
-          </div>
-        </fieldset>
+        <div
+          class="cap8-p70-progress"
+          aria-live="polite"
+        >
+          <div>
+            <span>Cenários analisados</span>
 
-        <div class="cap8-p70-feedback" role="status" aria-live="polite"></div>
-
-        <div class="cap8-p70-evolution" hidden>
-          <div class="cap8-p70-evolution-head">
-            <span>Etapa 2</span>
-            <h3>Novo dado disponível</h3>
-            <p>Integre o achado ao quadro clínico e reavalie sua interpretação inicial.</p>
+            <strong id="cap8P70ProgressText">
+              0 de 3
+            </strong>
           </div>
 
-          <div class="cap8-p70-figure">
-            <img src="../../assets/capitulo-08/imagens/pneumonia-probabilidade.png" alt="Sinais sistêmicos aumentam probabilidade de pneumonia bacteriana" data-zoom>
-            <figcaption class="caption">A presença de infiltrado pulmonar associada a sinais sistêmicos aumenta significativamente a probabilidade de pneumonia bacteriana.</figcaption>
+          <div
+            class="cap8-p70-progressTrack"
+            role="progressbar"
+            aria-label="Cenários analisados"
+            aria-valuemin="0"
+            aria-valuemax="3"
+            aria-valuenow="0"
+          >
+            <span id="cap8P70ProgressBar"></span>
           </div>
-
-          <button class="btn ghost cap8-p70-reveal-btn" type="button" aria-expanded="false" aria-controls="p70-reveal" data-reveal>Integrar o novo dado ao raciocínio</button>
-          <div id="p70-reveal" class="cap8-p70-reveal" role="status" aria-live="polite"></div>
         </div>
+
+        <article
+          id="cap8P70Stage"
+          class="cap8-p70-stage"
+          role="tabpanel"
+          aria-labelledby="cap8P70Tab1"
+          aria-live="polite"
+        >
+          <div class="cap8-p70-caseHeader">
+            <span id="cap8P70CaseLabel">
+              Cenário 1
+            </span>
+
+            <h3 id="cap8P70CaseTitle">
+              Sintomas respiratórios recentes
+            </h3>
+          </div>
+
+          <div class="cap8-p70-clinicalData">
+            <p id="cap8P70ClinicalText">
+              Pessoa adulta apresenta coriza, dor de garganta e tosse há dois
+              dias. Está hemodinamicamente estável, sem taquipneia, hipoxemia ou
+              alterações focais na ausculta pulmonar.
+            </p>
+          </div>
+
+          <figure
+            id="cap8P70Figure"
+            class="cap8-p70-figure"
+            hidden
+          >
+            <img
+              src="../../assets/capitulo-08/imagens/pneumonia-probabilidade.png"
+              alt="Integração entre sinais clínicos e infiltrado pulmonar na avaliação da pneumonia"
+              data-zoom
+            />
+
+            <figcaption class="caption">
+              O infiltrado deve ser interpretado em conjunto com a
+              apresentação clínica; isoladamente, não define a etiologia.
+            </figcaption>
+          </figure>
+
+          <div class="cap8-p70-question">
+            <small>Decisão clínica</small>
+
+            <h3 id="cap8P70Question">
+              Qual é a interpretação mais consistente neste momento?
+            </h3>
+          </div>
+
+          <div
+            id="cap8P70Options"
+            class="cap8-p70-options"
+            role="group"
+            aria-label="Possíveis interpretações"
+          ></div>
+
+          <div
+            id="cap8P70Feedback"
+            class="cap8-p70-feedback"
+            hidden
+            aria-live="polite"
+          ></div>
+
+          <div class="cap8-p70-actions">
+            <button
+              id="cap8P70Revise"
+              class="cap8-p70-action cap8-p70-action--secondary"
+              type="button"
+              hidden
+            >
+              Rever escolha
+            </button>
+
+            <button
+              id="cap8P70Next"
+              class="cap8-p70-action cap8-p70-action--primary"
+              type="button"
+              disabled
+            >
+              Próximo cenário →
+            </button>
+          </div>
+        </article>
+
+        <section
+          id="cap8P70Completion"
+          class="cap8-p70-completion"
+          hidden
+          aria-live="polite"
+        >
+          <div class="cap8-p70-completionHeader">
+            <span aria-hidden="true">✓</span>
+
+            <div>
+              <small>Comparação concluída</small>
+
+              <h3>
+                Sintoma, diagnóstico e risco microbiológico são decisões
+                diferentes
+              </h3>
+            </div>
+          </div>
+
+          <div class="cap8-p70-comparison">
+
+            <article class="cap8-p70-comparison--low">
+              <span>Quadro respiratório agudo</span>
+
+              <strong>
+                Sintomas isolados não confirmam pneumonia bacteriana
+              </strong>
+
+              <p>
+                Avaliar probabilidade, oferecer cuidado e estabelecer sinais de
+                reavaliação.
+              </p>
+            </article>
+
+            <article class="cap8-p70-comparison--middle">
+              <span>Pneumonia provável</span>
+
+              <strong>
+                O infiltrado sustenta o diagnóstico, não identifica o agente
+              </strong>
+
+              <p>
+                Integrar gravidade, local de aquisição e características
+                individuais.
+              </p>
+            </article>
+
+            <article class="cap8-p70-comparison--high">
+              <span>Maior risco microbiológico</span>
+
+              <strong>
+                Fatores validados podem modificar a cobertura inicial
+              </strong>
+
+              <p>
+                Utilizar exposições recentes, resultados anteriores e
+                epidemiologia local.
+              </p>
+            </article>
+          </div>
+
+          <aside class="cap8-p70-reassessment">
+            <strong>Após iniciar:</strong>
+
+            <p>
+              A resposta clínica e os resultados microbiológicos devem orientar
+              a manutenção, o ajuste, o estreitamento ou a interrupção da
+              terapia quando indicada.
+            </p>
+          </aside>
+
+          <button
+            id="cap8P70Restart"
+            class="cap8-p70-restart"
+            type="button"
+          >
+            Refazer os cenários
+          </button>
+        </section>
       </section>
 
-      <h2 class="cap8-p70-section-divider">
-        <span aria-hidden="true"></span>
-        Do perfil etiológico à escolha do espectro
-        <span aria-hidden="true"></span>
-      </h2>
-
-      <p>Entre os agentes mais frequentemente associados à pneumonia adquirida na comunidade destacam-se <em>Streptococcus pneumoniae</em> e <em>Haemophilus influenzae</em>, além de patógenos respiratórios denominados atípicos em determinados contextos clínicos. A distribuição etiológica varia conforme idade, presença de doença pulmonar estrutural, comorbidades e gravidade da apresentação<sup>1,2</sup>.</p>
-
-      <p>Uma vez estabelecida a probabilidade de infecção bacteriana, a escolha inicial do espectro antimicrobiano deve considerar o risco individual de resistência. Em pacientes jovens, sem comorbidades relevantes e sem exposições recentes ao sistema de saúde, a probabilidade de patógenos multirresistentes costuma ser baixa, não havendo justificativa para ampliação desnecessária do espectro antimicrobiano<sup>3,4</sup>.</p>
-
-      <p>Por outro lado, idade avançada, doença pulmonar crônica, hospitalizações recentes ou uso prévio de antibacterianos podem modificar o perfil etiológico esperado e aumentar o risco de resistência bacteriana, devendo ser considerados na definição da estratégia inicial<sup>3,4</sup>.</p>
-
-      <p>Em pacientes hospitalizados, a coleta de amostras para investigação microbiológica pode auxiliar na identificação do agente etiológico. Quando um microrganismo é identificado e apresenta perfil de suscetibilidade favorável, o estreitamento terapêutico permite reduzir a exposição desnecessária a antibacterianos de amplo espectro<sup>3,6</sup>.</p>
-
-      <p>A abordagem das infecções respiratórias ilustra dois erros frequentes na prática clínica: a prescrição de antibacterianos para quadros virais autolimitados e a ampliação desnecessária do espectro em situações de baixo risco de resistência. Em ambos os casos, o prejuízo não está apenas na ausência de benefício clínico adicional, mas também no aumento da toxicidade potencial e da pressão seletiva sobre a microbiota<sup>3,9</sup>.</p>
+      <aside class="cap8-p70-principle">
+        Sintomas respiratórios não são sinônimo de infecção bacteriana; um
+        infiltrado pulmonar não define sozinho a etiologia; e gravidade não
+        justifica, isoladamente, o espectro mais amplo disponível.
+      </aside>
 
     </section>
 
-    <nav class="pager" aria-label="Paginação">
-      <a class="btn" href="p69.html" aria-label="Ir para a página anterior">← Anterior</a>
-      <div class="center">Capítulo 8 · Página 70 de 89</div>
-      <a class="btn primary" href="p71.html" aria-label="Ir para a próxima página">Próxima →</a>
+    <nav
+      class="pager"
+      aria-label="Paginação"
+    >
+      <a
+        class="btn"
+        href="p69.html"
+        aria-label="Ir para a página anterior"
+      >
+        ← Anterior
+      </a>
+
+      <div class="center">
+        Capítulo 8 · Página 70 de 89
+      </div>
+
+      <a
+        class="btn primary"
+        href="p71.html"
+        aria-label="Ir para a próxima página"
+      >
+        Próxima →
+      </a>
     </nav>
 
   </main>

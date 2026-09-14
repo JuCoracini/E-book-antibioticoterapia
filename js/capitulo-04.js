@@ -783,267 +783,349 @@
     observer.observe(item);
   });
 })();
-/* =========================
+/* =====================================================
    PÁGINA 38 — QUIZ DE REVISÃO
-   ========================= */
+   ===================================================== */
 
-(function initCap4Page38(){
+(function initPage38Quiz(){
   const root = document.querySelector("[data-cap4-p38]");
 
-  if(!root){
+  if(!root) return;
+
+  const situations = [
+    {
+      caseText:
+        "Um paciente jovem com sepse recebe um β-lactâmico contra um microrganismo suscetível. Apesar da dose habitual, apresenta depuração renal aumentada e as concentrações do fármaco permanecem abaixo da CIM durante parte considerável do intervalo entre as administrações.",
+
+      prompt:
+        "Qual ajuste está mais diretamente relacionado ao índice PK/PD predominante dessa classe?",
+
+      correct:"b",
+
+      options:[
+        {
+          key:"a",
+          label:"Concentrar a dose em uma única administração para produzir o maior pico plasmático possível."
+        },
+        {
+          key:"b",
+          label:"Prolongar a infusão ou ajustar o intervalo para aumentar o tempo em que a fração livre permanece acima da CIM."
+        },
+        {
+          key:"c",
+          label:"Manter o esquema, pois a suscetibilidade no antibiograma garante exposição adequada no paciente."
+        }
+      ],
+
+      feedback:{
+        a:"Nos β-lactâmicos, elevar apenas o pico não é a estratégia mais diretamente relacionada à eficácia. O índice predominante é o tempo em que a concentração livre permanece acima da CIM.",
+
+        b:"Os β-lactâmicos apresentam atividade predominantemente tempo-dependente. Diante de depuração aumentada e redução do %fT>CIM, prolongar a infusão ou ajustar o intervalo pode favorecer a manutenção da exposição necessária.",
+
+        c:"O antibiograma informa a suscetibilidade do microrganismo em condições padronizadas, mas não garante que o paciente alcance o alvo PK/PD. Alterações na depuração podem reduzir a exposição mesmo com dose habitual."
+      }
+    },
+
+    {
+      caseText:
+        "Uma paciente iniciou tratamento intravenoso por pneumonia bacteriana. Após estabilização clínica, encontra-se consciente, sem vômitos ou diarreia, com função gastrointestinal preservada. O microrganismo é suscetível e existe uma opção oral com elevada biodisponibilidade.",
+
+      prompt:
+        "Qual interpretação fundamenta melhor a decisão sobre a via de administração?",
+
+      correct:"c",
+
+      options:[
+        {
+          key:"a",
+          label:"A via intravenosa deve ser mantida até o final, pois foi necessária na fase inicial do tratamento."
+        },
+        {
+          key:"b",
+          label:"A via oral pode ser utilizada porque qualquer medicamento administrado por essa via produz exposição igual à intravenosa."
+        },
+        {
+          key:"c",
+          label:"A transição para a via oral pode ser adequada se a absorção for confiável e a nova estratégia mantiver a exposição PK/PD necessária."
+        }
+      ],
+
+      feedback:{
+        a:"A gravidade inicial justifica maior previsibilidade da exposição nas primeiras fases, mas não determina obrigatoriamente a manutenção da via intravenosa após estabilização e recuperação da absorção gastrointestinal.",
+
+        b:"A via oral não apresenta biodisponibilidade completa para todos os antibacterianos. A decisão depende das características do fármaco, da absorção, das condições clínicas e da capacidade de manter o alvo PK/PD.",
+
+        c:"Com estabilidade clínica, absorção gastrointestinal confiável, elevada biodisponibilidade oral e possibilidade de manter o alvo PK/PD, a transição da via intravenosa para a oral pode preservar a eficácia terapêutica."
+      }
+    },
+
+    {
+      caseText:
+        "Um paciente apresenta infecção associada a uma prótese. O microrganismo é classificado como suscetível ao antibacteriano utilizado, mas a infecção persiste. Não foi identificada aquisição de um novo gene de resistência durante o tratamento.",
+
+      prompt:
+        "Qual explicação integra melhor o antibiograma e a persistência clínica?",
+
+      correct:"b",
+
+      options:[
+        {
+          key:"a",
+          label:"O resultado suscetível exclui influência do biofilme, pois a CIM representa diretamente a concentração alcançada sobre a prótese."
+        },
+        {
+          key:"b",
+          label:"O biofilme pode produzir exposição heterogênea e tolerância fenotípica, mesmo sem resistência genética adquirida."
+        },
+        {
+          key:"c",
+          label:"A persistência demonstra que o microrganismo necessariamente modificou seu alvo molecular após o antibiograma."
+        }
+      ],
+
+      feedback:{
+        a:"A CIM é determinada com bactérias em crescimento livre e em condições laboratoriais padronizadas. Ela não reproduz integralmente os gradientes de concentração, a matriz e os diferentes estados metabólicos encontrados no biofilme.",
+
+        b:"A matriz do biofilme pode dificultar a difusão do fármaco e formar gradientes de concentração. Além disso, bactérias de crescimento lento ou persistentes podem apresentar tolerância fenotípica, sem aquisição obrigatória de resistência genética.",
+
+        c:"A persistência clínica não comprova modificação do alvo. No contexto de uma prótese, barreiras de difusão, microambientes e heterogeneidade metabólica podem reduzir a resposta mesmo quando o microrganismo permanece classificado como suscetível."
+      }
+    }
+  ];
+
+  const progress = root.querySelector("[data-p38-progress]");
+  const kicker = root.querySelector("[data-p38-kicker]");
+  const caseBox = root.querySelector("[data-p38-case]");
+  const prompt = root.querySelector("[data-p38-prompt]");
+  const optionsBox = root.querySelector("[data-p38-options]");
+  const confirmButton = root.querySelector("[data-p38-confirm]");
+  const resetButton = root.querySelector("[data-p38-reset]");
+  const feedback = root.querySelector("[data-p38-feedback]");
+  const prevButton = root.querySelector("[data-p38-prev]");
+  const nextButton = root.querySelector("[data-p38-next]");
+
+  const dots = Array.from(
+    root.querySelectorAll(".cap4-p38Dots span")
+  );
+
+  if(
+    !progress ||
+    !kicker ||
+    !caseBox ||
+    !prompt ||
+    !optionsBox ||
+    !confirmButton ||
+    !resetButton ||
+    !feedback ||
+    !prevButton ||
+    !nextButton ||
+    !dots.length
+  ){
     return;
   }
 
-  const questions = Array.from(
-    root.querySelectorAll(".cap4-p38Question")
-  );
+  let current = 0;
 
-  const statusValue = root.querySelector(
-    ".cap4-p38Status__value"
-  );
+  const responses = situations.map(function(){
+    return {
+      selected:null,
+      confirmed:false
+    };
+  });
 
-  const completion = root.querySelector(
-    "[data-p38-completion]"
-  );
+  function updateNavigation(){
+    const response = responses[current];
 
-  function updateStatus(){
-    const confirmedQuestions = questions.filter(function(question){
-      return question.dataset.questionState === "confirmed";
-    }).length;
+    prevButton.disabled = current === 0;
 
-    if(statusValue){
-      statusValue.textContent =
-        confirmedQuestions +
-        " de " +
-        questions.length +
-        " situações confirmadas";
-    }
+    nextButton.disabled =
+      current === situations.length - 1 ||
+      !response.confirmed;
 
-    if(completion){
-      completion.hidden =
-        confirmedQuestions !== questions.length;
-    }
-  }
+    nextButton.textContent =
+      current === situations.length - 1
+        ? "Última situação"
+        : "Próxima situação →";
 
-  function parseFeedbackMap(question){
-    const template = question.querySelector(
-      ".cap4-p38FeedbackMap"
-    );
-
-    if(!template){
-      return {};
-    }
-
-    try{
-      return JSON.parse(
-        template.content.textContent.trim()
-      );
-    }catch(error){
-      console.warn(
-        "Não foi possível interpretar o conteúdo de feedback da página 38.",
-        error
+    dots.forEach(function(dot, index){
+      dot.classList.toggle(
+        "is-active",
+        index === current
       );
 
-      return {};
-    }
-  }
-
-  function updateSelectedOption(options, selectedOption){
-    options.forEach(function(option){
-      const isSelected = option === selectedOption;
-
-      option.classList.toggle(
-        "is-selected",
-        isSelected
-      );
-
-      option.setAttribute(
-        "aria-pressed",
-        isSelected ? "true" : "false"
+      dot.classList.toggle(
+        "is-answered",
+        responses[index].confirmed
       );
     });
   }
 
-  function clearOptionStates(options){
-    options.forEach(function(option){
-      option.disabled = false;
+  function showConfirmedState(item, response){
+    const buttons = Array.from(
+      optionsBox.querySelectorAll("[data-answer]")
+    );
 
-      option.classList.remove(
+    const isCorrect =
+      response.selected === item.correct;
+
+    buttons.forEach(function(button){
+      button.disabled = true;
+
+      button.classList.remove(
         "is-selected",
         "is-correct",
         "is-error"
       );
 
-      option.setAttribute(
-        "aria-pressed",
-        "false"
-      );
+      if(button.dataset.answer === item.correct){
+        button.classList.add("is-correct");
+      }
+
+      if(
+        button.dataset.answer === response.selected &&
+        !isCorrect
+      ){
+        button.classList.add("is-error");
+      }
     });
+
+    feedback.className =
+      "cap4-p38Feedback is-visible " +
+      (isCorrect ? "is-correct" : "is-error");
+
+    feedback.innerHTML = `
+      <strong>
+        ${
+          isCorrect
+            ? "Interpretação mais adequada."
+            : "Considere novamente os dados."
+        }
+      </strong>
+
+      <p>${item.feedback[response.selected]}</p>
+    `;
+
+    confirmButton.hidden = true;
+    resetButton.hidden = false;
   }
 
-  questions.forEach(function(question){
-    const options = Array.from(
-      question.querySelectorAll(
-        ".cap4-p38Options button"
-      )
+  function render(){
+    const item = situations[current];
+    const response = responses[current];
+    const letters = ["A", "B", "C"];
+
+    progress.textContent =
+      "Situação " +
+      (current + 1) +
+      " de " +
+      situations.length;
+
+    kicker.textContent =
+      "Situação clínica " + (current + 1);
+
+    caseBox.innerHTML = item.caseText;
+    prompt.textContent = item.prompt;
+
+    optionsBox.innerHTML = item.options
+      .map(function(option, index){
+        return `
+          <button
+            type="button"
+            data-answer="${option.key}"
+          >
+            <span class="cap4-p38Letter">
+              ${letters[index]}
+            </span>
+
+            <span>${option.label}</span>
+          </button>
+        `;
+      })
+      .join("");
+
+    feedback.className = "cap4-p38Feedback";
+    feedback.innerHTML = "";
+
+    confirmButton.hidden = false;
+    confirmButton.disabled = !response.selected;
+    resetButton.hidden = true;
+
+    const buttons = Array.from(
+      optionsBox.querySelectorAll("[data-answer]")
     );
 
-    const confirmButton = question.querySelector(
-      '[data-p38-action="confirm"]'
-    );
+    buttons.forEach(function(button){
+      if(
+        !response.confirmed &&
+        button.dataset.answer === response.selected
+      ){
+        button.classList.add("is-selected");
+      }
 
-    const resetButton = question.querySelector(
-      '[data-p38-action="reset"]'
-    );
+      button.addEventListener("click", function(){
+        if(response.confirmed) return;
 
-    const feedback = question.querySelector(
-      ".cap4-p38Feedback"
-    );
+        response.selected =
+          button.dataset.answer;
 
-    const feedbackMap = parseFeedbackMap(question);
+        buttons.forEach(function(itemButton){
+          itemButton.classList.toggle(
+            "is-selected",
+            itemButton === button
+          );
+        });
 
-    let selectedAnswer = null;
-
-    options.forEach(function(option){
-      option.addEventListener("click", function(){
-        if(
-          question.dataset.questionState === "confirmed"
-        ){
-          return;
-        }
-
-        selectedAnswer = option.dataset.answer;
-
-        updateSelectedOption(
-          options,
-          option
-        );
-
-        if(confirmButton){
-          confirmButton.disabled = false;
-        }
+        confirmButton.disabled = false;
       });
     });
 
-    if(confirmButton){
-      confirmButton.addEventListener("click", function(){
-        if(!selectedAnswer){
-          return;
-        }
-
-        const selectedOption = question.querySelector(
-          '[data-answer="' +
-          selectedAnswer +
-          '"]'
-        );
-
-        if(!selectedOption){
-          return;
-        }
-
-        const isCorrect =
-          selectedOption.dataset.correct === "true";
-
-        const selectedFeedback =
-          feedbackMap[selectedAnswer];
-
-        options.forEach(function(option){
-          option.disabled = true;
-
-          option.classList.remove(
-            "is-selected"
-          );
-
-          option.setAttribute(
-            "aria-pressed",
-            "false"
-          );
-
-          if(
-            option.dataset.correct === "true"
-          ){
-            option.classList.add(
-              "is-correct"
-            );
-          }
-
-          if(
-            option.dataset.answer === selectedAnswer &&
-            !isCorrect
-          ){
-            option.classList.add(
-              "is-error"
-            );
-          }
-        });
-
-        if(
-          feedback &&
-          selectedFeedback
-        ){
-          const feedbackClass =
-            selectedFeedback.type === "correct"
-              ? "is-correct"
-              : "is-error";
-
-          feedback.className =
-            "cap4-p38Feedback is-visible " +
-            feedbackClass;
-
-          feedback.innerHTML =
-            "<strong>" +
-            selectedFeedback.title +
-            "</strong>" +
-            "<p>" +
-            selectedFeedback.text +
-            "</p>";
-        }
-
-        question.dataset.questionState =
-          "confirmed";
-
-        confirmButton.hidden = true;
-
-        if(resetButton){
-          resetButton.hidden = false;
-          resetButton.focus();
-        }
-
-        updateStatus();
-      });
+    if(response.confirmed){
+      showConfirmedState(item, response);
     }
 
-    if(resetButton){
-      resetButton.addEventListener("click", function(){
-        selectedAnswer = null;
+    updateNavigation();
+  }
 
-        question.dataset.questionState =
-          "pending";
+  confirmButton.addEventListener("click", function(){
+    const response = responses[current];
 
-        clearOptionStates(options);
+    if(!response.selected) return;
 
-        if(feedback){
-          feedback.className =
-            "cap4-p38Feedback";
+    response.confirmed = true;
 
-          feedback.innerHTML = "";
-        }
+    showConfirmedState(
+      situations[current],
+      response
+    );
 
-        if(confirmButton){
-          confirmButton.hidden = false;
-          confirmButton.disabled = true;
-        }
+    updateNavigation();
+  });
 
-        resetButton.hidden = true;
+  resetButton.addEventListener("click", function(){
+    responses[current] = {
+      selected:null,
+      confirmed:false
+    };
 
-        updateStatus();
+    render();
+  });
 
-        if(options[0]){
-          options[0].focus();
-        }
-      });
+  prevButton.addEventListener("click", function(){
+    if(current > 0){
+      current -= 1;
+      render();
     }
   });
 
-  updateStatus();
+  nextButton.addEventListener("click", function(){
+    if(
+      current < situations.length - 1 &&
+      responses[current].confirmed
+    ){
+      current += 1;
+      render();
+    }
+  });
+
+  render();
 })();

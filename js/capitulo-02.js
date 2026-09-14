@@ -1966,8 +1966,12 @@
     {
       caseText:
         "Durante a discussão de um caso de endocardite infecciosa, o estudante observa que β-lactâmicos podem apresentar menor atividade contra bactérias das vegetações valvares, que frequentemente permanecem em crescimento lento ou em fase estacionária.",
-      prompt:"Qual característica do mecanismo de ação explica esse comportamento?",
+
+      prompt:
+        "Qual característica do mecanismo de ação explica esse comportamento?",
+
       correct:"a",
+
       options:[
         {
           key:"a",
@@ -1975,33 +1979,36 @@
         },
         {
           key:"b",
-          label:"Esses fármacos atuam exclusivamente sobre bactérias Gram-positivas."
+          label:"A elevada densidade bacteriana nas vegetações reduz a atividade dos β-lactâmicos principalmente por impedir sua distribuição até o tecido valvar."
         },
         {
           key:"c",
-          label:"A atividade desses fármacos depende de uma resposta inflamatória intensa do hospedeiro."
-        },
-        {
-          key:"d",
-          label:"Esses fármacos dependem da presença de anticorpos para exercer sua atividade."
+          label:"A organização das bactérias nas vegetações modifica as PBPs e produz resistência estável aos β-lactâmicos durante o tratamento."
         }
       ],
+
       feedback:{
         a:"A síntese e a remodelação do peptidoglicano são mais intensas durante o crescimento e a divisão bacteriana. Em populações de crescimento lento ou em fase estacionária, a atividade bactericida dos β-lactâmicos pode ser reduzida.",
-        b:"A dependência do crescimento bacteriano não se explica por atividade exclusiva contra Gram-positivos. O fator central é a intensidade dos processos celulares sobre os quais o antibacteriano atua.",
-        c:"A atividade dos β-lactâmicos não depende da intensidade da resposta inflamatória do hospedeiro, mas da interação com as PBPs e da atividade de síntese da parede celular.",
-        d:"A ação dos β-lactâmicos decorre da ligação às PBPs bacterianas e não depende da presença de anticorpos."
+
+        b:"A penetração no foco pode influenciar a resposta, mas não explica diretamente a menor atividade relacionada ao crescimento lento. O ponto central é a redução da síntese e da remodelação do peptidoglicano.",
+
+        c:"A permanência em crescimento lento pode gerar tolerância fenotípica, sem necessariamente alterar as PBPs ou produzir resistência genética estável."
       }
     },
+
     {
       caseText:
         "Paciente de 24 anos com pneumonia atípica recebeu claritromicina. Durante a discussão do caso, o preceptor pergunta por que a inibição da síntese proteica bacteriana não compromete da mesma forma a síntese proteica das células da paciente.",
-      prompt:"Qual alternativa explica corretamente essa seletividade?",
+
+      prompt:
+        "Qual alternativa explica corretamente essa seletividade?",
+
       correct:"b",
+
       options:[
         {
           key:"a",
-          label:"A claritromicina inibe uma parede celular estruturalmente idêntica às estruturas das células humanas."
+          label:"A claritromicina entra preferencialmente nas bactérias porque as células humanas impedem completamente sua passagem pela membrana plasmática."
         },
         {
           key:"b",
@@ -2009,18 +2016,49 @@
         },
         {
           key:"c",
-          label:"O fármaco bloqueia preferencialmente a replicação do DNA humano, preservando o DNA bacteriano."
-        },
-        {
-          key:"d",
-          label:"O fármaco destrói indiscriminadamente as membranas bacterianas e as membranas das células humanas."
+          label:"As células humanas neutralizam a claritromicina antes que ela alcance seus ribossomos, enquanto as bactérias não possuem mecanismos de metabolização."
         }
       ],
+
       feedback:{
-        a:"Macrolídeos não atuam sobre a parede celular. A seletividade decorre principalmente das diferenças estruturais entre os ribossomos bacterianos e os ribossomos citoplasmáticos humanos.",
+        a:"A distribuição celular pode modificar a exposição, mas as células humanas não são totalmente impermeáveis ao fármaco. A seletividade decorre principalmente das diferenças estruturais entre os ribossomos.",
+
         b:"A claritromicina é um macrolídeo que atua preferencialmente sobre a subunidade 50S do ribossomo bacteriano. A diferença em relação aos ribossomos citoplasmáticos humanos 80S permite inibição preferencial da tradução bacteriana.",
-        c:"A claritromicina não atua predominantemente sobre a replicação do DNA. Seu principal alvo é a subunidade 50S do ribossomo bacteriano.",
-        d:"Macrolídeos não atuam por destruição indiscriminada de membranas. Seu mecanismo central é a interferência na síntese proteica bacteriana."
+
+        c:"A metabolização do medicamento influencia sua concentração, mas não explica a seletividade pelo alvo bacteriano. Além disso, bactérias podem apresentar mecanismos de resistência aos macrolídeos."
+      }
+    },
+
+    {
+      caseText:
+        "Uma paciente com infecção urinária recebe sulfametoxazol associado à trimetoprima. Durante a discussão do caso, o estudante pergunta por que a combinação pode produzir efeito maior do que o uso isolado de cada componente.",
+
+      prompt:
+        "Qual mecanismo explica melhor o efeito dessa associação?",
+
+      correct:"c",
+
+      options:[
+        {
+          key:"a",
+          label:"Os dois componentes inibem o mesmo alvo enzimático, aumentando a ocupação desse alvo sem interferir em outras etapas metabólicas."
+        },
+        {
+          key:"b",
+          label:"Um componente aumenta a permeabilidade da membrana bacteriana e facilita a entrada do outro até o citoplasma."
+        },
+        {
+          key:"c",
+          label:"Os fármacos bloqueiam etapas sequenciais da síntese bacteriana de folato, reduzindo a formação de nucleotídeos."
+        }
+      ],
+
+      feedback:{
+        a:"Os componentes atuam na mesma via metabólica, mas em alvos diferentes: di-hidropteroato sintase e di-hidrofolato redutase. Portanto, não ocorre apenas maior ocupação de uma única enzima.",
+
+        b:"O efeito combinado não decorre do aumento da permeabilidade da membrana. Cada componente bloqueia uma etapa distinta e consecutiva da síntese bacteriana de folato.",
+
+        c:"O sulfametoxazol inibe a di-hidropteroato sintase, enquanto a trimetoprima inibe a di-hidrofolato redutase. O bloqueio sequencial reduz a disponibilidade de folato necessário à síntese de nucleotídeos."
       }
     }
   ];
@@ -2035,27 +2073,44 @@
   const feedback = root.querySelector("[data-p19-feedback]");
   const prevButton = root.querySelector("[data-p19-prev]");
   const nextButton = root.querySelector("[data-p19-next]");
-  const dots = Array.from(root.querySelectorAll(".cap2-p19Dots span"));
+
+  const dots = Array.from(
+    root.querySelectorAll(".cap2-p19Dots span")
+  );
 
   if(
-    !progress || !kicker || !caseBox || !prompt || !optionsBox ||
-    !confirmButton || !resetButton || !feedback || !prevButton ||
-    !nextButton || !dots.length
+    !progress ||
+    !kicker ||
+    !caseBox ||
+    !prompt ||
+    !optionsBox ||
+    !confirmButton ||
+    !resetButton ||
+    !feedback ||
+    !prevButton ||
+    !nextButton ||
+    !dots.length
   ){
     return;
   }
 
   let current = 0;
+
   const responses = situations.map(function(){
-    return {selected:null, confirmed:false};
+    return {
+      selected:null,
+      confirmed:false
+    };
   });
 
   function updateNavigation(){
     const response = responses[current];
 
     prevButton.disabled = current === 0;
+
     nextButton.disabled =
-      current === situations.length - 1 || !response.confirmed;
+      current === situations.length - 1 ||
+      !response.confirmed;
 
     nextButton.textContent =
       current === situations.length - 1
@@ -2063,8 +2118,15 @@
         : "Próxima situação →";
 
     dots.forEach(function(dot, index){
-      dot.classList.toggle("is-active", index === current);
-      dot.classList.toggle("is-answered", responses[index].confirmed);
+      dot.classList.toggle(
+        "is-active",
+        index === current
+      );
+
+      dot.classList.toggle(
+        "is-answered",
+        responses[index].confirmed
+      );
     });
   }
 
@@ -2072,17 +2134,27 @@
     const buttons = Array.from(
       optionsBox.querySelectorAll("[data-answer]")
     );
-    const isCorrect = response.selected === item.correct;
+
+    const isCorrect =
+      response.selected === item.correct;
 
     buttons.forEach(function(button){
       button.disabled = true;
-      button.classList.remove("is-selected", "is-correct", "is-error");
+
+      button.classList.remove(
+        "is-selected",
+        "is-correct",
+        "is-error"
+      );
 
       if(button.dataset.answer === item.correct){
         button.classList.add("is-correct");
       }
 
-      if(button.dataset.answer === response.selected && !isCorrect){
+      if(
+        button.dataset.answer === response.selected &&
+        !isCorrect
+      ){
         button.classList.add("is-error");
       }
     });
@@ -2092,9 +2164,12 @@
       (isCorrect ? "is-correct" : "is-error");
 
     feedback.innerHTML = `
-      <strong>${isCorrect
-        ? "Interpretação mais adequada."
-        : "Considere novamente os dados."}</strong>
+      <strong>${
+        isCorrect
+          ? "Interpretação mais adequada."
+          : "Considere novamente os dados."
+      }</strong>
+
       <p>${item.feedback[response.selected]}</p>
     `;
 
@@ -2105,25 +2180,40 @@
   function render(){
     const item = situations[current];
     const response = responses[current];
-    const letters = ["A", "B", "C", "D"];
+    const letters = ["A", "B", "C"];
 
     progress.textContent =
-      "Situação " + (current + 1) + " de " + situations.length;
-    kicker.textContent = "Situação clínica " + (current + 1);
+      "Situação " +
+      (current + 1) +
+      " de " +
+      situations.length;
+
+    kicker.textContent =
+      "Situação clínica " + (current + 1);
+
     caseBox.innerHTML = item.caseText;
     prompt.textContent = item.prompt;
 
-    optionsBox.innerHTML = item.options.map(function(option, index){
-      return `
-        <button type="button" data-answer="${option.key}">
-          <span class="cap2-p19Letter">${letters[index]}</span>
-          <span>${option.label}</span>
-        </button>
-      `;
-    }).join("");
+    optionsBox.innerHTML = item.options
+      .map(function(option, index){
+        return `
+          <button
+            type="button"
+            data-answer="${option.key}"
+          >
+            <span class="cap2-p19Letter">
+              ${letters[index]}
+            </span>
+
+            <span>${option.label}</span>
+          </button>
+        `;
+      })
+      .join("");
 
     feedback.className = "cap2-p19Feedback";
     feedback.innerHTML = "";
+
     confirmButton.hidden = false;
     confirmButton.disabled = !response.selected;
     resetButton.hidden = true;
@@ -2133,14 +2223,18 @@
     );
 
     buttons.forEach(function(button){
-      if(!response.confirmed && button.dataset.answer === response.selected){
+      if(
+        !response.confirmed &&
+        button.dataset.answer === response.selected
+      ){
         button.classList.add("is-selected");
       }
 
       button.addEventListener("click", function(){
         if(response.confirmed) return;
 
-        response.selected = button.dataset.answer;
+        response.selected =
+          button.dataset.answer;
 
         buttons.forEach(function(itemButton){
           itemButton.classList.toggle(
@@ -2166,12 +2260,21 @@
     if(!response.selected) return;
 
     response.confirmed = true;
-    showConfirmedState(situations[current], response);
+
+    showConfirmedState(
+      situations[current],
+      response
+    );
+
     updateNavigation();
   });
 
   resetButton.addEventListener("click", function(){
-    responses[current] = {selected:null, confirmed:false};
+    responses[current] = {
+      selected:null,
+      confirmed:false
+    };
+
     render();
   });
 

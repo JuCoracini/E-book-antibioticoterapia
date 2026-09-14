@@ -1,22 +1,31 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
 
   <title>Capítulo 5 — Página 53</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap"
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="../../css/base.css"/>
-  <link rel="stylesheet" href="../../css/components.css"/>
-  <link rel="stylesheet" href="../../css/capitulo-05.css"/>
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/capitulo-05.css">
 </head>
 
 <body class="cap5-page53">
@@ -26,7 +35,8 @@
     <header class="page-header">
 
       <div class="chapter">
-        Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma
+        Capítulo 5 — Laboratório de Microbiologia e
+        Interpretação do Antibiograma
       </div>
 
       <h1 class="page-title">
@@ -41,494 +51,227 @@
       aria-label="Quiz de revisão do capítulo 5"
     >
 
-      <!-- STATUS DO QUIZ -->
-
       <div
         class="cap5-p53Status"
         aria-live="polite"
-        data-p53-status
       >
 
-        <span class="cap5-p53Status__label">
-          Leitura aplicada do capítulo
+        <span
+          class="cap5-p53Status__value"
+          data-p53-progress
+        >
+          Situação 1 de 3
         </span>
 
-        <span class="cap5-p53Status__value">
-          0 de 2 situações confirmadas
-        </span>
+        <div
+          class="cap5-p53Dots"
+          aria-hidden="true"
+        >
+          <span class="is-active"></span>
+          <span></span>
+          <span></span>
+        </div>
 
       </div>
 
-      <!-- =========================================
-           SITUAÇÃO CLÍNICA 1
-           ========================================= -->
-
       <article
         class="cap5-p53Question"
-        data-q="1"
-        data-question-state="pending"
+        data-p53-question
       >
 
-        <div class="cap5-p53QuestionHeader">
-
-          <span class="cap5-p53Kicker">
-            Situação clínica 1
-          </span>
-
-    
-
-        </div>
-
-        <p class="cap5-p53Case">
-          Uma hemocultura identifica <em>Enterobacter cloacae</em> complex.
-          O antibiograma apresenta resultado sensível ao cefepime. Ao analisar
-          o laudo, um estudante considera suficiente observar apenas a
-          categoria de suscetibilidade apresentada para o antibacteriano.
-        </p>
-
-        <p class="cap5-p53Prompt">
-          Qual informação microbiológica também deve ser considerada na
-          interpretação desse resultado?
-        </p>
-
-        <div
-          class="cap5-p53Options"
-          role="group"
-          aria-label="Alternativas da situação clínica 1"
+        <span
+          class="cap5-p53Kicker"
+          data-p53-kicker
         >
-
-          <button
-            type="button"
-            data-answer="a"
-            data-correct="true"
-            aria-pressed="false"
-          >
-
-            <span class="cap5-p53Letter">A</span>
-
-            <span>
-              A espécie apresenta potencial para produção de AmpC
-              cromossômica induzível.
-            </span>
-
-          </button>
-
-          <button
-            type="button"
-            data-answer="b"
-            aria-pressed="false"
-          >
-
-            <span class="cap5-p53Letter">B</span>
-
-            <span>
-              A identificação da espécie confirma obrigatoriamente a
-              produção de carbapenemase.
-            </span>
-
-          </button>
-
-          <button
-            type="button"
-            data-answer="c"
-            aria-pressed="false"
-          >
-
-            <span class="cap5-p53Letter">C</span>
-
-            <span>
-              A categoria sensível garante que o perfil de suscetibilidade
-              permanecerá inalterado durante toda a exposição ao
-              antibacteriano.
-            </span>
-
-          </button>
-
-          <button
-            type="button"
-            data-answer="d"
-            aria-pressed="false"
-          >
-
-            <span class="cap5-p53Letter">D</span>
-
-            <span>
-              A identificação da espécie não acrescenta informações à
-              interpretação do teste de suscetibilidade.
-            </span>
-
-          </button>
-
-        </div>
-
-        <div class="cap5-p53Actions">
-
-          <button
-            class="cap5-p53Btn cap5-p53Btn--primary"
-            type="button"
-            data-p53-action="confirm"
-            disabled
-          >
-            Confirmar interpretação
-          </button>
-
-          <button
-            class="cap5-p53Btn cap5-p53Btn--ghost"
-            type="button"
-            data-p53-action="reset"
-            hidden
-          >
-            Refazer
-          </button>
-
-        </div>
-
-        <div
-          class="cap5-p53Feedback"
-          role="region"
-          aria-live="polite"
-        ></div>
-
-        <template class="cap5-p53FeedbackMap">
-{
-  "a": {
-    "type": "correct",
-    "title": "Interpretação adequada",
-    "text": "<em>Enterobacter cloacae</em> complex apresenta potencial para produção de AmpC cromossômica induzível. A identificação da espécie, portanto, acrescenta uma informação relevante à leitura das categorias apresentadas no antibiograma e das observações complementares do laboratório <sup>1,8,13</sup>."
-  },
-  "b": {
-    "type": "error",
-    "title": "Generalização incorreta",
-    "text": "A produção de AmpC cromossômica e a produção de carbapenemases representam mecanismos distintos. Carbapenemases, como KPC, NDM e OXA-48-like, são mecanismos adquiridos e não estão obrigatoriamente presentes em isolados de <em>Enterobacter cloacae</em> complex."
-  },
-  "c": {
-    "type": "error",
-    "title": "Conclusão excessiva",
-    "text": "A categoria sensível expressa uma interpretação baseada em condições laboratoriais padronizadas e em pontos de corte clínicos. Ela não garante, isoladamente, que o perfil bacteriano permanecerá inalterado durante toda a exposição ao antibacteriano <sup>3,4</sup>."
-  },
-  "d": {
-    "type": "error",
-    "title": "Interpretação incompleta",
-    "text": "A identificação da espécie é essencial porque diferentes bactérias apresentam resistências intrínsecas, mecanismos adquiridos e observações interpretativas próprias. O antibiograma deve ser lido em conjunto com a identificação bacteriana <sup>1,5,6</sup>."
-  }
-}
-        </template>
-
-      </article>
-
-      <!-- =========================================
-           SITUAÇÃO CLÍNICA 2
-           ========================================= -->
-
-      <article
-        class="cap5-p53Question"
-        data-q="2"
-        data-question-state="pending"
-      >
-
-        <div class="cap5-p53QuestionHeader">
-
-          <span class="cap5-p53Kicker">
-            Situação clínica 2
-          </span>
-
-        
-
-        </div>
-
-        <p class="cap5-p53Case">
-          O laboratório libera o seguinte resultado microbiológico:
-        </p>
-
-        <div
-          class="cap5-p53Report"
-          aria-label="Resultado de hemocultura com identificação e perfil de suscetibilidade"
-        >
-
-          <span class="cap5-p53Report__label">
-            Hemocultura
-          </span>
-
-          <strong>
-            <em>Staphylococcus aureus</em>
-          </strong>
-
-          <span class="cap5-p53Report__mechanism">
-            MRSA
-          </span>
-
-          <div class="cap5-p53Report__results">
-
-            <span>
-              Oxacilina — R
-            </span>
-
-            <span>
-              Vancomicina — S
-            </span>
-
-            <span>
-              Linezolida — S
-            </span>
-
-          </div>
-
-        </div>
-
-        <p class="cap5-p53Prompt">
-          Qual é a interpretação microbiológica mais adequada desse laudo?
-        </p>
-
-        <div
-          class="cap5-p53Options"
-          role="group"
-          aria-label="Alternativas da situação clínica 2"
-        >
-
-          <button
-            type="button"
-            data-answer="a"
-            aria-pressed="false"
-          >
-
-            <span class="cap5-p53Letter">A</span>
-
-            <span>
-              A resistência está restrita à oxacilina e não modifica a
-              interpretação dos demais β-lactâmicos.
-            </span>
-
-          </button>
-
-          <button
-            type="button"
-            data-answer="b"
-            data-correct="true"
-            aria-pressed="false"
-          >
-
-            <span class="cap5-p53Letter">B</span>
-
-            <span>
-              A identificação de MRSA indica um mecanismo de resistência
-              que modifica a interpretação da maioria dos β-lactâmicos.
-            </span>
-
-          </button>
-
-          <button
-            type="button"
-            data-answer="c"
-            aria-pressed="false"
-          >
-
-            <span class="cap5-p53Letter">C</span>
-
-            <span>
-              A suscetibilidade à vancomicina permite desconsiderar a
-              informação de resistência à meticilina.
-            </span>
-
-          </button>
-
-          <button
-            type="button"
-            data-answer="d"
-            aria-pressed="false"
-          >
-
-            <span class="cap5-p53Letter">D</span>
-
-            <span>
-              A sigla MRSA indica que o isolado produz uma β-lactamase
-              de espectro estendido.
-            </span>
-
-          </button>
-
-        </div>
-
-        <div class="cap5-p53Actions">
-
-          <button
-            class="cap5-p53Btn cap5-p53Btn--primary"
-            type="button"
-            data-p53-action="confirm"
-            disabled
-          >
-            Confirmar interpretação
-          </button>
-
-          <button
-            class="cap5-p53Btn cap5-p53Btn--ghost"
-            type="button"
-            data-p53-action="reset"
-            hidden
-          >
-            Refazer
-          </button>
-
-        </div>
-
-        <div
-          class="cap5-p53Feedback"
-          role="region"
-          aria-live="polite"
-        ></div>
-
-        <template class="cap5-p53FeedbackMap">
-{
-  "a": {
-    "type": "error",
-    "title": "Interpretação restrita",
-    "text": "A resistência à meticilina não corresponde apenas à resistência isolada à oxacilina. O fenótipo MRSA modifica a interpretação da maioria dos β-lactâmicos, com exceção de agentes especificamente desenvolvidos para apresentar atividade contra MRSA."
-  },
-  "b": {
-    "type": "correct",
-    "title": "Interpretação adequada",
-    "text": "MRSA corresponde a <em>Staphylococcus aureus</em> resistente à meticilina. Esse fenótipo está relacionado principalmente à produção de uma proteína ligadora de penicilina com baixa afinidade pelos β-lactâmicos, geralmente codificada por <em>mecA</em> ou <em>mecC</em>. A informação deve ser integrada ao perfil de suscetibilidade apresentado no laudo <sup>3,4,6</sup>."
-  },
-  "c": {
-    "type": "error",
-    "title": "Informações complementares",
-    "text": "A suscetibilidade à vancomicina não elimina o significado microbiológico do fenótipo MRSA. O resultado da vancomicina e a resistência à meticilina descrevem aspectos diferentes e complementares do perfil de suscetibilidade."
-  },
-  "d": {
-    "type": "error",
-    "title": "Mecanismo diferente",
-    "text": "ESBL corresponde à produção de β-lactamases de espectro estendido, encontrada principalmente em bacilos Gram-negativos da ordem Enterobacterales. MRSA descreve resistência à meticilina em <em>Staphylococcus aureus</em>."
-  }
-}
-        </template>
-
-      </article>
-
-      <!-- =========================================
-           CONCLUSÃO
-           ========================================= -->
-
-      <section
-        class="cap5-p53Completion"
-        data-p53-completion
-        hidden
-        aria-live="polite"
-      >
-
-        <span class="cap5-p53Completion__kicker">
-          Fechamento do capítulo
+          Situação clínica 1
         </span>
 
-        <h2 class="cap5-p53Completion__title">
-          Síntese da interpretação do antibiograma
-        </h2>
-
-        <p class="cap5-p53Completion__text">
-          A leitura do antibiograma não deve se limitar às categorias S, I e R.
-          A interpretação também exige considerar a identificação da espécie,
-          os mecanismos de resistência associados e as observações
-          complementares informadas pelo laboratório.
+        <p
+          class="cap5-p53Case"
+          data-p53-case
+        >
+          Um paciente internado apresenta tosse e secreção
+          respiratória. A bacterioscopia de uma amostra de escarro
+          mostra numerosas células epiteliais, poucos leucócitos e
+          microbiota mista. Posteriormente, a cultura identifica uma
+          bactéria potencialmente patogênica.
         </p>
 
-      </section>
+        <p
+          class="cap5-p53Prompt"
+          data-p53-prompt
+        >
+          Qual interpretação integra melhor os resultados antes de
+          atribuir relevância clínica ao isolamento?
+        </p>
+
+        <div
+          class="cap5-p53Options"
+          role="group"
+          aria-label="Alternativas da situação clínica"
+          data-p53-options
+        ></div>
+
+        <div class="cap5-p53Actions">
+
+          <button
+            class="cap5-p53Btn cap5-p53Btn--primary"
+            type="button"
+            data-p53-confirm
+            disabled
+          >
+            Confirmar análise
+          </button>
+
+          <button
+            class="cap5-p53Btn cap5-p53Btn--ghost"
+            type="button"
+            data-p53-reset
+            hidden
+          >
+            Rever decisão
+          </button>
+
+        </div>
+
+        <div
+          class="cap5-p53Feedback"
+          role="region"
+          aria-live="polite"
+          data-p53-feedback
+        ></div>
+
+      </article>
+
+      <div class="cap5-p53Controls">
+
+        <button
+          type="button"
+          data-p53-prev
+          disabled
+        >
+          ← Situação anterior
+        </button>
+
+        <button
+          type="button"
+          data-p53-next
+          disabled
+        >
+          Próxima situação →
+        </button>
+
+      </div>
 
     </section>
-
-    <!-- =========================================
-         REFERÊNCIAS
-         ========================================= -->
 
     <details class="cap5-refBox">
 
       <summary>
-        Referências
+
+        <div class="cap5-refHeader">
+
+          <div class="cap5-refText">
+            <strong>Referências</strong>
+          </div>
+
+          <div
+            class="cap5-refAction"
+            aria-hidden="true"
+          ></div>
+
+        </div>
+
       </summary>
 
       <div class="cap5-refContent">
 
         <p>
-          1. Carroll KC, Pfaller MA, Landry ML, McAdam AJ, Richter SS,
-          Patel R, editors. Manual of Clinical Microbiology. 13th ed.
+          1. Carroll KC, Pfaller MA, Landry ML, et al.
+          Manual of Clinical Microbiology. 13th ed.
           Washington, DC: ASM Press; 2023.
         </p>
 
         <p>
-          2. Oplustil CP, Zoccoli CM, Tobouti NR, Schaeffer MCS.
-          Procedimentos Básicos em Microbiologia Clínica. 4th ed.
-          São Paulo: Sarvier; 2020.
+          2. Oplustil CP, Zoccoli CM, Tobouti NR, Sinto SI.
+          Procedimentos básicos em microbiologia clínica.
+          4. ed. São Paulo: Sarvier; 2020.
         </p>
 
         <p>
-          3. BrCAST — Comitê Brasileiro de Testes de Sensibilidade aos
-          Antimicrobianos. Tabela de pontos de corte clínicos BrCAST para
-          interpretação de CIM e diâmetros de halo. São Paulo: BrCAST; 2025.
+          3. Comitê Brasileiro de Testes de Sensibilidade aos
+          Antimicrobianos — BrCAST. Tabelas de pontos de corte
+          para interpretação de CIMs e diâmetros de halos.
+          Versão 15.0; 2025.
         </p>
 
         <p>
-          4. European Committee on Antimicrobial Susceptibility Testing.
-          Clinical breakpoints and guidance documents. Växjö: EUCAST; 2024.
+          4. European Committee on Antimicrobial Susceptibility
+          Testing — EUCAST. Breakpoint tables for interpretation
+          of MICs and zone diameters. Version 14.0; 2024.
         </p>
 
         <p>
           5. Murray PR, Rosenthal KS, Pfaller MA.
-          Medical Microbiology. 10th ed. Philadelphia: Elsevier; 2025.
+          Medical Microbiology. 10th ed.
+          Philadelphia: Elsevier; 2025.
         </p>
 
         <p>
-          6. Blaser MJ, Cohen JI, Holland SM, editors.
-          Mandell, Douglas, and Bennett’s Principles and Practice of
-          Infectious Diseases. 10th ed. Philadelphia: Elsevier; 2025.
+          6. Bennett JE, Dolin R, Blaser MJ.
+          Mandell, Douglas, and Bennett's Principles and Practice
+          of Infectious Diseases. 10th ed.
+          Philadelphia: Elsevier; 2025.
         </p>
 
         <p>
-          7. Turnidge J, Paterson DL. Setting and revising antibacterial
-          susceptibility breakpoints. Clin Microbiol Rev.
-          2007;20(3):391–408. doi:10.1128/CMR.00047-06
+          7. Turnidge J, Paterson DL. Setting and revising
+          antibacterial susceptibility breakpoints.
+          Clin Microbiol Rev. 2007;20(3):391–408.
         </p>
 
         <p>
-          8. Tamma PD, Heil EL, Justo JA, Mathers AJ, Satlin MJ,
-          Bonomo RA. Infectious Diseases Society of America 2024 guidance
-          on the treatment of antimicrobial-resistant Gram-negative
-          infections. Clin Infect Dis. 2024.
-          doi:10.1093/cid/ciae403
+          8. Tamma PD, Aitken SL, Bonomo RA, et al.
+          Infectious Diseases Society of America guidance on
+          the treatment of antimicrobial-resistant
+          Gram-negative infections. Clin Infect Dis. 2024.
         </p>
 
         <p>
-          9. Tamma PD, Aitken SL, Bonomo RA, Mathers AJ, van Duin D,
-          Clancy CJ. Infectious Diseases Society of America guidance on
-          the treatment of extended-spectrum β-lactamase-producing
-          Enterobacterales, carbapenem-resistant Enterobacterales and
-          <em>Pseudomonas aeruginosa</em> with difficult-to-treat
-          resistance. Clin Infect Dis. 2021;72(7):e169–e183.
-          doi:10.1093/cid/ciaa1478
+          9. Tamma PD, Aitken SL, Bonomo RA, et al.
+          Infectious Diseases Society of America guidance on
+          the treatment of extended-spectrum β-lactamase
+          producing Enterobacterales, carbapenem-resistant
+          Enterobacterales, and Pseudomonas aeruginosa with
+          difficult-to-treat resistance.
+          Clin Infect Dis. 2021;72(7):e169–e183.
         </p>
 
         <p>
-          10. Bush K, Bradford PA. Epidemiology of β-lactamase-producing
-          pathogens. Clin Microbiol Rev. 2020;33(2).
-          doi:10.1128/CMR.00047-19
+          10. Bush K, Bradford PA. Epidemiology of
+          β-lactamase-producing pathogens.
+          Clin Microbiol Rev. 2020;33(2):e00047-19.
         </p>
 
         <p>
-          11. Andersson DI, Hughes D. Microbiological effects of sublethal
-          levels of antibiotics. Nat Rev Microbiol.
-          2014;12(7):465–478. doi:10.1038/nrmicro3270
+          11. Andersson DI, Hughes D. Microbiological effects
+          of sublethal levels of antibiotics.
+          Nat Rev Microbiol. 2014;12:465–478.
         </p>
 
         <p>
           12. Boattini M, Bianco G, Llorente LI, et al.
-          Enterobacterales carrying chromosomal AmpC β-lactamases in Europe:
-          epidemiology and antimicrobial resistance burden from a cohort
-          of 27 hospitals, 2020–2022. Int J Antimicrob Agents.
+          Enterobacterales carrying chromosomal AmpC
+          β-lactamases in Europe: epidemiology and antimicrobial
+          resistance burden from a cohort of 27 hospitals,
+          2020–2022. Int J Antimicrob Agents.
           2024;63(5):107115.
-          doi:10.1016/j.ijantimicag.2024.107115
+          doi:10.1016/j.ijantimicag.2024.107115.
         </p>
 
       </div>
 
     </details>
-
-    <!-- PAGINAÇÃO -->
 
     <nav class="pager" aria-label="Paginação">
 

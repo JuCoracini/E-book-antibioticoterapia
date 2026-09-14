@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Capítulo 5 — Página 44</title>
 
@@ -28,287 +28,395 @@
         Capítulo 5 — Laboratório de Microbiologia e Interpretação do Antibiograma
       </div>
 
-    
+      <h1 class="page-title">
+        Identificação de bactérias na prática
+      </h1>
     </header>
 
     <section class="prose cap5-p44-reading">
 
       <p>
-        Após identificar o microrganismo, o laboratório não fornece apenas um nome. A espécie bacteriana passa a oferecer informações que ajudam na interpretação do perfil microbiológico antes mesmo da análise do antibiograma.
-      </p>
+  A identificação bacteriana torna o resultado microbiológico mais
+  específico, mas não informa, isoladamente, a suscetibilidade do
+  microrganismo. Enquanto o antibiograma está em andamento, o médico deve
+  reavaliar a relevância do isolamento, a evolução do paciente, o risco de
+  resistência e a probabilidade de o esquema empírico iniciado oferecer
+  cobertura adequada <sup>1,5</sup>.
+</p>
 
       <p>
-        Cada bactéria apresenta características próprias relacionadas à sua ecologia, virulência, resistência intrínseca e capacidade de adquirir mecanismos de resistência. Por isso, reconhecer a espécie permite antecipar informações importantes sobre o comportamento esperado daquele microrganismo <sup>1,5</sup>.
+        Em secreções respiratórias, essa análise é especialmente importante:
+        a identificação de uma bactéria pode ser compatível com infecção, mas
+        também pode representar colonização. O resultado deve ser relacionado
+        aos achados clínicos, radiológicos e laboratoriais
+        <sup>1,5</sup>.
       </p>
 
-      <section
-        class="cap5-p44-interaction cap5-p44-reveal"
-        data-cap5-p44
-        aria-label="Fluxograma para interpretação da espécie bacteriana"
+      <article
+        class="cap5-p44-case"
+        aria-labelledby="cap5P44CaseTitle"
       >
+        <span class="cap5-p44-caseEyebrow">
+          Situação clínica
+        </span>
 
-        <p class="cap5-p44-instruction">
-          Selecione uma espécie e percorra as etapas do raciocínio antes de interpretar as categorias S, I e R.
+        <h2 id="cap5P44CaseTitle">
+          Identificação disponível; antibiograma pendente
+        </h2>
+
+        <p>
+          Paciente internado em unidade de terapia intensiva, em ventilação
+          mecânica, apresenta febre, aumento da secreção traqueal, piora da
+          oxigenação e novo infiltrado pulmonar. Foi coletada secreção traqueal
+          e iniciado tratamento antibacteriano empírico.
         </p>
 
-        <div
-          class="cap5-p44-species"
-          role="tablist"
-          aria-label="Espécies bacterianas"
-        >
+        <div class="cap5-p44-labResult">
+          <span>
+            Resultado liberado pelo laboratório
+          </span>
 
-          <button
-            class="cap5-p44-speciesButton is-active"
-            type="button"
-            role="tab"
-            id="cap5P44SpeciesEcoli"
-            aria-selected="true"
-            tabindex="0"
-            data-p44-species="ecoli"
-          >
-            <em>Escherichia coli</em>
-          </button>
-
-          <button
-            class="cap5-p44-speciesButton"
-            type="button"
-            role="tab"
-            id="cap5P44SpeciesKlebsiella"
-            aria-selected="false"
-            tabindex="-1"
-            data-p44-species="klebsiella"
-          >
+          <strong>
+            Secreção traqueal:
             <em>Klebsiella pneumoniae</em>
-          </button>
+          </strong>
 
-          <button
-            class="cap5-p44-speciesButton"
-            type="button"
-            role="tab"
-            id="cap5P44SpeciesPseudomonas"
-            aria-selected="false"
-            tabindex="-1"
-            data-p44-species="pseudomonas"
-          >
-            <em>Pseudomonas aeruginosa</em>
-          </button>
+          <small>
+            Teste de suscetibilidade em andamento.
+          </small>
+        </div>
+      </article>
 
-          <button
-            class="cap5-p44-speciesButton"
-            type="button"
-            role="tab"
-            id="cap5P44SpeciesEnterococcus"
-            aria-selected="false"
-            tabindex="-1"
-            data-p44-species="enterococcus"
-          >
-            <em>Enterococcus faecalis</em>
-          </button>
+      <section
+        class="cap5-p44-simulator"
+        data-cap5-p44
+        aria-labelledby="cap5P44SimulatorTitle"
+      >
 
-          <button
-            class="cap5-p44-speciesButton"
-            type="button"
-            role="tab"
-            id="cap5P44SpeciesSaureus"
-            aria-selected="false"
-            tabindex="-1"
-            data-p44-species="saureus"
+        <header class="cap5-p44-simulatorHead">
+          <span class="cap5-p44-eyebrow">
+            Simulação de reavaliação
+          </span>
+
+          <h2 id="cap5P44SimulatorTitle">
+            O que fazer enquanto o antibiograma não está disponível?
+          </h2>
+
+          <p>
+            Construa um cenário selecionando uma opção em cada dimensão.
+            Depois, observe como as informações modificam a decisão
+            provisória.
+          </p>
+        </header>
+
+        <div
+          class="cap5-p44-progress"
+          aria-live="polite"
+        >
+          <div
+            class="cap5-p44-progressTrack"
+            aria-hidden="true"
           >
-            <em>Staphylococcus aureus</em>
-          </button>
+            <span data-p44-progress-bar></span>
+          </div>
+
+          <span data-p44-progress-text>
+            0 de 4 dimensões analisadas
+          </span>
+        </div>
+
+        <div class="cap5-p44-dimensions">
+
+          <section
+            class="cap5-p44-dimension"
+            data-p44-group="significance"
+          >
+            <div class="cap5-p44-dimensionTitle">
+              <span>1</span>
+
+              <div>
+                <h3>Relevância do isolamento</h3>
+
+                <p>
+                  O resultado sustenta infecção neste contexto?
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="cap5-p44-options"
+              role="group"
+              aria-label="Relevância do isolamento"
+            >
+              <button
+                type="button"
+                data-p44-option="probable"
+              >
+                Infecção provável
+
+                <small>
+                  Há dados clínicos e radiológicos compatíveis.
+                </small>
+              </button>
+
+              <button
+                type="button"
+                data-p44-option="uncertain"
+              >
+                Significado incerto
+
+                <small>
+                  Colonização ou outra explicação permanece possível.
+                </small>
+              </button>
+            </div>
+          </section>
+
+          <section
+            class="cap5-p44-dimension"
+            data-p44-group="course"
+          >
+            <div class="cap5-p44-dimensionTitle">
+              <span>2</span>
+
+              <div>
+                <h3>Evolução clínica</h3>
+
+                <p>
+                  Como o paciente evolui desde o início do tratamento?
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="cap5-p44-options"
+              role="group"
+              aria-label="Evolução clínica"
+            >
+              <button
+                type="button"
+                data-p44-option="stable"
+              >
+                Estável ou melhorando
+
+                <small>
+                  Não há sinais atuais de deterioração.
+                </small>
+              </button>
+
+              <button
+                type="button"
+                data-p44-option="worsening"
+              >
+                Apresenta piora
+
+                <small>
+                  Há deterioração clínica ou respiratória.
+                </small>
+              </button>
+            </div>
+          </section>
+
+          <section
+            class="cap5-p44-dimension"
+            data-p44-group="risk"
+          >
+            <div class="cap5-p44-dimensionTitle">
+              <span>3</span>
+
+              <div>
+                <h3>Risco de resistência</h3>
+
+                <p>
+                  O histórico aumenta a possibilidade de resistência adquirida?
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="cap5-p44-options"
+              role="group"
+              aria-label="Risco de resistência"
+            >
+              <button
+                type="button"
+                data-p44-option="low"
+              >
+                Sem risco relevante identificado
+
+                <small>
+                  Não há dados prévios que elevem claramente o risco.
+                </small>
+              </button>
+
+              <button
+                type="button"
+                data-p44-option="high"
+              >
+                Risco relevante
+
+                <small>
+                  Há exposição recente, internação prolongada ou isolamentos
+                  prévios.
+                </small>
+              </button>
+            </div>
+          </section>
+
+          <section
+            class="cap5-p44-dimension"
+            data-p44-group="coverage"
+          >
+            <div class="cap5-p44-dimensionTitle">
+              <span>4</span>
+
+              <div>
+                <h3>Cobertura empírica</h3>
+
+                <p>
+                  O esquema iniciado possui atividade plausível neste cenário?
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="cap5-p44-options"
+              role="group"
+              aria-label="Plausibilidade da cobertura empírica"
+            >
+              <button
+                type="button"
+                data-p44-option="plausible"
+              >
+                Cobertura plausível
+
+                <small>
+                  O espectro e os dados locais sustentam essa possibilidade.
+                </small>
+              </button>
+
+              <button
+                type="button"
+                data-p44-option="doubtful"
+              >
+                Cobertura incerta
+
+                <small>
+                  O espectro ou o risco individual gera dúvida relevante.
+                </small>
+              </button>
+            </div>
+          </section>
 
         </div>
 
-        <div
-          class="cap5-p44-flow"
-          aria-label="Etapas do raciocínio microbiológico"
-        >
-
+        <div class="cap5-p44-actions">
           <button
-            class="cap5-p44-flowStep is-active"
+            class="cap5-p44-reset"
             type="button"
-            data-p44-step="species"
+            data-p44-reset
           >
-            <span class="cap5-p44-flowNumber">1</span>
-
-            <span class="cap5-p44-flowText">
-              <strong>Espécie identificada</strong>
-              <small>Qual bactéria foi isolada?</small>
-            </span>
+            Recomeçar
           </button>
 
-          <span class="cap5-p44-flowArrow" aria-hidden="true">↓</span>
-
           <button
-            class="cap5-p44-flowStep"
+            class="cap5-p44-analyze"
             type="button"
-            data-p44-step="known"
+            data-p44-analyze
+            disabled
           >
-            <span class="cap5-p44-flowNumber">2</span>
-
-            <span class="cap5-p44-flowText">
-              <strong>O que já sei?</strong>
-              <small>Ecologia e relevância clínica</small>
-            </span>
+            Analisar cenário
           </button>
-
-          <span class="cap5-p44-flowArrow" aria-hidden="true">↓</span>
-
-          <button
-            class="cap5-p44-flowStep"
-            type="button"
-            data-p44-step="intrinsic"
-          >
-            <span class="cap5-p44-flowNumber">3</span>
-
-            <span class="cap5-p44-flowText">
-              <strong>Resistência intrínseca</strong>
-              <small>O que já é esperado da espécie?</small>
-            </span>
-          </button>
-
-          <span class="cap5-p44-flowArrow" aria-hidden="true">↓</span>
-
-          <button
-            class="cap5-p44-flowStep"
-            type="button"
-            data-p44-step="acquired"
-          >
-            <span class="cap5-p44-flowNumber">4</span>
-
-            <span class="cap5-p44-flowText">
-              <strong>Mecanismos adquiridos</strong>
-              <small>O que precisa ser investigado?</small>
-            </span>
-          </button>
-
-          <span class="cap5-p44-flowArrow" aria-hidden="true">↓</span>
-
-          <button
-            class="cap5-p44-flowStep"
-            type="button"
-            data-p44-step="panel"
-          >
-            <span class="cap5-p44-flowNumber">5</span>
-
-            <span class="cap5-p44-flowText">
-              <strong>Leitura do antibiograma</strong>
-              <small>Como a espécie modifica o painel?</small>
-            </span>
-          </button>
-
         </div>
 
         <article
-          class="cap5-p44-panel"
-          id="cap5P44Panel"
+          class="cap5-p44-decision"
+          data-p44-decision
+          hidden
           aria-live="polite"
         >
-
           <span
-            id="cap5P44PanelKicker"
-            class="cap5-p44-panelKicker"
-          >
-            Etapa 1
-          </span>
+            class="cap5-p44-decisionLabel"
+            data-p44-decision-label
+          ></span>
 
-          <h2
-            id="cap5P44PanelTitle"
-            class="cap5-p44-panelTitle"
-          >
-            Espécie identificada
-          </h2>
+          <h2 data-p44-decision-title></h2>
 
-          <div
-            id="cap5P44PanelBody"
-            class="cap5-p44-panelBody"
-          >
-            <p>
-              O laboratório identificou <em>Escherichia coli</em>. A partir desse momento, o resultado deixa de representar apenas um grupo amplo de bacilos Gram-negativos e passa a fornecer um contexto microbiológico específico.
-            </p>
-          </div>
+          <p data-p44-decision-text></p>
 
-          <div class="cap5-p44-panelFooter">
+          <ul data-p44-decision-list></ul>
 
-            <span class="cap5-p44-selectedLabel">
-              Espécie em análise
-            </span>
-
-            <strong id="cap5P44SelectedSpecies">
-              <em>Escherichia coli</em>
-            </strong>
-
-          </div>
-
+          <small>
+            Esta é uma orientação de raciocínio. A decisão assistencial deve
+            seguir a avaliação individual e os protocolos institucionais.
+          </small>
         </article>
 
       </section>
 
-      <aside class="cap5-p44-question cap5-p44-reveal">
-
-        <span>
-          Antes de observar S, I ou R, pergunte:
-        </span>
-
-        <strong>
-          O que eu já sei sobre essa bactéria?
-        </strong>
-
-      </aside>
-
       <section
-        class="cap5-p44-summary cap5-p44-reveal"
-        aria-labelledby="cap5P44SummaryTitle"
+        class="cap5-p44-contact"
+        aria-labelledby="cap5P44ContactTitle"
       >
+        <header>
+          <span>
+            Comunicação com o laboratório
+          </span>
 
-        <h2
-          id="cap5P44SummaryTitle"
-          class="cap5-p44-summaryTitle"
-        >
-          A espécie modifica a leitura do painel
-        </h2>
+          <h2 id="cap5P44ContactTitle">
+            Quando entrar em contato?
+          </h2>
+        </header>
 
-        <div class="cap5-p44-summaryGrid">
+        <div class="cap5-p44-contactGrid">
 
           <article>
-            <span>Antimicrobianos ausentes</span>
+            <strong>
+              Existe uma pergunta objetiva
+            </strong>
+
             <p>
-              Alguns fármacos podem não aparecer porque a espécie apresenta resistência intrínseca ou porque seu teste não possui utilidade clínica.
+              Faz sentido perguntar sobre previsão de liberação, resultado
+              preliminar disponível, limitações da amostra ou discordância
+              entre os achados microbiológicos e o quadro clínico.
             </p>
           </article>
 
           <article>
-            <span>Resultados relacionados</span>
-            <p>
-              Determinados marcadores de resistência modificam a interpretação de vários antimicrobianos da mesma classe.
-            </p>
-          </article>
+            <strong>
+              O teste ainda está em andamento
+            </strong>
 
-          <article>
-            <span>Perfil inesperado</span>
             <p>
-              Resultados incompatíveis com o comportamento biológico conhecido da espécie exigem análise crítica ou revisão laboratorial.
-            </p>
-          </article>
-
-          <article>
-            <span>Tratamento dirigido</span>
-            <p>
-              A decisão final depende da espécie, do perfil de suscetibilidade, da exposição ao fármaco e do sítio da infecção.
+              Se não há resultado preliminar, o laboratório não pode informar
+              a suscetibilidade antes da conclusão das etapas necessárias.
+              Nesse período, a cobertura deve ser reavaliada clinicamente.
             </p>
           </article>
 
         </div>
-
       </section>
 
-      <aside class="cap5-p44-principle cap5-p44-reveal">
-        O antibiograma não deve ser lido como uma lista independente de resultados. Cada categoria deve ser analisada à luz das características biológicas e dos padrões de resistência da espécie identificada.
+      <aside class="cap5-p44-principle">
+        <strong>Ponto-chave:</strong>
+
+        a identificação orienta a reavaliação, mas não determina se o isolado
+        é suscetível. Manter, ampliar ou reduzir a cobertura depende do
+        significado do isolamento, da evolução clínica, do risco de
+        resistência e da cobertura empírica provável
+        <sup>1,5</sup>.
       </aside>
+
+      <p class="cap5-p44-transition">
+        A pergunta que permanece é: como esse isolado se comporta diante dos
+        antibacterianos? Para respondê-la, o laboratório realiza o teste de
+        suscetibilidade.
+      </p>
 
     </section>
 
     <nav class="pager" aria-label="Paginação">
+
       <a
         class="btn"
         href="p43.html"
@@ -328,11 +436,13 @@
       >
         Próxima →
       </a>
+
     </nav>
 
   </main>
 
   <script src="../../js/app.js"></script>
   <script src="../../js/capitulo-05.js"></script>
+
 </body>
 </html>
