@@ -4,6 +4,7 @@
    ========================= */
 
 (function initTitlePageNavigation() {
+  "use strict";
 
   const previousLink = document.querySelector(
     "[data-title-prev]"
@@ -14,7 +15,6 @@
   );
 
   document.addEventListener("keydown", function (event) {
-
     const activeElement = document.activeElement;
 
     const isTyping =
@@ -22,15 +22,20 @@
       (
         activeElement.tagName === "INPUT" ||
         activeElement.tagName === "TEXTAREA" ||
-        activeElement.tagName === "SELECT"
+        activeElement.tagName === "SELECT" ||
+        activeElement.isContentEditable
       );
 
-    if (isTyping) return;
+    if (isTyping) {
+      return;
+    }
 
     if (
       event.key === "ArrowLeft" &&
       previousLink
     ) {
+      event.preventDefault();
+
       window.location.href =
         previousLink.getAttribute("href");
     }
@@ -39,10 +44,10 @@
       event.key === "ArrowRight" &&
       nextLink
     ) {
+      event.preventDefault();
+
       window.location.href =
         nextLink.getAttribute("href");
     }
-
   });
-
 })();

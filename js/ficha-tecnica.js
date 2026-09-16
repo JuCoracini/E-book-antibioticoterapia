@@ -1,9 +1,10 @@
 /* =========================
-   FICHA TÉCNICA
+   FICHA TÉCNICA E CATALOGRÁFICA
    Navegação por teclado
    ========================= */
 
 (function initCreditsPageNavigation() {
+  "use strict";
 
   const previousLink = document.querySelector(
     "[data-credits-prev]"
@@ -14,7 +15,6 @@
   );
 
   document.addEventListener("keydown", function (event) {
-
     const activeElement = document.activeElement;
 
     const isTyping =
@@ -22,10 +22,13 @@
       (
         activeElement.tagName === "INPUT" ||
         activeElement.tagName === "TEXTAREA" ||
-        activeElement.tagName === "SELECT"
+        activeElement.tagName === "SELECT" ||
+        activeElement.isContentEditable
       );
 
-    if (isTyping) return;
+    if (isTyping) {
+      return;
+    }
 
     if (
       event.key === "ArrowLeft" &&
@@ -46,7 +49,5 @@
       window.location.href =
         nextLink.getAttribute("href");
     }
-
   });
-
 })();

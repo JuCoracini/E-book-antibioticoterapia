@@ -354,3 +354,51 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
+/* =========================
+   CONTADOR DE ACESSOS
+   GoatCounter
+   ========================= */
+
+(function initAccessAnalytics() {
+  "use strict";
+
+  const isPublishedWebsite =
+    window.location.protocol === "https:" &&
+    window.location.hostname === "jucoracini.github.io";
+
+  /*
+   * Evita registrar como acesso os testes realizados
+   * nos arquivos locais do computador.
+   */
+  if (!isPublishedWebsite) {
+    return;
+  }
+
+  /*
+   * Impede que o código seja carregado mais de uma vez.
+   */
+  if (
+    document.querySelector(
+      'script[data-goatcounter]'
+    )
+  ) {
+    return;
+  }
+
+  const goatCounterScript =
+    document.createElement("script");
+
+  goatCounterScript.setAttribute(
+    "data-goatcounter",
+    "https://jucoracini.goatcounter.com/count"
+  );
+
+  goatCounterScript.src =
+    "https://gc.zgo.at/count.js";
+
+  goatCounterScript.async = true;
+
+  document.head.appendChild(
+    goatCounterScript
+  );
+})();
